@@ -1,0 +1,13 @@
+<div class="card">
+  <h4 class="card-header {{ page.card_theme }}">
+    {% if include.icon %}
+      <i class="fa fa-fw {{ include.icon }} fa-lg" aria-hidden="true"></i>
+    {% endif %}
+    {{ include.header }}
+  </h4>
+  <div class="card-body">
+    <div class="card-text">
+      {% include {{ include.src }} %}
+    </div>
+  </div>
+</div>
