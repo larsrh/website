@@ -1,0 +1,9 @@
+@media (min-width: 576px) {
+  .card-columns {
+    column-count: 2;
+  }
+}
+
+.fa {
+  margin-right: 1em !important;
+}
