@@ -1,9 +1,19 @@
 @media (min-width: 576px) {
   .card-columns {
+    column-count: 1;
+  }
+}
+
+@media (min-width: 768px) {
+  .card-columns {
     column-count: 2;
   }
 }
 
-.fa {
+.card-body .fa {
   margin-right: 1em !important;
+}
+
+.card-header .fa {
+  margin-right: .25em !important;
 }
