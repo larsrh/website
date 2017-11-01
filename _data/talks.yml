@@ -1,0 +1,49 @@
+- title: Seven at one blow
+  conference: "Northeast Scala Symposium, 2013"
+  link: "http://www.nescala.org/2013#t-62625592"
+  recording: "https://www.youtube.com/watch?v=KzoqOVD7mvE"
+  slides: "https://speakerdeck.com/larsrh/seven-at-one-blow-new-and-polished-features-in-scalaz-7"
+- title: Macros vs Types
+  conference: "Northeast Scala Symposium, 2014"
+  link: "http://www.nescala.org/2014#talk-15"
+  recording: "https://www.youtube.com/watch?v=rwAIAugTSHY"
+  slides: "https://speakerdeck.com/larsrh/macros-vs-types"
+- title: OptimusPrimeT
+  conference: "Scala.IO, 2014"
+  link: "https://scala.io/2014/talks.html#/#BGS-827"
+  recording: "https://www.youtube.com/watch?v=lN5viUFz21U"
+  slides: "https://speakerdeck.com/larsrh/optimusprimet"
+- title: The Next 1100 Haskell Programmers
+  conference: "Haskell Symposium, 2014"
+  link: "research.html#haskell"
+  recording: "https://youtu.be/VM6i6710A-Y?t=44s"
+  slides: "https://speakerdeck.com/larsrh/the-next-1100-haskell-programmers"
+- title: State of the Typelevel
+  conference: "Scala eXchange, 2014 (Keynote)"
+  link: "https://skillsmatter.com/conferences/1948-scala-exchange-2014#program"
+  recording: "https://skillsmatter.com/skillscasts/5827-state-of-the-typelevel"
+  slides: "https://speakerdeck.com/larsrh/state-of-the-typelevel"
+- title: Functional Mocking
+  conference: "Lambda Days, 2015"
+  link: "http://www.lambdadays.org/lambdadays2015/lars-hupel"
+  recording: "https://vimeo.com/125038982"
+  slides: "https://speakerdeck.com/larsrh/functional-mocking"
+- title: OptimusPrimeT (cats edition)
+  conference: "flatMap(Oslo), 2015"
+  link: "http://2015.flatmap.no/hupel.html#session"
+  recording: "https://vimeo.com/128466888"
+  slides: "https://speakerdeck.com/larsrh/optimusprimet-cats-edition"
+- title: When Types are Not Enough
+  conference: "Scala World, 2015"
+  recording: "https://www.youtube.com/watch?v=NGZRBgp5G5M"
+  slides: "https://speakerdeck.com/larsrh/when-types-are-not-enough"
+- title: What Haskell can learn from Scala
+  conference: "Haskell eXchange, 2015"
+  link: "https://skillsmatter.com/conferences/7069-haskell-exchange-2015#program"
+  recording: "https://skillsmatter.com/skillscasts/6592-what-haskell-can-learn-from-scala"
+  slides: "https://speakerdeck.com/larsrh/what-haskell-can-learn-from-scala"
+- title: "How to test proper{t,l}y"
+  conference: "flatMap(Oslo), 2016"
+  link: "http://2016.flatmap.no/hupel.html#session"
+  recording: "https://vimeo.com/165852636"
+  slides: "https://speakerdeck.com/larsrh/how-to-test-proper-l-t-y"

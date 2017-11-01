@@ -14,10 +14,13 @@ card_theme: bg-danger text-white
 <div class="container">
 
   <div class="card-columns">
+    {% include card.html src="synopsis.html" header="Synopsis" icon="fa-user" %}
     {% include card.html src="education.html" header="Education" icon="fa-graduation-cap" %}
     {% include card.html src="work.html" header="Work" icon="fa-briefcase" %}
     {% include card.html src="select_pubs.html" header="Select Publications" icon="fa-file-text-o" %}
+    {% include card.html src="service.html" header="Service" icon="fa-users" %}
     {% include card.html src="skills.html" header="Skills" icon="fa-cogs" %}
+    {% include card.html src="talks.html" header="Conference Talks" icon="fa-microphone" %}
   </div>
 
 </div>
