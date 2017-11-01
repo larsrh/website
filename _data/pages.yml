@@ -1,0 +1,13 @@
+- id: index
+  name: Home
+  title: false
+  nav_theme: navbar-dark bg-primary
+- id: cv
+  name: Resume
+  nav_theme: navbar-dark bg-danger
+- id: research
+  name: Research
+  nav_theme: navbar-dark bg-success
+- id: about
+  name: About
+  nav_theme: navbar-dark bg-dark

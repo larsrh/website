@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Material Design for Bootstrap fonts and icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
-
     <link rel="stylesheet" href="css/font-awesome.min.css">
 
-    <!-- Material Design for Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap-material-design.min.css">
     <link rel="stylesheet" href="css/jumbotron.css">
     <link rel="stylesheet" href="css/main.css">
 
-    <title>Lars Hupel</title>
+    {% for page_desc in site.data.pages %}
+      {% if page_desc.id == page.nav %}
+        {% assign p = page_desc %}
+      {% endif %}
+    {% endfor %}
+
+    <title>Lars Hupel {% if p.title != false %}&middot; {{ p.name }}{% endif %}</title>
   </head>
   <body>
 
-    <nav class="navbar navbar-expand-md fixed-top {{ page.nav_theme }}">
+    <nav class="navbar navbar-expand-md fixed-top {{ p.nav_theme }}">
       <a class="navbar-brand" href="index.html">Lars Hupel</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -27,18 +29,11 @@
 
       <div class="collapse navbar-collapse" id="navbarDefault">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item {% if page.nav == "index" %} active {% endif %}">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <li class="nav-item {% if page.nav == "cv" %} active {% endif %}">
-            <a class="nav-link" href="cv.html">Resume</a>
-          </li>
-          <li class="nav-item {% if page.nav == "research" %} active {% endif %}">
-            <a class="nav-link" href="research.html">Research</a>
-          </li>
-          <li class="nav-item {% if page.nav == "about" %} active {% endif %}">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
+          {% for page_desc in site.data.pages %}
+            <li class="nav-item {% if page_desc.id == page.nav %} active {% endif %}">
+              <a class="nav-link" href="{{ page_desc.id }}.html">{{ page_desc.name }}</a>
+            </li>
+          {% endfor %}
         </ul>
       </div>
     </nav>
