@@ -3,6 +3,10 @@
   link: "http://www.nescala.org/2013#t-62625592"
   recording: "https://www.youtube.com/watch?v=KzoqOVD7mvE"
   slides: "https://speakerdeck.com/larsrh/seven-at-one-blow-new-and-polished-features-in-scalaz-7"
+- title: Generating Type Class Instances Automatically
+  conference: "Fourth Annual Scala Workshop"
+  link: "http://lampwww.epfl.ch/~hmiller/scala2013/"
+  slides: "https://speakerdeck.com/larsrh/generating-type-class-instances-automatically"
 - title: Macros vs Types
   conference: "Northeast Scala Symposium, 2014"
   link: "http://www.nescala.org/2014#talk-15"

@@ -4,7 +4,11 @@
     <p>{{ talk.conference }}</p>
   </div>
   <div class="pull-right">
-    <a href="{{ talk.recording }}" class="btn btn-primary">Recording</a>
+    {% if talk.recording %}
+      <a href="{{ talk.recording }}" class="btn btn-primary">Recording</a>
+    {% else %}
+      <button class="btn btn-primary" type="button" style="pointer-events: none;" aria-disabled="true" disabled>Recording</button>
+    {% endif %}
     <a href="{{ talk.slides }}" class="btn btn-primary">Slides</a>
     {% if talk.link %}
       <a href="{{ talk.link }}" class="btn btn-primary">Link</a>

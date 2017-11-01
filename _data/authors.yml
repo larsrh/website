@@ -1,0 +1,35 @@
+- id: lars
+  name: "Lars Hupel"
+  link: "index.html"
+- id: julius
+  name: "Julius Michaelis"
+  link: "https://liftm.de/"
+- id: max
+  name: "Maximilian Haslbeck"
+  link: "https://home.in.tum.de/~haslbecm/"
+- id: peter
+  name: "Peter Lammich"
+  link: "http://www21.in.tum.de/~lammich/"
+- id: cornelius
+  name: "Cornelius Diekmann"
+  link: "https://www.net.in.tum.de/members/diekmann/"
+- id: tobias
+  name: "Tobias Nipkow"
+  link: "https://www21.in.tum.de/~nipkow/"
+- id: jasmin
+  name: "Jasmin Christian Blanchette"
+  link: "http://www.cs.vu.nl/~jbe248/"
+- id: lars-n
+  name: "Lars Noschinski"
+  link: "https://www21.in.tum.de/~noschinl/"
+- id: dmitriy
+  name: "Dmitriy Traytel"
+  link: "http://people.inf.ethz.ch/trayteld/"
+- id: carle
+  name: "Georg Carle"
+  link: "https://www.net.in.tum.de/members/carle/"
+- id: viktor
+  name: "Viktor Kuncak"
+  link: "http://lara.epfl.ch/~kuncak/"
+- id: dominik
+  name: "Dominik Vinan"

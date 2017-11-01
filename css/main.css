@@ -17,3 +17,36 @@
 .card-header .fa {
   margin-right: .25em !important;
 }
+
+/* put a comma after each author */
+.pub-authors .pub-author::after {
+  content: ',';
+}
+
+/* unless it is the last author */
+.pub-authors .pub-author:last-child::after {
+  content: '';
+}
+
+/* in which case put an 'and' before */
+.pub-authors .pub-author:last-child::before {
+  content: ' and ';
+}
+
+/* unless it is the only author */
+.pub-authors .pub-author:only-child::before {
+  content: '';
+}
+
+/* or unless there are only two authors, in which case we only use 'and' */
+.pub-authors .pub-author:first-child::after {
+  content: '';
+}
+
+.pub-authors .pub-author:first-child:not(:nth-last-child(2))::after {
+  content: ',';
+}
+
+.pub-authors .pub-author:only-child::after {
+  content: '' !important;
+}

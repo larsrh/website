@@ -33,6 +33,9 @@
           <li class="nav-item {% if page.nav == "cv" %} active {% endif %}">
             <a class="nav-link" href="cv.html">Resume</a>
           </li>
+          <li class="nav-item {% if page.nav == "research" %} active {% endif %}">
+            <a class="nav-link" href="research.html">Research</a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -43,6 +46,11 @@
     <script src="js/jquery-3.2.1.slim.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap-material-design.min.js"></script>
-    <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+    <script>
+      $(document).ready(function() {
+        $('body').bootstrapMaterialDesign();
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+    </script>
   </body>
 </html>
