@@ -11,12 +11,16 @@ card_theme: bg-warning
 </div>
 
 <div class="container">
-	<div id="accordion" role="tablist">
-    {% assign show="true" %}
-    {% for semester in site.data.teaching %}
-      {% include teaching_card.html header=semester.semester id=semester.id lectures=semester.lectures show=show %}
-      {% assign show="false" %}
-    {% endfor %}
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-6">
+      <div id="accordion" role="tablist">
+        {% assign show="true" %}
+        {% for semester in site.data.teaching %}
+          {% include teaching_card.html header=semester.semester id=semester.id lectures=semester.lectures show=show %}
+          {% assign show="false" %}
+        {% endfor %}
+      </div>
+    </div>
   </div>
 
 </div>
