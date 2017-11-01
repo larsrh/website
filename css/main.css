@@ -50,3 +50,11 @@
 .pub-authors .pub-author:only-child::after {
   content: '' !important;
 }
+
+.card-header h4 {
+  margin-bottom: 0;
+}
+
+.card-header .btn-outline-primary {
+  color: #2196f3 !important;
+}

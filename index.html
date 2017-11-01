@@ -9,7 +9,7 @@ card_theme: bg-primary text-white
 <div class="jumbotron">
   <div class="container">
     <h1 class="display-3">Lars Hupel</h1>
-    <p>PhD student, <a href="https://www21.in.tum.de">Chair for Logic and Verification</a>, <a href="https://www.in.tum.de">Fakult&auml;t f&uuml;r Informatik</a><br /></p>
+    <p>PhD student, <a href="https://www21.in.tum.de">Chair for Logic and Verification</a>, <a href="https://www.in.tum.de">Fakult&auml;t f&uuml;r Informatik</a>, <a href="https://www.tum.de/">Technische Universität München</a></p>
   </div>
 </div>
 
@@ -18,7 +18,7 @@ card_theme: bg-primary text-white
   <div class="card-columns">
     {% include card.html src="contact.html" header="Contact" icon="fa-envelope-o" %}
     {% include card.html src="profiles.html" header="Profiles" icon="fa-user" %}
-    {% include card.html src="service.html" header="Service" icon="fa-users" %}
+    {% include select_pubs_card.html style="btn-outline-primary" %}
   </div>
 
 </div>

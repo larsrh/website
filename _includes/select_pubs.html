@@ -1,23 +1,8 @@
-<div class="list-group">
-  <a href="research.html#leon" class="list-group-item flex-column list-group-item-action align-items-start">
-    <div class="d-flex w-100 justify-content-between">
-      <p class="mb-1">Translating Scala Programs to Isabelle/HOL</p>
-      <small class="text-muted">IJCAR 2016</small>
-    </div>
-    <p class="mb-1">Lars Hupel, Viktor Kuncak</p>
-  </a>
-  <a href="research.html#haskell" class="list-group-item flex-column list-group-item-action align-items-start">
-    <div class="d-flex w-100 justify-content-between">
-      <p class="mb-1">The Next 1100 Haskell Programmers</p>
-      <small class="text-muted">Haskell Symposium 2014</small>
-    </div>
-    <p class="mb-1">Jasmin Blanchette, Tobias Nipkow, Lars Noschinski, Dmitriy Traytel, Lars Hupel</p>
-  </a>
-  <a href="research.html#tools" class="list-group-item flex-column list-group-item-action align-items-start">
-    <div class="d-flex w-100 justify-content-between">
-      <p class="mb-1">Interactive Simplifier Tracing and Debugging in Isabelle</p>
-      <small class="text-muted">CICM 2014</small>
-    </div>
-    <p class="mb-1">Lars Hupel</p>
-  </a>
+<div>
+  <br style="clear:both;">
+  {% for pub in site.data.pubs reversed %}
+    {% if pub.select %}
+      {% include pub.html %}
+    {% endif %}
+  {% endfor %}
 </div>

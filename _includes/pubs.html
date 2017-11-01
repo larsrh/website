@@ -1,4 +1,4 @@
-<div id="pub-{{ include.type }}">
+<div>
   {% for pub in site.data.pubs reversed %}
     {% if pub.type == include.type %}
       {% include pub.html %}

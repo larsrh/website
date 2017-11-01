@@ -44,6 +44,7 @@
   authors: ["jasmin", "lars", "tobias", "lars-n", "dmitriy"]
   type: "haskell"
   in: "Haskell Symposium, 2014"
+  select: true
 - title: "Directed Security Policies: A Stateful Network Implementation"
   id: "directed-security-policies"
   authors: ["cornelius", "lars", "carle"]
@@ -60,6 +61,7 @@
   arxiv: "1604.00206"
   code: "https://github.com/diekmann/Iptables_Semantics"
   slides: "https://speakerdeck.com/larsrh/semantics-preserving-simplification-of-real-world-firewall-rule-sets"
+  select: true
 - title: "Verified iptables Firewall Analysis & Verification"
   id: "verified-iptables"
   authors: ["cornelius", "lars", "julius", "max", "carle"]
@@ -89,6 +91,7 @@
   arxiv: "1607.01539"
   slides: "https://speakerdeck.com/larsrh/hol-1"
   type: "tools"
+  select: true
 - title: "Clone Detection in Isabelle Theories"
   id: "isabelle-clones"
   authors: ["dominik", "lars"]
@@ -96,3 +99,9 @@
   code: "https://www21.in.tum.de/~hupel/downloads/isabelle-clones/isabelle-clones-preview.zip"
   type: "tools"
   bib: false
+- title: "Dictionary Construction"
+  id: "afp-dict"
+  authors: ["lars"]
+  type: "afp"
+  in: "Archive of Formal Proofs, 2017"
+  entry: "https://www.isa-afp.org/entries/Dict_Construction.html"
