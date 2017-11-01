@@ -1,0 +1,24 @@
+- semester: "Wintersemester 2017/18"
+  id: ws1718
+  lectures:
+    - name: Semantik
+      role: Übungsleitung
+      link: "https://www21.in.tum.de/teaching/semantik/WS1718/"
+- semester: "Sommersemester 2017"
+  id: ss17
+  lectures:
+    - name: Logik
+      role: Übungsleitung
+      link: "https://www21.in.tum.de/teaching/logik/SS17/"
+- semester: "Wintersemester 2016/17"
+  id: ws1617
+  lectures:
+    - name: SAT-Solving
+      role: Proseminar
+      link: "https://www21.in.tum.de/~lammich/2015_SS_Seminar_SAT/"
+    - name: Perlen der Informatik
+      role: Proseminar
+      link: "https://www21.in.tum.de/teaching/perlen/SS16/"
+    - name: Spezifikation und Verifikation
+      role: Praktikum
+      link: "https://www21.in.tum.de/teaching/psv/SS16/"

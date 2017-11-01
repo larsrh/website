@@ -1,0 +1,8 @@
+<div class="list-group">
+  {% for lecture in include.lectures %}
+    <a href="{{ lecture.link }}" class="list-group-item list-group-item-action flex-column align-items-start">
+      <h5 class="mb-1">{{ lecture.name }}</h5>
+      <p class="mb-1">{{ lecture.role }}</p>
+    </a>
+  {% endfor %}
+</div>

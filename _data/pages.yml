@@ -8,6 +8,9 @@
 - id: research
   name: Research
   nav_theme: navbar-dark bg-success
+- id: teaching
+  name: Teaching
+  nav_theme: navbar-light bg-warning
 - id: about
   name: About
   nav_theme: navbar-dark bg-dark

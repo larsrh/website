@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="card-header {{ page.card_theme }}" role="tab" id="heading-{{ include.id }}">
+    <h4 class="mb-0">
+      <a data-toggle="collapse" href="#collapse-{{ include.id }}" aria-expanded="{{ include.show }}" aria-controls="collapse-{{ include.id }}" class="text-dark">{{ include.header }}</a>
+    </h4>
+  </div>
+  <div id="collapse-{{ include.id }}" class="collapse {% if include.show == "true" %}show{% else %}dont-show{% endif %}" role="tabpanel" aria-labelledby="heading-{{ include.id }}" data-parent="#accordion">
+    <div class="card-body">
+      <div class="card-text">
+        {% include semester.html lectures=include.lectures %}
+      </div>
+    </div>
+  </div>
+</div>

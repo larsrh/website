@@ -1,0 +1,4 @@
+{% for semester in site.data.teaching %}
+  {% include semester.html lectures=semester.lectures %}
+  {% break %}
+{% endfor %}

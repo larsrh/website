@@ -17,6 +17,12 @@ card_theme: bg-primary text-white
   <div class="card-columns">
     {% include card.html src="contact.html" header="Contact" icon="fa-envelope-o" %}
     {% include card.html src="profiles.html" header="Profiles" icon="fa-user" %}
+    {% capture extra %}
+      <div class="pull-right">
+        <a href="teaching.html" class="btn btn-outline-primary" style="border: none; background-color: white;">Full list</a>
+      </div>
+    {% endcapture %}
+    {% include card.html src="teaching_card_current.html" header="Teaching (current semester)" icon="fa-user" header_extra=extra %}
     {% include select_pubs_card.html style="btn-outline-primary" %}
   </div>
 

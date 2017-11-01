@@ -1,0 +1,22 @@
+---
+layout: default
+nav: teaching
+card_theme: bg-warning
+---
+
+<div class="jumbotron">
+  <div class="container">
+    <h2 class="display-3">Teaching</h1>
+  </div>
+</div>
+
+<div class="container">
+	<div id="accordion" role="tablist">
+    {% assign show="true" %}
+    {% for semester in site.data.teaching %}
+      {% include teaching_card.html header=semester.semester id=semester.id lectures=semester.lectures show=show %}
+      {% assign show="false" %}
+    {% endfor %}
+  </div>
+
+</div>
