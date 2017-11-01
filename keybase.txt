@@ -1,0 +1,54 @@
+==================================================================
+https://keybase.io/larsrh
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://lars.hupel.info
+  * I am larsrh (https://keybase.io/larsrh) on keybase.
+  * I have a public key ASBQLhWlsviAC61xMohZggatNRCtYQF4BtVNQq5X3E_YbQo
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0111a6675c3cf1818acc679a54a78176f4d9a8c7f6d1aa0eb3064d54be1ef82e31dc0a",
+            "host": "keybase.io",
+            "kid": "0120502e15a5b2f8800bad713288598206ad3510ad61017806d54d42ae57dc4fd86d0a",
+            "uid": "1aa0cc468872872c6416d70659ee3200",
+            "username": "larsrh"
+        },
+        "service": {
+            "hostname": "lars.hupel.info",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.16"
+    },
+    "ctime": 1466626317,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1466626264,
+        "hash": "2f7340847f4169dcf772b7f0ae70afab204eb5890eaf913944cc10504c0811d3607b167a71e0413a83cb9f65bf7943aac262a117ad6f9456f81a6b05ca91eec4",
+        "seqno": 495893
+    },
+    "prev": "b862ee52e5883406742208da4b825ed74aa8ba8523767756d8a3d6dfea774dbd",
+    "seqno": 66,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgUC4VpbL4gAutcTKIWYIGrTUQrWEBeAbVTUKuV9xP2G0Kp3BheWxvYWTFAvV7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTExYTY2NzVjM2NmMTgxOGFjYzY3OWE1NGE3ODE3NmY0ZDlhOGM3ZjZkMWFhMGViMzA2NGQ1NGJlMWVmODJlMzFkYzBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwNTAyZTE1YTViMmY4ODAwYmFkNzEzMjg4NTk4MjA2YWQzNTEwYWQ2MTAxNzgwNmQ1NGQ0MmFlNTdkYzRmZDg2ZDBhIiwidWlkIjoiMWFhMGNjNDY4ODcyODcyYzY0MTZkNzA2NTllZTMyMDAiLCJ1c2VybmFtZSI6ImxhcnNyaCJ9LCJzZXJ2aWNlIjp7Imhvc3RuYW1lIjoibGFycy5odXBlbC5pbmZvIiwicHJvdG9jb2wiOiJodHRwOiJ9LCJ0eXBlIjoid2ViX3NlcnZpY2VfYmluZGluZyIsInZlcnNpb24iOjF9LCJjbGllbnQiOnsibmFtZSI6ImtleWJhc2UuaW8gZ28gY2xpZW50IiwidmVyc2lvbiI6IjEuMC4xNiJ9LCJjdGltZSI6MTQ2NjYyNjMxNywiZXhwaXJlX2luIjo1MDQ1NzYwMDAsIm1lcmtsZV9yb290Ijp7ImN0aW1lIjoxNDY2NjI2MjY0LCJoYXNoIjoiMmY3MzQwODQ3ZjQxNjlkY2Y3NzJiN2YwYWU3MGFmYWIyMDRlYjU4OTBlYWY5MTM5NDRjYzEwNTA0YzA4MTFkMzYwN2IxNjdhNzFlMDQxM2E4M2NiOWY2NWJmNzk0M2FhYzI2MmExMTdhZDZmOTQ1NmY4MWE2YjA1Y2E5MWVlYzQiLCJzZXFubyI6NDk1ODkzfSwicHJldiI6ImI4NjJlZTUyZTU4ODM0MDY3NDIyMDhkYTRiODI1ZWQ3NGFhOGJhODUyMzc2Nzc1NmQ4YTNkNmRmZWE3NzRkYmQiLCJzZXFubyI6NjYsInRhZyI6InNpZ25hdHVyZSJ9o3NpZ8RA0QGHuUd6XRNcwX4aRlMbzaq59AdxPp1kI9w6A9Oo5dADcwGCWyXUkU8DhdAWIAadb5i5GkmV/2NQNE1nYyejDahzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIC/InJB10J94c/qjY+5nMUbqXJmMKx7EVLpxPMOsLe/ao3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/larsrh
+
+==================================================================
