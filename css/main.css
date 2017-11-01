@@ -63,3 +63,7 @@
 .dont-show {
   display: block;
 }
+
+.ekko-lightbox .modal-body {
+  padding-bottom: 0;
+}

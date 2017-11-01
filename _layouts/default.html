@@ -6,8 +6,8 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
     <link rel="stylesheet" href="css/font-awesome.min.css">
-
     <link rel="stylesheet" href="css/bootstrap-material-design.min.css">
+    <link rel="stylesheet" href="css/ekko-lightbox.css">
     <link rel="stylesheet" href="css/jumbotron.css">
     <link rel="stylesheet" href="css/main.css">
 
@@ -44,11 +44,16 @@
     <script src="js/jquery-3.2.1.slim.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap-material-design.min.js"></script>
+    <script src="js/ekko-lightbox.min.js"></script>
     <script>
       $(document).ready(function() {
         $('body').bootstrapMaterialDesign();
         $('[data-toggle="tooltip"]').tooltip();
         $('.dont-show').each(function (index) { $(this).removeClass('dont-show'); });
+      });
+      $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+        event.preventDefault();
+        $(this).ekkoLightbox();
       });
     </script>
   </body>
