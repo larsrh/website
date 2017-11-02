@@ -4,7 +4,7 @@
   recording: "https://www.youtube.com/watch?v=KzoqOVD7mvE"
   slides: "https://speakerdeck.com/larsrh/seven-at-one-blow-new-and-polished-features-in-scalaz-7"
 - title: Generating Type Class Instances Automatically
-  conference: "Fourth Annual Scala Workshop"
+  conference: "Scala Workshop, 2013"
   link: "http://lampwww.epfl.ch/~hmiller/scala2013/"
   slides: "https://speakerdeck.com/larsrh/generating-type-class-instances-automatically"
 - title: Macros vs Types
@@ -19,7 +19,7 @@
   slides: "https://speakerdeck.com/larsrh/optimusprimet"
 - title: The Next 1100 Haskell Programmers
   conference: "Haskell Symposium, 2014"
-  link: "research.html#haskell"
+  link: "research.html#pub-haskell-programmers"
   recording: "https://youtu.be/VM6i6710A-Y?t=44s"
   slides: "https://speakerdeck.com/larsrh/the-next-1100-haskell-programmers"
 - title: State of the Typelevel
@@ -37,6 +37,10 @@
   link: "http://2015.flatmap.no/hupel.html#session"
   recording: "https://vimeo.com/128466888"
   slides: "https://speakerdeck.com/larsrh/optimusprimet-cats-edition"
+- title: Semantics-Preserving Simplification of Real-World Firewall Rule Sets
+  conference: "Formal Methods, 2015"
+  link: "research.html#pub-iptables-simp"
+  slides: "https://speakerdeck.com/larsrh/semantics-preserving-simplification-of-real-world-firewall-rule-sets"
 - title: When Types are Not Enough
   conference: "Scala World, 2015"
   recording: "https://www.youtube.com/watch?v=NGZRBgp5G5M"
@@ -51,3 +55,7 @@
   link: "http://2016.flatmap.no/hupel.html#session"
   recording: "https://vimeo.com/165852636"
   slides: "https://speakerdeck.com/larsrh/how-to-test-proper-l-t-y"
+- title: "Translating Scala Programs to Isabelle/HOL"
+  conference: "International Joint Conference on Automated Reasoning, 2016"
+  link: "research.html#pub-translating-scala"
+  slides: "https://speakerdeck.com/larsrh/hol-1"

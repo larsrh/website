@@ -45,6 +45,8 @@
   type: "haskell"
   in: "Haskell Symposium, 2014"
   select: true
+  doi: "10.1145/2633357.2633359"
+  slides: "https://speakerdeck.com/larsrh/the-next-1100-haskell-programmers"
 - title: "Directed Security Policies: A Stateful Network Implementation"
   id: "directed-security-policies"
   authors: ["cornelius", "lars", "carle"]
