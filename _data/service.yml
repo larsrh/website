@@ -1,15 +1,36 @@
-- text: Scala Symposium 2016
+- text: Scala Symposium
   role: Programme Committee
   link: "http://conf.researchr.org/committee/scala-2016/scala2016-pc"
+  date: 2016
+- text: Typelevel Summit Philadelphia
+  role: "Programme Committee, Organisation"
+  link: "https://typelevel.org/event/2016-03-summit-philadelphia/"
+  date: 2016
+- text: Typelevel Summit Oslo
+  role: "Programme Committee, Organisation"
+  link: "https://typelevel.org/event/2016-05-summit-oslo/"
+  date: 2016
 - text: Computer Aided Verification
   role: Artifact Evaluation Committee
   link: "http://cavconference.org/2017/organization/"
-- text: Scala Symposium 2017
+  date: 2017
+- text: Scala Symposium
   role: Programme Committee
   link: "http://conf.researchr.org/committee/scala-2017/scala-2017-papers-program-committee"
-- text: Scala Platform Process
-  role: Committee
-  link: "https://scalacenter.github.io/platform/"
+  date: 2017
+- text: Typelevel Summit New York City
+  role: "Programme Committee, Organisation"
+  link: "https://typelevel.org/event/2017-03-summit-nyc/"
+  date: 2017
+- text: Typelevel Summit Copenhagen
+  role: "Programme Committee, Organisation"
+  link: "https://typelevel.org/event/2017-06-summit-cph/"
+  date: 2017
 - text: Scala Center
   role: Community Representative at the Scala Center Advisory Board
   link: "https://scala.epfl.ch/"
+  date: since 2016
+- text: Scala Platform Process
+  role: Committee
+  link: "https://scalacenter.github.io/platform/"
+  date: since 2017
