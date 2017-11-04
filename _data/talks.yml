@@ -17,6 +17,10 @@
   link: "https://scala.io/2014/talks.html#/#BGS-827"
   recording: "https://www.youtube.com/watch?v=lN5viUFz21U"
   slides: "https://speakerdeck.com/larsrh/optimusprimet"
+- title: "Typelevel Scala: What does it mean for the language, the ecosystem, the community, and you?"
+  conference: "Scala.IO, 2014"
+  link: "https://scala.io/2014/talks.html#/#GZU-778"
+  recording: "https://www.youtube.com/watch?v=KcV8AMwnoXU"
 - title: The Next 1100 Haskell Programmers
   conference: "Haskell Symposium, 2014"
   link: "research.html#pub-haskell-programmers"
@@ -50,6 +54,11 @@
   link: "https://skillsmatter.com/conferences/7069-haskell-exchange-2015#program"
   recording: "https://skillsmatter.com/skillscasts/6592-what-haskell-can-learn-from-scala"
   slides: "https://speakerdeck.com/larsrh/what-haskell-can-learn-from-scala"
+- title:  OptimusPrimeT (cats edition)
+  conference: "Lambda World, 2015"
+  link: "http://www.lambda.world/blog/2015-edition"
+  recording: "https://www.youtube.com/watch?v=QUPsrxzE6I0"
+  slides: "https://speakerdeck.com/larsrh/optimusprimet-cats-edition"
 - title: "How to test proper{t,l}y"
   conference: "flatMap(Oslo), 2016"
   link: "http://2016.flatmap.no/hupel.html#session"
