@@ -1,4 +1,16 @@
 url: "https://lars.hupel.info"
 plugins:
   - jekyll-sitemap
+  - jekyll-seo-tag
+title: "Lars Hupel's website"
+author:
+  twitter: "larsr_h"
+twitter:
+  username: "larsr_h"
+social:
+  links:
+    - "https://github.com/larsrh"
+    - "https://twitter.com/larsr_h"
+    - "https://instagram.com/larsr_h"
+    - "https://keybase.io/larsrh"
 include: ["_redirects"]
