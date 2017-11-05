@@ -107,3 +107,11 @@
   type: "afp"
   in: "Archive of Formal Proofs, 2017"
   entry: "https://www.isa-afp.org/entries/Dict_Construction.html"
+- title: "Development of an associative file system"
+  id: "bsc_hupel"
+  authors: ["lars"]
+  type: "db"
+  bib: false
+  in: "Bachelor's Thesis in Informatics, Technische Universität München, 2011"
+  slides: "https://speakerdeck.com/larsrh/development-of-an-associative-file-system"
+  code: "https://github.com/larsrh/associative"
