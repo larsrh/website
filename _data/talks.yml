@@ -5,7 +5,7 @@
   slides: "https://speakerdeck.com/larsrh/seven-at-one-blow-new-and-polished-features-in-scalaz-7"
 - title: Generating Type Class Instances Automatically
   conference: "Scala Workshop, 2013"
-  link: "http://lampwww.epfl.ch/~hmiller/scala2013/"
+  link: "http://lampwww.epfl.ch/~hmiller/scala2013/program.html"
   slides: "https://speakerdeck.com/larsrh/generating-type-class-instances-automatically"
 - title: Macros vs Types
   conference: "Northeast Scala Symposium, 2014"

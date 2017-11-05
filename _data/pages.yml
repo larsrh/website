@@ -13,4 +13,4 @@
   nav_theme: navbar-light bg-warning
 - id: about
   name: About
-  nav_theme: navbar-dark bg-dark
+  nav_theme: navbar-dark bg-secondary
