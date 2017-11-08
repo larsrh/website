@@ -1,5 +1,7 @@
 <div class="card mb-3">
-  <img class="card-img-top" src="img/{{ include.img }}" alt="{{ include.alt }}">
+  <a href="img/{{ include.img }}" data-toggle="lightbox" data-footer="{{ include.alt }}">
+    <img class="card-img-top" src="img/{{ include.img }}" alt="{{ include.alt }}">
+  </a>
   <div class="card-header">
     <h4>{{ include.header }}</h4>
   </div>
