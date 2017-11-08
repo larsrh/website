@@ -5,15 +5,20 @@
 - id: cv
   name: Resume
   nav_theme: navbar-dark bg-danger
+  long_title: "Resume"
 - id: research
   name: Research
   nav_theme: navbar-dark bg-success
+  long_title: "Research & Publications"
 - id: teaching
   name: Teaching
   nav_theme: navbar-light bg-warning
+  long_title: "Teaching"
 - id: projects
   name: Projects
   nav_theme: navbar-dark bg-info
+  long_title: "Software & Projects"
 - id: about
   name: About
   nav_theme: navbar-dark bg-secondary
+  long_title: "About me & this website"

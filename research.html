@@ -1,24 +1,14 @@
 ---
-layout: default
+layout: jumbotron
 nav: research
 card_theme: bg-success text-white
 ---
 
-<div class="jumbotron">
-  <div class="container">
-    <h2 class="display-3">Research &amp; Publications</h2>
-  </div>
-</div>
-
-<div class="container">
-
-  <div class="card-columns">
-    {% include card.html src="pubs_afp.html" header="AFP Entries" icon="fa-newspaper-o" %}
-    {% include card.html src="pubs_cakeml.html" header="CakeML" icon="fa-birthday-cake" %}
-    {% include card.html src="pubs_haskell.html" header="Teaching Haskell" icon="fa-university" %}
-    {% include card.html src="pubs_sec.html" header="Network Security" icon="fa-shield" %}
-    {% include card.html src="pubs_tools.html" header="Tools" icon="fa-wrench" %}
-    {% include card.html src="pubs_db.html" header="Databases" icon="fa-database" %}
-  </div>
-
+<div class="card-columns">
+  {% include card.html src="pubs_afp.html" header="AFP Entries" icon="fa-newspaper-o" %}
+  {% include card.html src="pubs_cakeml.html" header="CakeML" icon="fa-birthday-cake" %}
+  {% include card.html src="pubs_haskell.html" header="Teaching Haskell" icon="fa-university" %}
+  {% include card.html src="pubs_sec.html" header="Network Security" icon="fa-shield" %}
+  {% include card.html src="pubs_tools.html" header="Tools" icon="fa-wrench" %}
+  {% include card.html src="pubs_db.html" header="Databases" icon="fa-database" %}
 </div>

@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+{% for page_desc in site.data.pages %}
+  {% if page_desc.id == page.nav %}
+    {% assign p = page_desc %}
+  {% endif %}
+{% endfor %}
+
+<div class="jumbotron">
+  <div class="container">
+    <h2 class="display-3">{{ p.long_title | escape }}</h2>
+  </div>
+</div>
+
+<div class="container">
+
+  {{ content }}
+
+</div>

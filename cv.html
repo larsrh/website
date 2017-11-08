@@ -1,25 +1,15 @@
 ---
-layout: default
+layout: jumbotron
 nav: cv
 card_theme: bg-danger text-white
 ---
 
-<div class="jumbotron">
-  <div class="container">
-    <h2 class="display-3">Resume</h2>
-  </div>
-</div>
-
-<div class="container">
-
-  <div class="card-columns">
-    {% include card.html src="synopsis.html" header="Synopsis" icon="fa-user" %}
-    {% include card.html src="education.html" header="Education" icon="fa-graduation-cap" %}
-    {% include card.html src="work.html" header="Work" icon="fa-briefcase" %}
-    {% include select_pubs_card.html style="btn-outline-danger" %}
-    {% include card.html src="skills.html" header="Skills" icon="fa-cogs" %}
-    {% include card.html src="service.html" header="Service" icon="fa-users" %}
-    {% include card.html src="talks.html" header="Conference Talks" icon="fa-microphone" %}
-  </div>
-
+<div class="card-columns">
+  {% include card.html src="synopsis.html" header="Synopsis" icon="fa-user" %}
+  {% include card.html src="education.html" header="Education" icon="fa-graduation-cap" %}
+  {% include card.html src="work.html" header="Work" icon="fa-briefcase" %}
+  {% include select_pubs_card.html style="btn-outline-danger" %}
+  {% include card.html src="skills.html" header="Skills" icon="fa-cogs" %}
+  {% include card.html src="service.html" header="Service" icon="fa-users" %}
+  {% include card.html src="talks.html" header="Conference Talks" icon="fa-microphone" %}
 </div>
