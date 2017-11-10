@@ -1,5 +1,8 @@
 source "http://rubygems.org"
 
-gem "jekyll", "3.6.2"
-gem "jekyll-sitemap", "1.1.1"
-gem "jekyll-seo-tag", "2.3.0"
+gem "jekyll", ">=3.6"
+
+group :jekyll_plugins do
+  gem "jekyll-sitemap"
+  gem "jekyll-seo-tag"
+end
