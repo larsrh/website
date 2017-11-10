@@ -13,6 +13,9 @@
 - name: GitHub
   icon: fa-github
   link: "https://github.com/larsrh"
+- name: Stack Overflow
+  icon: fa-stack-overflow
+  link: "https://stackoverflow.com/users/4776939/larsrh"
 - name: Twitter
   icon: fa-twitter
   link: "https://twitter.com/larsr_h"
