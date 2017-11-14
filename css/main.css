@@ -72,3 +72,18 @@ body {
 .ekko-lightbox .modal-body {
   padding-bottom: 0;
 }
+
+.pub:target {
+  animation-name: pub_highlight_fade;
+  animation-duration: 1s;
+  background-color: #eeeeee;
+}
+
+@keyframes pub_highlight_fade {
+  from {
+    background-color: #4caf50;
+  }
+  to {
+    background-color: #eeeeee;
+  }
+}
