@@ -18,6 +18,10 @@
   name: Projects
   nav_theme: navbar-dark bg-info
   long_title: "Software & Projects"
+- id: articles
+  name: Articles
+  nav_theme: navbar-dark bg-dark
+  long_title: "Writing, Articles, et cetera"
 - id: about
   name: About
   nav_theme: navbar-dark bg-secondary

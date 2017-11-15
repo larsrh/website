@@ -1,0 +1,12 @@
+---
+layout: jumbotron
+nav: articles
+card_theme: bg-dark text-white
+permalink: /articles/
+---
+
+<div class="card-columns">
+  {% for article in site.data.external_articles %}
+    {% include external_article_card.html %}
+  {% endfor %}
+</div>
