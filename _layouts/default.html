@@ -32,7 +32,7 @@
         <ul class="navbar-nav mr-auto">
           {% for page_desc in site.data.pages %}
             <li class="nav-item {% if page_desc.id == page.nav %} active {% endif %}">
-              <a class="nav-link" href="{{ page_desc.id }}.html">{{ page_desc.name }}</a>
+              <a class="nav-link" href="{% if page_desc.id == "index" %}/{% else %}/{{ page_desc.id }}/{% endif %}">{{ page_desc.name }}</a>
             </li>
           {% endfor %}
         </ul>
