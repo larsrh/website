@@ -27,15 +27,15 @@
         <a href="{{ pub.entry }}" class="btn btn-primary">Entry</a>
       {% endif %}
       {% if pub.draft %}
-        <a href="pub/{{ pub.id }}.pdf" class="btn btn-primary">Draft</a>
+        <a href="/pub/{{ pub.id }}.pdf" class="btn btn-primary">Draft</a>
       {% else %}
         {% if pub.entry %}
         {% else %}
-          <a href="pub/{{ pub.id }}.pdf" class="btn btn-primary">PDF</a>
+          <a href="/pub/{{ pub.id }}.pdf" class="btn btn-primary">PDF</a>
         {% endif %}
       {% endif %}
       {% if pub.draft != true and pub.bib != false %}
-        <a href="bib/{{ pub.id }}.bib" class="btn btn-primary">BibTeX</a>
+        <a href="/bib/{{ pub.id }}.bib" class="btn btn-primary">BibTeX</a>
       {% endif %}
       {% if pub.doi %}
         <a href="http://dx.doi.org/{{ pub.doi }}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="{{ pub.doi }}">DOI</a>

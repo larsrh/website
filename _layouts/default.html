@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/bootstrap-material-design.min.css">
-    <link rel="stylesheet" href="css/ekko-lightbox.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-material-design.min.css">
+    <link rel="stylesheet" href="/css/ekko-lightbox.css">
+    <link rel="stylesheet" href="/css/main.css">
 
     {% for page_desc in site.data.pages %}
       {% if page_desc.id == page.nav %}
@@ -23,7 +23,7 @@
   <body class="pb-4">
 
     <nav class="navbar navbar-expand-md fixed-top {{ p.nav_theme }}">
-      <a class="navbar-brand" href="index.html">Lars Hupel</a>
+      <a class="navbar-brand" href="/">Lars Hupel</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -49,10 +49,10 @@
     </div>
 
     <!-- Optional JavaScript -->
-    <script src="js/jquery-3.2.1.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap-material-design.min.js"></script>
-    <script src="js/ekko-lightbox.min.js"></script>
+    <script src="/js/jquery-3.2.1.slim.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap-material-design.min.js"></script>
+    <script src="/js/ekko-lightbox.min.js"></script>
     <script>
       $(document).ready(function() {
         $('body').bootstrapMaterialDesign();
