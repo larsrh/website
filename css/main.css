@@ -3,14 +3,32 @@ body {
 }
 
 @media (min-width: 576px) {
+  .card-columns-wide {
+    column-count: 1 !important;
+  }
+
   .card-columns {
-    column-count: 1;
+    column-count: 2;
   }
 }
 
 @media (min-width: 768px) {
+  .card-columns-wide {
+    column-count: 2 !important;
+  }
+
   .card-columns {
     column-count: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-columns-wide {
+    column-count: 2 !important;
+  }
+
+  .card-columns {
+    column-count: 3;
   }
 }
 
