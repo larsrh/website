@@ -41,3 +41,4 @@ defaults:
       nav: articles
       card_theme: bg-dark text-white
       is_article: true
+      hyphenator: true

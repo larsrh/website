@@ -118,3 +118,7 @@ body {
 .hint {
   border-bottom: 1px dotted black;
 }
+
+.hyphenate {
+  text-align: justify;
+}
