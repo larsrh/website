@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{% if page.lang %}{{ page.lang }}{% else %}en{% endif %}">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,7 +22,7 @@
   </head>
   <body class="pb-4">
 
-    <nav class="navbar navbar-expand-md fixed-top {{ p.nav_theme }}">
+    <nav class="navbar navbar-expand-md fixed-top {{ p.nav_theme }}" lang="en">
       <a class="navbar-brand" href="/">Lars Hupel</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -41,7 +41,7 @@
 
     {{ content }}
 
-    <div class="container">
+    <div class="container" lang="en">
       <hr>
       <footer class="footer">
         <small class="text-muted">Unless otherwise noted, all content licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. Copyright &copy; 2017 Lars Hupel.</small>
