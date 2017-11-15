@@ -10,13 +10,6 @@
     <link rel="stylesheet" href="css/ekko-lightbox.css">
     <link rel="stylesheet" href="css/main.css">
 
-    <script>
-      // https://github.com/twbs/bootstrap/issues/1768#issuecomment-13306753
-      var shiftWindow = function() { scrollBy(0, -70) };
-      window.addEventListener("hashchange", shiftWindow);
-      function load() { if (window.location.hash) shiftWindow(); }
-    </script>
-
     {% for page_desc in site.data.pages %}
       {% if page_desc.id == page.nav %}
         {% assign p = page_desc %}
@@ -27,7 +20,7 @@
 
     {% seo title=false %}
   </head>
-  <body class="pb-4" onload="load();">
+  <body class="pb-4">
 
     <nav class="navbar navbar-expand-md fixed-top {{ p.nav_theme }}">
       <a class="navbar-brand" href="index.html">Lars Hupel</a>
