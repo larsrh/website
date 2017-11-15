@@ -96,3 +96,7 @@ body {
   height: 70px;
   visibility: hidden;
 }
+
+.hint {
+  border-bottom: 1px dotted black;
+}
