@@ -1,0 +1,32 @@
+<div class="card" {% if article.lang %}lang="{{ article.lang }}"{% endif %}>
+  <div class="card-header {{ page.card_theme }}">
+    <h4><a href="{{ article.link }}" class="text-white">{{ article.title }}</a></h4>
+  </div>
+  <div class="card-body">
+    <div class="card-text">
+      <div>
+        {{ article.abstract }}
+      </div>
+      <div class="mb-3">
+        <small class="text-muted">
+          {% if article.lang == "de" %}
+            Veröffentlicht
+          {% else %}
+            Published
+          {% endif %}
+          {% if article.is_article %}{% else %}in <em>{{ article.journal }}</em>,{% endif %} {{ article.pub_date }}.
+        </small>
+      </div>
+      <div class="pull-right">
+        <a href="{% if article.is_article %}{{ article.url }}{% else %}{{ article.link }}{% endif %}" class="btn btn-primary">
+          {% if article.lang == "de" %}
+            Weiterlesen
+          {% else %}
+            Read more
+          {% endif %}
+        </a>
+      </div>
+      <br style="clear: both;">
+    </div>
+  </div>
+</div>

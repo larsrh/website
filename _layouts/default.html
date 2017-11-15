@@ -16,7 +16,15 @@
       {% endif %}
     {% endfor %}
 
-    <title>Lars Hupel {% if p.title != false %}&middot; {{ p.name }}{% endif %}</title>
+    {% if page.is_article %}
+      {% assign page_name = page.header %}
+    {% elsif p.title != false %}
+      {% assign page_name = p.name %}
+    {% else %}
+      {% assign page_name = "" %}
+    {% endif %}
+
+    <title>Lars Hupel {% if page_name != "" %}&middot; {{ page_name }}{% endif %}</title>
 
     {% seo title=false %}
   </head>

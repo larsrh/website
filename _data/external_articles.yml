@@ -1,34 +1,37 @@
-- date: 2010-09-22
+- pub_date: 2010-09-22
   title: "Überholt: Subversion ist obsolet"
   journal: "KaffeeKlatsch"
   abstract: "In der letzten Ausgabe des KaffeeKlatsch wurde eine Kombination aus Subversion, Mantis und CheckStyle vorgestellt. Dem ein oder anderen Leser beschlich beim Lesen des Wortes Subversion vielleicht ein seltsames Gefühl: Schreiben wir nicht das Jahr 2010? Der folgende Artikel hat sich zum Ziel gesetzt, die gängigen Vorbehalte gegenüber moderneren Tools zu zerstreuen und eine Umstellung, weg von Subversion, zu motivieren."
   link: "http://www.bookware.de/kaffeeklatsch/archiv/KaffeeKlatsch-2010-09.pdf"
-- date: 2011-09-12
+  lang: de
+- pub_date: 2011-09-12
   title: "Geschichtsrevisionismus: Nachträgliches Ändern einer Projektgeschichte mit Git"
   journal: "KaffeeKlatsch"
   abstract: "Was unter Historikern umstritten ist, ist mit Git ganz einfach: Die Geschichte eines Projekts im Nachhinein ändern. Welche Möglichkeiten es da gibt, soll in diesem Artikel kurz vorgestellt werden."
   link: "http://www.bookware.de/kaffeeklatsch/archiv/KaffeeKlatsch-2011-09.pdf"
-- date: 2013-06-24
+  lang: de
+- pub_date: 2013-06-24
   title: "Deriving Type Class Instances"
   journal: "Typelevel.org blog"
   abstract: "The use of type classes has become pervasive in Scala programming. Type classes are encoded as traits, hence the most basic way of declaring an instance is writing implicit methods which return objects extending from these traits. However, those implicit methods are regular Scala methods, so we can use all features provided by the language to derive instances.  In this post, a technique is described to compose instances into larger ones, which will not only allow for construction of instances for case classes, but also for other nested structures with minimum boilerplate."
   link: "https://typelevel.org/blog/2013/06/24/deriving-instances-1.html"
-- date: 2013-11-17
+- pub_date: 2013-11-17
   title: "Law Enforcement using Discipline"
   journal: "Typelevel.org blog"
   abstract: "Some nine or ten months ago, Spire’s project structure underwent a major reorganization. Simultaneously, the Scalacheck bindings were refactored, completely overhauling the law-checking infrastructure."
   link: "https://typelevel.org/blog/2013/11/17/discipline.html"
-- date: 2015-12-03
+- pub_date: 2015-12-03
   title: "Formale Wahrheit"
   journal: "fatum"
   abstract: "Am Lehrstuhl für Logik und Verifikation der TUM wird Isabelle entwickelt, ein Programm mithilfe dessen man Theoreme beweisen kann. Interaktive Theorembeweiser sind relative neue Hilfsmittel in der Werkzeugsammlung von Mathematikern. Sind solche vom Computer verifizierten Argumentationsketten aber noch Beweise im mathematischen Sinn?"
   link: "https://www.fatum-magazin.de/ausgaben/traeume-und-wahrheiten/in-die-werkstatt/formale-wahrheit.html"
-- date: 2016-08-09
+  lang: de
+- pub_date: 2016-08-09
   title: "Functional Geekery, Episode 62"
   journal: "Functional Geekery"
   abstract: "In this episode Proctor talks with Lars Hupel. We talk his introduction to Functional Programming with Haskell, Scala, and move to working on Isabelle for creating theorems about proving your program."
   link: "https://www.functionalgeekery.com/episode-62-lars-hupel/"
-- date: 2016-10-17
+- pub_date: 2016-10-17
   title: "Let's build ourselves a small ScalaCheck"
   journal: "Typelevel.org blog"
   abstract: "ScalaCheck is a well-known property-based testing library, based on ideas from Haskell’s QuickCheck. It is also a Typelevel project. In this post, I’d like to show some of the underlying mechanisms, stripped down to the bare minimum."

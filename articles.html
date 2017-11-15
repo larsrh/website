@@ -5,8 +5,10 @@ card_theme: bg-dark text-white
 permalink: /articles/
 ---
 
+{% assign articles = site.articles | concat: site.data.external_articles | sort: 'pub_date' %}
+
 <div class="card-columns">
-  {% for article in site.data.external_articles %}
-    {% include external_article_card.html %}
+  {% for article in articles %}
+    {% include article_card.html %}
   {% endfor %}
 </div>

@@ -26,3 +26,18 @@ exclude:
   - "vendor"
   - ".ruby-version"
 encoding: "utf-8"
+
+collections:
+  articles:
+    output: true
+    permalink: /:collection/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: articles
+    values:
+      layout: article
+      nav: articles
+      card_theme: bg-dark text-white
+      is_article: true
