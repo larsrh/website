@@ -1,1 +1,8 @@
 /libisabelle/* https://larsrh.github.io/libisabelle/:splat 200
+
+/index.html / 301
+/cv.html /cv/ 301
+/research.html /research/ 301
+/about.html /about/ 301
+/teaching.html /teaching/ 301
+/projects.html /projects/ 301
