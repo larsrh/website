@@ -1,6 +1,6 @@
 - name: Resume
   icon: fa-list-ul
-  link: cv.html
+  link: "/cv/"
 - name: Google Scholar
   icon: fa-graduation-cap
   link: "https://scholar.google.com/citations?user=VdxLaDEAAAAJ"
