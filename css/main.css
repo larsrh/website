@@ -22,7 +22,7 @@ body {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .card-columns-wide {
     column-count: 2 !important;
   }
