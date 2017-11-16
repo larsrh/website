@@ -40,6 +40,10 @@ body {
   margin-right: .25em !important;
 }
 
+.btn .fa {
+  margin-right: .5em !important;
+}
+
 /* put a comma after each author */
 .pub-authors .pub-author::after {
   content: ',';

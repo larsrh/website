@@ -1,6 +1,11 @@
 <div class="card" {% if article.lang %}lang="{{ article.lang }}"{% endif %}>
+  {% if article.is_article %}
+    {% assign url = article.url %}
+  {% else %}
+    {% assign url = article.link %}
+  {% endif %}
   <div class="card-header {{ page.card_theme }}">
-    <h4><a href="{{ article.link }}" class="text-white">{{ article.title }}</a></h4>
+    <h4><a href="{{ url }}" class="text-white">{{ article.title }}</a></h4>
   </div>
   <div class="card-body">
     <div class="card-text">
@@ -18,7 +23,11 @@
         </small>
       </div>
       <div class="pull-right">
-        <a href="{% if article.is_article %}{{ article.url }}{% else %}{{ article.link }}{% endif %}" class="btn btn-primary">
+        <a href="{{ url }}" class="btn btn-primary">
+          {% if article.is_article %}
+          {% else %}
+            <i class="fa fa-fw fa-external-link fa-lg" aria-hidden="true"></i>
+          {% endif %}
           {% if article.lang == "de" %}
             Weiterlesen
           {% else %}
