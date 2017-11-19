@@ -13,12 +13,13 @@ abstract: |
   <img src="/img/articles/javastars/rucksack.thumb.jpg" alt="{{ img_title }}, mit Rucksack" class="img-fluid img-thumbnail" data-toggle="tooltip" data-placement="bottom" title="{{ img_title }}">
 </a>
 
-### Der Wettbewerb ...
+### Der Wettbewerb …
 
-...fand in der Zeit Ende 2006/Anfang 2007 statt. Die Aufgabe war es, ein Programm in Java zu erstellen, welches in der Schule eingesetzt werden kann, quasi ein Lernprogramm. Wir drei bildeten die Gruppe *nlogn [enn lock enn]*, was eine Anspielung auf unser Thema, nämlich Sortierverfahren ist.
+… fand in der Zeit Ende 2006/Anfang 2007 statt. Die Aufgabe war es, ein Programm in Java zu erstellen, welches in der Schule eingesetzt werden kann, quasi ein Lernprogramm. Wir drei bildeten die Gruppe *nlogn [enn lock enn]*, was eine Anspielung auf unser Thema, nämlich Sortierverfahren ist.
 
-### Unser Programm...
-...zeigte anschaulich, wie Sortierverfahren funktionieren. Das sind Algorithmen, die eine gegebene Anzahl von Elementen der Reihenfolge bzw. Größe nach sortieren. Wir haben es in verschiedene Teile aufgeteilt:
+### Unser Programm …
+
+… zeigte anschaulich, wie Sortierverfahren funktionieren. Das sind Algorithmen, die eine gegebene Anzahl von Elementen der Reihenfolge bzw. Größe nach sortieren. Wir haben es in verschiedene Teile aufgeteilt:
 
 * *Einfaches Sortieren:* Sortieren von selbst eingegebenen oder zufällig erzeugten Daten.
 * *Visualisierung:* Zeigt, wie ein Sortierverfahren arbeitet, indem der Verlauf graphisch dargestellt wird.
