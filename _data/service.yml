@@ -26,6 +26,10 @@
   role: "Programme Committee, Organisation"
   link: "https://typelevel.org/event/2017-06-summit-copenhagen/"
   date: 2017
+- text: Scala Days
+  role: "Programme Committee"
+  link: "https://eu.scaladays.org/"
+  date: 2017
 - text: Scala Center
   role: Community Representative at the Scala Center Advisory Board
   link: "https://scala.epfl.ch/"
