@@ -1,0 +1,2 @@
+{% capture include_raw %}{% include {{ include.src }} %}{% endcapture %}
+{{ include_raw | markdownify }}
