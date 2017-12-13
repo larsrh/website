@@ -3,6 +3,7 @@ logo: "/img/profile.jpg"
 plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-toc
 title: "Lars Hupel's website"
 author:
   name: "Lars Hupel"
