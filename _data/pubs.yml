@@ -98,7 +98,7 @@
   id: "isabelle-clones"
   authors: ["dominik", "lars"]
   in: "Isabelle Workshop 2016"
-  code: "https://www21.in.tum.de/~hupel/downloads/isabelle-clones/isabelle-clones-preview.zip"
+  code: "https://assets.hupel.info/downloads/isabelle-clones/isabelle-clones-preview.zip"
   type: "tools"
   bib: false
 - title: "Dictionary Construction"
