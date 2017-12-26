@@ -4,6 +4,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-toc
+  - jekyll-twitter-plugin
 title: "Lars Hupel's website"
 author:
   name: "Lars Hupel"
