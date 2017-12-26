@@ -10,7 +10,11 @@
   <div class="card-body">
     <div class="card-text">
       <div class="hyphenate">
-        {{ article.abstract }}
+        {% if article.abstract %}
+          {{ article.abstract }}
+        {% else %}
+          {{article.content | strip_html | truncatewords: 50}}
+        {% endif %}
       </div>
       <div class="mb-3">
         <small class="text-muted">
