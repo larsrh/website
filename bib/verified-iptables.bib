@@ -1,0 +1,17 @@
+@Article{Diekmann2018,
+author="Diekmann, Cornelius
+and Hupel, Lars
+and Michaelis, Julius
+and Haslbeck, Maximilian
+and Carle, Georg",
+title="Verified iptables Firewall Analysis and Verification",
+journal="Journal of Automated Reasoning",
+year="2018",
+month="Jan",
+day="03",
+abstract="This article summarizes our efforts around the formally verified static analysis of iptables rulesets using Isabelle/HOL. We build our work around a formal semantics of the behavior of iptables firewalls. This semantics is tailored to the specifics of the filter table and supports arbitrary match expressions, even new ones that may be added in the future. Around that, we organize a set of simplification procedures and their correctness proofs: we include procedures that can unfold calls to user-defined chains, simplify match expressions, and construct approximations removing unknown or unwanted match expressions. For analysis purposes, we describe a simplified model of firewalls that only supports a single list of rules with limited expressiveness. We provide and verify procedures that translate from the complex iptables language into this simple model. Based on that, we implement the verified generation of IP space partitions and minimal service matrices. An evaluation of our work on a large set of real-world firewall rulesets shows that our framework provides interesting results in many situations, and can both help and out-compete other static analysis frameworks found in related work.",
+issn="1573-0670",
+doi="10.1007/s10817-017-9445-1",
+url="https://doi.org/10.1007/s10817-017-9445-1"
+}
+
