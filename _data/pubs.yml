@@ -63,7 +63,6 @@
   arxiv: "1604.00206"
   code: "https://github.com/diekmann/Iptables_Semantics"
   slides: "https://speakerdeck.com/larsrh/semantics-preserving-simplification-of-real-world-firewall-rule-sets"
-  select: true
 - title: "Verified iptables Firewall Analysis and Verification"
   id: "verified-iptables"
   authors: ["cornelius", "lars", "julius", "max", "carle"]
@@ -71,6 +70,7 @@
   springer: true
   doi: "10.1007/s10817-017-9445-1"
   in: "Journal of Automated Reasoning (Open Access)"
+  select: true
 - title: "A Visualization Toolkit for Simplifier Traces in Isabelle/jEdit"
   id: "msc_hupel"
   authors: ["lars"]
