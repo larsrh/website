@@ -9,13 +9,15 @@ layout: default
 {% endfor %}
 
 <div class="jumbotron">
-  <div class="container">
+  <header class="container">
     <h2 class="display-3">{{ p.long_title | escape }}</h2>
-  </div>
+  </header>
 </div>
 
 <div class="container">
 
-  {{ content }}
+  <main>
+    {{ content }}
+  </main>
 
 </div>

@@ -5,15 +5,15 @@ card_theme: bg-primary text-white
 ---
 
 <div class="jumbotron">
-  <div class="container">
+  <header class="container">
     <h1 class="display-3">Lars Hupel</h1>
     <p>PhD student, <a href="https://www21.in.tum.de">Chair for Logic and Verification</a>, <a href="https://www.in.tum.de">Fakult&auml;t f&uuml;r Informatik</a>, <a href="https://www.tum.de/">Technische Universität München</a></p>
-  </div>
+  </header>
 </div>
 
 <div class="container">
 
-  <div class="card-columns card-columns-wide">
+  <main class="card-columns card-columns-wide">
     {% include card.html src="contact.html" header="Contact" icon="fa-envelope-o" %}
     {% include card.html src="profiles.html" header="Profiles" icon="fa-user" %}
     {% capture extra %}
@@ -23,6 +23,6 @@ card_theme: bg-primary text-white
     {% endcapture %}
     {% include card.html src="teaching_card_current.html" header="Teaching (current semester)" icon="fa-university" header_extra=extra %}
     {% include select_pubs_card.html style="btn-outline-primary" %}
-  </div>
+  </main>
 
 </div>

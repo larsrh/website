@@ -3,12 +3,12 @@ layout: default
 ---
 
 <div class="jumbotron">
-  <div class="container">
+  <header class="container">
     <h2 class="display-3">{{ page.long_title }}</h2>
-  </div>
+  </header>
 </div>
 
-<div class="container">
+<main class="container">
 
   {% if page.abstract %}
     <div class="m-3 hyphenate">
@@ -17,8 +17,8 @@ layout: default
     <hr>
   {% endif %}
 
-  <div class="hyphenate">
+  <article class="hyphenate">
     {{ content | toc }}
-  </div>
+  </article>
 
-</div>
+</main>
