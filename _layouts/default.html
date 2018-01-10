@@ -81,6 +81,11 @@
         $('body').bootstrapMaterialDesign();
         $('[data-toggle="tooltip"]').tooltip();
         $('.dont-show').each(function (index) { $(this).removeClass('dont-show'); });
+        $('.pub-modal-link').each(function (index) {
+          var a = $(this);
+          a.attr('data-toggle', 'modal');
+          a.attr('href', '#pub-modal-' + a.data('pub'));
+        });
       });
       $(document).on('click', '[data-toggle="lightbox"]', function(event) {
         event.preventDefault();

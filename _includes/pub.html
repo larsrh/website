@@ -1,7 +1,29 @@
 <div class="pl-3 pt-3 pub">
+  {% if include.all != "full" %}
+    <div class="modal fade" id="pub-modal-{{ pub.id }}" tabindex="-1" role="dialog" aria-labelledby="pub-label-{{ pub.id }}" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="pub-label-{{ pub.id }}">Abstract</h5>
+          </div>
+          <div class="modal-body">
+            {{ pub.abstract }}
+          </div>
+          <div class="modal-footer">
+            <a href="{{ topic.url }}" class="btn btn-primary">Details</a>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
   <div class="pr-3">
     <h5>
-      {{ pub.title }}
+      {% if include.all == "full" %}
+        {{ pub.title }}
+      {% else %}
+        <a class="pub-modal-link list-group-item-action" data-pub="{{ pub.id }}" href="{{ topic.url }}">{{ pub.title }}</a>
+      {% endif %}
     </h5>
     <p>
       <span class="pub-authors">
