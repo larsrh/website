@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<div class="jumbotron">
+  <header class="container">
+    <h2 class="display-3">
+      <i class="fa fa-fw {{ page.icon }}" aria-hidden="true"></i>
+      Research Topic: <strong>{{ page.topic }}</strong>
+    </h2>
+  </header>
+</div>
+
+<main class="container">
+
+  <h3>Publications</h3>
+
+  <div class="card-columns card-columns-wide mt-4 mb-4">
+    {% for pub in page.pubs reversed %}
+      {% capture pub_content %}
+        {% include pub.html all="full" %}
+      {% endcapture %}
+      {% include card.html no_header="true" content=pub_content %}
+    {% endfor %}
+  </div>
+
+  {{ content }}
+
+</main>

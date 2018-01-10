@@ -95,30 +95,6 @@ body {
   padding-bottom: 0;
 }
 
-.pub-container:target .pub {
-  animation-name: pub_highlight_fade;
-  animation-duration: 1s;
-  background-color: #eeeeee;
-}
-
-@keyframes pub_highlight_fade {
-  from {
-    background-color: #4caf50;
-  }
-  to {
-    background-color: #eeeeee;
-  }
-}
-
-/* https://github.com/twbs/bootstrap/issues/1768#issuecomment-46519033 */
-.pub-container:before {
-  display: block;
-  content: " ";
-  margin-top: -70px;
-  height: 70px;
-  visibility: hidden;
-}
-
 .hint {
   border-bottom: 1px dotted black;
 }
