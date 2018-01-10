@@ -3,4 +3,13 @@
     <a href="/research/" class="btn {{ include.style }}" style="border: none; background-color: white;">Full list</a>
   </div>
 {% endcapture %}
-{% include card.html src="select_pubs.html" header="Select Publications" icon="fa-file-text-o" header_extra=extra %}
+{% capture select_pubs_content %}
+  {% for topic in site.research %}
+    {% for pub in topic.pubs %}
+      {% if pub.select %}
+        {% include pub.html all="true" %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+{% endcapture %}
+{% include card.html content=select_pubs_content header="Select Publications" icon="fa-file-text-o" header_extra=extra %}

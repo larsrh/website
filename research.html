@@ -6,10 +6,17 @@ permalink: /research/
 ---
 
 <div class="card-columns card-columns-wide">
-  {% include card.html src="pubs_afp.html" header="AFP Entries" icon="fa-newspaper-o" %}
-  {% include card.html src="pubs_cakeml.html" header="CakeML" icon="fa-birthday-cake" %}
-  {% include card.html src="pubs_haskell.html" header="Teaching Haskell" icon="fa-university" %}
-  {% include card.html src="pubs_sec.html" header="Network Security" icon="fa-shield" %}
-  {% include card.html src="pubs_tools.html" header="Tools" icon="fa-wrench" %}
-  {% include card.html src="pubs_db.html" header="Databases" icon="fa-database" %}
+  {% for topic in site.research %}
+    {% capture pubs_content %}
+      {% for pub in topic.pubs %}
+        {% include pub.html %}
+      {% endfor %}
+    {% endcapture %}
+    {% capture extra %}
+      <div class="pull-right">
+        <a href="{{ topic.url }}" class="btn btn-outline-success" style="border: none; background-color: white;">Details</a>
+      </div>
+    {% endcapture %}
+    {% include card.html content=pubs_content header=topic.topic icon=topic.icon header_extra=extra %}
+  {% endfor %}
 </div>

@@ -33,6 +33,9 @@ collections:
   articles:
     output: true
     permalink: /:collection/:name/
+  research:
+    output: true
+    permalink: /:collection/:name/
 
 defaults:
   - scope:
@@ -43,5 +46,14 @@ defaults:
       nav: articles
       card_theme: bg-dark text-white
       is_article: true
+      hyphenator: true
+      description: ""
+  - scope:
+      path: ""
+      type: research
+    values:
+      layout: research
+      nav: research
+      card_theme: bg-success text-white
       hyphenator: true
       description: ""
