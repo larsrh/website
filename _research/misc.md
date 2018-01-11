@@ -76,6 +76,23 @@ pubs:
       facility which offers insight into the hierarchical structure of the simplification
       with user-defined filtering, memoization and search. The new
       simplifier trace is integrated into the Isabelle/jEdit Prover IDE.
+  - title: "The Next 1100 Haskell Programmers"
+    id: "haskell-programmers"
+    authors: ["jasmin", "lars", "tobias", "lars-n", "dmitriy"]
+    in: "Haskell Symposium, 2014"
+    select: true
+    doi: "10.1145/2633357.2633359"
+    slides: "https://speakerdeck.com/larsrh/the-next-1100-haskell-programmers"
+    abstract: |
+      We report on our experience teaching a Haskell-based functional
+      programming course to over 1100 students for two winter terms.
+      The syllabus was organized around selected material from various
+      sources. Throughout the terms, we emphasized correctness through
+      QuickCheck tests and proofs by induction. The submission architecture
+      was coupled with automatic testing, giving students the possibility
+      to correct mistakes before the deadline. To motivate the students,
+      we complemented the weekly assignments with an informal
+      competition and gave away trophies in a award ceremony.
   - title: "Clone Detection in Isabelle Theories"
     id: "isabelle-clones"
     authors: ["dominik", "lars"]

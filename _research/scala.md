@@ -1,26 +1,15 @@
 ---
-topic: Programming Languages
+topic: Scala
 icon: fa-code
-summary: |
-  Functional programming languages.
 pubs:
-  - title: "The Next 1100 Haskell Programmers"
-    id: "haskell-programmers"
-    authors: ["jasmin", "lars", "tobias", "lars-n", "dmitriy"]
-    in: "Haskell Symposium, 2014"
-    select: true
-    doi: "10.1145/2633357.2633359"
-    slides: "https://speakerdeck.com/larsrh/the-next-1100-haskell-programmers"
+  - title: "libisabelle"
+    id: "libisabelle"
+    authors: ["lars"]
+    doi: "10.5281/zenodo.591695"
+    code: "https://github.com/larsrh/libisabelle"
+    no_pdf: true
     abstract: |
-      We report on our experience teaching a Haskell-based functional
-      programming course to over 1100 students for two winter terms.
-      The syllabus was organized around selected material from various
-      sources. Throughout the terms, we emphasized correctness through
-      QuickCheck tests and proofs by induction. The submission architecture
-      was coupled with automatic testing, giving students the possibility
-      to correct mistakes before the deadline. To motivate the students,
-      we complemented the weekly assignments with an informal
-      competition and gave away trophies in a award ceremony.
+      A Scala library which talks to Isabelle. It works with multiple Isabelle versions. For more information and documentation about the project, visit <a href="/libisabelle/">its website</a>.
   - title: "Translating Scala Programs to Isabelle/HOL"
     id: "translating-scala"
     authors: ["lars", "viktor"]

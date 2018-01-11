@@ -58,7 +58,7 @@
       {% if pub.draft %}
         <a href="/pub/{{ pub.id }}.pdf" class="btn btn-primary">Draft</a>
       {% else %}
-        {% if pub.entry %}
+        {% if pub.entry or pub.no_pdf %}
         {% else %}
           <a href="/pub/{{ pub.id }}.pdf" class="btn btn-primary">PDF</a>
         {% endif %}
