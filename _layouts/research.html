@@ -2,13 +2,40 @@
 layout: default
 ---
 
-<div class="jumbotron">
+<div class="modal fade" id="modal-changelog" tabindex="-1" role="dialog" aria-labelledby="label-changelog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="label-changelog">Latest change to this page</h5>
+      </div>
+      <div class="modal-body">
+        <pre>
+commit <a href="https://github.com/larsrh/website/commit/{{ page.git.last_commit.long_sha }}">{{ page.git.last_commit.short_sha }}</a>
+Author: {{ page.git.last_commit.author_name }}
+Date: {{ page.git.last_commit.commit_date }}
+
+  {{ page.git.last_commit.message }}
+        </pre>
+      </div>
+      <div class="modal-footer">
+        <a href="https://github.com/larsrh/website/commits/{{ page.git.last_commit.long_sha }}/{{ page.path }}" class="btn btn-primary"><i class="fa fa-fw fa-external-link fa-lg" aria-hidden="true"></i> Full changelog</a>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="jumbotron pb-3">
   <header class="container">
     <h2 class="display-3">
       <i class="fa fa-fw {{ page.icon }}" aria-hidden="true"></i>
       Research Topic: <strong>{{ page.topic }}</strong>
     </h2>
+    <div class="pull-right">
+       <button type="button" data-toggle="modal" data-target="#modal-changelog" class="btn btn-outline-primary">View Changes</a>
+    </div>
   </header>
+  <br style="clear:both;">
 </div>
 
 <main class="container">
@@ -25,5 +52,6 @@ layout: default
   </div>
 
   {{ content }}
+
 
 </main>
