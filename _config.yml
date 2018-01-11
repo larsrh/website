@@ -5,6 +5,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-toc
   - jekyll-twitter-plugin
+  - jekyll-git_metadata
 title: "Lars Hupel's website"
 author:
   name: "Lars Hupel"

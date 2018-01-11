@@ -7,4 +7,5 @@ group :jekyll_plugins do
   gem "jekyll-seo-tag"
   gem "jekyll-toc"
   gem "jekyll-twitter-plugin"
+  gem "jekyll-git_metadata"
 end
