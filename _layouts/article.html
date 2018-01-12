@@ -17,8 +17,12 @@ layout: default
     <hr>
   {% endif %}
 
+  {% if page.toc %}
+    {{ content | toc_only }}
+  {% endif %}
+
   <article class="hyphenate">
-    {{ content | toc }}
+    {{ content }}
   </article>
 
 </main>
