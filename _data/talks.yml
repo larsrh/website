@@ -23,7 +23,7 @@
   recording: "https://www.youtube.com/watch?v=KcV8AMwnoXU"
 - title: The Next 1100 Haskell Programmers
   conference: "Haskell Symposium, 2014"
-  link: "/research/misc/"
+  pub: haskell-programmers
   recording: "https://youtu.be/VM6i6710A-Y?t=44s"
   slides: "https://speakerdeck.com/larsrh/the-next-1100-haskell-programmers"
 - title: State of the Typelevel
@@ -43,7 +43,7 @@
   slides: "https://speakerdeck.com/larsrh/optimusprimet-cats-edition"
 - title: Semantics-Preserving Simplification of Real-World Firewall Rule Sets
   conference: "Formal Methods, 2015"
-  link: "/research/networks/"
+  pub: iptables-simp 
   slides: "https://speakerdeck.com/larsrh/semantics-preserving-simplification-of-real-world-firewall-rule-sets"
 - title: When Types are Not Enough
   conference: "Scala World, 2015"
@@ -66,5 +66,5 @@
   slides: "https://speakerdeck.com/larsrh/how-to-test-proper-l-t-y"
 - title: "Translating Scala Programs to Isabelle/HOL"
   conference: "International Joint Conference on Automated Reasoning, 2016"
-  link: "/research/scala/"
+  pub: translating-scala
   slides: "https://speakerdeck.com/larsrh/hol-1"

@@ -1,0 +1,37 @@
+<div class="modal fade" id="pub-modal-{{ pub.id }}" tabindex="-1" role="dialog" aria-labelledby="pub-label-{{ pub.id }}" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="pub-label-{{ pub.id }}">{{ pub.title }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h6>Authors</h6>
+        <p>
+          {% include pub_authors.html %}
+        </p>
+
+        {% if topic %}
+          <h6>Research Topic &amp; Supplementary Material</h6>
+          <p>
+            <i class="fa fa-fw fa-lg {{ topic.icon }}" aria-hidden="true"></i><a href="{{ topic.url }}">{{ topic.topic }}</a>
+          </p>
+          {% if pub.entry %}
+            <p>
+              <i class="fa fa-fw fa-lg fa-cubes" aria-hidden="true"></i><a href="https://www.isa-afp.org/">Archive of Formal Proofs</a>
+            </p>
+          {% endif %}
+        {% endif %}
+
+        <h6>Abstract</h6>
+        <p class="hyphenate">
+          {{ pub.abstract }}
+        </p>
+
+        {% include pub_buttons.html %}
+      </div>
+    </div>
+  </div>
+</div>

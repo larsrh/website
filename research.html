@@ -5,18 +5,26 @@ card_theme: bg-success text-white
 permalink: /research/
 ---
 
-<div class="card-columns card-columns-wide">
-  {% for topic in site.research %}
-    {% capture pubs_content %}
-      {% for pub in topic.pubs %}
-        {% include pub.html %}
+
+<div class="row justify-content-md-center">
+  <div class="col col-lg-9">
+    <h2>Research Topics</h2>
+
+    <div class="text-center pt-3 pb-4">
+      {% for topic in site.research %}
+        <a href="{{ topic.url }}" class="btn btn-primary btn-lg">
+          <i class="fa fa-fw fa-lg {{ topic.icon }}" aria-hidden="true"></i>{{ topic.topic }}
+        </a>
       {% endfor %}
-    {% endcapture %}
-    {% capture extra %}
-      <div class="pull-right">
-        <a href="{{ topic.url }}" class="btn btn-outline-success" style="border: none; background-color: white;">Details</a>
-      </div>
-    {% endcapture %}
-    {% include card.html content=pubs_content header=topic.topic icon=topic.icon header_extra=extra %}
-  {% endfor %}
+    </div>
+
+    <h2>Publications (by year)</h2>
+    {% include pubs_by_year.html year=2018 %}
+    {% include pubs_by_year.html year=2017 %}
+    {% include pubs_by_year.html year=2016 %}
+    {% include pubs_by_year.html year=2015 %}
+    {% include pubs_by_year.html year=2014 %}
+    {% include pubs_by_year.html year=2013 %}
+    {% include pubs_by_year.html year=2011 %}
+  </div>
 </div>

@@ -8,13 +8,15 @@ pubs:
     doi: "10.5281/zenodo.591695"
     code: "https://github.com/larsrh/libisabelle"
     no_pdf: true
+    year: 2018
     abstract: |
       A Scala library which talks to Isabelle. It works with multiple Isabelle versions. For more information and documentation about the project, visit <a href="/libisabelle/">its website</a>.
   - title: "Translating Scala Programs to Isabelle/HOL"
     id: "translating-scala"
     authors: ["lars", "viktor"]
     springer: true
-    in: "International Joint Conference on Automated Reasoning (IJCAR), 2016"
+    in: "International Joint Conference on Automated Reasoning (IJCAR)"
+    year: 2016
     doi: "10.1007/978-3-319-40229-1_38"
     arxiv: "1607.01539"
     slides: "https://speakerdeck.com/larsrh/hol-1"

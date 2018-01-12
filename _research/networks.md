@@ -7,7 +7,8 @@ pubs:
   - title: "Directed Security Policies: A Stateful Network Implementation"
     id: "directed-security-policies"
     authors: ["cornelius", "lars", "carle"]
-    in: "Third International Workshop on Engineering Safety and Security Systems (ESSS), 2014"
+    in: "Third International Workshop on Engineering Safety and Security Systems (ESSS)"
+    year: 2014
     doi: "10.4204/EPTCS.150.3"
     abstract: |
       Large systems are commonly internetworked. A security policy describes the communication relationship
@@ -25,7 +26,8 @@ pubs:
   - title: "Semantics-Preserving Simplification of Real-World Firewall Rule Sets"
     id: "iptables-simp"
     authors: ["cornelius", "lars", "carle"]
-    in: "Formal Methods (FM), 2015"
+    in: "Formal Methods (FM)"
+    year: 2015
     springer: true
     doi: "10.1007/978-3-319-19249-9_13"
     arxiv: "1604.00206"
@@ -51,14 +53,16 @@ pubs:
   - title: "IP Addresses"
     id: "afp-ip"
     authors: ["cornelius", "julius", "lars"]
-    in: "Archive of Formal Proofs, 2016"
+    in: "Archive of Formal Proofs"
+    year: 2016
     entry: "https://www.isa-afp.org/entries/IP_Addresses.html"
     abstract: |
       This entry contains a definition of IP addresses and a library to work with them. Generic IP addresses are modeled as machine words of arbitrary length. Derived from this generic definition, IPv4 addresses are 32bit machine words, IPv6 addresses are 128bit words. Additionally, IPv4 addresses can be represented in dot-decimal notation and IPv6 addresses in (compressed) colon-separated notation. We support toString functions and parsers for both notations. Sets of IP addresses can be represented with a netmask (e.g. 192.168.0.0/255.255.0.0) or in CIDR notation (e.g. 192.168.0.0/16). To provide executable code for set operations on IP address ranges, the library includes a datatype to work on arbitrary intervals of machine words.
   - title: "Iptables Semantics"
     id: "afp-iptables"
     authors: ["cornelius", "lars"]
-    in: "Archive of Formal Proofs, 2016"
+    in: "Archive of Formal Proofs"
+    year: 2016
     entry: "https://www.isa-afp.org/entries/Iptables_Semantics.html"
     abstract: |
       We present a big step semantics of the filtering behavior of the Linux/netfilter iptables firewall. We provide algorithms to simplify complex iptables rulests to a simple firewall model and to verify spoofing protection of a ruleset. Internally, we embed our semantics into ternary logic, ultimately supporting every iptables match condition by abstracting over unknowns. Using this AFP entry and all entries it depends on, we created an easy-to-use, stand-alone Haskell tool called fffuu. The tool does not require any input — except for the iptables-save dump of the analyzed firewall — and presents interesting results about the user's ruleset. Real-Word firewall errors have been uncovered, and the correctness of rulesets has been proved, with the help of our tool.
@@ -67,7 +71,8 @@ pubs:
     authors: ["cornelius", "lars", "julius", "max", "carle"]
     springer: true
     doi: "10.1007/s10817-017-9445-1"
-    in: "Journal of Automated Reasoning (Open Access), 2018"
+    in: "Journal of Automated Reasoning (Open Access)"
+    year: 2018
     select: true
     abstract: |
       This article summarizes our efforts around the formally verified static analysis of

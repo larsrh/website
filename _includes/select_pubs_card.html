@@ -7,7 +7,9 @@
   {% for topic in site.research %}
     {% for pub in topic.pubs %}
       {% if pub.select %}
-        {% include pub.html all="true" %}
+        <div class="pl-3 pt-3">
+          {% include pub.html layout="select" %}
+        </div>
       {% endif %}
     {% endfor %}
   {% endfor %}

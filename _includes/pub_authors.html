@@ -1,0 +1,17 @@
+<span class="pub-authors">
+  {% for author in pub.authors %}
+    {% for author_desc in site.data.authors %}
+      {% if author == author_desc.id %}
+        <span class="pub-author">{% if author_desc.link %}<a href="{{ author_desc.link }}" class="text-dark">{{ author_desc.name }}</a>{% else %}{{ author_desc.name }}{% endif %}</span>
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+</span>
+{% if pub.draft != true %}
+  <br>
+  {{ pub.in }}{% if pub.in %}, {% endif %}{{ pub.year }}
+{% endif %}
+{% if pub.springer %}
+  <br>
+  <small class="text-muted">The final publication is available at <a href="http://link.springer.com/" class="text-muted">Springer Link</a>.</small>
+{% endif %}

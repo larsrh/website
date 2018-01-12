@@ -1,84 +1,34 @@
-<div class="pl-3 pt-3 pub">
-  {% if include.all != "full" %}
-    <div class="modal fade" id="pub-modal-{{ pub.id }}" tabindex="-1" role="dialog" aria-labelledby="pub-label-{{ pub.id }}" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="pub-label-{{ pub.id }}">Abstract</h5>
-          </div>
-          <div class="modal-body hyphenate">
-            {{ pub.abstract }}
-          </div>
-          <div class="modal-footer">
-            <a href="{{ topic.url }}" class="btn btn-primary">Details</a>
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  {% endif %}
-  <div class="pr-3">
-    <h5>
-      {% if include.all == "full" %}
-        {{ pub.title }}
-      {% else %}
-        <a class="pub-modal-link list-group-item-action" data-pub="{{ pub.id }}" href="{{ topic.url }}">{{ pub.title }}</a>
-      {% endif %}
-    </h5>
-    <p>
-      <span class="pub-authors">
-        {% for author in pub.authors %}
-          {% for author_desc in site.data.authors %}
-            {% if author == author_desc.id %}
-              <span class="pub-author">{% if author_desc.link %}<a href="{{ author_desc.link }}" class="text-dark">{{ author_desc.name }}</a>{% else %}{{ author_desc.name }}{% endif %}</span>
-            {% endif %}
-          {% endfor %}
-        {% endfor %}
-      </span>
-      {% if pub.draft != true %}
-        <br>
-        {{ pub.in }}
-      {% endif %}
-      {% if pub.springer %}
-        <br>
-        <small class="text-muted">The final publication is available at <a href="http://link.springer.com/" class="text-muted">Springer Link</a>.</small>
-      {% endif %}
-    </p>
-    {% if include.all == "full" %}
-      <p class="hyphenate">
-        {{ pub.abstract }}
-      </p>
+{% if include.layout != "full" %}
+  {% include pub_modal.html %}
+{% endif %}
+<div>
+  {% assign pdf_link="/pub/" | append: pub.id | append: ".pdf" %}
+  {% if pub.entry %}
+    {% assign main_link=pub.entry %}
+  {% elsif pub.draft %}
+    {% assign main_link=pdf_link %}
+  {% else %}
+    {% if pub.no_pdf %}
+      {% assign main_link=pub.code %}
+    {% else %}
+      {% assign main_link=pdf_link %}
     {% endif %}
-  </div>
-  {% if include.all == "full" or include.all == "true" %}
-    <div class="pull-right">
-      {% if pub.entry %}
-        <a href="{{ pub.entry }}" class="btn btn-primary">Entry</a>
-      {% endif %}
-      {% if pub.draft %}
-        <a href="/pub/{{ pub.id }}.pdf" class="btn btn-primary">Draft</a>
-      {% else %}
-        {% if pub.entry or pub.no_pdf %}
-        {% else %}
-          <a href="/pub/{{ pub.id }}.pdf" class="btn btn-primary">PDF</a>
-        {% endif %}
-      {% endif %}
-      {% if pub.draft != true and pub.bib != false %}
-        <a href="/bib/{{ pub.id }}.bib" class="btn btn-primary">BibTeX</a>
-      {% endif %}
-      {% if pub.doi %}
-        <a href="http://dx.doi.org/{{ pub.doi }}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="{{ pub.doi }}">DOI</a>
-      {% endif %}
-      {% if pub.arxiv %}
-        <a href="http://arxiv.org/abs/{{ pub.arxiv }}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="{{ pub.arxiv }}">arXiv</a>
-      {% endif %}
-      {% if pub.code %}
-        <a href="{{ pub.code }}" class="btn btn-primary">Code</a>
-      {% endif %}
-      {% if pub.slides %}
-        <a href="{{ pub.slides }}" class="btn btn-primary">Slides</a>
-      {% endif %}
-    </div>
-    <br style="clear: both;">
+  {% endif %}
+
+  {% if include.layout == "brief" %}
+    <a class="pub-modal-link" data-pub="{{ pub.id }}" href="{{ main_link }}">{{ pub.title }}</a>
+  {% else %}
+    <h5>{{ pub.title }}</h5>
+  {% endif %}
+  <p>
+    {% include pub_authors.html %}
+  </p>
+  {% if include.layout == "full" %}
+    <p class="hyphenate">
+      {{ pub.abstract }}
+    </p>
   {% endif %}
 </div>
+{% if include.layout != "brief" %}
+  {% include pub_buttons.html %}
+{% endif %}

@@ -1,0 +1,27 @@
+<br class="mb-2">
+
+{% capture year_content %}
+  <h3>{{ include.year }}</h3>
+
+  <ul class="mt-3">
+    {% for topic in site.research %}
+      {% for pub in topic.pubs %}
+        {% if pub.year == include.year %}
+          <li>
+            {% include pub.html layout="brief" %}
+          </li>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+
+    {% for pub in site.data.misc_pubs %}
+      {% if pub.year == include.year %}
+        <li>
+          {% include pub.html layout="brief" %}
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+{% endcapture %}
+
+{% include card.html content=year_content no_header=true %}
