@@ -1,7 +1,3 @@
-body {
-  padding-top: 3.5rem;
-}
-
 @media (min-width: 576px) {
   .card-columns-wide {
     column-count: 1 !important;
