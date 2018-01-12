@@ -16,7 +16,7 @@
         {% if topic %}
           <h6>Research Topic &amp; Supplementary Material</h6>
           <p>
-            <i class="fa fa-fw fa-lg {{ topic.icon }}" aria-hidden="true"></i><a href="{{ topic.url }}">{{ topic.topic }}</a>
+            <i class="fa fa-fw fa-lg {{ topic.icon }}" aria-hidden="true"></i><a data-id="{{ pub.id }}" href="{{ topic.url }}">{{ topic.topic }}</a>
           </p>
           {% if pub.entry %}
             <p>
