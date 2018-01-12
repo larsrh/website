@@ -2,3 +2,4 @@ vendor
 _site
 .tweet-cache
 .git-metadata
+venv
