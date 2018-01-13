@@ -1,11 +1,5 @@
 url: "https://lars.hupel.info"
 logo: "/img/profile.jpg"
-plugins:
-  - jekyll-sitemap
-  - jekyll-seo-tag
-  - jekyll-toc
-  - jekyll-twitter-plugin
-  - jekyll-git_metadata
 title: "Lars Hupel's website"
 author:
   name: "Lars Hupel"
