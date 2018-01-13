@@ -9,3 +9,8 @@ sudo: false
 env:
   global:
     - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+
+addons:
+  apt:
+    packages:
+      - oracle-java8-set-default
