@@ -18,7 +18,7 @@ So, I took some time to describe the hardware & software on the machines (I have
 
 ### Hardware
 
-The base hardware is an [HP ProLiant N40L](http://n40l.wikia.com).[^1]
+The base hardware is an [HP ProLiant N40L](http://n40l.wikia.com).
 This is a cute little cube with a rather slow, but sufficient CPU (AMD Neo, 1.5 GHz).
 This model is already some years old: it is from Gen 7 with dual-core AMD CPUs, whereas the latest model as of writing is a Gen 10 with dual-core Opteron.
 Unfortunately, the N40L Wikia only covers Gen 7 and Gen 8, but you should be able to find ample information on the newer models on the web as well, since there's an active user base.
@@ -51,6 +51,19 @@ I hear that some people have put a graphics card in there to enable HD video pla
 However, I can't really say how well that works.
 Make sure to read the relevant forum threads before you buy anything.
 
+**Update:**
+As of January 2018, my trusty old N36L (an older model than the N40L that I operated at another location) died.
+I am pretty confident that some capacitor in the PSU blew off.
+Unfortunately, because it's not a "real server", there's no secondary PSU in the device.
+A replacement PSU would have been prohibitively expensive, so instead, I bought the latest model, a Gen 10, with an AMD Opteron X3216.
+There are a few significant changes from the Gen 7 series:
+
+* Hard disks are still hot-swappable, but without enclosure bays, and they can't be booted from.
+* However, there is still a bootable ODD slot that easily accommodates an SSD. For whatever reason, HP didn't add another SATA power plug to the device, so you'll have to use a Floppy-to-SATA adapter.
+* There are sufficiently many USB 3 ports, so a PCIe controller is not necessary.
+* It supports booting via UEFI. I have hence partitioned the boot disk as GPT.
+* The CPU supports AES-NI. If I were to re-setup the encrypted device, I would have chosen AES accordingly, instead of Twofish.
+
 ### Partitioning
 
 The four big internal disks are formatted with a DOS partition table and combined using Linux' own dm-raid to a software RAID 5.
@@ -65,21 +78,6 @@ The performance is not great, but sufficient for NAS purposes.
 Below is the output of `cryptsetup benchmark` for, in order: the N36L cube, the N40L cube, and for reference, my laptop (a quad-core i7-6920HQ at 2.9 GHz).
 
 ```
-# N36L
-#  Algorithm | Key |  Encryption |  Decryption
-     aes-cbc   128b    59.4 MiB/s    69.4 MiB/s
- serpent-cbc   128b    27.0 MiB/s    42.1 MiB/s
- twofish-cbc   128b    62.7 MiB/s    67.1 MiB/s
-     aes-cbc   256b    48.7 MiB/s    52.6 MiB/s
- serpent-cbc   256b    28.9 MiB/s    41.9 MiB/s
- twofish-cbc   256b    63.2 MiB/s    67.1 MiB/s
-     aes-xts   256b    64.2 MiB/s    67.6 MiB/s
- serpent-xts   256b    37.8 MiB/s    38.6 MiB/s
- twofish-xts   256b    65.3 MiB/s    64.8 MiB/s
-     aes-xts   512b    50.1 MiB/s    50.7 MiB/s
- serpent-xts   512b    38.1 MiB/s    38.7 MiB/s
- twofish-xts   512b    65.2 MiB/s    64.7 MiB/s
-
 # N40L
 #  Algorithm | Key |  Encryption |  Decryption
      aes-cbc   128b   129.8 MiB/s   144.2 MiB/s
@@ -94,6 +92,21 @@ Below is the output of `cryptsetup benchmark` for, in order: the N36L cube, the 
      aes-xts   512b   108.8 MiB/s   109.0 MiB/s
  serpent-xts   512b   126.5 MiB/s   128.3 MiB/s
  twofish-xts   512b   138.4 MiB/s   139.0 MiB/s
+
+# Gen 10
+#  Algorithm | Key |  Encryption |  Decryption
+     aes-cbc   128b   538.7 MiB/s  1403.3 MiB/s
+ serpent-cbc   128b    71.2 MiB/s   229.4 MiB/s
+ twofish-cbc   128b   147.3 MiB/s   202.2 MiB/s
+     aes-cbc   256b   415.1 MiB/s  1169.8 MiB/s
+ serpent-cbc   256b    71.0 MiB/s   229.1 MiB/s
+ twofish-cbc   256b   147.8 MiB/s   201.6 MiB/s
+     aes-xts   256b  1170.4 MiB/s  1161.7 MiB/s
+ serpent-xts   256b   242.1 MiB/s   223.1 MiB/s
+ twofish-xts   256b   191.4 MiB/s   198.0 MiB/s
+     aes-xts   512b  1001.2 MiB/s  1001.6 MiB/s
+ serpent-xts   512b   242.1 MiB/s   222.9 MiB/s
+ twofish-xts   512b   191.6 MiB/s   197.6 MiB/s
 
 # i7-6920HQ
 #  Algorithm | Key |  Encryption |  Decryption
@@ -112,6 +125,7 @@ Below is the output of `cryptsetup benchmark` for, in order: the N36L cube, the 
 ```
 
 I expect the Gen 10 devices to be much faster than my cubes on crypto operations, though.
+(**Update:** They are.)
 
 I only recently discovered `lsblk`, which is a handy tool for displaying a hierarchical view of the block devices, partitions, RAID and crypto volumes.
 Here's an excerpt from the external disks:
@@ -193,5 +207,4 @@ Some parts, like maildirs, are synced to the other location with Unison.
 Others, like configuration, are not backed up at all.
 But I am currently in the process of setting up [Duplicati 2](https://www.duplicati.com/), which offers a convenient web interface.[^2]
 
-[^1]: The other location has an earlier model, N36L.
 [^2]: Do not construe this as a recommendation of Duplicati. Research backup software yourself.
