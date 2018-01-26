@@ -8,4 +8,6 @@ bundle exec htmlproofer --checks-to-ignore LinkCheck --assume-extension --disabl
 virtualenv venv
 source ./venv/bin/activate
 pip install html5validator
-html5validator --root ./_site --ignore 'Illegal character in fragment' google
+html5validator --root ./_site \
+  --ignore 'Illegal character in fragment' google \
+  --blacklist pub

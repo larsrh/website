@@ -4,10 +4,12 @@
   {% endif %}
   {% if pub.draft %}
     <a href="/pub/{{ pub.id }}.pdf" class="btn btn-primary">Draft</a>
+    <a href="/pub/{{ pub.id }}.html" class="btn btn-primary">Draft (HTML)</a>
   {% else %}
     {% if pub.entry or pub.no_pdf %}
     {% else %}
       <a href="/pub/{{ pub.id }}.pdf" class="btn btn-primary">PDF</a>
+      <a href="/pub/{{ pub.id }}.html" class="btn btn-primary">HTML</a>
     {% endif %}
   {% endif %}
   {% if pub.draft != true and pub.bib != false %}
