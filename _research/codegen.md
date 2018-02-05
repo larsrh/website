@@ -41,3 +41,7 @@ pubs:
 ### Goal
 
 Development of a verified code generator from Isabelle/HOL to CakeML, a verified subset of Standard ML.
+
+### Supplementary Material
+
+* [Formalization for "A Verified Compiler from Isabelle/HOL to CakeML"](/pub/isabelle-cakeml-supplements.zip), submitted: 2017-10-20
