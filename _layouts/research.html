@@ -42,8 +42,6 @@ Date: {{ page.git.last_commit.commit_date }}
 
 <main class="container">
 
-  {{ content }}
-
   <h3>Publications</h3>
 
   <div class="card-columns card-columns-wide mt-4 mb-4">
@@ -56,5 +54,7 @@ Date: {{ page.git.last_commit.commit_date }}
       {% include card.html no_header="true" content=pub_content data_id=pub.id %}
     {% endfor %}
   </div>
+
+  {{ content }}
 
 </main>
