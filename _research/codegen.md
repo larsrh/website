@@ -44,4 +44,6 @@ Development of a verified code generator from Isabelle/HOL to CakeML, a verified
 
 ### Supplementary Material
 
-* [Formalization for "A Verified Compiler from Isabelle/HOL to CakeML"](/pub/isabelle-cakeml-supplements.zip), submitted: 2017-10-20
+* [Formalization for "A Verified Compiler from Isabelle/HOL to CakeML"](/pub/isabelle-cakeml-supplements.zip)<br>
+  Submitted: 2017-10-20<br>
+  Archived as: DOI [10.5281/zenodo.1167616](http://doi.org/10.5281/zenodo.1167616)
