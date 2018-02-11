@@ -1,3 +1,8 @@
+- pub_date: 2010-04-21
+  title: "Analysis für Informatiker"
+  abstract: "Inoffizielles Skript zur Vorlesung „Analysis für Informatiker“ des WS 2009/2010, gehalten von Prof. Dr. P. Rentrop, niedergeschrieben und illustriert von Markus Grimm, Andreas Heider, Lars Hupel, Michael Kerscher, Philipp Meyer, Janosch Peters und Sylvester Tremmel."
+  link: "/pub/skript-analysis.pdf"
+  lang: de
 - pub_date: 2010-09-22
   title: "Überholt: Subversion ist obsolet"
   journal: "KaffeeKlatsch"

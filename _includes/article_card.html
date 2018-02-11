@@ -23,7 +23,7 @@
           {% else %}
             Published
           {% endif %}
-          {% if article.is_article %}{% else %}in <em>{{ article.journal }}</em>,{% endif %} {{ article.pub_date }}.
+          {% if article.is_article %}{% elsif article.journal %}in <em>{{ article.journal }}</em>,{% endif %} {{ article.pub_date }}.
         </small>
       </div>
       <div class="pull-right">
