@@ -1,6 +1,7 @@
 - id: lars
   name: "Lars Hupel"
   link: "/"
+  orcid: "0000-0002-8442-856X"
 - id: julius
   name: "Julius Michaelis"
   link: "https://liftm.de/"
@@ -10,26 +11,32 @@
 - id: peter
   name: "Peter Lammich"
   link: "http://www21.in.tum.de/~lammich/"
+  orcid: "0000-0003-3576-0504"
 - id: cornelius
   name: "Cornelius Diekmann"
   link: "https://www.net.in.tum.de/members/diekmann/"
+  orcid: "0000-0002-3026-2621"
 - id: tobias
   name: "Tobias Nipkow"
   link: "https://www21.in.tum.de/~nipkow/"
+  orcid: "0000-0003-0730-515X"
 - id: jasmin
   name: "Jasmin Christian Blanchette"
   link: "http://www.cs.vu.nl/~jbe248/"
+  orcid: "0000-0002-8367-0936"
 - id: lars-n
   name: "Lars Noschinski"
   link: "https://www21.in.tum.de/~noschinl/"
 - id: dmitriy
   name: "Dmitriy Traytel"
   link: "http://people.inf.ethz.ch/trayteld/"
+  orcid: "0000-0001-7982-2768"
 - id: carle
   name: "Georg Carle"
   link: "https://www.net.in.tum.de/members/carle/"
+  orcid: "0000-0002-2347-1839"
 - id: viktor
-  name: "Viktor Kuncak"
+  name: "Viktor Kunčak"
   link: "http://lara.epfl.ch/~kuncak/"
 - id: dominik
   name: "Dominik Vinan"
