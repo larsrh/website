@@ -22,9 +22,6 @@
 - name: Instagram
   icon: fa-instagram
   link: "https://instagram.com/larsr_h"
-- name: Keybase
-  icon: fa-lock
-  link: "https://keybase.io/larsrh"
 - name: Speaker Deck
   icon: fa-desktop
   link: "https://speakerdeck.com/larsrh"
