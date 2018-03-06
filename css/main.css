@@ -133,3 +133,7 @@
 dd {
   margin-left: 1em;
 }
+
+dt {
+  font-weight: 500;
+}
