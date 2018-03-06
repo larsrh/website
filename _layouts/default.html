@@ -102,6 +102,11 @@
             sessionStorage.removeItem('selected');
           }
         });
+        var hash = $(location).attr('hash');
+        if (hash.startsWith('#pub-modal')) {
+          history.replaceState("", document.title, window.location.pathname);
+          setTimeout(function() { $(hash).modal(); }, 200);
+        }
       });
       $(document).on('click', '[data-toggle="lightbox"]', function(event) {
         event.preventDefault();
