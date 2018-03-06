@@ -50,6 +50,35 @@ pubs:
 ### Goal
 
 Development of a verified code generator from Isabelle/HOL to CakeML, a verified subset of Standard ML.
+The vision of this project is to provide an alternative (or extension) to the current code generation facility that reduces the trusted code base.
+
+### FAQ
+
+What is the trusted code base of the pipeline?
+: We rely on faithful export from Lem to Isabelle, an unverified printer of CakeML AST to CakeML source text, and the kernel of Isabelle.
+There is ongoing work to use [OpenTheory](http://www.gilith.com/software/opentheory/) to get a more faithful representation of the CakeML formalization in Isabelle.
+
+Does the pipeline target existing CakeML library constructs, like the built-in lists?
+: No, it does not, and it is not intended at the moment.
+
+Does the pipeline target existing CakeML native constructs, like machine integers?
+: No, it does not, but it is intended for the future, and actively being worked on.
+
+Does that mean that arithmetic on natural numbers in Isabelle is mapped to unary in CakeML?
+: That is accurate: `nat`s are treated as a proper datatype with `Zero` and `Suc` constructors.
+
+How are (8-bit) characters treated?
+: The most naive possible translation, 256-way enumerations, would lead to very large code sizes. Instead, we translate characters to bytes, i.e. 8-tuples of `bool`s.
+
+Is the generated code guaranteed to terminate?
+: The current Isabelle code generator only guarantees partial correctness (which has been proved on paper).
+While our work is designed for total correctness (all functions that are exported are internally proved to be terminating), we have only proved partial correctness so far.
+The CakeML compiler team has proved total correctness.
+
+Why isn't there a full compilation pipeline in the AFP?
+: We're working on it.
+Some parts of it are already available as stand-alone entries, and we want to make sure it's published in modular parts.
+In the meantime, use the packaged version that accompanies the main paper ([see below](#supplementary-material)).
 
 ### Supplementary Material
 
