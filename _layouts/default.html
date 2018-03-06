@@ -92,7 +92,7 @@
         $('.pub-modal-link').each(function (index) {
           var a = $(this);
           a.attr('data-toggle', 'modal');
-          a.attr('href', '#pub-modal-' + a.data('pub'));
+          a.attr('data-target', '#pub-modal-' + a.data('pub'));
         });
         $('.card[data-id]').each(function (index) {
           var card = $(this);
