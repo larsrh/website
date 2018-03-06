@@ -36,6 +36,15 @@ pubs:
       or proofs. However, this code generation needs to be trusted. Except for
       the HOL4 system, which has a proof producing code generator for a subset of ML.
       We go one step further and provide a verified compiler from Isabelle/HOL to CakeML. More precisely we combine a simple proof producing translation of recursion equations in Isabelle/HOL into a deeply embedded term language with a fully verified compilation chain to the target language CakeML.
+  - title: "Isabelle/CakeML"
+    id: "lem-isabelle-cakeml"
+    authors: ["lars"]
+    code: "https://github.com/larsrh/isabelle-cakeml"
+    no_pdf: true
+    bib: false
+    year: 2018
+    abstract: |
+      CakeML is a functional programming language with a proven-correct compiler and runtime system. This repository contains an unofficial version of the CakeML semantics that has been exported from the Lem specifications to Isabelle. Additionally, there are some hand-written theory files that adapt the exported code to Isabelle, e.g. termination proofs and session specifications.
 ---
 
 ### Goal
