@@ -4,12 +4,18 @@
     - name: Semantik
       role: Übungsleitung
       link: "https://www21.in.tum.de/teaching/semantik/WS1718/"
+    - name: Functional Data Structures
+      role: Seminar
+      link: "https://www21.in.tum.de/teaching/fds_seminar/WS17/"
 - semester: "Sommersemester 2017"
   id: ss17
   lectures:
     - name: Logik
       role: Übungsleitung
       link: "https://www21.in.tum.de/teaching/logik/SS17/"
+    - name: Formal Proof in Mathematics and Computer Science
+      role: Seminar
+      link: "https://www21.in.tum.de/teaching/proof21/SS17/"
 - semester: "Wintersemester 2016/17"
   id: ws1617
   lectures:
