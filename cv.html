@@ -6,8 +6,13 @@ permalink: /cv/
 hyphenator: true
 ---
 
+<div class="row justify-content-md-center mb-4">
+  <div class="col col-md-6">
+    {% include synopsis.html %}
+  </div>
+</div>
+
 <div class="card-columns card-columns-wide">
-  {% include card.html src="synopsis.html" header="Synopsis" icon="fa-user" %}
   {% include card.html src="education.html" header="Education" icon="fa-graduation-cap" %}
   {% include card.html src="work.html" header="Work" icon="fa-briefcase" %}
   {% include select_pubs_card.html style="btn-outline-danger" %}
