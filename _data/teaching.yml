@@ -1,3 +1,15 @@
+- semester: "Sommersemester 2018"
+  id: ss18
+  lectures:
+    - name: Logik
+      role: Übungsleitung
+      link: "https://www21.in.tum.de/teaching/logik/SS18/"
+    - name: Formal Proof in Mathematics and Computer Science
+      role: Seminar
+      link: "https://www21.in.tum.de/teaching/proof21/SS18/"
+    - name: AI Planning
+      role: Seminar
+      link: "https://www21.in.tum.de/teaching/planning/SS18/"
 - semester: "Wintersemester 2017/18"
   id: ws1718
   lectures:
