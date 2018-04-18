@@ -29,8 +29,11 @@ pubs:
   - title: "A Verified Compiler from Isabelle/HOL to CakeML"
     id: "isabelle-cakeml"
     authors: ["lars", "tobias"]
+    in: "European Symposium on Programming (ESOP, Open Access)"
+    springer: true
     year: 2018
     doi: "10.1007/978-3-319-89884-1_35"
+    select: true
     abstract: |
       Many theorem provers can generate functional programs from definitions
       or proofs. However, this code generation needs to be trusted. Except for
