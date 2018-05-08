@@ -43,7 +43,7 @@ The disadvantage of that is that `smartctl` will probably never be able to get d
 
 Most of the disks (12 in total) are WD Red.
 For historic reasons (WD Red wasn't available) there are still two WD Green in the N36L cube; the other two have failed already.
-I've also replaced one of the WD Reds before it filed, because S.M.A.R.T. was reporting a few bad blocks.
+I've also replaced one of the WD Reds before it failed, because S.M.A.R.T. was reporting a few bad blocks.
 
 If you're considering buying a ProLiant Microserver, be prepared to fiddle around a bit.
 Their nicely compact form is convenient for placing them on a physical desk, but apart from swapping disks into and out of the bays, every hardware operation is a bit tricky.
