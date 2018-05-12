@@ -49,7 +49,7 @@ defaults:
       type: research
     values:
       layout: research
-      nav: research
+      nav: academic
       card_theme: bg-success text-white
       hyphenator: true
       description: ""

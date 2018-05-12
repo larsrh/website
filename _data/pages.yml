@@ -6,14 +6,16 @@
   name: Resume
   nav_theme: navbar-dark bg-danger
   long_title: "Resume"
-- id: research
-  name: Research
+- id: academic
+  name: Academic
   nav_theme: navbar-dark bg-success
-  long_title: "Research & Publications"
-- id: teaching
-  name: Teaching
-  nav_theme: navbar-dark bg-success
-  long_title: "Teaching"
+  subpages:
+    - id: research
+      name: Research
+      long_title: "Research & Publications"
+    - id: teaching
+      name: Teaching
+      long_title: "Teaching"
 - id: projects
   name: Projects
   nav_theme: navbar-dark bg-info
