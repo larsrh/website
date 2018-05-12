@@ -12,7 +12,7 @@
   long_title: "Research & Publications"
 - id: teaching
   name: Teaching
-  nav_theme: navbar-light bg-warning
+  nav_theme: navbar-dark bg-success
   long_title: "Teaching"
 - id: projects
   name: Projects

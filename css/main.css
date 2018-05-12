@@ -78,10 +78,6 @@
   line-height: 1.2em;
 }
 
-.card-header .btn-outline-primary {
-  color: #2196f3 !important;
-}
-
 /* users with disabled JS will see accordion fully unfolded, with enabled JS jQuery folds those */
 .dont-show {
   display: block;
