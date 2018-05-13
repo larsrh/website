@@ -16,10 +16,22 @@
       {% endif %}
     {% endfor %}
 
+    {% if p.subpages %}
+      {% for sub_page_desc in p.subpages %}
+        {% if sub_page_desc.id == page.id %}
+          {% assign sub_p = sub_page_desc %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+
     {% if page.is_article %}
       {% assign page_name = page.header %}
     {% elsif p.title != false %}
-      {% assign page_name = p.name %}
+      {% if sub_p %}
+        {% assign page_name = p.name | append: ' &middot; ' | append: sub_p.name %}
+      {% else %}
+        {% assign page_name = p.name %}
+      {% endif %}
     {% else %}
       {% assign page_name = "" %}
     {% endif %}
