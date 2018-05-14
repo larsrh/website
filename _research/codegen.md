@@ -72,6 +72,7 @@ Does that mean that arithmetic on natural numbers in Isabelle is mapped to unary
 
 How are (8-bit) characters treated?
 : The most naive possible translation, 256-way enumerations, would lead to very large code sizes. Instead, we translate characters to bytes, i.e. 8-tuples of `bool`s.
+[As of Isabelle2018](http://isabelle.in.tum.de/repos/isabelle/rev/1f9f973eed2a), this will become the default of code generation in Isabelle, including other (unverified) targets.
 
 Is the generated code guaranteed to terminate?
 : The current Isabelle code generator only guarantees partial correctness (which has been proved on paper).
