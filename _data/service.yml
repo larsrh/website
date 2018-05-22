@@ -26,6 +26,14 @@
   role: "Programme Committee, Organisation"
   link: "https://typelevel.org/event/2017-06-summit-copenhagen/"
   date: 2017
+- text: Typelevel Summit Boston
+  role: "Programme Committee, Organisation"
+  link: "https://typelevel.org/event/2018-03-summit-boston/"
+  date: 2018  
+- text: Typelevel Summit Berlin
+  role: "Programme Committee, Organisation"
+  link: "https://typelevel.org/event/2018-05-summit-berlin/"
+  date: 2018
 - text: Scala Days
   role: "Programme Committee"
   link: "https://eu.scaladays.org/"
