@@ -23,6 +23,11 @@
               <i class="fa fa-fw fa-lg fa-cubes" aria-hidden="true"></i><a href="https://www.isa-afp.org/">Archive of Formal Proofs</a>
             </p>
           {% endif %}
+          {% if pub.errata %}
+            <p>
+              <i class="fa fa-fw fa-lg fa-exclamation-triangle" aria-hidden="true"></i><a href="{{ topic.url }}#errata">Errata</a>
+            </p>
+          {% endif %}
         {% endif %}
 
         <h6>Abstract</h6>
