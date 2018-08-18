@@ -96,6 +96,6 @@ In the paper and in the supplementary material, we talk about _overlapping patte
 This is not accurate according to the way it is defined in the formalization.
 The function `overlapping` checks for _matching_ patterns, not for _overlapping_ patterns.
 For example, the two patterns `C A y` and `C x B` are not matching, but overlapping:
-the value `C A B` matches both patterns, but there is no substitution that transforms one pattern in the other.
+the value `C A B` matches both patterns, but there is no substitution that transforms one pattern into the other.
 Luckily, this problem does not affect correctness of the translation; it is only potentially confusing to the reader, who will find an oddly-named definition that means something unexpected.
 The only change required to fix this problem is to rename the offending constant `overlapping` to `matching`.
