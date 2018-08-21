@@ -30,7 +30,6 @@ pubs:
     id: "isabelle-cakeml"
     authors: ["lars", "tobias"]
     in: "European Symposium on Programming (ESOP, Open Access)"
-    errata: true
     springer: true
     year: 2018
     doi: "10.1007/978-3-319-89884-1_35"
@@ -89,13 +88,3 @@ In the meantime, use the packaged version that accompanies the main paper ([see 
 * [Formalization for "A Verified Compiler from Isabelle/HOL to CakeML"](/pub/isabelle-cakeml-supplements.zip)<br>
   Submitted: 2017-10-20<br>
   Archived as: DOI [10.5281/zenodo.1167616](http://doi.org/10.5281/zenodo.1167616)
-
-### Errata
-
-In the paper and in the supplementary material, we talk about _overlapping patterns_ (§5.3 in the paper).
-This is not accurate according to the way it is defined in the formalization.
-The function `overlapping` checks for _matching_ patterns, not for _overlapping_ patterns.
-For example, the two patterns `C A y` and `C x B` are not matching, but overlapping:
-the value `C A B` matches both patterns, but there is no substitution that transforms one pattern into the other.
-Luckily, this problem does not affect correctness of the translation; it is only potentially confusing to the reader, who will find an oddly-named definition that means something unexpected.
-The only change required to fix this problem is to rename the offending constant `overlapping` to `matching`.
