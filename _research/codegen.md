@@ -45,7 +45,14 @@ pubs:
     entry: "https://www.isa-afp.org/entries/CakeML.html"
     year: 2018
     abstract: |
-       CakeML is a functional programming language with a proven-correct compiler and runtime system. This entry contains an unofficial version of the CakeML semantics that has been exported from the Lem specifications to Isabelle. Additionally, there are some hand-written theory files that adapt the exported code to Isabelle and port proofs from the HOL4 formalization, e.g. termination and equivalence proofs.
+      CakeML is a functional programming language with a proven-correct compiler and runtime system. This entry contains an unofficial version of the CakeML semantics that has been exported from the Lem specifications to Isabelle. Additionally, there are some hand-written theory files that adapt the exported code to Isabelle and port proofs from the HOL4 formalization, e.g. termination and equivalence proofs.
+  - title: "Certifying Dictionary Construction in Isabelle/HOL"
+    id: "dict"
+    authors: ["lars"]
+    draft: yes
+    year: 2018
+    abstract: |
+      Type classes are a well-known extensions to various type systems. Classes usually participate in type inference; that is, the type checker will automatically deduce class constraints and select appropriate instances. Compilers for such languages face the challenge that concrete instances are generally not directly mentioned in the source text. In the runtime, type class operations need to be packaged into dictionaries that are passed around as pointers. This article presents the most common approach for compilation of type classes – the dictionary construction – carried out in a trustworthy fashion in Isabelle/HOL, a proof assistant.
 ---
 
 ### Goal
