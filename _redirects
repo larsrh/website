@@ -9,3 +9,14 @@
 
 /research/pl/ /research/scala/ 301
 /research/misc/ /research/ 301
+
+/pub/bsc_hupel.html                  /pub/bsc_hupel.pdf                  301
+/pub/directed-security-policies.html /pub/directed-security-policies.pdf 301
+/pub/haskell-programmers.html        /pub/haskell-programmers.pdf        301
+/pub/iptables-simp.html              /pub/iptables-simp.pdf              301
+/pub/isabelle-cakeml.html            /pub/isabelle-cakeml.pdf            301
+/pub/isabelle-clones.html            /pub/isabelle-clones.pdf            301
+/pub/msc_hupel.html                  /pub/msc_hupel.pdf                  301
+/pub/simp-trace.html                 /pub/simp-trace.pdf                 301
+/pub/translating-scala.html          /pub/translating-scala.pdf          301
+/pub/verified-iptables.html          /pub/verified-iptables.pdf          301
