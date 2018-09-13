@@ -9,5 +9,4 @@ virtualenv venv
 source ./venv/bin/activate
 pip install html5validator
 html5validator --root ./_site \
-  --ignore 'Illegal character in fragment' google \
-  --blacklist pub
+  --ignore 'Illegal character in fragment' google
