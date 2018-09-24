@@ -4,11 +4,10 @@ nav: projects
 permalink: /projects/
 ---
 
-<div class="row justify-content-md-center">
-  <div class="col col-lg-6">
-    {% include project_card.html src="isabelle.html" header="Isabelle" img="isabelle.png" alt="Isabelle/jEdit window" %}
-    {% include project_card.html src="typelevel.html" header="Typelevel" img="typelevel.png" alt="Typelevel homepage" %}
-    {% include project_card.html src="fffuu.html" header="Fancy Formal Firewall Universal Understander" img="fffuu.png" alt="Logo of FFFUU" %}
-    {% include project_card.html src="leon.html" header="Leon" img="leon.png" alt="Leon interface" %}
-  </div>
+<div class="card-columns card-columns-wide">
+  {% include project_card.html src="typelevel.html" header="Typelevel" img="typelevel.png" alt="Typelevel homepage" %}
+  {% include project_card.html src="isabelle.html" header="Isabelle" img="isabelle.png" alt="Isabelle/jEdit window" %}
+  {% include project_card.html src="cakeml.html" header="CakeML" img="cakeml.png" alt="CakeML logo" %}
+  {% include project_card.html src="fffuu.html" header="Fancy Formal Firewall Universal Understander" img="fffuu.png" alt="Logo of FFFUU" %}
+  {% include project_card.html src="leon.html" header="Leon" img="leon.png" alt="Leon interface" %}
 </div>
