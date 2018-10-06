@@ -41,3 +41,13 @@
   journal: "Typelevel.org blog"
   abstract: "ScalaCheck is a well-known property-based testing library, based on ideas from Haskell’s QuickCheck. It is also a Typelevel project. In this post, I’d like to show some of the underlying mechanisms, stripped down to the bare minimum."
   link: "https://typelevel.org/blog/2016/10/17/minicheck.html"
+- pub_date: 2018-04-29
+  title: "Marelle"
+  journal: "Playing with Prolog (Season 2)"
+  abstract: "Playing with Prolog is back for Season 2 with a new host. Annie and Lars take a look at Marelle, the SWI-Prolog based devops system."
+  link: "https://www.youtube.com/watch?v=gPJFOdy9ZII"
+- pub_date: 2018-09-08
+  title: "Job Scheduling"
+  journal: "Playing with Prolog (Season 2)"
+  abstract: "This month in Playing with Prolog we help Lars out at work. He needs to schedule jobs for his CI servers."
+  link: "https://www.youtube.com/watch?v=D2lDNUh1plU"
