@@ -68,3 +68,8 @@
   conference: "International Joint Conference on Automated Reasoning, 2016"
   pub: translating-scala
   slides: "https://speakerdeck.com/larsrh/hol-1"
+- title: "Numeric Programming with Spire"
+  conference: "Scala Italy, 2018"
+  link: "http://2018.scala-italy.it/speakers/hupel"
+  recording: "https://vimeo.com/296367334"
+  slides: "https://speakerdeck.com/larsrh/numeric-programming-with-spire-scala-italy-edition"
