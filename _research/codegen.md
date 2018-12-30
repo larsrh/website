@@ -30,6 +30,7 @@ pubs:
     id: "isabelle-cakeml"
     authors: ["lars", "tobias"]
     in: "European Symposium on Programming (ESOP, Open Access)"
+    errata: true
     springer: true
     year: 2018
     doi: "10.1007/978-3-319-89884-1_35"
@@ -95,3 +96,13 @@ In the meantime, use the packaged version that accompanies the main paper ([see 
 * [Formalization for "A Verified Compiler from Isabelle/HOL to CakeML"](/pub/isabelle-cakeml-supplements.zip)<br>
   Submitted: 2017-10-20<br>
   Archived as: DOI [10.5281/zenodo.1167616](http://doi.org/10.5281/zenodo.1167616)
+
+### Errata
+
+The ESOP'18 paper has an error in Definition 7 (page 20), third rule (`Vrecabs`), second line.
+After the bounded quantifiers (before the ≈ operator), instead of σ₁, it should read _rs_.
+This is an error in the transcription from the formalization (supplementary material) to the paper.
+The error is not present in the supplementary material.
+Explanation:
+The second precondition of the `Vrecabs` case should compare the constants with the rule set _rs_.
+σ₁ is the variable environment from the previous semantics and does not carry constant definitions.
