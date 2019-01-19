@@ -54,6 +54,13 @@ pubs:
     year: 2018
     abstract: |
       Type classes are a well-known extensions to various type systems. Classes usually participate in type inference; that is, the type checker will automatically deduce class constraints and select appropriate instances. Compilers for such languages face the challenge that concrete instances are generally not directly mentioned in the source text. In the runtime, type class operations need to be packaged into dictionaries that are passed around as pointers. This article presents the most common approach for compilation of type classes – the dictionary construction – carried out in a trustworthy fashion in Isabelle/HOL, a proof assistant.
+  - title: "An Algebra for Higher-Order Terms"
+    id: "afp-terms"
+    authors: ["lars"]
+    entry: "https://www.isa-afp.org/entries/Higher_Order_Terms.html"
+    year: 2019
+    abstract: |
+      In this formalization, I introduce a higher-order term algebra, generalizing the notions of free variables, matching, and substitution. The need arose from the work on a verified compiler from Isabelle to CakeML. Terms can be thought of as consisting of a generic (free variables, constants, application) and a specific part. As example applications, this entry provides instantiations for de-Bruijn terms, terms with named variables, and Blanchette’s λ-free higher-order terms. Furthermore, I implement translation functions between de-Bruijn terms and named terms and prove their correctness.
 ---
 
 ### Goal
