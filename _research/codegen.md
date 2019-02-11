@@ -61,6 +61,30 @@ pubs:
     year: 2019
     abstract: |
       In this formalization, I introduce a higher-order term algebra, generalizing the notions of free variables, matching, and substitution. The need arose from the work on a verified compiler from Isabelle to CakeML. Terms can be thought of as consisting of a generic (free variables, constants, application) and a specific part. As example applications, this entry provides instantiations for de-Bruijn terms, terms with named variables, and Blanchette’s λ-free higher-order terms. Furthermore, I implement translation functions between de-Bruijn terms and named terms and prove their correctness.
+  - title: "Verified Code Generation from Isabelle/HOL"
+    id: "phd-thesis_hupel"
+    authors: ["lars"]
+    bib: false
+    year: 2019
+    abstract: |
+      In this thesis, I develop a verified compilation toolchain from executable specifications in Isabelle/HOL to CakeML abstract syntax trees.
+      This improves over the state-of-the-art in Isabelle by providing a trustworthy procedure for code generation.
+      The work consists of three major contributions.
+      <br />
+      First, I have implemented a certifying routine to eliminate type classes and instances in Isabelle specifications.
+      Based on defining equations of constants, it derives new definitions that do not use type classes.
+      This can be used to bypass an unverified step in the current code generator.
+      <br />
+      Second, I formalized an algebra for higher-order λ-terms that generalizes the notions of free variables, matching, and substitution.
+      Terms can be thought of as consisting of a generic (free variables, constants, application) and a specific part (abstraction, bound variables).
+      With this algebra, it becomes possible to reason abstractly over a variety of different types.
+      <br />
+      These two parts are independent from each other and can also be used for other purposes.
+      For example, I have successfully instantiated the term algebra for other term types in the Isabelle universe.
+      <br />
+      Third, a compiler that works similarly to the existing code generator, but produces a CakeML abstract syntax tree together with a correctness theorem.
+      More precisely, I have combined a simple proof producing translation of recursion equations in Isabelle into a deeply embedded term language with a fully verified compilation chain to the target language CakeML.
+
 ---
 
 ### Goal
