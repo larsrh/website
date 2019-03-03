@@ -29,7 +29,7 @@
 - text: Typelevel Summit Boston
   role: "Programme Committee, Organisation"
   link: "https://typelevel.org/event/2018-03-summit-boston/"
-  date: 2018  
+  date: 2018
 - text: Typelevel Summit Berlin
   role: "Programme Committee, Organisation"
   link: "https://typelevel.org/event/2018-05-summit-berlin/"
@@ -41,7 +41,15 @@
 - text: Scala Center
   role: Community Representative at the Scala Center Advisory Board
   link: "https://scala.epfl.ch/"
-  date: since 2016
+  date: 2016–2018
+- text: Scala Days
+  role: "Programme Committee"
+  link: "https://www.scaladays.org/"
+  date: 2019
+- text: Typelevel Summit Philadelphia
+  role: "Programme Committee, Organisation"
+  link: "https://typelevel.org/event/2019-04-summit-philadelphia/"
+  date: 2019
 - text: Scala Platform Process
   role: Committee
   link: "https://scalacenter.github.io/platform/"
