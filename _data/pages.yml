@@ -16,10 +16,19 @@
     - id: teaching
       name: Teaching
       long_title: "Teaching"
-- id: projects
-  name: Projects
+- id: activities
+  name: Activities
   nav_theme: navbar-dark bg-info
-  long_title: "Software & Projects"
+  subpages:
+    - id: projects
+      name: Projects
+      long_title: "Software & Projects"
+    - id: talks
+      name: Talks
+      long_title: "Conference talks"
+    - id: service
+      name: Service
+      long_title: "Community service"
 - id: articles
   name: Articles
   nav_theme: navbar-dark bg-dark

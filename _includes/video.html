@@ -1,0 +1,5 @@
+{% if include.video.vimeo %}
+  <iframe src="https://player.vimeo.com/video/{{ include.video.vimeo }}" width="640" height="360" allowfullscreen></iframe>
+{% elsif include.video.yt %}
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ include.video.yt }}" allowfullscreen></iframe>
+{% endif %}

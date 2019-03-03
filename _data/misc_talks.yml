@@ -1,75 +1,67 @@
 - title: Seven at one blow
-  conference: "Northeast Scala Symposium, 2013"
+  conference: "Northeast Scala Symposium"
   link: "http://www.nescala.org/2013#t-62625592"
   recording: "https://www.youtube.com/watch?v=KzoqOVD7mvE"
   slides: "https://speakerdeck.com/larsrh/seven-at-one-blow-new-and-polished-features-in-scalaz-7"
+  year: 2013
 - title: Generating Type Class Instances Automatically
-  conference: "Scala Workshop, 2013"
+  conference: "Scala Workshop"
   link: "http://lampwww.epfl.ch/~hmiller/scala2013/program.html"
   slides: "https://speakerdeck.com/larsrh/generating-type-class-instances-automatically"
+  year: 2013
 - title: Macros vs Types
-  conference: "Northeast Scala Symposium, 2014"
+  conference: "Northeast Scala Symposium"
   link: "http://www.nescala.org/2014#talk-15"
   recording: "https://www.youtube.com/watch?v=rwAIAugTSHY"
   slides: "https://speakerdeck.com/larsrh/macros-vs-types"
-- title: OptimusPrimeT
-  conference: "Scala.IO, 2014"
-  link: "https://scala.io/2014/talks.html#/#BGS-827"
-  recording: "https://www.youtube.com/watch?v=lN5viUFz21U"
-  slides: "https://speakerdeck.com/larsrh/optimusprimet"
+  year: 2014
 - title: "Typelevel Scala: What does it mean for the language, the ecosystem, the community, and you?"
-  conference: "Scala.IO, 2014"
+  conference: "Scala.IO"
   link: "https://scala.io/2014/talks.html#/#GZU-778"
   recording: "https://www.youtube.com/watch?v=KcV8AMwnoXU"
+  year: 2014
 - title: The Next 1100 Haskell Programmers
-  conference: "Haskell Symposium, 2014"
+  conference: "Haskell Symposium"
   pub: haskell-programmers
   recording: "https://youtu.be/VM6i6710A-Y?t=44s"
   slides: "https://speakerdeck.com/larsrh/the-next-1100-haskell-programmers"
+  year: 2014
 - title: State of the Typelevel
-  conference: "Scala eXchange, 2014 (Keynote)"
+  conference: "Scala eXchange (Keynote)"
   link: "https://skillsmatter.com/conferences/1948-scala-exchange-2014#program"
   recording: "https://skillsmatter.com/skillscasts/5827-state-of-the-typelevel"
   slides: "https://speakerdeck.com/larsrh/state-of-the-typelevel"
+  year: 2014
 - title: Functional Mocking
-  conference: "Lambda Days, 2015"
+  conference: "Lambda Days"
   link: "http://www.lambdadays.org/lambdadays2015/lars-hupel"
   recording: "https://vimeo.com/125038982"
   slides: "https://speakerdeck.com/larsrh/functional-mocking"
-- title: OptimusPrimeT (cats edition)
-  conference: "flatMap(Oslo), 2015"
-  link: "http://2015.flatmap.no/hupel.html#session"
-  recording: "https://vimeo.com/128466888"
-  slides: "https://speakerdeck.com/larsrh/optimusprimet-cats-edition"
+  year: 2015
 - title: Semantics-Preserving Simplification of Real-World Firewall Rule Sets
-  conference: "Formal Methods, 2015"
-  pub: iptables-simp 
+  conference: "Formal Methods"
+  pub: iptables-simp
   slides: "https://speakerdeck.com/larsrh/semantics-preserving-simplification-of-real-world-firewall-rule-sets"
+  year: 2015
 - title: When Types are Not Enough
-  conference: "Scala World, 2015"
+  conference: "Scala World"
   recording: "https://www.youtube.com/watch?v=NGZRBgp5G5M"
   slides: "https://speakerdeck.com/larsrh/when-types-are-not-enough"
+  year: 2015
 - title: What Haskell can learn from Scala
-  conference: "Haskell eXchange, 2015"
+  conference: "Haskell eXchange"
   link: "https://skillsmatter.com/conferences/7069-haskell-exchange-2015#program"
   recording: "https://skillsmatter.com/skillscasts/6592-what-haskell-can-learn-from-scala"
   slides: "https://speakerdeck.com/larsrh/what-haskell-can-learn-from-scala"
-- title:  OptimusPrimeT (cats edition)
-  conference: "Lambda World, 2015"
-  link: "http://www.lambda.world/blog/2015-edition"
-  recording: "https://www.youtube.com/watch?v=QUPsrxzE6I0"
-  slides: "https://speakerdeck.com/larsrh/optimusprimet-cats-edition"
+  year: 2015
 - title: "How to test proper{t,l}y"
-  conference: "flatMap(Oslo), 2016"
+  conference: "flatMap(Oslo)"
   link: "http://2016.flatmap.no/hupel.html#session"
   recording: "https://vimeo.com/165852636"
   slides: "https://speakerdeck.com/larsrh/how-to-test-proper-l-t-y"
+  year: 2016
 - title: "Translating Scala Programs to Isabelle/HOL"
-  conference: "International Joint Conference on Automated Reasoning, 2016"
+  conference: "International Joint Conference on Automated Reasoning"
   pub: translating-scala
   slides: "https://speakerdeck.com/larsrh/hol-1"
-- title: "Numeric Programming with Spire"
-  conference: "Scala Italy, 2018"
-  link: "http://2018.scala-italy.it/speakers/hupel"
-  recording: "https://vimeo.com/296367334"
-  slides: "https://speakerdeck.com/larsrh/numeric-programming-with-spire-scala-italy-edition"
+  year: 2016

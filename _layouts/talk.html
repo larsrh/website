@@ -1,0 +1,54 @@
+---
+layout: default
+---
+
+<div class="jumbotron">
+  <header class="container">
+    <h2 class="display-3">
+      <i class="fa fa-fw fa-microphone" aria-hidden="true"></i>
+      Talk: <strong>{{ page.title }}</strong>
+    </h2>
+  </header>
+</div>
+
+<div class="container">
+  <main>
+
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-9">
+        <h2>Abstract</h2>
+
+        <div class="hyphenate mb-4">
+          {{ page.abstract }}
+        </div>
+
+        <h2>Slides</h2>
+
+        <div class="mb-4">
+          <script async class="speakerdeck-embed" data-id="{{ page.speakerdeck }}" data-ratio="1.77966101694915" src="https://speakerdeck.com/assets/embed.js"></script>
+        </div>
+
+        <h2>Recording</h2>
+
+        <div class="mb-4">
+          {% include video.html video=page.video %}
+        </div>
+
+        <h2>Events</h2>
+
+        <ul>
+          {% for conf in page.conferences %}
+            <li>
+              {{ conf.conference }}, {{ conf.location }}, {{ conf.date }}, {{ conf.year }}
+              {% assign talk=conf %}
+              {% include talk_details.html %}
+            </li>
+          {% endfor %}
+        </ul>
+
+        {{ content }}
+      </div>
+    </div>
+
+  </main>
+</div>

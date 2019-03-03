@@ -1,0 +1,21 @@
+---
+layout: jumbotron
+nav: activities
+id: talks
+card_theme: bg-info text-white
+permalink: /talks/
+---
+
+<div class="card-columns card-columns-wide mt-4 mb-4">
+  {% for talk in site.talks %}
+    {% include card.html src="talk.html" no_header="true" %}
+  {% endfor %}
+</div>
+
+<h2>Older Talks</h2>
+<div class="card-columns card-columns-wide mt-4">
+  {% include misc_talks_by_year.html year=2016 %}
+  {% include misc_talks_by_year.html year=2015 %}
+  {% include misc_talks_by_year.html year=2014 %}
+  {% include misc_talks_by_year.html year=2013 %}
+</div>

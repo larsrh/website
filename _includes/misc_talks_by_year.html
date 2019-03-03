@@ -1,0 +1,9 @@
+{% capture year_content %}
+  {% for talk in site.data.misc_talks %}
+    {% if talk.year == include.year %}
+      {% include misc_talk.html %}
+    {% endif %}
+  {% endfor %}
+{% endcapture %}
+
+{% include card.html content=year_content header=include.year %}

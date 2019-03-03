@@ -133,3 +133,7 @@ dd {
 dt {
   font-weight: 500;
 }
+
+iframe {
+  border: none;
+}
