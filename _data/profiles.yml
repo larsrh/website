@@ -25,3 +25,6 @@
 - name: Speaker Deck
   icon: fa-desktop
   link: "https://speakerdeck.com/larsrh"
+- name: csauthors.net
+  icon: fa-book
+  link: "https://www.csauthors.net/lars-hupel/"

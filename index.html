@@ -14,15 +14,10 @@ hyphenator: true
 <div class="container">
 
   <main class="card-columns card-columns-wide">
+    {% include card.html src="synopsis.html" header="About" icon="fa-comments-o" %}
     {% include card.html src="contact.html" header="Contact" icon="fa-envelope-o" %}
-    {% include card.html src="profiles.html" header="Profiles" icon="fa-user" %}
-    {% capture teaching_extra %}
-      <div class="pull-right">
-        <a href="/teaching/" class="btn btn-outline-primary" style="border: none; background-color: white;">Full list</a>
-      </div>
-    {% endcapture %}
     {% include card.html src="invitation.html" header="Standing Invitation" icon="fa-thumb-tack" %}
-    {% include select_pubs_card.html style="btn-outline-primary" %}
+    {% include card.html src="profiles.html" header="Profiles" icon="fa-user" %}
   </main>
 
 </div>
