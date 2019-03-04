@@ -26,6 +26,8 @@
 
     {% if page.is_article %}
       {% assign page_name = page.header %}
+    {% elsif page.is_talk %}
+      {% assign page_name = page.title %}
     {% elsif p.title != false %}
       {% if sub_p %}
         {% assign page_name = p.name | append: ' &middot; ' | append: sub_p.name %}

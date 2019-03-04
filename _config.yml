@@ -62,5 +62,6 @@ defaults:
     values:
       layout: talk
       nav: activities
+      is_talk: true
       hyphenator: true
       description: ""
