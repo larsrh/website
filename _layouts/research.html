@@ -17,7 +17,7 @@ commit <a href="https://github.com/larsrh/website/commit/{{ page.git.last_commit
 Author: {{ page.git.last_commit.author_name }}
 Date: {{ page.git.last_commit.commit_date }}
 
-  {{ page.git.last_commit.message }}</pre>
+  {{ page.git.last_commit.message | escape }}</pre>
       </div>
       <div class="modal-footer">
         <a href="https://github.com/larsrh/website/commits/{{ page.git.last_commit.long_sha }}/{{ page.path }}" class="btn btn-primary"><i class="fa fa-fw fa-external-link fa-lg" aria-hidden="true"></i> Full changelog</a>

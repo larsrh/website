@@ -54,6 +54,7 @@ defaults:
       layout: research
       nav: academic
       card_theme: bg-success text-white
+      is_research: true
       hyphenator: true
       description: ""
   - scope:

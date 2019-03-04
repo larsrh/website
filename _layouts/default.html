@@ -28,6 +28,8 @@
       {% assign page_name = page.header %}
     {% elsif page.is_talk %}
       {% assign page_name = page.title %}
+    {% elsif page.is_research %}
+      {% assign page_name = page.topic %}
     {% elsif p.title != false %}
       {% if sub_p %}
         {% assign page_name = p.name | append: ' &middot; ' | append: sub_p.name %}
