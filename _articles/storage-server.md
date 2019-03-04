@@ -10,10 +10,7 @@ Recently I announced on Twitter some upgrade I did on a "home" server:
 
 {% twitter https://twitter.com/larsr_h/status/944880173308170241 %}
 
-Shortly thereafter, someone wanted to know what the setup looks like:
-
-{% twitter https://twitter.com/lunaryorn/status/944921200043622400 %}
-
+Shortly thereafter, someone wanted to know what the setup looks like.
 So, I took some time to describe the hardware & software on the machines (I have an almost identical setup at two different locations).
 
 ### Hardware
