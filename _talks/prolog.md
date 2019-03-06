@@ -12,6 +12,7 @@ conferences:
     date: February 21st
     location: Kraków, Poland
     link: "http://www.lambdadays.org/lambdadays2019/lars-hupel"
+    recording: "https://www.youtube.com/watch?v=4WJziTGp5mM"
     slides: "https://speakerdeck.com/larsrh/programmation-en-logique-lambdadays-edition"
   - conference: "Code Mesh"
     year: 2018
