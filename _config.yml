@@ -45,7 +45,6 @@ defaults:
       nav: articles
       card_theme: bg-dark text-white
       is_article: true
-      hyphenator: true
       description: ""
   - scope:
       path: ""
@@ -55,7 +54,6 @@ defaults:
       nav: academic
       card_theme: bg-success text-white
       is_research: true
-      hyphenator: true
       description: ""
   - scope:
       path: ""
@@ -64,5 +62,4 @@ defaults:
       layout: talk
       nav: activities
       is_talk: true
-      hyphenator: true
       description: ""
