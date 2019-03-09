@@ -130,6 +130,10 @@
   margin-right: 0.1em;
 }
 
+.random-fact {
+  display: none;
+}
+
 dd {
   margin-left: 1em;
 }
