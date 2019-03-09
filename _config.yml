@@ -23,6 +23,7 @@ exclude:
   - "vendor"
   - ".ruby-version"
   - ".ci"
+  - "venv"
 encoding: "utf-8"
 
 collections:
