@@ -10,6 +10,26 @@
     <link rel="stylesheet" href="/css/ekko-lightbox.css">
     <link rel="stylesheet" href="/css/main.css">
 
+    <!-- hyphenation polyfill -->
+    <script>
+      var Hyphenopoly = {
+        require: {
+          "de": "Silbentrennungsalgorithmus",
+          "en": "Supercalifragilisticexpialidocious"
+        },
+        paths: {
+          maindir: "/js/hyphenopoly/",
+          patterndir: "/js/hyphenopoly/patterns/",
+        },
+        setup: {
+          selectors: {
+            ".hyphenate": {}
+          }
+        }
+      };
+    </script>
+    <script src="/js/hyphenopoly/Hyphenopoly_Loader.js"></script>
+
     {% for page_desc in site.data.pages %}
       {% if page_desc.id == page.nav %}
         {% assign p = page_desc %}
