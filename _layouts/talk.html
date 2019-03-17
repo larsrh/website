@@ -41,7 +41,7 @@ layout: default
             <li>
               {{ conf.conference }}, {{ conf.location }}, {{ conf.date }}, {{ conf.year }}
               {% assign talk=conf %}
-              {% include talk_details.html %}
+              {% include talk_details.html brief=true %}
             </li>
           {% endfor %}
         </ul>
