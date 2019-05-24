@@ -51,3 +51,14 @@
   journal: "Playing with Prolog (Season 2)"
   abstract: "This month in Playing with Prolog we help Lars out at work. He needs to schedule jobs for his CI servers."
   link: "https://www.youtube.com/watch?v=D2lDNUh1plU"
+- pub_date: 2018-10-06
+  title: "Node-RED"
+  journal: "Playing with Prolog (Season 2)"
+  abstract: "IBM's node-red flow programming language is an interesting declarative language. Recently Annie's been experimenting with it. In this video she shows it to Lars."
+  link: "https://www.youtube.com/watch?v=6BWPEMCFuCw"
+- pub_date: 2019-05-22
+  title: "Adressen und Transaktionen in Kryptowährungen – Teil 1: Bitcoin"
+  journal: "INNOQ"
+  abstract: "Kryptowährungen sind in aller Munde. Tutorials und Erklärungen gibt es zuhauf. In dieser Artikelserie soll ein bestimmter Aspekt, nämlich der der Adressen und Transaktionen, detailliert für populäre Blockchains geklärt werden. Denn unter der Oberfläche verbirgt sich einiges an Komplexität. Teil 1: Bitcoin."
+  link: "https://www.innoq.com/de/articles/2019/05/kryptowaehrungen-transaktionen-teil-1/"
+  lang: de
