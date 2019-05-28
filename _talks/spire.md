@@ -9,6 +9,18 @@ abstract: |
 speakerdeck: "1c85f64818c548c68044654b16ad2adc"
 video: { vimeo: "296367334" }
 conferences:
+  - conference: "J on the Beach"
+    year: 2019
+    date: May 16th
+    location: Marbella, Spain
+    link: "https://www.jonthebeach.com/"
+    slides: "https://speakerdeck.com/larsrh/numeric-programming-with-spire-ksug-edition"
+  - conference: "Scala Hamburg"
+    year: 2019
+    date: May 2nd
+    location: Hamburg, Germany
+    link: "https://www.meetup.com/Scala-Hamburg/events/259340037/"
+    slides: "https://speakerdeck.com/larsrh/numeric-programming-with-spire-ksug-edition"
   - conference: "Kraków Scala User Group"
     year: 2019
     date: February 21st

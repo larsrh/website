@@ -54,14 +54,13 @@
   recording: "https://skillsmatter.com/skillscasts/6592-what-haskell-can-learn-from-scala"
   slides: "https://speakerdeck.com/larsrh/what-haskell-can-learn-from-scala"
   year: 2015
-- title: "How to test proper{t,l}y"
-  conference: "flatMap(Oslo)"
-  link: "http://2016.flatmap.no/hupel.html#session"
-  recording: "https://vimeo.com/165852636"
-  slides: "https://speakerdeck.com/larsrh/how-to-test-proper-l-t-y"
-  year: 2016
 - title: "Translating Scala Programs to Isabelle/HOL"
   conference: "International Joint Conference on Automated Reasoning"
   pub: translating-scala
   slides: "https://speakerdeck.com/larsrh/hol-1"
   year: 2016
+- title: "Lieber ein Typparameter zu viel als einer zu wenig"
+  conference: "JavaLand"
+  link: "https://programm.javaland.eu/2019/#/scheduledEvent/569668"
+  slides: "https://speakerdeck.com/larsrh/lieber-ein-typparameter-zu-viel-als-einer-zu-wenig"
+  year: 2019

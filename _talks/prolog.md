@@ -7,6 +7,13 @@ abstract: |
 speakerdeck: "9ba58ce3e0224cbbb83332e722bfc448"
 video: { yt: "VjJQQTfxuP0" }
 conferences:
+  - conference: "BOB"
+    year: 2019
+    date: March 22nd
+    location: Berlin, Germany
+    link: "https://bobkonf.de/2019/hupel.html"
+    recording: "https://www.youtube.com/watch?v=PgZCzDveh1Q&t=1049s"
+    slides: "https://speakerdeck.com/larsrh/programmation-en-logique-lambdadays-edition"
   - conference: "Lambda Days"
     year: 2019
     date: February 21st
