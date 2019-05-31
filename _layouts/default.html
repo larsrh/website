@@ -128,10 +128,6 @@
     <script src="/js/bootstrap-material-design.min.js"></script>
     <script src="/js/ekko-lightbox.min.js"></script>
     <script>
-      function newFact() {
-        var fact = larsFacts[Math.floor(Math.random() * larsFacts.length)];
-        $('.random-fact-content')[0].innerHTML = fact;
-      };
       $(document).ready(function() {
         $('body').bootstrapMaterialDesign();
         $('[data-toggle="tooltip"]').tooltip();
@@ -153,9 +149,7 @@
         if (hash.startsWith('#pub-modal')) {
           history.replaceState("", document.title, window.location.pathname);
           setTimeout(function() { $(hash).modal(); }, 200);
-        };
-        newFact();
-        $('.random-fact').each(function (index) { $(this).removeClass('random-fact'); });
+        }
       });
       $(document).on('click', '[data-toggle="lightbox"]', function(event) {
         event.preventDefault();
