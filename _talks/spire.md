@@ -14,6 +14,7 @@ conferences:
     date: May 16th
     location: Marbella, Spain
     link: "https://www.jonthebeach.com/"
+    recording: "https://www.youtube.com/watch?v=8pNzWzH5NUc"
     slides: "https://speakerdeck.com/larsrh/numeric-programming-with-spire-ksug-edition"
   - conference: "Scala Hamburg"
     year: 2019
