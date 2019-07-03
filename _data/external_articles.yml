@@ -62,3 +62,27 @@
   abstract: "Kryptowährungen sind in aller Munde. Tutorials und Erklärungen gibt es zuhauf. In dieser Artikelserie soll ein bestimmter Aspekt, nämlich der der Adressen und Transaktionen, detailliert für populäre Blockchains geklärt werden. Denn unter der Oberfläche verbirgt sich einiges an Komplexität. Teil 1: Bitcoin."
   link: "https://www.innoq.com/de/articles/2019/05/kryptowaehrungen-transaktionen-teil-1/"
   lang: de
+- pub_date: 2019-05-29
+  title: "Adressen und Transaktionen in Kryptowährungen – Teil 2: Ethereum"
+  journal: "INNOQ"
+  abstract: "Kryptowährungen sind in aller Munde. Tutorials und Erklärungen gibt es zuhauf. In dieser Artikelserie soll ein bestimmter Aspekt, nämlich der der Adressen und Transaktionen, detailliert für populäre Blockchains geklärt werden. Denn unter der Oberfläche verbirgt sich einiges an Komplexität. Teil 2: Ethereum."
+  link: "https://www.innoq.com/de/articles/2019/05/kryptowaehrungen-transaktionen-teil-2/"
+  lang: de
+- pub_date: 2019-06-05
+  title: "Adressen und Transaktionen in Kryptowährungen – Teil 3: Altcoins"
+  journal: "INNOQ"
+  abstract: "Kryptowährungen sind in aller Munde. Tutorials und Erklärungen gibt es zuhauf. In dieser Artikelserie soll ein bestimmter Aspekt, nämlich der der Adressen und Transaktionen, detailliert für populäre Blockchains geklärt werden. Denn unter der Oberfläche verbirgt sich einiges an Komplexität. Teil 3: Altcoins."
+  link: "https://www.innoq.com/de/articles/2019/06/kryptowaehrungen-transaktionen-teil-3/"
+  lang: de
+- pub_date: 2019-06-27
+  title: "Scala Days 2019 in Lausanne"
+  journal: "INNOQ"
+  abstract: "Im Juni 2019 fanden die Scala Days anlässlich des 10. Jubiläums wieder in Lausanne – an der Geburtsstätte von Scala – statt. Heuer gab es nicht nur zwei Konferenztage, sondern auch eine ganze Reihe von Community-Events davor und danach. INNOQ war die ganze Woche vor Ort und unsere Kollegen berichten hier von ihren Erfahrungen."
+  link: "https://www.innoq.com/de/blog/scala-days-2019-lausanne/"
+  lang: de
+- pub_date: 2019-07-03
+  title: "Verifikation von Smart Contracts"
+  journal: "INNOQ"
+  abstract: "Smart Contracts sind eine Technologie, mit der man Code auf Blockchains ausführt. Eine Vielzahl von Geschäftsfällen werden inzwischen durch solche Verträge abgebildet. Ethereum ist dafür eine beliebte Plattform. Doch wie bei aller Software stellt sich die Frage, wie man die Qualität des Codes sicherstellen kann."
+  link: "https://www.innoq.com/de/articles/2019/07/verifikation-von-smart-contracts/"
+  lang: de
