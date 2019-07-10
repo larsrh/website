@@ -68,6 +68,12 @@
   abstract: "Kryptowährungen sind in aller Munde. Tutorials und Erklärungen gibt es zuhauf. In dieser Artikelserie soll ein bestimmter Aspekt, nämlich der der Adressen und Transaktionen, detailliert für populäre Blockchains geklärt werden. Denn unter der Oberfläche verbirgt sich einiges an Komplexität. Teil 2: Ethereum."
   link: "https://www.innoq.com/de/articles/2019/05/kryptowaehrungen-transaktionen-teil-2/"
   lang: de
+- pub_date: 2019-05-31
+  title: "Parametrizität in Java"
+  journal: "JavaSPEKTRUM 03/2019"
+  abstract: "So gut wie alle modernen Programmiersprachen erlauben es, Routinen über Werte und über Typen zu parametrisieren. In Java wird letzteres „Generics“ genannt, in C++ hingegen „Templates“. Obwohl die Konzepte die gleichen sind, unterscheidet sich die Implementation doch stark. In diesem Artikel möchte ich diese Art der Parametrisierung in Java unter die Lupe nehmen und erklären, warum „Type Erasure“ doch eine ganz gute Idee ist."
+  link: "http://sigs.de/publications/twitter/JS_03_2019/Hupel_JS_03_2019.pdf"
+  lang: de
 - pub_date: 2019-06-05
   title: "Adressen und Transaktionen in Kryptowährungen – Teil 3: Altcoins"
   journal: "INNOQ"
