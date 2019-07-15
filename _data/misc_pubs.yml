@@ -83,6 +83,7 @@
   year: 2014
   doi: "10.1145/2633357.2633359"
   slides: "https://speakerdeck.com/larsrh/the-next-1100-haskell-programmers"
+  recording: "https://youtu.be/VM6i6710A-Y?t=44s"
   abstract: |
     We report on our experience teaching a Haskell-based functional
     programming course to over 1100 students for two winter terms.
