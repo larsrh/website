@@ -1,15 +1,15 @@
-{% if talk.pub %}
+{% if pub.id %}
   {% for topic in site.research %}
-    {% for pub in topic.pubs %}
-      {% if pub.id == talk.pub %}
+    {% for other_pub in topic.pubs %}
+      {% if other_pub.id == pub.id %}
         {% include pub_modal.html %}
         {% assign pub_link=topic.url %}
       {% endif %}
     {% endfor %}
   {% endfor %}
 
-  {% for pub in site.data.misc_pubs %}
-    {% if pub.id == talk.pub %}
+  {% for other_pub in site.data.misc_pubs %}
+    {% if other_pub.id == pub.id %}
       {% include pub_modal.html %}
       {% assign pub_link="/research/" %}
     {% endif %}
@@ -18,18 +18,22 @@
 
 {% if talk.recording %}
   <a href="{{ talk.recording }}" class="btn btn-primary">Recording</a>
+{% elsif pub.recording %}
+  <a href="{{ pub.recording }}" class="btn btn-primary">Recording</a>
 {% elsif include.brief == false %}
   <button class="btn btn-primary" type="button" style="pointer-events: none;" disabled>Recording</button>
 {% endif %}
 {% if talk.slides %}
   <a href="{{ talk.slides }}" class="btn btn-primary">Slides</a>
+{% elsif pub.slides %}
+  <a href="{{ pub.slides }}" class="btn btn-primary">Slides</a>
 {% elsif include.brief == false %}
   <button class="btn btn-primary" type="button" style="pointer-events: none;" disabled>Slides</button>
 {% endif %}
 {% if talk.link %}
   <a href="{{ talk.link }}" class="btn btn-primary">Link</a>
-{% elsif talk.pub %}
-  <a class="pub-modal-link btn btn-primary" data-pub="{{ talk.pub }}" href="{{ pub_link }}">Link</a>
+{% elsif pub.id %}
+  <a class="pub-modal-link btn btn-primary" data-pub="{{ pub.id }}" href="{{ pub_link }}">Link</a>
 {% elsif include.brief == false %}
   <button class="btn btn-primary" type="button" style="pointer-events: none;" disabled>Link</button>
 {% endif %}
