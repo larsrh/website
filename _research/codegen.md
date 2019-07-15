@@ -44,6 +44,7 @@ pubs:
     id: "afp-cakeml"
     authors: ["lars", "yu"]
     entry: "https://www.isa-afp.org/entries/CakeML.html"
+    in: "Archive of Formal Proofs"
     year: 2018
     abstract: |
       CakeML is a functional programming language with a proven-correct compiler and runtime system. This entry contains an unofficial version of the CakeML semantics that has been exported from the Lem specifications to Isabelle. Additionally, there are some hand-written theory files that adapt the exported code to Isabelle and port proofs from the HOL4 formalization, e.g. termination and equivalence proofs.
@@ -58,14 +59,25 @@ pubs:
     id: "afp-terms"
     authors: ["lars"]
     entry: "https://www.isa-afp.org/entries/Higher_Order_Terms.html"
+    in: "Archive of Formal Proofs"
     year: 2019
     abstract: |
       In this formalization, I introduce a higher-order term algebra, generalizing the notions of free variables, matching, and substitution. The need arose from the work on a verified compiler from Isabelle to CakeML. Terms can be thought of as consisting of a generic (free variables, constants, application) and a specific part. As example applications, this entry provides instantiations for de-Bruijn terms, terms with named variables, and Blanchette’s λ-free higher-order terms. Furthermore, I implement translation functions between de-Bruijn terms and named terms and prove their correctness.
+  - title: "A Verified Code Generator from Isabelle/HOL to CakeML"
+    id: "afp-codegen"
+    authors: ["lars"]
+    entry: "https://www.isa-afp.org/entries/CakeML_Codegen.html"
+    in: "Archive of Formal Proofs"
+    year: 2019
+    abstract: |
+       This entry contains the formalization that accompanies my PhD thesis. I develop a verified compilation toolchain from executable specifications in Isabelle/HOL to CakeML abstract syntax trees. This improves over the state-of-the-art in Isabelle by providing a trustworthy procedure for code generation.
   - title: "Verified Code Generation from Isabelle/HOL"
     id: "phd-thesis_hupel"
     authors: ["lars"]
     bib: false
     year: 2019
+    in: "Doctoral Dissertation"
+    slides: "https://speakerdeck.com/larsrh/hol"
     abstract: |
       In this thesis, I develop a verified compilation toolchain from executable specifications in Isabelle/HOL to CakeML abstract syntax trees.
       This improves over the state-of-the-art in Isabelle by providing a trustworthy procedure for code generation.
@@ -96,7 +108,9 @@ The vision of this project is to provide an alternative (or extension) to the cu
 
 What is the trusted code base of the pipeline?
 : We rely on faithful export from Lem to Isabelle, an unverified printer of CakeML AST to CakeML source text, and the kernel of Isabelle.
-There is ongoing work to use [OpenTheory](http://www.gilith.com/software/opentheory/) to get a more faithful representation of the CakeML formalization in Isabelle.
+There is ongoing work to use [OpenTheory](http://www.gilith.com/software/opentheory/) to get a more faithful representation of the CakeML formalization in Isabelle.<br>
+_Update, July 2019:_ The current – more promising approach – is to virtualize HOL4 in Isabelle.
+Refer to the upcoming ITP'19 paper by Immler, Raedle and Wenzel for details.
 
 Does the pipeline target existing CakeML library constructs, like the built-in lists?
 : No, it does not, and it is not intended at the moment.
@@ -117,16 +131,12 @@ While our work is designed for total correctness (all functions that are exporte
 The CakeML compiler team has proved total correctness.<br>
 _Update, August 2018:_ Some (not all) compiler phases have been proved to be totally correct.
 
-Why isn't there a full compilation pipeline in the AFP?
-: We're working on it.
-Some parts of it are already available as stand-alone entries, and we want to make sure it's published in modular parts.
-In the meantime, use the packaged version that accompanies the main paper ([see below](#supplementary-material)).
-
 ### Supplementary Material
 
 * [Formalization for "A Verified Compiler from Isabelle/HOL to CakeML"](/pub/isabelle-cakeml-supplements.zip)<br>
   Submitted: 2017-10-20<br>
-  Archived as: DOI [10.5281/zenodo.1167616](http://doi.org/10.5281/zenodo.1167616)
+  Archived as: DOI [10.5281/zenodo.1167616](http://doi.org/10.5281/zenodo.1167616)<br>
+  Obsoleted by: <a href="https://www.isa-afp.org/entries/CakeML_Codegen.html">AFP entry</a>
 
 ### Errata
 
