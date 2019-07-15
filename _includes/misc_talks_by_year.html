@@ -1,9 +1,14 @@
+{% assign found = false %}
+
 {% capture year_content %}
   {% for talk in site.data.misc_talks %}
     {% if talk.year == include.year %}
       {% include misc_talk.html %}
+      {% assign found = true %}
     {% endif %}
   {% endfor %}
 {% endcapture %}
 
-{% include card.html content=year_content header=include.year %}
+{% if found %}
+  {% include card.html content=year_content header=include.year %}
+{% endif %}
