@@ -59,8 +59,3 @@
   pub: translating-scala
   slides: "https://speakerdeck.com/larsrh/hol-1"
   year: 2016
-- title: "Lieber ein Typparameter zu viel als einer zu wenig"
-  conference: "JavaLand"
-  link: "https://programm.javaland.eu/2019/#/scheduledEvent/569668"
-  slides: "https://speakerdeck.com/larsrh/lieber-ein-typparameter-zu-viel-als-einer-zu-wenig"
-  year: 2019
