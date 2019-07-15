@@ -1,10 +1,11 @@
-<br class="mb-2">
+{% assign found = false %}
 
 {% capture year_content %}
   <ul>
     {% for topic in site.research %}
       {% for pub in topic.pubs %}
         {% if pub.year == include.year %}
+          {% assign found = true %}
           <li>
             {% include pub.html layout="brief" %}
           </li>
@@ -14,6 +15,7 @@
 
     {% for pub in site.data.misc_pubs %}
       {% if pub.year == include.year %}
+        {% assign found = true %}
         <li>
           {% include pub.html layout="brief" %}
         </li>
@@ -22,4 +24,7 @@
   </ul>
 {% endcapture %}
 
-{% include card.html content=year_content header=include.year %}
+{% if found %}
+  <br class="mb-2">
+  {% include card.html content=year_content header=include.year %}
+{% endif %}

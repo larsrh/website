@@ -19,13 +19,8 @@ permalink: /research/
     </div>
 
     <h2>Publications (by year)</h2>
-    {% include pubs_by_year.html year=2019 %}
-    {% include pubs_by_year.html year=2018 %}
-    {% include pubs_by_year.html year=2017 %}
-    {% include pubs_by_year.html year=2016 %}
-    {% include pubs_by_year.html year=2015 %}
-    {% include pubs_by_year.html year=2014 %}
-    {% include pubs_by_year.html year=2013 %}
-    {% include pubs_by_year.html year=2011 %}
+    {% for year in (2011..2030) reversed %}
+      {% include pubs_by_year.html year=year %}
+    {% endfor %}
   </div>
 </div>
