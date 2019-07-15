@@ -7,6 +7,11 @@ abstract: |
 speakerdeck: "9ba58ce3e0224cbbb83332e722bfc448"
 video: { yt: "VjJQQTfxuP0" }
 conferences:
+  - conference: "Copenhagen Tech Polyglot Meetup"
+    year: 2018
+    date: March 14th
+    location: Copenhagen, Denmark
+    link: "https://www.meetup.com/Copenhagen-Tech-Polyglots/events/247377247/"
   - conference: "BOB"
     year: 2019
     date: March 22nd
