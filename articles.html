@@ -6,9 +6,13 @@ permalink: /articles/
 ---
 
 {% assign articles = site.articles | concat: site.data.external_articles | sort: 'pub_date' %}
+{% assign today_date = 'now' | date: '%s' %}
 
 <div class="card-columns">
   {% for article in articles %}
-    {% include article_card.html %}
+    {% assign article_date = article.pub_date | date: '%s' %}
+    {% if today_date > article_date %}
+      {% include article_card.html %}
+    {% endif %}
   {% endfor %}
 </div>
