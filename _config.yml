@@ -18,6 +18,8 @@ social:
 include:
   - "_redirects"
 exclude:
+  - "img_assets"
+  - "scripts"
   - "Gemfile"
   - "Gemfile.lock"
   - "vendor"
