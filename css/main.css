@@ -16,6 +16,13 @@
   .card-columns {
     column-count: 2;
   }
+
+  .figure-float-right {
+    float: right !important;
+    width: 40%;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+  }
 }
 
 @media (min-width: 992px) {
