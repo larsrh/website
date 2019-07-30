@@ -4,7 +4,7 @@ layout: default
 
 <div class="jumbotron">
   <header class="container">
-    <h2 class="display-3" {% if page.lang %}lang="{{ page.lang }}"{% endif %}>
+    <h2 class="display-3">
       <i class="fa fa-fw fa-microphone" aria-hidden="true"></i>
       {% if page.lang == "de" %}
         Vortrag: <strong>{{ page.title }}</strong>
@@ -15,7 +15,7 @@ layout: default
   </header>
 </div>
 
-<div class="container" {% if page.lang %}lang="{{ page.lang }}"{% endif %}>
+<div class="container">
   <main>
 
     <div class="row justify-content-md-center">
