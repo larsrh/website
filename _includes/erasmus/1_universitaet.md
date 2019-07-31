@@ -73,9 +73,9 @@ Queen’s Campus
 --------------
 
 <div class="row mt-3 mb-3">
-  {% include erasmus/picture.html src="lanyon" text="Lanyon Building (by Tomasz Kobiela)" %}
-  {% include erasmus/picture.html src="university-square" text="University Square (by Ardfern)" %}
-  {% include erasmus/picture.html src="qub-library-P9206073" text="McClay Library" %}
+  {% include article-picture.html src="lanyon" text="Lanyon Building (by Tomasz Kobiela)" %}
+  {% include article-picture.html src="university-square" text="University Square (by Ardfern)" %}
+  {% include article-picture.html src="qub-library-P9206073" text="McClay Library" %}
 </div>
 
 Das erste der drei Bilder zeigt das “Lanyon Building”, das

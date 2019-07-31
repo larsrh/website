@@ -33,7 +33,7 @@ Kanadische Köstlichkeiten
 -------------------------
 
 <div class="row mt-3 mb-3">
-  {% include erasmus/picture.html src="pancakes-PA026189" text="Pancakes im Akkord" %}
+  {% include article-picture.html src="pancakes-PA026189" text="Pancakes im Akkord" %}
 </div>
 
 Als es letztes Wochenende hier im Wohnheim hieß, es würde ein
@@ -102,7 +102,7 @@ There’s no such thing as a small part
 -------------------------------------
 
 <div class="row mt-3 mb-3">
-  {% include erasmus/picture.html src="waterfront" text="Waterfront Hall, gelegen am Lagan (by Ehrenberg Kommunikation)" %}
+  {% include article-picture.html src="waterfront" text="Waterfront Hall, gelegen am Lagan (by Ehrenberg Kommunikation)" %}
 </div>
 
 Wer mich kennt, weiß, dass ich eher altersuntypisch auf klassische Musik
@@ -178,8 +178,8 @@ Weihnachtsstimmung
 ------------------
 
 <div class="row mt-3 mb-3">
-  {% include erasmus/picture.html src="wohnheim-PC036417" text="Weihnachtsbaum im Wohnheim" %}
-  {% include erasmus/picture.html src="brot-PC056421" text="(Etwas flach geratenes) Brot" %}
+  {% include article-picture.html src="wohnheim-PC036417" text="Weihnachtsbaum im Wohnheim" %}
+  {% include article-picture.html src="brot-PC056421" text="(Etwas flach geratenes) Brot" %}
 </div>
 
 Dem Gelächter vereinzelter Passanten nach zu urteilen, muss es wohl ein

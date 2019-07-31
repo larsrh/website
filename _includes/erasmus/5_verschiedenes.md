@@ -5,7 +5,7 @@ Wir werden kopiert, schamlos
 ----------------------------
 
 <div class="row mt-3 mb-3">
-  {% include erasmus/picture.html src="vauxhall-P9196068" text="Vauxhall Astra" %}
+  {% include article-picture.html src="vauxhall-P9196068" text="Vauxhall Astra" %}
 </div>
 
 Schon als wir vom Flughafen abgeholt wurden, fiel mir das auf. Da fuhren
@@ -58,8 +58,8 @@ Wintereinbruch
 --------------
 
 <div class="row mt-3 mb-3">
-  {% include erasmus/picture.html src="kipferln-PB306398" text="Weihnachtsgebäck" %}
-  {% include erasmus/picture.html src="snow-PC176456" text="Wintereinbruch" %}
+  {% include article-picture.html src="kipferln-PB306398" text="Weihnachtsgebäck" %}
+  {% include article-picture.html src="snow-PC176456" text="Wintereinbruch" %}
 </div>
 
 Eigentlich ist “Wintereinbruch” übertrieben. So viel Schnee wie bei
