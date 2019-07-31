@@ -73,7 +73,6 @@ pubs:
     doi: "10.1007/s10817-017-9445-1"
     in: "Journal of Automated Reasoning (Open Access)"
     year: 2018
-    select: true
     abstract: |
       This article summarizes our efforts around the formally verified static analysis of
       iptables rulesets using Isabelle/HOL. We build our work around a formal semantics of the

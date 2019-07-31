@@ -34,7 +34,6 @@ pubs:
     springer: true
     year: 2018
     doi: "10.1007/978-3-319-89884-1_35"
-    select: true
     slides: "https://speakerdeck.com/larsrh/hol-to-cakeml"
     abstract: |
       Many theorem provers can generate functional programs from definitions

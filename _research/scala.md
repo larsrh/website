@@ -20,7 +20,6 @@ pubs:
     doi: "10.1007/978-3-319-40229-1_38"
     arxiv: "1607.01539"
     slides: "https://speakerdeck.com/larsrh/hol-1"
-    select: true
     abstract: |
       We present a trustworthy connection between the Leon verification
       system and the Isabelle proof assistant. Leon is a system for verifying functional
