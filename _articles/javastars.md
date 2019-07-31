@@ -8,10 +8,7 @@ abstract: |
   Wir, Lars Hupel, Thomas Milde und Richard Tschirschnitz sowie unserer Lehrer Mirko König sind am 5. Mai 2007 nach San Francisco geflogen, um an der weltweit größten Entwicklerkonferenz – der JavaOne 2007 – teilzunehmen. Dies hatten wir als 1. Preis beim Programmierwettbewerb „Java Stars 2006 – Sun Microsystems Award“ gewonnen und durften daher für einige Tage in den USA verweilen.
 ---
 
-{% assign img_title = "v.l.n.r.: ich, Richard Tschirschnitz, Thomas Milde" %}
-<a href="/img/articles/javastars/rucksack.jpg" data-toggle="lightbox" class="float-right ml-4 mb-4" data-footer="{{ img_title }}">
-  <img src="/img/articles/javastars/rucksack.thumb.jpg" alt="{{ img_title }}, mit Rucksack" class="img-fluid img-thumbnail" data-toggle="tooltip" data-placement="bottom" title="{{ img_title }}">
-</a>
+{% include float_picture.html src="rucksack.jpg" thumb="rucksack.thumb.jpg" text="v.l.n.r.: ich, Richard Tschirschnitz, Thomas Milde" %}
 
 ### Der Wettbewerb …
 
@@ -42,10 +39,8 @@ Anschließend fuhren wir mit dem SF Municipal Railway (Muni, das örtliche, sehr
 
 Wir ließen uns also chinesisch bekochen (Anmerkung von Herr König: Im chinesischen Restaurant gab es eine separate Karte nur für Teigtaschen) und weil wir alle so müde waren, lagen wir dann auch eine halbe Stunde später im Bett.
 
-{% assign img_title = "Cable Car" %}
-<a href="/img/articles/javastars/cablecar.jpg" data-toggle="lightbox" class="float-right ml-4 mb-4" data-footer="{{ img_title }}">
-  <img src="/img/articles/javastars/cablecar.thumb.jpg" alt="{{ img_title }}" class="img-fluid img-thumbnail" data-toggle="tooltip" data-placement="bottom" title="{{ img_title }}">
-</a>
+{% include float_picture.html src="cablecar.jpg" thumb="cablecar.thumb.jpg" text="Cable Car" %}
+
 #### Sonntag, der 6. Mai
 Am Sonntag haben wir uns um 9.00 Uhr in der Lobby getroffen und sind die Straße hoch zum Segafredo-Frühstückscafé gelaufen und dort amerikanisch gefrühstückt. In der nahegelegenen Pharmacy Walgreens deckten wir uns mit Getränken ein. Um 10.00 Uhr fuhren wir dann mit dem Cable Car zu Fisherman's Wharf, wo wir dann auch zu Mittag gegessen haben.
 
@@ -62,10 +57,7 @@ Später haben wir uns dann das Business-Center im Hotel angesehen, was ultimativ
 
 Des Abends gingen wir in ein Thai-Restaurant. Für Richard und Lars gab es jeweils einen Liter Suppe, weshalb es während des Essens auch nicht weniger wurde. Beim Rückweg sind wir dann durch etwas verruchtere Stadtteile gegangen.
 
-{% assign img_title = "v.l.n.r.: ich, Richard Tschirschnitz, Mirko König, Thomas Milde" %}
-<a href="/img/articles/javastars/moscone.jpg" data-toggle="lightbox" class="float-right ml-4 mb-4" data-footer="{{ img_title }}">
-  <img src="/img/articles/javastars/moscone.thumb.jpg" alt="{{ img_title }}, vor dem Moscone Center" class="img-fluid img-thumbnail" data-toggle="tooltip" data-placement="bottom" title="{{ img_title }}">
-</a>
+{% include float_picture.html src="moscone.jpg" thumb="moscone.thumb.jpg" text="v.l.n.r.: ich, Richard Tschirschnitz, Mirko König, Thomas Milde" %}
 
 #### Dienstag, der 8. Mai – der erste Konferenztag
 Heute mussten wir um 6.00 Uhr aufstehen, um pünktlich zum Frühstück im Moscone Center zu erscheinen, welches in einem riesigen Saal stattfand.
@@ -73,18 +65,21 @@ Heute mussten wir um 6.00 Uhr aufstehen, um pünktlich zum Frühstück im Moscon
 Dann gingen wir direkt zur Keynote (Einführungsveranstaltung). Dort war eine DJ damit beschäftigt, irgendwelche tollen Sachen live zu mixen. Während der Veranstaltung wurden einige Neuerungen angekündigt, z. B. Java FX oder die Fertigstellung der Offenlegung des Quelltextes des JDK. Alles in allem waren auch viele wichtige Leute anwesend, z. B. Jonathan Schwartz, James Gosling oder Rich Greene.
 
 Mittagessen gab es dann auch bei der Konferenz. Später sind wir dann auch zu einigen anderen Sessions gegangen, nämlich *Search Inside The Music* und *Web Algorithms.* Am Abend waren dann Herr König und Lars dann noch bei einem Vortrag über das zukünftige JDK 7.
+
 #### Mittwoch, der 9. Mai – der zweite Konferenztag
 Heute gab es die Keynote von Oracle zu bestaunen, wobei uns das Gefühl beschlich, dass keiner von uns irgendetwas verstanden hatte. Es ging um Service Oriented Architecture und andere Sachen, von denen wir noch nie etwas gehört hatten. Wie von einem Verwandten von Richard empfohlen wurde, sahen wir uns später noch die Session Web Beans Update von Gavin King an. Auch hier haben wir nichts verstanden, jedoch gab es was zu lachen (Vortragsstil …).
 
 Richard und Thomas besuchten die Session *Rev Up Your Car PC With Java Technology,* die aber überhaupt nicht informativ war, während Herr König die Zeit für eine Java ME-Session nutzte, um sich im Mobilbereich fortzubilden und Lars wieder im Apple Store war. Danach haben wir uns alle im Pavilion getroffen und jede Menge Sachen, u. a. T-Shirts von Motorola, abgestaubt.
 
 Zwischendurch haben wir dann noch Karten für die Tour nach Alcatraz gekauft und dem Exploratorium noch einen kleinen Besuch abgestattet. Abends waren wir dann zusammen im Lori's Diner, um ordentlich amerikanisch Burger zu essen und Cola zu trinken. Das Restaurant ist im 50er-Jahre-Stil gehalten und war deshalb sehr nett anzusehen. Anschließend waren wir dann im *San Francisco Comedy College* zu einer kleiner Vorstellung. Da wir uns vorher vorgestellt hatten, ging natürlich jeder zweite Witz über Deutschland …
+
 #### Donnerstag, der 10. Mai – der dritte Konferenztag
 Nach dem Frühstück sind wir mit der Straßenbahn zum Pier 39 gefahren und von dort aus mit dem Schiff zu Alcatraz. Die Audiotour war sehr interessant und informativ. Bei der Rückkehr wurden dann gleich Fotos mit den Schul-T-Shirts gemacht *(Ausflippen!).*
 
 Nachmittags gab es dann auch noch einige Session, z. B. *Write A 3D Game in Java in Less Than 50 Minutes* - ein Thema, was uns etwas überraschte. Der Vortrag war aber recht gelungen und das Spiel, was dabei herauskam, war zwar spartanisch, aber spielbar und hatte einen hohen Spaßfaktor (zwei Dukes beschießen sich mit Bohnen). Zum Download gibts das Spiel hier.
 
 Heute abend war dann auch noch das Abendessen im *Stinking Rose,* einem Knoblauch-Restaurant, wozu uns Herr Fehr eingeladen hatte.
+
 #### Freitag, der 11. Mai – der vierte und letzte Konferenztag
 Die heutige „Toy Show“-Keynote war natürlich ein Muss. Wir setzten uns aber gleich etwas weiter hinter, da wir aufgrund unseres Fluges etwas eher gehen mussten. Leider kamen die „Toys“ bis wir gegangen sind etwas zu kurz. Es wurden aber einige, teilweise sehr hilfreiche Tools zum Programmieren mit *NetBeans* vorgestellt.
 

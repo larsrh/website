@@ -21,7 +21,7 @@ Translated, _matsuri_ means _festival_.
 {% twitter https://twitter.com/eed3si9n/status/1144841545209638914 %}
 
 I had already tried the previous year (2018) to get a talk into the conference, but unfortunately, it was rejected.[^1]
-<a href="http://2019.scalamatsuri.org/index_en.html">Fast forward to 2019</a> and my proposal to <a href="/talks/property-testing">talk about property-based testing</a> got accepted.
+<a href="http://2019.scalamatsuri.org/index_en.html">Fast forward to 2019</a> and my proposal to [talk about property testing]({%link _talks/property-testing.md %}) got accepted.
 
 The conference was scheduled for two and a half days: a Thursday afternoon (June 27) for an OSS hackathon, then two conference days (June 28–29) afterwards.
 I was a little unsure about how much time I should spend for sightseeing.
@@ -40,10 +40,7 @@ In two of the three tracks, there were two pairs of interpreters translating fro
 This meant that talks could be held in Japanese and English and all participants could listen, no matter their proficiency in either language.
 Naturally, this extended to the Q&A session too: speakers could also use the pocket receiver to hear questions in their native language.
 
-{% assign img_title = "Slide in English, subtitled in Japanese" %}
-<a href="/img/articles/scala-matsuri/subtitled_slide.png" data-toggle="lightbox" class="figure-float-right" data-footer="{{ img_title }}">
-  <img src="/img/articles/scala-matsuri/subtitled_slide.png" alt="{{ img_title }}" class="img-fluid img-thumbnail" data-toggle="tooltip" data-placement="bottom" title="{{ img_title }}">
-</a>
+{% include float_picture.html src="subtitled_slide.png" text="Slide in English, subtitled in Japanese" %}
 
 All talks that I attended – even the ones delivered in Japanese – had slides written in English.
 To allow Japanese attendees to follow them along more easily, speakers had to submit their slides a month in advance so that the organizers could return them with subtitles.
