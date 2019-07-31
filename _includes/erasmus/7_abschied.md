@@ -42,9 +42,9 @@ Endspurt im Januar
 ------------------
 
 <div class="row mt-3 mb-3">
-  {% include article-picture.html src="tour-100_4013" text="Mit Herrn H. in einem roten Taxi auf Black Taxi Tour (von Stephan Helmrich)" %}
-  {% include article-picture.html src="murals-100_4020" text="Murals in West Belfast (von Stephan Helmrich)" %}
-  {% include article-picture.html src="grant-house-CIMG0316" text="Abschied vom Grant House" %}
+  {% include article_picture.html src="tour-100_4013" text="Mit Herrn H. in einem roten Taxi auf Black Taxi Tour (von Stephan Helmrich)" %}
+  {% include article_picture.html src="murals-100_4020" text="Murals in West Belfast (von Stephan Helmrich)" %}
+  {% include article_picture.html src="grant-house-CIMG0316" text="Abschied vom Grant House" %}
 </div>
 
 Seit Samstag weile ich nun wieder in Belfast – im Gegensatz zu meiner

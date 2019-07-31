@@ -143,10 +143,10 @@ Wednesday, June 26
   Fortunately, the blooms were a sight to behold.
 
 <div class="row mt-3 mb-3">
-  {% include article-picture.html src="kamakura-station" text="People standing in line waiting for the Enoshima Electric Railway" %}
-  {% include article-picture.html src="hydrangea" text="Lots of Hydrangea" %}
-  {% include article-picture.html src="hasedera-view" text="View from Hase-dera to the beach of Kamakura" %}
-  {% include article-picture.html src="kebab-bento" text="A culinary abomination: Kebab Bento" %}
+  {% include article_picture.html src="kamakura-station" text="People standing in line waiting for the Enoshima Electric Railway" %}
+  {% include article_picture.html src="hydrangea" text="Lots of Hydrangea" %}
+  {% include article_picture.html src="hasedera-view" text="View from Hase-dera to the beach of Kamakura" %}
+  {% include article_picture.html src="kebab-bento" text="A culinary abomination: Kebab Bento" %}
 </div>
 
 ### ... and maybe the only time

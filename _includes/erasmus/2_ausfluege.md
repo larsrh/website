@@ -5,9 +5,9 @@ Wandern in und um Belfast
 -------------------------
 
 <div class="row mt-3 mb-3">
-  {% include article-picture.html src="freshers-P9206078" text="Fresher’s Week" %}
-  {% include article-picture.html src="castle-P9206108" text="Ich vor dem Belfast Castle" %}
-  {% include article-picture.html src="cavehill-P9206131" text="Ausblick vom Cavehill auf Belfast" %}
+  {% include article_picture.html src="freshers-P9206078" text="Fresher’s Week" %}
+  {% include article_picture.html src="castle-P9206108" text="Ich vor dem Belfast Castle" %}
+  {% include article_picture.html src="cavehill-P9206131" text="Ausblick vom Cavehill auf Belfast" %}
 </div>
 
 Vor der Uni war wegen der “Fresher’s Week” (Einführungstage) am Montag
@@ -53,9 +53,9 @@ Auf nach Bangor
 ---------------
 
 <div class="row mt-3 mb-3">
-  {% include article-picture.html src="bangor-PA036209" text="Fresher’s Week" %}
-  {% include article-picture.html src="bangor-PA036213" text="Boat House Restaurant in Bangor" %}
-  {% include article-picture.html src="bangor-PA036220" text="Farbenfrohe Fassaden in Bangor" %}
+  {% include article_picture.html src="bangor-PA036209" text="Fresher’s Week" %}
+  {% include article_picture.html src="bangor-PA036213" text="Boat House Restaurant in Bangor" %}
+  {% include article_picture.html src="bangor-PA036220" text="Farbenfrohe Fassaden in Bangor" %}
 </div>
 
 Letztes Wochenende haben wir wieder einmal einen Kurztrip gemacht. Ziel
@@ -95,9 +95,9 @@ A Giant’s Cause
 ---------------
 
 <div class="row mt-3 mb-3">
-  {% include article-picture.html src="carrickfergus-PA316254" text="Carrickfergus Castle" %}
-  {% include article-picture.html src="ballygally-PA316279" text="Ballygally Head" %}
-  {% include article-picture.html src="rope-bridge-PA316305" text="Carrick-a-Rede Rope Bridge" %}
+  {% include article_picture.html src="carrickfergus-PA316254" text="Carrickfergus Castle" %}
+  {% include article_picture.html src="ballygally-PA316279" text="Ballygally Head" %}
+  {% include article_picture.html src="rope-bridge-PA316305" text="Carrick-a-Rede Rope Bridge" %}
 </div>
 
 Seit einigen Tagen hat Sylvester Besuch von der lieben Familie. Am
@@ -154,10 +154,10 @@ das Wetter, wie in unserem Falle, gewogen ist. Wobei dann natürlich das
 richtige “Irland-Feeling” fehlt.
 
 <div class="row mt-3 mb-3">
-  {% include article-picture.html src="causeway-PA316324" text="Giant’s Causeway" %}
-  {% include article-picture.html src="causeway-PA316329" text="Giant’s Causeway" %}
-  {% include article-picture.html src="causeway-PA316370" text="Giant’s Causeway" %}
-  {% include article-picture.html src="causeway-PA316316" text="Ich an der Küste" %}
+  {% include article_picture.html src="causeway-PA316324" text="Giant’s Causeway" %}
+  {% include article_picture.html src="causeway-PA316329" text="Giant’s Causeway" %}
+  {% include article_picture.html src="causeway-PA316370" text="Giant’s Causeway" %}
+  {% include article_picture.html src="causeway-PA316316" text="Ich an der Küste" %}
 </div>
 
 Nach einer weiteren kurzen Fahrstrecke kamen wir dann im Besucherzentrum
@@ -304,9 +304,9 @@ Massen mehr oder weniger lärmend durch die Straßen. Polizeiaufgebot (mit
 lustigen Hüten) war auch mit von der Partie.
 
 <div class="row mt-3 mb-3">
-  {% include article-picture.html src="newcastle-PB206380" text="Millenium Bridge" %}
-  {% include article-picture.html src="newcastle-chinatown" text="Eingangstor zu Chinatown in Newcastle" %}
-  {% include article-picture.html src="newcastle-PB206387" text="Im Bahnhof von Newcastle" %}
+  {% include article_picture.html src="newcastle-PB206380" text="Millenium Bridge" %}
+  {% include article_picture.html src="newcastle-chinatown" text="Eingangstor zu Chinatown in Newcastle" %}
+  {% include article_picture.html src="newcastle-PB206387" text="Im Bahnhof von Newcastle" %}
 </div>
 
 England zeigte sich wieder von seiner prächtigsten Seite, die es wohl
@@ -393,8 +393,8 @@ geklappt, da entweder zu voll (von Studenten belagert) oder zu spät
 haben wir noch einen kleinen Spaziergang durch Durham gemacht.
 
 <div class="row mt-3 mb-3">
-  {% include article-picture.html src="durham-PB216395" text="Ausblick auf Durham vom Turm der Kathedrale" %}
-  {% include article-picture.html src="durham-PB216394" text="Keep des Durham Castle" %}
+  {% include article_picture.html src="durham-PB216395" text="Ausblick auf Durham vom Turm der Kathedrale" %}
+  {% include article_picture.html src="durham-PB216394" text="Keep des Durham Castle" %}
 </div>
 
 Am Sonntag hatten wir uns Zeit genommen, die Stadt zu besichtigen, was
@@ -476,9 +476,9 @@ Sliabh Dónairt
 --------------
 
 <div class="row mt-3 mb-3">
-  {% include article-picture.html src="mourne-P1176571" text="Früher Bahnhof, jetzt Lidl" %}
-  {% include article-picture.html src="mourne-P1176590" text="Mourne Wall auf dem Slieve Donard" %}
-  {% include article-picture.html src="mourne-P1176584" text="Ich auf halbem Weg zum Gipfel" %}
+  {% include article_picture.html src="mourne-P1176571" text="Früher Bahnhof, jetzt Lidl" %}
+  {% include article_picture.html src="mourne-P1176590" text="Mourne Wall auf dem Slieve Donard" %}
+  {% include article_picture.html src="mourne-P1176584" text="Ich auf halbem Weg zum Gipfel" %}
 </div>
 
 Was macht man zwischen zwei Klausuren? Richtig, sich freuen, dass die

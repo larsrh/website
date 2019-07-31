@@ -87,7 +87,7 @@ Achtung, hier hat jemand mitgedacht
 -----------------------------------
 
 <div class="row mt-3 mb-3">
-  {% include article-picture.html src="mitgedacht" text="Hier hat jemand mitgedacht" %}
+  {% include article_picture.html src="mitgedacht" text="Hier hat jemand mitgedacht" %}
 </div>
 
 Na, wer findet den Fehler? So sehen hier alle Waschbecken aus, auch das
@@ -154,7 +154,7 @@ Change Button
 -------------
 
 <div class="row mt-3 mb-3">
-  {% include article-picture.html src="change-button" text="Change Button" %}
+  {% include article_picture.html src="change-button" text="Change Button" %}
 </div>
 
 Ein mysteriöses Schild mit der folgenden wundervollen Aufschrift prangt
@@ -174,7 +174,7 @@ Gschichten ausm Wohnheim
 ------------------------
 
 <div class="row mt-3 mb-3">
-  {% include article-picture.html src="cooker" text="Es steht ein Herd auf dem Flur" %}
+  {% include article_picture.html src="cooker" text="Es steht ein Herd auf dem Flur" %}
 </div>
 
 Bei uns in der Küche geht ständig etwas kaputt; neulich einer der
