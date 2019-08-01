@@ -5,10 +5,10 @@ card_theme: bg-dark text-white
 permalink: /articles/
 ---
 
-{% assign articles = site.articles | concat: site.data.external_articles | sort: 'pub_date' %}
+{% assign articles = site.articles | concat: site.data.external_articles | sort: 'pub_date' | reverse %}
 {% assign today_date = 'now' | date: '%s' %}
 
-<div class="card-columns">
+<div class="masonry" data-columns>
   {% for article in articles %}
     {% assign article_date = article.pub_date | date: '%s' %}
     {% if today_date > article_date %}
@@ -16,3 +16,6 @@ permalink: /articles/
     {% endif %}
   {% endfor %}
 </div>
+
+<br style="clear:both;">
+<script src="/js/salvattore.min.js"></script>

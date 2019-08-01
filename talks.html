@@ -6,14 +6,14 @@ card_theme: bg-info text-white
 permalink: /talks/
 ---
 
-<div class="card-columns card-columns-wide mt-4 mb-4">
+<div class="card-columns mt-4 mb-4">
   {% for talk in site.talks %}
     {% include card.html src="talk.html" no_header="true" %}
   {% endfor %}
 </div>
 
 <h2>Other Talks</h2>
-<div class="card-columns card-columns-wide mt-4">
+<div class="card-columns mt-4">
   {% for year in (2013..2030) reversed %}
     {% include misc_talks_by_year.html year=year %}
   {% endfor %}
