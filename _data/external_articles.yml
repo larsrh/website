@@ -92,3 +92,8 @@
   abstract: "Smart Contracts sind eine Technologie, mit der man Code auf Blockchains ausführt. Eine Vielzahl von Geschäftsfällen werden inzwischen durch solche Verträge abgebildet. Ethereum ist dafür eine beliebte Plattform. Doch wie bei aller Software stellt sich die Frage, wie man die Qualität des Codes sicherstellen kann."
   link: "https://www.innoq.com/de/articles/2019/07/verifikation-von-smart-contracts/"
   lang: de
+- pub_date: 2019-08-01
+  title: "Integrating Logback with JLine"
+  journal: "INNOQ"
+  abstract: "Logback is a popular logging library for Java. JLine can be used to create nice shell-like applications. Combining both is not as hard as it looks."
+  link: "https://www.innoq.com/en/blog/logback-jline/"
