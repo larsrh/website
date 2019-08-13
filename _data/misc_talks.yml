@@ -26,12 +26,6 @@
   recording: "https://skillsmatter.com/skillscasts/5827-state-of-the-typelevel"
   slides: "https://speakerdeck.com/larsrh/state-of-the-typelevel"
   year: 2014
-- title: Functional Mocking
-  conference: "Lambda Days"
-  link: "http://www.lambdadays.org/lambdadays2015/lars-hupel"
-  recording: "https://vimeo.com/125038982"
-  slides: "https://speakerdeck.com/larsrh/functional-mocking"
-  year: 2015
 - title: When Types are Not Enough
   conference: "Scala World"
   recording: "https://www.youtube.com/watch?v=NGZRBgp5G5M"
