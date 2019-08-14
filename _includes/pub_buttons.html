@@ -28,5 +28,10 @@
   {% if pub.recording %}
     <a href="{{ pub.recording }}" class="btn btn-primary">Recording</a>
   {% endif %}
+  {% if pub.extra %}
+    {% for extra in pub.extra %}
+      <a href="{{ extra.link }}" class="btn btn-primary">{{ extra.text }}</a>
+    {% endfor %}
+  {% endif %}
 </div>
 <br style="clear: both;">

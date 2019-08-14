@@ -74,10 +74,12 @@ pubs:
   - title: "Verified Code Generation from Isabelle/HOL"
     id: "phd-thesis_hupel"
     authors: ["lars"]
-    bib: false
     year: 2019
     in: "Doctoral Dissertation"
     slides: "https://speakerdeck.com/larsrh/hol"
+    extra:
+      - link: "http://nbn-resolving.de/urn/resolver.pl?urn:nbn:de:bvb:91-diss-20190711-1473785-1-3"
+        text: "Official copy"
     abstract: |
       In this thesis, I develop a verified compilation toolchain from executable specifications in Isabelle/HOL to CakeML abstract syntax trees.
       This improves over the state-of-the-art in Isabelle by providing a trustworthy procedure for code generation.
