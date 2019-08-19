@@ -9,7 +9,7 @@ abstract: |
 speakerdeck: "1c85f64818c548c68044654b16ad2adc"
 video: { vimeo: "296367334" }
 conferences:
-  - conference: "J on the Beach"
+  - conference: "J On The Beach"
     year: 2019
     date: May 16th
     location: Marbella, Spain
@@ -61,6 +61,10 @@ conferences:
     slides: "https://speakerdeck.com/larsrh/numeric-programming-with-spire"
 
 ---
+
+## Interview at J On The Beach
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Pd2eQSiCOjg" allowfullscreen></iframe>
 
 ## Demo code
 
