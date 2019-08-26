@@ -34,3 +34,19 @@ conferences:
     recording: "https://www.youtube.com/watch?v=VjJQQTfxuP0"
     slides: "https://speakerdeck.com/larsrh/programmation-en-logique-code-mesh-edition"
 ---
+
+## Testimonials
+
+[@autophagian](https://twitter.com/autophagian) writes:
+
+> This talk, given by Lars Hupel, was a super fun look at Prolog, a logical programming language developed in the 70s.
+> […]
+> Lars did a really great job of demonstrating Prolog's uniqueness! – [_Notes from BOB2019 Konferenz_](https://byrgen.autophagy.io/notes-from-bob2019-konferenz/)
+
+[@bodil](https://twitter.com/bodil):
+
+{% twitter https://twitter.com/bodil/status/1060495655662174208 %}
+
+[@51M0NW](https://twitter.com/51M0NW):
+
+{% twitter https://twitter.com/51M0NW/status/1060504606420148225 %}

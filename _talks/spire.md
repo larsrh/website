@@ -66,6 +66,11 @@ conferences:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Pd2eQSiCOjg" allowfullscreen></iframe>
 
+## Testimonials
+
+{% twitter https://twitter.com/ChuckMiskyes/status/1040587122049265664 %}
+{% twitter https://twitter.com/stefanobaghino/status/1040594669284012032 %}
+
 ## Demo code
 
 [View on GitHub Gist](https://gist.github.com/larsrh/b4bb402616e43b1e9792a5be4968ee3d)

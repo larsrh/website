@@ -7,7 +7,7 @@ abstract: |
   Very often, property tests don't exploit all the features of the framework.
   In this talk, I'll give an overview of the state of the art of property testing and show some common use cases, techniques and pitfalls.
 speakerdeck: "f76461abb59243f28784c7e1a569972a"
-video: { vimeo: "165852636" }
+video: { yt: "OPD1V8ZOL2U" }
 conferences:
   - conference: "flatMap(Oslo)"
     year: 2016
@@ -22,4 +22,5 @@ conferences:
     location: Tokyo, Japan
     link: "http://2019.scalamatsuri.org/index_en.html"
     slides: "https://speakerdeck.com/larsrh/how-to-test-proper-t-l-y-scala-matsuri-edition"
+    recording: "https://www.youtube.com/watch?v=OPD1V8ZOL2U"
 ---
