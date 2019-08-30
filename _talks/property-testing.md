@@ -23,4 +23,11 @@ conferences:
     link: "http://2019.scalamatsuri.org/index_en.html"
     slides: "https://speakerdeck.com/larsrh/how-to-test-proper-t-l-y-scala-matsuri-edition"
     recording: "https://www.youtube.com/watch?v=OPD1V8ZOL2U"
+  - conference: "Munich Scala User Group"
+    year: 2019
+    date: August 21st
+    location: Munich, Germany
+    link: "https://www.meetup.com/ScalaMuc/events/262805286/"
+    slides: "https://speakerdeck.com/larsrh/how-to-test-proper-t-l-y-scala-matsuri-edition"
+    recording: "https://www.youtube.com/watch?v=BPDKN0kuDFQ"
 ---
