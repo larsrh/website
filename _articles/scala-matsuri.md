@@ -86,6 +86,10 @@ Monday, June 24
 
   When I arrived in my room, it was about 15:00, and even though I wanted to stay awake for at least four more hours, the bed just seemed to be very enticing, so I went to sleep.
 
+<div class="row mt-3 mb-3">
+  {% include article_picture.html src="ariake-area" text="The area around the hotel (Ariake) and the weather that greeted me" %}
+</div>
+
 Tuesday, June 25
 : I woke up the next day at 01:00, with about five hours to kill before breakfast started.
   Perfect time to catch up on some emails and work.
@@ -114,6 +118,12 @@ Tuesday, June 25
   June is the hydrangea season in the area, which means there were plenty of colourful blossoms everywhere.
 
   The final two stops for the day were _Akihibara_, which I found interesting but since I'm not into games, not a place where I would spend a lot of time, and <a href="https://en.wikipedia.org/wiki/Hamarikyu_Gardens">_Hamarikyu Gardens_</a>, a nice park and an important historic site.
+  During the Edo period (17th–19th century), the park was used for duck hunting.
+  This involved artificial hills where hunters could hide behind, and were then called to shoot after the ducks have been lured to the ponds.
+
+  I noticed that in most parts of the city I had visited that day all the electrical wiring was overground.
+  Some of those poles were an eyesore with cables going in all directions in a seemingly unstructured fashion.
+  I'm assuming the reason for this is probably because it makes repairs easier after earthquakes.
 
   By the time I was walking through the gardens, my watch had already informed me for the fourth time that I had reached my step goal.
   Tired after many kilometers of walking, I went back to the hotel to relax a little.
@@ -123,6 +133,19 @@ Tuesday, June 25
   Luckily, my company was able to help me decipher the menu there.
 
   Needless to say, I was absolutely knackered when I returned back at the hotel, at which time my watch cheerfully congratulated me for breaking my five-fold step goal.
+
+<div class="row mt-3 mb-3">
+  {% include article_picture.html src="skytree" text="The Skytree tower" %}
+  {% include article_picture.html src="skytree-lars" text="Me, posing at a high altitude" %}
+  {% include article_picture.html src="sumida" text="Picturesque Sumida park" %}
+  {% include article_picture.html src="tokyo-tram" text="A decomissioned streetcar" %}
+</div>
+<div class="row mt-3 mb-3">
+  {% include article_picture.html src="ueno-pond" text="Pond covered in green plants" %}
+  {% include article_picture.html src="wiring" text="Very professional electrical wiring in Tokyo" %}
+  {% include article_picture.html src="car-in-lot" text="Small car parked in lot that just about fits the car" %}
+  {% include article_picture.html src="hamarikyu" text="Hamarikyu gardens with a historic duck hunting site" %}
+</div>
 
 Wednesday, June 26
 : On Wednesday, I almost woke up at a normal time (well, after 6:00).
@@ -134,15 +157,31 @@ Wednesday, June 26
   Since I started my journey around 8:30, rush hour was still going strong and my connecting JR train actually was more than ten minutes late; an transgression that I didn't expect in Japan.
 
   A little over an hour later, I arrived at Kamakura.
-  The first stop on my tour was the <a href="https://en.wikipedia.org/wiki/Hase-dera_(Kamakura)">_Hase-dera_</a> temple.
+  The first stop on my tour was the [_Hase-dera_](https://en.wikipedia.org/wiki/Hase-dera_(Kamakura)) temple.
   In order to get there, I had to change into the tram-like <a href="https://en.wikipedia.org/wiki/Enoshima_Electric_Railway">_Enoshima_ railway</a> whose only purpose appears to be moving tourists around, which -- as opposed to in Tokyo -- appear to be mostly Japanese.
   My friend had already warned me that because of the <a href="https://en.wikipedia.org/wiki/Hydrangea">hydrangea</a> season, the temple area will be busy, and he was right.
   Fortunately, the blooms were a sight to behold.
+
+  The Hase-dera grounds have lots of other things to offer, too.
+  Naturally, there is a rock garden (and also other carefully-maintained non-rock gardens).
+  The most interesting thing I found was the Benten-kutsu cave containing lots of miniatures.
+  The cave had a very low ceiling, so that even short me had to bend down.
+  However, the candles and miniatures made the cave mesmerizing.
+  I tried finding out more information, but all I found was in Japanese.
+  The next best thing is from a [travel blog](https://www.2aussietravellers.com/benten-kutsu-cave/), where the authors report:
+
+  > From the small amount of information I’ve been able to obtain, the Benten-Kutsu cave is thought to have been used by Kobo Daishi and that he carved the small statue of Benzaiten with 8 arms located in the adjacent Benten-do Hall himself while in seclusion there during the 9th century.
 
 <div class="row mt-3 mb-3">
   {% include article_picture.html src="kamakura-station" text="People standing in line waiting for the Enoshima Electric Railway" %}
   {% include article_picture.html src="hydrangea" text="Lots of Hydrangea" %}
   {% include article_picture.html src="hasedera-view" text="View from Hase-dera to the beach of Kamakura" %}
+  {% include article_picture.html src="hasedera-garden" text="Rock garden in Hase-dera" %}
+</div>
+<div class="row mt-3 mb-3">
+  {% include article_picture.html src="benten-kutsu-cave" text="The Benten-kutsu cave on the Hase-dera grounds with miniatures" %}
+  {% include article_picture.html src="ema-shrine" text="A shrine with Ema plaques" %}
+  {% include article_picture.html src="grave-with-cans" text="A grave at Kosoku-ji with metal cans" %}
   {% include article_picture.html src="kebab-bento" text="A culinary abomination: Kebab Bento" %}
 </div>
 
