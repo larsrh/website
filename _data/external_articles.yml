@@ -97,3 +97,8 @@
   journal: "INNOQ"
   abstract: "Logback is a popular logging library for Java. JLine can be used to create nice shell-like applications. Combining both is not as hard as it looks."
   link: "https://www.innoq.com/en/blog/logback-jline/"
+- pub_date: 2019-08-02
+  title: "Tabling"
+  journal: "Playing with Prolog (Season 3)"
+  abstract: "We cover the newly added Tabling for SWI-Prolog to help Annie get around Bangalore."
+  link: "https://www.youtube.com/watch?v=HfQGSprQ5Tk"
