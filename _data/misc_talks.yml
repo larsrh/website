@@ -37,3 +37,7 @@
   recording: "https://skillsmatter.com/skillscasts/6592-what-haskell-can-learn-from-scala"
   slides: "https://speakerdeck.com/larsrh/what-haskell-can-learn-from-scala"
   year: 2015
+- title: Safer functional programming with F*
+  conference: "Munich Lambda"
+  link: "https://www.meetup.com/Munich-Lambda/events/239103595/"
+  year: 2017
