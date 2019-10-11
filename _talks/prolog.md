@@ -12,6 +12,18 @@ conferences:
     date: March 14th
     location: Copenhagen, Denmark
     link: "https://www.meetup.com/Copenhagen-Tech-Polyglots/events/247377247/"
+  - conference: "Munich Lambda"
+    year: 2018
+    date: July 4th
+    location: Munich, Germany
+    link: "https://www.meetup.com/Munich-Lambda/events/251049900/"
+  - conference: "Code Mesh"
+    year: 2018
+    date: November 8th
+    location: London, UK
+    link: "https://codesync.global/conferences/code-mesh-2018/"
+    recording: "https://www.youtube.com/watch?v=VjJQQTfxuP0"
+    slides: "https://speakerdeck.com/larsrh/programmation-en-logique-code-mesh-edition"
   - conference: "BOB"
     year: 2019
     date: March 22nd
@@ -26,13 +38,6 @@ conferences:
     link: "http://www.lambdadays.org/lambdadays2019/lars-hupel"
     recording: "https://www.youtube.com/watch?v=4WJziTGp5mM"
     slides: "https://speakerdeck.com/larsrh/programmation-en-logique-lambdadays-edition"
-  - conference: "Code Mesh"
-    year: 2018
-    date: November 8th
-    location: London, UK
-    link: "https://codesync.global/conferences/code-mesh-2018/"
-    recording: "https://www.youtube.com/watch?v=VjJQQTfxuP0"
-    slides: "https://speakerdeck.com/larsrh/programmation-en-logique-code-mesh-edition"
 ---
 
 ## Testimonials
