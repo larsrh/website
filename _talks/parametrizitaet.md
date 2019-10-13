@@ -9,7 +9,7 @@ conferences:
     link: "https://www.innoq.com/de/talks/2019/09/lieber-ein-typparameter-zu-viel-als-zu-wenig-herbstcampus/"
     year: 2019
     date: "4. September"
-    slides: "https://www.herbstcampus.de/"
+    slides: "https://speakerdeck.com/larsrh/lieber-ein-typparameter-zu-viel-als-einer-zu-wenig-herbstcampus"
     location: Nürnberg, Deutschland
   - conference: "JUG Ostfalen"
     link: "https://www.jug-ostfalen.de/event/2019/07/18/typparameter.html"
