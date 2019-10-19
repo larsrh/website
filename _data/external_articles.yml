@@ -92,6 +92,11 @@
   abstract: "Smart Contracts sind eine Technologie, mit der man Code auf Blockchains ausführt. Eine Vielzahl von Geschäftsfällen werden inzwischen durch solche Verträge abgebildet. Ethereum ist dafür eine beliebte Plattform. Doch wie bei aller Software stellt sich die Frage, wie man die Qualität des Codes sicherstellen kann."
   link: "https://www.innoq.com/de/articles/2019/07/verifikation-von-smart-contracts/"
   lang: de
+- pub_date: 2019-07-03
+  title: "Verification of smart contracts"
+  journal: "INNOQ"
+  abstract: "Smart contracts are used to execute code on blockchains. A variety of business cases are now represented with such contracts. Ethereum is a popular platform for this purpose. However, as with all software, the question arises of how to ensure the quality of the code."
+  link: "https://www.innoq.com/en/articles/2019/07/verifikation-von-smart-contracts/"
 - pub_date: 2019-08-01
   title: "Integrating Logback with JLine"
   journal: "INNOQ"
@@ -102,3 +107,8 @@
   journal: "Playing with Prolog (Season 3)"
   abstract: "We cover the newly added Tabling for SWI-Prolog to help Annie get around Bangalore."
   link: "https://www.youtube.com/watch?v=HfQGSprQ5Tk"
+- pub_date: 2019-10-15
+  title: "The many ways of testing Smart Contracts in Ethereum"
+  journal: "INNOQ"
+  abstract: "You have implemented a smart contract for Ethereum, and now you are wondering how you can test it under real-life conditions, but without spending money in case there's a problem? Luckily, there are test networks that can help you with this."
+  link: "https://www.innoq.com/en/blog/testing-ethereum/"
