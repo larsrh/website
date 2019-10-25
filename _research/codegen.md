@@ -51,7 +51,8 @@ pubs:
   - title: "Certifying Dictionary Construction in Isabelle/HOL"
     id: "dict"
     authors: ["lars"]
-    draft: yes
+    doi: "10.3233/FI-2019-1859"
+    in: "Fundamenta Informaticae"
     year: 2019
     abstract: |
       Type classes are a well-known extensions to various type systems. Classes usually participate in type inference; that is, the type checker will automatically deduce class constraints and select appropriate instances. Compilers for such languages face the challenge that concrete instances are generally not directly mentioned in the source text. In the runtime, type class operations need to be packaged into dictionaries that are passed around as pointers. This article presents the most common approach for compilation of type classes – the dictionary construction – carried out in a trustworthy fashion in Isabelle/HOL, a proof assistant.
