@@ -2,7 +2,7 @@
 title: "Falsehoods Programmers Believe About Gender"
 header: "Falsehoods Programmers Believe About Gender"
 long_title: "Falsehoods Programmers Believe About Gender"
-pub_date: 2019-10-27
+pub_date: 2019-10-25
 lang: en
 ---
 
@@ -35,7 +35,7 @@ But don't worry, this list will clear up some common misunderstandings.
 1. I don't have to respect people's wishes about how they want to be adressed.
 1. I know the difference between gender and sex.
 1. I can look at someone's DNA and can figure out their sex.
-1. Everyone either has either a XX or XY chromosome configuration.
+1. Everyone has either a XX or XY chromosome configuration.
 1. People who don't have either a XX or XY configuration know that they don't.
 1. XX means biological woman. XY means biological man.
 1. The Y chromosome is either present in all of a person's cells or it isn't.
