@@ -50,3 +50,15 @@ But don't worry, this list will clear up some common misunderstandings.
 1. A machine learning algorithm will tell me if someone is male or female.
 1. I should build an algorithm to infer gender.
 1. Gender or sex are relevant for my business domain.
+
+### References
+
+The list of references is incomplete.
+Feel free to [add more here.](https://github.com/larsrh/website/edit/master/{{ page.path }})
+
+* World Health Organization: [Gender and Genetics](https://www.who.int/genomics/gender/en/index1.html)
+* Scientific American: [Stop Using Phony Science To Justify Transphobia](https://blogs.scientificamerican.com/voices/stop-using-phony-science-to-justify-transphobia/)
+* Scientific American: [Visualizing Sex as a Spectrum](https://blogs.scientificamerican.com/sa-visual/visualizing-sex-as-a-spectrum/)
+* Dumic et al.: [Report of Fertility in a Woman with a Predominantly 46,XY Karyotype ...](https://doi.org/10.1210/jc.2007-2155)
+* The Nib: [Gender Isn’t Binary, and Neither is Anatomy](https://thenib.com/gender-isn-t-binary-and-neither-is-anatomy)
+* Slate: [When Binary Code Won’t Accommodate Nonbinary People](https://slate.com/technology/2019/10/gender-binary-nonbinary-code-databases-values.html)
