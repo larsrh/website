@@ -6,9 +6,11 @@ pub_date: 2007-07-09
 lang: de
 abstract: |
   Wir, Lars Hupel, Thomas Milde und Richard Tschirschnitz sowie unserer Lehrer Mirko König sind am 5. Mai 2007 nach San Francisco geflogen, um an der weltweit größten Entwicklerkonferenz – der JavaOne 2007 – teilzunehmen. Dies hatten wir als 1. Preis beim Programmierwettbewerb „Java Stars 2006 – Sun Microsystems Award“ gewonnen und durften daher für einige Tage in den USA verweilen.
+hero:
+  src: "/img/articles/javastars/hero.jpg"
+  alt: "v.l.n.r.: ich, Richard Tschirschnitz, Thomas Milde"
+  credits: "MK"
 ---
-
-{% include float_picture.html src="rucksack.jpg" thumb="rucksack.thumb.jpg" text="v.l.n.r.: ich, Richard Tschirschnitz, Thomas Milde" %}
 
 ## Der Wettbewerb …
 

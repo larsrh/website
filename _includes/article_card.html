@@ -7,6 +7,9 @@
   <div class="card-header {{ page.card_theme }}">
     <h4><a href="{{ url }}" class="text-white">{{ article.title }}</a></h4>
   </div>
+  {% if article.hero %}
+    <img src="{{ article.hero.src }}" alt="{{ article.hero.alt }}" class="card-img-top" />
+  {% endif %}
   <div class="card-body">
     <div class="card-text">
       <div class="hyphenate">
@@ -17,13 +20,21 @@
         {% endif %}
       </div>
       <div class="mb-3">
-        <small class="text-muted">
+        <small class="text-muted" style="line-height: 1;">
           {% if article.lang == "de" %}
             Veröffentlicht
           {% else %}
             Published
           {% endif %}
           {% if article.is_article %}{% elsif article.journal %}in <em>{{ article.journal }}</em>,{% endif %} {{ article.pub_date }}.
+          {% if article.hero %}
+            {% if article.lang == "de" %}
+              Bildnachweis:
+            {% else %}
+              Image credits:
+            {% endif %}
+            {{ article.hero.credits }}.
+          {% endif %}
         </small>
       </div>
       <div class="pull-right">

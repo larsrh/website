@@ -4,6 +4,10 @@ layout: default
 
 <div class="jumbotron">
   <header class="container">
+    {% if page.hero %}
+      <img src="{{ page.hero.src }}" alt="{{ page.hero.alt }}" class="img-fluid mb-4" />
+    {% endif %}
+
     <h1 class="display-3">{{ page.long_title }}</h1>
     {% if page.lang == "de" %}
       Veröffentlicht am
@@ -17,6 +21,15 @@ layout: default
       Last updated on
     {% endif %}
     <a href="https://github.com/larsrh/website/commit/{{ page.git.last_commit.long_sha }}">{{ page.git.last_commit.commit_date | date: "%Y-%m-%d" }}</a>.
+
+    {% if page.hero %}
+      {% if page.lang == "de" %}
+        Bildnachweis (Titelbild):
+      {% else %}
+        Header image credits:
+      {% endif %}
+      {{ page.hero.credits }}.
+    {% endif %}
   </header>
 </div>
 
