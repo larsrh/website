@@ -13,7 +13,7 @@ Recently I announced on Twitter some upgrade I did on a "home" server:
 Shortly thereafter, someone wanted to know what the setup looks like.
 So, I took some time to describe the hardware & software on the machines (I have an almost identical setup at two different locations).
 
-### Hardware
+## Hardware
 
 The base hardware is an [HP ProLiant N40L](http://n40l.wikia.com).
 This is a cute little cube with a rather slow, but sufficient CPU (AMD Neo, 1.5 GHz).
@@ -61,7 +61,7 @@ There are a few significant changes from the Gen 7 series:
 * It supports booting via UEFI. I have hence partitioned the boot disk as GPT.
 * The CPU supports AES-NI. If I were to re-setup the encrypted device, I would have chosen AES accordingly, instead of Twofish.
 
-### Partitioning
+## Partitioning
 
 The four big internal disks are formatted with a DOS partition table and combined using Linux' own dm-raid to a software RAID 5.
 This creates a big volume of approximately 9 TB, which I've formatted with btrfs.

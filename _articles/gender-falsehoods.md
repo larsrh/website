@@ -51,7 +51,7 @@ But don't worry, this list will clear up some common misunderstandings.
 1. I should build an algorithm to infer gender.
 1. Gender or sex are relevant for my business domain.
 
-### References
+## References
 
 The list of references is incomplete.
 Feel free to [add more here.](https://github.com/larsrh/website/edit/master/{{ page.path }})
