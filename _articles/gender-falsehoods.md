@@ -66,3 +66,4 @@ Feel free to [add more here.](https://github.com/larsrh/website/edit/master/{{ p
 * Dumic et al.: [Report of Fertility in a Woman with a Predominantly 46,XY Karyotype ...](https://doi.org/10.1210/jc.2007-2155)
 * The Nib: [Gender Isn’t Binary, and Neither is Anatomy](https://thenib.com/gender-isn-t-binary-and-neither-is-anatomy)
 * Slate: [When Binary Code Won’t Accommodate Nonbinary People](https://slate.com/technology/2019/10/gender-binary-nonbinary-code-databases-values.html)
+* Logic Magazine: [The Body Instrumental](https://logicmag.io/nature/the-body-instrumental/)
