@@ -125,11 +125,6 @@
   line-height: 1.2em;
 }
 
-/* users with disabled JS will see accordion fully unfolded, with enabled JS jQuery folds those */
-.dont-show {
-  display: block;
-}
-
 .ekko-lightbox .modal-body {
   padding-bottom: 0;
 }

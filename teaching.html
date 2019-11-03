@@ -7,14 +7,11 @@ permalink: /teaching/
 lang: de
 ---
 
-<div class="row justify-content-md-center">
-  <div class="col col-lg-6">
-    <div id="accordion" role="tablist">
-      {% assign show="true" %}
-      {% for semester in site.data.teaching %}
-        {% include teaching_card.html header=semester.semester id=semester.id lectures=semester.lectures show=show %}
-        {% assign show="false" %}
-      {% endfor %}
-    </div>
-  </div>
+<div class="card-columns">
+  {% for semester in site.data.teaching %}
+    {% capture semester_content %}
+      {% include semester.html lectures=semester.lectures %}
+    {% endcapture %}
+    {% include card.html content=semester_content header=semester.semester %}
+  {% endfor %}
 </div>

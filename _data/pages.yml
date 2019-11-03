@@ -12,10 +12,10 @@
   subpages:
     - id: research
       name: Research
-      long_title: "Research & Publications"
+      long_title: "Research & Publications (archive)"
     - id: teaching
       name: Teaching
-      long_title: "Teaching"
+      long_title: "Teaching (archive)"
 - id: activities
   name: Activities
   nav_theme: navbar-dark bg-info
