@@ -18,7 +18,7 @@
   {% if include.layout == "brief" %}
     <a class="pub-modal-link" data-pub="{{ pub.id }}" href="{{ main_link }}">{{ pub.title }}</a>
   {% else %}
-    <h5>{{ pub.title }}</h5>
+    <h4>{{ pub.title }}</h4>
   {% endif %}
   <p>
     {% include pub_authors.html %}

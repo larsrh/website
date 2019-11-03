@@ -29,10 +29,10 @@ Date: {{ page.git.last_commit.commit_date }}
 
 <div class="jumbotron pb-3">
   <header class="container">
-    <h2 class="display-3">
+    <h1 class="display-3">
       <i class="fa fa-fw {{ page.icon }}" aria-hidden="true"></i>
       Research Topic: <strong>{{ page.topic }}</strong>
-    </h2>
+    </h1>
     <div class="pull-right">
        <button type="button" data-toggle="modal" data-target="#modal-changelog" class="btn btn-outline-primary">View Changes</button>
     </div>
@@ -42,7 +42,7 @@ Date: {{ page.git.last_commit.commit_date }}
 
 <main class="container">
 
-  <h3>Publications</h3>
+  <h2>Publications</h2>
 
   <div class="card-columns mt-4 mb-4">
     {% for pub in page.pubs reversed %}

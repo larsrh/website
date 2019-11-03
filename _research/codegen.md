@@ -102,12 +102,12 @@ pubs:
 
 ---
 
-### Goal
+## Goal
 
 Development of a verified code generator from Isabelle/HOL to CakeML, a verified subset of Standard ML.
 The vision of this project is to provide an alternative (or extension) to the current code generation facility that reduces the trusted code base.
 
-### FAQ
+## FAQ
 
 What is the trusted code base of the pipeline?
 : We rely on faithful export from Lem to Isabelle, an unverified printer of CakeML AST to CakeML source text, and the kernel of Isabelle.
@@ -134,14 +134,14 @@ While our work is designed for total correctness (all functions that are exporte
 The CakeML compiler team has proved total correctness.<br>
 _Update, August 2018:_ Some (not all) compiler phases have been proved to be totally correct.
 
-### Supplementary Material
+## Supplementary Material
 
 * [Formalization for "A Verified Compiler from Isabelle/HOL to CakeML"](/pub/isabelle-cakeml-supplements.zip)<br>
   Submitted: 2017-10-20<br>
   Archived as: DOI [10.5281/zenodo.1167616](http://doi.org/10.5281/zenodo.1167616)<br>
   Obsoleted by: <a href="https://www.isa-afp.org/entries/CakeML_Codegen.html">AFP entry</a>
 
-### Errata
+## Errata
 
 The ESOP'18 paper has an error in Definition 7 (page 20), third rule (`Vrecabs`), second line.
 After the bounded quantifiers (before the ≈ operator), instead of σ₁, it should read _rs_.
