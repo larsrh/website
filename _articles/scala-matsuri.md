@@ -221,6 +221,13 @@ I walked back to Tokyo's central station, which happened mostly underground.
 Various tourist guides claim you can – willingly or unwillingly – spend an entire day in this sprawling underground structure.
 One [website even recommends finding a coin locker](https://www.tsunagujapan.com/how-to-spend-a-whole-day-in-tokyo-station/) so that you can walk around more easily.
 
+<div class="row mt-3 mb-3">
+  {% include article_picture.html src="ghibli-clock" text="The giant clock at the Nippon Television headquarters" %}
+  {% include article_picture.html src="east-gardens-entrance" text="Entrance to the East Gardens of the Imperial Palace, with the mandatory hydrangae" %}
+  {% include article_picture.html src="underground-walk" text="One tunnel that's part of the vast underground network that is the Tokyo central station" %}
+  {% include article_picture.html src="station" text="The red brick building in the background is the central station. But that inconspicuous structure is only the tip of the iceberg." %}
+</div>
+
 But I digress.
 
 The final stop before going to the conference was finding a particular grocery store.
@@ -245,6 +252,11 @@ I went in there, found myself ten different flavours of KitKat and Pocky sticks 
 Next to the sweets, there were the hygiene products.
 Three speakers blasted different music each.
 It was cold.
+There were too many bright colours.
+
+<div class="row mt-3 mb-3">
+  {% include article_picture.html src="donki" text="Inside a Donki" %}
+</div>
 
 ## ... and maybe the only time
 
