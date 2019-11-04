@@ -4,6 +4,7 @@ header: "A week in Tokyo"
 long_title: "A week in Tokyo"
 pub_date: 2099-01-01
 lang: en
+toc: true
 ---
 
 I'm not regularly in the habit of writing personal blog posts.
@@ -13,7 +14,7 @@ This text is an attempt to balance that out again; mostly for my own sake, but m
 It is about Scala Matsuri, a conference that took place in June 2019 in Tokyo.
 I am writing this in the airplane back from Haneda to Frankfurt in an attempt to get me to finish while I still remember details.
 
-### Scala Matsuri
+## Scala Matsuri
 
 _Scala Matsuri_ is an annual Scala conference in Tokyo.
 Translated, _matsuri_ means _festival_.
@@ -28,7 +29,7 @@ I was a little unsure about how much time I should spend for sightseeing.
 In the end, I decided to come to Japan on Monday and return on Sunday, having about three days to see the city and its surroundings.
 But first, let me talk about the conference and the community a little.
 
-### A special conference
+## A special conference
 
 The Japanese Scala community is, as far as I can tell from the outside, rather large.
 There are a lot of Scala books that have been translated to Japanese and there are many active bloggers and Twitter accounts.
@@ -55,7 +56,7 @@ Finally, they asked me to speak slowly so that it would be easier to keep up.
 My personal impression was that Scala Matsuri managed to be an enjoyable event for both the locals and the international guests, trying as hard as possible to tear down the language barrier.
 The live interpretation was fascinating and allowed speakers and audience to share their experiences and knowledge with each other.
 
-### My first time in Japan
+## My first time in Japan
 
 A lot of my friends have already visited Japan in the past.
 One of them has even moved there since both of us finished studying.
@@ -63,76 +64,78 @@ Consequently, there was no shortage of useful travel tips nor suggestions what t
 The only difficulty was to fit all these suggestions into three days, taking into account that my first day (Monday) would likely consist of fighting against jetlag.
 However, as my friend Asta could attest to, I am very efficient at sightseeing.[^2]
 
-Monday, June 24
-: As foreseen, flying into Japan was stressful.
-  I had a connecting flight in Osaka, which required me to retrieve and re-check my luggage (a fact that the staff in Munich was apparently unaware of).
-  The connection was tight, but ultimately I managed to catch the connecting flight to Haneda.
+### Monday, June 24
 
-  Having arrived at a domestic terminal in Tokyo, I had to first go to the international terminal to pick up my preordered Pocket WiFi.
-  This wouldn't have been necessary, since there are plenty of walk-in shops that will let you rent such a nifty device.
-  Also, a bought a <a href="https://en.wikipedia.org/wiki/Suica">_Suica_ card</a> for transit in Tokyo.
-  The staff at the airport was friendly, but it took me a while to figure out that they were trying to point out to me that unfortunately I could only buy one of the three Suica card designs at the vending machines.
-  I was fine with that, but proceeded to make an order-of-magnitude error and put 10000 ¥ (approx. 100 €) on my card.
-  Luckily, these cards can not only be used for transit, but also in many shops and museums.
+As foreseen, flying into Japan was stressful.
+I had a connecting flight in Osaka, which required me to retrieve and re-check my luggage (a fact that the staff in Munich was apparently unaware of).
+The connection was tight, but ultimately I managed to catch the connecting flight to Haneda.
 
-  The monorail and then subway ride to my hotel (in the Tokyo Bay area) didn't took long and I arrived there at about 11:00 in the morning.
-  I got lunch at a place in the subway station, where I had to order through a machine, but wasn't able to decipher the menu.
-  The soup I got was consequently a surprise, but a pleasant one.
+Having arrived at a domestic terminal in Tokyo, I had to first go to the international terminal to pick up my preordered Pocket WiFi.
+This wouldn't have been necessary, since there are plenty of walk-in shops that will let you rent such a nifty device.
+Also, a bought a <a href="https://en.wikipedia.org/wiki/Suica">_Suica_ card</a> for transit in Tokyo.
+The staff at the airport was friendly, but it took me a while to figure out that they were trying to point out to me that unfortunately I could only buy one of the three Suica card designs at the vending machines.
+I was fine with that, but proceeded to make an order-of-magnitude error and put 10000 ¥ (approx. 100 €) on my card.
+Luckily, these cards can not only be used for transit, but also in many shops and museums.
 
-  A not-so-pleasant surprise was that the hotel did not have a room for me ready yet.
-  Fortunately, they had free luggage lockers, so I left my suitcase there and went for a walk in the area.
-  I passed through the entire area when it started drizzling.
-  However, at that point it was past check-in time already, so I quickly finished my walk to reach a <a href="https://en.wikipedia.org/wiki/Yurikamome">_Yurikamome_</a> <a href="https://en.wikipedia.org/wiki/Tokyo_International_Cruise_Terminal_Station">station</a> and went back to the hotel.
+The monorail and then subway ride to my hotel (in the Tokyo Bay area) didn't took long and I arrived there at about 11:00 in the morning.
+I got lunch at a place in the subway station, where I had to order through a machine, but wasn't able to decipher the menu.
+The soup I got was consequently a surprise, but a pleasant one.
 
-  When I arrived in my room, it was about 15:00, and even though I wanted to stay awake for at least four more hours, the bed just seemed to be very enticing, so I went to sleep.
+A not-so-pleasant surprise was that the hotel did not have a room for me ready yet.
+Fortunately, they had free luggage lockers, so I left my suitcase there and went for a walk in the area.
+I passed through the entire area when it started drizzling.
+However, at that point it was past check-in time already, so I quickly finished my walk to reach a <a href="https://en.wikipedia.org/wiki/Yurikamome">_Yurikamome_</a> <a href="https://en.wikipedia.org/wiki/Tokyo_International_Cruise_Terminal_Station">station</a> and went back to the hotel.
+
+When I arrived in my room, it was about 15:00, and even though I wanted to stay awake for at least four more hours, the bed just seemed to be very enticing, so I went to sleep.
 
 <div class="row mt-3 mb-3">
   {% include article_picture.html src="ariake-area" text="The area around the hotel (Ariake) and the weather that greeted me" %}
 </div>
 
-Tuesday, June 25
-: I woke up the next day at 01:00, with about five hours to kill before breakfast started.
-  Perfect time to catch up on some emails and work.
+### Tuesday, June 25
 
-  The breakfast at the hotel was another classic case of cultural confusion and language barriers.
-  The waiter wanted to bring me to my table and stop to point out the location of the trays and cutlery, which I mistakenly interpreted as an order to take a tray and cutlery.
-  Needless to say, we were both looking at each other quizzically.
+I woke up the next day at 01:00, with about five hours to kill before breakfast started.
+Perfect time to catch up on some emails and work.
 
-  My route for the day was based on suggestions of friends on some important spots in Tokyo.
-  But first, I went to the <a href="https://en.wikipedia.org/wiki/Tokyo_Skytree">Skytree tower,</a> which sports an observation platform with an altitude of 450 meters.
-  Additionally – I learned that when I arrived – a _Hello Kitty_ exhibition.
+The breakfast at the hotel was another classic case of cultural confusion and language barriers.
+The waiter wanted to bring me to my table and stop to point out the location of the trays and cutlery, which I mistakenly interpreted as an order to take a tray and cutlery.
+Needless to say, we were both looking at each other quizzically.
 
-  Up there, I couldn't see very far because of mist, but enough to get the feel that Tokyo just vastly extends into (almost[^3]) all directions.
-  When taking the elevator down, a Japanese person started asking me about the purpose of my visit, to which I dutifully replied along the lines of Scala Matsuri.
-  Impressed, he handed me his business card.
-  Unimpressed, he accepted that I didn't have any.
+My route for the day was based on suggestions of friends on some important spots in Tokyo.
+But first, I went to the <a href="https://en.wikipedia.org/wiki/Tokyo_Skytree">Skytree tower,</a> which sports an observation platform with an altitude of 450 meters.
+Additionally – I learned that when I arrived – a _Hello Kitty_ exhibition.
 
-  From there, I proceeded to the <a href="https://en.wikipedia.org/wiki/Sumida_Park">_Sumida Park_</a>, a lovely little park by the _Sumida River_.
-  Nearby is the infamous <a href="https://en.wikipedia.org/wiki/Asahi_Beer_Hall">_Asahi Beer_ building</a>, which my friend Jan has accurately described as the “unique architectural equivalent of _Fremdschämen_”.
-  I strongly agree.
-  From Sumida, _Asakusa_ is only a stone's throw away, where the <a href="https://en.wikipedia.org/wiki/Sens%C5%8D-ji">_Sensoji Temple_</a>, an old five-story pagoda can be found.
-  For the first time, I was confronted with the fact that Buddhists seem to be intensly into incense.
+Up there, I couldn't see very far because of mist, but enough to get the feel that Tokyo just vastly extends into (almost[^3]) all directions.
+When taking the elevator down, a Japanese person started asking me about the purpose of my visit, to which I dutifully replied along the lines of Scala Matsuri.
+Impressed, he handed me his business card.
+Unimpressed, he accepted that I didn't have any.
 
-  From there, I went onwards to <a href="https://en.wikipedia.org/wiki/Ueno_Park">_Ueno_</a> to enjoy the nice weather in a park (to be fair, I rode the bus for that part of the tour).
-  The park has a pond which is completely covered in green plants, which is why I didn't even notice it at first.
-  June is the hydrangea season in the area, which means there were plenty of colourful blossoms everywhere.
+From there, I proceeded to the <a href="https://en.wikipedia.org/wiki/Sumida_Park">_Sumida Park_</a>, a lovely little park by the _Sumida River_.
+Nearby is the infamous <a href="https://en.wikipedia.org/wiki/Asahi_Beer_Hall">_Asahi Beer_ building</a>, which my friend Jan has accurately described as the “unique architectural equivalent of _Fremdschämen_”.
+I strongly agree.
+From Sumida, _Asakusa_ is only a stone's throw away, where the <a href="https://en.wikipedia.org/wiki/Sens%C5%8D-ji">_Sensoji Temple_</a>, an old five-story pagoda can be found.
+For the first time, I was confronted with the fact that Buddhists seem to be intensly into incense.
 
-  The final two stops for the day were _Akihibara_, which I found interesting but since I'm not into games, not a place where I would spend a lot of time, and <a href="https://en.wikipedia.org/wiki/Hamarikyu_Gardens">_Hamarikyu Gardens_</a>, a nice park and an important historic site.
-  During the Edo period (17th–19th century), the park was used for duck hunting.
-  This involved artificial hills where hunters could hide behind, and were then called to shoot after the ducks have been lured to the ponds.
+From there, I went onwards to <a href="https://en.wikipedia.org/wiki/Ueno_Park">_Ueno_</a> to enjoy the nice weather in a park (to be fair, I rode the bus for that part of the tour).
+The park has a pond which is completely covered in green plants, which is why I didn't even notice it at first.
+June is the hydrangea season in the area, which means there were plenty of colourful blossoms everywhere.
 
-  I noticed that in most parts of the city I had visited that day all the electrical wiring was overground.
-  Some of those poles were an eyesore with cables going in all directions in a seemingly unstructured fashion.
-  I'm assuming the reason for this is probably because it makes repairs easier after earthquakes.
+The final two stops for the day were _Akihibara_, which I found interesting but since I'm not into games, not a place where I would spend a lot of time, and <a href="https://en.wikipedia.org/wiki/Hamarikyu_Gardens">_Hamarikyu Gardens_</a>, a nice park and an important historic site.
+During the Edo period (17th–19th century), the park was used for duck hunting.
+This involved artificial hills where hunters could hide behind, and were then called to shoot after the ducks have been lured to the ponds.
 
-  By the time I was walking through the gardens, my watch had already informed me for the fourth time that I had reached my step goal.
-  Tired after many kilometers of walking, I went back to the hotel to relax a little.
-  In the evening, I met a friend I knew from the Scala community who had moved to Tokyo and his wife.
-  Despite Japan's absolute hostility to a vegetarian diet, they managed to find <a href="https://soranoiro-vege.com/">a place</a> that serves vegetarian and vegan ramen.
-  It was that evening that I had my second encounter with an ordering machine.
-  Luckily, my company was able to help me decipher the menu there.
+I noticed that in most parts of the city I had visited that day all the electrical wiring was overground.
+Some of those poles were an eyesore with cables going in all directions in a seemingly unstructured fashion.
+I'm assuming the reason for this is probably because it makes repairs easier after earthquakes.
 
-  Needless to say, I was absolutely knackered when I returned back at the hotel, at which time my watch cheerfully congratulated me for breaking my five-fold step goal.
+By the time I was walking through the gardens, my watch had already informed me for the fourth time that I had reached my step goal.
+Tired after many kilometers of walking, I went back to the hotel to relax a little.
+In the evening, I met a friend I knew from the Scala community who had moved to Tokyo and his wife.
+Despite Japan's absolute hostility to a vegetarian diet, they managed to find <a href="https://soranoiro-vege.com/">a place</a> that serves vegetarian and vegan ramen.
+It was that evening that I had my second encounter with an ordering machine.
+Luckily, my company was able to help me decipher the menu there.
+
+Needless to say, I was absolutely knackered when I returned back to the hotel, at which time my watch cheerfully congratulated me for breaking my five-fold step goal.
 
 <div class="row mt-3 mb-3">
   {% include article_picture.html src="skytree" text="The Skytree tower" %}
@@ -147,30 +150,47 @@ Tuesday, June 25
   {% include article_picture.html src="hamarikyu" text="Hamarikyu gardens with a historic duck hunting site" %}
 </div>
 
-Wednesday, June 26
-: On Wednesday, I almost woke up at a normal time (well, after 6:00).
-  The plan was to visit an old friend in Kamakura, a beach town a little over an hour out south from Tokyo.
-  We studied together in Munich, but a few years ago, they moved to Japan and married there.
+Quick side note about the small car parked in a marginally larger parking spot:
+I was very confused about the general lack of car traffic in Tokyo.
+Sure, there's lots of cars, but with a city that size, I had expected 24/7 traffic jams.
+However, that's not the case, because the government has been doing a splendid job of encouraging people to use public transit instead.
+They do that by demanding car owners to prove that they have a parking spot before they're allowed to bring a car to the city.
+Naturally, because of high costs of land, this is a luxury not available to lots of people.
+The tiny car embodies that spirit.
 
-  After yesterday's confusion, today I managed to navigate the breakfast effortlessly.
-  It wasn't long until I was back at a train station, heading for Kamakura.
-  Since I started my journey around 8:30, rush hour was still going strong and my connecting JR train actually was more than ten minutes late; an transgression that I didn't expect in Japan.
+Public transit in Tokyo and its surroundings is supremely efficient.
+There's a ton of lines with frequent trains (or buses).
+Google Maps will even show you precisely which car you'll have to board to get to the appropriate exit fastest.
+Even though there are multiple different transit operators, you'll just touch your Suica card and be done with it (at least for tourists; residents may tell a different story there).
 
-  A little over an hour later, I arrived at Kamakura.
-  The first stop on my tour was the [_Hase-dera_](https://en.wikipedia.org/wiki/Hase-dera_(Kamakura)) temple.
-  In order to get there, I had to change into the tram-like <a href="https://en.wikipedia.org/wiki/Enoshima_Electric_Railway">_Enoshima_ railway</a> whose only purpose appears to be moving tourists around, which -- as opposed to in Tokyo -- appear to be mostly Japanese.
-  My friend had already warned me that because of the <a href="https://en.wikipedia.org/wiki/Hydrangea">hydrangea</a> season, the temple area will be busy, and he was right.
-  Fortunately, the blooms were a sight to behold.
+### Wednesday, June 26
 
-  The Hase-dera grounds have lots of other things to offer, too.
-  Naturally, there is a rock garden (and also other carefully-maintained non-rock gardens).
-  The most interesting thing I found was the Benten-kutsu cave containing lots of miniatures.
-  The cave had a very low ceiling, so that even short me had to bend down.
-  However, the candles and miniatures made the cave mesmerizing.
-  I tried finding out more information, but all I found was in Japanese.
-  The next best thing is from a [travel blog](https://www.2aussietravellers.com/benten-kutsu-cave/), where the authors report:
+On Wednesday, I almost woke up at a normal time (well, after 6:00).
+The plan was to visit an old friend in Kamakura, a beach town a little over an hour out south from Tokyo.
+We studied together in Munich, but a few years ago, they moved to Japan and married there.
 
-  > From the small amount of information I’ve been able to obtain, the Benten-Kutsu cave is thought to have been used by Kobo Daishi and that he carved the small statue of Benzaiten with 8 arms located in the adjacent Benten-do Hall himself while in seclusion there during the 9th century.
+After yesterday's confusion, today I managed to navigate the breakfast effortlessly.
+It wasn't long until I was back at a train station, heading for Kamakura.
+Since I started my journey around 8:30, rush hour was still going strong and my connecting JR train actually was more than ten minutes late; an transgression that I didn't expect in Japan.
+
+A little over an hour later, I arrived at Kamakura.
+The first stop on my tour was the [_Hase-dera_](https://en.wikipedia.org/wiki/Hase-dera_(Kamakura)) temple.
+In order to get there, I had to change into the tram-like <a href="https://en.wikipedia.org/wiki/Enoshima_Electric_Railway">_Enoshima_ railway</a> whose only purpose appears to be moving tourists around, which -- as opposed to in Tokyo -- appear to be mostly Japanese.
+My friend had already warned me that because of the <a href="https://en.wikipedia.org/wiki/Hydrangea">hydrangea</a> season, the temple area will be busy, and he was right.
+Fortunately, the blooms were a sight to behold.
+
+The Hase-dera grounds have lots of other things to offer, too.
+Naturally, there is a rock garden (and also other carefully-maintained non-rock gardens).
+The most interesting thing I found was the Benten-kutsu cave containing lots of miniatures.
+The cave had a very low ceiling, so that even short me had to bend down.
+However, the candles and miniatures made the cave mesmerizing.
+I tried finding out more information, but all I found was in Japanese.
+The next best thing is from a [travel blog](https://www.2aussietravellers.com/benten-kutsu-cave/), where the authors report:
+
+> From the small amount of information I’ve been able to obtain, the Benten-Kutsu cave is thought to have been used by Kobo Daishi and that he carved the small statue of Benzaiten with 8 arms located in the adjacent Benten-do Hall himself while in seclusion there during the 9th century.
+
+While strolling around the area and visiting some other places in the vicinity, I picked some random food places for small items so that I could try a variety of dishes.
+Needless to say, I did not try the _Kebab Bento_ crossover abomination that was offered on Hase's touristy main street.
 
 <div class="row mt-3 mb-3">
   {% include article_picture.html src="kamakura-station" text="People standing in line waiting for the Enoshima Electric Railway" %}
@@ -185,7 +205,48 @@ Wednesday, June 26
   {% include article_picture.html src="kebab-bento" text="A culinary abomination: Kebab Bento" %}
 </div>
 
-### ... and maybe the only time
+### Thursday, June 27
+
+Thursday was the first conference day with some workshops and a Scala Spree (an open-source hackathon) happening in the afternoon.
+That meant that I could spend the morning with some more sightseeing.
+The choice was difficult, but eventually I decided on the [_Tokyo Imperial Palace_](https://en.wikipedia.org/wiki/Tokyo_Imperial_Palace), the residence of the Emperor.
+Entrance to the palace is guarded by police and airport-style luggage checks.
+
+Although it would've been possible to visit the actual palace, it would've required booking a guided tour well in advance, which I didn't.
+Instead, I took a walk through the _East Garden_, which features trees from each of Japan's 47 prefectures.
+
+Apart from that, I can't say much about the area, because it wasn't particularly exciting.
+Outside of the park there was some kind of protest with one person handing me a paper with densely-written Japanese text which I still haven't figured out.
+I walked back to Tokyo's central station, which happened mostly underground.
+Various tourist guides claim you can – willingly or unwillingly – spend an entire day in this sprawling underground structure.
+One [website even recommends finding a coin locker](https://www.tsunagujapan.com/how-to-spend-a-whole-day-in-tokyo-station/) so that you can walk around more easily.
+
+But I digress.
+
+The final stop before going to the conference was finding a particular grocery store.
+A store that even Japanese people admit is way too Japanese.
+This store is called [_Donki_](https://en.wikipedia.org/wiki/Don_Quijote_(store)), sort for _Don Quijote_.
+Their theme song is called _Mirakurushoppingu_.
+I think any reader can easily figure out what that means.
+
+Shopping at Donki is an amazing experience.
+First of all, their A/C is set to negative five hundred degrees, a temperature I thought didn't exist.
+Imagine walking into that store from the humid June weather in Tokyo.[^4]
+Why did I do this to myself?
+Two reasons: novelty KitKat and rice.
+
+A few weeks before I started the trip, a colleague gave me a simple task.
+He asked me to bring him こしひかり, ゆめぴりか, ななつぼし, and あきたこまち which I understood are different kinds of rice.
+Should be trivial, right?
+Well, not in Donki.
+Donkis follow an internal structure that cannot be understood by Gaijins.
+
+I went in there, found myself ten different flavours of KitKat and Pocky sticks and then proceeded to look for the rice.
+Next to the sweets, there were the hygiene products.
+Three speakers blasted different music each.
+It was cold.
+
+## ... and maybe the only time
 
 I have set myself the goal to cease flying by end of 2019.
 This, naturally, makes it hard for me to come back to Japan and maybe see other places outside of Tokyo.
@@ -200,3 +261,4 @@ Fortunately, I have no regrets: within the limited time of one week, I'm very ha
 [^1]: It turned out to be for the better, because it would have collided with an academic trip anyway.
 [^2]: Note to Asta: I didn't create a spreadsheet this time.
 [^3]: with the exception of the ocean
+[^4]: It was so humid that I couldn't tell the difference between air humidity and my sweat.
