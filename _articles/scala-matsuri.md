@@ -27,34 +27,6 @@ I had already tried the previous year (2018) to get a talk into the conference, 
 The conference was scheduled for two and a half days: a Thursday afternoon (June 27) for an OSS hackathon, then two conference days (June 28–29) afterwards.
 I was a little unsure about how much time I should spend for sightseeing.
 In the end, I decided to come to Japan on Monday and return on Sunday, having about three days to see the city and its surroundings.
-But first, let me talk about the conference and the community a little.
-
-## A special conference
-
-The Japanese Scala community is, as far as I can tell from the outside, rather large.
-There are a lot of Scala books that have been translated to Japanese and there are many active bloggers and Twitter accounts.
-The language barrier is strong: with the majority of conversations happening in Japanese, hardly anything reaches the predominantly English-speaking community outside of Asia.
-This is why organizing Scala Matsuri is no small feat, so kudos to <a href="https://twitter.com/OE_uia">Taisuke</a> and his team.
-
-In order to make the event inclusive of Japanese-speakers and -non-speakers alike, the most visible feature of the conference was live interpretation.
-In two of the three tracks, there were two pairs of interpreters translating from Japanese to English and vice versa.
-This meant that talks could be held in Japanese and English and all participants could listen, no matter their proficiency in either language.
-Naturally, this extended to the Q&A session too: speakers could also use the pocket receiver to hear questions in their native language.
-
-{% include float_picture.html src="subtitled_slide.png" text="Slide in English, subtitled in Japanese" %}
-
-All talks that I attended – even the ones delivered in Japanese – had slides written in English.
-To allow Japanese attendees to follow them along more easily, speakers had to submit their slides a month in advance so that the organizers could return them with subtitles.
-For some slide formats, they even edited them accordingly for speakers.
-In my case, I received a text file and added the subtitles to my LaTeX code (thanks LuaLaTeX for supporting Unicode natively!).
-
-On top of that, all speakers met with their assigned pair of interpreters an hour before their talk.
-The purpose of this meeting was to go through the slides (they had hardcopies) and discuss the topics and the terminology.
-The interpreters were very well-prepared and in my case had only a few questions about the jargon that I would use.
-Finally, they asked me to speak slowly so that it would be easier to keep up.
-
-My personal impression was that Scala Matsuri managed to be an enjoyable event for both the locals and the international guests, trying as hard as possible to tear down the language barrier.
-The live interpretation was fascinating and allowed speakers and audience to share their experiences and knowledge with each other.
 
 ## My first time in Japan
 
@@ -210,8 +182,9 @@ Needless to say, I did not try the _Kebab Bento_ crossover abomination that was 
 Thursday was the first conference day with some workshops and a Scala Spree (an open-source hackathon) happening in the afternoon.
 That meant that I could spend the morning with some more sightseeing.
 The choice was difficult, but eventually I decided on the [_Tokyo Imperial Palace_](https://en.wikipedia.org/wiki/Tokyo_Imperial_Palace), the residence of the Emperor.
-Entrance to the palace is guarded by police and airport-style luggage checks.
+The Yurikamome train line I took towards the palace passes the Nippon Television headquarters which features a giant clock, officially referred to as [_Really BIG Clock_](https://www.atlasobscura.com/places/the-giant-ghibli-clock-tokyo-japan).
 
+Entrance to the park area surrounding the palace is guarded by police and airport-style luggage checks.
 Although it would've been possible to visit the actual palace, it would've required booking a guided tour well in advance, which I didn't.
 Instead, I took a walk through the _East Garden_, which features trees from each of Japan's 47 prefectures.
 
@@ -254,9 +227,60 @@ Three speakers blasted different music each.
 It was cold.
 There were too many bright colours.
 
+Eventually, I walked up to an employee, said _Sumimasen_,[^5] and showed them my phone with the words from above.
+They walked me to the appropriate aisle, where I managed to find the correct types of rice by comparing glyphs.
+With 5 kg of rice and 2 kg of KitKat and Pocky in my basket, I went to check out.
+Naturally, the cashier asked me for my passport immediately (tax-free shopping).
+I paid, but then had to go upstairs, walk through the entire second floor of Donki (more colours and music) to some other cashier to get a tax refund.
+They wrapped my goods carefully in three layers of plastic bags.
+I walked back through the entire second floor of Donki (yet more colours and music) to the exit where I was promptly struck by the humidity.
+
 <div class="row mt-3 mb-3">
   {% include article_picture.html src="donki" text="Inside a Donki" %}
+  {% include article_picture.html src="candy" text="Parts of the haul from the Donki, back in the office in Munich" %}
 </div>
+
+The Scala Spree was nice and we got a few good pull requests done.
+In the evening, the organisers took the speakers out for dinner.
+Unsurprisingly, the restaurant was unable to produce vegetarian sushi, which meant that the organisers brought in bento boxes from outside that us vegetarians could eat.
+Very thoughtful of them!
+
+### Friday, June 28
+
+I spent the entire day at the conference.
+It was a really special experience, for multiple reasons.
+Let me explain:
+
+The Japanese Scala community is, as far as I can tell from the outside, rather large.
+There are a lot of Scala books that have been translated to Japanese and there are many active bloggers and Twitter accounts.
+The language barrier is strong: with the majority of conversations happening in Japanese, hardly anything reaches the predominantly English-speaking community outside of Asia.
+This is why organizing Scala Matsuri is no small feat, so kudos to <a href="https://twitter.com/OE_uia">Taisuke</a> and his team.
+
+In order to make the event inclusive of Japanese-speakers and -non-speakers alike, the most visible feature of the conference was live interpretation.
+In two of the three tracks, there were two pairs of interpreters translating from Japanese to English and vice versa.
+This meant that talks could be held in Japanese and English and all participants could listen, no matter their proficiency in either language.
+Naturally, this extended to the Q&A session too: speakers could also use the pocket receiver to hear questions in their native language.
+
+{% include float_picture.html src="subtitled_slide.png" text="Slide in English, subtitled in Japanese" %}
+
+All talks that I attended – even the ones delivered in Japanese – had slides written in English.
+To allow Japanese attendees to follow them along more easily, speakers had to submit their slides a month in advance so that the organizers could return them with subtitles.
+For some slide formats, they even edited them accordingly for speakers.
+In my case, I received a text file and added the subtitles to my LaTeX code (thanks LuaLaTeX for supporting Unicode natively!).
+
+On top of that, all speakers met with their assigned pair of interpreters an hour before their talk.
+The purpose of this meeting was to go through the slides (they had hardcopies) and discuss the topics and the terminology.
+The interpreters were very well-prepared and in my case had only a few questions about the jargon that I would use.
+Finally, they asked me to speak slowly so that it would be easier to keep up.
+
+My personal impression was that Scala Matsuri managed to be an enjoyable event for both the locals and the international guests, trying as hard as possible to tear down the language barrier.
+The live interpretation was fascinating and allowed speakers and audience to share their experiences and knowledge with each other.
+
+### Saturday, June 29
+
+[My talk](/talks/property-testing) was right after lunch on the final conference day.
+In the morning, I had spoken with the interpreters (see Friday) where we prepared each other for the talk.
+The talk went well and I even got some questions in Japanese.
 
 ## ... and maybe the only time
 
@@ -274,3 +298,4 @@ Fortunately, I have no regrets: within the limited time of one week, I'm very ha
 [^2]: Note to Asta: I didn't create a spreadsheet this time.
 [^3]: with the exception of the ocean
 [^4]: It was so humid that I couldn't tell the difference between air humidity and my sweat.
+[^5]: "Excuse me"
