@@ -2,9 +2,13 @@
 title: "A week in Tokyo"
 header: "A week in Tokyo"
 long_title: "A week in Tokyo"
-pub_date: 2099-01-01
+pub_date: 2019-11-10
 lang: en
 toc: true
+hero:
+  src: "/img/articles/scala-matsuri/hydrangea.jpg"
+  alt: "Hydrangea in Kamakura"
+  credits: "me"
 ---
 
 I'm not regularly in the habit of writing personal blog posts.
@@ -12,7 +16,8 @@ I had an old blog once in which I shared my experiences during [my Erasmus semes
 After that, I have largely resorted to technical writing.
 This text is an attempt to balance that out again; mostly for my own sake, but maybe some readers find it entertaining.
 It is about Scala Matsuri, a conference that took place in June 2019 in Tokyo.
-I am writing this in the airplane back from Haneda to Frankfurt in an attempt to get me to finish while I still remember details.
+I am writing this ~~in the airplane back from Haneda to Frankfurt~~ in an attempt to get me to finish while I still remember details.
+(**Update:** I kept pouring many more hours into this post, so the sentence before is kind of a lie.)
 
 ## Scala Matsuri
 
@@ -161,9 +166,6 @@ The next best thing is from a [travel blog](https://www.2aussietravellers.com/be
 
 > From the small amount of information I’ve been able to obtain, the Benten-Kutsu cave is thought to have been used by Kobo Daishi and that he carved the small statue of Benzaiten with 8 arms located in the adjacent Benten-do Hall himself while in seclusion there during the 9th century.
 
-While strolling around the area and visiting some other places in the vicinity, I picked some random food places for small items so that I could try a variety of dishes.
-Needless to say, I did not try the _Kebab Bento_ crossover abomination that was offered on Hase's touristy main street.
-
 <div class="row mt-3 mb-3">
   {% include article_picture.html src="kamakura-station" text="People standing in line waiting for the Enoshima Electric Railway" %}
   {% include article_picture.html src="hydrangea" text="Lots of Hydrangea" %}
@@ -173,16 +175,86 @@ Needless to say, I did not try the _Kebab Bento_ crossover abomination that was 
 <div class="row mt-3 mb-3">
   {% include article_picture.html src="benten-kutsu-cave" text="The Benten-kutsu cave on the Hase-dera grounds with miniatures" %}
   {% include article_picture.html src="ema-shrine" text="A shrine with Ema plaques" %}
+  {% include article_picture.html src="zen-garden" text="Zen Garden on Hase-dera grounds" %}
   {% include article_picture.html src="grave-with-cans" text="A grave at Kosoku-ji with metal cans" %}
-  {% include article_picture.html src="kebab-bento" text="A culinary abomination: Kebab Bento" %}
 </div>
+
+Next on the list of must-sees in Kamakrua is the [_Kōtoku-in_](https://en.wikipedia.org/wiki/K%C5%8Dtoku-in) temple.
+It is famous for a 13 m tall bronze Buddha statue.
+For a small entrance fee, one can go inside the statue.
+
+While strolling around the area and visiting some other places in the vicinity, I picked some random food places for small items so that I could try a variety of dishes.
+Needless to say, I did not try the _Kebab Bento_ crossover abomination that was offered on Hase's touristy main street.
+In need of a break, I walked down to the beach, expecting some café to sit down and drink some tea.
+Unfortunately, the beach was still “under construction” and there were no places like that.
+A little disappointed I walked back to the nearest train station, waited for the cute train and got out at Kamakura's main station.
+
+<div class="row mt-3 mb-3">
+  {% include article_picture.html src="kotoku" text="Buddha statue in Kotoku-in" %}
+  {% include article_picture.html src="kotoku-inside" text="Buddha statue, from the inside" %}
+  {% include article_picture.html src="kebab-bento" text="A culinary abomination: Kebab Bento" %}
+  {% include article_picture.html src="kamakura-beach" text="Kamakura beach (under construction)" %}
+</div>
+
+I arrived back in Kamakura about 14:45.
+My friend and I were planning to meet for dinner at 17:00.
+That gave me about two more hours for more sights.
+
+At the other end of the town is the [_Hōkoku-ji_](https://en.wikipedia.org/wiki/H%C5%8Dkoku-ji) temple with a bamboo garden.
+I thought I was being smart by taking the bus there, but turns out that it was hard to get a bus to stop at the bus stop and also too much traffic.
+Walking may or may not have been faster.[^3b]
+
+Regardless, I arrived at the forest, which was small but beautiful.
+The last opportunity to participate in the tea ceremony had already passed when I entered the garden.
+Instead, I took a walk through the forest comprising two thousand bamboo trees.
+
+I left the forest shortly before it closed at 16:00.
+Curiously, even though Kamakura is a town popular with Japenese tourists, and it was high season for tourism because of the hydrangae, many shops, places and sights closed very early.
+Luckily, vending machines that could supply me with cold, sugary drinks were everywhere.
+Without them, I wouldn't have survived the humidity.
+I probably drank more than four liters that day.
+
+On the way back to the town, I stopped by some more temples.
+Did I already mention that there are a lot of temples in Kamakura?
+(I also avoided the bus and walked instead.)
+
+The [_Sugitmoto-dera_](https://en.wikipedia.org/wiki/Sugimoto-dera) temple was interesting because of the long stairs that were completely overgrown with grass.
+Finally, closer to the centre, my last temple for the day was [_Tsurugaoka Hachimangū_](https://en.wikipedia.org/wiki/Tsurugaoka_Hachimang%C5%AB).
+The area is large and contains museums, shrines, restaurants, shops, a few ponds and a giant ginkgo tree (which uprooted some years ago).
+Some of the shrines were decorated and a few people were walking around in traditional robes, but I don't know if there were any festivities happening at the time.
+
+<div class="row mt-3 mb-3">
+  {% include article_picture.html src="hokoku-entrance" text="Entrance to the Hokoku-ji temple" %}
+  {% include article_picture.html src="bamboo-forest" text="Hokoku-ji bamboo forest" %}
+  {% include article_picture.html src="sugimoto-dera" text="Staris towards the Sugimoto-dera temple" %}
+  {% include article_picture.html src="shrine-decoration" text="Colourful decorations at the Tsurugaoka shrine" %}
+</div>
+
+Finally, after seeing a gazillion temples, it was dinner time.
+My friend and me met at a restaurant that serves some local curry variation.
+There weren't many English words on the menu (and those English words weren't exactly helpful, either).
+I outsourced the food selection to my friend who managed to order some delicious curry (non-vegetarian, obviously).
+Our plan to find some another place for tea or other drinks turned out to be harder than expected, because by the time we had left the curry place (only an hour later; people don't generally appear to stay very long at restaurants here) many places had already closed.
+After an hour walk through the tourist district of the town (everything closed) we found a place that would still give us some tea right next to the curry place.
+We sat down and my friend explained to me how to look up Japanese characters in a dictionary (it now makes sense to me).
+
+At around 20:00 we said farewell and I returned to the station.
+Completely knackered, I took the train back to Tokyo.
+By accident, I took a seat in the business class which is called _Green Car_.
+When a ticket inspector came, they said “Green Car”[^3c] to me multiple times, but it took me a while to figure out that I just have to move to another carriage.
+I managed to not get kicked out and eventually arrive back at the hotel, where I proceeded to fall asleep immediately.
 
 ### Thursday, June 27
 
 Thursday was the first conference day with some workshops and a Scala Spree (an open-source hackathon) happening in the afternoon.
 That meant that I could spend the morning with some more sightseeing.
 The choice was difficult, but eventually I decided on the [_Tokyo Imperial Palace_](https://en.wikipedia.org/wiki/Tokyo_Imperial_Palace), the residence of the Emperor.
-The Yurikamome train line I took towards the palace passes the Nippon Television headquarters which features a giant clock, officially referred to as [_Really BIG Clock_](https://www.atlasobscura.com/places/the-giant-ghibli-clock-tokyo-japan).
+Before I got started, I decided to withdraw some extra cash, since I had already run out of the money I had exchanged in Germany.
+Having learned a lot from my currency conversion mistake where I put 100 € on the Suica card, I proceeded to withdraw 50,000 ¥ (approx. 500 €) in cash from the ATM.
+I also topped up 50 € on my Suica card for no good reason at all.
+
+Still not having realised my mistake(s), I boarded the Yurikamome train towards the palace.
+The train line passes the Nippon Television headquarters which features a giant clock, officially referred to as [_Really BIG Clock_](https://www.atlasobscura.com/places/the-giant-ghibli-clock-tokyo-japan).
 
 Entrance to the park area surrounding the palace is guarded by police and airport-style luggage checks.
 Although it would've been possible to visit the actual palace, it would've required booking a guided tour well in advance, which I didn't.
@@ -231,7 +303,7 @@ Eventually, I walked up to an employee, said _Sumimasen_,[^5] and showed them my
 They walked me to the appropriate aisle, where I managed to find the correct types of rice by comparing glyphs.
 With 5 kg of rice and 2 kg of KitKat and Pocky in my basket, I went to check out.
 Naturally, the cashier asked me for my passport immediately (tax-free shopping).
-I paid, but then had to go upstairs, walk through the entire second floor of Donki (more colours and music) to some other cashier to get a tax refund.
+I paid,[^6] but then had to go upstairs, walk through the entire second floor of Donki (more colours and music) to some other cashier to get a tax refund.
 They wrapped my goods carefully in three layers of plastic bags.
 I walked back through the entire second floor of Donki (yet more colours and music) to the exit where I was promptly struck by the humidity.
 
@@ -282,6 +354,57 @@ The live interpretation was fascinating and allowed speakers and audience to sha
 In the morning, I had spoken with the interpreters (see Friday) where we prepared each other for the talk.
 The talk went well and I even got some questions in Japanese.
 
+However, there were two things I still hadn't done or seen.
+First of all, close to the conference venue, there is a ferris wheel.
+People who know me will know that I can't _not_ ride a ferris wheel if I see one.
+So I snuck out of the conference, skipping a few talks, and walked there.
+The weather conditions were poor, I didn't see much, but also I didn't care because I was riding a ferris wheel.
+
+After the long ride (16 minutes!) was over, I made a brief stop in my hotel room and then got on a train to see the famous [_Shibuya_ crossing](https://en.wikipedia.org/wiki/Shibuya).
+The station in front of the crossing is the fourth-busiest station in the world.
+With the help of Google Maps and the excellent signage, it was almost trivial to find the right exit out of the 29 possible exits.
+Right next to the intersection, there is an eight-story shopping mall with a rooftop that gives an excellent overview over the crossing (for a small fee).
+I did what all tourists must do and took lots of photos of people with umbrellas walking across the street in all possible directions.
+With that, my tourist itinerary was complete.
+
+To finish off the day, there was an inofficial conference dinner with speakers and other interested attendees who wanted to join in.
+The organisers had picked a sushi place, where we ordered Nigiri plates.
+I had no idea what kinds of fish would expect me, but I was in an experimenting mood so I tried most of them.
+One of them looked really strange to me and I pointed out to my (Japanese) neighbour that I probably won't eat it.
+He was very excited, grabbed it and then showed me on his phone that it is Gunkanmaki (sea urchin).
+I was also very excited that he ate it for me.
+
+<div class="row mt-3 mb-3">
+  {% include article_picture.html src="ferris-wheel" text="Me, happily riding a ferris wheel" %}
+  {% include article_picture.html src="shibuya-exits" text="Exit signage at Shibuya station" %}
+  {% include article_picture.html src="shibuya-crossing" text="Shibuya crossing with green light for pedestrians" %}
+  {% include article_picture.html src="nigiri" text="Nigiri with various kinds of fish" %}
+</div>
+
+### Sunday, June 30
+
+Final day in Tokyo.
+My flight left in the early afternoon, so I could sleep in and slowly make my way to Haneda airport.
+The only remaining task that day was to get rid of my superfluous cash and buy some more candy from remaining change.
+At the airport I discovered [_Tokyo Banana_](https://en.wikipedia.org/wiki/Tokyo_Banana), a snack so advanced that I was scared to try it at home.
+
+Remember the rice and candy I bought tax-free at the Donki?
+I had those in my checked luggage.
+But the tax receipts also stated that I needed to present the goods at customs.
+Customs is after luggage drop.
+This seems to be an impossible problem.
+Nobody at the airport – neither the information desk nor the Lufthansa reps – were able to figure this out.
+I decided to take my chances and proceeded to get ignored at customs, so the problem was solved.
+
+Funnily enough, at the gate I realised that another friend was flying in to Haneda with the exact same airplane that I would then take back to Frankfurt.
+Thanks to Haneda's airport layout it was impossible to meet, though.
+Naturally, we tweeted at each other instead while we were standing a few meters apart.
+
+The return flight was rather uneventful.
+I had to change planes in Frankfurt, which required me having to go through luggage checks again; not because that would be necessary, but because the layout of that airport is also terrible.
+Being annoyed at an airport in an airport is great when you're sleep-deprived.
+I arrived around 23:30 local time at my flat in Munich, where I did the same thing as Wednesday evening.
+
 ## ... and maybe the only time
 
 I have set myself the goal to cease flying by end of 2019.
@@ -292,10 +415,15 @@ This, naturally, makes it hard for me to come back to Japan and maybe see other 
 Of course, I could have seen and done more things or stayed longer.
 Fortunately, I have no regrets: within the limited time of one week, I'm very happy with what I have experienced.
 
+In case you, dear reader, ever go sightseeing in Japan or to Scala Matsuri and found some tips from this post helpful, or if you liked the writing regardless, I'd appreciate if you'd drop me a message on the interwebs.
+
 <hr>
 
 [^1]: It turned out to be for the better, because it would have collided with an academic trip anyway.
 [^2]: Note to Asta: I didn't create a spreadsheet this time.
 [^3]: with the exception of the ocean
+[^3b]: Wednesday clocked in at 25k steps, so there was no shortage of walking regardless.
+[^3c]: They did not say anything more helpful than just “Green Car” to me.
 [^4]: It was so humid that I couldn't tell the difference between air humidity and my sweat.
 [^5]: "Excuse me"
+[^6]: Luckily, at that point I had already realised how much money I had in my pocket. The bill only made a small dent, though.
