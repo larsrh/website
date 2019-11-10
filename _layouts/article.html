@@ -9,6 +9,9 @@ layout: default
     {% endif %}
 
     <h1 class="display-3">{{ page.long_title }}</h1>
+
+    Reading time: {{ content | number_of_words | divided_by: 180 }} minutes.
+
     {% if page.lang == "de" %}
       Veröffentlicht am
     {% else %}
