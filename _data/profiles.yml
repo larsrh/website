@@ -1,6 +1,9 @@
 - name: Resume
   icon: fa-list-ul
   link: "/cv/"
+- name: INNOQ
+  icon: fa-briefcase
+  link: "https://www.innoq.com/en/staff/lars-hupel/"
 - name: Google Scholar
   icon: fa-graduation-cap
   link: "https://scholar.google.com/citations?user=VdxLaDEAAAAJ"
