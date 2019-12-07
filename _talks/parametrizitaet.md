@@ -27,4 +27,4 @@ conferences:
 
 ## Artikel
 
-Leider gibt es zu diesem Vortrag bisher noch keine Aufzeichnung; allerdings ist mein Artikel zum Thema im <i>JavaSPEKTRUM</i> <a href="http://sigs.de/publications/twitter/JS_03_2019/Hupel_JS_03_2019.pdf">frei online</a> verfügbar.
+Leider gibt es zu diesem Vortrag bisher noch keine Aufzeichnung; allerdings ist mein Artikel zum Thema im <i>JavaSPEKTRUM</i> <a href="https://www.innoq.com/de/articles/2019/06/parametrizitaet-in-java/">frei online</a> (<a href="http://sigs.de/publications/twitter/JS_03_2019/Hupel_JS_03_2019.pdf">PDF</a>) verfügbar.
