@@ -72,7 +72,7 @@
   title: "Parametrizität in Java"
   journal: "JavaSPEKTRUM 03/2019"
   abstract: "So gut wie alle modernen Programmiersprachen erlauben es, Routinen über Werte und über Typen zu parametrisieren. In Java wird letzteres „Generics“ genannt, in C++ hingegen „Templates“. Obwohl die Konzepte die gleichen sind, unterscheidet sich die Implementation doch stark. In diesem Artikel möchte ich diese Art der Parametrisierung in Java unter die Lupe nehmen und erklären, warum „Type Erasure“ doch eine ganz gute Idee ist."
-  link: "http://sigs.de/publications/twitter/JS_03_2019/Hupel_JS_03_2019.pdf"
+  link: "https://www.innoq.com/de/articles/2019/06/parametrizitaet-in-java/"
   lang: de
 - pub_date: 2019-06-05
   title: "Adressen und Transaktionen in Kryptowährungen – Teil 3: Altcoins"
