@@ -21,5 +21,12 @@ conferences:
     link: "https://www.meetup.com/Lightweight-Java-User-Group-Munchen/events/263934283/"
     slides: "https://speakerdeck.com/larsrh/das-eierlegende-truffleschwein"
     recording: "https://www.youtube.com/watch?v=ap6c_3wwYLs"
+  - conference: "JUG Thüringen"
+    year: 2019
+    date: "5. Dezember"
+    location: Erfurt, Deutschland
+    link: "https://www.meetup.com/jugthde/events/265883678/"
+    slides: "https://speakerdeck.com/larsrh/das-eierlegende-truffleschwein"
+    recording: "https://www.youtube.com/watch?v=03qKMFLLHHc"
 
 ---
