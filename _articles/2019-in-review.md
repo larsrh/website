@@ -41,7 +41,8 @@ I didn't have to ask a single person to do any of this.
 I just did it.
 
 Another thing I spent my first month at INNOQ on was learning some new (to me) technology.
-Our company prides itself on frequent (six per year) all-hands meetings.
+Our company prides itself on frequent (six per year) meetings.
+Those are kind of like internal conferences: we have open space discussions, internal and external talks, try out and evaluate new technologies (hackathon-style, but with reasonable hours), and discuss strategy.
 In between those, people organize topical workshops, some remote, but most face-to-face.
 As you can imagine, this induces a lot of travelling.
 With growing eco-consciousness, many colleagues sought to reduce their flight footprint and prefer train travel where at all possible.
@@ -62,7 +63,7 @@ But because it was done enough.
 I emailed my advisor who approved, set up an appointment with TUM's examination office and handed in the paper copies early March.
 Then I waited.
 
-Somehow, around the same time, I also managed to co-organize the programme of our February all-hands event, the Typelevel Summit in Philadelphia, and give a talk about Prolog at Lambda Days in Krakow.
+Somehow, around the same time, I also managed to co-organize the programme of our February company event, the Typelevel Summit in Philadelphia, and give a talk about Prolog at Lambda Days in Krakow.
 Additionally, thanks to my dear friend Leah, I started going to a meetup group for trans, nonbinary and gender-nonconforming people in Munich.
 This was good on many levels: "officially" acknowledging me being nonbinary through a whole bunch of friendly people that gave me a sense of community outside of tech.[^5]
 
@@ -80,7 +81,7 @@ The irony is that this open appraisal still makes me hugely uncomfortable ([impo
 Because of this, 2019 has been by far my most productive year to date, simply because I've been enabled to.
 
 Let's move on to April.[^6]
-I used the all-hands event to come out to my colleagues as nonbinary, which was met with universal support.
+I used the company event to come out to my colleagues as nonbinary, which was met with universal support.
 The company has this tradition of new colleagues having ten minutes to talk about themselves and whatever they're interested in.
 I talked about how binary sex is bullshit and sex and gender variations are real.
 The final slide just said: "Hi, I'm nonbinary 👋"
