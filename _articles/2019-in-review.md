@@ -2,7 +2,7 @@
 title: "2019 in Review"
 header: "2019 in Review"
 long_title: "2019 in Review"
-pub_date: 2019-12-31
+pub_date: 2019-12-21
 lang: en
 ---
 
