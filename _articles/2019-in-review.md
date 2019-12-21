@@ -42,7 +42,7 @@ I just did it.
 
 Another thing I spent my first month at INNOQ on was learning some new (to me) technology.
 Our company prides itself on frequent (six per year) meetings.
-Those are kind of like internal conferences: we have open space discussions, internal and external talks, try out and evaluate new technologies (hackathon-style, but with reasonable hours), and discuss strategy.
+Those are kind of like internal conferences (or retreats, if you want): we have open space discussions, internal and external talks, try out and evaluate new technologies (hackathon-style, but with reasonable hours), and discuss strategy.
 In between those, people organize topical workshops, some remote, but most face-to-face.
 As you can imagine, this induces a lot of travelling.
 With growing eco-consciousness, many colleagues sought to reduce their flight footprint and prefer train travel where at all possible.
