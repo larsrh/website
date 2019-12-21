@@ -51,8 +51,8 @@ This is exactly what I implemented as a microservice with Spring Boot, deployed 
 My code ended up being terribly unidiomatic, which some colleagues helpfully pointed out in code review.
 But nonetheless, I ran some numbers and managed to make a few recommendations.[^4]
 
-The first weeks of my new job I didn't have any official project yet.
-That changed soon enough, when I joined two colleagues working on some internal study.
+In the first weeks of my new job I didn't have any official project yet.
+That changed soon enough, when I joined two colleagues working on an internal study.
 We were researching existing literature and, well, frankly anything on blockchain technology.
 These three months turned out to be extremly fruitful, having spawned a series of technical articles and even a [theme site](https://blockchain.innoq.com/) (more about this topic later).
 
@@ -77,7 +77,7 @@ I started furiously creating slides and designing some exercises so that the par
 The workshop was a great success, which initiated the stereotype that I could solve any problem my colleagues are throwing at me.
 This has gotten to the point where few people refer to me as "machine" because of my output:
 Later in the year I have written tens of thousands of words in articles on a variety of topics, churned out a three-day curriculum for blockchain aimed at software architects (together with a co-author), while giving plenty of talks and working on plenty of side projects.
-The irony is that this open appraisal still makes me hugely uncomfortable ([impostor syndrome is a hell of a drug](https://twitter.com/heathercmiller/status/1205641312659234825)) and at the same time enables me to be so productive.
+The irony is that this open appraisal still makes me hugely uncomfortable ([impostor syndrome is a hell of a drug](https://twitter.com/heathercmiller/status/1205641312659234825)) and at the same time is what enables me to be so productive.
 Because of this, 2019 has been by far my most productive year to date, simply because I've been enabled to.
 
 Let's move on to April.[^6]
@@ -92,7 +92,7 @@ How fitting!
 The second quarter of 2019 was heavy on travelling, including air travel.
 I somehow thought it would be a good idea to go to Sweden, Spain, Switzerland and Japan within the space of a six weeks.
 The two most important events were [the Scala Days](https://www.innoq.com/de/blog/scala-days-2019-lausanne/) and the Typelevel Summit in Lausanne where I had the good fortune of collaborating with my dear friends Darja and Dajana on creating a successful conference experience.
-That week was a complete blur, I'm assuming not just me, but also to them.
+That week was a complete blur, I'm assuming not just to me, but also to them.
 Organizing a conference is physically, mentally and emotionally draining, especially on this scale, but also hugely rewarding.
 Did I mention there was a three-day company event just the week before and I spend the weekend in between already in Lausanne?
 No?
