@@ -90,7 +90,7 @@ Two weeks later, I visited a friend in Vienna who later came out as trans.
 How fitting!
 
 The second quarter of 2019 was heavy on travelling, including air travel.
-I somehow thought it would be a good idea to go to Sweden, Spain, Switzerland and Japan within the space of a six weeks.
+I somehow thought it would be a good idea to go to Sweden, Spain, Switzerland and Japan within the space of six weeks.
 The two most important events were [the Scala Days](https://www.innoq.com/de/blog/scala-days-2019-lausanne/) and the Typelevel Summit in Lausanne where I had the good fortune of collaborating with my dear friends Darja and Dajana on creating a successful conference experience.
 That week was a complete blur, I'm assuming not just to me, but also to them.
 Organizing a conference is physically, mentally and emotionally draining, especially on this scale, but also hugely rewarding.
@@ -104,7 +104,7 @@ However, I am grateful for what I've learned, even though it was often as easy t
 I had only week to relax after Scala Days before I went to Japan for Scala Matsuri, an event where [I've already documented my experiences](/articles/scala-matsuri/).
 That week I was invited to the annual Sommerfest of the computer science department of TUM:
 The university awarded me with a teaching award for 2018.
-That was about the only official appreciation I've received for pouring endless of hours and overtime into student success.
+That was about the only official appreciation I've received for pouring endless hours and overtime into student success.
 I'm grateful for the award but those don't replace structural improvements in undergrad teaching, something us doctoral students have been demanding year after year.
 But as Karl Valentin said, we weren't even being ignored.
 
