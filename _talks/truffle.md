@@ -28,5 +28,15 @@ conferences:
     link: "https://www.meetup.com/jugthde/events/265883678/"
     slides: "https://speakerdeck.com/larsrh/das-eierlegende-truffleschwein"
     recording: "https://www.youtube.com/watch?v=03qKMFLLHHc"
+  - conference: "JUG Nürnberg"
+    year: 2020
+    date: "23. Januar"
+    location: Nürnberg, Deutschland
+    link: "https://www.meetup.com/JUG-Nurnberg/events/267621869/"
+    slides: "https://speakerdeck.com/larsrh/das-eierlegende-truffleschwein"
 
 ---
+
+## Artikel
+
+Zu diesem Thema habe ich auch einen Artikel geschrieben, der [frei online](https://www.innoq.com/de/articles/2019/12/eierlegendes-truffleschwein/) verfügbar ist.

@@ -120,3 +120,18 @@
   journal: "INNOQ"
   abstract: "You have implemented a smart contract for Ethereum, and now you are wondering how you can test it under real-life conditions, but without spending money in case there's a problem? Luckily, there are test networks that can help you with this."
   link: "https://www.innoq.com/en/blog/testing-ethereum/"
+- pub_date: 2019-12-04
+  title: "Das eierlegende Truffleschwein"
+  journal: "Javamagazin 01/2020"
+  abstract: "Viele, die im Java-Umfeld unterwegs sind, werden von ihr gehört haben: der sagenumwobenen GraalVM. Diese magische neue Virtual Machine für Java soll vor allem für blanke Performance sorgen, indem sie den Java-Bytecode in nativen Code kompiliert. Dadurch fällt insbesondere der Startup-Overhead weg, da weite Teile der Initialisierung bereits vom Compiler erledigt werden. So oder so ähnlich ist es vielerorts zu lesen. Hinzu kommt, dass die GraalVM zu nicht weniger das Potential hat als eine neue Ära der polyglotten Programmierung auf der JVM einzuläuten. Die Rede ist von der Truffle API, einem generischen Framework zur Implementierung von Interpretern."
+  link: "https://www.innoq.com/de/articles/2019/12/eierlegendes-truffleschwein/"
+  lang: de
+  hero:
+    src: "/img/chercheur_de_truffes.jpg"
+    alt: "Historisches Bild eines Trüffelschweins"
+    credits: "gemeinfrei"
+- pub_date: 2020-01-31
+  title: "So you want to compose some functions"
+  journal: "INNOQ"
+  abstract: "Let’s say you have a list of functions and you want to compose them. Shouldn’t be too hard, right? Of course it is, but maybe there’s an elegant way."
+  link: "https://www.innoq.com/en/blog/function-monoids/"
