@@ -135,3 +135,8 @@
   journal: "INNOQ"
   abstract: "Let’s say you have a list of functions and you want to compose them. Shouldn’t be too hard, right? Of course it is, but maybe there’s an elegant way."
   link: "https://www.innoq.com/en/blog/function-monoids/"
+- pub_date: 2020-02-06
+  title: "Lars Hupel on Algebraic Design"
+  journal: "CaSE podcast"
+  abstract: "In this episode of the CaSE podcast, Lucas talks to Lars Hupel of Typelevel-fame about algebraic design. Lars starts to explain how the expression problem views the difference between the functional and Object Oriented style of programming. He then explains the concept of an algebra – from coupling trains to CRDTs. This leads to a discussion on comprehensive and iterative thinking styles and how different styles of testing and proving work. Finally, they bring it all back to type systems."
+  link: "https://www.case-podcast.org/29-lars-hupel-on-algebraic-design"
