@@ -124,7 +124,7 @@
   title: "Das eierlegende Truffleschwein"
   journal: "Javamagazin 01/2020"
   abstract: "Viele, die im Java-Umfeld unterwegs sind, werden von ihr gehört haben: der sagenumwobenen GraalVM. Diese magische neue Virtual Machine für Java soll vor allem für blanke Performance sorgen, indem sie den Java-Bytecode in nativen Code kompiliert. Dadurch fällt insbesondere der Startup-Overhead weg, da weite Teile der Initialisierung bereits vom Compiler erledigt werden. So oder so ähnlich ist es vielerorts zu lesen. Hinzu kommt, dass die GraalVM zu nicht weniger das Potential hat als eine neue Ära der polyglotten Programmierung auf der JVM einzuläuten. Die Rede ist von der Truffle API, einem generischen Framework zur Implementierung von Interpretern."
-  link: "https://www.innoq.com/de/articles/2019/12/eierlegendes-truffleschwein/"
+  link: "https://www.innoq.com/de/articles/2020/02/eierlegendes-truffleschwein/"
   lang: de
   hero:
     src: "/img/chercheur_de_truffes.jpg"
