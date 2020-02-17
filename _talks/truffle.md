@@ -39,4 +39,4 @@ conferences:
 
 ## Artikel
 
-Zu diesem Thema habe ich auch einen Artikel geschrieben, der [frei online](https://www.innoq.com/de/articles/2019/12/eierlegendes-truffleschwein/) verfügbar ist.
+Zu diesem Thema habe ich auch einen Artikel geschrieben, der [frei online](https://www.innoq.com/de/articles/2020/02/eierlegendes-truffleschwein/) verfügbar ist.
