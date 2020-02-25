@@ -5,6 +5,12 @@ abstract: |
   So gut wie alle modernen Programmiersprachen erlauben es, Routinen zu parametrisieren – über Werte und über Typen. Für Letzteres gibt es verschiedenen Begriffe: "Templates", "Generics" oder aber "Parametric Polymorphism". Diese Begriffe sollen hier einmal geklärt werden. Außerdem lernen wir die Vorteile von Typparametern kennen und warum Type Erasure in Java nicht nur richtig, sondern auch notwendig ist. Schließlich kommen wir auf Philipp Wadlers einflussreichen Artikel "Theorems For Free" zu sprechen, welcher eine Technik beschreibt, mit der wir Aussagen über Programme nur anhand der Typen treffen können.
 speakerdeck: "0b6023a7d310448e85e78c43531c4e00"
 conferences:
+  - conference: "Softwerkskammer Rhein–Neckar"
+    link: "https://www.meetup.com/Softwerkskammer-Rhein-Neckar/events/263352891/"
+    year: 2019
+    date: "11. November"
+    slides: "https://speakerdeck.com/larsrh/lieber-ein-typparameter-zu-viel-als-einer-zu-wenig-herbstcampus"
+    location: Mannheim, Deutschland
   - conference: "Herbstcampus"
     link: "https://www.innoq.com/de/talks/2019/09/lieber-ein-typparameter-zu-viel-als-zu-wenig-herbstcampus/"
     year: 2019
