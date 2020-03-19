@@ -4,7 +4,15 @@ lang: de
 abstract: |
   So gut wie alle modernen Programmiersprachen erlauben es, Routinen zu parametrisieren – über Werte und über Typen. Für Letzteres gibt es verschiedenen Begriffe: "Templates", "Generics" oder aber "Parametric Polymorphism". Diese Begriffe sollen hier einmal geklärt werden. Außerdem lernen wir die Vorteile von Typparametern kennen und warum Type Erasure in Java nicht nur richtig, sondern auch notwendig ist. Schließlich kommen wir auf Philipp Wadlers einflussreichen Artikel "Theorems For Free" zu sprechen, welcher eine Technik beschreibt, mit der wir Aussagen über Programme nur anhand der Typen treffen können.
 speakerdeck: "0b6023a7d310448e85e78c43531c4e00"
+video: { yt: "TTI-ry4aRxw" }
 conferences:
+  - conference: "rheinJUG"
+    link: "http://rheinjug.de/rheinjug/event/2020/02/26/double-feature-webanwendungen-mit-mvc-1-dot-0-slash-typparameter.html"
+    year: 2020
+    date: "2. Februar"
+    slides: "https://speakerdeck.com/larsrh/lieber-ein-typparameter-zu-viel-als-einer-zu-wenig-herbstcampus"
+    recording: "https://www.youtube.com/watch?v=TTI-ry4aRxw"
+    location: Düsseldorf, Deutschland
   - conference: "Softwerkskammer Rhein–Neckar"
     link: "https://www.meetup.com/Softwerkskammer-Rhein-Neckar/events/263352891/"
     year: 2019
@@ -33,4 +41,4 @@ conferences:
 
 ## Artikel
 
-Leider gibt es zu diesem Vortrag bisher noch keine Aufzeichnung; allerdings ist mein Artikel zum Thema im <i>JavaSPEKTRUM</i> <a href="https://www.innoq.com/de/articles/2019/06/parametrizitaet-in-java/">frei online</a> (<a href="http://sigs.de/publications/twitter/JS_03_2019/Hupel_JS_03_2019.pdf">PDF</a>) verfügbar.
+Zu diesem Thema habe ich auch einen Artikel geschrieben, der <a href="https://www.innoq.com/de/articles/2019/06/parametrizitaet-in-java/">frei online</a> (<a href="http://sigs.de/publications/twitter/JS_03_2019/Hupel_JS_03_2019.pdf">PDF</a>) verfügbar ist.
