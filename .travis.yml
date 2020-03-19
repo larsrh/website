@@ -1,6 +1,13 @@
+dist: bionic
 language: ruby
 rvm:
-  - 2.6.3
+  - 2.7.0
+
+addons:
+  apt:
+    packages:
+      - python3-pip
+      - python3-venv
 
 script: ./.ci/travis.sh
 
