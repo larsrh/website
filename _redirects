@@ -2,15 +2,15 @@ https://larsrh-website.netlify.com/* https://lars.hupel.info/:splat 301!
 
 /libisabelle/* https://larsrh.github.io/libisabelle/:splat 200
 
-/index.html / 301
-/cv.html /cv/ 301
-/research.html /research/ 301
-/about.html /about/ 301
-/teaching.html /teaching/ 301
-/projects.html /projects/ 301
+/index.html / 301!
+/cv.html /cv/ 301!
+/research.html /research/ 301!
+/about.html /about/ 301!
+/teaching.html /teaching/ 301!
+/projects.html /projects/ 301!
 
-/research/pl/ /research/scala/ 301
-/research/misc/ /research/ 301
+/research/pl/ /research/scala/ 301!
+/research/misc/ /research/ 301!
 
 /pub/bsc_hupel.html                  /pub/bsc_hupel.pdf                  301
 /pub/directed-security-policies.html /pub/directed-security-policies.pdf 301
