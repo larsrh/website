@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/larsrh/jekyll-git_metadata.git
+  revision: 8e7e914d435879f4328e3ab4367c7fa03b92b39d
+  tag: v0.3.0-fork
+  specs:
+    jekyll-git_metadata (0.3.0)
+      jekyll (~> 4.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -13,7 +21,7 @@ GEM
     eventmachine (1.2.7)
     ffi (1.12.2)
     forwardable-extended (2.6.0)
-    html-proofer (3.15.1)
+    html-proofer (3.15.2)
       addressable (~> 2.3)
       mercenary (~> 0.3)
       nokogumbo (~> 2.0)
@@ -22,25 +30,25 @@ GEM
       typhoeus (~> 1.3)
       yell (~> 2.0)
     http_parser.rb (0.6.0)
-    i18n (0.9.5)
+    i18n (1.8.2)
       concurrent-ruby (~> 1.0)
-    jekyll (3.8.6)
+    jekyll (4.0.0)
       addressable (~> 2.4)
       colorator (~> 1.0)
       em-websocket (~> 0.5)
-      i18n (~> 0.7)
-      jekyll-sass-converter (~> 1.0)
+      i18n (>= 0.9.5, < 2)
+      jekyll-sass-converter (~> 2.0)
       jekyll-watch (~> 2.0)
-      kramdown (~> 1.14)
+      kramdown (~> 2.1)
+      kramdown-parser-gfm (~> 1.0)
       liquid (~> 4.0)
       mercenary (~> 0.3.3)
       pathutil (~> 0.9)
-      rouge (>= 1.7, < 4)
+      rouge (~> 3.0)
       safe_yaml (~> 1.0)
-    jekyll-git_metadata (0.2.0)
-      jekyll (~> 3.0)
-    jekyll-sass-converter (1.5.2)
-      sass (~> 3.4)
+      terminal-table (~> 1.8)
+    jekyll-sass-converter (2.1.0)
+      sassc (> 2.0.1, < 3.0)
     jekyll-seo-tag (2.6.1)
       jekyll (>= 3.3, < 5.0)
     jekyll-sitemap (1.4.0)
@@ -51,7 +59,9 @@ GEM
     jekyll-twitter-plugin (2.1.0)
     jekyll-watch (2.2.1)
       listen (~> 3.0)
-    kramdown (1.17.0)
+    kramdown (2.1.0)
+    kramdown-parser-gfm (1.1.0)
+      kramdown (~> 2.0)
     liquid (4.0.3)
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -72,13 +82,13 @@ GEM
       ffi (~> 1.0)
     rouge (3.17.0)
     safe_yaml (1.0.5)
-    sass (3.7.4)
-      sass-listen (~> 4.0.0)
-    sass-listen (4.0.0)
-      rb-fsevent (~> 0.9, >= 0.9.4)
-      rb-inotify (~> 0.9, >= 0.9.7)
+    sassc (2.2.1)
+      ffi (~> 1.9)
+    terminal-table (1.8.0)
+      unicode-display_width (~> 1.1, >= 1.1.1)
     typhoeus (1.3.1)
       ethon (>= 0.9.0)
+    unicode-display_width (1.7.0)
     yell (2.2.2)
 
 PLATFORMS
@@ -86,8 +96,8 @@ PLATFORMS
 
 DEPENDENCIES
   html-proofer
-  jekyll (>= 3.6)
-  jekyll-git_metadata
+  jekyll (>= 4)
+  jekyll-git_metadata!
   jekyll-seo-tag
   jekyll-sitemap
   jekyll-toc

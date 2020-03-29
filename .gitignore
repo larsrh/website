@@ -4,3 +4,4 @@ _site
 .tweet-cache
 .git-metadata
 venv
+.jekyll-cache
