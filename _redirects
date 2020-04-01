@@ -1,4 +1,5 @@
 https://larsrh-website.netlify.com/* https://lars.hupel.info/:splat 301!
+https://larsrh-website.netlify.app/* https://lars.hupel.info/:splat 301!
 
 /libisabelle/* https://larsrh.github.io/libisabelle/:splat 200
 
