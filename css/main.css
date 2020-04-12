@@ -188,3 +188,55 @@ dd p {
   margin-bottom: 0;
   margin-top: 1rem;
 }
+
+.CodeMirror {
+  border: 1px solid #eee;
+  height: auto !important;
+  font-size: .8em;
+}
+
+#interactive {
+  display: none;
+}
+
+div.interactive {
+  padding-bottom: 2em;
+}
+
+.interactive .output {
+  padding: .5em;
+  border: 1.5px solid;
+  font-size: .9em;
+}
+
+.interactive .output-empty {
+  display: none;
+}
+
+.interactive .output-success {
+  border-color: green;
+}
+
+.interactive .output-failure {
+  border-color: red;
+}
+
+@keyframes border_pending {
+  0% {
+    border-color: yellow;
+  }
+  50% {
+    border-color: orange;
+  }
+  100% {
+    border-color: yellow;
+  }
+}
+
+.interactive .output-pending {
+  animation: border_pending 1s infinite;
+}
+
+.interactive .output-pending::before {
+  content: "Pending ...";
+}

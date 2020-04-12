@@ -66,3 +66,25 @@ defaults:
       nav: activities
       is_talk: true
       description: ""
+  - scope:
+      path: "topics/crdt"
+    values:
+      long_title: An introduction to Conflict-Free Replicated Datatypes
+      layout: article
+      nav: articles
+      description: ""
+      toc: true
+      lang: en
+      codemirror:
+        - /js/html.js
+        - /js/articles/crdt/fc.js
+        - /js/articles/crdt/chai.js
+        - /js/articles/crdt/fc-runner.js
+      abstract: |
+        This is an ongoing series about Conflict-Free Replicated Datatypes, or CRDTs for short.
+        Their purpose is to allow seamless sharing of objects on different nodes in a distributed systems.
+        Merging is by construction always possible, without any conflicts.
+        This series assumes no knowledge about CRDTs, but be prepared to learn a thing or two about algebras.
+        All code samples on this page are interactive and executed in your browser.
+        Understanding the code is necessary for understanding the concepts, so you should be familiar with JavaScript.
+        If you notice any bugs on this page, [please let me know](https://github.com/larsrh/website/issues)!
