@@ -67,9 +67,22 @@ const renderResult = val => {
 
   if (Array.isArray(val))
     return html(
-      "ol",
+      "table",
       {},
-      ...val.map(i => html("li", {}, renderResult(i)))
+      html(
+        "tr",
+        {},
+        html("th", {}, text("Index")),
+        html("th", {}, text("Value"))
+      ),
+      ...val.flatMap((v, i) =>
+        html(
+          "tr",
+          {},
+          html("td", {}, text(i)),
+          html("td", {}, renderResult(v))
+        )
+      )
     );
 
   if (typeof val === "object" && interactiveRender in val)

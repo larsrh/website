@@ -27,7 +27,7 @@ const processResult = ({ failed, numRuns, error, counterexample }) => {
       html(
         "div",
         {},
-        text(trimMax(error, 50))
+        text(trimMax(error || "", 50))
       ),
       html(
         "div",
