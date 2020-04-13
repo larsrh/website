@@ -107,6 +107,23 @@ Note that only the last expression in a snippet is printed.
 If you define variables without `var` (or `const` or `let`), they can be accessed in subsequent snippets.
 I will use that throughout the series.
 
+We can define different printing for a particular object using the `interactiveRender` symbol.
+It can be declared as a method and will be invoked by the runner automatically:
+
+```
+class Test {
+  constructor(value) {
+    this.value = value;
+  }
+
+  [interactiveRender]() {
+    return `Hi ${this.value}!`;
+  }
+}
+
+new Test("reader")
+```
+
 ## Onwards
 
 You are now ready to proceed with the actual introduction.
