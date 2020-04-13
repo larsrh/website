@@ -8,7 +8,13 @@ layout: default
       <img src="{{ page.hero.src }}" alt="{{ page.hero.alt }}" class="img-fluid mb-4" />
     {% endif %}
 
-    <h1 class="display-3">{{ page.long_title }}</h1>
+    <h1 class="display-3">
+      {% if page.long_title %}
+        {{ page.long_title }}
+      {% else %}
+        {{ page.title }}
+      {% endif %}
+    </h1>
 
     Reading time: {{ content | number_of_words | divided_by: 180 }} minutes.
 

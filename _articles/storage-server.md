@@ -1,7 +1,5 @@
 ---
 title: "My storage server setup"
-header: "My storage server setup"
-long_title: "My storage server setup"
 pub_date: 2017-12-28
 lang: en
 ---

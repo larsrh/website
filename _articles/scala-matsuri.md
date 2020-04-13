@@ -1,7 +1,5 @@
 ---
 title: "A week in Tokyo"
-header: "A week in Tokyo"
-long_title: "A week in Tokyo"
 pub_date: 2019-11-10
 lang: en
 toc: true

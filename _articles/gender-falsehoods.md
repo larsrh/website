@@ -1,7 +1,5 @@
 ---
 title: "Falsehoods Programmers Believe About Gender"
-header: "Falsehoods Programmers Believe About Gender"
-long_title: "Falsehoods Programmers Believe About Gender"
 pub_date: 2019-10-25
 lang: en
 hero:
