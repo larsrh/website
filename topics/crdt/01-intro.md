@@ -21,7 +21,7 @@ But before we can strap in and talk about CRDTs, we first need to get some paper
 
 All code snippets here are live: this page functions similarly to Jupyter Notebook.
 The main difference is that all code is executed in your browser; there's no roundtrip to a backend service.
-Snippets are evaluated when a page is loaded and can be re-evaluated by clicking on the _Run_ button.
+Snippets are evaluated when a page is loaded and can be re-evaluated by clicking the _Run_ button.
 Feel free to change any snippet to your liking, but note that subsequent snippets are not automatically re-run.
 If you want to reset the session, e.g. because you deleted some code, just reload the page.
 Your code is not saved between reloads!
@@ -34,6 +34,7 @@ The term _property_ is overloaded in programming, so let me be clear: I'm not ta
 In other words, a property is a predicate that should be evaluated on ideally all inputs to see if it always holds.
 
 In the following example, we have two properties, one is valid, the other one isn't.
+They are defined using the [fast-check](https://github.com/dubzzz/fast-check/) library, which is available under the `fc` object.
 
 ```
 checkAll({
@@ -42,7 +43,7 @@ checkAll({
 });
 ```
 
-Under the hood, this uses the [fast-check](https://github.com/dubzzz/fast-check/) library to automatically generate 100 different inputs.
+Under the hood, fast-check automatically generates 100 different inputs.
 Granted, 100 different inputs is not exactly _all inputs_, but since there are infinitely many strings, we can't exactly do that, can we?
 fast-check will call the function (e.g. `x => x == x`) with the inputs as specified (`fc.string()` generates ASCII strings with only printable characters).
 If the function ever returns `false` or throws an exception, the property is marked as failed.
@@ -57,7 +58,7 @@ checkAll({
 });
 ```
 
-The great thing about fast-check is that it will automatically show you the _smallest_ input it could find where the property failed.
+The great thing about fast-check is that it will automatically show you the _smallest_ (and hopefully simplest) input it could find where the property failed.
 This is called the _counterexample_.
 There could be many counterexamples, but here, we only show one.
 
