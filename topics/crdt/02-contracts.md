@@ -159,7 +159,7 @@ The "partial" part comes from the fact that the comparator may fail to produce a
 Such a partial ordering needs to satisfy two laws:
 
 1. any value must be equal to itself (_reflexitivity_)
-2. if you have three values _x_, _y_, and _z_, and you know that _x ≤ y_, then _y ≤ z_ (_transitivity_)
+2. if you have three values _x_, _y_, and _z_, and you know that _x_ ≤ _y_ and _y_ ≤ _z_, then _x_ ≤ _z_ (_transitivity_)
 
 This math-speak can be translated into a contract as follows:
 
@@ -171,6 +171,26 @@ What's going on there?
 We define a function that should return a contract for a given instance (the partial ordering) and a generator for values (the values that can be compared).
 Also, in order to keep things neat and tidy, I've put them into some objects.
 
+Let's look at the definition of this contract in detail.
+
+* The contract comprises three properties in total.
+  Each property is defined using fast-check and the generator that's passed into the contract.
+* The first two properties correspond to the laws we've seen above (reflexitivity, transitivity).
+  I've also added another law that's strictly speaking not necessary but very useful.
+* Reflexitivity is defined in a way that comparing `x` to itself must return `order.eq`.
+  This is asserted using Chai's `equal` assertion.[^footnote-equal]
+* Transitivity is a little more complicated.
+  Recall the verbal definition from above: we have three values and two preconditions.
+  So, first of all we tell fast-check that we want to invoke the generator three times.
+  Inside the property, we can use `fc.pre` to check the preconditions.
+  If any of the preconditions is false, fast-check aborts the current run and re-generates new inputs.
+  Only then we check that _x_ ≤ _z_ according to the partial ordering.
+  fast-check attempts this as many times as needed to reach 100 complete runs.
+* The mathematical definition uses the ≤ comparison operator (or `<=` in JavaScript), whereas our definition uses `<`.
+  That's why I added the `isLeq` convenience method to the `Order` class.
+* Finally, the extra property is for flipping around a comparison.
+  Surely, comparing _y_ to _x_ ought to give the exact opposite result than _x_ to _y_.
+
 Check out how the contract can be used:
 
 ```
@@ -179,3 +199,58 @@ Promise.all([
   checkAll(contracts.partialOrdering(orderings.any, fc.string()))
 ])
 ```
+
+## Preconditions
+
+As an aside: fast-check is smart about the retry strategy.
+If we supply it with an impossible precondition, it'll print an error message _without_ any counterexamples.
+
+```
+checkAll({
+  impossible: fc.property(fc.integer(), x => {
+    fc.pre(x < x);
+    assert.ok(true);
+  })
+})
+```
+
+## (Im)partiality
+
+So far we've only seen some orderings for types of values that can always be compared.
+Let's look at sets next, where the `compare` operation may be partial.
+But before that, we'll have to discuss a few set operations first.
+Before you ask: I strongly dislike the built-in `Set` type of JavaScript, so I'll pretend it doesn't exist.
+We'll use plain arrays instead.
+
+```
+const example = [1, 2, 3];
+
+assert.ok(example.some(x => x > 2));
+assert.notOk(example.some(x => x < 0));
+
+assert.notOk(example.every(x => x > 2));
+assert.ok(example.every(x => x > 0));
+```
+
+We can use `some` to check if some function is truthy for all elements in the array.
+Conversely, `every` will check if all elements satisfy the function.
+
+Now, let's go ahead and define what it means to be a subset.
+
+```
+const isSubsetOf = (ordering, s1, s2) =>
+  s1.forAll(x1 =>
+    s2.exists(x2 =>
+      ordering.compare(x1, x2) == order.eq
+    )
+  );
+```
+
+⚠ **Under construction** ⚠
+
+## What's next?
+
+In the next episode, we'll look at some more complicated algebraic interfaces.
+Spoiler: more order!
+
+[^footnote-equal]: We could have equally well used strict equality, but in this case, it makes no difference.

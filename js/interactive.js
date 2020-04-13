@@ -62,6 +62,9 @@ const renderError = err =>
   )
 
 const renderResult = val => {
+  if (val === undefined)
+    return text("Evaluated successfully");
+
   if (val instanceof Element)
     return val;
 

@@ -8,7 +8,11 @@ contracts.partialOrdering = (instance, gen) => ({
       fc.pre(instance.compare(x, y).isLeq);
       fc.pre(instance.compare(y, z).isLeq);
       assert.ok(instance.compare(x, z).isLeq);
-    })
+    }),
+  flip:
+    fc.property(gen, gen, (x, y) =>
+      assert.equal(instance.compare(x, y).flip(), instance.compare(y, x))
+    )
 })
 
 orderings = {};
