@@ -1,5 +1,5 @@
 ---
-title: "CRDTs: Intro (2)"
+title: "CRDTs: Part 2"
 subtitle: "Part 2: Algebras & contracts"
 ---
 
