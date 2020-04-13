@@ -68,6 +68,10 @@ const renderResult = val => {
   if (val instanceof Element)
     return val;
 
+  if (val.innerHTML !== undefined)
+    // probably HTML? Chrome resets the prototype for HTML elements that come out of `eval`
+    return val;
+
   if (Array.isArray(val))
     return html(
       "table",
