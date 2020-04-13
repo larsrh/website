@@ -1,3 +1,5 @@
+const interactiveRender = Symbol.for("interactiveRender");
+
 const html = (tag, props, ...children) => {
   props = props || {};
 

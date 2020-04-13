@@ -72,6 +72,9 @@ const renderResult = val => {
       ...val.map(i => html("li", {}, renderResult(i)))
     );
 
+  if (typeof val === "object" && interactiveRender in val)
+    return text(val[interactiveRender]());
+
   if (typeof val === "object")
     return html(
       "table",
