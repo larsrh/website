@@ -1,5 +1,5 @@
 ---
-title: "CRDTs: Intro (1)"
+title: "CRDTs: Part 1"
 subtitle: "Part 1: Preliminaries"
 toc: false
 ---
