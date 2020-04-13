@@ -18,5 +18,5 @@ contracts.partialOrdering = (instance, gen) => ({
 orderings = {};
 
 orderings.any = {
-    compare: (x, y) => x < y ? order.lt : x == y ? order.eq : order.gt
+  compare: (x, y) => x < y ? order.lt : x == y ? order.eq : order.gt
 };

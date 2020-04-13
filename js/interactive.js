@@ -93,7 +93,7 @@ const renderResult = val => {
     );
 
   if (typeof val === "object" && interactiveRender in val)
-    return text(val[interactiveRender]());
+    return renderResult(val[interactiveRender]());
 
   if (typeof val === "object")
     return html(
@@ -129,23 +129,20 @@ const evalInteractive = (code, iframe, out) => {
   out.innerHTML = "";
   const promise = promisify(() => iframe.contentWindow.eval(code.getValue()));
 
-  return new Promise(resolve => {
-    setTimeout(() => {
-      promise
-        .then(val => {
-          out.setAttribute("class", "output output-success");
-          out.appendChild(renderResult(val));
-        })
-        .catch(err => {
-          out.setAttribute("class", "output output-failure");
-          out.appendChild(renderError(err));
-        })
-        .finally(() => {
-          button.removeAttribute("disabled");
-          resolve();
-        });
-    }, 500);
-  });
+  return promise
+    .then(val => {
+      out.setAttribute("class", "output output-success");
+      out.appendChild(renderResult(val));
+    })
+    .catch(err => {
+      out.setAttribute("class", "output output-failure");
+      console.dir(err);
+      out.appendChild(renderError(err));
+      return Promise.resolve();
+    })
+    .finally(() => {
+      button.removeAttribute("disabled");
+    });
 }
 
 const initInteractive = async (extraScripts) => {
