@@ -76,17 +76,11 @@ const renderResult = val => {
     return html(
       "table",
       {},
-      html(
-        "tr",
-        {},
-        html("th", {}, text("Index")),
-        html("th", {}, text("Value"))
-      ),
-      ...val.flatMap((v, i) =>
+      ...val.map((v, i) =>
         html(
           "tr",
           {},
-          html("td", {}, text(i)),
+          html("th", {}, text(i)),
           html("td", {}, renderResult(v))
         )
       )
@@ -99,21 +93,18 @@ const renderResult = val => {
     return html(
       "table",
       {},
-      html(
-        "tr",
-        {},
-        html("th", {}, text("Key")),
-        html("th", {}, text("Value"))
-      ),
       ...Object.entries(val).map(([k, v]) =>
         html(
           "tr",
           {},
-          html("td", {}, text(k)),
+          html("th", {}, text(k)),
           html("td", {}, renderResult(v))
         )
       )
     );
+
+  if (typeof val === "string")
+    return html("span", { "class": "output-string" }, text(val))
 
   if (typeof val === "function")
     return text("ƒ");

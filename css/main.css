@@ -240,3 +240,18 @@ div.interactive {
 .interactive .output-pending::before {
   content: "Pending ...";
 }
+
+.output-string {
+  white-space: pre-wrap;
+  font-family: monospace;
+  word-wrap: anywhere;
+  font-size: .9em;
+}
+
+.output-string::before {
+  content: '"';
+}
+
+.output-string::after {
+  content: '"';
+}

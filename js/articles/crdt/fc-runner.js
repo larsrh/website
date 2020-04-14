@@ -5,43 +5,40 @@ const trimMax = (str, len) => {
     return str;
 }
 
-const processResult = ({ failed, numRuns, error, counterexample }) => {
-  if (counterexample)
-    counterexample = [
-      text("Counterexample: "),
-      html("span", { style: "white-space: pre;" }, text(`"${counterexample}"`))
-    ]
-  else
-    counterexample = [];
+const success = numRuns => ({
+  "Status": html(
+    "span",
+    {},
+    faIcon("check-circle"),
+    text(`Success: ${numRuns} inputs tested`)
+  )
+})
 
-  if (failed)
-    return html(
-      "div",
-      {},
-      html(
-        "div",
-        {},
-        faIcon("exclamation-circle"),
-        text("Failure")
-      ),
-      html(
-        "div",
-        {},
-        text(trimMax(error || "", 50))
-      ),
-      html(
-        "div",
-        {},
-        ...counterexample
-      )
-    );
+const failure = (error, counterexample) => {
+  if (counterexample)
+    counterexample = {
+      "Counterexample": counterexample
+    };
   else
-    return html(
+    counterexample = {};
+
+  return {
+    "Status": html(
       "span",
       {},
-      faIcon("check-circle"),
-      text(`Success: ${numRuns} inputs tested`)
-    );
+      faIcon("exclamation-circle"),
+      text("Failure")
+    ),
+    "Message": trimMax(error || "", 50),
+    ...counterexample
+  };
+}
+
+const processResult = ({ failed, numRuns, error, counterexample }) => {
+  if (failed)
+    return failure(error, counterexample);
+  else
+    return success(numRuns);
 }
 
 const checkAll = async props => Object.fromEntries(await Promise.all(
