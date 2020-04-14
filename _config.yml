@@ -70,7 +70,7 @@ defaults:
       path: "topics/crdt"
     values:
       long_title: An introduction to Conflict-Free Replicated Datatypes
-      layout: article
+      layout: topics/crdt
       nav: articles
       description: ""
       toc: true

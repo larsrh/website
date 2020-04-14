@@ -1,6 +1,7 @@
 ---
 title: "CRDTs: Part 1"
 subtitle: "Part 1: Preliminaries"
+progress: 90
 toc: false
 ---
 
