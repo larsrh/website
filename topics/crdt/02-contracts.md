@@ -23,7 +23,7 @@ What should the end result be?
 
 This problem is caused by destructive updates.
 We just don't have enough information to figure this out.
-CRDTs solve this by only allow _monotonic_ updates.
+CRDTs solve this by only allowing _monotonic_ updates.
 In other words, any operation must make the data structure "larger".
 In this post, we'll look at how that notion means.
 
@@ -340,6 +340,40 @@ const divOrdering = {
 checkAll(contracts.partialOrdering(divOrdering, fc.nat(100)));
 ```
 
+## Conclusion
+
+Remember the beginning of this episode:
+
+> CRDTs solve this by only allowing _monotonic_ updates.
+> In other words, any operation must make the data structure "larger".
+
+We can apply our newly-found knowledge to this situation.
+Any operation that manipulates our sets must respect the partial ordering we've defined above.
+Let's see this in action:
+
+```
+const insertElement = (element, set) => [...set, element];
+
+checkAll({
+  "insert-makes-bigger":
+    fc.property(fc.integer(), fc.array(fc.integer()), (element, set) => {
+      const newSet = insertElement(element, set);
+      assert.ok(orderings.set(orderings.any).compare(set, newSet).isLeq);
+    })
+});
+```
+
+We're asserting her that `insertElement` produces a new set that is always greater-than-or-equal-to the original set.
+(After all, we could be inserting the same element again, in which case the new set is equal to the original set.)
+
+Congratulations!
+You've seen your first CRDT.
+This one is actually called _Grow-Only Set_ (or _GSet_ for short).
+As the name indicates, it can only grow, but never shrink.
+This data structure obeys all the laws that are expected from a law-abiding CRDT, although we haven't seen all the laws yet.
+Also, it isn't all that useful, because well, sometimes you want to delete things.
+We'll learn about other set CRDTs later in this series.
+
 ## What's next?
 
 In the next episode, we'll look at some more complicated algebraic interfaces.
@@ -348,5 +382,6 @@ Spoiler: more order!
 ## References
 
 * Hasse diagram by KSmrq on [Wikimedia Commons](https://commons.wikimedia.org/w/index.php?title=File:Hasse_diagram_of_powerset_of_3.svg&oldid=368528490), CC-BY-SA 3.0
+* Lattice of divisors by Watchduck on [Wikimedia Commons](https://commons.wikimedia.org/w/index.php?title=File:Infinite_lattice_of_divisors.svg&oldid=379240153), public domain
 
 [^footnote-equal]: We could have equally well used strict equality, but in this case, it makes no difference.
