@@ -82,7 +82,7 @@ defaults:
         - /js/articles/crdt/fc-runner.js
       abstract: |
         This is an ongoing series about Conflict-Free Replicated Datatypes, or CRDTs for short.
-        Their purpose is to allow seamless replication of data on different nodes in a distributed systems.
+        Their purpose is to allow seamless replication of data on different nodes in a distributed system.
         Merging is by construction always possible, without any conflicts.
         This series assumes no knowledge about CRDTs, but be prepared to learn a thing or two about algebras.
         All code samples on this page are interactive and executed in your browser.
