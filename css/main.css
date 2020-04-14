@@ -255,3 +255,30 @@ div.interactive {
 .output-string::after {
   content: '"';
 }
+
+.interactive .output > table {
+  margin: -.5em;
+}
+
+.interactive .output table {
+  border-collapse: collapse;
+}
+
+.interactive .output td > table {
+  margin: -.2em;
+}
+
+.interactive .output td, .interactive .output th {
+  vertical-align: top;
+  padding: .2em;
+  border-bottom: 1px solid #aaa;
+  border-right: 1px solid #aaa;
+}
+
+.interactive .output td:last-child, .interactive .output th:last-child {
+  border-right: none;
+}
+
+.interactive .output tr:last-child > * {
+  border-bottom: none;
+}

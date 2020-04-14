@@ -5,14 +5,13 @@ const trimMax = (str, len) => {
     return str;
 }
 
-const success = numRuns => ({
-  "Status": html(
+const success = numRuns =>
+  html(
     "span",
     {},
     faIcon("check-circle"),
     text(`Success: ${numRuns} inputs tested`)
-  )
-})
+  );
 
 const failure = (error, counterexample) => {
   if (counterexample)

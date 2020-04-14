@@ -54,7 +54,7 @@ Consequently, we define a special class that can assume four different states:
 For good measure, we also add in a flip method that turns the state around: it turns less-than into greater-than and vice versa.
 
 ```
-{% include crdt/lib-order.js %}
+{% include topics/crdt/lib-order.js %}
 ```
 
 We're not supposed to create instances of `Order` ourselves.
@@ -163,7 +163,7 @@ Such a partial ordering needs to satisfy two laws:
 This math-speak can be translated into a contract as follows:
 
 ```
-{% include crdt/lib-partialorder.js %}
+{% include topics/crdt/lib-partialorder.js %}
 ```
 
 What's going on there?
@@ -249,7 +249,7 @@ No surprises there, I think.
 Now, let's go ahead and define what it means to compare two sets.
 
 ```
-{% include crdt/lib-partialorder-set.js %}
+{% include topics/crdt/lib-partialorder-set.js %}
 ```
 
 What's going on here?

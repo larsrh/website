@@ -152,7 +152,7 @@
       <script src="/js/interactive.js"></script>
 
       <script>
-        $(document).ready(function() { initInteractive({{ page.codemirror | jsonify }}); });
+        $(document).ready(function() { initInteractive({{ page.interactive | jsonify }}); });
       </script>
     {% endif %}
   </body>
