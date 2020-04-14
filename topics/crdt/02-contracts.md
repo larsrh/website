@@ -4,7 +4,31 @@ subtitle: "Part 2: Algebras & contracts"
 progress: 90
 ---
 
-⚠ **Under construction** ⚠
+## What's happening in this episode
+
+Let's consider a real-world example of distributed computing: you have a set containing the elements 1 and 2 that's replicated across two devices, Alice's and Bob's computers.
+As long as Alice and Bob only add elements, synchronizing their sets is trivial.
+You just have to take the intersection of all elements.
+If Alice adds an element, she sends that to Bob, and Bob adds it (and vice versa).
+But what do you do in the following order of events:
+
+1. Alice and Bob start with the set containing 1 and 2.
+2. Internet connection fails.
+3. Alice adds a 3 and then deletes the 3 again.
+4. Bob adds a 3.
+5. Internet connection is restored.
+
+What should the end result be?
+1, 2, 3? Or just 1, 2?
+
+This problem is caused by destructive updates.
+We just don't have enough information to figure this out.
+CRDTs solve this by only allow _monotonic_ updates.
+In other words, any operation must make the data structure "larger".
+In this post, we'll look at how that notion means.
+
+By the way, there are CRDT sets that allow deletion of elements.
+But they need to capture extra metadata, e.g. when the deletion happened, in order to make sense of conflicting operations.
 
 ## Order! Orderrrr!
 
