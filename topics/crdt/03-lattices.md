@@ -48,7 +48,21 @@ Intuitively, this makes sense: we can always merge them, order doesn't matter, a
 All of these are properties that are crucial for CRDTs.
 It shouldn't matter whether Bob pulls Alice's data first or vice versa; they should always end up with the same common state.
 
-Once again we'll need to monkey patch (yolo) the set union operation.
+Let's go through the laws that a lattice has to satisfy one by one.
+
+1. _Associativity_ states that the parentheses don't matter.
+  Formally speaking, _x_ ∨ (_y_ ∨ _z_) = (_x_ ∨ _y_) ∨ _z_ must hold
+  (mathematicians usually write ∨ for join).
+  You know associativity from adding and multiplying numbers.
+2. _Commutativity_ states that the order of joining doesn't matter.
+  Formally, _x_ ∨ _y_ must be equal to _y_ ∨ _x_.
+  Adding and multiplying numbers is also commutative.
+3. _Idempotence_ might seem a little odd, but it's nonetheless an important property.
+  It states that joining a value to itself always returns the value itself.
+  This is not something that numbers typically do.
+  Unless you consider taking the maximum of two numbers.
+
+In order to implement this operation for sets, once again we'll need to monkey patch (yolo) the set union operation.
 I'm also starting to get annoyed by the verbose `Set` constructor, so I'll define my own, concise version.
 
 <br style="clear: both;">
@@ -69,8 +83,34 @@ const intSetGen = fc.set(fc.integer()).map(set);
 checkAll(contracts.lattice(lattices.set, intSetGen));
 ```
 
-Formally speaking, such a lattice (actually, a _join-semilattice_, to be precise) always _induces_ a partial ordering.
-That is, when defining a lattice, we don't actually need to know the underlying partial ordering since it can always be derived from the join operation.
+To be exceedingly precise, a lattice also needs another operation: _meet_, the opposite of _join_.
+For sets, that would be intersection.
+But this is not relevant for now.
+Instead, we only consider these so-called _join-semilattices_ (semi = only one operation, join = join).
+
+## Lattices and orderings
+
+You may have noticed that the above definitions do not require any ordering.
+That's no accident.
+In fact, lattices are somewhat of a generalization of a partial ordering:
+Any lattice can also be used to define a partial ordering.
+
+The construction is kind of funny:
+
+```
+const partialOrderingOfLattice = lattice => ({
+  isLeq: (x, y) => lattice.join(x, y) == y
+});
+
+const intSetGen = fc.set(fc.integer()).map(set);
+
+checkAll(
+  contracts.partialOrdering(
+    partialOrderingOfLattice(lattices.set),
+    intSetGen
+  )
+);
+```
 
 ## References
 
