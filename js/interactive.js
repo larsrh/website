@@ -1,12 +1,7 @@
-const createButton = handler => {
-  const btn = faButton("play", "Run");
+const createButton = ({ icon, label, handler }) => {
+  const btn = faButton(icon, label);
   btn.onclick = handler;
-
-  return html(
-    "div",
-    { "class": "pull-right" },
-    btn
-  );
+  return btn;
 }
 
 const createIframe = async extraScripts => {
@@ -112,10 +107,21 @@ const renderResult = val => {
   return text(val);
 }
 
-const evalInteractive = (code, iframe, out) => {
-  const button = document.getElementById(`row-${out.getAttribute("data-id")}`).querySelector("button");
+const setButtons = (id, enabled) => {
+  const buttons = document.getElementById(`row-${id}`).querySelectorAll("button");
 
-  button.disabled = true;
+  for (const button of buttons)
+    if (enabled)
+      button.removeAttribute("disabled");
+    else
+      button.disabled = true;
+}
+
+const evalInteractive = (code, iframe, out) => {
+  const id = out.getAttribute("data-id");
+
+  setButtons(id, false);
+
   out.setAttribute("class", "output output-pending");
   out.innerHTML = "";
   const promise = promisify(() => iframe.contentWindow.eval(code.getValue()));
@@ -132,43 +138,56 @@ const evalInteractive = (code, iframe, out) => {
       return Promise.resolve();
     })
     .finally(() => {
-      button.removeAttribute("disabled");
+      setButtons(id, true);
     });
 }
 
-const initInteractive = async (extraScripts) => {
-  const iframe = await createIframe(extraScripts);
+const initSnippet = (iframe, pre, id) => {
+  const contents = pre.textContent.trim();
 
-  const actions = [];
+  const out = html("div", { "class": "output output-pending", "data-id": id });
+
+  const leftContainer = html("div", { "class": "col-md-7" });
+  const rightContainer = html("div", { "class": "col-md-5" }, out);
+
+  const row = html("div", { "class": "interactive row", id: `row-${id}` }, leftContainer, rightContainer);
+
+  pre.parentNode.replaceChild(row, pre);
+
+  const code = CodeMirror(leftContainer, {
+    value: contents,
+    mode: "javascript",
+    lineNumbers: true,
+    viewportMargin: Infinity
+  });
+
+  const runHandler = () => evalInteractive(code, iframe, out);
+  const resetHandler = () => {
+    code.setValue(contents);
+    runHandler();
+  }
+
+  const runButton = { icon: "play", label: "Run", handler: runHandler };
+  const resetButton = { icon: "trash", label: "Reset", handler: resetHandler };
+
+  leftContainer.appendChild(html(
+    "div",
+    { "class": "pull-right" },
+    createButton(resetButton),
+    createButton(runButton)
+  ));
+
+  return runHandler;
+}
+
+const initInteractive = async extraScripts => {
+  const iframe = await createIframe(extraScripts);
 
   let counter = 0;
 
-  for (const pre of document.querySelectorAll("pre")) {
-    const id = counter++;
-
-    const contents = pre.textContent.trim();
-
-    const out = html("div", { "class": "output output-pending", "data-id": id });
-
-    const leftContainer = html("div", { "class": "col-md-7" });
-    const rightContainer = html("div", { "class": "col-md-5" }, out);
-
-    const row = html("div", { "class": "interactive row", id: `row-${id}` }, leftContainer, rightContainer);
-
-    pre.parentNode.replaceChild(row, pre);
-
-    const code = CodeMirror(leftContainer, {
-      value: contents,
-      mode: "javascript",
-      lineNumbers: true,
-      viewportMargin: Infinity
-    });
-
-    const handler = () => evalInteractive(code, iframe, out);
-    leftContainer.appendChild(createButton(handler));
-
-    actions.push(handler);
-  }
+  const actions =
+    Array.from(document.querySelectorAll("pre"))
+      .map(pre => initSnippet(iframe, pre, counter++));
 
   for (const action of actions)
     await action();
