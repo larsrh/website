@@ -315,7 +315,7 @@ We'll learn about other set CRDTs later in this series.
 
 ## What's next?
 
-In the next episode, we'll look at some more complicated algebraic interfaces.
+In the [next episode](03-lattices), we'll look at some more complicated algebraic interfaces.
 Spoiler: more order!
 
 ## References
