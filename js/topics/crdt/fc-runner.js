@@ -47,3 +47,4 @@ const checkAll = async props => Object.fromEntries(await Promise.all(
 ));
 
 const assert = chai.assert;
+const deepEqual = chai.deepEqual;

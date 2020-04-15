@@ -26,6 +26,7 @@ exclude:
   - ".ruby-version"
   - ".ci"
   - "venv"
+  - "js/topics/crdt/.package"
 encoding: "utf-8"
 
 collections:

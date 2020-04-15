@@ -183,13 +183,15 @@ But we'll have to keep it in mind for the future.
 By the way: default JavaScript equality can't always save us, because comparisons like this fail (unexpectedly, at least to me):
 
 ```
-assert.equal(new Set([1, 2]), new Set([1, 2]))
+assert.equal(new Set([1, 2]), new Set([1, 2]));
 ```
 
 Luckily, Chai can save us there:
 
 ```
-assert.deepEqual(new Set([1, 2]), new Set([1, 2]))
+assert.deepEqual(new Set([1, 2]), new Set([1, 2]));
+// or as a plain function
+assert.ok(deepEqual(new Set([1, 2]), new Set([1, 2])));
 ```
 
 ## Preconditions

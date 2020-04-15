@@ -94,23 +94,26 @@ You may have noticed that the above definitions do not require any ordering.
 That's no accident.
 In fact, lattices are somewhat of a generalization of a partial ordering:
 Any lattice can also be used to define a partial ordering.
+Buy a lattice, get a partial ordering for free!
 
 The construction is kind of funny:
 
 ```
 const partialOrderingOfLattice = lattice => ({
-  isLeq: (x, y) => lattice.join(x, y) == y
+  isLeq: (x, y) => deepEqual(lattice.join(x, y), y)
 });
 
-const intSetGen = fc.set(fc.integer()).map(set);
+const smallSetGen = gen => fc.set(gen, 5).map(elems => new Set(elems));
 
 checkAll(
   contracts.partialOrdering(
     partialOrderingOfLattice(lattices.set),
-    intSetGen
+    smallSetGen(fc.integer())
   )
 );
 ```
+
+This uses the `deepEqual` function from Chai because `==` won't give the results we want when comparing sets.
 
 ## References
 
