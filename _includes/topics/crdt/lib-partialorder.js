@@ -2,21 +2,17 @@ contracts = {};
 
 contracts.partialOrdering = (instance, gen) => ({
   refl:
-    fc.property(gen, x => assert.equal(instance.compare(x, x), order.eq)),
+    fc.property(gen, x => assert.ok(instance.isLeq(x, x))),
   trans:
     fc.property(gen, gen, gen, (x, y, z) => {
-      fc.pre(instance.compare(x, y).isLeq);
-      fc.pre(instance.compare(y, z).isLeq);
-      assert.ok(instance.compare(x, z).isLeq);
-    }),
-  flip:
-    fc.property(gen, gen, (x, y) =>
-      assert.equal(instance.compare(x, y).flip(), instance.compare(y, x))
-    )
+      fc.pre(instance.isLeq(x, y));
+      fc.pre(instance.isLeq(y, z));
+      assert.ok(instance.isLeq(x, z));
+    })
 })
 
 orderings = {};
 
 orderings.any = {
-  compare: (x, y) => x < y ? order.lt : x == y ? order.eq : order.gt
+  isLeq: (x, y) => x <= y
 };
