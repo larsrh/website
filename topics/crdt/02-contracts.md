@@ -363,7 +363,7 @@ checkAll({
 });
 ```
 
-We're asserting her that `insertElement` produces a new set that is always greater-than-or-equal-to the original set.
+We're asserting here that `insertElement` produces a new set that is always greater-than-or-equal-to the original set.
 (After all, we could be inserting the same element again, in which case the new set is equal to the original set.)
 
 Congratulations!
