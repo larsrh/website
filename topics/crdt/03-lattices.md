@@ -195,6 +195,12 @@ That tiny little "for all _d_ in _M_ ..." in the construction?
 Hard to implement.
 Especially because there might be infinitely many values in _M_.
 
+## Now what?
+
+Depending on the context, it may be more convenient to talk about one representation or the other one.
+And when implementing the algebras, it may yet be more convenient to talk about both of them at the same time!
+It is completely fine to implement both the join and the ≤ operations for a particular type of values, maybe because that's more efficient.
+
 ## References
 
 * Pie by Danil Aksenov on [Unsplash](https://unsplash.com/photos/bkXzABDt08Q)
