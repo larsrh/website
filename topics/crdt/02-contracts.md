@@ -128,6 +128,10 @@ const anyComparator = {
 ```
 
 Although now we'll have to be a little more careful so that we don't accidentally mix two different types.
+Keep in mind that – even though JavaScript has no types – we are implicitly carrying around a set of values in the background.
+JavaScript doesn't prevent us from comparing a number to a string, but mathematically speaking, that wouldn't make sense.
+
+## Contractual obligations
 
 The key ingredient for a successful abstraction is not just the interface, but also the _contract_.
 We want these comparators to satisfy some constraints.
@@ -193,6 +197,26 @@ assert.deepEqual(new Set([1, 2]), new Set([1, 2]));
 // or as a plain function
 assert.ok(deepEqual(new Set([1, 2]), new Set([1, 2])));
 ```
+
+A partial ordering is a prototypical example of an _algebra_:
+an abstract structure that deal with a set of values (e.g. strings), operations on those values (e.g. ≤), and their relationships (e.g. transitivity).
+
+## Types and generators
+
+Above, I wrote:
+
+> Keep in mind that – even though JavaScript has no types – we are implicitly carrying around a set of values in the background.
+> JavaScript doesn't prevent us from comparing a number to a string, but mathematically speaking, that wouldn't make sense.
+
+The contracts also depend on the fact that we only check the partial ordering for one type of values at a time.
+This is what the fast-check generators are supposed to do:
+enumerate as many different values of the same type as possible.
+
+At the same time, it may be possible to define two different implementations of a partial ordering for the same type (details and example see below).
+So it also doesn't make sense to talk about "the partial ordering of numbers", as that isn't uniquely defined.
+
+A more accurate phrasing would be "the partial ordering of numbers according to the natural definition of ≤".
+Or, as we'll see later "the partial ordering of sets according to the subset relationship".
 
 ## Preconditions
 
