@@ -34,6 +34,12 @@ conferences:
     location: Nürnberg, Deutschland
     link: "https://www.meetup.com/JUG-Nurnberg/events/267621869/"
     slides: "https://speakerdeck.com/larsrh/das-eierlegende-truffleschwein"
+  - conference: "CyberJUG"
+    year: 2020
+    date: "23. März"
+    location: Online
+    link: "https://cyberjug.de/vortrag/truffleschwein/"
+    slides: "https://speakerdeck.com/larsrh/das-eierlegende-truffleschwein"
 
 ---
 

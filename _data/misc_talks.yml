@@ -41,3 +41,18 @@
   conference: "Munich Lambda"
   link: "https://www.meetup.com/Munich-Lambda/events/239103595/"
   year: 2017
+- title: iSAQB goes Blockchain?
+  conference: "The Architecture Gathering"
+  link: "https://www.software-architecture-gathering.de/"
+  year: 2019
+  slides: "https://speakerdeck.com/larsrh/isaqb-goes-blockchain"
+- title: How Do I Even Smart Contracts?
+  conference: "INNOQ Technology Night #1"
+  link: "https://www.meetup.com/INNOQ-Technology-Night-Koeln/events/264890014/"
+  slides: "https://speakerdeck.com/larsrh/how-do-i-even-smart-contracts"
+  year: 2019
+- title: Verification of Smart Contracts
+  conference: "Blockchain Technology Conference"
+  link: "https://blockchainconf.net/blockchain-advanced-development/verifikation-von-smart-contracts/"
+  slides: "https://speakerdeck.com/larsrh/verification-of-smart-contracts"
+  year: 2019

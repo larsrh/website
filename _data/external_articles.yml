@@ -140,3 +140,8 @@
   journal: "CaSE podcast"
   abstract: "In this episode of the CaSE podcast, Lucas talks to Lars Hupel of Typelevel-fame about algebraic design. Lars starts to explain how the expression problem views the difference between the functional and Object Oriented style of programming. He then explains the concept of an algebra – from coupling trains to CRDTs. This leads to a discussion on comprehensive and iterative thinking styles and how different styles of testing and proving work. Finally, they bring it all back to type systems."
   link: "https://www.case-podcast.org/29-lars-hupel-on-algebraic-design"
+- pub_date: 2020-04-14
+  title: "Cross-platform testing of TypeScript code with Jasmine and Karma"
+  journal: "INNOQ"
+  abstract: "I like TypeScript. Writing code that already underwent basic checks (i.e. typechecking) before it can even touch an execution engine is a big win in my book. In particular, TypeScript is nice because it integrates well into the broader JavaScript ecosystem and comes with batteries (i.e. types) included. Unfortunately, most test runners require extra setup to work with tests written in TypeScript. Some even require staggering amounts of configuration."
+  link: "https://www.innoq.com/de/blog/ts-jasmine-karma/"
