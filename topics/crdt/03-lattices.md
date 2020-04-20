@@ -1,7 +1,7 @@
 ---
 title: "CRDTs: Part 3"
 subtitle: "Part 3: Lattices"
-progress: 50
+progress: 90
 ---
 
 {% include float_picture.html src="topics/crdt/pie.jpg" text="A tasty lattice" %}
@@ -94,6 +94,8 @@ So I'll start quietly using semilattice now.
 
 ## There ...
 
+{% include float_picture.html src="topics/crdt/corporate.jpg" text="Partial ordering with lub and join semilattice? They're the same picture." %}
+
 You may have noticed that the above definitions do not require any ordering.
 That's no accident.
 It's possible to define a lattice without worrying about the ordering of the elements.
@@ -118,7 +120,7 @@ Here's another one.
 
 Assume we have a partial ordering ≤ for a set of values _a_, _b_, ...
 Let's call that set _M_.
-If we additionally know that for each pair of values in _M_, there is a _least upper bound_ that's also in _M_, then we can construct a semilattice.
+If we additionally know that for each pair of values in _M_, there is a _least upper bound_[^footnote-lub] that's also in _M_, then we can construct a semilattice.
 The least upper bound of _a_ and _b_ is defined to be a value _c_ where _a_ ≤ _b_ and _a_ ≤ _c_ (so much is obvious, since it's an _upper_ bound) and there's no other element _d_ that's closer to _a_ and _b_ than _c_.
 Formally: _c_ is least upper bound if
 
@@ -200,9 +202,91 @@ Especially because there might be infinitely many values in _M_.
 Depending on the context, it may be more convenient to talk about one representation or the other one.
 And when implementing the algebras, it may yet be more convenient to talk about both of them at the same time!
 It is completely fine to implement both the join and the ≤ operations for a particular type of values, maybe because that's more efficient.
+In the case of sets, both are easily implemented.
+
+But we should now look at some more complicated examples of CRDTs.
+
+## What's in a number?
+
+Let's consider a counter.
+
+Didn't I just say something more complicated than sets?
+
+I believe I did.
+And a distributed counter is more complicated, trust me!
+
+Why?
+Well, let's try to figure it out.
+We have Alice and Bob, as usual.
+The goal is to track the global value of a counter, starting at the initial value of zero.
+Both of them can increment, but not decrement.
+
+1. Alice and Bob both start with the value 0.
+2. Internet connection fails.
+3. Alice increments.
+4. Bob increments.
+5. Internet connection is restored.
+
+Both Alice and Bob have a local value of 1.
+How are they gonna merge?
+Just take the maximum?
+No good, because that means one increment went missing.
+
+The problem is that a single number has not enough _structure_ to contain information about the whereabouts of the increments.
+We need a way to distinguish Alice's and Bob's increments.
+
+Luckily, we can assume that both of them have a unique identity.
+Let's say Alice is labelled with the string `"alice"` and Bob with the string `"bob"`.
+Instead of just tracking a simple number, both of them will now track a _map_ from label to number.
+The above scenario now reads as follows:
+
+1. Alice and Bob both start with the value {`"alice"` → 0, `"bob"` → 0}.
+2. Internet connection fails.
+3. Alice increments. Her state is {`"alice"` → 1, `"bob"` → 0}.
+4. Bob increments. His state is {`"alice"` → 0, `"bob"` → 1}.
+5. Internet connection is restored.
+
+Now we can merge the two maps by taking the maximum of each key-value pair.
+The implicit assumption is of course that Alice will never increment Bob's counter directly (and vice-versa).
+
+It turns out that we can even simplify this further:
+there's no need for each involved party to know about everyone else.
+They just have to know about their own label:
+
+1. Alice starts with the value {`"alice"` → 0}. Bob with `"bob"`, respectively.
+2. Internet connection fails.
+3. Alice increments. Her state is {`"alice"` → 1}.
+4. Bob increments. His state is {`"bob"` → 1}.
+5. Internet connection is restored.
+
+When merging a foreign map, we can check for keys that are only present in the other one and copy them unchanged into our map. 
+
+## What's next?
+
+{% include float_picture.html src="topics/crdt/comes-together.jpg" text="John “Hannibal” Smith saying: “I love it when an algebraic construction comes together”" %}
+
+We now know how to track a _grow-only counter_ across different machines.
+This is one of the most basic, but also most useful CRDTs.
+A possible use case is tracking outgoing or incoming network traffic in a data center, where each server would keep track of its own traffic and any server can be asked for the total.
+
+However, I haven't showed you yet how to actually implement the lattice and ordering operations for this data structure.
+I promise to show you in the [next episode](04-combinators).
+But I can already tell you that I lied to you again:
+the CRDT literature actually models G-Counters differently, by storing an array of values instead of a map of values.
+Instead of any old label, each node must have a (positive) integer identity.
+I don't like this for two reasons:
+
+1. new servers always need to be added "at the end" of the current list of servers (which may be hard)
+2. it doesn't demonstrate how to compose CRDTs with other data structures to form larger CRDTs
+
+The latter is actually what happens here and simplifies the implementation greatly.
+But it requires a lot more prose, so it's reserved for the next episode.
+
+<br style="clear: both;">
 
 ## References
 
 * Pie by Danil Aksenov on [Unsplash](https://unsplash.com/photos/bkXzABDt08Q)
 
 [^footnote-monkey]: If you don't like this monkey business, then tough luck.
+[^footnote-lub]: Scala programmers talk about least upper bounds all the time. That's why their favourite music genre is lubstep.
