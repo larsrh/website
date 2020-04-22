@@ -25,7 +25,7 @@ This problem is caused by destructive updates.
 We just don't have enough information to figure this out.
 CRDTs solve this by only allowing _monotonic_ updates.
 In other words, any operation must make the data structure "larger".
-In this post, we'll look at how that notion means.
+In this post, we'll look at what that notion means.
 
 By the way, there are CRDT sets that allow deletion of elements.
 But they need to capture extra metadata, e.g. when the deletion happened, in order to make sense of conflicting operations.
