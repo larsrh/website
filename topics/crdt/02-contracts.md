@@ -232,6 +232,9 @@ checkAll({
 })
 ```
 
+The way this works is that fast-check keeps track of how many inputs it generated that failed the preconditions.
+If there are too many, it'll abort.
+
 ## (Im)partiality
 
 {% include float_picture.html src="topics/crdt/hasse.svg" text="Hasse diagram of powerset of 3" %}
