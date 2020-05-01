@@ -16,3 +16,5 @@ Here's the list of all posts that I've published so far:
 1. [Preliminaries](/topics/crdt/01-intro)
 2. [Algebras & contracts](/topics/crdt/02-contracts)
 3. [Lattices](/topics/crdt/03-lattices)
+
+{% include topics/crdt/ack.html %}
