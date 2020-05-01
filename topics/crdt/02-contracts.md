@@ -1,7 +1,7 @@
 ---
 title: "CRDTs: Part 2"
 subtitle: "Part 2: Algebras & contracts"
-progress: 90
+progress: 100
 ---
 
 ## What's happening in this episode

@@ -282,8 +282,6 @@ I don't like this for two reasons:
 The latter is actually what happens here and simplifies the implementation greatly.
 But it requires a lot more prose, so it's reserved for the next episode.
 
-<br style="clear: both;">
-
 ## References
 
 * Pie by Danil Aksenov on [Unsplash](https://unsplash.com/photos/bkXzABDt08Q)
