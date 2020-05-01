@@ -16,20 +16,28 @@ layout: default
       {% endif %}
     </h1>
 
-    Reading time: {{ content | number_of_words | divided_by: 180 }} minutes.
+    {% if page.subtitle %}
+      <h1 class="display-4">
+        {{ page.subtitle }}
+      </h1>
+    {% endif %}
 
-    {% if page.lang == "de" %}
-      Veröffentlicht am
-    {% else %}
-      Published on
+    {% if page.is_article %}
+      Reading time: {{ content | number_of_words | divided_by: 180 }} minutes.
+
+      {% if page.lang == "de" %}
+        Veröffentlicht am
+      {% else %}
+        Published on
+      {% endif %}
+      {{ page.pub_date }}.
+      {% if page.lang == "de" %}
+        Zuletzt geändert am
+      {% else %}
+        Last updated on
+      {% endif %}
+      <a href="https://github.com/larsrh/website/commit/{{ page.git.last_commit.long_sha }}">{{ page.git.last_commit.commit_date | date: "%Y-%m-%d" }}</a>.
     {% endif %}
-    {{ page.pub_date }}.
-    {% if page.lang == "de" %}
-      Zuletzt geändert am
-    {% else %}
-      Last updated on
-    {% endif %}
-    <a href="https://github.com/larsrh/website/commit/{{ page.git.last_commit.long_sha }}">{{ page.git.last_commit.commit_date | date: "%Y-%m-%d" }}</a>.
 
     {% if page.hero %}
       {% if page.lang == "de" %}
@@ -39,14 +47,18 @@ layout: default
       {% endif %}
       {{ page.hero.credits }}.
     {% endif %}
+
+    {% if page.extra_header %}
+      {% include {{ page.extra_header }} %}
+    {% endif %}
   </header>
 </div>
 
 <main class="container">
 
   {% if page.abstract %}
-    <div class="m-3 hyphenate">
-      <em>{{ page.abstract }}</em>
+    <div class="m-3 hyphenate" style="font-style: italic;">
+      {{ page.abstract | markdownify }}
     </div>
     <hr>
   {% endif %}

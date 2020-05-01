@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="/css/ekko-lightbox.css">
     <link rel="stylesheet" href="/css/main.css">
 
+    {% if page.codemirror %}
+      <link rel="stylesheet" href="/css/codemirror.css">
+    {% endif %}
+
     <!-- hyphenation polyfill -->
     <script>
       var Hyphenopoly = {
@@ -130,7 +134,7 @@
         if (hash.startsWith('#pub-modal')) {
           history.replaceState("", document.title, window.location.pathname);
           setTimeout(function() { $(hash).modal(); }, 200);
-        }
+        };
       });
       $(document).on('click', '[data-toggle="lightbox"]', function(event) {
         event.preventDefault();
@@ -140,5 +144,16 @@
         sessionStorage.setItem('selected', $(this).data('id'));
       });
     </script>
+
+    {% if page.codemirror %}
+      <script src="/js/codemirror.js"></script>
+      <script src="/js/codemirror-js.js"></script>
+      <script src="/js/html.js"></script>
+      <script src="/js/interactive.js"></script>
+
+      <script>
+        $(document).ready(function() { initInteractive({{ page.interactive | jsonify }}); });
+      </script>
+    {% endif %}
   </body>
 </html>

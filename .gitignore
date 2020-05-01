@@ -5,3 +5,5 @@ _site
 .git-metadata
 venv
 .jekyll-cache
+node_modules
+dist

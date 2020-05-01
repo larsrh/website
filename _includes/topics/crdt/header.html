@@ -1,0 +1,21 @@
+<p class="mt-4"><i class="fa fa-fw fa-wrench fa-lg" aria-hidden="true"></i> You're reading a draft version of this page. (Approximately {{ page.progress }}% complete.)</p>
+<div class="progress" style="height: 1em;">
+  <div class="progress-bar progress-bar-striped" role="progressbar" style="width: {{ page.progress }}%" aria-valuenow="{{ page.progress }}" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+
+<p class="mt-4">
+  <i class="fa fa-fw fa-book fa-lg" aria-hidden="true"></i> This is part of a series.
+</p>
+<div>
+  {% if page.prev %}
+    <a href="{{ page.prev }}" class="btn btn-primary"><i class="fa fa-fw fa-hand-o-left fa-lg" aria-hidden="true"></i>Previous part</a>
+  {% else %}
+    <button disabled="disabled" class="btn btn-primary"><i class="fa fa-fw fa-hand-o-left fa-lg" aria-hidden="true"></i>Previous part</button>
+  {% endif %}
+
+  {% if page.next %}
+    <a href="{{ page.next }}" class="btn btn-primary"><i class="fa fa-fw fa-hand-o-right fa-lg" aria-hidden="true"></i>Next part</a>
+  {% else %}
+    <button disabled="disabled" class="btn btn-primary"><i class="fa fa-fw fa-hand-o-right fa-lg" aria-hidden="true"></i>Next part</button>
+  {% endif %}
+</div>
