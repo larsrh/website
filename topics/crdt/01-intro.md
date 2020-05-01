@@ -1,20 +1,66 @@
 ---
 title: "CRDTs: Part 1"
 subtitle: "Part 1: Preliminaries"
-progress: 90
+progress: 100
 toc: false
 ---
 
-Dear reader! It seems you want to learn about those _Conflict-free Replicated Datatypes_ that are all the rage now.
-If however you have no idea what they are, there are tons of resources to check out, e.g. [crdt.tech](https://crdt.tech/).
+Dear reader!
+If you're reading this, that's most likely because you've pointed your browser to my website and/or followed a link to this page.
+Maybe you're even reading this from a mobile device![^footnote-mobile]
+Perfect conditions for motivating what all this is about.
 
-Now, if there are so many freely-available resources about them, you might wonder, what is this document good for?
-Simple.
-I assume that you know what CRDTs are good for and might want to use them in your own project, but you'll want to get a handle on their mathematical foundations.
-The research papers that describe them often assume a great deal of background knowledge in abstract algebra.
+## The web is a truly distributed application platform
 
-But here, I want to explain everything that's needed in a bottom-up fashion using interactive notebooks, diagrams and code notation that's familiar with a large amount of programmers: JavaScript.
+{% include float_picture.html src="topics/crdt/world.jpg" text="A network of nodes" %}
+
+That's right.
+When you're building a web application, you absolutely, positively have to care about the distributed aspect of the web.
+(Unless your application is stateless, like my website.)
+
+What does this mean?
+You may have a bunch of users.
+These users may be manipulating their data from a variety of devices.
+Some devices may have a slow Internet connection.
+Devices may go offline at any point in time.
+
+Sometimes, application developers punt on this issue:
+the mobile app displays "You're offline" and won't let you see your data (best case), or silently discard information (worst case).
+
+One particular piece in the puzzle of building distributed applications is to figure out the _storage_.
+Ideally, this storage should be resilient towards users that may become unavailable, concurrent edits, and so on.
+
+Enter _Conflict-free Replicated Datatypes_.
+A glorious example of Computer Science naming that actually Makes Sense™, they attempt to provide a flexible solution to the storage problem.
+The fundamental idea is this:
+You have data.
+This data is stored on multiple _replicas_.
+CRDTs describe how to coordinate these replicas to always arrive at a consistent state.
+
+## About CRDTs
+
+{% include float_picture.html src="topics/crdt/cool.webp" text="Abed Nadir thinks CRDTs are cool" %}
+
+That's it!
+You now understand the idea behind CRDTs.
+
+Of course, that's only half the story.
+There are at least two sides to understanding CRDTs deeply.
+
+1. Knowing all the varieties (counters, maps, sets, ...) and how they can be embedded in application software.
+2. Diving into the mathematical background (lattices! partial orderings! wooooooo) powering their implementations.
+
+In this series, I want to focus on the second aspect and explain everything that's needed in a bottom-up fashion using interactive notebooks, diagrams and code notation that's familiar with a large amount of programmers: JavaScript.
 I'll be employing a few libraries for testing code and visualizing data, but otherwise, there are no further dependencies.
+The research papers that describe them often assume a great deal of background knowledge in abstract algebra.
+I'll try to introduce just the necessary knowledge in a gentle fashion.
+
+If however you want to learn more about their use, this series is not for you.
+But fear not: there are tons of resources to check out, e.g. [crdt.tech](https://crdt.tech/).
+There's no tracking on this page so I won't even notice if you're gone 🤷
+
+Still here?
+Cool. _Cool, cool, cool._
 
 But before we can strap in and talk about CRDTs, we first need to get some paperwork out of the way.
 
@@ -130,3 +176,10 @@ new Test("reader")
 
 You are now ready to proceed with the actual introduction.
 [Go here](02-contracts) to learn all about contracts.
+
+## References
+
+* Map by TheAndrasBarta on [Pixabay](https://pixabay.com/photos/world-europe-map-connections-1264062/)
+* Abed Nadir on [Giphy](https://giphy.com/gifs/community-abed-cool-2HONNTJbRhzKE)
+
+[^footnote-mobile]: This page is developed on a desktop browser. I've tried my best to make it accessible on mobile browsers too, but I'm not so experienced, so any bug reports are appreciated!
