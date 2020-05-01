@@ -3,6 +3,7 @@ title: "CRDTs: Part 1"
 subtitle: "Part 1: Preliminaries"
 progress: 100
 toc: false
+next: 02-contracts
 ---
 
 Dear reader!

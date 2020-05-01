@@ -2,6 +2,7 @@
 title: "CRDTs: Part 3"
 subtitle: "Part 3: Lattices"
 progress: 90
+prev: 02-contracts
 ---
 
 {% include float_picture.html src="topics/crdt/pie.jpg" text="A tasty lattice" %}

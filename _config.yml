@@ -72,6 +72,7 @@ defaults:
     values:
       long_title: An introduction to Conflict-Free Replicated Datatypes
       layout: topics/crdt
+      extra_header: topics/crdt/header.html
       nav: articles
       description: ""
       toc: true

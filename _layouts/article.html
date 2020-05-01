@@ -47,6 +47,10 @@ layout: default
       {% endif %}
       {{ page.hero.credits }}.
     {% endif %}
+
+    {% if page.extra_header %}
+      {% include {{ page.extra_header }} %}
+    {% endif %}
   </header>
 </div>
 
