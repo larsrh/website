@@ -1,6 +1,7 @@
 ---
 ---
 
+{% include topics/crdt/lib-render.js %}
 {% include topics/crdt/lib-set.js %}
 {% include topics/crdt/lib-set-union.js %}
 {% include topics/crdt/lib-partialorder.js %}

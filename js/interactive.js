@@ -56,57 +56,6 @@ const renderError = err =>
     text(`${err.name}: ${err.message}`)
   )
 
-const renderResult = val => {
-  if (val === undefined)
-    return text("Evaluated successfully");
-
-  if (val instanceof Element)
-    return val;
-
-  if (val.innerHTML !== undefined)
-    // probably HTML? Chrome resets the prototype for HTML elements that come out of `eval`
-    return val;
-
-  if (Array.isArray(val))
-    return html(
-      "table",
-      {},
-      ...val.map((v, i) =>
-        html(
-          "tr",
-          {},
-          html("th", {}, text(i)),
-          html("td", {}, renderResult(v))
-        )
-      )
-    );
-
-  if (typeof val === "object" && interactiveRender in val)
-    return renderResult(val[interactiveRender]());
-
-  if (typeof val === "object")
-    return html(
-      "table",
-      {},
-      ...Object.entries(val).map(([k, v]) =>
-        html(
-          "tr",
-          {},
-          html("th", {}, text(k)),
-          html("td", {}, renderResult(v))
-        )
-      )
-    );
-
-  if (typeof val === "string")
-    return html("span", { "class": "output-string" }, text(val))
-
-  if (typeof val === "function")
-    return text("ƒ");
-
-  return text(val);
-}
-
 const setButtons = (id, enabled) => {
   const buttons = document.getElementById(`row-${id}`).querySelectorAll("button");
 
@@ -129,7 +78,7 @@ const evalInteractive = (code, iframe, out) => {
   return promise
     .then(val => {
       out.setAttribute("class", "output output-success");
-      out.appendChild(renderResult(val));
+      out.appendChild(render(val));
     })
     .catch(err => {
       out.setAttribute("class", "output output-failure");
