@@ -46,5 +46,7 @@ const checkAll = async props => Object.fromEntries(await Promise.all(
   )
 ));
 
+const sample = gen => fc.sample(gen).slice(0, 10);
+
 const assert = chai.assert;
 const deepEqual = chai.deepEqual;
