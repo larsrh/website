@@ -79,7 +79,7 @@ Enough with the paperwork, let's define the lattice for sets together with its l
 
 ```
 {% include topics/crdt/lib-lattice.js %}
-const intSetGen = fc.set(fc.integer()).map(set);
+const intSetGen = fc.set(fc.integer()).map(entries => new Set(entries));
 
 checkAll(contracts.lattice(lattices.set, intSetGen));
 ```
