@@ -192,7 +192,7 @@ dd p {
 .CodeMirror {
   border: 1px solid #eee;
   height: auto !important;
-  font-size: .8em;
+  font-size: .9em;
 }
 
 #interactive {
