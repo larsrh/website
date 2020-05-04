@@ -11,7 +11,10 @@ const render = val => {
     // probably HTML? Chrome resets the prototype for HTML elements that come out of `eval`
     return val;
 
-  if (Array.isArray(val))
+  if (Array.isArray(val)) {
+    if (val.length === 0)
+      return html("span", {}, text("Empty array"));
+
     return html(
       "table",
       {},
@@ -24,6 +27,7 @@ const render = val => {
         )
       )
     );
+  }
 
   if (typeof val === "object" && interactiveRender in val)
     return render(val[interactiveRender]());

@@ -7,3 +7,5 @@
 {% include topics/crdt/lib-partialorder.js %}
 {% include topics/crdt/lib-partialorder-set.js %}
 {% include topics/crdt/lib-lattice.js %}
+{% include topics/crdt/lib-map-merge.js %}
+{% include topics/crdt/lib-map-lattice.js %}

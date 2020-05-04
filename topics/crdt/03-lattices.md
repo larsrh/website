@@ -90,7 +90,7 @@ The structure that's defined above is actually not a lattice, but only a semilat
 The reason is that a lattice also needs another operation: _meet_, the opposite of _join_.
 For sets, that would be intersection.
 But this is not relevant for now.
-So I'll start quietly using semilattice now.
+I'll just keep on writing lattice.
 
 ## There ...
 
