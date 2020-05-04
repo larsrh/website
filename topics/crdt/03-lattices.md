@@ -67,8 +67,6 @@ Let's go through the laws that a lattice has to satisfy one by one.
 In order to implement this operation for sets, once again we'll need to monkey patch (yolo) the set union operation.
 I'm also starting to get annoyed by the verbose `Set` constructor, so I'll define my own, concise version.
 
-<br style="clear: both;">
-
 ```
 {% include topics/crdt/lib-set-union.js %}
 assert.deepEqual(set(1).union(set(2)), set(1, 2));

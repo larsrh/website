@@ -201,6 +201,7 @@ dd p {
 
 div.interactive {
   padding-bottom: 2em;
+  clear: both;
 }
 
 .interactive .output {

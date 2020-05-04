@@ -44,8 +44,6 @@ When talking about complex datatypes, just using `<` doesn't cut it.
 There could be some special rules about comparisons.
 JavaScript often doesn't help us a lot:
 
-<br style="clear: both;">
-
 ```
 [
   [] < "foobar",
@@ -251,8 +249,6 @@ We can formally define the subset relationship as follows: _S_ is a subset of _T
 This is quite possible to write in JavaScript, and for that we'll use the built-in `Set` type of JavaScript.
 Unfortunately, it has no `isSubsetOf` method, so we'll just monkey-patch it (yolo):
 
-<br style="clear:both;">
-
 ```
 {% include topics/crdt/lib-set.js %}
 assert.ok(new Set([1, 2]).isSubsetOf(new Set([1, 2, 3])));
@@ -306,8 +302,6 @@ Feel free to implement this as an exercise (or don't, I'm not your boss).
 
 There are also a few trivial orderings out there; e.g. the ordering that returns `eq` for all possible inputs.
 But those are only useful in rare situations.
-
-<br style="clear: both;">
 
 ```
 const divOrdering = {
