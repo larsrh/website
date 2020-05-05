@@ -1,7 +1,7 @@
 ---
 title: "CRDTs: Part 4"
 subtitle: "Part 4: Combinators"
-progress: 70
+progress: 90
 prev: 03-lattices
 ---
 
@@ -239,6 +239,143 @@ The paper explains this in very clear terms:
 > Any two object replicas of a CvRDT [State-based CRDT] eventually converge, assuming the system transmits payload infinitely often between pairs of replicas over eventually-reliable point-to-point channels.
 
 Meaning: you play by the rules, you get convergence.
+
+## Sets are just maps without extra junk
+
+Now for the blown minds I've promised you.
+Remember how we defined the lattice for sets earlier:
+
+```
+assert.deepEqual(
+  lattices.set.join(set(1, 2, 3), set(1, 4)),
+  set(1, 2, 3, 4)
+);
+```
+
+Imagine for a second that JavaScript didn't have a built-in `Set` type.
+How would you present a set of things?
+Your representation should be _canonical_, i.e. there shouldn't be two different ways to represent the same set.
+Otherwise, we could just use arrays and pretend that duplicate elements don't exist.
+
+Got an idea?
+Cool, feel free to implement it down below:
+
+```
+// free space
+```
+
+Of course, the section heading gave it away already.
+Sets can be easily represented by maps.
+In TypeScript terms, `Set<T>` is equivalent (or _isomorphic_) to `Map<T, void>`.
+In other words, a set is the same thing as a map where all values are `undefined`.
+
+Curiously enough, the JavaScript standard library already acknowledges this equivalence by using the same method names in sets and maps:
+
+```
+assert.ok(
+  new Set([1, 2, 3]).has(2)
+);
+
+assert.ok(
+  new Map([[1, undefined], [2, undefined], [3, undefined]]).has(2)
+);
+```
+
+This equivalence also extends to the various algebraic structures we've seen.
+The lattice implementation for sets can be derived directly from maps:
+
+```
+lattices.void = {
+  join: () => undefined
+};
+
+const alternativeSetLattice = lattices.map(lattices.void);
+```
+
+This weird `lattices.void` instance is what the mathematicians call _trivial_, because it only deals with exactly one value: `undefined`.
+You can only call `join` on `undefined` and the result is `undefined` again.
+But that's exactly what we want here.
+
+## And what about order?
+
+Eagle-eyed readers may have observed the lack of partial ordering for maps in this episode.
+It's true, I haven't shown you this so far.
+So, for completeness' sake, the solution is below:
+
+```
+orderings.map = valueOrdering => ({
+  isLeq: (map1, map2) => {
+    for (const [k, v1] of map1.entries()) {
+      if (map2.has(k)) {
+        const v2 = map2.get(k);
+        if (!valueOrdering.isLeq(v1, v2))
+          return false;
+      }
+      else {
+        return false;
+      }
+    }
+    return true;
+  }
+});
+
+const smallStringGen = fc.hexaString(3);
+const smallMapGen = fc.set(fc.tuple(smallStringGen, fc.nat(5)), 5).map(elems => new Map(elems));
+
+checkAll(
+  contracts.partialOrdering(
+    orderings.map(orderings.any),
+    smallMapGen
+  )
+);
+```
+
+It works in exactly the way as the partial ordering for sets.
+In order for one map to be smaller than another map, the other map needs to have at least the same keys defined.
+Then, for each value, we need to check that the other map's value is larger or equal.
+Feel free to try it out on some examples!
+
+Now, just as above, we can define the trivial partial ordering and derive the set partial ordering:
+
+```
+orderings.void = {
+  isLeq: () => true // always true since undefined == undefined
+};
+
+const alternativeSetOrdering = orderings.map(orderings.void);
+```
+
+Feel free to use the code boxes to convince yourself that this construction is indeed equivalent to the one I defined two episodes ago.
+
+In reality, the situation is slightly more complicated though, because a `Set` is, in JavaScript terms, not even deeply equal to a `Map`:
+
+```
+// sadness 😢
+// also pls ignore the terrible assertion message
+assert.deepEqual(new Set([1]), new Map([[1, undefined]]));
+```
+
+In order to make our alternative algebras work with actual JavaScript `Set`s, we'd need to convert between `Set`s and `Map`s before and after invoking the `join` (or `isLeq`) method.
+
+But clever CRDT implementations may instead go ahead and define both G-Sets and G-Counters based on the very same map data structure.
+Poof, lots of code duplication gone!
+
+However note that they'd probably not expose their underlying maps, because they need to prevent those pesky users from perfoming non-monotonic operations.
+For G-Sets, that'd be deleting elements, and for G-Counters decreasing values.
+
+## What's next?
+
+> Says the programmer to the mathematician:
+> I find your line of work to be too monotone.
+>
+> Replies the mathematician:
+> You're right. But at least it's continuous and unbounded.
+
+I've spent four episodes and well above 7000 words to explain liek two different CRDTs.
+(You know how it goes: one day you wonder how ~~babby~~ algebra is formed, and then you accidentally a blog.)
+But fear not, for now we have all the tools we need to proceed to more complex CRDTs.
+In the next episode, we're going to look at how to deal with deletion.
+Spoiler: prepare for tombstones 👻
 
 ## References
 

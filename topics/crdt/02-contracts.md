@@ -342,7 +342,7 @@ We're asserting here that `insertElement` produces a new set that is always grea
 
 Congratulations!
 You've seen your first CRDT.
-This one is actually called _Grow-Only Set_ (or _GSet_ for short).
+This one is actually called _Grow-Only Set_ (or _G-Set_ for short).
 As the name indicates, it can only grow, but never shrink.
 This data structure obeys all the laws that are expected from a law-abiding CRDT, although we haven't seen all the laws yet.
 Also, it isn't all that useful, because well, sometimes you want to delete things.
