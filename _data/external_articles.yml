@@ -145,3 +145,13 @@
   journal: "INNOQ"
   abstract: "I like TypeScript. Writing code that already underwent basic checks (i.e. typechecking) before it can even touch an execution engine is a big win in my book. In particular, TypeScript is nice because it integrates well into the broader JavaScript ecosystem and comes with batteries (i.e. types) included. Unfortunately, most test runners require extra setup to work with tests written in TypeScript. Some even require staggering amounts of configuration."
   link: "https://www.innoq.com/de/blog/ts-jasmine-karma/"
+- pub_date: 2020-04-27
+  title: "Remote Training, funktioniert das?"
+  journal: "INNOQ"
+  abstract: "Heimarbeit hat sich mittlerweile – mehr oder weniger freiwillig – bei den meisten Unternehmen in der IT durchgesetzt. Doch beim Thema Schulungen sind viele noch skeptisch, ob das funktionieren könnte. Wir haben es für das iSAQB-Modul BLOCKCHAIN ausprobiert."
+  lang: de
+- pub_date: 2020-05-04
+  title: "TypeScript: Was sind das denn für Typen?"
+  journal: "INNOQ-Podcast"
+  abstract: "TypeScript ist in aller Munde. In dieser Folge will Lucas von Lars wissen, wieso er sich so sehr für diese Sprache begeistert. Wie ordnet ein erfahrener Scala-Entwickler wie Lars das Typsystem von TypeScript ein? Lars beschreibt zudem, welche Vorteile ein mächtiges Typsystem mit sich bringt, und erklärt, wie die Interaktion mit JavaScript-Bibliotheken funktioniert."
+  lang: de
