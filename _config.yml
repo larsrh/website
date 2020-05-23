@@ -33,9 +33,6 @@ collections:
   articles:
     output: true
     permalink: /:collection/:name/
-  research:
-    output: true
-    permalink: /:collection/:name/
   talks:
     output: true
     permalink: /:collection/:name/
@@ -49,15 +46,6 @@ defaults:
       nav: articles
       card_theme: bg-dark text-white
       is_article: true
-      description: ""
-  - scope:
-      path: ""
-      type: research
-    values:
-      layout: research
-      nav: research
-      card_theme: bg-success text-white
-      is_research: true
       description: ""
   - scope:
       path: ""

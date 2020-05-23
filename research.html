@@ -7,16 +7,6 @@ permalink: /research/
 
 <div class="row justify-content-md-center">
   <div class="col col-lg-9">
-    <h2>Research Topics</h2>
-
-    <div class="text-center pt-3 pb-4">
-      {% for topic in site.research %}
-        <a href="{{ topic.url }}" class="btn btn-primary btn-lg">
-          <i class="fa fa-fw fa-lg {{ topic.icon }}" aria-hidden="true"></i>{{ topic.topic }}
-        </a>
-      {% endfor %}
-    </div>
-
     <h2>Publications (by year)</h2>
     {% for year in (2011..2030) reversed %}
       {% include pubs_by_year.html year=year %}

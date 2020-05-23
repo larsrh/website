@@ -1,14 +1,5 @@
 {% if pub.id %}
-  {% for topic in site.research %}
-    {% for other_pub in topic.pubs %}
-      {% if other_pub.id == pub.id %}
-        {% include pub_modal.html %}
-        {% assign pub_link=topic.url %}
-      {% endif %}
-    {% endfor %}
-  {% endfor %}
-
-  {% for other_pub in site.data.misc_pubs %}
+  {% for other_pub in site.data.pubs %}
     {% if other_pub.id == pub.id %}
       {% include pub_modal.html %}
       {% assign pub_link="/research/" %}

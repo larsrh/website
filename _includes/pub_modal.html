@@ -13,23 +13,6 @@
           {% include pub_authors.html %}
         </p>
 
-        {% if topic %}
-          <h5>Research Topic &amp; Supplementary Material</h5>
-          <p>
-            <i class="fa fa-fw fa-lg {{ topic.icon }}" aria-hidden="true"></i><a href="{{ topic.url }}">{{ topic.topic }}</a>
-          </p>
-          {% if pub.entry %}
-            <p>
-              <i class="fa fa-fw fa-lg fa-cubes" aria-hidden="true"></i><a href="https://www.isa-afp.org/">Archive of Formal Proofs</a>
-            </p>
-          {% endif %}
-          {% if pub.errata %}
-            <p>
-              <i class="fa fa-fw fa-lg fa-exclamation-triangle" aria-hidden="true"></i><a href="{{ topic.url }}#errata">Errata</a>
-            </p>
-          {% endif %}
-        {% endif %}
-
         <h5>Abstract</h5>
         <p class="hyphenate">
           {{ pub.abstract }}

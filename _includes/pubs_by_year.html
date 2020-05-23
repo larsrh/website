@@ -2,18 +2,7 @@
 
 {% capture year_content %}
   <ul>
-    {% for topic in site.research %}
-      {% for pub in topic.pubs %}
-        {% if pub.year == include.year %}
-          {% assign found = true %}
-          <li>
-            {% include pub.html layout="brief" %}
-          </li>
-        {% endif %}
-      {% endfor %}
-    {% endfor %}
-
-    {% for pub in site.data.misc_pubs %}
+    {% for pub in site.data.pubs %}
       {% if pub.year == include.year %}
         {% assign found = true %}
         <li>

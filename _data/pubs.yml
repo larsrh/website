@@ -1,0 +1,329 @@
+- title: "Development of an associative file system"
+  id: "bsc_hupel"
+  authors: ["lars"]
+  bib: false
+  in: "Bachelor's Thesis in Informatics, Technische Universität München"
+  year: 2011
+  slides: "https://speakerdeck.com/larsrh/development-of-an-associative-file-system"
+  code: "https://github.com/larsrh/associative"
+  abstract: |
+    Organizing multimedia data, e. g. pictures, music or videos is a rather common use
+    case for modern file systems. There are quite a number of applications which try to
+    expose an user-friendly interface for dealing with tagging, sorting and editing these
+    files. This becomes necessary because sets of such files do not have an intrinsic
+    hierarchic structure. For example, pictures taken with a digital camera carry EXIF
+    metadata which can be used to retrieve a picture by date, time or location instead
+    of an artificial folder structure.
+    However, the major problem shared by all of those multimedia applications is
+    that the files are actually stored in folders on a traditional file system. As such,
+    any operation done by an user outside of the application leads to inconsistencies
+    inside of the application. Also, metadata produced by one application cannot be
+    consumed by another one because of proprietary formats.
+    In this thesis, a file system which uses the established RDF standard for storing
+    metadata is developed which imposes only little structural requirements on the
+    data. The system features both an API which enables high-level operations on file
+    contents and metadata and a CLI which resembles ideas from versioning systems
+    like Git.
+    Also, a formalization of the most important operations is given, including a
+    concept of transactions, which has been adapted from relational database systems
+    to fit in the environment of a file system.
+- title: "A Visualization Toolkit for Simplifier Traces in Isabelle/jEdit"
+  id: "msc_hupel"
+  authors: ["lars"]
+  bib: false
+  in: "Master's Thesis in Informatics, Technische Universität München"
+  year: 2013
+  abstract: |
+    The Isabelle proof assistant comes equipped with some very powerful tactics to discharge goals automatically, or to at least simplify them significantly.
+    One of these tactics is a rewriting engine, called the simplifier.
+    It repeatedly applies rules to a term by replacing the left-hand side of an equation by the right-hand side.
+
+    While tremendously useful, the results of simplifying a term not always match the user's expectation:
+    sometimes, the resulting term is not small enough, or the simplifier even failed to apply any rule.
+    For these cases, the simplifier offers a trace which logs all steps which have been made.
+
+    However, these traces can be huge, especially because the library of Isabelle/HOL offers many pre-defined rewriting rules.
+    It is often very difficult for the user to find the necessary piece of information about why and what exactly failed.
+    Furthermore, there is no way to inspect or even influence the system while the simplification is still running.
+    Hence, a simple, linear trace is not sufficient in these situations.
+
+    In this thesis, a new tracing facility is developed, which offers structure, interactivity and a high amount of configurability.
+    It combines successful approaches from other logic languages and adapts them to the Isabelle setup.
+    Furthermore, it fits neatly into the canonical IDE for Isabelle and is thus easy to use.
+- title: "Properties of Random Graphs – Subgraph Containment"
+  id: "afp-subgraph-containment"
+  authors: ["lars"]
+  in: "Archive of Formal Proofs"
+  year: 2014
+  entry: "https://www.isa-afp.org/entries/Random_Graph_Subgraph_Threshold.html"
+  abstract: |
+    Random graphs are graphs with a fixed number of vertices, where each edge is present with a fixed probability. We are interested in the probability that a random graph contains a certain pattern, for example a cycle or a clique. A very high edge probability gives rise to perhaps too many edges (which degrades performance for many algorithms), whereas a low edge probability might result in a disconnected graph. We prove a theorem about a threshold probability such that a higher edge probability will asymptotically almost surely produce a random graph with the desired subgraph.
+- title: "Interactive Simplifier Tracing and Debugging in Isabelle"
+  id: "simp-trace"
+  authors: ["lars"]
+  springer: true
+  in: "Intelligent Computer Mathematics (CICM)"
+  year: 2014
+  doi: "10.1007/978-3-319-08434-3_24"
+  arxiv: "1406.0292"
+  slides: "https://speakerdeck.com/larsrh/interactive-simplifier-tracing-and-debugging-in-isabelle"
+  abstract: |
+    The Isabelle proof assistant comes equipped with a very powerful
+    tactic for term simplification. While tremendously useful, the results
+    of simplifying a term do not always match the user’s expectation: sometimes,
+    the resulting term is not in the form the user expected, or the
+    simplifier fails to apply a rule. We describe a new, interactive tracing
+    facility which offers insight into the hierarchical structure of the simplification
+    with user-defined filtering, memoization and search. The new
+    simplifier trace is integrated into the Isabelle/jEdit Prover IDE.
+- title: "The Next 1100 Haskell Programmers"
+  id: "haskell-programmers"
+  authors: ["jasmin", "lars", "tobias", "lars-n", "dmitriy"]
+  in: "Haskell Symposium"
+  year: 2014
+  doi: "10.1145/2633357.2633359"
+  slides: "https://speakerdeck.com/larsrh/the-next-1100-haskell-programmers"
+  recording: "https://youtu.be/VM6i6710A-Y?t=44s"
+  abstract: |
+    We report on our experience teaching a Haskell-based functional
+    programming course to over 1100 students for two winter terms.
+    The syllabus was organized around selected material from various
+    sources. Throughout the terms, we emphasized correctness through
+    QuickCheck tests and proofs by induction. The submission architecture
+    was coupled with automatic testing, giving students the possibility
+    to correct mistakes before the deadline. To motivate the students,
+    we complemented the weekly assignments with an informal
+    competition and gave away trophies in a award ceremony.
+- title: "Directed Security Policies: A Stateful Network Implementation"
+  id: "directed-security-policies"
+  authors: ["cornelius", "lars", "carle"]
+  in: "Third International Workshop on Engineering Safety and Security Systems (ESSS)"
+  year: 2014
+  doi: "10.4204/EPTCS.150.3"
+  abstract: |
+    Large systems are commonly internetworked. A security policy describes the communication relationship
+    between the networked entities. The security policy defines rules, for example that A can
+    connect to B, which results in a directed graph. However, this policy is often implemented in the
+    network, for example by firewalls, such that A can establish a connection to B and all packets belonging
+    to established connections are allowed. This stateful implementation is usually required for the
+    network’s functionality, but it introduces the backflow from B to A, which might contradict the security
+    policy. We derive compliance criteria for a policy and its stateful implementation. In particular,
+    we provide a criterion to verify the lack of side effects in linear time. Algorithms to automatically
+    construct a stateful implementation of security policy rules are presented, which narrows the gap
+    between formalization and real-world implementation. The solution scales to large networks, which
+    is confirmed by a large real-world case study. Its correctness is guaranteed by the Isabelle/HOL
+    theorem prover
+- title: "Semantics-Preserving Simplification of Real-World Firewall Rule Sets"
+  id: "iptables-simp"
+  authors: ["cornelius", "lars", "carle"]
+  in: "Formal Methods (FM)"
+  year: 2015
+  springer: true
+  doi: "10.1007/978-3-319-19249-9_13"
+  arxiv: "1604.00206"
+  code: "https://github.com/diekmann/Iptables_Semantics"
+  slides: "https://speakerdeck.com/larsrh/semantics-preserving-simplification-of-real-world-firewall-rule-sets"
+  abstract: |
+    The security provided by a firewall for a computer network
+    almost completely depends on the rules it enforces. For over a decade, it
+    has been a well-known and unsolved problem that the quality of many
+    firewall rule sets is insufficient. Therefore, there are many tools to analyze
+    them. However, we found that none of the available tools could
+    handle typical, real-world iptables rulesets. This is due to the complex
+    chain model used by iptables, but also to the vast amount of possible
+    match conditions that occur in real-world firewalls, many of which are
+    not understood by academic and open source tools.
+    In this paper, we provide algorithms to transform firewall rulesets. We
+    reduce the execution model to a simple list model and use ternary logic
+    to abstract over all unknown match conditions. These transformations
+    enable existing tools to understand real-world firewall rules, which we
+    demonstrate on four decently-sized rulesets. Using the Isabelle theorem
+    prover, we formally show that all our algorithms preserve the firewall’s
+    filtering behavior.
+- title: "IP Addresses"
+  id: "afp-ip"
+  authors: ["cornelius", "julius", "lars"]
+  in: "Archive of Formal Proofs"
+  year: 2016
+  entry: "https://www.isa-afp.org/entries/IP_Addresses.html"
+  abstract: |
+    This entry contains a definition of IP addresses and a library to work with them. Generic IP addresses are modeled as machine words of arbitrary length. Derived from this generic definition, IPv4 addresses are 32bit machine words, IPv6 addresses are 128bit words. Additionally, IPv4 addresses can be represented in dot-decimal notation and IPv6 addresses in (compressed) colon-separated notation. We support toString functions and parsers for both notations. Sets of IP addresses can be represented with a netmask (e.g. 192.168.0.0/255.255.0.0) or in CIDR notation (e.g. 192.168.0.0/16). To provide executable code for set operations on IP address ranges, the library includes a datatype to work on arbitrary intervals of machine words.
+- title: "Iptables Semantics"
+  id: "afp-iptables"
+  authors: ["cornelius", "lars"]
+  in: "Archive of Formal Proofs"
+  year: 2016
+  entry: "https://www.isa-afp.org/entries/Iptables_Semantics.html"
+  abstract: |
+    We present a big step semantics of the filtering behavior of the Linux/netfilter iptables firewall. We provide algorithms to simplify complex iptables rulests to a simple firewall model and to verify spoofing protection of a ruleset. Internally, we embed our semantics into ternary logic, ultimately supporting every iptables match condition by abstracting over unknowns. Using this AFP entry and all entries it depends on, we created an easy-to-use, stand-alone Haskell tool called fffuu. The tool does not require any input — except for the iptables-save dump of the analyzed firewall — and presents interesting results about the user's ruleset. Real-Word firewall errors have been uncovered, and the correctness of rulesets has been proved, with the help of our tool.
+- title: "Clone Detection in Isabelle Theories"
+  id: "isabelle-clones"
+  authors: ["dominik", "lars"]
+  in: "Isabelle Workshop"
+  year: 2016
+  code: "https://assets.hupel.info/downloads/isabelle-clones/isabelle-clones-preview.zip"
+  bib: false
+  abstract: |
+    Duplicated code fragments within software projects complicate maintenance
+    and require refactoring. Clone detection frameworks, such as ConQAT,
+    offer well-engineered clone detection functionalities for a number of different
+    programming languages. In this work, we developed a tool to search Isabelle theory
+    sources for clones. This analysis takes the rich structure of Isabelle theories
+    into account by extracting semantic information from document markup. After
+    extraction, clone detection is performed using ConQAT’s built-in facilities.
+- title: "Algorithms for Reduced Ordered Binary Decision Diagrams"
+  id: "afp-robdd"
+  authors: ["julius", "max", "peter", "lars"]
+  in: "Archive of Formal Proofs"
+  year: 2016
+  entry: "https://www.isa-afp.org/entries/ROBDD.html"
+  abstract: |
+    We present a verified and executable implementation of ROBDDs in Isabelle/HOL. Our implementation relates pointer-based computation in the Heap monad to operations on an abstract definition of boolean functions. Internally, we implemented the if-then-else combinator in a recursive fashion, following the Shannon decomposition of the argument functions. The implementation mixes and adapts known techniques and is built with efficiency in mind.
+- title: "Translating Scala Programs to Isabelle/HOL"
+  id: "translating-scala"
+  authors: ["lars", "viktor"]
+  springer: true
+  in: "International Joint Conference on Automated Reasoning (IJCAR)"
+  year: 2016
+  doi: "10.1007/978-3-319-40229-1_38"
+  arxiv: "1607.01539"
+  slides: "https://speakerdeck.com/larsrh/hol-1"
+  abstract: |
+    We present a trustworthy connection between the Leon verification
+    system and the Isabelle proof assistant. Leon is a system for verifying functional
+    Scala programs. It uses a variety of automated theorem provers (ATPs) to check
+    verification conditions (VCs) stemming from the input program. Isabelle, on the
+    other hand, is an interactive theorem prover used to verify mathematical specifications
+    using its own input language Isabelle/Isar. Users specify (inductive)
+    definitions and write proofs about them manually, albeit with the help of semiautomated
+    tactics. The integration of these two systems allows us to exploit Isabelle’s
+    rich standard library and give greater confidence guarantees in the correctness
+    of analysed programs.
+- title: "Lazifying case constants"
+  id: "afp-lazy-case"
+  authors: ["lars"]
+  in: "Archive of Formal Proofs"
+  year: 2017
+  entry: "https://www.isa-afp.org/entries/Lazy_Case.html"
+  abstract: |
+    Isabelle's code generator performs various adaptations for target languages. Among others, case statements are printed as match expressions. Internally, this is a sophisticated procedure, because in HOL, case statements are represented as nested calls to the case combinators as generated by the datatype package. Furthermore, the procedure relies on laziness of match expressions in the target language, i.e., that branches guarded by patterns that fail to match are not evaluated. Similarly, if-then-else is printed to the corresponding construct in the target language. This entry provides tooling to replace these special cases in the code generator by ignoring these target language features, instead printing case expressions and if-then-else as functions.
+- title: "Constructor Functions"
+  id: "afp-constructor-funs"
+  authors: ["lars"]
+  in: "Archive of Formal Proofs"
+  year: 2017
+  entry: "https://www.isa-afp.org/entries/Constructor_Funs.html"
+  abstract: |
+    Isabelle's code generator performs various adaptations for target languages. Among others, constructor applications have to be fully saturated. That means that for constructor calls occuring as arguments to higher-order functions, synthetic lambdas have to be inserted. This entry provides tooling to avoid this construction altogether by introducing constructor functions.
+- title: "Dictionary Construction"
+  id: "afp-dict"
+  authors: ["lars"]
+  in: "Archive of Formal Proofs"
+  year: 2017
+  entry: "https://www.isa-afp.org/entries/Dict_Construction.html"
+  abstract: |
+    Isabelle's code generator natively supports type classes. For targets that do not have language support for classes and instances, it performs the well-known dictionary translation, as described by Haftmann and Nipkow. This translation happens outside the logic, i.e., there is no guarantee that it is correct, besides the pen-and-paper proof. This work implements a certified dictionary translation that produces new class-free constants and derives equality theorems.
+- title: "A Verified Compiler from Isabelle/HOL to CakeML"
+  id: "isabelle-cakeml"
+  authors: ["lars", "tobias"]
+  in: "European Symposium on Programming (ESOP, Open Access)"
+  errata: true
+  springer: true
+  year: 2018
+  doi: "10.1007/978-3-319-89884-1_35"
+  slides: "https://speakerdeck.com/larsrh/hol-to-cakeml"
+  abstract: |
+    Many theorem provers can generate functional programs from definitions
+    or proofs. However, this code generation needs to be trusted. Except for
+    the HOL4 system, which has a proof producing code generator for a subset of ML.
+    We go one step further and provide a verified compiler from Isabelle/HOL to CakeML. More precisely we combine a simple proof producing translation of recursion equations in Isabelle/HOL into a deeply embedded term language with a fully verified compilation chain to the target language CakeML.
+- title: "Isabelle/CakeML"
+  id: "afp-cakeml"
+  authors: ["lars", "yu"]
+  entry: "https://www.isa-afp.org/entries/CakeML.html"
+  in: "Archive of Formal Proofs"
+  year: 2018
+  abstract: |
+    CakeML is a functional programming language with a proven-correct compiler and runtime system. This entry contains an unofficial version of the CakeML semantics that has been exported from the Lem specifications to Isabelle. Additionally, there are some hand-written theory files that adapt the exported code to Isabelle and port proofs from the HOL4 formalization, e.g. termination and equivalence proofs.
+- title: "libisabelle"
+  id: "libisabelle"
+  authors: ["lars"]
+  doi: "10.5281/zenodo.591695"
+  code: "https://github.com/larsrh/libisabelle"
+  no_pdf: true
+  year: 2018
+  abstract: |
+    A Scala library which talks to Isabelle. It works with multiple Isabelle versions. For more information and documentation about the project, visit <a href="/libisabelle/">its website</a>.
+- title: "Verified iptables Firewall Analysis and Verification"
+  id: "verified-iptables"
+  authors: ["cornelius", "lars", "julius", "max", "carle"]
+  springer: true
+  doi: "10.1007/s10817-017-9445-1"
+  in: "Journal of Automated Reasoning (Open Access)"
+  year: 2018
+  abstract: |
+    This article summarizes our efforts around the formally verified static analysis of
+    iptables rulesets using Isabelle/HOL. We build our work around a formal semantics of the
+    behavior of iptables firewalls. This semantics is tailored to the specifics of the filter table and
+    supports arbitrary match expressions, even new ones that may be added in the future. Around
+    that, we organize a set of simplification procedures and their correctness proofs: we include
+    procedures that can unfold calls to user-defined chains, simplify match expressions, and
+    construct approximations removing unknown or unwanted match expressions. For analysis
+    purposes, we describe a simplified model of firewalls that only supports a single list of rules
+    with limited expressiveness. We provide and verify procedures that translate from the complex
+    iptables language into this simple model. Based on that, we implement the verified generation
+    of IP space partitions and minimal service matrices. An evaluation of our work on a large
+    set of real-world firewall rulesets shows that our framework provides interesting results in
+    many situations, and can both help and out-compete other static analysis frameworks found
+    in related work.
+- title: "Certifying Dictionary Construction in Isabelle/HOL"
+  id: "dict"
+  authors: ["lars"]
+  doi: "10.3233/FI-2019-1859"
+  in: "Fundamenta Informaticae"
+  year: 2019
+  abstract: |
+    Type classes are a well-known extensions to various type systems. Classes usually participate in type inference; that is, the type checker will automatically deduce class constraints and select appropriate instances. Compilers for such languages face the challenge that concrete instances are generally not directly mentioned in the source text. In the runtime, type class operations need to be packaged into dictionaries that are passed around as pointers. This article presents the most common approach for compilation of type classes – the dictionary construction – carried out in a trustworthy fashion in Isabelle/HOL, a proof assistant.
+- title: "An Algebra for Higher-Order Terms"
+  id: "afp-terms"
+  authors: ["lars"]
+  entry: "https://www.isa-afp.org/entries/Higher_Order_Terms.html"
+  in: "Archive of Formal Proofs"
+  year: 2019
+  abstract: |
+    In this formalization, I introduce a higher-order term algebra, generalizing the notions of free variables, matching, and substitution. The need arose from the work on a verified compiler from Isabelle to CakeML. Terms can be thought of as consisting of a generic (free variables, constants, application) and a specific part. As example applications, this entry provides instantiations for de-Bruijn terms, terms with named variables, and Blanchette’s λ-free higher-order terms. Furthermore, I implement translation functions between de-Bruijn terms and named terms and prove their correctness.
+- title: "A Verified Code Generator from Isabelle/HOL to CakeML"
+  id: "afp-codegen"
+  authors: ["lars"]
+  entry: "https://www.isa-afp.org/entries/CakeML_Codegen.html"
+  in: "Archive of Formal Proofs"
+  year: 2019
+  abstract: |
+     This entry contains the formalization that accompanies my PhD thesis. I develop a verified compilation toolchain from executable specifications in Isabelle/HOL to CakeML abstract syntax trees. This improves over the state-of-the-art in Isabelle by providing a trustworthy procedure for code generation.
+- title: "Verified Code Generation from Isabelle/HOL"
+  id: "phd-thesis_hupel"
+  authors: ["lars"]
+  year: 2019
+  in: "Doctoral Dissertation"
+  slides: "https://speakerdeck.com/larsrh/hol"
+  extra:
+    - link: "http://nbn-resolving.de/urn/resolver.pl?urn:nbn:de:bvb:91-diss-20190711-1473785-1-3"
+      text: "Official copy"
+  abstract: |
+    In this thesis, I develop a verified compilation toolchain from executable specifications in Isabelle/HOL to CakeML abstract syntax trees.
+    This improves over the state-of-the-art in Isabelle by providing a trustworthy procedure for code generation.
+    The work consists of three major contributions.
+    <br />
+    First, I have implemented a certifying routine to eliminate type classes and instances in Isabelle specifications.
+    Based on defining equations of constants, it derives new definitions that do not use type classes.
+    This can be used to bypass an unverified step in the current code generator.
+    <br />
+    Second, I formalized an algebra for higher-order λ-terms that generalizes the notions of free variables, matching, and substitution.
+    Terms can be thought of as consisting of a generic (free variables, constants, application) and a specific part (abstraction, bound variables).
+    With this algebra, it becomes possible to reason abstractly over a variety of different types.
+    <br />
+    These two parts are independent from each other and can also be used for other purposes.
+    For example, I have successfully instantiated the term algebra for other term types in the Isabelle universe.
+    <br />
+    Third, a compiler that works similarly to the existing code generator, but produces a CakeML abstract syntax tree together with a correctness theorem.
+    More precisely, I have combined a simple proof producing translation of recursion equations in Isabelle into a deeply embedded term language with a fully verified compilation chain to the target language CakeML.

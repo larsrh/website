@@ -8,16 +8,7 @@
     {% endif %}
   {% endfor %}
 
-  {% for topic in site.research %}
-    {% for pub in topic.pubs %}
-      {% if pub.year == include.year and pub.slides %}
-        {% include misc_talk_pub.html %}
-        {% assign found = true %}
-      {% endif %}
-    {% endfor %}
-  {% endfor %}
-
-  {% for pub in site.data.misc_pubs %}
+  {% for pub in site.data.pubs %}
     {% if pub.year == include.year and pub.slides %}
       {% include misc_talk_pub.html %}
       {% assign found = true %}
