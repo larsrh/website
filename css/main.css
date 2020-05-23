@@ -129,21 +129,6 @@
   padding-bottom: 0;
 }
 
-.pub-card-animate {
-  animation-name: pub_highlight_fade;
-  animation-duration: 2s;
-  background-color: #eeeeee;
-}
-
-@keyframes pub_highlight_fade {
-  from {
-    background-color: #4caf50;
-  }
-  to {
-    background-color: #eeeeee;
-  }
-}
-
 .hint {
   border-bottom: 1px dotted black;
 }

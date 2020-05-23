@@ -122,14 +122,6 @@
           a.attr('data-toggle', 'modal');
           a.attr('data-target', '#pub-modal-' + a.data('pub'));
         });
-        $('.card[data-id]').each(function (index) {
-          var card = $(this);
-          var selected = sessionStorage.getItem('selected');
-          if (selected && card.data('id') === selected) {
-            card.addClass('pub-card-animate');
-            sessionStorage.removeItem('selected');
-          }
-        });
         var hash = $(location).attr('hash');
         if (hash.startsWith('#pub-modal')) {
           history.replaceState("", document.title, window.location.pathname);
@@ -139,9 +131,6 @@
       $(document).on('click', '[data-toggle="lightbox"]', function(event) {
         event.preventDefault();
         $(this).ekkoLightbox();
-      });
-      $(document).on('click', 'a[data-id]', function(event) {
-        sessionStorage.setItem('selected', $(this).data('id'));
       });
     </script>
 

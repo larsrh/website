@@ -51,7 +51,7 @@ Date: {{ page.git.last_commit.commit_date }}
           {% include pub.html layout="full" %}
         </div>
       {% endcapture %}
-      {% include card.html no_header="true" content=pub_content data_id=pub.id %}
+      {% include card.html no_header="true" content=pub_content %}
     {% endfor %}
   </div>
 
