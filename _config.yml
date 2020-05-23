@@ -55,7 +55,7 @@ defaults:
       type: research
     values:
       layout: research
-      nav: academic
+      nav: research
       card_theme: bg-success text-white
       is_research: true
       description: ""

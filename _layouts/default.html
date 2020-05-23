@@ -40,6 +40,8 @@
       {% endif %}
     {% endfor %}
 
+    {% assign sub_p = null %}
+
     {% if p.subpages %}
       {% for sub_page_desc in p.subpages %}
         {% if sub_page_desc.id == page.id %}

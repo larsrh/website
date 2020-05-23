@@ -6,16 +6,10 @@
   name: Resume
   nav_theme: navbar-dark bg-danger
   long_title: "Resume"
-- id: academic
-  name: Academic
+- id: research
+  name: Research
   nav_theme: navbar-dark bg-success
-  subpages:
-    - id: research
-      name: Research
-      long_title: "Research & Publications (archive)"
-    - id: teaching
-      name: Teaching
-      long_title: "Teaching (archive)"
+  long_title: "Research & Publications (archive)"
 - id: activities
   name: Activities
   nav_theme: navbar-dark bg-info
