@@ -20,9 +20,6 @@
     - id: talks
       name: Talks
       long_title: "Conference talks"
-    - id: service
-      name: Service
-      long_title: "Community service"
 - id: articles
   name: Articles
   nav_theme: navbar-dark bg-dark
