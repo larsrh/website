@@ -10,8 +10,12 @@ https://larsrh-website.netlify.app/* https://lars.hupel.info/:splat 301!
 /teaching.html /teaching/ 301!
 /projects.html /projects/ 301!
 
-/research/pl/ /research/scala/ 301!
-/research/misc/ /research/ 301!
+/research/pl/        /research/ 301!
+/research/misc/      /research/ 301!
+/research/networks/  /research/ 301!
+/research/scala/     /research/ 301!
+
+/research/codegen/   /articles/research-codegen/ 301!
 
 /pub/bsc_hupel.html                  /pub/bsc_hupel.pdf                  301
 /pub/directed-security-policies.html /pub/directed-security-policies.pdf 301
