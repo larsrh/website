@@ -3,6 +3,7 @@ title: "CRDTs: Part 3"
 subtitle: "Part 3: Lattices"
 progress: 90
 prev: 02-contracts
+next: 04-combinators
 ---
 
 {% include float_picture.html src="topics/crdt/pie.jpg" text="A tasty lattice" %}
@@ -66,8 +67,6 @@ Let's go through the laws that a lattice has to satisfy one by one.
 In order to implement this operation for sets, once again we'll need to monkey patch (yolo) the set union operation.
 I'm also starting to get annoyed by the verbose `Set` constructor, so I'll define my own, concise version.
 
-<br style="clear: both;">
-
 ```
 {% include topics/crdt/lib-set-union.js %}
 assert.deepEqual(set(1).union(set(2)), set(1, 2));
@@ -91,7 +90,7 @@ The structure that's defined above is actually not a lattice, but only a semilat
 The reason is that a lattice also needs another operation: _meet_, the opposite of _join_.
 For sets, that would be intersection.
 But this is not relevant for now.
-So I'll start quietly using semilattice now.
+I'll just keep on writing lattice.
 
 ## There ...
 
@@ -248,7 +247,8 @@ The above scenario now reads as follows:
 5. Internet connection is restored.
 
 Now we can merge the two maps by taking the maximum of each key-value pair.
-The implicit assumption is of course that Alice will never increment Bob's counter directly (and vice-versa).
+The total value of the counter can be computed by taking the sum of all values in the map.
+Of course, this only works if all participants agree that they will never increment someone else's counter directly.
 
 It turns out that we can even simplify this further:
 there's no need for each involved party to know about everyone else.
@@ -260,7 +260,7 @@ They just have to know about their own label:
 4. Bob increments. His state is {`"bob"` → 1}.
 5. Internet connection is restored.
 
-When merging a foreign map, we can check for keys that are only present in the other one and copy them unchanged into our map. 
+When merging a foreign map, we can check for keys that are only present in the other one and copy them unchanged into our map.
 
 ## What's next?
 
@@ -281,7 +281,7 @@ I don't like this for two reasons:
 2. it doesn't demonstrate how to compose CRDTs with other data structures to form larger CRDTs
 
 The latter is actually what happens here and simplifies the implementation greatly.
-But it requires a lot more prose, so it's reserved for the next episode.
+But it requires a lot more prose, so it's reserved for the [next episode](04-combinators).
 
 ## References
 
