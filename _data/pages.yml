@@ -10,16 +10,14 @@
   name: Research
   nav_theme: navbar-dark bg-success
   long_title: "Research & Publications (archive)"
-- id: activities
-  name: Activities
+- id: projects
+  name: Projects
+  nav_theme: navbar-light
+  long_title: "Software & Projects"
+- id: talks
+  name: Talks
   nav_theme: navbar-dark bg-info
-  subpages:
-    - id: projects
-      name: Projects
-      long_title: "Software & Projects"
-    - id: talks
-      name: Talks
-      long_title: "Conference talks"
+  long_title: "Conference talks"
 - id: articles
   name: Articles
   nav_theme: navbar-dark bg-dark

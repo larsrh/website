@@ -6,13 +6,6 @@ layout: default
   {% if page_desc.id == page.nav %}
     {% assign p = page_desc %}
   {% endif %}
-  {% if page_desc.subpages %}
-    {% for sub_page_desc in page_desc.subpages %}
-      {% if sub_page_desc.id == page.id %}
-        {% assign p = sub_page_desc %}
-      {% endif %}
-    {% endfor %}
-  {% endif %}
 {% endfor %}
 
 <div class="jumbotron">

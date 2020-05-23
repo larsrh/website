@@ -52,8 +52,7 @@ defaults:
       type: talks
     values:
       layout: talk
-      nav: activities
-      is_talk: true
+      nav: talks
       description: ""
   - scope:
       path: "topics/crdt"

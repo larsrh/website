@@ -40,26 +40,12 @@
       {% endif %}
     {% endfor %}
 
-    {% assign sub_p = null %}
-
-    {% if p.subpages %}
-      {% for sub_page_desc in p.subpages %}
-        {% if sub_page_desc.id == page.id %}
-          {% assign sub_p = sub_page_desc %}
-        {% endif %}
-      {% endfor %}
-    {% endif %}
-
     {% if page.is_research %}
       {% assign page_name = page.topic %}
     {% elsif page.title %}
       {% assign page_name = page.title %}
     {% elsif p.title != false %}
-      {% if sub_p %}
-        {% assign page_name = p.name | append: ' &middot; ' | append: sub_p.name %}
-      {% else %}
-        {% assign page_name = p.name %}
-      {% endif %}
+      {% assign page_name = p.name %}
     {% else %}
       {% assign page_name = "" %}
     {% endif %}
