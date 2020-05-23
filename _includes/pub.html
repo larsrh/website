@@ -1,6 +1,4 @@
-{% if include.layout == "brief" %}
-  {% include pub_modal.html %}
-{% endif %}
+{% include pub_modal.html %}
 <div>
   {% assign pdf_link="/pub/" | append: pub.id | append: ".pdf" %}
   {% if pub.entry %}
@@ -15,11 +13,7 @@
     {% endif %}
   {% endif %}
 
-  {% if include.layout == "brief" %}
-    <a class="pub-modal-link" data-pub="{{ pub.id }}" href="{{ main_link }}">{{ pub.title }}</a>
-  {% else %}
-    <h4>{{ pub.title }}</h4>
-  {% endif %}
+  <a class="pub-modal-link" data-pub="{{ pub.id }}" href="{{ main_link }}">{{ pub.title }}</a>
   <p>
     {% include pub_authors.html %}
   </p>
@@ -29,6 +23,3 @@
     </p>
   {% endif %}
 </div>
-{% if include.layout != "brief" %}
-  {% include pub_buttons.html %}
-{% endif %}
