@@ -268,3 +268,13 @@ div.interactive {
 .interactive .output tr:last-child > * {
   border-bottom: none;
 }
+
+table {
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+td, th {
+  padding: .2em;
+  border: 1px solid #aaa;
+}

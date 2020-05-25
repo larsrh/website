@@ -17,5 +17,6 @@ Here's the list of all posts that I've published so far:
 2. [Algebras & contracts](/topics/crdt/02-contracts)
 3. [Lattices](/topics/crdt/03-lattices)
 4. [Combinators](/topics/crdt/04-combinators)
+5. [Tombstones](/topics/crdt/05-tombstones)
 
 {% include topics/crdt/ack.html %}
