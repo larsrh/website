@@ -1,7 +1,7 @@
 ---
 title: "CRDTs: Part 3"
 subtitle: "Part 3: Lattices"
-progress: 90
+progress: 100
 prev: 02-contracts
 next: 04-combinators
 ---
