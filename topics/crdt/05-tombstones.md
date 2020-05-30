@@ -1,7 +1,7 @@
 ---
 title: "CRDTs: Part 5"
 subtitle: "Part 5: Tombstones"
-progress: 70
+progress: 90
 prev: 04-combinators
 ---
 
@@ -29,6 +29,8 @@ Is the result {1, 2, 3} or {2, 3}?
 The naive implementation says the former, because it'll just take the union of both sets.
 The way to avoid this is by using _tombstones._
 
+{% include float_picture.html src="topics/crdt/marx_and_engels.jpg" text="A spectre is haunting Europe—the spectre of commutativity" %}
+
 ## The Ghost of Values Past
 
 The idea behind tombstones is quickly explained:
@@ -42,7 +44,7 @@ For example, how do we represent the deleted values?
 What will the programming interface be like?
 
 Let's start with the most basic example, the Two-Phase-Set (or 2P-Set).
-The intended semantics is _remove wins_, i.e., a value that has been removed can never be added again.
+The intended semantics is _remove bans_, i.e., a value that has been removed is banned from ever being added again.
 This is why it's called “Two Phase”: a value travels through the two phases of _being_ member of the set and _having been_ member of the set.
 Applied to the above transaction between Alice and Bob, the result would've been {2, 3}, because Alice' deletion takes priority over Bob's addition.
 Note that time does not play a role here; even if steps 4 and 5 were swapped, the result would still be {2, 3}.
@@ -134,6 +136,110 @@ But the key takeaway is that even deletion fits neatly into our lattice-partial-
 That's a relief, right?
 All that work finally paying off.
 
+## No Free Lunch
+
+We've now learned that we can get the following CRDTs “for free”:
+
+* G-Set
+* G-Counter
+* 2P-Set
+
+In case you were wondering at what point I'm going to show the code, the answer is “not in this episode, because there's no new code to show”.
+All the pieces have been implemented already, and all the contracts have been checked.
+
+And yet.
+There's no free lunch.
+
+While the underlying algebraic structures can neatly be composed to yield larger structures, an actual real-world CRDT library would not expose those directly to the user.
+Recall the sentence from earlier:
+
+> Notably, maps where the value type is a lattice, and where update operations need to be monotonic.
+
+This is quite a strong requirement.
+
+Let's say you have a `Map<string, number>` in JavaScript.
+Nobody prevents you from decrementing the numbers in the map, or deleting entries altogether.
+This is fine when using any old `Map`.
+But we're not dealing with any old maps, we're superimposing the lattice semantics on them.
+Trying to merge maps that have been updated non-monotonically breaks our entire construction, and what's worse, we wouldn't even notice!
+
+Instead, we'll have to wrap maps somehow in order to enforce monotonic updates.
+In JavaScript, we can make a design decision whether to create a new class or to create a `Proxy` that intercepts calls to an underlying map (so that we can use the map as a regular `Map`).
+For demo purposes, I'll sketch the first option below.
+
+```
+class MonotonicMap {
+  constructor(partialOrdering, entries) {
+    this.map = new Map(entries);
+    this.partialOrdering = partialOrdering;
+  }
+
+  get(key) {
+    return this.map.get(key);
+  }
+
+  has(key) {
+    return this.map.has(key);
+  }
+
+  set(key, value) {
+    if (this.has(key)) {
+      const oldValue = this.get(key);
+      if (!this.partialOrdering.isLeq(oldValue, value))
+        throw new Error(`Non-monotonic update for ${key}`);
+    }
+
+    this.map.set(key, value);
+  }
+}
+
+const mmap = new MonotonicMap(orderings.any, [["alice", 1], ["bob", 0]]);
+
+mmap.set("bob", 1); // ok
+assert.throws(() => mmap.set("alice", 0), /monotonic/); // not ok
+
+mmap
+```
+
+This map is generic in that it works for any partial ordering and prevents non-monotonic updates.
+Consequently, it doesn't even offer a `delete` operations.
+We could also implement a `merge` operation directly on `MonotonicMap`, but we need to take care to somehow handle merging two maps that have different orderings attached (this is difficult in many programming languages, including JavaScript; see [here for a possible approach in Scala](https://typelevel.org/blog/2016/11/17/heaps.html)).
+In the end, this will greatly depend on your domain and how far you are willing to go for robustness, i.e., ruling out nonsenical operations.
+
+## Encapsulating state
+
+Arguably, the `MonotonicMap` implementation is still not quite useful for application developers.
+But we can use it as a foundation to implement e.g. a 2P-Set, whose `delete(key)` method performs a `set(key, true)` on the underlying map.
+That way, you could provide an interface that makes sense from a _domain_ point of view that delegates to an implemenation that makes sense from an _algebraic_ point of view.
+Luckily, we don't have to invent this programming pattern, since it has already been described in the 1970s as _Abstract Data Types_.
+We could for example describe the contract of a 2P-Set as follows:
+
+Initial State
+: _A_ = {}, _R_ = {}
+
+Invariant
+: _R_ is subset of _A_
+
+Operation elements
+: return _A_ - _R_
+
+Operation add(_e_)
+: set _A_ := _A_ + {_e_}
+
+Operation remove(_e_)
+: check that _e_ is in _A_, then set _R_ := _R_ + {_e_}, otherwise fail
+
+In other words, the above describes the _interface_ of a 2P-Set, whereas the `MonotonicMap` with an appropriate lattice describes the _implementation_.
+
+## What's next?
+
+We've seen how CRDTs can cope with deletion of values.
+But so far, this has been really restricted: once a value is out, it's out.
+There are two different ways to make this a bit more flexible.
+One of them requires a notion of time.
+So, the next episode will talk about time and causality in distributed systems.
+
 ## References
 
 * Stone Church, Hamilton, Canada by Scott Rodgerson on [Unsplash](https://unsplash.com/photos/ZLHBjxbCCEc)
+* Marx and Engels on [Wikimedia Commons](https://commons.wikimedia.org/w/index.php?title=File:Marx_and_Engels.jpg&oldid=398478366)
