@@ -31,12 +31,16 @@ the mobile app displays "You're offline" and won't let you see your data (best c
 One particular piece in the puzzle of building distributed applications is to figure out the _storage_.
 Ideally, this storage should be resilient towards users that may become unavailable, concurrent edits, and so on.
 
-Enter _Conflict-free Replicated Datatypes_.
+Enter _Conflict-free Replicated Data Types_.
 A glorious example of Computer Science naming that actually Makes Sense™, they attempt to provide a flexible solution to the storage problem.
 The fundamental idea is this:
 You have data.
 This data is stored on multiple _replicas_.
 CRDTs describe how to coordinate these replicas to always arrive at a consistent state.
+
+Note that there are two different categories of CRDTs: _state-based_ and _op-based_.
+Both serve the same purpose, but work in different ways and come with their own design trade-offs.
+In this series, I'm mostly going to focus on state-based CRDTs.
 
 ## About CRDTs
 

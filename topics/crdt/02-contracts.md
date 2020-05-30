@@ -10,7 +10,7 @@ next: 03-lattices
 
 Let's consider a real-world example of distributed computing: you have a set containing the elements 1 and 2 that's replicated across two devices, Alice's and Bob's computers.
 As long as Alice and Bob only add elements, synchronizing their sets is trivial.
-You just have to take the intersection of all elements.
+You just have to take the union of all elements.
 If Alice adds an element, she sends that to Bob, and Bob adds it (and vice versa).
 But what do you do in the following order of events:
 
@@ -40,7 +40,7 @@ Sometimes, we need to compare two values and see which one is "bigger".
 In JavaScript, the most basic way to do that would be to use the `<` operator.
 It returns a boolean that indicates that the left value is less than than the right value, according to some form of "less than" semantics.
 
-When talking about complex datatypes, just using `<` doesn't cut it.
+When talking about complex data types, just using `<` doesn't cut it.
 There could be some special rules about comparisons.
 JavaScript often doesn't help us a lot:
 

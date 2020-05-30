@@ -92,7 +92,7 @@ For example, we can look at how to implement a lattice for a `Map` with arbitrar
 
 As a concrete example, recall the distributed counter from the previous episode.
 To rehash:
-every participant keeps a key-value map, mapping unique participant identifier to a positive integer.
+every participant keeps a key-value map, mapping a unique participant identifier to a positive integer.
 To increment the counter, a participant increases their own integer.
 Merging happens by looking at two maps and taking the maximum for each key.
 
@@ -213,7 +213,7 @@ I have one more mind-blowing concrete example for this, but before we go into th
 I've already told you that a G-Counter is a CRDT.
 But why is that?
 
-In their 2011 paper, [Shapiro et al.](https://hal.inria.fr/inria-00555588/) define a particular kind of CRDTs, so-called _State-based CRDTs_, as datatypes that:
+In their 2011 paper, [Shapiro et al.](https://hal.inria.fr/inria-00555588/) define a particular kind of CRDTs, so-called _State-based CRDTs_, as data types that:
 
 1. have a join-semilattice
 2. only support _monotonic_ operations
@@ -374,7 +374,7 @@ For G-Sets, that'd be deleting elements, and for G-Counters decreasing values.
 I've spent four episodes and well above 7000 words to explain liek two different CRDTs.
 (You know how it goes: one day you wonder how ~~babby~~ algebra is formed, and then you accidentally a blog.)
 But fear not, for now we have all the tools we need to proceed to more complex CRDTs.
-In the next episode, we're going to look at how to deal with deletion.
+In the [next episode](05-tombstones), we're going to look at how to deal with deletion.
 Spoiler: prepare for tombstones 👻
 
 ## References

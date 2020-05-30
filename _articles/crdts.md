@@ -1,6 +1,6 @@
 ---
 title: "CRDTs"
-long_title: An introduction to Conflict-Free Replicated Datatypes
+long_title: An introduction to Conflict-Free Replicated Data Types
 pub_date: 2020-12-31
 lang: en
 hero:
@@ -9,7 +9,7 @@ hero:
   credits: "Kevin Hamm, CC-BY-SA 2.0"
 ---
 
-I'm writing a series of posts on Conflict-Free Replicated Datatypes.
+I'm writing a series of posts on Conflict-Free Replicated Data Types.
 The series is still a work in progress, but I'll post new episodes as I'm finishing them.
 Here's the list of all posts that I've published so far:
 

@@ -85,12 +85,16 @@ checkAll(contracts.lattice(lattices.set, intSetGen));
 
 This follows the exact same pattern as the partial ordering contract we saw in the previous part.
 
+{% include float_picture.html src="topics/crdt/semilettuce.jpg" text="A semi-lettuce" %}
+
 At this point I have to tell you that I lied to you again.
 The structure that's defined above is actually not a lattice, but only a semilattice; more precisely, a _join-semilattice_.
 The reason is that a lattice also needs another operation: _meet_, the opposite of _join_.
 For sets, that would be intersection.
 But this is not relevant for now.
-I'll just keep on writing lattice.
+I'll just keep on writing _lattice_.
+
+<br style="clear: both;">
 
 ## There ...
 
@@ -122,15 +126,14 @@ Assume we have a partial ordering ≤ for a set of values _a_, _b_, ...
 Let's call that set _M_.
 If we additionally know that for each pair of values in _M_, there is a _least upper bound_[^footnote-lub] that's also in _M_, then we can construct a semilattice.
 The least upper bound of _a_ and _b_ is defined to be a value _c_ where _a_ ≤ _b_ and _a_ ≤ _c_ (so much is obvious, since it's an _upper_ bound) and there's no other element _d_ that's closer to _a_ and _b_ than _c_.
-Formally: _c_ is least upper bound if
+Formally: _c_ is least upper bound of _a_ and _b_ if
 
 1. _c_ is in _M_, and
 2. _a_ ≤ _c_, and
 3. _b_ ≤ _c_, and
-4. for all _d_ in _M_, either:
-   * _c_ ≤ _d_, or
-   * _d_ ≤ _a_, or
-   * _d_ ≤ _b_
+4. for all _d_ in _M_:
+   * if _a_ ≤ _d_ and _b_ ≤ _d_ (“_d_ is another candidate for an upper bound”),
+   * then _c_ ≤ _d_ (“_c_ is a better upper bound than _d_”)
 
 Let's make this concrete.
 Consider the natural numbers 0, 1, 2, ...
@@ -144,7 +147,7 @@ When joining two values, you'll get exactly the smallest possible value that's j
 We can also apply that to sets.
 It wouldn't make sense if the set union would just add extra elements, right?
 
-Now we have constructed a semilattice from a partial ordering.
+Now we have constructed a lattice from a partial ordering.
 
 ## ... and back again
 
@@ -286,6 +289,7 @@ But it requires a lot more prose, so it's reserved for the [next episode](04-com
 ## References
 
 * Pie by Danil Aksenov on [Unsplash](https://unsplash.com/photos/bkXzABDt08Q)
+* Lettuce by Shutterbug75 on [Pixabay](https://pixabay.com/photos/lettuce-food-fresh-green-healthy-1239155/)
 
 [^footnote-monkey]: If you don't like this monkey business, then tough luck.
 [^footnote-lub]: Scala programmers talk about least upper bounds all the time. That's why their favourite music genre is lubstep.
