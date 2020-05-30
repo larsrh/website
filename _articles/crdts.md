@@ -18,5 +18,6 @@ Here's the list of all posts that I've published so far:
 3. [Lattices](/topics/crdt/03-lattices)
 4. [Combinators](/topics/crdt/04-combinators)
 5. [Tombstones](/topics/crdt/05-tombstones)
+   1. Side note on [Abstract Data Types](/topics/crdt/05a-adt)
 
 {% include topics/crdt/ack.html %}
