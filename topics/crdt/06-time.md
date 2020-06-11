@@ -67,7 +67,7 @@ In fact, the third rule is transitivity, and the entire thing defines → to be 
 Note though that there is a small difference in the way Lamport defines this and the way I defined this in [in an earlier episode](02-contracts):
 → is not reflexive, so it would be more accurate to compare → to < on numbers (instead of ≤).
 
-The second import consequence of this insight is that if two events are concurrent, then they cannot causally affect each other.
+The second important consequence of this insight is that if two events are concurrent, then they cannot causally affect each other.
 If you reconsider Alice's and Bob's event log, that means that Steps 3 and 4 are independent by construction.
 It even turns out that according to this model, it doesn't really matter whether the network connection gets lost or not; all that matters is whether or not they (successfully) exchange messages.
 
@@ -149,7 +149,7 @@ This deserves some further explanation.
 Our basic assumption here is that we have a distributed network of nodes.
 Each node stores the same CRDT, but may be at a different state.
 At some point, Alice knows that the set contains the elements {1, 2} and Bob knows that the set contains {2, 3}.
-Whenver they feel like it (or when they have carrier pigeons available), they can send their state to each other.
+Whenever they feel like it (or when they have carrier pigeons available), they can send their state to each other.
 
 For example, Alice tells Bob that her set has the elements {1, 2}, which will cause Bob to update his set to {1, 2, 3}.
 Bob may do the same in reverse.
