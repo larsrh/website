@@ -31,12 +31,6 @@ layout: default
         Published on
       {% endif %}
       {{ page.pub_date }}.
-      {% if page.lang == "de" %}
-        Zuletzt geändert am
-      {% else %}
-        Last updated on
-      {% endif %}
-      <a href="https://github.com/larsrh/website/commit/{{ page.git.last_commit.long_sha }}">{{ page.git.last_commit.commit_date | date: "%Y-%m-%d" }}</a>.
     {% endif %}
 
     {% if page.hero %}
