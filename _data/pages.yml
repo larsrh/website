@@ -21,7 +21,7 @@
 - id: articles
   name: Articles
   nav_theme: navbar-dark bg-dark
-  long_title: "Writing, Articles, et cetera"
+  long_title: "The Hupel tuple"
 - id: about
   name: About
   nav_theme: navbar-dark bg-secondary
