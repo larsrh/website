@@ -203,15 +203,15 @@ mmap
 ```
 
 This map is generic in that it works for any partial ordering and prevents non-monotonic updates.
-Consequently, it doesn't even offer a `delete` operations.
+Consequently, it doesn't even offer a `delete` operation.
 We could also implement a `merge` operation directly on `MonotonicMap`, but we need to take care to somehow handle merging two maps that have different orderings attached (this is difficult in many programming languages, including JavaScript; see [here for a possible approach in Scala](https://typelevel.org/blog/2016/11/17/heaps.html)).
-In the end, this will greatly depend on your domain and how far you are willing to go for robustness, i.e., ruling out nonsenical operations.
+In the end, this will greatly depend on your domain and how far you are willing to go for robustness, i.e., ruling out nonsensical operations.
 
 ## Encapsulating state
 
 Arguably, the `MonotonicMap` implementation is still not quite useful for application developers.
 But we can use it as a foundation to implement e.g. a 2P-Set, whose `delete(key)` method performs a `set(key, true)` on the underlying map.
-That way, you could provide an interface that makes sense from a _domain_ point of view that delegates to an implemenation that makes sense from an _algebraic_ point of view.
+That way, you could provide an interface that makes sense from a _domain_ point of view that delegates to an implementation that makes sense from an _algebraic_ point of view.
 Luckily, we don't have to invent this programming pattern, since it has already been described in the 1970s as _Abstract Data Types_.
 We could for example describe the contract of a 2P-Set as follows:
 

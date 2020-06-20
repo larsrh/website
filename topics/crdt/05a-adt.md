@@ -93,7 +93,7 @@ const withXAgain = withoutX.update("x", twoPSet.add);
 Without writing any domain-specific code, the `update` method figured out that we can't readd a removed element and complained.
 
 Note that the operations only apply to one key at a time.
-This means that, for a given `Map` with key type `K` and value type `V` is `V? => V` (where `V?` means `V` or `undefined`).
+This means that, for a given `Map` with key type `K` and value type `V`, the type for the state update is `V? => V` (where `V?` means `V` or `undefined`).
 
 There are two further possibilites to extend this notion.
 Firstly, we could allow the state update function to throw an error.

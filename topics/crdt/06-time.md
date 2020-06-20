@@ -153,8 +153,9 @@ Whenever they feel like it (or when they have carrier pigeons available), they c
 
 For example, Alice tells Bob that her set has the elements {1, 2}, which will cause Bob to update his set to {1, 2, 3}.
 Bob may do the same in reverse.
-_Payload_ refers to the actual contents of the CRDT, here: the set containing elements.
+_Payload_ refers to the internal state of the CRDT, here: the set containing elements.
 This is the data that is exchanged between nodes.
+For a 2P-Set, that would be two sets (or a map, according to the generic representation).
 
 _Convergence_ now means that if Alice and Bob keep sending each other updates, and these updates will be delivered at some point, that they end up at the same state.
 It may take a while, but it only takes finitely many carrier pigeons to converge.
