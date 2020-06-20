@@ -27,7 +27,7 @@ Later, when merging, we don't know if 1 has been deleted or was never there to b
 6. Internet connection is restored.
 
 Is the result {1, 2, 3} or {2, 3}?
-The naive implementation says the former, because it'll just take the union of both sets.
+The naive implementation says the former because it'll just take the union of both sets.
 The way to avoid this is by using _tombstones._
 
 {% include float_picture.html src="topics/crdt/marx_and_engels.jpg" text="A spectre is haunting Europe—the spectre of commutativity" %}
@@ -46,7 +46,7 @@ What will the programming interface be like?
 
 Let's start with the most basic example, the Two-Phase-Set (or 2P-Set).
 The intended semantics is _remove bans_, i.e., a value that has been removed is banned from ever being added again.
-This is why it's called “Two Phase”: a value travels through the two phases of _being_ member of the set and _having been_ member of the set.
+This is why it's called “Two Phase”: a value travels through the two phases of _being_ a member of the set and _having been_ a member of the set.
 Applied to the above transaction between Alice and Bob, the result would've been {2, 3}, because Alice' deletion takes priority over Bob's addition.
 Note that time does not play a role here; even if steps 4 and 5 were swapped, the result would still be {2, 3}.
 
@@ -91,7 +91,7 @@ This is why it is sometimes called the _tombstone_ set.
 
 ## 2P-Sets are also Maps
 
-In the last part, I've told you that G-Sets are special cases of maps.
+In the last episode, I've told you that G-Sets are special cases of maps.
 Notably, maps where the value type is a lattice, and where update operations need to be monotonic.
 
 Turns out, this can also be used to model 2P-Sets.
@@ -124,14 +124,14 @@ In exactly the same way as before!
 Alice and Bob compare their two maps.
 If either of them has any key that's lacking in the other's map, it just gets added unchanged (we don't have that in our example scenario).
 If they have a common key but disagree on its value, they have to merge the value.
-This is where thing get important: _`true` has priority over `false`_.
+This is where things get important: _`true` has priority over `false`_.
 In other words: _the partial ordering for boolean is defined in a way that `false` ≤ `true`_ (as you would expect in JavaScript).
 
 {% include float_picture.html src="topics/crdt/payoff.jpg" text="Abstracting would pay off? Unbelievable!" %}
 
 This also implies that when updating the map, it is only allowed to transition a `false` to a `true` (as you would expect from the semantics of a 2P-Set).
 This guarantees that an element of the 2P-Set can never come back from the dead.
-Adding a new key is always allowed, although the concrete implementation would probably want to make sure that you can't directly add a `true` element, since that would be kinda pointless (not harmful though, just pointless: why would you want to delete an element that has never existed?).
+Adding a new key is always allowed, although the concrete implementation would probably want to make sure that you can't directly add a `true` element since that would be kinda pointless (not harmful though, just pointless: why would you want to delete an element that has never existed?).
 
 But the key takeaway is that even deletion fits neatly into our lattice-partial-ordering framework.
 That's a relief, right?
@@ -145,7 +145,7 @@ We've now learned that we can get the following CRDTs “for free”:
 * G-Counter
 * 2P-Set
 
-In case you were wondering at what point I'm going to show the code, the answer is “not in this episode, because there's no new code to show”.
+In case you were wondering at what point I'm going to show the code, the answer is “not in this episode because there's no new code to show”.
 All the pieces have been implemented already, and all the contracts have been checked.
 
 And yet.
@@ -164,7 +164,7 @@ This is fine when using any old `Map`.
 But we're not dealing with any old maps, we're superimposing the lattice semantics on them.
 Trying to merge maps that have been updated non-monotonically breaks our entire construction, and what's worse, we wouldn't even notice!
 
-Instead, we'll have to wrap maps somehow in order to enforce monotonic updates.
+Instead, we'll have to wrap maps somehow to enforce monotonic updates.
 In JavaScript, we can make a design decision whether to create a new class or to create a `Proxy` that intercepts calls to an underlying map (so that we can use the map as a regular `Map`).
 For demo purposes, I'll sketch the first option below.
 
@@ -213,7 +213,7 @@ Arguably, the `MonotonicMap` implementation is still not quite useful for applic
 But we can use it as a foundation to implement e.g. a 2P-Set, whose `delete(key)` method performs a `set(key, true)` on the underlying map.
 That way, you could provide an interface that makes sense from a _domain_ point of view that delegates to an implementation that makes sense from an _algebraic_ point of view.
 Luckily, we don't have to invent this programming pattern, since it has already been described in the 1970s as _Abstract Data Types_.
-We could for example describe the contract of a 2P-Set as follows:
+We could, for example, describe the contract of a 2P-Set as follows:
 
 Initial State
 : _A_ = {}, _R_ = {}

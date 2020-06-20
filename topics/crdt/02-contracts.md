@@ -30,7 +30,7 @@ In other words, any operation must make the data structure "larger".
 In this post, we'll look at what that notion means.
 
 By the way, there are CRDT sets that allow deletion of elements.
-But they need to capture extra metadata, e.g. when the deletion happened, in order to make sense of conflicting operations.
+But they need to capture extra metadata, e.g. when the deletion happened, to make sense of conflicting operations.
 
 ## Order! Orderrrr!
 
@@ -51,7 +51,7 @@ JavaScript often doesn't help us a lot:
 ]
 ```
 
-Ideally those two things should be "incomparable".
+Ideally, those two things should be "incomparable".
 But JavaScript with its type coercions will always try to give an answer.
 
 ## Comparing things
@@ -81,7 +81,7 @@ After getting this business done, let's talk about algebras.
 ## Algebraic abstractions
 
 We somehow need to provide a `<=` operator to work on e.g. sets.
-JavaScript doesn't allow operator overloading, so instead I'm defining my own protocol how this should work.
+JavaScript doesn't allow operator overloading, so instead, I'm defining my own protocol how this should work.
 The idea is similar to the [`Comparator`](https://www.baeldung.com/java-comparator-comparable) interface in Java:
 we have an object that has just a single method `compare` that takes two arguments and returns the correct order.
 
@@ -141,7 +141,7 @@ The "partial" part comes from the fact that the comparator may fail to produce a
 
 Such a partial ordering needs to satisfy two laws:
 
-1. any value must be equal to itself (_reflexitivity_)
+1. any value must be equal to itself (_reflexivity_)
 2. if you have three values _x_, _y_, and _z_, and you know that _x_ ≤ _y_ and _y_ ≤ _z_, then _x_ ≤ _z_ (_transitivity_)
 
 This math-speak can be translated into a contract as follows:
@@ -152,18 +152,18 @@ This math-speak can be translated into a contract as follows:
 
 What's going on there?
 We define a function that should return a contract for a given instance (the partial ordering) and a generator for values (the values that can be compared).
-Also, in order to keep things neat and tidy, I've put them into some objects.
+Also, to keep things neat and tidy, I've put them into some objects.
 
 Let's look at the definition of this contract in detail.
 
 * The contract comprises two properties in total.
-  These properties correspond to the laws we've seen above (reflexitivity, transitivity).
+  These properties correspond to the laws we've seen above (reflexivity, transitivity).
   Each property is defined using fast-check and the generator that's passed into the contract.
-* Reflexitivity is defined in a way that comparing `x` to itself must always return `true`.
+* Reflexivity is defined in a way that comparing `x` to itself must always return `true`.
   This is asserted using Chai's `ok` assertion.
 * Transitivity is a little more complicated.
   Recall the verbal definition from above: we have three values and two preconditions.
-  So, first of all we tell fast-check that we want to invoke the generator three times.
+  So, first of all, we tell fast-check that we want to invoke the generator three times.
   Inside the property, we can use `fc.pre` to check the preconditions.
   If any of the preconditions is false, fast-check aborts the current run and re-generates new inputs.
   Only then we check that _x_ ≤ _z_ according to the partial ordering.
@@ -199,7 +199,7 @@ assert.ok(deepEqual(new Set([1, 2]), new Set([1, 2])));
 ```
 
 A partial ordering is a prototypical example of an _algebra_:
-an abstract structure that deal with a set of values (e.g. strings), operations on those values (e.g. ≤), and their relationships (e.g. transitivity).
+an abstract structure that deals with a set of values (e.g. strings), operations on those values (e.g. ≤), and their relationships (e.g. transitivity).
 
 ## Types and generators
 
@@ -237,7 +237,7 @@ If there are too many, it'll abort.
 
 ## (Im)partiality
 
-{% include float_picture.html src="topics/crdt/hasse.svg" text="Hasse diagram of powerset of 3" %}
+{% include float_picture.html src="topics/crdt/hasse.svg" text="Hasse diagram of the powerset of {x, y, z}" %}
 
 So far we've only seen some orderings for types of values that can always be compared.
 Let's look at sets next, where the `compare` operation may be partial.
@@ -246,7 +246,7 @@ This is shown in the diagram: an arrow from set _S_ to _T_ means _S_ is a subset
 Of course, any set is also a subset of itself.
 
 We can formally define the subset relationship as follows: _S_ is a subset of _T_ if all elements of _S_ are contained in _T_.
-This is quite possible to write in JavaScript, and for that we'll use the built-in `Set` type of JavaScript.
+This is quite possible to write in JavaScript, and for that, we'll use the built-in `Set` type of JavaScript.
 Unfortunately, it has no `isSubsetOf` method, so we'll just monkey-patch it (yolo):
 
 ```

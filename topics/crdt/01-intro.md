@@ -58,9 +58,9 @@ There are at least two sides to understanding CRDTs deeply.
 In this series, I want to focus on the second aspect and explain everything that's needed in a bottom-up fashion using interactive notebooks, diagrams and code notation that's familiar with a large amount of programmers: JavaScript.
 I'll be employing a few libraries for testing code and visualizing data, but otherwise, there are no further dependencies.
 The research papers that describe them often assume a great deal of background knowledge in abstract algebra.
-I'll try to introduce just the necessary knowledge in a gentle fashion.
+I'll try to introduce just the necessary knowledge gently.
 
-If however you want to learn more about their use, this series is not for you.
+If however, you want to learn more about their use, this series is not for you.
 But fear not: there are tons of resources to check out, e.g. [crdt.tech](https://crdt.tech/).
 There's no tracking on this page so I won't even notice if you're gone 🤷
 

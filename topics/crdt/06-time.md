@@ -35,7 +35,7 @@ In the introduction, Lamport writes:
 > However, we will see that this concept must be carefully reexamined when considering events in a distributed system.
 
 The analogy Lamport uses are clocks.
-When ordering events, us humans look at the time that these events happened – using a wristwatch or some other clock – and then compare the time.
+When ordering events, we humans look at the time that these events happened – using a wristwatch or some other clock – and then compare the time.
 For example, an event that happened on 1970-01-01 00:00:00 UTC is said to have happened _before_ another event that happened on 2038-01-19 03:14:08 UTC, because 1970-01-01 00:00:00 UTC < 2038-01-19 03:14:08 UTC.
 Timezone shenanigans aside, this is very convenient for human life because we can _always_ tell the ordering of two events.
 
@@ -46,7 +46,7 @@ Lamport defines such a system as “a collection of distinct processes which are
 We generally assume that exchanging messages takes time, for example by sending them over a network cable.
 
 The key insight (if you take away only one thing, it should be this):
-_In a distributed system, events occuring across processes can only be ordered through messages._
+_In a distributed system, events occurring across processes can only be ordered through messages._
 What does that mean?
 If process _A_ performs some action, and process _B_ performs some action, they know nothing about their respective orders.
 _Only_ if process _A_ sends a message _M_ to process _B_, then we know that _sending_ the message must have happened before _receiving_ that message.
@@ -64,7 +64,7 @@ Lamport proceeds to define this relation which he calls → (read: “happened b
 
 This should sound oddly familiar to you, my dear reader.
 In fact, the third rule is transitivity, and the entire thing defines → to be a partial ordering.
-Note though that there is a small difference in the way Lamport defines this and the way I defined this in [in an earlier episode](02-contracts):
+Note though that there is a small difference in the way Lamport defines this and the way I defined this in [an earlier episode](02-contracts):
 → is not reflexive, so it would be more accurate to compare → to < on numbers (instead of ≤).
 
 The second important consequence of this insight is that if two events are concurrent, then they cannot causally affect each other.
@@ -77,7 +77,7 @@ To make this concrete, consider the following example of a distributed system wi
   <img src="/img/topics/crdt/lamport-clock.svg" class="img-fluid" alt="see text below for a description">
 </div>
 
-Let's unpack this, since there's a lot going on there.
+Let's unpack this since there's a lot going on there.
 
 We have three nodes, called _A_, _B_, and _C_.
 Each event in this diagram has a number assigned to it in a little box, which we can ignore for now.
@@ -157,7 +157,7 @@ _Payload_ refers to the internal state of the CRDT, here: the set containing ele
 This is the data that is exchanged between nodes.
 For a 2P-Set, that would be two sets (or a map, according to the generic representation).
 
-_Convergence_ now means that if Alice and Bob keep sending each other updates, and these updates will be delivered at some point, that they end up at the same state.
+_Convergence_ now means that if Alice and Bob keep sending each other updates, and these updates will be delivered at some point, they end up at the same state.
 It may take a while, but it only takes finitely many carrier pigeons to converge.
 
 If you're happy with what you've read so far and are not overly interested in abstract symbols, then you can call it a day; there's not much more happening in this episode.
@@ -174,7 +174,7 @@ Now we can define the causal history _CH_ as a set of operations (quoted from th
 2. after executing _f_, _CH_(_f_(_x_<sub>_i_</sub>)) = _CH_(_x_<sub>_i_</sub>) ∪ {f}
 3. after joining, _CH_(`join`(_x_<sub>_i_</sub>, _x_<sub>_j_</sub>)) = _CH_(_x_<sub>_i_</sub>) ∪ _CH_(_x_<sub>_j_</sub>)
 
-This history essentially provides a trace of operations that have occured on a replica.
+This history essentially provides a trace of operations that have occurred on a replica.
 Note that the history is unordered, and operations are unique (in other words, if two replicas apply the “same” state update, that results in two distinct operations).
 Some authors prefer an ordered list, but for defining convergence, this one seems more convenient to me.
 
@@ -196,7 +196,7 @@ Let's look at another diagram.
 This is the same scenario as above, where Alice adds 2 to her set and Bob adds 3 to his.
 Before they exchange messages, the causal history of Alice is {_add_(2)}.
 For Bob, it is {_add_(3)}.
-This means that both events are concurrent, since neither history is a subset of the other.
+This means that both events are concurrent since neither history is a subset of the other.
 When Alice sends her set to Bob, his causal history is now {_add_(2), _add_(3)}.
 We also know that both _add_(3) and _add_(2) have logically happened before the join, because both are subsets of Bob's causal history at this point.
 
@@ -216,7 +216,7 @@ Let's conclude by revisiting Proposition 2.1:
 
 > Any two object replicas of a CvRDT eventually converge, assuming the system transmits payload infinitely often between pairs of replicas over eventually-reliable point-to-point channels.
 
-The reason why this holds is because we've set up the `join` operation and the monotonic updates accordingly.
+The reason why this holds is that we've set up the `join` operation and the monotonic updates accordingly.
 The `join` of two objects is always defined; this guarantees liveness.
 Safety is ensured because `join` is also commutative.
 

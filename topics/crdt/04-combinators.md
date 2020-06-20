@@ -30,7 +30,7 @@ Why?
 Because the goal of the game -- building a rocket -- simply can't be achieved by doing everything manually.
 You'll need automation to scale up mining and production.
 
-In order to reach this goal, Factorio offers various _meta-tools_.
+To reach this goal, Factorio offers various _meta-tools_.
 For example, you can build a factory (the game calls them _assembling machines_) that takes in ingredients and produces whatever the _recipe_ says.
 While in principle, a player can also execute that recipe, this quickly becomes unwieldy.
 Instead, you'd manufacture a bunch of assembling machines manually that then do the manufacturing for you.
@@ -54,7 +54,7 @@ Cool, huh?
 In this example, `fc.array` is a combinator, because it transforms a generator for elements into a generator for arrays of those elements.
 How it does that is entirely irrelevant; what matters is that it provides us with a nice and clean abstraction boundary.
 
-Of course it is possible to nest this:
+Of course, it is possible to nest this:
 
 ```
 sample(
@@ -64,7 +64,7 @@ sample(
 
 This is similar in Factorio.
 You can set up a factory that takes in some base resources and produces some kind of product.
-Naturally, a factory itself can also be produced by another factory, since it itself is just made out of some base resources.
+Naturally, a factory itself can also be produced by another factory, since it is just made out of some base resources.
 A factory doesn't really care what it's producing, as long as it's got the recipe and sufficiently many resources.
 And it's guaranteed that the output will always be of the specified type.
 No exceptions (pun intended)!
@@ -74,7 +74,7 @@ This would be comparable to an out-of-memory-error in programming.
 ## About abstractions
 
 But not all abstractions are created equal.
-There's much talk in programming about abstractions that are leaky, or ill-defined, or introduce performance penalties, or ...
+There's much talk in programming about abstractions that are leaky, ill-defined, introduce performance penalties, or ...
 This is not what I'm going to talk about here.
 You may have guessed it:
 We'll focus on _mathematical_ abstractions.
@@ -98,7 +98,7 @@ To increment the counter, a participant increases their own integer.
 Merging happens by looking at two maps and taking the maximum for each key.
 
 The data structure involved here is, in TypeScript notation, a `Map<string, number>`.
-This is a _concrete_ type, because we know all involved types: `Map`, `string` and `number`.
+This is a _concrete_ type because we know all involved types: `Map`, `string` and `number`.
 
 Let's try to implement the lattice for this concrete type first, and then think about generalizing it.
 The following snippet will do three things:
@@ -156,12 +156,12 @@ Here's the exhaustive list of operations we perform on the keys and values:
 That's it.
 That's the entire story.
 
-In order to compute the `join` of two maps, we merely need to know how to compute the `join` of the values.
+To compute the `join` of two maps, we merely need to know how to compute the `join` of the values.
 We only look at the keys for checking if they're present in both maps, but otherwise, we have to know nothing.
 
 Taken further, this means that the concrete types in the map serve no purpose.
 They are entirely useless.
-We only need a tiny bit of structure on the values (namely, their lattice) in order to build the lattice for the whole map.
+We only need a tiny bit of structure on the values (namely, their lattice) to build the lattice for the whole map.
 
 This has a ton of advantages.
 Unfortunately, they're invisible in JavaScript.
@@ -207,7 +207,7 @@ checkAll(
 
 Nothing in our definitions above is specific to any concrete type.
 We can reuse this code for other purposes and types.
-I have one more mind-blowing concrete example for this, but before we go into that, let's revisit those G-Counters from last episode.
+I have one more mind-blowing concrete example for this, but before we go into that, let's revisit those G-Counters from the last episode.
 
 ## Grow-only counters revisited
 
@@ -219,7 +219,7 @@ In their 2011 paper, [Shapiro et al.](https://hal.inria.fr/inria-00555588/) defi
 1. have a join-semilattice
 2. only support _monotonic_ operations
 
-We've already seen both components in isolation, and G-Counter show their interaction.
+We've already seen both components in isolation, and G-Counter shows their interaction.
 
 Let's first see the lattice.
 It can be constructed as follows:
@@ -293,7 +293,7 @@ lattices.void = {
 const alternativeSetLattice = lattices.map(lattices.void);
 ```
 
-This weird `lattices.void` instance is what the mathematicians call _trivial_, because it only deals with exactly one value: `undefined`.
+This weird `lattices.void` instance is what the mathematicians call _trivial_ because it only deals with exactly one value: `undefined`.
 You can only call `join` on `undefined` and the result is `undefined` again.
 But that's exactly what we want here.
 
@@ -332,7 +332,7 @@ checkAll(
 ```
 
 It works in exactly the way as the partial ordering for sets.
-In order for one map to be smaller than another map, the other map needs to have at least the same keys defined.
+For one map to be smaller than another map, the other map needs to have at least the same keys defined.
 Then, for each value, we need to check that the other map's value is larger or equal.
 Feel free to try it out on some examples!
 
@@ -361,7 +361,7 @@ In order to make our alternative algebras work with actual JavaScript `Set`s, we
 But clever CRDT implementations may instead go ahead and define both G-Sets and G-Counters based on the very same map data structure.
 Poof, lots of code duplication gone!
 
-However note that they'd probably not expose their underlying maps, because they need to prevent those pesky users from perfoming non-monotonic operations.
+However note that they'd probably not expose their underlying maps, because they need to prevent those pesky users from performing non-monotonic operations.
 For G-Sets, that'd be deleting elements, and for G-Counters decreasing values.
 
 ## What's next?

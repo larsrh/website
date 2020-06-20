@@ -32,7 +32,7 @@ The answer is _lattices_.
 
 <br style="clear: both;">
 
-{% include float_picture.html src="topics/crdt/hasse.svg" text="Hasse diagram of powerset of 3" %}
+{% include float_picture.html src="topics/crdt/hasse.svg" text="Hasse diagram of the powerset of {x, y, z}" %}
 
 ## Lattices? Lattices.
 
@@ -64,7 +64,7 @@ Let's go through the laws that a lattice has to satisfy one by one.
   This is not something that numbers typically do.
   Unless you consider taking the maximum of two numbers.
 
-In order to implement this operation for sets, once again we'll need to monkey patch (yolo) the set union operation.
+To implement this operation for sets, once again we'll need to monkey patch (yolo) the set union operation.
 I'm also starting to get annoyed by the verbose `Set` constructor, so I'll define my own, concise version.
 
 ```
@@ -87,7 +87,7 @@ This follows the exact same pattern as the partial ordering contract we saw in t
 
 {% include float_picture.html src="topics/crdt/semilettuce.jpg" text="A semi-lettuce" %}
 
-At this point I have to tell you that I lied to you again.
+At this point, I have to tell you that I lied to you again.
 The structure that's defined above is actually not a lattice, but only a semilattice; more precisely, a _join-semilattice_.
 The reason is that a lattice also needs another operation: _meet_, the opposite of _join_.
 For sets, that would be intersection.
@@ -107,16 +107,16 @@ _But wait_, you might say, _this subset diagram is exactly the same as in the pr
 And you'd be right.
 So what is the connection between lattices and partial orderings?
 
-Intuitively speaking, when we have two values and join them together, we should obtain something that is greater-than-or-equal-to the original values.
+Intuitively speaking, when we have two values and join them together, we should obtain something greater-than-or-equal-to the original values.
 And that's precisely the trick.
 We can define what less-than-or-equal-to means based just on the join operation!
 
-This is a pattern that is applied throught algebra.
-We have two seemingly different abstract structures and can then define one in the terms of the other.
+This is a pattern that is applied throughout algebra.
+We have two seemingly different abstract structures and can then define one in terms of the other.
 
 You may already know an example of this: subtraction.
 We can describe _x_ - _y_ equivalently as _x_ + (- _y_).
-It turns out that mathematicians prefer the latter representation, because it makes talking about the properties of - and + easier.
+It turns out that mathematicians prefer the latter representation because it makes talking about the properties of - and + easier.
 But both representations can be transformed into one another.
 
 What we have seen above is one possible definition of a semilattice.
@@ -125,7 +125,7 @@ Here's another one.
 Assume we have a partial ordering ≤ for a set of values _a_, _b_, ...
 Let's call that set _M_.
 If we additionally know that for each pair of values in _M_, there is a _least upper bound_[^footnote-lub] that's also in _M_, then we can construct a semilattice.
-The least upper bound of _a_ and _b_ is defined to be a value _c_ where _a_ ≤ _b_ and _a_ ≤ _c_ (so much is obvious, since it's an _upper_ bound) and there's no other element _d_ that's closer to _a_ and _b_ than _c_.
+The least upper bound of _a_ and _b_ is defined to be a value _c_ where _a_ ≤ _b_ and _a_ ≤ _c_ (so much is obvious since it's an _upper_ bound) and there's no other element _d_ that's closer to _a_ and _b_ than _c_.
 Formally: _c_ is least upper bound of _a_ and _b_ if
 
 1. _c_ is in _M_, and
@@ -139,7 +139,7 @@ Let's make this concrete.
 Consider the natural numbers 0, 1, 2, ...
 We pick _a_ = 2 and _b_ = 3.
 Naturally, _c_ = 5 would be an upper bound of both 2 and 3, since clearly 2 ≤ 5 and 3 ≤ 5.
-But unfortunately there's another number that's closer: 3.
+But unfortunately, there's another number that's closer: 3.
 So, _c_ = 5 violates the last constraint.
 
 The magic of this definition is that the join operation falls out of it: it is the least upper bound.
@@ -152,7 +152,7 @@ Now we have constructed a lattice from a partial ordering.
 ## ... and back again
 
 But can we also go back?
-Yes we can!
+Yes, we can!
 Any lattice can also be used to define a partial ordering.
 Buy a lattice, get a partial ordering for free!
 
@@ -161,7 +161,7 @@ Again, consider two values _a_ and _b_.
 Let's also assume that _a_ ≤ _b_.
 What is the join of these two elements?
 As an example, take the sets _a_ = {1, 2} and _b_ = {1, 2, 3}.
-The answer is that the union of _a_ and _b_ is _b_ itself, because _a_ is already included in _b_.
+The answer is that the union of _a_ and _b_ is _b_ itself because _a_ is already included in _b_.
 
 Turns out, this also holds in general.
 We can define that _a_ ≤ _b_ holds precisely when _a_ ∨ _b_ = _b_.
@@ -271,9 +271,9 @@ When merging a foreign map, we can check for keys that are only present in the o
 
 We now know how to track a _grow-only counter_ across different machines.
 This is one of the most basic, but also most useful CRDTs.
-A possible use case is tracking outgoing or incoming network traffic in a data center, where each server would keep track of its own traffic and any server can be asked for the total.
+A possible use case is tracking outgoing or incoming network traffic in a data centre, where each server would keep track of its own traffic and any server can be asked for the total.
 
-However, I haven't showed you yet how to actually implement the lattice and ordering operations for this data structure.
+However, I haven't shown you yet how to actually implement the lattice and ordering operations for this data structure.
 I promise to show you in the [next episode](04-combinators).
 But I can already tell you that I lied to you again:
 the CRDT literature actually models G-Counters differently, by storing an array of values instead of a map of values.
