@@ -1,7 +1,7 @@
 ---
 title: "CRDTs: Part 7"
 subtitle: "Part 7: Registers and Deletion"
-progress: 40
+progress: 90
 toc: false
 prev: 06-time
 ---
@@ -148,19 +148,177 @@ Let me explain, using a concrete scenario:
 4. Bob adds 1 to the set.
 
 In 2P-Set semantics, Bob's action would be discarded.
-Let's assume that the steps are also the timestamps and check out what our Map+LWW-Register composition would be doing here:
+Let's assume that the steps are also the timestamps and check out what our Map+LWW-Register composition would be doing here.
+A quick note on the notation: I still use the arrow (→) syntax to denote entries of a map.
+But the values are now LWW-Registers that I express as a pair of (_value_, _time_).
+For example, Alice and Bob's start state is {2 → (`false`, 1)}, which can be constructed in JavaScript as follows:
+
+```
+const initial = new Map();
+initial.set(2, new LWWRegister(false, new Date(1)));
+initial
+```
+
+Let's look at the table now.
 
 | Step | Actress | Action    | Alice                                   | Bob                                          |
 | ---- | ------- | --------- | --------------------------------------- | -------------------------------------------- |
-| 1    |         | (_start_) | {2 → (1, `false`)}                      | {2 → (1, `false`)}                           |
-| 2    | Alice   | add 1     | {1 → (2, `false`), 2 → (1, `false`)}    | {2 → (1, `false`)}                           |
-| 3    | Alice   | delete 1  | {1 → (3, `true`), 2 → (1, `false`)}     | {2 → (1, `false`)}                           |
-| 4    | Bob     | add 1     | {1 → (3, `true`), 2 → (1, `false`)}     | {1 → (4, `false`), 2 → (1, `false`)}         |
+| 1    |         | (_start_) | {2 → (`false`, 1)}                      | {2 → (`false`, 1)}                           |
+| 2    | Alice   | add 1     | {1 → (`false`, 2), 2 → (`false`, 1)}    | {2 → (`false`, 1)}                           |
+| 3    | Alice   | delete 1  | {1 → (`true`, 3), 2 → (`false`, 1)}     | {2 → (`false`, 1)}                           |
+| 4    | Bob     | add 1     | {1 → (`true`, 3), 2 → (`false`, 1)}     | {1 → (`false`, 4), 2 → (`false`, 1)}         |
+
+{% include float_picture.html src="topics/crdt/cranberries.jpg" text="Irish rock band 'The Cranberries', presumably singing about LWW-Registers" %}
 
 Because Bob's timestamp for `1` is higher (4 > 3), his addition wins.
+I personally believe that this semantics is much more useful than the semantics of a 2P-Set, because elements are allowed to come back from the dead 🧟.
+
+The above composition can – and should be! – wrapped in a dedicated map type that manages the timestamps.
+Keep in mind that it requires some amounts of configuration to ensure the preconditions, especially how to construct a global, monotonic “clock”.
+
+## Multiple Values
+
+We now know how a LWW-Register works.
+Its semantics is easily explained: literally the last write wins.
+This can be lifted into a map where addition and deletion are equal operations.
+
+But I promised you in the introduction that there is another possibility.
+The _Multi-Value Register_ (_MV-Register_) does not assume the presence of an ordered clock across all nodes.
+Instead, it relies on a _vector clock_.
+Initially, I wanted to introduce those in the [previous episode](06-time), but it was already too long.
+So, let's talk about it here.
+
+The basic principle of a vector clock is the same as for a Lamport clock.
+The clock does not measure real time; rather, it increments whenever an event occurs.
+Each node keeps it own clock.
+The difference now is that _each_ node keeps _each other node's_ clock, too (i.e., a “vector” of clocks).
+When a message is sent, the sending node increases only its own clock, but includes a copy of the entire vector in the message.
+On the other side when a message is received, the receiving node again increments its own clock, and for everyone else's clock, it takes the maximum of the own vector and the received vector.
+
+<div class="text-center">
+  <img src="/img/topics/crdt/vector-clock.svg" class="img-fluid" alt="see text below for a description">
+</div>
+
+In this diagram, we can again see three nodes _A_, _B_, and _C_ sending messages to each other.
+The first message from _C_ to _B_ causes _C_ to increase its own clock to 1.
+Similarly, when _B_ receives that first message, it updates its knowledge of _C_'s clock (1) and increases its own clock to 1.
+The second message is sent from _B_ to _A_.
+_B_ increases its own clock to 2, but keeps all other entries in the vector the same.
+It also propagates its knowledge of _C_'s clock to _A_, such that _A_ ends up with _A_ = 1, _B_ = 2, and _C_ = 1.
+
+The first nontrivial merge happens when _A_ receives its second message.
+At that point, _C_'s knowledge is _B_ = 3 and _C_ = 3, but _A_'s knowledge is _B_ = 2 and _C_ = 1.
+Consequently, _A_ updates its clocks to _A_ = 3, _B_ = 3, and _C_ = 3.
+
+If this sounds familiar to you, that's because it is.
+You've seen that exact kind of thing before in this series: I'm talking about G-Counters.
+In [episode #4](04-combinators), I've told you that they can be modeled as a set mapping replica names to the current value of the counter.
+The merge operation works by taking the maximum for each key–value pair in the map.
+Surely this means that we're onto something.
+
+But how can we use this to implement a register?
+The key idea is that we can use vector clocks to detect _write conflicts_.
+For this to work, we need all replicas to store a “database” of writes and the full state of the vector clock when the write happened.
+Why is this important?
+Let's consider another scenario.
+
+1. Alice and Bob both start with the register containing 1.
+2. Alice writes 2.
+3. Bob writes 3.
+
+The difficulty in resolving this conflict is that by just looking at this sequence of events, we don't actually know what the correct resolution would be!
+If Bob knows about Alice's write, then he probably made a conscious decision to set the value to 3 (maybe he incremented by 1).
+On the other hand, if he didn't know, then he may have made a mistake.
+Maybe he wanted to increment by 2 (3 = 1 + 2), so the correct write should've been 4.
+
+Using a vector clock, this situation can be detected easily.
+Whenever someone writes a value into the register, they also record the current state of their vector clock.
+In code:
+
+```
+class MVRegister {
+  constructor(value, ...times) {
+    this.value = value;
+    this.times = times;
+  }
+}
+```
+
+We could've equally well used a map for the times instead of an array.
+The precise details don't matter too much at this point.
+
+Now let's say Alice and Bob want to merge their MV-Registers.
+They first have to compare the timestamp, just like for a LWW-Register.
+But whereas in a LWW-Register, they just compare two numbers, here they have to compare an entire vector.
+There are three possible cases:
+
+1. Alice's vector clock is ≥ Bob's vector clock.
+   This comparison works exactly the same way as the partial ordering we've defined for maps, that is, that is, each entry in Alice's vector clock must be ≥ the corresponding entry in Bob's vector clock.
+   If this is true, then we know that Alice's causal history contains all the events of Bob's causal history.
+   In other words, Alice has complete knowledge of everything that Bob has seen so far, which means that Alice's state of the register wins.
+2. Conversely, if Bob's vector clock is ≥ Alice's vector clock, then Bob's state wins.
+3. If the two vector clocks are incomparable, then we have a concurrent write.
+
+Case #2 occurs in the above scenario when there is no connection loss between Alice's and Bob's write.
+Case #3 occurs when there is a connection loss right after the start.
+It means that both writes happened concurrently and we don't really know which one is “better” than the other.
+
+{% include float_picture.html src="topics/crdt/both.webp" text="Why don't we have both?" %}
+
+So what do we do?
+The name “Multi-Value Register” already gives it away.
+We keep both writes.
+In our scenario, the contents of the MV-Register would be (written in prose):
+
+* _value_ = 2 where
+  * Alice's clock = 1
+  * Bob's clock = 0
+* _value_ = 3 where
+  * Alice's clock = 0
+  * Bob's clock = 1
+
+The more participants in a network, the more different values this could contain.
+For example, Carol could appear for a sudden.
+Carol sends us a MV-Register that she'd created together with Dave:
+
+* _value_ = 4 where
+  * Carol's clock = 8
+  * Dave's clock = 9
+* _value_ = 0 where
+  * Carol's clock = 3
+  * Dave's clock = 11
+
+Neither value's vector clock is ≥ any other value's vector clock.
+Consequently, the MV-Register now simultaneously contains {0, 2, 3, 4}.
+In that sense, an MV-Register is really unlike any hardware register because it may contain an arbitrary set of values.
+
+You might be wondering how such a mess could ever be cleaned up?
+Well, future writes might do that.
+Let's say Alice, Bob, Carol and Dave come together and merge all their registers, arriving at the values {0, 2, 3, 4}.
+Now Alice comes along and writes the sum of all these values (9).
+At this point, her clock knowledge is Alice = 2, Bob = 1, Carol = 8, Dave = 11.
+She now can discard all other values, because:
+
+* her causal history includes everyone else's causal history, because
+* her vector clock is ≥ everyone else's vector clocks, because
+* all of them synced their values successfully and Alice was the last person to perform a write.
+
+Whenever Alice propagates her MV-Register to the others, they can also discard 0, 2, 3, and 4, because they are “subsumed” by Alice's write.
+They can safely assume that Alice has seen all those writes, somehow took them into account and computed the new value.
+
+## What's next?
+
+There's a ton more to tell about the use cases and “anomalies” (i.e. possibly unexpected behaviour) of LWW- and MV-Registers.
+But, given that this post is already way past 2500 words and I care only about the maths, I'm calling it a day now.
+
+We're nearing the end of this series on the foundations of CRDTs.
+So far, I've shown you the basic building blocks for CRDTs: lattices, partial orderings, monotonicity, clocks, and combinators.
+All that's left is to talk about for me are some practical matters and some pointers to further literature and ready-to-use libraries, and then I'll send you on your journey of building great distributed applications.
 
 ## References
 
 * Cabinet by Nuno Silva on [Unsplash](https://unsplash.com/photos/wmYP3jGL5wo)
 * Dramatic Chipmunk on [Giphy](https://giphy.com/gifs/meh-just-saying-captainsparklez-p8BOVqc17KVy0)
 * Dates by M. Dhifallah on [Wikimedia Commons](https://commons.wikimedia.org/w/index.php?title=File:Dattes_deglet_from_Biskra.jpg&oldid=424918943), CC-BY-SA 3.0
+* The Cranberries by Alterna2 on [Wikimedia Commons](https://commons.wikimedia.org/w/index.php?title=File:The_Cranberries_en_Barcelona_8.jpg&oldid=335325268), CC-BY 2.0
+* Vector Clock by Duesentrieb on [Wikimedia Commons](https://commons.wikimedia.org/w/index.php?title=File:Vector_Clock.svg&oldid=146144768), CC-BY-SA 3.0
