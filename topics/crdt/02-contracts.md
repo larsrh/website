@@ -1,7 +1,6 @@
 ---
 title: "CRDTs: Part 2"
 subtitle: "Part 2: Algebras & contracts"
-progress: 100
 prev: 01-intro
 next: 03-lattices
 ---

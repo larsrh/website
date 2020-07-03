@@ -1,7 +1,6 @@
 ---
 title: "CRDTs: Part 1"
 subtitle: "Part 1: Preliminaries"
-progress: 100
 toc: false
 next: 02-contracts
 ---
@@ -10,6 +9,18 @@ Dear reader!
 If you're reading this, that's most likely because you've pointed your browser to my website and/or followed a link to this page.
 Maybe you're even reading this from a mobile device![^footnote-mobile]
 Perfect conditions for motivating what all this is about.
+
+## Contents
+
+1. Preliminaries (this page)
+2. [Algebras & contracts](02-contracts)
+3. [Lattices](03-lattices)
+4. [Combinators](04-combinators)
+5. [Tombstones](05-tombstones)
+   * Side note on [Abstract Data Types](05a-adt)
+6. [Time](06-time)
+7. [Registers and Deletion](07-deletion)
+8. Outlook (to be written)
 
 ## The web is a truly distributed application platform
 

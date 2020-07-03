@@ -1,7 +1,6 @@
 ---
 title: "CRDTs: Part 6"
 subtitle: "Part 6: Time and Causality"
-progress: 90
 toc: false
 prev: 05-tombstones
 next: 07-deletion

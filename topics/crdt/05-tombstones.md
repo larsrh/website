@@ -1,7 +1,6 @@
 ---
 title: "CRDTs: Part 5"
 subtitle: "Part 5: Tombstones"
-progress: 90
 prev: 04-combinators
 next: 06-time
 ---

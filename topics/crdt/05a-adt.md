@@ -1,7 +1,6 @@
 ---
 title: "CRDTs: Part 5 (side note)"
 subtitle: "Part 5, side note: Abstract Data Types"
-progress: 90
 toc: false
 prev: 05-tombstones
 next: 06-time
