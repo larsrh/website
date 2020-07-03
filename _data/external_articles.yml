@@ -159,3 +159,4 @@
   title: "An introduction to Conflict-Free Replicated Data Types"
   journal: "lars.hupel.info"
   abstract: "This is a series about Conflict-Free Replicated Data Types, or CRDTs for short. Their purpose is to allow seamless replication of data on different nodes in a distributed system. Merging is by construction always possible, without any conflicts. This series assumes no knowledge about CRDTs, but be prepared to learn a thing or two about algebras."
+  link: "/topics/crdt/01-intro"
