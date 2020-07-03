@@ -240,7 +240,7 @@ We've seen how CRDTs can cope with deletion of values.
 But so far, this has been really restricted: once a value is out, it's out.
 There are two different ways to make this a bit more flexible.
 One of them requires a notion of time.
-So, the next episode will talk about time and causality in distributed systems.
+So, the [next episode](06-time) will talk about time and causality in distributed systems.
 
 ## References
 
