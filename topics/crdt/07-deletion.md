@@ -129,7 +129,7 @@ That's not nice, but it is what you get when you ignore the assumptions.
 
 {% include float_picture.html src="topics/crdt/composition.jpg" text="My Little Pony: Composition is Magic" %}
 
-I understand that the explanation LWW-Registers may be a little anticlimactic.
+I understand that the explanation of LWW-Registers may be a little anticlimactic.
 They literally only store a single piece of metadata that is used to impose a total ordering.
 But again, their power lies within their composition.
 I'll give you an example.
@@ -313,7 +313,7 @@ But, given that this post is already way past 2500 words and I care only about t
 
 We're nearing the end of this series on the foundations of CRDTs.
 So far, I've shown you the basic building blocks for CRDTs: lattices, partial orderings, monotonicity, clocks, and combinators.
-All that's left is to talk about for me are some practical matters and some pointers to further literature and ready-to-use libraries, and then I'll send you on your journey of building great distributed applications.
+All that's left is to talk about some practical matters and give some pointers to further literature and ready-to-use libraries, and then I'll send you on your journey of building great distributed applications.
 
 ## References
 
