@@ -20,6 +20,6 @@ contracts.lattice = (instance, gen) => ({
   idem:
     fc.property(gen, x => {
       const xx = instance.join(x, x);
-      assert.deepEqual(x, x);
+      assert.deepEqual(xx, x);
     })
 });
