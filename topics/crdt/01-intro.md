@@ -193,6 +193,13 @@ new Test("reader")
 You are now ready to proceed with the actual introduction.
 [Go here](02-contracts) to learn all about contracts.
 
+## Testimonials
+
+People on The Internet™ seem to enjoy these posts:
+
+{% twitter https://twitter.com/jeadorf/status/1276235893586702336 %}
+{% twitter https://twitter.com/dfkaye/status/1279152170869207040 %}
+
 ## References
 
 * Map by TheAndrasBarta on [Pixabay](https://pixabay.com/photos/world-europe-map-connections-1264062/)
