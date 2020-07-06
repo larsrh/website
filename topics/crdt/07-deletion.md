@@ -189,7 +189,7 @@ So, let's talk about it here.
 
 The basic principle of a vector clock is the same as for a Lamport clock.
 The clock does not measure real time; rather, it increments whenever an event occurs.
-Each node keeps it own clock.
+Each node keeps its own clock.
 The difference now is that _each_ node keeps _each other node's_ clock, too (i.e., a “vector” of clocks).
 When a message is sent, the sending node increases only its own clock, but includes a copy of the entire vector in the message.
 On the other side when a message is received, the receiving node again increments its own clock, and for everyone else's clock, it takes the maximum of the own vector and the received vector.
