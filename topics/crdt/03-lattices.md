@@ -273,7 +273,7 @@ This is one of the most basic, but also most useful CRDTs.
 A possible use case is tracking outgoing or incoming network traffic in a data centre, where each server would keep track of its own traffic and any server can be asked for the total.
 
 However, I haven't shown you yet how to actually implement the lattice and ordering operations for this data structure.
-I promise to show you in the [next episode](04-combinators).
+I promise to show you in the [next episode](../04-combinators).
 But I can already tell you that I lied to you again:
 the CRDT literature actually models G-Counters differently, by storing an array of values instead of a map of values.
 Instead of any old label, each node must have a (positive) integer identity.
@@ -283,7 +283,7 @@ I don't like this for two reasons:
 2. it doesn't demonstrate how to compose CRDTs with other data structures to form larger CRDTs
 
 The latter is actually what happens here and simplifies the implementation greatly.
-But it requires a lot more prose, so it's reserved for the [next episode](04-combinators).
+But it requires a lot more prose, so it's reserved for the [next episode](../04-combinators).
 
 ## References
 

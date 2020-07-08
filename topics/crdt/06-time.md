@@ -64,7 +64,7 @@ Lamport proceeds to define this relation which he calls → (read: “happened b
 
 This should sound oddly familiar to you, my dear reader.
 In fact, the third rule is transitivity, and the entire thing defines → to be a partial ordering.
-Note though that there is a small difference in the way Lamport defines this and the way I defined this in [an earlier episode](02-contracts):
+Note though that there is a small difference in the way Lamport defines this and the way I defined this in [an earlier episode](../02-contracts):
 → is not reflexive, so it would be more accurate to compare → to < on numbers (instead of ≤).
 
 The second important consequence of this insight is that if two events are concurrent, then they cannot causally affect each other.
@@ -126,7 +126,7 @@ Are you still here?
 Good.
 Because now I can tell you what all of this has to do with CRDTs.
 So, let's talk about ~~replicants~~ replicas.
-We're going to take a closer look at the [Shapiro paper](https://hal.inria.fr/inria-00555588/) that I referenced in [Episode 4](04-combinators).
+We're going to take a closer look at the [Shapiro paper](https://hal.inria.fr/inria-00555588/) that I referenced in [Episode 4](../04-combinators).
 Recall the definition of state-based CRDTs: they
 
 1. have a join-semilattice
@@ -162,7 +162,7 @@ It may take a while, but it only takes finitely many carrier pigeons to converge
 
 If you're happy with what you've read so far and are not overly interested in abstract symbols, then you can call it a day; there's not much more happening in this episode.
 However, if you're like me, you can stay for a little longer and read about the formal definition of convergence.
-Note that [the side note on abstract data types](05a-adt) is necessary for understanding the following.
+Note that [the side note on abstract data types](../05a-adt) is necessary for understanding the following.
 
 We first start with the _causal history_ of a replica.
 Let _x_ be any object and _x_<sub>_i_</sub> the various replicas of that object.
@@ -225,7 +225,7 @@ Safety is ensured because `join` is also commutative.
 To conclude:
 even though uniform, global time is hard to define in a distributed system, we still have a formal notion of causality.
 Equipped with this, we can also define the unique properties of CRDTs, namely that they eventually arrive at the same state on all nodes, assuming that the replicas can deliver updates to each other.
-In the [next episode](07-deletion), we will use some of that knowledge to look at more sophisticated notions of deletion.
+In the [next episode](../07-deletion), we will use some of that knowledge to look at more sophisticated notions of deletion.
 
 ## References
 

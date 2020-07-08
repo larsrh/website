@@ -60,6 +60,7 @@ defaults:
       long_title: An introduction to Conflict-Free Replicated Data Types
       layout: topics/crdt
       extra_header: topics/crdt/header.html
+      permalink: /:path/:basename/
       nav: articles
       description: ""
       toc: true

@@ -3,7 +3,7 @@ set -ex
 
 bundle exec jekyll build
 
-bundle exec htmlproofer --checks-to-ignore LinkCheck --assume-extension --disable-external --check-html ./_site
+bundle exec htmlproofer --disable-external --check-html ./_site
 
 python3 -m venv venv
 source ./venv/bin/activate

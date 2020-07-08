@@ -231,7 +231,7 @@ Operation remove(_e_)
 
 In other words, the above describes the _interface_ of a 2P-Set, whereas the `MonotonicMap` with an appropriate lattice describes the _implementation_.
 
-If you're curious about a more formal treatment of this, check out [this side note](05a-adt).
+If you're curious about a more formal treatment of this, check out [this side note](../05a-adt).
 Otherwise, feel free to skip it.
 
 ## What's next?
@@ -240,7 +240,7 @@ We've seen how CRDTs can cope with deletion of values.
 But so far, this has been really restricted: once a value is out, it's out.
 There are two different ways to make this a bit more flexible.
 One of them requires a notion of time.
-So, the [next episode](06-time) will talk about time and causality in distributed systems.
+So, the [next episode](../06-time) will talk about time and causality in distributed systems.
 
 ## References
 

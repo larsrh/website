@@ -253,7 +253,7 @@
   no_pdf: true
   year: 2018
   abstract: |
-    A Scala library which talks to Isabelle. It works with multiple Isabelle versions. For more information and documentation about the project, visit <a href="/libisabelle/">its website</a>.
+    A Scala library which talks to Isabelle. It works with multiple Isabelle versions.
 - title: "Verified iptables Firewall Analysis and Verification"
   id: "verified-iptables"
   authors: ["cornelius", "lars", "julius", "max", "carle"]

@@ -13,13 +13,13 @@ Perfect conditions for motivating what all this is about.
 ## Contents
 
 1. Preliminaries (this page)
-2. [Algebras & contracts](02-contracts)
-3. [Lattices](03-lattices)
-4. [Combinators](04-combinators)
-5. [Tombstones](05-tombstones)
-   * Side note on [Abstract Data Types](05a-adt)
-6. [Time](06-time)
-7. [Registers and Deletion](07-deletion)
+2. [Algebras & contracts](../02-contracts)
+3. [Lattices](../03-lattices)
+4. [Combinators](../04-combinators)
+5. [Tombstones](../05-tombstones)
+   * Side note on [Abstract Data Types](../05a-adt)
+6. [Time](../06-time)
+7. [Registers and Deletion](../07-deletion)
 8. Outlook (to be written)
 
 ## The web is a truly distributed application platform
@@ -191,7 +191,7 @@ new Test("reader")
 ## Onwards
 
 You are now ready to proceed with the actual introduction.
-[Go here](02-contracts) to learn all about contracts.
+[Go here](../02-contracts) to learn all about contracts.
 
 ## Testimonials
 

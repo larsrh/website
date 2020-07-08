@@ -374,7 +374,7 @@ For G-Sets, that'd be deleting elements, and for G-Counters decreasing values.
 I've spent four episodes and well above 7000 words to explain liek two different CRDTs.
 (You know how it goes: one day you wonder how ~~babby~~ algebra is formed, and then you accidentally a blog.)
 But fear not, for now we have all the tools we need to proceed to more complex CRDTs.
-In the [next episode](05-tombstones), we're going to look at how to deal with deletion.
+In the [next episode](../05-tombstones), we're going to look at how to deal with deletion.
 Spoiler: prepare for tombstones 👻
 
 ## References
