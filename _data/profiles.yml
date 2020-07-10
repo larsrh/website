@@ -7,12 +7,6 @@
 - name: Google Scholar
   icon: fa-graduation-cap
   link: "https://scholar.google.com/citations?user=VdxLaDEAAAAJ"
-- name: ORCID
-  icon: fa-id-card-o
-  link: "https://orcid.org/0000-0002-8442-856X"
-- name: DBLP
-  icon: fa-file-text-o
-  link: "https://dblp.org/pid/143/3168"
 - name: GitHub
   icon: fa-github
   link: "https://github.com/larsrh"
@@ -28,6 +22,3 @@
 - name: Speaker Deck
   icon: fa-desktop
   link: "https://speakerdeck.com/larsrh"
-- name: csauthors.net
-  icon: fa-book
-  link: "https://www.csauthors.net/lars-hupel/"
