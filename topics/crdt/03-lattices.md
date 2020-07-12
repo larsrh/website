@@ -124,7 +124,7 @@ Here's another one.
 Assume we have a partial ordering ≤ for a set of values _a_, _b_, ...
 Let's call that set _M_.
 If we additionally know that for each pair of values in _M_, there is a _least upper bound_[^footnote-lub] that's also in _M_, then we can construct a semilattice.
-The least upper bound of _a_ and _b_ is defined to be a value _c_ where _a_ ≤ _b_ and _a_ ≤ _c_ (so much is obvious since it's an _upper_ bound) and there's no other element _d_ that's closer to _a_ and _b_ than _c_.
+The least upper bound of _a_ and _b_ is defined to be a value _c_ where _a_ ≤ _c_ and _b_ ≤ _c_ (so much is obvious since it's an _upper_ bound) and there's no other element _d_ that's closer to _a_ and _b_ than _c_.
 Formally: _c_ is least upper bound of _a_ and _b_ if
 
 1. _c_ is in _M_, and
