@@ -237,7 +237,7 @@ No good, because that means one increment went missing.
 The problem is that a single number has not enough _structure_ to contain information about the whereabouts of the increments.
 We need a way to distinguish Alice's and Bob's increments.
 
-Luckily, we can assume that both of them have a unique identity.
+Luckily, we can assume that Alice and Bob both have a unique identity.
 Let's say Alice is labelled with the string `"alice"` and Bob with the string `"bob"`.
 Instead of just tracking a simple number, both of them will now track a _map_ from label to number.
 The above scenario now reads as follows:
