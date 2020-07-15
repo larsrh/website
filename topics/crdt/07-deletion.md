@@ -39,7 +39,7 @@ class Cell {
 }
 ```
 
-Out goal is that this cell should be able to store arbitrary data and allows for non-monotonic updates.
+Our goal is that this cell should be able to store arbitrary data and allows for non-monotonic updates.
 The data may not even _have_ a notion of monotonicity.
 We can't achieve this goal with the `Cell` class: it is not clear how we can assign a lattice semantics if we know nothing about the value.
 
