@@ -20,7 +20,7 @@ Perfect conditions for motivating what all this is about.
    * Side note on [Abstract Data Types](../05a-adt)
 6. [Time](../06-time)
 7. [Registers and Deletion](../07-deletion)
-8. Outlook (to be written)
+8. [Outlook](../08-outlook)
 
 ## The web is a truly distributed application platform
 
