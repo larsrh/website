@@ -171,7 +171,7 @@ Furthermore, assume that _f_ is any monotonic state update function, and `join` 
 Now we can define the causal history _CH_ as a set of operations (quoted from the paper):
 
 1. initially, _CH_(_x_<sub>_i_</sub>) = {}
-2. after executing _f_, _CH_(_f_(_x_<sub>_i_</sub>)) = _CH_(_x_<sub>_i_</sub>) ∪ {f}
+2. after executing the _f_ function, _CH_(_f_(_x_<sub>_i_</sub>)) = _CH_(_x_<sub>_i_</sub>) ∪ {f}
 3. after joining, _CH_(`join`(_x_<sub>_i_</sub>, _x_<sub>_j_</sub>)) = _CH_(_x_<sub>_i_</sub>) ∪ _CH_(_x_<sub>_j_</sub>)
 
 This history essentially provides a trace of operations that have occurred on a replica.
