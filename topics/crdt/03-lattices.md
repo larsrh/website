@@ -264,19 +264,23 @@ They just have to know about their own label:
 
 When merging a foreign map, we can check for keys that are only present in the other one and copy them unchanged into our map.
 
-### Back to the network: Another example
+[Cornelius](https://github.com/diekmann/) points out that apart from connection losses, another problem in distributed systems are retransmissions.
+He writes:
 
-Apart from connection losses, another problem in distributed systems are retransmissions. Let's consider the following scenario:
+> Let's consider the following scenario:
+>
+> 1. Alice starts with a counter of value 0.
+> 2. Alice increments her counter.
+> 3. Alice sends the increment to Bob.
+> 4. Internet connection fails and Alice does not receive an acknowledgement from Bob.
+> 5. Since Alice does not receive an acknowledgement, Alice retransmits the increment to Bob.
+>
+> Now imagine the failed Internet connection only lost Bob's acknowledgement and he receives Alice's increment twice. Will Bob think Alice's counter is 1 or 2?
+>
+> Since Alice is sending the message {`"alice"` → 1} twice, Bob knows that the intended counter value is 1.
 
-1. Alice starts with a counter of value 0.
-2. Alice increments her counter.
-3. Alice sends the increment to Bob.
-4. Internet connection fails and Alice does not receive an acknowledgement from Bob.
-5. Since Alice does not receive an acknowledgement, Alice retransmits the increment to Bob.
-
-Now imagine the failed Internet connection only lost Bob's acknowledgement and he receives Alice's increment twice. Will Bob think Alice's counter is 1 or 2?
-
-Since Alice is sending the message {`"alice"` → 1} twice, Bob knows that the intended counter value is 1.
+This behaviour is a direct consequence of idempotence:
+receiving Alice's message twice is the same as receiving it just once.
 
 ## What's next?
 
