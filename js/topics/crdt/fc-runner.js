@@ -40,6 +40,8 @@ const processResult = ({ failed, numRuns, error, counterexample }) => {
     return success(numRuns);
 }
 
+const fc = fastcheck;
+
 const checkAll = async props => Object.fromEntries(await Promise.all(
   Object.entries(props).map(async ([key, value]) =>
     [key, processResult(await Promise.resolve(fc.check(value)))]
