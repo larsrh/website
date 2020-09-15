@@ -150,11 +150,13 @@
   journal: "INNOQ"
   abstract: "Heimarbeit hat sich mittlerweile – mehr oder weniger freiwillig – bei den meisten Unternehmen in der IT durchgesetzt. Doch beim Thema Schulungen sind viele noch skeptisch, ob das funktionieren könnte. Wir haben es für das iSAQB-Modul BLOCKCHAIN ausprobiert."
   lang: de
+  link: "https://www.innoq.com/de/blog/remote-blockchain-training/"
 - pub_date: 2020-05-04
   title: "TypeScript: Was sind das denn für Typen?"
   journal: "INNOQ-Podcast"
   abstract: "TypeScript ist in aller Munde. In dieser Folge will Lucas von Lars wissen, wieso er sich so sehr für diese Sprache begeistert. Wie ordnet ein erfahrener Scala-Entwickler wie Lars das Typsystem von TypeScript ein? Lars beschreibt zudem, welche Vorteile ein mächtiges Typsystem mit sich bringt, und erklärt, wie die Interaktion mit JavaScript-Bibliotheken funktioniert."
   lang: de
+  link: "https://www.innoq.com/de/podcast/073-type-script/"
 - pub_date: 2020-07-03
   title: "An introduction to Conflict-Free Replicated Data Types"
   journal: "lars.hupel.info"
