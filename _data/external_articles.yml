@@ -152,7 +152,7 @@
   lang: de
   link: "https://www.innoq.com/de/blog/remote-blockchain-training/"
 - pub_date: 2020-05-04
-  title: "TypeScript: Was sind das denn für Typen?"
+  title: "TypeScript. Was sind das denn für Typen?"
   journal: "INNOQ-Podcast"
   abstract: "TypeScript ist in aller Munde. In dieser Folge will Lucas von Lars wissen, wieso er sich so sehr für diese Sprache begeistert. Wie ordnet ein erfahrener Scala-Entwickler wie Lars das Typsystem von TypeScript ein? Lars beschreibt zudem, welche Vorteile ein mächtiges Typsystem mit sich bringt, und erklärt, wie die Interaktion mit JavaScript-Bibliotheken funktioniert."
   lang: de
@@ -162,3 +162,15 @@
   journal: "lars.hupel.info"
   abstract: "This is a series about Conflict-Free Replicated Data Types, or CRDTs for short. Their purpose is to allow seamless replication of data on different nodes in a distributed system. Merging is by construction always possible, without any conflicts. This series assumes no knowledge about CRDTs, but be prepared to learn a thing or two about algebras."
   link: "/topics/crdt/01-intro"
+- pub_date: 2020-09-29
+  title: "Postel’s Law. Grob gehackt oder fein geschnitten?"
+  journal: "INNOQ-Podcast"
+  abstract: "Grob gehackt oder lieber ein feiner Julienne-Schnitt für die Tags in der Suppe? Lucas und Lars diskutieren in dieser Folge über Postel’s Law. Was es besagt und wie liberal ein Service eigentlich beim Akzeptieren von Eingabedaten sein sollte – darum geht’s in dieser Folge!"
+  lang: de
+  link: "https://www.innoq.com/de/podcast/079-postels-law/"
+- pub_date: 2020-10-05
+  title: "Dependently-Typed TypeScript"
+  journal: "Funktionale Programmierung"
+  abstract: "TypeScript ist eine Programmiersprache mit einigen Besonderheiten: Im Gegensatz zu den allermeisten anderen getypten Programmiersprachen wurde sie als Aufsatz für JavaScript (JS) entwickelt. Dabei hat Microsoft besonderen Wert darauf gelegt, dass sich die Sprache möglichst nahtlos in die bestehenden Ökosysteme (Node.js und Browser) integriert. Das wird dadurch erreicht, dass die TypeScript-Syntax „bloß“ die Typen zu JavaScript hinzufügt und die Kompilierung aus dem Entfernen der Typannotationen besteht. Damit hat sich TypeScript zum de-facto Standard entwickelt, wenn es darum geht, typsichere Anwendungen auf JS-Basis zu bauen."
+  link: "https://funktionale-programmierung.de/2020/10/05/dependently-typed-typescript.html"
+  lang: de
