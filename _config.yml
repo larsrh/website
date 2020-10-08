@@ -70,6 +70,7 @@ defaults:
         - /js/html.js
         - /js/topics/crdt/fc.js
         - /js/topics/crdt/chai.js
+        - /js/topics/crdt/deep-eql.js
         - /js/topics/crdt/fc-runner.js
         - /js/topics/crdt/all_lib.js
       abstract: |
