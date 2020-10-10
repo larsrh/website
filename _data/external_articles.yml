@@ -162,6 +162,11 @@
   journal: "lars.hupel.info"
   abstract: "This is a series about Conflict-Free Replicated Data Types, or CRDTs for short. Their purpose is to allow seamless replication of data on different nodes in a distributed system. Merging is by construction always possible, without any conflicts. This series assumes no knowledge about CRDTs, but be prepared to learn a thing or two about algebras."
   link: "/topics/crdt/01-intro"
+- pub_date: 2020-08-20
+  title: "Train Consists"
+  journal: "Playing with Prolog (Season 3)"
+  abstract: "Poor Lars is having trouble arranging cars in his trains. Annie helps him out using constraint programming."
+  link: "https://www.youtube.com/watch?v=KckDVWysAes"
 - pub_date: 2020-09-29
   title: "Postel’s Law. Grob gehackt oder fein geschnitten?"
   journal: "INNOQ-Podcast"
