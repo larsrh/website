@@ -7,3 +7,4 @@ venv
 .jekyll-cache
 node_modules
 dist
+.jekyll-metadata
