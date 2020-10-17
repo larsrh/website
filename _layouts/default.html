@@ -99,23 +99,14 @@
     <script src="/js/jquery-3.3.1.slim.min.js"></script>
     <script src="/js/bootstrap-material-design.min.js"></script>
     <script src="/js/ekko-lightbox.min.js"></script>
-    <script>
-      $(document).ready(function() {
-        $('.pub-modal-link').each(function (index) {
-          var a = $(this);
-          a.attr('data-toggle', 'modal');
-          a.attr('data-target', '#pub-modal-' + a.data('pub'));
-        });
-        var hash = $(location).attr('hash');
-        if (hash.startsWith('#pub-modal')) {
-          history.replaceState("", document.title, window.location.pathname);
-          setTimeout(function() { $(hash).modal(); }, 200);
-        };
-      });
-      $(document).on('click', '[data-toggle="lightbox"]', function(event) {
-        event.preventDefault();
+    <script async type="module">
+      function toggleLightbox(evt) {
+        evt.preventDefault();
         $(this).ekkoLightbox();
-      });
+      }
+      document.querySelectorAll('[data-toggle="lightbox"]').forEach(el =>
+        el.onclick = toggleLightbox
+      );
     </script>
 
     {% if page.codemirror %}
@@ -125,7 +116,7 @@
       <script src="/js/interactive.js"></script>
 
       <script>
-        $(document).ready(function() { initInteractive({{ page.interactive | jsonify }}); });
+        initInteractive({{ page.interactive | jsonify }});
       </script>
     {% endif %}
   </body>

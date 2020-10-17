@@ -13,7 +13,7 @@
     {% endif %}
   {% endif %}
 
-  <a class="pub-modal-link" data-pub="{{ pub.id }}" href="{{ main_link }}">{{ pub.title }}</a>
+  <a data-toggle="modal" data-target="#pub-modal-{{ pub.id }}" href="{{ main_link }}">{{ pub.title }}</a>
   <p>
     {% include pub_authors.html %}
   </p>
