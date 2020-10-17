@@ -17,6 +17,7 @@ social:
     - "https://stackoverflow.com/users/4776939/larsrh"
 include:
   - "_redirects"
+  - "_headers"
 exclude:
   - "img_assets"
   - "scripts"
@@ -26,8 +27,13 @@ exclude:
   - ".ruby-version"
   - ".ci"
   - "venv"
-  - "js/topics/crdt/.package"
 encoding: "utf-8"
+
+assets:
+  source_maps: false
+  sources:
+    - "_assets"
+  digest: true
 
 collections:
   articles:
