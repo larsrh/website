@@ -14,10 +14,10 @@
     <a href="/bib/{{ pub.id }}.bib" class="btn btn-primary">BibTeX</a>
   {% endif %}
   {% if pub.doi %}
-    <a href="https://doi.org/{{ pub.doi }}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="{{ pub.doi }}">DOI</a>
+    <a href="https://doi.org/{{ pub.doi }}" class="btn btn-primary">DOI</a>
   {% endif %}
   {% if pub.arxiv %}
-    <a href="http://arxiv.org/abs/{{ pub.arxiv }}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="{{ pub.arxiv }}">arXiv</a>
+    <a href="http://arxiv.org/abs/{{ pub.arxiv }}" class="btn btn-primary">arXiv</a>
   {% endif %}
   {% if pub.code %}
     <a href="{{ pub.code }}" class="btn btn-primary">Code</a>
