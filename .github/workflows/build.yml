@@ -1,0 +1,40 @@
+name: Build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Cache Ruby dependencies
+      uses: actions/cache@v2.1.2
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7
+    - name: Install Ruby dependencies
+      run: bundle install
+    - name: Build site
+      run: bundle exec jekyll build
+    - name: Run htmlproofer
+      run: bundle exec htmlproofer --disable-external --check-html ./_site
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r .ci/requirements.txt
+    - name: Run html5validator
+      run: html5validator --root ./_site --ignore 'Illegal character in fragment' 'endnote'
