@@ -96,9 +96,9 @@
       </footer>
     </div>
 
-    <script src="/js/jquery-3.3.1.slim.min.js"></script>
-    <script src="/js/bootstrap-material-design.min.js"></script>
-    <script src="/js/ekko-lightbox.min.js"></script>
+    <script src="{% asset jquery-3.3.1.slim.min.js @path %}"></script>
+    <script src="{% asset bootstrap-material-design.min.js @path %}"></script>
+    <script src="{% asset ekko-lightbox.min.js @path %}"></script>
     <script async type="module">
       function toggleLightbox(evt) {
         evt.preventDefault();
@@ -110,10 +110,10 @@
     </script>
 
     {% if page.codemirror %}
-      <script src="/js/codemirror.js"></script>
-      <script src="/js/codemirror-js.js"></script>
-      <script src="/js/html.js"></script>
-      <script src="/js/interactive.js"></script>
+      <script src="{% asset codemirror.js @path %}"></script>
+      <script src="{% asset codemirror-js.js @path %}"></script>
+      <script src="{% asset html.js @path %}"></script>
+      <script src="{% asset interactive.js @path %}"></script>
 
       <script>
         initInteractive({{ page.interactive | jsonify }});
