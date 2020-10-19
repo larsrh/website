@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{% asset roboto.css @path %}">
     <link rel="stylesheet" href="{% asset font-awesome.min.css @path %}">
     <link rel="stylesheet" href="{% asset bootstrap.css @path %}">
-    <link rel="stylesheet" href="{% asset ekko-lightbox.css @path %}">
+    <link rel="stylesheet" href="{% asset simpleLightbox.min.css @path %}">
     <link rel="stylesheet" href="{% asset main.css @path %}">
 
     {% if page.codemirror %}
@@ -85,17 +85,9 @@
       </footer>
     </div>
 
-    <script src="{% asset jquery-3.3.1.slim.min.js @path %}"></script>
-    <script src="{% asset bootstrap-material-design.min.js @path %}"></script>
-    <script src="{% asset ekko-lightbox.min.js @path %}"></script>
-    <script async type="module">
-      function toggleLightbox(evt) {
-        evt.preventDefault();
-        $(this).ekkoLightbox();
-      }
-      document.querySelectorAll('[data-toggle="lightbox"]').forEach(el =>
-        el.onclick = toggleLightbox
-      );
+    <script src="{% asset simpleLightbox.min.js @path %}"></script>
+    <script>
+      new SimpleLightbox({ elements: ".lightbox" });
     </script>
 
     {% if page.codemirror %}

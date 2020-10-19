@@ -125,12 +125,8 @@
   line-height: 1.2em;
 }
 
-.ekko-lightbox .modal-body {
-  padding-bottom: 0;
-}
-
-.hint {
-  border-bottom: 1px dotted black;
+.slbCaption {
+  font-size: 1em;
 }
 
 .hyphenate {

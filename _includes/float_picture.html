@@ -4,6 +4,6 @@
   {% assign thumb = include.src %}
 {% endif %}
 
-<a href="/img{{ page.id }}/{{ include.src }}" data-toggle="lightbox" class="figure-float-right" data-footer="{{ include.text }}">
-  <img src="/img{{ page.id }}/{{ thumb }}" alt="{{ include.text }}" class="img-fluid img-thumbnail" data-toggle="tooltip" data-placement="bottom" title="{{ include.text }}">
+<a href="/img{{ page.id }}/{{ include.src }}" class="figure-float-right lightbox" title="{{ include.text }}">
+  <img src="/img{{ page.id }}/{{ thumb }}" alt="{{ include.text }}" class="img-fluid img-thumbnail">
 </a>

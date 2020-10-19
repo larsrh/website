@@ -1,5 +1,4 @@
-{% include pub_modal.html %}
-<div>
+<div id="pub-{{ pub.id }}">
   {% assign pdf_link="/pub/" | append: pub.id | append: ".pdf" %}
   {% if pub.entry %}
     {% assign main_link=pub.entry %}
@@ -13,13 +12,53 @@
     {% endif %}
   {% endif %}
 
-  <a data-toggle="modal" data-target="#pub-modal-{{ pub.id }}" href="{{ main_link }}">{{ pub.title }}</a>
-  <p>
+  <a href="{{ main_link }}">{{ pub.title }}</a>
+  <p class="mb-0">
     {% include pub_authors.html %}
   </p>
-  {% if include.layout == "full" %}
+  <details class="mb-1">
+    <summary>Abstract &amp; Details</summary>
+
     <p class="hyphenate">
       {{ pub.abstract }}
     </p>
-  {% endif %}
+
+    <div class="pull-right">
+      {% if pub.entry %}
+        <a href="{{ pub.entry }}" class="btn btn-primary">Entry</a>
+      {% endif %}
+      {% if pub.draft %}
+        <a href="/pub/{{ pub.id }}.pdf" class="btn btn-primary">Draft</a>
+      {% else %}
+        {% if pub.entry or pub.no_pdf %}
+        {% else %}
+          <a href="/pub/{{ pub.id }}.pdf" class="btn btn-primary">PDF</a>
+        {% endif %}
+      {% endif %}
+      {% if pub.draft != true and pub.bib != false %}
+        <a href="/bib/{{ pub.id }}.bib" class="btn btn-primary">BibTeX</a>
+      {% endif %}
+      {% if pub.doi %}
+        <a href="https://doi.org/{{ pub.doi }}" class="btn btn-primary">DOI</a>
+      {% endif %}
+      {% if pub.arxiv %}
+        <a href="http://arxiv.org/abs/{{ pub.arxiv }}" class="btn btn-primary">arXiv</a>
+      {% endif %}
+      {% if pub.code %}
+        <a href="{{ pub.code }}" class="btn btn-primary">Code</a>
+      {% endif %}
+      {% if pub.slides %}
+        <a href="{{ pub.slides }}" class="btn btn-primary">Slides</a>
+      {% endif %}
+      {% if pub.recording %}
+        <a href="{{ pub.recording }}" class="btn btn-primary">Recording</a>
+      {% endif %}
+      {% if pub.extra %}
+        {% for extra in pub.extra %}
+          <a href="{{ extra.link }}" class="btn btn-primary">{{ extra.text }}</a>
+        {% endfor %}
+      {% endif %}
+    </div>
+    <br style="clear: both;">
+  </details>
 </div>
