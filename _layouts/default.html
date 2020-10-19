@@ -65,20 +65,9 @@
       <div class="collapse navbar-collapse" id="navbarDefault">
         <ul class="navbar-nav mr-auto">
           {% for page_desc in site.data.pages %}
-            {% if page_desc.subpages %}
-              <li class="nav-item {% if page_desc.id == page.nav %} active {% endif %} dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbar-dropdown-{{ page_desc.id }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ page_desc.name }}</a>
-                <div class="dropdown-menu" aria-labelledby="navbar-dropdown-{{ page_desc.id }}">
-                  {% for sub_page_desc in page_desc.subpages %}
-                    <a class="dropdown-item" href="/{{ sub_page_desc.id }}/">{{ sub_page_desc.name }}</a>
-                  {% endfor %}
-                </div>
-              </li>
-            {% else %}
-              <li class="nav-item {% if page_desc.id == page.nav %} active {% endif %}">
-                <a class="nav-link" href="{% if page_desc.id == "index" %}/{% else %}/{{ page_desc.id }}/{% endif %}">{{ page_desc.name }}</a>
-              </li>
-            {% endif %}
+            <li class="nav-item {% if page_desc.id == page.nav %} active {% endif %}">
+              <a class="nav-link" href="{% if page_desc.id == "index" %}/{% else %}/{{ page_desc.id }}/{% endif %}">{{ page_desc.name }}</a>
+            </li>
           {% endfor %}
         </ul>
       </div>
