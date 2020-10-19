@@ -271,3 +271,20 @@ div.interactive {
 .interactive .output tr:last-child > * {
   border-bottom: none;
 }
+
+details.pub-abstract[open=""] summary span {
+  display: none;
+}
+
+details.pub-abstract summary::after {
+  content: ' (click to expand)';
+  color: #6c757d;
+}
+
+details.pub-abstract[open=""] summary::after {
+  content: 'Full abstract (click to collapse):' !important;
+}
+
+details.pub-abstract {
+  font-size: .8em;
+}

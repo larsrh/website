@@ -16,8 +16,8 @@
   <p class="mb-0">
     {% include pub_authors.html %}
   </p>
-  <details class="mb-1">
-    <summary>Abstract &amp; Details</summary>
+  <details class="mb-1 pub-abstract">
+    <summary><span>{{pub.abstract | strip_html | truncatewords: 20}}</span></summary>
 
     <p class="hyphenate">
       {{ pub.abstract }}
