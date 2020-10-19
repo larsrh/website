@@ -58,11 +58,11 @@
 
     <nav class="navbar navbar-expand-md {{ p.nav_theme }}" lang="en">
       <a class="navbar-brand" href="/">Lars Hupel</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" id="lars-navbar-toggle" type="button" aria-controls="lars-navbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarDefault">
+      <div class="collapse navbar-collapse" id="lars-navbar">
         <ul class="navbar-nav mr-auto">
           {% for page_desc in site.data.pages %}
             <li class="nav-item {% if page_desc.id == page.nav %} active {% endif %}">
@@ -88,6 +88,23 @@
     <script src="{% asset simpleLightbox.min.js @path %}"></script>
     <script>
       new SimpleLightbox({ elements: ".lightbox" });
+      // navbar stuff
+      const toggler = document.getElementById("lars-navbar-toggle");
+      const navbar = document.getElementById("lars-navbar");
+
+      toggler.onclick = () => {
+        const expanded = toggler.getAttribute("aria-expanded") === "true";
+        if (expanded) {
+          toggler.setAttribute("aria-expanded", "false");
+          toggler.classList.add("collapsed");
+          navbar.classList.remove("show");
+        }
+        else {
+          toggler.setAttribute("aria-expanded", "true");
+          toggler.classList.remove("collapsed");
+          navbar.classList.add("show");
+        }
+      };
     </script>
 
     {% if page.codemirror %}
