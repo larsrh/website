@@ -1,5 +1,5 @@
 # My personal website
 
-[![Build Status](https://travis-ci.org/larsrh/website.svg?branch=topic%2Ftravis)](https://travis-ci.org/larsrh/website)
+![Build](https://github.com/larsrh/website/workflows/Build/badge.svg)
 
 Live version: [lars.hupel.info](https://lars.hupel.info)
