@@ -17,48 +17,48 @@
     {% include pub_authors.html %}
   </p>
   <details class="mb-1 pub-abstract">
-    <summary><span>{{pub.abstract | strip_html | truncatewords: 20}}</span></summary>
+    <summary><span>{{pub.abstract | strip_html | truncatewords: 30}}</span></summary>
 
     <p class="hyphenate">
       {{ pub.abstract }}
     </p>
-
-    <div class="pull-right">
-      {% if pub.entry %}
-        <a href="{{ pub.entry }}" class="btn btn-primary">Entry</a>
-      {% endif %}
-      {% if pub.draft %}
-        <a href="/pub/{{ pub.id }}.pdf" class="btn btn-primary">Draft</a>
-      {% else %}
-        {% if pub.entry or pub.no_pdf %}
-        {% else %}
-          <a href="/pub/{{ pub.id }}.pdf" class="btn btn-primary">PDF</a>
-        {% endif %}
-      {% endif %}
-      {% if pub.draft != true and pub.bib != false %}
-        <a href="/bib/{{ pub.id }}.bib" class="btn btn-primary">BibTeX</a>
-      {% endif %}
-      {% if pub.doi %}
-        <a href="https://doi.org/{{ pub.doi }}" class="btn btn-primary">DOI</a>
-      {% endif %}
-      {% if pub.arxiv %}
-        <a href="http://arxiv.org/abs/{{ pub.arxiv }}" class="btn btn-primary">arXiv</a>
-      {% endif %}
-      {% if pub.code %}
-        <a href="{{ pub.code }}" class="btn btn-primary">Code</a>
-      {% endif %}
-      {% if pub.slides %}
-        <a href="{{ pub.slides }}" class="btn btn-primary">Slides</a>
-      {% endif %}
-      {% if pub.recording %}
-        <a href="{{ pub.recording }}" class="btn btn-primary">Recording</a>
-      {% endif %}
-      {% if pub.extra %}
-        {% for extra in pub.extra %}
-          <a href="{{ extra.link }}" class="btn btn-primary">{{ extra.text }}</a>
-        {% endfor %}
-      {% endif %}
-    </div>
-    <br style="clear: both;">
   </details>
+
+  <div class="pull-right">
+    {% if pub.entry %}
+      <a href="{{ pub.entry }}" class="btn btn-primary">Entry</a>
+    {% endif %}
+    {% if pub.draft %}
+      <a href="/pub/{{ pub.id }}.pdf" class="btn btn-primary">Draft</a>
+    {% else %}
+      {% if pub.entry or pub.no_pdf %}
+      {% else %}
+        <a href="/pub/{{ pub.id }}.pdf" class="btn btn-primary">PDF</a>
+      {% endif %}
+    {% endif %}
+    {% if pub.draft != true and pub.bib != false %}
+      <a href="/bib/{{ pub.id }}.bib" class="btn btn-primary">BibTeX</a>
+    {% endif %}
+    {% if pub.doi %}
+      <a href="https://doi.org/{{ pub.doi }}" class="btn btn-primary">DOI</a>
+    {% endif %}
+    {% if pub.arxiv %}
+      <a href="http://arxiv.org/abs/{{ pub.arxiv }}" class="btn btn-primary">arXiv</a>
+    {% endif %}
+    {% if pub.code %}
+      <a href="{{ pub.code }}" class="btn btn-primary">Code</a>
+    {% endif %}
+    {% if pub.slides %}
+      <a href="{{ pub.slides }}" class="btn btn-primary">Slides</a>
+    {% endif %}
+    {% if pub.recording %}
+      <a href="{{ pub.recording }}" class="btn btn-primary">Recording</a>
+    {% endif %}
+    {% if pub.extra %}
+      {% for extra in pub.extra %}
+        <a href="{{ extra.link }}" class="btn btn-primary">{{ extra.text }}</a>
+      {% endfor %}
+    {% endif %}
+  </div>
+  <br style="clear: both;">
 </div>
