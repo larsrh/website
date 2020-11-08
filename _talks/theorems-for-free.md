@@ -15,5 +15,12 @@ conferences:
     link: "https://munihac.de/2020.html"
     recording: "https://www.youtube.com/watch?v=TGLmbl9x7s0"
     slides: "https://speakerdeck.com/larsrh/theorems-for-free"
+  - conference: "Haskell eXchange"
+    year: 2020
+    date: November 5th
+    location: Online
+    link: "https://skillsmatter.com/conferences/13135-haskell-exchange-2020#program"
+    recording: "https://skillsmatter.com/skillscasts/14900-theorems-for-free"
+    slides: "https://speakerdeck.com/larsrh/theorems-for-free"
 
 ---
