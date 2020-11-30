@@ -4,7 +4,8 @@ https://larsrh-website.netlify.app/* https://lars.hupel.info/:splat 301!
 /libisabelle/* https://github.com/larsrh/libisabelle 301!
 
 /index.html / 301!
-/cv.html /cv/ 301!
+/cv.html / 301!
+/cv/ / 301!
 /research.html /research/ 301!
 /about.html /about/ 301!
 /teaching.html /teaching/ 301!

@@ -2,10 +2,6 @@
   name: Home
   title: false
   nav_theme: navbar-dark bg-primary
-- id: cv
-  name: Resume
-  nav_theme: navbar-dark bg-danger
-  long_title: "Resume"
 - id: research
   name: Research
   nav_theme: navbar-dark bg-success
