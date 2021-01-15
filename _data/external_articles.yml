@@ -197,6 +197,18 @@
   abstract: "TypeScript ist eine Programmiersprache mit einigen Besonderheiten: Im Gegensatz zu den allermeisten anderen getypten Programmiersprachen wurde sie als Aufsatz für JavaScript (JS) entwickelt. Dabei hat Microsoft besonderen Wert darauf gelegt, dass sich die Sprache möglichst nahtlos in die bestehenden Ökosysteme (Node.js und Browser) integriert. Das wird dadurch erreicht, dass die TypeScript-Syntax „bloß“ die Typen zu JavaScript hinzufügt und die Kompilierung aus dem Entfernen der Typannotationen besteht. Damit hat sich TypeScript zum de-facto Standard entwickelt, wenn es darum geht, typsichere Anwendungen auf JS-Basis zu bauen."
   link: "https://funktionale-programmierung.de/2020/10/05/dependently-typed-typescript.html"
   lang: de
+- pub_date: 2020-11-03
+  title: "Informatik-Theorie für praktizierende Architekten"
+  journal: "SoftwareArchitektTOUR"
+  abstract: "In dieser Episode des SoftwareArchitekTOUR-Podcasts spricht Stefan Tilkov mit Gast Lars Hupel über den Nutzen von Informatik-Grundlagenwissen für praktizierende Softwarearchitekten."
+  link: "https://heise.de/-4945175"
+  lang: de
+- pub_date: 2020-12-29
+  title: "Jahresend-Mix 2020"
+  journal: "INNOQ-Security-Podcast"
+  abstract: "Welche Security-Themen haben euch 2020 am meisten beschäftigt? Was hat euch besonders beeindruckt oder einfach nur überrascht? Diese Fragen stellte Simon Kölsch 16 INNOQ Kolleginnen und Kollegen. Die Antworten ergeben einen bunten Themen-Mix, angefangen mit der Bedeutung von UX in der Security über Threat Modelling bis hin zu neuen Ideen für die spielerische Auseinandersetzung mit Security-Themen."
+  link: "https://www.innoq.com/de/podcast/009-jahresend-mix-2020/"
+  lang: de
 - pub_date: 2021-01-07
   title: "Deploying a WebAssembly smart contract on Oasis Ethereum"
   journal: "INNOQ"
