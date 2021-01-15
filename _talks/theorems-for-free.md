@@ -22,5 +22,12 @@ conferences:
     link: "https://skillsmatter.com/conferences/13135-haskell-exchange-2020#program"
     recording: "https://skillsmatter.com/skillscasts/14900-theorems-for-free"
     slides: "https://speakerdeck.com/larsrh/theorems-for-free"
+  - conference: "INNOQ Technology Day"
+    year: 2020
+    date: December 9th
+    location: Online
+    link: "https://technologyday.innoq.com/programm/theorems-for-free"
+    recording: "https://www.youtube.com/watch?v=EC0O2vJGVjw"
+    slides: "https://speakerdeck.com/larsrh/theorems-for-free"
 
 ---
