@@ -70,7 +70,7 @@
   lang: de
 - pub_date: 2019-05-31
   title: "Parametrizität in Java"
-  journal: "JavaSPEKTRUM 03/2019"
+  journal: "JavaSPEKTRUM 3/2019"
   abstract: "So gut wie alle modernen Programmiersprachen erlauben es, Routinen über Werte und über Typen zu parametrisieren. In Java wird letzteres „Generics“ genannt, in C++ hingegen „Templates“. Obwohl die Konzepte die gleichen sind, unterscheidet sich die Implementation doch stark. In diesem Artikel möchte ich diese Art der Parametrisierung in Java unter die Lupe nehmen und erklären, warum „Type Erasure“ doch eine ganz gute Idee ist."
   link: "https://www.innoq.com/de/articles/2019/06/parametrizitaet-in-java/"
   lang: de
@@ -115,6 +115,12 @@
   journal: "Playing with Prolog (Season 3)"
   abstract: "We cover the newly added Tabling for SWI-Prolog to help Annie get around Bangalore."
   link: "https://www.youtube.com/watch?v=HfQGSprQ5Tk"
+- pub_date: 2019-09-27
+  title: "Private Blockchains: Vergleich von Fabric und Corda"
+  journal: "JavaSPEKTRUM 5/2019"
+  abstract: "Der Markt an Blockchain-Technologien ist hart umkämpft. Seit der Einführung von Bitcoin kam es zu einer Proliferation von Forks, Neuentwicklungen und Innovationen. Doch im Unternehmenskontext ist es selten sinnvoll, interne Geschäftsvorgänge auf öffentlichen Blockchains zu verwalten. Daher etabliert sich im Moment eine neue Nische, die der privaten oder zugangsbeschränkten (permissioned) Blockchains."
+  lang: de
+  link: "https://www.innoq.com/de/articles/2019/09/fabric-vs-corda/"
 - pub_date: 2019-10-15
   title: "The many ways of testing Smart Contracts in Ethereum"
   journal: "INNOQ"
@@ -162,11 +168,23 @@
   journal: "lars.hupel.info"
   abstract: "This is a series about Conflict-Free Replicated Data Types, or CRDTs for short. Their purpose is to allow seamless replication of data on different nodes in a distributed system. Merging is by construction always possible, without any conflicts. This series assumes no knowledge about CRDTs, but be prepared to learn a thing or two about algebras."
   link: "/topics/crdt/01-intro"
+- pub_date: 2020-07-31
+  title: "Modernes funktionales Programmieren in Java"
+  journal: "JavaSPEKTRUM 4/2020"
+  abstract: "Erfahrene Java-Entwickler*innen können viele der Entwurfsmuster des „Gang of Four“-Buches aus dem Stand zitieren, identifizieren und anwenden. Trotzdem stehen diese praktisch seit der Erscheinung des Buches unter Kritik: da sie teils vage definiert sind, strotzen „moderne“ Codebasen nur so von Singletons, Factories und Buildern. Auf der anderen Seite stehen die Anhänger*innen der funktionalen Programmierung, die sich gerne über die objektorientierten Patterns lustig machen. Die Wahrheit liegt wie so oft in der Mitte: seit Version 8 lassen sich auch in Java die cleveren Gedanken aus der funktionalen Welt effektiv und komfortabel benutzen, ohne die Objektorientierung aufzugeben."
+  lang: de
+  link: "https://www.innoq.com/de/articles/2020/07/modernes-funktionales-programmieren/"
 - pub_date: 2020-08-20
   title: "Train Consists"
   journal: "Playing with Prolog (Season 3)"
   abstract: "Poor Lars is having trouble arranging cars in his trains. Annie helps him out using constraint programming."
   link: "https://www.youtube.com/watch?v=KckDVWysAes"
+- pub_date: 2020-08-26
+  title: "Smart Contracts in der Programmiersprache Rust"
+  journal: "Heise Developer"
+  abstract: "Wie wäre es, Rust in Kombination mit WebAssembly zu nutzen, um Smart Contracts zu entwickeln, die gegebenenfalls Millionen von Krypto-Tokens verwalten können?"
+  lang: de
+  link: "https://heise.de/-4877153"
 - pub_date: 2020-09-29
   title: "Postel’s Law. Grob gehackt oder fein geschnitten?"
   journal: "INNOQ-Podcast"
@@ -179,3 +197,8 @@
   abstract: "TypeScript ist eine Programmiersprache mit einigen Besonderheiten: Im Gegensatz zu den allermeisten anderen getypten Programmiersprachen wurde sie als Aufsatz für JavaScript (JS) entwickelt. Dabei hat Microsoft besonderen Wert darauf gelegt, dass sich die Sprache möglichst nahtlos in die bestehenden Ökosysteme (Node.js und Browser) integriert. Das wird dadurch erreicht, dass die TypeScript-Syntax „bloß“ die Typen zu JavaScript hinzufügt und die Kompilierung aus dem Entfernen der Typannotationen besteht. Damit hat sich TypeScript zum de-facto Standard entwickelt, wenn es darum geht, typsichere Anwendungen auf JS-Basis zu bauen."
   link: "https://funktionale-programmierung.de/2020/10/05/dependently-typed-typescript.html"
   lang: de
+- pub_date: 2021-01-07
+  title: "Deploying a WebAssembly smart contract on Oasis Ethereum"
+  journal: "INNOQ"
+  abstract: "One of the cornerstones of Ethereum 2.0 is the migration from the “classic” EVM to a WebAssembly-based virtual machine. In this post, I explain how to deploy a compiled WebAssembly contract to the Oasis Ethereum chain."
+  link: "https://www.innoq.com/de/blog/wasm-oasis/"
