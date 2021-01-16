@@ -40,9 +40,7 @@
       {% endif %}
     {% endfor %}
 
-    {% if page.is_research %}
-      {% assign page_name = page.topic %}
-    {% elsif page.title %}
+    {% if page.title %}
       {% assign page_name = page.title %}
     {% elsif p.title != false %}
       {% assign page_name = p.name %}
