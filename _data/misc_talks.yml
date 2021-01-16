@@ -4,11 +4,6 @@
   recording: "https://www.youtube.com/watch?v=KzoqOVD7mvE"
   slides: "https://speakerdeck.com/larsrh/seven-at-one-blow-new-and-polished-features-in-scalaz-7"
   year: 2013
-- title: Generating Type Class Instances Automatically
-  conference: "Scala Workshop"
-  link: "http://lampwww.epfl.ch/~hmiller/scala2013/program.html"
-  slides: "https://speakerdeck.com/larsrh/generating-type-class-instances-automatically"
-  year: 2013
 - title: Macros vs Types
   conference: "Northeast Scala Symposium"
   link: "http://www.nescala.org/2014#talk-15"
@@ -37,25 +32,6 @@
   recording: "https://skillsmatter.com/skillscasts/6592-what-haskell-can-learn-from-scala"
   slides: "https://speakerdeck.com/larsrh/what-haskell-can-learn-from-scala"
   year: 2015
-- title: Safer functional programming with F*
-  conference: "Munich Lambda"
-  link: "https://www.meetup.com/Munich-Lambda/events/239103595/"
-  year: 2017
-- title: iSAQB goes Blockchain?
-  conference: "The Architecture Gathering"
-  link: "https://www.software-architecture-gathering.de/"
-  year: 2019
-  slides: "https://speakerdeck.com/larsrh/isaqb-goes-blockchain"
-- title: How Do I Even Smart Contracts?
-  conference: "INNOQ Technology Night #1"
-  link: "https://www.meetup.com/INNOQ-Technology-Night-Koeln/events/264890014/"
-  slides: "https://speakerdeck.com/larsrh/how-do-i-even-smart-contracts"
-  year: 2019
-- title: Verification of Smart Contracts
-  conference: "Blockchain Technology Conference"
-  link: "https://blockchainconf.net/blockchain-advanced-development/verifikation-von-smart-contracts/"
-  slides: "https://speakerdeck.com/larsrh/verification-of-smart-contracts"
-  year: 2019
 - title: Blockchain Use Cases
   conference: "INNOQ Technology Lunch"
   link: "https://www.meetup.com/INNOQ-Technology-Lunch/events/271200341/"

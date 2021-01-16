@@ -5,6 +5,12 @@ card_theme: bg-info text-white
 permalink: /talks/
 ---
 
+<h2>Selected talks</h2>
+
+<p>These are talks that I have given multiple times over the years at various conferences.
+Each of them has a dedicated page with slides and the latest recording.
+If you want to share a particular talk, I would like to ask you to not link to a recording directly, but rather to the talk's page as linked here.</p>
+
 <dl>
   {% for talk in site.talks %}
     <dt {% if talk.lang %}lang="{{ talk.lang }}"{% endif %}><a href="{{ talk.url }}">{{ talk.title }}</a></dt>
@@ -15,8 +21,15 @@ permalink: /talks/
 </dl>
 
 <h2>Other Talks</h2>
-<div class="card-columns mt-4">
-  {% for year in (2013..2030) reversed %}
-    {% include misc_talks_by_year.html year=year %}
+
+<p>This is a partial list of other talks I gave.
+Only talks with recordings are listed here.</p>
+
+<ul>
+  {% for talk in site.data.misc_talks reversed %}
+    <li>
+      {{ talk.title }}, {{ talk.conference }}, {{ talk.year }}
+      {% include talk_details.html %}
+    </li>
   {% endfor %}
-</div>
+</ul>
