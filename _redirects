@@ -9,7 +9,8 @@ https://larsrh-website.netlify.app/* https://lars.hupel.info/:splat 301!
 /research.html /research/ 301!
 /about.html /about/ 301!
 /teaching.html /teaching/ 301!
-/projects.html /projects/ 301!
+/projects.html / 301!
+/projects/ / 301!
 
 /research/pl/        /research/ 301!
 /research/misc/      /research/ 301!

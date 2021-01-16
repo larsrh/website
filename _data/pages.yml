@@ -6,10 +6,6 @@
   name: Research
   nav_theme: navbar-dark bg-success
   long_title: "Research & Publications (archive)"
-- id: projects
-  name: Projects
-  nav_theme: navbar-light
-  long_title: "Software & Projects"
 - id: talks
   name: Talks
   nav_theme: navbar-dark bg-info
