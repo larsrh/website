@@ -73,6 +73,65 @@ conferences:
 
 ## Demo code
 
-[View on GitHub Gist](https://gist.github.com/larsrh/b4bb402616e43b1e9792a5be4968ee3d)
+All code snippets are tested with version 0.15.0 and assume the following imports:
 
-<script src="https://gist.github.com/larsrh/b4bb402616e43b1e9792a5be4968ee3d.js"></script>
+```scala
+import spire._
+import spire.algebra._
+import spire.math._
+import spire.implicits._
+import spire.laws._
+import spire.syntax.literals._
+import org.scalacheck._
+```
+
+### Maps
+
+```scala
+val cities1 = Map("Portugal" -> List("Lisbon"), "Spain" -> List("Madrid"))
+val cities2 = Map("Portugal" -> List("Coimbra"))
+
+cities1 |+| cities2
+```
+
+### Laws
+
+```scala
+RingLaws[Int].ring.all.check()
+RingLaws[Float].ring.all.check()
+```
+
+### Monoids
+
+```scala
+val score = r"5/7"
+
+def twice[A : AdditiveMonoid](a: A) = a + a
+
+twice(score)
+twice(3)
+twice(Map("Score" -> score))
+
+score.toBigDecimal()
+```
+
+### Reals
+
+```scala
+Real.pi
+Real.pi.doubleValue()
+Real.pi.toRational(1).toBigDecimal()
+Real.pi.toRational(2).toBigDecimal()
+Real.pi.toRational(4).toBigDecimal()
+```
+
+### Rationals and Intervals
+
+```scala
+val score = r"5/7"
+
+val confidence = score ± r"1/7"
+
+confidence.intersects(r"3/4" ± r"1/8")
+confidence.intersect(r"3/4" ± r"1/8")
+```

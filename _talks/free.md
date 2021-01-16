@@ -33,6 +33,60 @@ conferences:
 
 ## Demo code
 
-[View on GitHub Gist](https://gist.github.com/larsrh/5cd5652c25ec84b8852c)
+```haskell
+{-# LANGUAGE GADTs #-}
+{-# LANGUAGE RankNTypes #-}
+{-# LANGUAGE TypeOperators #-}
 
-<script src="https://gist.github.com/larsrh/5cd5652c25ec84b8852c.js"></script>
+module Terminal where
+
+import Control.Monad.Free (Free, liftF, iterM)
+import Control.Monad.State
+import Data.Functor.Coyoneda (Coyoneda (Coyoneda), liftCoyoneda)
+
+type FreeC f = Free (Coyoneda f)
+
+type f ~> g = forall a. f a -> g a
+
+runFreeC :: Monad g => (f ~> g) -> FreeC f a -> g a
+runFreeC f = iterM $ \(Coyoneda g i) -> f i >>= g
+
+liftC :: f a -> FreeC f a
+liftC = liftF . liftCoyoneda
+
+
+data Terminal a where
+  ReadLine :: Terminal String
+  WriteLine :: String -> Terminal ()
+
+type TerminalIO = FreeC Terminal
+
+readLine    = liftC ReadLine
+writeLine s = liftC (WriteLine s)
+
+
+terminalToIO :: Terminal ~> IO
+terminalToIO ReadLine = getLine
+terminalToIO (WriteLine s) = putStrLn s
+
+type MockTerminal = ([String], [String])
+
+terminalToState :: Terminal ~> State MockTerminal
+terminalToState ReadLine = do
+  (i, o) <- get
+  case i of
+    h : t -> do
+      put (t, o)
+      return h
+    [] ->
+      return ""
+terminalToState (WriteLine s) = do
+  (i, o) <- get
+  put (i, o ++ [s])
+
+
+program :: TerminalIO ()
+program = do
+  line <- readLine
+  writeLine line
+```
