@@ -5,11 +5,14 @@ card_theme: bg-info text-white
 permalink: /talks/
 ---
 
-<div class="card-columns mt-4 mb-4">
+<dl>
   {% for talk in site.talks %}
-    {% include card.html src="talk.html" no_header="true" %}
+    <dt {% if talk.lang %}lang="{{ talk.lang }}"{% endif %}><a href="{{ talk.url }}">{{ talk.title }}</a></dt>
+    <dd {% if talk.lang %}lang="{{ talk.lang }}"{% endif %} class="hyphenate">
+      {{ talk.abstract }}
+    </dd>
   {% endfor %}
-</div>
+</dl>
 
 <h2>Other Talks</h2>
 <div class="card-columns mt-4">
