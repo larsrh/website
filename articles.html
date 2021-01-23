@@ -8,14 +8,45 @@ permalink: /articles/
 {% assign articles = site.articles | concat: site.data.external_articles | sort: 'pub_date' | reverse %}
 {% assign today_date = 'now' | date: '%s' %}
 
-<div class="masonry" data-columns>
-  {% for article in articles %}
-    {% assign article_date = article.pub_date | date: '%s' %}
-    {% if today_date > article_date %}
-      {% include article_card.html %}
-    {% endif %}
-  {% endfor %}
-</div>
-
-<br style="clear:both;">
-<script src="/js/salvattore.min.js"></script>
+{% for article in articles %}
+  {% assign article_date = article.pub_date | date: '%s' %}
+  {% if today_date > article_date %}
+    <div {% if article.lang %}lang="{{ article.lang }}"{% endif %}>
+      {% if article.is_article %}
+        {% assign url = article.url %}
+      {% else %}
+        {% assign url = article.link %}
+      {% endif %}
+      <h2><a {% if article.is_article %}{% else %}class="external-article"{% endif %} href="{{ url }}">{{ article.title }}</a></h2>
+      {% if article.hero %}
+        <img class="article-hero" src="{{ article.hero.src }}" alt="{{ article.hero.alt }}" />
+      {% endif %}
+      <div class="hyphenate">
+        {% if article.abstract %}
+          {{ article.abstract }}
+        {% else %}
+          {{article.content | strip_html | truncatewords: 50}}
+        {% endif %}
+      </div>
+      <div class="mb-3">
+        <small class="text-muted" style="line-height: 1;">
+          {% if article.lang == "de" %}
+            Veröffentlicht
+          {% else %}
+            Published
+          {% endif %}
+          {% if article.is_article %}{% elsif article.journal %}in <em>{{ article.journal }}</em>,{% endif %} {{ article.pub_date }}.
+          {% if article.hero %}
+            {% if article.lang == "de" %}
+              Bildnachweis:
+            {% else %}
+              Image credits:
+            {% endif %}
+            {{ article.hero.credits }}.
+          {% endif %}
+        </small>
+      </div>
+      <br style="clear: both;">
+    </div>
+  {% endif %}
+{% endfor %}
