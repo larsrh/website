@@ -1,21 +1,18 @@
 - name: INNOQ
-  icon: fa-briefcase
+  icon: 💼
   link: "https://www.innoq.com/en/staff/lars-hupel/"
 - name: Google Scholar
-  icon: fa-graduation-cap
+  icon: 🎓
   link: "https://scholar.google.com/citations?user=VdxLaDEAAAAJ"
 - name: GitHub
-  icon: fa-github
+  icon: ⚙️
   link: "https://github.com/larsrh"
-- name: Stack Overflow
-  icon: fa-stack-overflow
-  link: "https://stackoverflow.com/users/4776939/larsrh"
 - name: Twitter
-  icon: fa-twitter
+  icon: 🐦
   link: "https://twitter.com/larsr_h"
 - name: Instagram
-  icon: fa-instagram
+  icon: 📷
   link: "https://instagram.com/larsr_h"
 - name: Speaker Deck
-  icon: fa-desktop
+  icon: 🎙️
   link: "https://speakerdeck.com/larsrh"

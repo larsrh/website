@@ -1,13 +1,13 @@
 <div>
   {% if page.prev %}
-    <a href="../{{ page.prev }}" class="btn btn-primary"><i class="fa fa-fw fa-hand-o-left fa-lg" aria-hidden="true"></i>Previous part</a>
+    <a href="../{{ page.prev }}" class="btn btn-primary">⬅ Previous part</a>
   {% else %}
-    <button disabled="disabled" class="btn btn-primary"><i class="fa fa-fw fa-hand-o-left fa-lg" aria-hidden="true"></i>Previous part</button>
+    <button disabled="disabled" class="btn btn-primary">⬅ Previous part</button>
   {% endif %}
 
   {% if page.next %}
-    <a href="../{{ page.next }}" class="btn btn-primary"><i class="fa fa-fw fa-hand-o-right fa-lg" aria-hidden="true"></i>Next part</a>
+    <a href="../{{ page.next }}" class="btn btn-primary">Next part ➡</a>
   {% else %}
-    <button disabled="disabled" class="btn btn-primary"><i class="fa fa-fw fa-hand-o-right fa-lg" aria-hidden="true"></i>Next part</button>
+    <button disabled="disabled" class="btn btn-primary">Next part ➡</button>
   {% endif %}
 </div>

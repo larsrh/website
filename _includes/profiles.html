@@ -1,5 +1,6 @@
-<div class="list-group">
+Me, elsewhere:
+<ul style="list-style-type: none; margin: 0; padding: 0;">
   {% for profile in site.data.profiles %}
-    <a href="{{ profile.link }}" class="list-group-item list-group-item-action"><i class="fa fa-fw {{ profile.icon }} fa-lg" aria-hidden="true"></i>{{ profile.name }}</a>
+    <li><a href="{{ profile.link }}">{{ profile.icon }} {{ profile.name }}</a></li>
   {% endfor %}
-</div>
+</ul>
