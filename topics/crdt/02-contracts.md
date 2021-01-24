@@ -31,9 +31,9 @@ In this post, we'll look at what that notion means.
 By the way, there are CRDT sets that allow deletion of elements.
 But they need to capture extra metadata, e.g. when the deletion happened, to make sense of conflicting operations.
 
-## Order! Orderrrr!
-
 {% include float_picture.html src="topics/crdt/bercow.png" text="John Bercow, former Speaker of the House, presumably uttering his signature phrase" %}
+
+## Order! Orderrrr!
 
 Sometimes, we need to compare two values and see which one is "bigger".
 In JavaScript, the most basic way to do that would be to use the `<` operator.
@@ -234,9 +234,9 @@ checkAll({
 The way this works is that fast-check keeps track of how many inputs it generated that failed the preconditions.
 If there are too many, it'll abort.
 
-## (Im)partiality
-
 {% include float_picture.html src="topics/crdt/hasse.svg" text="Hasse diagram of the powerset of {x, y, z}" %}
+
+## (Im)partiality
 
 So far we've only seen some orderings for types of values that can always be compared.
 Let's look at sets next, where the `compare` operation may be partial.
@@ -289,9 +289,9 @@ sample(fc.hexaString(3));
 As you can see, this shows you 10 randomly-generated inputs from that particular generator.
 Because of fast-check's random nature, every time you run the snippet (or reload the page) you'll get different results.
 
-## Alternative orderings
-
 {% include float_picture.html src="topics/crdt/lattice_of_divisors.svg" text="A partial ordering based on division" %}
+
+## Alternative orderings
 
 For any given type, there may be multiple different, but still valid notions of "less than".
 The diagram shows a definition based on divisibility: _x_ ≤ _y_ if _x_ divides _y_.

@@ -1,8 +1,6 @@
-Wohnheim
-========
+## Wohnheim
 
-Die Iren kommen
----------------
+### Die Iren kommen
 
 Wie prognostiziert ist keine größere Anzahl Nordiren (bzw. Briten) in
 das Grant House eingezogen. Im Elms Village (vergleichbar mit der
@@ -36,8 +34,7 @@ to swear like the feckin’ oirish!” schon sagt).
 Besagter Martin war übrigens besorgt, dass sich mein Englisch durch
 seinen/diesen Einfluss noch verschlechtern könne.
 
-Das Grant House
----------------
+### Das Grant House
 
 Das Grant House ist ein Altbau, nur wenige Minuten vom Lanyon Building
 entfernt. Es gibt drei Etagen, auf denen jeweils 16 Studenten (oder 17?
@@ -83,10 +80,9 @@ innerhalb von drei Minuten das Gebäude verlassen haben müssen. Letzes
 Jahr, so unsere Betreuerin, habe das nicht auf Anhieb geklappt. Die
 Übung sei sechsmal wiederholt worden.
 
-Achtung, hier hat jemand mitgedacht
------------------------------------
+### Achtung, hier hat jemand mitgedacht
 
-<div class="row mt-3 mb-3">
+<div class="gallery">
   {% include article_picture.html src="mitgedacht" text="Hier hat jemand mitgedacht" %}
 </div>
 
@@ -99,8 +95,7 @@ Was man sich bei diesem Wohnheim gedacht hat, fragt man sich auch bei
 der Tatsache, dass die Türen mit Keycards geöffnet werden, aber im Bad
 die Beleuchtung mittels Strick an- und ausknipst wird.
 
-Dabei hatte es doch so gut angefangen
--------------------------------------
+### Dabei hatte es doch so gut angefangen
 
 Die Überschrift sagt es: Seit heute morgen regnet es schon. In den
 letzten Tagen war es dagegen sehr freundlich, beim Stadtrundgang sogar
@@ -150,10 +145,9 @@ Wir wurden dann übrigens woanders fündig. In einem Laden, wo zwar
 dezente Musik gespielt wurde, es aber nach 35871 verschiedenen Parfüms
 roch. Ich hasse es, einzukaufen.
 
-Change Button
--------------
+### Change Button
 
-<div class="row mt-3 mb-3">
+<div class="gallery">
   {% include article_picture.html src="change-button" text="Change Button" %}
 </div>
 
@@ -170,10 +164,9 @@ Ein mysteriöses Schild mit der folgenden wundervollen Aufschrift prangt
 
 Kann mir mal jemand erklären, was das heißen soll?
 
-Gschichten ausm Wohnheim
-------------------------
+### Gschichten ausm Wohnheim
 
-<div class="row mt-3 mb-3">
+<div class="gallery">
   {% include article_picture.html src="cooker" text="Es steht ein Herd auf dem Flur" %}
 </div>
 
@@ -191,8 +184,7 @@ inklusive Laptop in den Gemeinschaftsraum verlegt. Als er für längere
 Zeit abwesend war, hat er sein Gerät per Schloss am Tisch befestigt. Die
 Schlüssel lagen dummerweise in Frankreich.
 
-Fire Drill
-----------
+### Fire Drill
 
 Wie angekündigt gab es heute eine Feuerübung. Innerhalb von drei Minuten
 sollte das Gebäude geräumt sein. Habe also schön meinen Laptop in den
@@ -217,8 +209,7 @@ ist, wurde zu einer Anhörung bestellt. Die Höchststrafe dafür sind 500
 einem Teil der Ersparnis wurde uns ein leckeres Mahl zubereitet. Auch
 gut.
 
-Intelligente Planung
---------------------
+### Intelligente Planung
 
 Hintergrundwissen: Wir verwenden im Wohnheim keine Schlüssel, sondern
 ein technisch bis ins kleinste Detail ausgeklügelte

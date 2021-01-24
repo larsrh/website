@@ -4,77 +4,47 @@ layout: default
 
 <link rel="stylesheet" href="{% asset rouge.css @path %}">
 
-<div class="jumbotron">
-  <header class="container">
-    <h1 class="display-3">
-      🎙️
-      {% if page.lang == "de" %}
-        Vortrag: <strong>{{ page.title }}</strong>
-      {% else %}
-        Talk: <strong>{{ page.title }}</strong>
-      {% endif %}
-    </h1>
-  </header>
+{% if page.lang == "de" %}
+  <h2>Zusammenfassung</h2>
+{% else %}
+  <h2>Abstract</h2>
+{% endif %}
+
+<div class="hyphenate">
+  {{ page.abstract }}
 </div>
 
-<div class="container">
-  <main>
+{% if page.speakerdeck %}
 
-    <div class="row justify-content-md-center">
-      <div class="col col-lg-9">
-        {% if page.lang == "de" %}
-          <h2>Zusammenfassung</h2>
-        {% else %}
-          <h2>Abstract</h2>
-        {% endif %}
+  {% if page.lang == "de" %}
+    <h2>Folien</h2>
+  {% else %}
+    <h2>Slides</h2>
+  {% endif %}
 
-        <div class="hyphenate mb-4">
-          {{ page.abstract }}
-        </div>
+  <script async class="speakerdeck-embed" data-id="{{ page.speakerdeck }}" data-ratio="1.77966101694915" src="https://speakerdeck.com/assets/embed.js"></script>
+{% endif %}
 
-        {% if page.speakerdeck %}
+{% if page.video %}
+  {% if page.lang == "de" %}
+    <h2>Aufzeichnung</h2>
+  {% else %}
+    <h2>Recording</h2>
+  {% endif %}
 
-          {% if page.lang == "de" %}
-            <h2>Folien</h2>
-          {% else %}
-            <h2>Slides</h2>
-          {% endif %}
+  {% include video.html video=page.video %}
+{% endif %}
 
-          <div class="mb-4">
-            <script async class="speakerdeck-embed" data-id="{{ page.speakerdeck }}" data-ratio="1.77966101694915" src="https://speakerdeck.com/assets/embed.js"></script>
-          </div>
+<h2>Events</h2>
 
-        {% endif %}
+<ul>
+  {% for conf in page.conferences %}
+    <li>
+      {{ conf.conference }}, {{ conf.location }}, {{ conf.date }}, {{ conf.year }}
+      {% assign talk=conf %}
+      {% include talk_details.html %}
+    </li>
+  {% endfor %}
+</ul>
 
-        {% if page.video %}
-
-          {% if page.lang == "de" %}
-            <h2>Aufzeichnung</h2>
-          {% else %}
-            <h2>Recording</h2>
-          {% endif %}
-
-          <div class="mb-4">
-            {% include video.html video=page.video %}
-          </div>
-
-        {% endif %}
-
-        <h2>Events</h2>
-
-        <ul>
-          {% for conf in page.conferences %}
-            <li>
-              {{ conf.conference }}, {{ conf.location }}, {{ conf.date }}, {{ conf.year }}
-              {% assign talk=conf %}
-              {% include talk_details.html %}
-            </li>
-          {% endfor %}
-        </ul>
-
-        {{ content }}
-      </div>
-    </div>
-
-  </main>
-</div>
+{{ content }}

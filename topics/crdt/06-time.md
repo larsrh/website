@@ -73,8 +73,8 @@ It even turns out that according to this model, it doesn't really matter whether
 
 To make this concrete, consider the following example of a distributed system with three nodes:
 
-<div class="text-center">
-  <img src="/img/topics/crdt/lamport-clock.svg" class="img-fluid" alt="see text below for a description">
+<div>
+  <img src="/img/topics/crdt/lamport-clock.svg" alt="see text below for a description">
 </div>
 
 Let's unpack this since there's a lot going on there.
@@ -189,8 +189,8 @@ In this scenario, an event can either be:
 
 Let's look at another diagram.
 
-<div class="text-center">
-  <img src="/img/topics/crdt/convergence.svg" class="img-fluid" alt="see text below for a description">
+<div>
+  <img src="/img/topics/crdt/convergence.svg" alt="see text below for a description">
 </div>
 
 This is the same scenario as above, where Alice adds 2 to her set and Bob adds 3 to his.

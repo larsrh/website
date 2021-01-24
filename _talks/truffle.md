@@ -1,5 +1,6 @@
 ---
 title: Das eierlegende Truffleschwein
+lang: de
 abstract: |
   Damals, ganz früher, da war Java noch die alleinherschende Sprache auf der JVM und konnte tun und lassen, was sie wollte.
   Später gesellten sich ein paar Skriptsprachen hinzu, wie zum Beispiel Jython und JRuby.

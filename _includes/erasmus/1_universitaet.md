@@ -1,8 +1,6 @@
-Universität
-===========
+## Universität
 
-Angekommen
-----------
+### Angekommen
 
 Am Dienstag (14.09.) flog ich von Frankfurt über Heathrow nach Belfast,
 wo ich mit über einer Stunde Verspätung dann gegen Abend ankam und
@@ -42,8 +40,7 @@ warte gespannt, was mich die nächsten Tage so erwartet. Das einzige, was
 mich hier wirklich sehr verwirrt, ist der Straßenverkehr. Als ob man in
 den Spiegel schauen würde.
 
-Nicht in Idaho
---------------
+### Nicht in Idaho
 
 Heute war Formalia-Tag, so zumindest fühlte es sich an. Zunächst war da
 das Treffen mit dem “Departmental coordinator”, also dem
@@ -69,10 +66,9 @@ hilfsbereit sind. Für meinen Bafög-Antrag brauche ich ein spezielles
 Formular vom Amt, was hier ohne zu murren ausgefüllt wurde, obwohl es
 nicht zur Standardprozedur gehört.
 
-Queen’s Campus
---------------
+### Queen’s Campus
 
-<div class="row mt-3 mb-3">
+<div class="gallery">
   {% include article_picture.html src="lanyon" text="Lanyon Building (by Tomasz Kobiela)" %}
   {% include article_picture.html src="university-square" text="University Square (by Ardfern)" %}
   {% include article_picture.html src="qub-library-P9206073" text="McClay Library" %}
@@ -103,8 +99,7 @@ Weitere Anlagen in Laufweite sind u. a.
 -   besonders für mich interessant – das Bernard Crossland Building,
     welches die Informatik und Elektrotechnik beherbergt.
 
-Ab dieser Woche wird gelernt
-----------------------------
+### Ab dieser Woche wird gelernt
 
 Die letzten beiden Wochen waren ja ganz nett: Dienstag Ankunft, ab da
 jede Menge Veranstaltungen für die Internationalen. Dann im Wesentlichen
@@ -145,8 +140,7 @@ wahrnehmen kann, weil es Überschneidungen gibt. Das ist natürlich
 relativ wenig Zeit, daher muss ich mir noch überlegen, was ich in der
 restlichen Zeit mache.
 
-Freizeit
---------
+### Freizeit
 
 Mein Stundenplan ist ja zugegebenermaßen nicht sonderlich gefüllt. Daher
 habe ich eine Arbeit an der Universität angenommen und betreue dabei
@@ -160,8 +154,7 @@ Kurs aber keine hohen Standards angelegt — es handelt sich nur um die
 imperativen Strukturen von Java, Objektorientierung wird etwa gar nicht
 abgedeckt. Vermutlich kommt das dann im zweiten Semester.
 
-Ehemaliger Student verklagt Universität
----------------------------------------
+### Ehemaliger Student verklagt Universität
 
 Ein ehemaliger Student der Queen’s University zieht vor den High Court,
 um eine Revision seiner Note zu erreichen. Seinen Abschluss bekam er mit
@@ -177,8 +170,7 @@ Einen länglichen Kommentar dazu erübrige ich mir jetzt. Nur so viel:
 Wenn das Erfolg hätte, dann kann sich die Uni schon mal auf mehrere
 Anliegen dieser Art vorbereiten. Na, vielen Dank auch.
 
-Korrigieren
------------
+### Korrigieren
 
 Ich gehöre ja seit Anfang des Semesters auch hier zur arbeitenden
 Bevölkerung. Diese Woche gab es die ersten benoteten Übungen, auf drei

@@ -1,8 +1,7 @@
 ---
-layout: jumbotron
-nav: articles
-card_theme: bg-dark text-white
+layout: default
 permalink: /articles/
+title: Writing, Articles, Podcasts
 ---
 
 {% assign articles = site.articles | concat: site.data.external_articles | sort: 'pub_date' | reverse %}
@@ -19,7 +18,7 @@ permalink: /articles/
       {% endif %}
       <h2><a {% if article.is_article %}{% else %}class="external-article"{% endif %} href="{{ url }}">{{ article.title }}</a></h2>
       {% if article.hero %}
-        <img class="article-hero" src="{{ article.hero.src }}" alt="{{ article.hero.alt }}" />
+        <img class="figure-float-right" src="{{ article.hero.src }}" alt="{{ article.hero.alt }}" />
       {% endif %}
       <div class="hyphenate">
         {% if article.abstract %}
@@ -28,23 +27,21 @@ permalink: /articles/
           {{article.content | strip_html | truncatewords: 50}}
         {% endif %}
       </div>
-      <div class="mb-3">
-        <small class="text-muted" style="line-height: 1;">
+      <div class="article-source">
+        {% if article.lang == "de" %}
+          Veröffentlicht
+        {% else %}
+          Published
+        {% endif %}
+        {% if article.is_article %}{% elsif article.journal %}in <em>{{ article.journal }}</em>,{% endif %} {{ article.pub_date }}.
+        {% if article.hero %}
           {% if article.lang == "de" %}
-            Veröffentlicht
+            Bildnachweis:
           {% else %}
-            Published
+            Image credits:
           {% endif %}
-          {% if article.is_article %}{% elsif article.journal %}in <em>{{ article.journal }}</em>,{% endif %} {{ article.pub_date }}.
-          {% if article.hero %}
-            {% if article.lang == "de" %}
-              Bildnachweis:
-            {% else %}
-              Image credits:
-            {% endif %}
-            {{ article.hero.credits }}.
-          {% endif %}
-        </small>
+          {{ article.hero.credits }}.
+        {% endif %}
       </div>
       <br style="clear: both;">
     </div>

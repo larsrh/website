@@ -1,20 +1,25 @@
 ---
 layout: default
-nav: index
-card_theme: bg-primary text-white
+title: Lars Hupel's homepage
 ---
 
-<div class="jumbotron">
-  <header class="container">
-    <h1 class="display-3">Lars Hupel</h1>
-  </header>
-</div>
+{% include synopsis.html %}
 
-<div class="container">
-  <main class="masonry">
-    {% include card.html src="synopsis.html" header="About" %}
-    {% include card.html src="profiles.html" header="Profiles" %}
-    {% include card.html src="invitation.html" header="Standing Invitation" %}
-    {% include card.html src="flights.html" header="Flight status" %}
-  </main>
+<div class="masonry">
+  <div>
+    <h2>Contact</h2>
+    {% include contact.html %}
+  </div>
+  <div>
+    <h2>Profiles</h2>
+    {% include profiles.html %}
+  </div>
+  <div>
+    <h2>Standing invitation</h2>
+    {% include invitation.html %}
+  </div>
+  <div>
+    <h2>Flight status</h2>
+    {% include flights.html %}
+  </div>
 </div>

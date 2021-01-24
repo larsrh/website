@@ -195,8 +195,8 @@ The difference now is that _each_ node keeps _each other node's_ clock, too (i.e
 When a message is sent, the sending node increases only its own clock, but includes a copy of the entire vector in the message.
 On the other side when a message is received, the receiving node again increments its own clock, and for everyone else's clock, it takes the maximum of the own vector and the received vector.
 
-<div class="text-center">
-  <img src="/img/topics/crdt/vector-clock.svg" class="img-fluid" alt="see text below for a description">
+<div>
+  <img src="/img/topics/crdt/vector-clock.svg" alt="see text below for a description">
 </div>
 
 In this diagram, we can again see three nodes _A_, _B_, and _C_ sending messages to each other.

@@ -1,5 +1,9 @@
 const createButton = ({ icon, label, handler }) => {
-  const btn = faButton(icon, label);
+  const btn = html(
+    "button",
+    { "class": icon },
+    text(label)
+  );
   btn.onclick = handler;
   return btn;
 }
@@ -51,8 +55,7 @@ const promisify = f => {
 const renderError = err =>
   html(
     "span",
-    {},
-    faIcon("exclamation-circle"),
+    { "class": "error" },
     text(`${err.name}: ${err.message}`)
   )
 
@@ -96,14 +99,14 @@ const initSnippet = (iframe, pre, id) => {
 
   const out = html("div", { "class": "output output-pending", "data-id": id });
 
-  const leftContainer = html("div", { "class": "col-md-7" });
-  const rightContainer = html("div", { "class": "col-md-5" }, out);
+  const editorContainer = html("div", { });
+  const outputContainer = html("div", { }, out);
 
-  const row = html("div", { "class": "interactive row", id: `row-${id}` }, leftContainer, rightContainer);
+  const row = html("div", { "class": "interactive", id: `row-${id}` }, editorContainer, outputContainer);
 
   pre.parentNode.replaceChild(row, pre);
 
-  const code = CodeMirror(leftContainer, {
+  const code = CodeMirror(editorContainer, {
     value: contents,
     mode: "javascript",
     lineNumbers: true,
@@ -117,11 +120,11 @@ const initSnippet = (iframe, pre, id) => {
   }
 
   const runButton = { icon: "play", label: "Run", handler: runHandler };
-  const resetButton = { icon: "trash", label: "Reset", handler: resetHandler };
+  const resetButton = { icon: "reset", label: "Reset", handler: resetHandler };
 
-  leftContainer.appendChild(html(
+  editorContainer.appendChild(html(
     "div",
-    { "class": "pull-right" },
+    { "class": "interactive-buttons" },
     createButton(resetButton),
     createButton(runButton)
   ));
