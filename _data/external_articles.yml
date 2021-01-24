@@ -3,6 +3,7 @@
   abstract: "Inoffizielles Skript zur Vorlesung „Analysis für Informatiker“ des WS 2009/2010, gehalten von Prof. Dr. P. Rentrop, niedergeschrieben und illustriert von Markus Grimm, Andreas Heider, Lars Hupel, Michael Kerscher, Philipp Meyer, Janosch Peters und Sylvester Tremmel."
   url: "/pub/skript-analysis.pdf"
   lang: de
+  type: misc
 - pub_date: 2010-09-22
   title: "Überholt: Subversion ist obsolet"
   journal: "KaffeeKlatsch"
@@ -36,6 +37,7 @@
   journal: "Functional Geekery"
   abstract: "In this episode Proctor talks with Lars Hupel. We talk his introduction to Functional Programming with Haskell, Scala, and move to working on Isabelle for creating theorems about proving your program."
   url: "https://www.functionalgeekery.com/episode-62-lars-hupel/"
+  type: podcast
 - pub_date: 2016-10-17
   title: "Let's build ourselves a small ScalaCheck"
   journal: "Typelevel.org blog"
@@ -46,16 +48,19 @@
   journal: "Playing with Prolog (Season 2)"
   abstract: "Playing with Prolog is back for Season 2 with a new host. Annie and Lars take a look at Marelle, the SWI-Prolog based devops system."
   url: "https://www.youtube.com/watch?v=gPJFOdy9ZII"
+  type: misc
 - pub_date: 2018-09-08
   title: "Job Scheduling"
   journal: "Playing with Prolog (Season 2)"
   abstract: "This month in Playing with Prolog we help Lars out at work. He needs to schedule jobs for his CI servers."
   url: "https://www.youtube.com/watch?v=D2lDNUh1plU"
+  type: misc
 - pub_date: 2018-10-06
   title: "Node-RED"
   journal: "Playing with Prolog (Season 2)"
   abstract: "IBM's node-red flow programming language is an interesting declarative language. Recently Annie's been experimenting with it. In this video she shows it to Lars."
   url: "https://www.youtube.com/watch?v=6BWPEMCFuCw"
+  type: misc
 - pub_date: 2019-05-22
   title: "Adressen und Transaktionen in Kryptowährungen – Teil 1: Bitcoin"
   journal: "INNOQ"
@@ -115,6 +120,7 @@
   journal: "Playing with Prolog (Season 3)"
   abstract: "We cover the newly added Tabling for SWI-Prolog to help Annie get around Bangalore."
   url: "https://www.youtube.com/watch?v=HfQGSprQ5Tk"
+  type: misc
 - pub_date: 2019-09-27
   title: "Private Blockchains: Vergleich von Fabric und Corda"
   journal: "JavaSPEKTRUM 5/2019"
@@ -146,6 +152,7 @@
   journal: "CaSE podcast"
   abstract: "In this episode of the CaSE podcast, Lucas talks to Lars Hupel of Typelevel-fame about algebraic design. Lars starts to explain how the expression problem views the difference between the functional and Object Oriented style of programming. He then explains the concept of an algebra – from coupling trains to CRDTs. This leads to a discussion on comprehensive and iterative thinking styles and how different styles of testing and proving work. Finally, they bring it all back to type systems."
   url: "https://www.case-podcast.org/29-lars-hupel-on-algebraic-design"
+  type: "podcast"
 - pub_date: 2020-04-14
   title: "Cross-platform testing of TypeScript code with Jasmine and Karma"
   journal: "INNOQ"
@@ -163,6 +170,7 @@
   abstract: "TypeScript ist in aller Munde. In dieser Folge will Lucas von Lars wissen, wieso er sich so sehr für diese Sprache begeistert. Wie ordnet ein erfahrener Scala-Entwickler wie Lars das Typsystem von TypeScript ein? Lars beschreibt zudem, welche Vorteile ein mächtiges Typsystem mit sich bringt, und erklärt, wie die Interaktion mit JavaScript-Bibliotheken funktioniert."
   lang: de
   url: "https://www.innoq.com/de/podcast/073-type-script/"
+  type: "podcast"
 - pub_date: 2020-07-03
   title: "An introduction to Conflict-Free Replicated Data Types"
   abstract: "This is a series about Conflict-Free Replicated Data Types, or CRDTs for short. Their purpose is to allow seamless replication of data on different nodes in a distributed system. Merging is by construction always possible, without any conflicts. This series assumes no knowledge about CRDTs, but be prepared to learn a thing or two about algebras."
@@ -178,6 +186,7 @@
   journal: "Playing with Prolog (Season 3)"
   abstract: "Poor Lars is having trouble arranging cars in his trains. Annie helps him out using constraint programming."
   url: "https://www.youtube.com/watch?v=KckDVWysAes"
+  type: misc
 - pub_date: 2020-08-26
   title: "Smart Contracts in der Programmiersprache Rust"
   journal: "Heise Developer"
@@ -190,6 +199,7 @@
   abstract: "Grob gehackt oder lieber ein feiner Julienne-Schnitt für die Tags in der Suppe? Lucas und Lars diskutieren in dieser Folge über Postel’s Law. Was es besagt und wie liberal ein Service eigentlich beim Akzeptieren von Eingabedaten sein sollte – darum geht’s in dieser Folge!"
   lang: de
   url: "https://www.innoq.com/de/podcast/079-postels-law/"
+  type: "podcast"
 - pub_date: 2020-10-05
   title: "Dependently-Typed TypeScript"
   journal: "Funktionale Programmierung"
@@ -202,12 +212,14 @@
   abstract: "In dieser Episode des SoftwareArchitekTOUR-Podcasts spricht Stefan Tilkov mit Gast Lars Hupel über den Nutzen von Informatik-Grundlagenwissen für praktizierende Softwarearchitekten."
   url: "https://heise.de/-4945175"
   lang: de
+  type: "podcast"
 - pub_date: 2020-12-29
   title: "Jahresend-Mix 2020"
   journal: "INNOQ-Security-Podcast"
   abstract: "Welche Security-Themen haben euch 2020 am meisten beschäftigt? Was hat euch besonders beeindruckt oder einfach nur überrascht? Diese Fragen stellte Simon Kölsch 16 INNOQ Kolleginnen und Kollegen. Die Antworten ergeben einen bunten Themen-Mix, angefangen mit der Bedeutung von UX in der Security über Threat Modelling bis hin zu neuen Ideen für die spielerische Auseinandersetzung mit Security-Themen."
   url: "https://www.innoq.com/de/podcast/009-jahresend-mix-2020/"
   lang: de
+  type: "podcast"
 - pub_date: 2021-01-07
   title: "Deploying a WebAssembly smart contract on Oasis Ethereum"
   journal: "INNOQ"
