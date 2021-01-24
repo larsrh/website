@@ -9,14 +9,13 @@ title: Writing, Articles, Podcasts
 
 {% for article in articles %}
   {% assign article_date = article.pub_date | date: '%s' %}
+  {% assign ext = false %}
+  {% if article.url contains "http" %}
+    {% assign ext = true %}
+  {% endif %}
   {% if today_date > article_date %}
     <div {% if article.lang %}lang="{{ article.lang }}"{% endif %}>
-      {% if article.is_article %}
-        {% assign url = article.url %}
-      {% else %}
-        {% assign url = article.link %}
-      {% endif %}
-      <h2><a {% if article.is_article %}{% else %}class="external-article"{% endif %} href="{{ url }}">{{ article.title }}</a></h2>
+      <h2><a {% if ext %}class="external-article"{% endif %} href="{{ article.url }}">{{ article.title }}</a></h2>
       {% if article.hero %}
         <img class="figure-float-right" src="{{ article.hero.src }}" alt="{{ article.hero.alt }}" />
       {% endif %}
@@ -33,7 +32,7 @@ title: Writing, Articles, Podcasts
         {% else %}
           Published
         {% endif %}
-        {% if article.is_article %}{% elsif article.journal %}in <em>{{ article.journal }}</em>,{% endif %} {{ article.pub_date }}.
+        {% if article.journal %}in <em>{{ article.journal }}</em>,{% endif %} {{ article.pub_date }}.
         {% if article.hero %}
           {% if article.lang == "de" %}
             Bildnachweis:

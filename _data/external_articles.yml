@@ -1,96 +1,96 @@
 - pub_date: 2010-04-21
   title: "Analysis für Informatiker"
   abstract: "Inoffizielles Skript zur Vorlesung „Analysis für Informatiker“ des WS 2009/2010, gehalten von Prof. Dr. P. Rentrop, niedergeschrieben und illustriert von Markus Grimm, Andreas Heider, Lars Hupel, Michael Kerscher, Philipp Meyer, Janosch Peters und Sylvester Tremmel."
-  link: "/pub/skript-analysis.pdf"
+  url: "/pub/skript-analysis.pdf"
   lang: de
 - pub_date: 2010-09-22
   title: "Überholt: Subversion ist obsolet"
   journal: "KaffeeKlatsch"
   abstract: "In der letzten Ausgabe des KaffeeKlatsch wurde eine Kombination aus Subversion, Mantis und CheckStyle vorgestellt. Dem ein oder anderen Leser beschlich beim Lesen des Wortes Subversion vielleicht ein seltsames Gefühl: Schreiben wir nicht das Jahr 2010? Der folgende Artikel hat sich zum Ziel gesetzt, die gängigen Vorbehalte gegenüber moderneren Tools zu zerstreuen und eine Umstellung, weg von Subversion, zu motivieren."
-  link: "http://www.bookware.de/kaffeeklatsch/archiv/KaffeeKlatsch-2010-09.pdf"
+  url: "http://www.bookware.de/kaffeeklatsch/archiv/KaffeeKlatsch-2010-09.pdf"
   lang: de
 - pub_date: 2011-09-12
   title: "Geschichtsrevisionismus: Nachträgliches Ändern einer Projektgeschichte mit Git"
   journal: "KaffeeKlatsch"
   abstract: "Was unter Historikern umstritten ist, ist mit Git ganz einfach: Die Geschichte eines Projekts im Nachhinein ändern. Welche Möglichkeiten es da gibt, soll in diesem Artikel kurz vorgestellt werden."
-  link: "http://www.bookware.de/kaffeeklatsch/archiv/KaffeeKlatsch-2011-09.pdf"
+  url: "http://www.bookware.de/kaffeeklatsch/archiv/KaffeeKlatsch-2011-09.pdf"
   lang: de
 - pub_date: 2013-06-24
   title: "Deriving Type Class Instances"
   journal: "Typelevel.org blog"
   abstract: "The use of type classes has become pervasive in Scala programming. Type classes are encoded as traits, hence the most basic way of declaring an instance is writing implicit methods which return objects extending from these traits. However, those implicit methods are regular Scala methods, so we can use all features provided by the language to derive instances.  In this post, a technique is described to compose instances into larger ones, which will not only allow for construction of instances for case classes, but also for other nested structures with minimum boilerplate."
-  link: "https://typelevel.org/blog/2013/06/24/deriving-instances-1.html"
+  url: "https://typelevel.org/blog/2013/06/24/deriving-instances-1.html"
 - pub_date: 2013-11-17
   title: "Law Enforcement using Discipline"
   journal: "Typelevel.org blog"
   abstract: "Some nine or ten months ago, Spire’s project structure underwent a major reorganization. Simultaneously, the Scalacheck bindings were refactored, completely overhauling the law-checking infrastructure."
-  link: "https://typelevel.org/blog/2013/11/17/discipline.html"
+  url: "https://typelevel.org/blog/2013/11/17/discipline.html"
 - pub_date: 2015-12-03
   title: "Formale Wahrheit"
   journal: "fatum"
   abstract: "Am Lehrstuhl für Logik und Verifikation der TUM wird Isabelle entwickelt, ein Programm mithilfe dessen man Theoreme beweisen kann. Interaktive Theorembeweiser sind relative neue Hilfsmittel in der Werkzeugsammlung von Mathematikern. Sind solche vom Computer verifizierten Argumentationsketten aber noch Beweise im mathematischen Sinn?"
-  link: "https://www.fatum-magazin.de/ausgaben/traeume-und-wahrheiten/in-die-werkstatt/formale-wahrheit.html"
+  url: "https://www.fatum-magazin.de/ausgaben/traeume-und-wahrheiten/in-die-werkstatt/formale-wahrheit.html"
   lang: de
 - pub_date: 2016-08-09
   title: "Functional Geekery, Episode 62"
   journal: "Functional Geekery"
   abstract: "In this episode Proctor talks with Lars Hupel. We talk his introduction to Functional Programming with Haskell, Scala, and move to working on Isabelle for creating theorems about proving your program."
-  link: "https://www.functionalgeekery.com/episode-62-lars-hupel/"
+  url: "https://www.functionalgeekery.com/episode-62-lars-hupel/"
 - pub_date: 2016-10-17
   title: "Let's build ourselves a small ScalaCheck"
   journal: "Typelevel.org blog"
   abstract: "ScalaCheck is a well-known property-based testing library, based on ideas from Haskell’s QuickCheck. It is also a Typelevel project. In this post, I’d like to show some of the underlying mechanisms, stripped down to the bare minimum."
-  link: "https://typelevel.org/blog/2016/10/17/minicheck.html"
+  url: "https://typelevel.org/blog/2016/10/17/minicheck.html"
 - pub_date: 2018-04-29
   title: "Marelle"
   journal: "Playing with Prolog (Season 2)"
   abstract: "Playing with Prolog is back for Season 2 with a new host. Annie and Lars take a look at Marelle, the SWI-Prolog based devops system."
-  link: "https://www.youtube.com/watch?v=gPJFOdy9ZII"
+  url: "https://www.youtube.com/watch?v=gPJFOdy9ZII"
 - pub_date: 2018-09-08
   title: "Job Scheduling"
   journal: "Playing with Prolog (Season 2)"
   abstract: "This month in Playing with Prolog we help Lars out at work. He needs to schedule jobs for his CI servers."
-  link: "https://www.youtube.com/watch?v=D2lDNUh1plU"
+  url: "https://www.youtube.com/watch?v=D2lDNUh1plU"
 - pub_date: 2018-10-06
   title: "Node-RED"
   journal: "Playing with Prolog (Season 2)"
   abstract: "IBM's node-red flow programming language is an interesting declarative language. Recently Annie's been experimenting with it. In this video she shows it to Lars."
-  link: "https://www.youtube.com/watch?v=6BWPEMCFuCw"
+  url: "https://www.youtube.com/watch?v=6BWPEMCFuCw"
 - pub_date: 2019-05-22
   title: "Adressen und Transaktionen in Kryptowährungen – Teil 1: Bitcoin"
   journal: "INNOQ"
   abstract: "Kryptowährungen sind in aller Munde. Tutorials und Erklärungen gibt es zuhauf. In dieser Artikelserie soll ein bestimmter Aspekt, nämlich der der Adressen und Transaktionen, detailliert für populäre Blockchains geklärt werden. Denn unter der Oberfläche verbirgt sich einiges an Komplexität. Teil 1: Bitcoin."
-  link: "https://www.innoq.com/de/articles/2019/05/kryptowaehrungen-transaktionen-teil-1/"
+  url: "https://www.innoq.com/de/articles/2019/05/kryptowaehrungen-transaktionen-teil-1/"
   lang: de
 - pub_date: 2019-05-29
   title: "Adressen und Transaktionen in Kryptowährungen – Teil 2: Ethereum"
   journal: "INNOQ"
   abstract: "Kryptowährungen sind in aller Munde. Tutorials und Erklärungen gibt es zuhauf. In dieser Artikelserie soll ein bestimmter Aspekt, nämlich der der Adressen und Transaktionen, detailliert für populäre Blockchains geklärt werden. Denn unter der Oberfläche verbirgt sich einiges an Komplexität. Teil 2: Ethereum."
-  link: "https://www.innoq.com/de/articles/2019/05/kryptowaehrungen-transaktionen-teil-2/"
+  url: "https://www.innoq.com/de/articles/2019/05/kryptowaehrungen-transaktionen-teil-2/"
   lang: de
 - pub_date: 2019-05-31
   title: "Parametrizität in Java"
   journal: "JavaSPEKTRUM 3/2019"
   abstract: "So gut wie alle modernen Programmiersprachen erlauben es, Routinen über Werte und über Typen zu parametrisieren. In Java wird letzteres „Generics“ genannt, in C++ hingegen „Templates“. Obwohl die Konzepte die gleichen sind, unterscheidet sich die Implementation doch stark. In diesem Artikel möchte ich diese Art der Parametrisierung in Java unter die Lupe nehmen und erklären, warum „Type Erasure“ doch eine ganz gute Idee ist."
-  link: "https://www.innoq.com/de/articles/2019/06/parametrizitaet-in-java/"
+  url: "https://www.innoq.com/de/articles/2019/06/parametrizitaet-in-java/"
   lang: de
 - pub_date: 2019-06-05
   title: "Adressen und Transaktionen in Kryptowährungen – Teil 3: Altcoins"
   journal: "INNOQ"
   abstract: "Kryptowährungen sind in aller Munde. Tutorials und Erklärungen gibt es zuhauf. In dieser Artikelserie soll ein bestimmter Aspekt, nämlich der der Adressen und Transaktionen, detailliert für populäre Blockchains geklärt werden. Denn unter der Oberfläche verbirgt sich einiges an Komplexität. Teil 3: Altcoins."
-  link: "https://www.innoq.com/de/articles/2019/06/kryptowaehrungen-transaktionen-teil-3/"
+  url: "https://www.innoq.com/de/articles/2019/06/kryptowaehrungen-transaktionen-teil-3/"
   lang: de
 - pub_date: 2019-06-27
   title: "Scala Days 2019 in Lausanne"
   journal: "INNOQ"
   abstract: "Im Juni 2019 fanden die Scala Days anlässlich des 10. Jubiläums wieder in Lausanne – an der Geburtsstätte von Scala – statt. Heuer gab es nicht nur zwei Konferenztage, sondern auch eine ganze Reihe von Community-Events davor und danach. INNOQ war die ganze Woche vor Ort und unsere Kollegen berichten hier von ihren Erfahrungen."
-  link: "https://www.innoq.com/de/blog/scala-days-2019-lausanne/"
+  url: "https://www.innoq.com/de/blog/scala-days-2019-lausanne/"
   lang: de
 - pub_date: 2019-07-03
   title: "Verifikation von Smart Contracts"
   journal: "INNOQ"
   abstract: "Smart Contracts sind eine Technologie, mit der man Code auf Blockchains ausführt. Eine Vielzahl von Geschäftsfällen werden inzwischen durch solche Verträge abgebildet. Ethereum ist dafür eine beliebte Plattform. Doch wie bei aller Software stellt sich die Frage, wie man die Qualität des Codes sicherstellen kann."
-  link: "https://www.innoq.com/de/articles/2019/07/verifikation-von-smart-contracts/"
+  url: "https://www.innoq.com/de/articles/2019/07/verifikation-von-smart-contracts/"
   lang: de
   hero:
     src: "/img/bug.jpg"
@@ -100,7 +100,7 @@
   title: "Verification of smart contracts"
   journal: "INNOQ"
   abstract: "Smart contracts are used to execute code on blockchains. A variety of business cases are now represented with such contracts. Ethereum is a popular platform for this purpose. However, as with all software, the question arises of how to ensure the quality of the code."
-  link: "https://www.innoq.com/en/articles/2019/07/verifikation-von-smart-contracts/"
+  url: "https://www.innoq.com/en/articles/2019/07/verifikation-von-smart-contracts/"
   hero:
     src: "/img/bug.jpg"
     alt: "A moth on a piece of paper, believed to be the first computer bug"
@@ -109,28 +109,28 @@
   title: "Integrating Logback with JLine"
   journal: "INNOQ"
   abstract: "Logback is a popular logging library for Java. JLine can be used to create nice shell-like applications. Combining both is not as hard as it looks."
-  link: "https://www.innoq.com/en/blog/logback-jline/"
+  url: "https://www.innoq.com/en/blog/logback-jline/"
 - pub_date: 2019-08-02
   title: "Tabling"
   journal: "Playing with Prolog (Season 3)"
   abstract: "We cover the newly added Tabling for SWI-Prolog to help Annie get around Bangalore."
-  link: "https://www.youtube.com/watch?v=HfQGSprQ5Tk"
+  url: "https://www.youtube.com/watch?v=HfQGSprQ5Tk"
 - pub_date: 2019-09-27
   title: "Private Blockchains: Vergleich von Fabric und Corda"
   journal: "JavaSPEKTRUM 5/2019"
   abstract: "Der Markt an Blockchain-Technologien ist hart umkämpft. Seit der Einführung von Bitcoin kam es zu einer Proliferation von Forks, Neuentwicklungen und Innovationen. Doch im Unternehmenskontext ist es selten sinnvoll, interne Geschäftsvorgänge auf öffentlichen Blockchains zu verwalten. Daher etabliert sich im Moment eine neue Nische, die der privaten oder zugangsbeschränkten (permissioned) Blockchains."
   lang: de
-  link: "https://www.innoq.com/de/articles/2019/09/fabric-vs-corda/"
+  url: "https://www.innoq.com/de/articles/2019/09/fabric-vs-corda/"
 - pub_date: 2019-10-15
   title: "The many ways of testing Smart Contracts in Ethereum"
   journal: "INNOQ"
   abstract: "You have implemented a smart contract for Ethereum, and now you are wondering how you can test it under real-life conditions, but without spending money in case there's a problem? Luckily, there are test networks that can help you with this."
-  link: "https://www.innoq.com/en/blog/testing-ethereum/"
+  url: "https://www.innoq.com/en/blog/testing-ethereum/"
 - pub_date: 2019-12-04
   title: "Das eierlegende Truffleschwein"
   journal: "Javamagazin 01/2020"
   abstract: "Viele, die im Java-Umfeld unterwegs sind, werden von ihr gehört haben: der sagenumwobenen GraalVM. Diese magische neue Virtual Machine für Java soll vor allem für blanke Performance sorgen, indem sie den Java-Bytecode in nativen Code kompiliert. Dadurch fällt insbesondere der Startup-Overhead weg, da weite Teile der Initialisierung bereits vom Compiler erledigt werden. So oder so ähnlich ist es vielerorts zu lesen. Hinzu kommt, dass die GraalVM zu nicht weniger das Potential hat als eine neue Ära der polyglotten Programmierung auf der JVM einzuläuten. Die Rede ist von der Truffle API, einem generischen Framework zur Implementierung von Interpretern."
-  link: "https://www.innoq.com/de/articles/2020/02/eierlegendes-truffleschwein/"
+  url: "https://www.innoq.com/de/articles/2020/02/eierlegendes-truffleschwein/"
   lang: de
   hero:
     src: "/img/chercheur_de_truffes.jpg"
@@ -140,77 +140,76 @@
   title: "So you want to compose some functions"
   journal: "INNOQ"
   abstract: "Let’s say you have a list of functions and you want to compose them. Shouldn’t be too hard, right? Of course it is, but maybe there’s an elegant way."
-  link: "https://www.innoq.com/en/blog/function-monoids/"
+  url: "https://www.innoq.com/en/blog/function-monoids/"
 - pub_date: 2020-02-06
   title: "Lars Hupel on Algebraic Design"
   journal: "CaSE podcast"
   abstract: "In this episode of the CaSE podcast, Lucas talks to Lars Hupel of Typelevel-fame about algebraic design. Lars starts to explain how the expression problem views the difference between the functional and Object Oriented style of programming. He then explains the concept of an algebra – from coupling trains to CRDTs. This leads to a discussion on comprehensive and iterative thinking styles and how different styles of testing and proving work. Finally, they bring it all back to type systems."
-  link: "https://www.case-podcast.org/29-lars-hupel-on-algebraic-design"
+  url: "https://www.case-podcast.org/29-lars-hupel-on-algebraic-design"
 - pub_date: 2020-04-14
   title: "Cross-platform testing of TypeScript code with Jasmine and Karma"
   journal: "INNOQ"
   abstract: "I like TypeScript. Writing code that already underwent basic checks (i.e. typechecking) before it can even touch an execution engine is a big win in my book. In particular, TypeScript is nice because it integrates well into the broader JavaScript ecosystem and comes with batteries (i.e. types) included. Unfortunately, most test runners require extra setup to work with tests written in TypeScript. Some even require staggering amounts of configuration."
-  link: "https://www.innoq.com/de/blog/ts-jasmine-karma/"
+  url: "https://www.innoq.com/de/blog/ts-jasmine-karma/"
 - pub_date: 2020-04-27
   title: "Remote Training, funktioniert das?"
   journal: "INNOQ"
   abstract: "Heimarbeit hat sich mittlerweile – mehr oder weniger freiwillig – bei den meisten Unternehmen in der IT durchgesetzt. Doch beim Thema Schulungen sind viele noch skeptisch, ob das funktionieren könnte. Wir haben es für das iSAQB-Modul BLOCKCHAIN ausprobiert."
   lang: de
-  link: "https://www.innoq.com/de/blog/remote-blockchain-training/"
+  url: "https://www.innoq.com/de/blog/remote-blockchain-training/"
 - pub_date: 2020-05-04
   title: "TypeScript. Was sind das denn für Typen?"
   journal: "INNOQ-Podcast"
   abstract: "TypeScript ist in aller Munde. In dieser Folge will Lucas von Lars wissen, wieso er sich so sehr für diese Sprache begeistert. Wie ordnet ein erfahrener Scala-Entwickler wie Lars das Typsystem von TypeScript ein? Lars beschreibt zudem, welche Vorteile ein mächtiges Typsystem mit sich bringt, und erklärt, wie die Interaktion mit JavaScript-Bibliotheken funktioniert."
   lang: de
-  link: "https://www.innoq.com/de/podcast/073-type-script/"
+  url: "https://www.innoq.com/de/podcast/073-type-script/"
 - pub_date: 2020-07-03
   title: "An introduction to Conflict-Free Replicated Data Types"
-  journal: "lars.hupel.info"
   abstract: "This is a series about Conflict-Free Replicated Data Types, or CRDTs for short. Their purpose is to allow seamless replication of data on different nodes in a distributed system. Merging is by construction always possible, without any conflicts. This series assumes no knowledge about CRDTs, but be prepared to learn a thing or two about algebras."
-  link: "/topics/crdt/01-intro"
+  url: "/topics/crdt/01-intro"
 - pub_date: 2020-07-31
   title: "Modernes funktionales Programmieren in Java"
   journal: "JavaSPEKTRUM 4/2020"
   abstract: "Erfahrene Java-Entwickler*innen können viele der Entwurfsmuster des „Gang of Four“-Buches aus dem Stand zitieren, identifizieren und anwenden. Trotzdem stehen diese praktisch seit der Erscheinung des Buches unter Kritik: da sie teils vage definiert sind, strotzen „moderne“ Codebasen nur so von Singletons, Factories und Buildern. Auf der anderen Seite stehen die Anhänger*innen der funktionalen Programmierung, die sich gerne über die objektorientierten Patterns lustig machen. Die Wahrheit liegt wie so oft in der Mitte: seit Version 8 lassen sich auch in Java die cleveren Gedanken aus der funktionalen Welt effektiv und komfortabel benutzen, ohne die Objektorientierung aufzugeben."
   lang: de
-  link: "https://www.innoq.com/de/articles/2020/07/modernes-funktionales-programmieren/"
+  url: "https://www.innoq.com/de/articles/2020/07/modernes-funktionales-programmieren/"
 - pub_date: 2020-08-20
   title: "Train Consists"
   journal: "Playing with Prolog (Season 3)"
   abstract: "Poor Lars is having trouble arranging cars in his trains. Annie helps him out using constraint programming."
-  link: "https://www.youtube.com/watch?v=KckDVWysAes"
+  url: "https://www.youtube.com/watch?v=KckDVWysAes"
 - pub_date: 2020-08-26
   title: "Smart Contracts in der Programmiersprache Rust"
   journal: "Heise Developer"
   abstract: "Wie wäre es, Rust in Kombination mit WebAssembly zu nutzen, um Smart Contracts zu entwickeln, die gegebenenfalls Millionen von Krypto-Tokens verwalten können?"
   lang: de
-  link: "https://heise.de/-4877153"
+  url: "https://heise.de/-4877153"
 - pub_date: 2020-09-29
   title: "Postel’s Law. Grob gehackt oder fein geschnitten?"
   journal: "INNOQ-Podcast"
   abstract: "Grob gehackt oder lieber ein feiner Julienne-Schnitt für die Tags in der Suppe? Lucas und Lars diskutieren in dieser Folge über Postel’s Law. Was es besagt und wie liberal ein Service eigentlich beim Akzeptieren von Eingabedaten sein sollte – darum geht’s in dieser Folge!"
   lang: de
-  link: "https://www.innoq.com/de/podcast/079-postels-law/"
+  url: "https://www.innoq.com/de/podcast/079-postels-law/"
 - pub_date: 2020-10-05
   title: "Dependently-Typed TypeScript"
   journal: "Funktionale Programmierung"
   abstract: "TypeScript ist eine Programmiersprache mit einigen Besonderheiten: Im Gegensatz zu den allermeisten anderen getypten Programmiersprachen wurde sie als Aufsatz für JavaScript (JS) entwickelt. Dabei hat Microsoft besonderen Wert darauf gelegt, dass sich die Sprache möglichst nahtlos in die bestehenden Ökosysteme (Node.js und Browser) integriert. Das wird dadurch erreicht, dass die TypeScript-Syntax „bloß“ die Typen zu JavaScript hinzufügt und die Kompilierung aus dem Entfernen der Typannotationen besteht. Damit hat sich TypeScript zum de-facto Standard entwickelt, wenn es darum geht, typsichere Anwendungen auf JS-Basis zu bauen."
-  link: "https://funktionale-programmierung.de/2020/10/05/dependently-typed-typescript.html"
+  url: "https://funktionale-programmierung.de/2020/10/05/dependently-typed-typescript.html"
   lang: de
 - pub_date: 2020-11-03
   title: "Informatik-Theorie für praktizierende Architekten"
   journal: "SoftwareArchitektTOUR"
   abstract: "In dieser Episode des SoftwareArchitekTOUR-Podcasts spricht Stefan Tilkov mit Gast Lars Hupel über den Nutzen von Informatik-Grundlagenwissen für praktizierende Softwarearchitekten."
-  link: "https://heise.de/-4945175"
+  url: "https://heise.de/-4945175"
   lang: de
 - pub_date: 2020-12-29
   title: "Jahresend-Mix 2020"
   journal: "INNOQ-Security-Podcast"
   abstract: "Welche Security-Themen haben euch 2020 am meisten beschäftigt? Was hat euch besonders beeindruckt oder einfach nur überrascht? Diese Fragen stellte Simon Kölsch 16 INNOQ Kolleginnen und Kollegen. Die Antworten ergeben einen bunten Themen-Mix, angefangen mit der Bedeutung von UX in der Security über Threat Modelling bis hin zu neuen Ideen für die spielerische Auseinandersetzung mit Security-Themen."
-  link: "https://www.innoq.com/de/podcast/009-jahresend-mix-2020/"
+  url: "https://www.innoq.com/de/podcast/009-jahresend-mix-2020/"
   lang: de
 - pub_date: 2021-01-07
   title: "Deploying a WebAssembly smart contract on Oasis Ethereum"
   journal: "INNOQ"
   abstract: "One of the cornerstones of Ethereum 2.0 is the migration from the “classic” EVM to a WebAssembly-based virtual machine. In this post, I explain how to deploy a compiled WebAssembly contract to the Oasis Ethereum chain."
-  link: "https://www.innoq.com/de/blog/wasm-oasis/"
+  url: "https://www.innoq.com/de/blog/wasm-oasis/"
