@@ -187,8 +187,8 @@ ul.links li:first-child::before {
 }
 
 .orcid {
-  height: 1em;
-  width: 1em;
+  height: .7em;
+  width: .7em;
   position: relative;
   top: -0.3em;
   margin-left: 0.1em;
