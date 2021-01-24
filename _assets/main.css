@@ -1,3 +1,102 @@
+@media print {
+  .next, .prev {
+    display: none;
+  }
+}
+
+.next::after {
+  content: ' ➡';
+}
+
+.prev::before {
+  content: '⬅ ';
+}
+
+/* copied from Water.css for buttons */
+
+a.next, a.prev {
+  color: #000;
+  color: var(--form-text);
+  background-color: #efefef;
+  background-color: var(--background);
+  font-family: inherit;
+  font-size: inherit;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 30px;
+  padding-left: 30px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+}
+
+a.next:hover, a.prev:hover {
+  text-decoration: none;
+  background: #ddd;
+  background: var(--button-hover);
+}
+
+a.next:focus, a.prev:focus {
+  box-shadow: 0 0 0 2px #0096bfab;
+  box-shadow: 0 0 0 2px var(--focus);
+}
+
+@media (prefers-color-scheme: dark) {
+  a.next, a.prev {
+    background-color: #161f27;
+    background-color: var(--background);
+    color: #fff;
+    color: var(--form-text);
+  }
+  a.next:hover, a.prev:hover {
+    background: #324759;
+    background: var(--button-hover);
+  }
+}
+
+/* end copy */
+
+nav ul {
+  display: inline;
+  padding-left: 1em;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    display: block;
+    padding-left: 0;
+  }
+}
+
+nav li {
+  display: inline;
+}
+
+nav li::before {
+  content: ' / ';
+}
+
+.masonry {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .figure-float-right {
+    width: 100%;
+    display: block;
+  }
+}
+
 @media (min-width: 768px) {
   .figure-float-right {
     float: right !important;
@@ -7,11 +106,9 @@
   }
 }
 
-.article-hero {
-  float: right;
-  max-width: 100%;
-  width: 20rem;
-  margin-left: 1rem;
+.article-source {
+  color: var(--text-muted);
+  font-size: .8em;
 }
 
 a.external-article::after {
@@ -20,22 +117,21 @@ a.external-article::after {
   font-size: .7em;
 }
 
-.masonry {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  gap: 1rem;
+ul.links {
+  padding-left: 0;
+  padding-bottom: 1em;
 }
 
-.card-body .fa {
-  margin-right: 1em !important;
+ul.links li {
+  display: inline;
 }
 
-.card-header .fa {
-  margin-right: .25em !important;
+ul.links li::before {
+  content: ' · ';
 }
 
-.btn .fa {
-  margin-right: .5em !important;
+ul.links li:first-child::before {
+  content: '';
 }
 
 /* put a comma after each author */
@@ -71,11 +167,6 @@ a.external-article::after {
   content: '' !important;
 }
 
-.card-header h4 {
-  margin-bottom: 0;
-  line-height: 1.2em;
-}
-
 .slbCaption {
   font-size: 1em;
 }
@@ -88,13 +179,6 @@ a.external-article::after {
   hyphens: auto;
 }
 
-blockquote {
-  padding-left: .5em;
-  padding-right: 1em;
-  margin-left: .5em;
-  border-left: 5px solid #e9ecef;
-}
-
 .orcid {
   height: 1em;
   width: 1em;
@@ -104,21 +188,12 @@ blockquote {
   margin-right: 0.1em;
 }
 
-dd {
-  margin-left: 1em;
-}
-
 dt {
-  font-weight: 500;
+  font-weight: bold;
 }
 
 iframe {
   border: none;
-}
-
-dd p {
-  margin-bottom: 0;
-  margin-top: 1rem;
 }
 
 table {
@@ -134,22 +209,15 @@ td, th {
 .CodeMirror {
   border: 1px solid #eee;
   height: auto !important;
-  font-size: .9em;
 }
 
 #interactive {
   display: none;
 }
 
-div.interactive {
-  padding-bottom: 2em;
-  clear: both;
-}
-
 .interactive .output {
   padding: .5em;
   border: 1.5px solid;
-  font-size: .9em;
 }
 
 .interactive .output-empty {
@@ -184,11 +252,31 @@ div.interactive {
   content: "Pending ...";
 }
 
+.interactive-buttons {
+  padding-top: .5em;
+  padding-bottom: .5em;
+}
+
+.interactive .error::before {
+  content: '🚫 ';
+}
+
+.interactive .success::before {
+  content: '✅ ';
+}
+
+button.play::before {
+  content: '▶️ ';
+}
+
+button.reset::before {
+  content: '🗑️ ';
+}
+
 .output-string {
   white-space: pre-wrap;
   font-family: monospace;
   word-wrap: anywhere;
-  font-size: .9em;
 }
 
 .output-string::before {
@@ -229,7 +317,7 @@ details.pub-abstract[open=""] summary span {
 
 details.pub-abstract summary::after {
   content: ' (click to expand)';
-  color: #6c757d;
+  color: var(--text-muted);
 }
 
 details.pub-abstract[open=""] summary::after {
@@ -238,4 +326,8 @@ details.pub-abstract[open=""] summary::after {
 
 details.pub-abstract {
   font-size: .8em;
+}
+
+blockquote > p {
+  margin: 0;
 }

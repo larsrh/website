@@ -1,13 +1,13 @@
 <div>
   {% if page.prev %}
-    <a href="../{{ page.prev }}" class="btn btn-primary">⬅ Previous part</a>
+    <a href="../{{ page.prev }}" class="btn prev">Previous part</a>
   {% else %}
-    <button disabled="disabled" class="btn btn-primary">⬅ Previous part</button>
+    <button disabled="disabled" class="prev">Previous part</button>
   {% endif %}
 
   {% if page.next %}
-    <a href="../{{ page.next }}" class="btn btn-primary">Next part ➡</a>
+    <a href="../{{ page.next }}" class="btn next">Next part</a>
   {% else %}
-    <button disabled="disabled" class="btn btn-primary">Next part ➡</button>
+    <button disabled="disabled" class="next">Next part</button>
   {% endif %}
 </div>

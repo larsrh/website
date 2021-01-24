@@ -1,68 +1,62 @@
 ---
-layout: default
+layout: root
 ---
 
-<div class="jumbotron">
-  <header class="container">
-    {% if page.hero %}
-      <img src="{{ page.hero.src }}" alt="{{ page.hero.alt }}" class="img-fluid mb-4" />
-    {% endif %}
+<header>
+  {% if page.hero %}
+    <img style="margin-top: 1em;" src="{{ page.hero.src }}" alt="{{ page.hero.alt }}" />
+  {% endif %}
 
-    <h1 class="display-3">
-      {% if page.long_title %}
-        {{ page.long_title }}
-      {% else %}
-        {{ page.title }}
-      {% endif %}
-    </h1>
+  {% if page.long_title %}
+    <h1>{{ page.long_title }}</h1>
+  {% else %}
+    <h1>{{ page.title }}</h1>
+  {% endif %}
 
-    {% if page.subtitle %}
-      <h1 class="display-4">
-        {{ page.subtitle }}
-      </h1>
-    {% endif %}
+  {% if page.subtitle %}
+    <p style="font-weight: bold; font-size: 1.5em;">{{ page.subtitle }}</p>
+  {% endif %}
 
-    {% if page.is_article %}
+  {% if page.is_article %}
+    {% if page.lang == "de" %}
+      Lesedauer: {{ content | number_of_words | divided_by: 180 }} Minuten.
+    {% else %}
       Reading time: {{ content | number_of_words | divided_by: 180 }} minutes.
-
-      {% if page.lang == "de" %}
-        Veröffentlicht am
-      {% else %}
-        Published on
-      {% endif %}
-      {{ page.pub_date }}.
     {% endif %}
 
-    {% if page.hero %}
-      {% if page.lang == "de" %}
-        Bildnachweis (Titelbild):
-      {% else %}
-        Header image credits:
-      {% endif %}
-      {{ page.hero.credits }}.
+    {% if page.lang == "de" %}
+      Veröffentlicht am
+    {% else %}
+      Published on
     {% endif %}
+    {{ page.pub_date }}.
+  {% endif %}
 
-    {% if page.extra_header %}
-      {% include {{ page.extra_header }} %}
+  {% if page.hero %}
+    {% if page.lang == "de" %}
+      Bildnachweis (Titelbild):
+    {% else %}
+      Header image credits:
     {% endif %}
-  </header>
-</div>
+    {{ page.hero.credits }}.
+  {% endif %}
 
-<main class="container">
+  {% if page.extra_header %}
+    {% include {{ page.extra_header }} %}
+  {% endif %}
+</header>
 
+<main>
   {% if page.abstract %}
-    <div class="m-3 hyphenate" style="font-style: italic;">
+    <div class="hyphenate" style="font-style: italic;">
       {{ page.abstract | markdownify }}
     </div>
     <hr>
   {% endif %}
-
   {% if page.toc %}
     {{ content | toc_only }}
   {% endif %}
-
   <article class="hyphenate">
     {{ content }}
   </article>
-
 </main>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="{% if page.lang %}{{ page.lang }}{% else %}en{% endif %}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="{% asset simpleLightbox.min.css @path %}">
+    <link rel="stylesheet" href="{% asset water.css @path %}">
+    <link rel="stylesheet" href="{% asset main.css @path %}">
+
+    {% if page.codemirror %}
+      <link rel="stylesheet" href="{% asset codemirror.css @path %}">
+    {% endif %}
+
+    <!-- hyphenation polyfill -->
+    <script>
+      var Hyphenopoly = {
+        require: {
+          "de": "Silbentrennungsalgorithmus",
+          "en": "Supercalifragilisticexpialidocious"
+        },
+        paths: {
+          maindir: "/js/hyphenopoly/",
+          patterndir: "/js/hyphenopoly/patterns/",
+        },
+        setup: {
+          selectors: {
+            ".hyphenate": {}
+          }
+        }
+      };
+    </script>
+    <script src="/js/hyphenopoly/Hyphenopoly_Loader.js"></script>
+
+    <title>Lars Hupel &middot; {{ page.title | escape }}</title>
+
+    {% seo title=false %}
+  </head>
+  <body>
+
+    <nav lang="en">
+      <strong>Lars Hupel</strong>
+      {% include nav.html %}
+    </nav>
+
+    {{ content }}
+
+    <footer>
+      Unless otherwise noted, all content licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+      Copyright &copy; 2017, 2018, 2019, 2020, 2021 Lars Hupel.
+    </footer>
+
+    <script src="{% asset simpleLightbox.min.js @path %}"></script>
+    <script>
+      new SimpleLightbox({ elements: ".lightbox" });
+    </script>
+
+    {% if page.codemirror %}
+      <script src="{% asset codemirror.js @path %}"></script>
+      <script src="{% asset codemirror-js.js @path %}"></script>
+      <script src="/js/html.js"></script>
+      <script src="{% asset interactive.js @path %}"></script>
+
+      <script>
+        initInteractive({{ page.interactive | jsonify }});
+      </script>
+    {% endif %}
+  </body>
+</html>

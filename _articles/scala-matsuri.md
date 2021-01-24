@@ -63,7 +63,7 @@ However, at that point it was past check-in time already, so I quickly finished 
 
 When I arrived in my room, it was about 15:00, and even though I wanted to stay awake for at least four more hours, the bed just seemed to be very enticing, so I went to sleep.
 
-<div class="row mt-3 mb-3">
+<div class="gallery">
   {% include article_picture.html src="ariake-area" text="The area around the hotel (Ariake) and the weather that greeted me" %}
 </div>
 
@@ -112,13 +112,11 @@ Luckily, my company was able to help me decipher the menu there.
 
 Needless to say, I was absolutely knackered when I returned back to the hotel, at which time my watch cheerfully congratulated me for breaking my five-fold step goal.
 
-<div class="row mt-3 mb-3">
+<div class="gallery">
   {% include article_picture.html src="skytree" text="The Skytree tower" %}
   {% include article_picture.html src="skytree-lars" text="Me, posing at a high altitude" %}
   {% include article_picture.html src="sumida" text="Picturesque Sumida park" %}
   {% include article_picture.html src="tokyo-tram" text="A decomissioned streetcar" %}
-</div>
-<div class="row mt-3 mb-3">
   {% include article_picture.html src="ueno-pond" text="Pond covered in green plants" %}
   {% include article_picture.html src="wiring" text="Very professional electrical wiring in Tokyo" %}
   {% include article_picture.html src="car-in-lot" text="Small car parked in lot that just about fits the car" %}
@@ -164,13 +162,11 @@ The next best thing is from a [travel blog](https://www.2aussietravellers.com/be
 
 > From the small amount of information I’ve been able to obtain, the Benten-Kutsu cave is thought to have been used by Kobo Daishi and that he carved the small statue of Benzaiten with 8 arms located in the adjacent Benten-do Hall himself while in seclusion there during the 9th century.
 
-<div class="row mt-3 mb-3">
+<div class="gallery">
   {% include article_picture.html src="kamakura-station" text="People standing in line waiting for the Enoshima Electric Railway" %}
   {% include article_picture.html src="hydrangea" text="Lots of Hydrangea" %}
   {% include article_picture.html src="hasedera-view" text="View from Hase-dera to the beach of Kamakura" %}
   {% include article_picture.html src="hasedera-garden" text="Rock garden in Hase-dera" %}
-</div>
-<div class="row mt-3 mb-3">
   {% include article_picture.html src="benten-kutsu-cave" text="The Benten-kutsu cave on the Hase-dera grounds with miniatures" %}
   {% include article_picture.html src="ema-shrine" text="A shrine with Ema plaques" %}
   {% include article_picture.html src="zen-garden" text="Zen Garden on Hase-dera grounds" %}
@@ -187,7 +183,7 @@ In need of a break, I walked down to the beach, expecting some café to sit down
 Unfortunately, the beach was still “under construction” and there were no places like that.
 A little disappointed I walked back to the nearest train station, waited for the cute train and got out at Kamakura's main station.
 
-<div class="row mt-3 mb-3">
+<div class="gallery">
   {% include article_picture.html src="kotoku" text="Buddha statue in Kotoku-in" %}
   {% include article_picture.html src="kotoku-inside" text="Buddha statue, from the inside" %}
   {% include article_picture.html src="kebab-bento" text="A culinary abomination: Kebab Bento" %}
@@ -221,7 +217,7 @@ Finally, closer to the centre, my last temple for the day was [_Tsurugaoka Hachi
 The area is large and contains museums, shrines, restaurants, shops, a few ponds and a giant ginkgo tree (which uprooted some years ago).
 Some of the shrines were decorated and a few people were walking around in traditional robes, but I don't know if there were any festivities happening at the time.
 
-<div class="row mt-3 mb-3">
+<div class="gallery">
   {% include article_picture.html src="hokoku-entrance" text="Entrance to the Hokoku-ji temple" %}
   {% include article_picture.html src="bamboo-forest" text="Hokoku-ji bamboo forest" %}
   {% include article_picture.html src="sugimoto-dera" text="Staris towards the Sugimoto-dera temple" %}
@@ -264,7 +260,7 @@ I walked back to Tokyo's central station, which happened mostly underground.
 Various tourist guides claim you can – willingly or unwillingly – spend an entire day in this sprawling underground structure.
 One [website even recommends finding a coin locker](https://www.tsunagujapan.com/how-to-spend-a-whole-day-in-tokyo-station/) so that you can walk around more easily.
 
-<div class="row mt-3 mb-3">
+<div class="gallery">
   {% include article_picture.html src="ghibli-clock" text="The giant clock at the Nippon Television headquarters" %}
   {% include article_picture.html src="east-gardens-entrance" text="Entrance to the East Gardens of the Imperial Palace, with the mandatory hydrangae" %}
   {% include article_picture.html src="underground-walk" text="One tunnel that's part of the vast underground network that is the Tokyo central station" %}
@@ -305,7 +301,7 @@ I paid,[^6] but then had to go upstairs, walk through the entire second floor of
 They wrapped my goods carefully in three layers of plastic bags.
 I walked back through the entire second floor of Donki (yet more colours and music) to the exit where I was promptly struck by the humidity.
 
-<div class="row mt-3 mb-3">
+<div class="gallery">
   {% include article_picture.html src="donki" text="Inside a Donki" %}
   {% include article_picture.html src="candy" text="Parts of the haul from the Donki, back in the office in Munich" %}
 </div>
@@ -372,7 +368,7 @@ One of them looked really strange to me and I pointed out to my (Japanese) neigh
 He was very excited, grabbed it and then showed me on his phone that it is Gunkanmaki (sea urchin).
 I was also very excited that he ate it for me.
 
-<div class="row mt-3 mb-3">
+<div class="gallery">
   {% include article_picture.html src="ferris-wheel" text="Me, happily riding a ferris wheel" %}
   {% include article_picture.html src="shibuya-exits" text="Exit signage at Shibuya station" %}
   {% include article_picture.html src="shibuya-crossing" text="Shibuya crossing with green light for pedestrians" %}

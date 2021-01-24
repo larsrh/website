@@ -1,10 +1,8 @@
-Ausflüge
-========
+## Ausflüge
 
-Wandern in und um Belfast
--------------------------
+### Wandern in und um Belfast
 
-<div class="row mt-3 mb-3">
+<div class="gallery">
   {% include article_picture.html src="freshers-P9206078" text="Fresher’s Week" %}
   {% include article_picture.html src="castle-P9206108" text="Ich vor dem Belfast Castle" %}
   {% include article_picture.html src="cavehill-P9206131" text="Ausblick vom Cavehill auf Belfast" %}
@@ -49,10 +47,9 @@ einer wunderschönen Landschaft.
 Der Weg abwärts ging dann im wahrsten Sinne des Wortes querfeldein, bis
 wir zufällig eine Bushaltestelle erreichten und zurück fahren konnten.
 
-Auf nach Bangor
----------------
+### Auf nach Bangor
 
-<div class="row mt-3 mb-3">
+<div class="gallery">
   {% include article_picture.html src="bangor-PA036209" text="Fresher’s Week" %}
   {% include article_picture.html src="bangor-PA036213" text="Boat House Restaurant in Bangor" %}
   {% include article_picture.html src="bangor-PA036220" text="Farbenfrohe Fassaden in Bangor" %}
@@ -91,10 +88,9 @@ blamieren) auf Yucca tippen.
 Ziemlich müde vom vielen Laufen sind wir dann zurückgefahren, wo der am
 Morgen vorbereitete Pizzateig auf uns wartete.
 
-A Giant’s Cause
----------------
+### A Giant’s Cause
 
-<div class="row mt-3 mb-3">
+<div class="gallery">
   {% include article_picture.html src="carrickfergus-PA316254" text="Carrickfergus Castle" %}
   {% include article_picture.html src="ballygally-PA316279" text="Ballygally Head" %}
   {% include article_picture.html src="rope-bridge-PA316305" text="Carrick-a-Rede Rope Bridge" %}
@@ -153,7 +149,7 @@ entfernt ist, mit dem bloßen Auge erkennen. Natürlich nur, wenn einem
 das Wetter, wie in unserem Falle, gewogen ist. Wobei dann natürlich das
 richtige “Irland-Feeling” fehlt.
 
-<div class="row mt-3 mb-3">
+<div class="gallery">
   {% include article_picture.html src="causeway-PA316324" text="Giant’s Causeway" %}
   {% include article_picture.html src="causeway-PA316329" text="Giant’s Causeway" %}
   {% include article_picture.html src="causeway-PA316370" text="Giant’s Causeway" %}
@@ -234,8 +230,7 @@ Dementsprechend ging es auf der schnelleren Strecke wieder zurück nach
 Belfast. Fast rechtzeitig zum großen Halloween-Feuerwerk erschienen,
 rundete das den erlebnisreichen Tag ab.
 
-Einmal England und zurück
--------------------------
+### Einmal England und zurück
 
 Derzeit hat es ja unter meinen Freunden einige ins Ausland gezogen.
 Zufälligerweise sind auch neben mir noch drei weitere im Vereinigten
@@ -303,7 +298,7 @@ scheint auch Party-Hochburg zu sein, zumindest zogen gegen Mitternacht
 Massen mehr oder weniger lärmend durch die Straßen. Polizeiaufgebot (mit
 lustigen Hüten) war auch mit von der Partie.
 
-<div class="row mt-3 mb-3">
+<div class="gallery">
   {% include article_picture.html src="newcastle-PB206380" text="Millenium Bridge" %}
   {% include article_picture.html src="newcastle-chinatown" text="Eingangstor zu Chinatown in Newcastle" %}
   {% include article_picture.html src="newcastle-PB206387" text="Im Bahnhof von Newcastle" %}
@@ -392,7 +387,7 @@ geklappt, da entweder zu voll (von Studenten belagert) oder zu spät
 (letzte Runde schon ausgegeben). Machte aber nichts, denn stattdessen
 haben wir noch einen kleinen Spaziergang durch Durham gemacht.
 
-<div class="row mt-3 mb-3">
+<div class="gallery">
   {% include article_picture.html src="durham-PB216395" text="Ausblick auf Durham vom Turm der Kathedrale" %}
   {% include article_picture.html src="durham-PB216394" text="Keep des Durham Castle" %}
 </div>
@@ -472,10 +467,9 @@ habe. Der weitere Weg verlief unproblematisch – theoretisch wäre ich
 sogar noch rechtzeitig zu meiner Vorlesung in Belfast angekommen, welche
 ich mir aber zwecks Ausgleichs meines Schlafdefizits geschenkt habe.
 
-Sliabh Dónairt
---------------
+### Sliabh Dónairt
 
-<div class="row mt-3 mb-3">
+<div class="gallery">
   {% include article_picture.html src="mourne-P1176571" text="Früher Bahnhof, jetzt Lidl" %}
   {% include article_picture.html src="mourne-P1176590" text="Mourne Wall auf dem Slieve Donard" %}
   {% include article_picture.html src="mourne-P1176584" text="Ich auf halbem Weg zum Gipfel" %}

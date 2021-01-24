@@ -1,8 +1,7 @@
 ---
-layout: jumbotron
-nav: research
-card_theme: bg-success text-white
+layout: default
 permalink: /research/
+title: Research & Publications
 ---
 
 <dl>
@@ -22,52 +21,63 @@ permalink: /research/
 
     <dt id="pub-{{ pub.id }}"><a href="{{ main_link }}">{{ pub.title }}</a></dt>
     <dd>
-      {% include pub_authors.html %}
-      <details class="mb-1 pub-abstract">
+      <div class="pub-authors">
+        {% for author in pub.authors %}
+          {% for author_desc in site.data.authors %}
+            {% if author == author_desc.id %}
+            <span class="pub-author">{% if author_desc.link %}<a href="{{ author_desc.link }}">{{ author_desc.name }}</a>{% else %}{{ author_desc.name }}{% endif %}{% if author_desc.orcid %} <a href="https://orcid.org/{{ author_desc.orcid }}"><img class="orcid" src="/img/orcid.png" alt="ORCID"></a>{% endif %}</span>
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      </div>
+      <div>{{ pub.in }}{% if pub.in %}, {% endif %}{{ pub.year }}</div>
+      {% if pub.springer %}
+        <div><small>The final publication is available at <a href="http://link.springer.com/">Springer Link</a>.</small></div>
+      {% endif %}
+      <details class="pub-abstract">
         <summary><span>{{pub.abstract | strip_html | truncatewords: 30}}</span></summary>
 
-        <p class="hyphenate">
+        <div class="hyphenate">
           {{ pub.abstract }}
-        </p>
+        </div>
       </details>
 
-      <div class="pull-right">
+      <ul class="links">
         {% if pub.entry %}
-          <a href="{{ pub.entry }}" class="btn btn-primary">Entry</a>
+          <li><a href="{{ pub.entry }}">Entry</a></li>
         {% endif %}
         {% if pub.draft %}
-          <a href="/pub/{{ pub.id }}.pdf" class="btn btn-primary">Draft</a>
+          <li><a href="/pub/{{ pub.id }}.pdf">Draft</a></li>
         {% else %}
           {% if pub.entry or pub.no_pdf %}
           {% else %}
-            <a href="/pub/{{ pub.id }}.pdf" class="btn btn-primary">PDF</a>
+            <li><a href="/pub/{{ pub.id }}.pdf">PDF</a></li>
           {% endif %}
         {% endif %}
         {% if pub.draft != true and pub.bib != false %}
-          <a href="/bib/{{ pub.id }}.bib" class="btn btn-primary">BibTeX</a>
+          <li><a href="/bib/{{ pub.id }}.bib">BibTeX</a></li>
         {% endif %}
         {% if pub.doi %}
-          <a href="https://doi.org/{{ pub.doi }}" class="btn btn-primary">DOI</a>
+          <li><a href="https://doi.org/{{ pub.doi }}">DOI</a></li>
         {% endif %}
         {% if pub.arxiv %}
-          <a href="http://arxiv.org/abs/{{ pub.arxiv }}" class="btn btn-primary">arXiv</a>
+          <li><a href="http://arxiv.org/abs/{{ pub.arxiv }}">arXiv</a></li>
         {% endif %}
         {% if pub.code %}
-          <a href="{{ pub.code }}" class="btn btn-primary">Code</a>
+          <li><a href="{{ pub.code }}">Code</a></li>
         {% endif %}
         {% if pub.slides %}
-          <a href="{{ pub.slides }}" class="btn btn-primary">Slides</a>
+          <li><a href="{{ pub.slides }}">Slides</a></li>
         {% endif %}
         {% if pub.recording %}
-          <a href="{{ pub.recording }}" class="btn btn-primary">Recording</a>
+          <li><a href="{{ pub.recording }}">Recording</a></li>
         {% endif %}
         {% if pub.extra %}
           {% for extra in pub.extra %}
-            <a href="{{ extra.link }}" class="btn btn-primary">{{ extra.text }}</a>
+            <li><a href="{{ extra.link }}">{{ extra.text }}</a></li>
           {% endfor %}
         {% endif %}
-      </div>
-      <br style="clear: both;">
+      </ul>
     </dd>
   {% endfor %}
 </dl>

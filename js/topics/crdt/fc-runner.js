@@ -8,8 +8,7 @@ const trimMax = (str, len) => {
 const success = numRuns =>
   html(
     "span",
-    {},
-    faIcon("check-circle"),
+    { "class": "success" },
     text(`Success: ${numRuns} inputs tested`)
   );
 
@@ -24,8 +23,7 @@ const failure = (error, counterexample) => {
   return {
     "Status": html(
       "span",
-      {},
-      faIcon("exclamation-circle"),
+      { "class": "error" },
       text("Failure")
     ),
     "Message": trimMax(error || "", 50),
