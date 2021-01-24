@@ -4,18 +4,41 @@ permalink: /talks/
 title: Talks
 ---
 
-<h2>Selected talks</h2>
+<h2 id="en">Selected talks</h2>
 
-<p>These are talks that I have given multiple times over the years at various conferences.
+<p class="hyphenate">These are talks that I have given multiple times over the years at various conferences.
 Each of them has a dedicated page with slides and the latest recording.
 If you want to share a particular talk, I would like to ask you to not link to a recording directly, but rather to the talk's page as linked here.</p>
 
+<aside>(See <a href="#de">the section below</a> for talks in German.)</aside>
+
 <dl>
   {% for talk in site.talks %}
-    <dt {% if talk.lang %}lang="{{ talk.lang }}"{% endif %}><a href="{{ talk.url }}">{{ talk.title }}</a></dt>
-    <dd {% if talk.lang %}lang="{{ talk.lang }}"{% endif %} class="hyphenate">
-      {{ talk.abstract }}
-    </dd>
+    {% if talk.lang == nil %}
+      <dt><a href="{{ talk.url }}">{{ talk.title }}</a></dt>
+      <dd class="hyphenate">
+        {{ talk.abstract }}
+      </dd>
+    {% endif %}
+  {% endfor %}
+</dl>
+
+<h2 id="de">Ausgewählte Vorträge</h2>
+
+<p class="hyphenate" lang="de">Diese Vorträge habe ich über die Jahre hinweg auf mehreren Konferenzen gehalten.
+Jeder Vortrag hat eine eigens angelegte Unterseite, jeweils mit Folien und der jüngsten Aufzeichnung.
+Wenn du einen bestimmten Talk teilen möchtest, würde ich dich bitten, nicht die Aufzeichnung, sondern die hier verlinkte Unterseite zu verwenden.</p>
+
+<aside>(Englische Vorträge sind <a href="#en">im obigen Abschnitt</a> aufgelistet.)</aside>
+
+<dl>
+  {% for talk in site.talks %}
+    {% if talk.lang %}
+      <dt lang="{{ talk.lang }}"><a href="{{ talk.url }}">{{ talk.title }}</a></dt>
+      <dd lang="{{ talk.lang }}" class="hyphenate">
+        {{ talk.abstract }}
+      </dd>
+    {% endif %}
   {% endfor %}
 </dl>
 
