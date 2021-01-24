@@ -58,6 +58,13 @@ a.next:focus, a.prev:focus {
 
 /* end copy */
 
+@media (prefers-color-scheme: dark) {
+  progress {
+    border: none;
+    background-color: #ffffff;
+  }
+}
+
 nav ul {
   display: inline;
   padding-left: 1em;
