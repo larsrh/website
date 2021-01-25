@@ -69,7 +69,7 @@ title: Writing, Articles, Podcasts
   {% endif %}
 {% endfor %}
 
-<script async>
+<script>
   function filterArticle({ en, de }, { article, podcast, misc }, element) {
     const lang = element.lang || "en";
     const showLang = (en && lang == "en") || (de && lang == "de");
