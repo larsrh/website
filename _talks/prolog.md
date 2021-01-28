@@ -51,7 +51,7 @@ conferences:
 
 At [:clojureD 2020](https://clojured.de/), I gave a version of this talk that uses core.logic instead of Prolog.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kmi2JM-scUU" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/kmi2JM-scUU" allowfullscreen></iframe>
 
 ## Testimonials
 
