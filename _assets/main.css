@@ -83,10 +83,19 @@ nav ul {
 
 nav li {
   display: inline;
+  padding-right: .5em;
 }
 
 nav li::before {
-  content: ' / ';
+  content: '📁 ';
+}
+
+nav li.active {
+  font-weight: bold;
+}
+
+nav li.active::before {
+  content: '📂 ' !important;
 }
 
 .masonry {
