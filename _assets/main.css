@@ -1,3 +1,7 @@
+a {
+  text-decoration: underline dotted;
+}
+
 #filter input[type=checkbox] {
   vertical-align: bottom;
 }
