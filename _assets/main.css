@@ -126,15 +126,15 @@ nav li.active::before {
   }
 }
 
-.article-source {
-  color: var(--text-muted);
-  font-size: .8em;
-}
-
-a.external-article::after {
+article.external header a::after {
   content: '➹';
   vertical-align: super;
   font-size: .7em;
+}
+
+article footer {
+  border: none;
+  font-size: .8em;
 }
 
 ul.links {
