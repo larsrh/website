@@ -38,3 +38,12 @@ jobs:
         pip install -r .ci/requirements.txt
     - name: Run html5validator
       run: html5validator --root ./_site --ignore 'Illegal character in fragment' 'endnote'
+
+    - name: Set up Node
+      uses: actions/setup-node@v2
+      with:
+        node-version: '12'
+    - name: Install pa11y-ci
+      run: npm install -g pa11y-ci@2.4.0
+    - name: Run pa11y-ci
+      run: find ./_site/ -name "*.html" | xargs pa11y-ci
