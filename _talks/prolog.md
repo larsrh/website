@@ -55,28 +55,7 @@ At [:clojureD 2020](https://clojured.de/), I gave a version of this talk that us
 
 ## Testimonials
 
-[@autophagian](https://twitter.com/autophagian) writes:
-
-> This talk, given by Lars Hupel, was a super fun look at Prolog, a logical programming language developed in the 70s.
-> […]
-> Lars did a really great job of demonstrating Prolog's uniqueness! – [_Notes from BOB2019 Konferenz_](https://byrgen.autophagy.io/notes-from-bob2019-konferenz/)
-
-[@bodil](https://twitter.com/bodil):
-
-{% twitter https://twitter.com/bodil/status/1060495655662174208 %}
-
-[@51M0NW](https://twitter.com/51M0NW):
-
-{% twitter https://twitter.com/51M0NW/status/1060504606420148225 %}
-
-[@ioctaptceb](https://twitter.com/ioctaptceb):
-
-{% twitter https://twitter.com/ioctaptceb/status/1081713254127362049 %}
-
-[@slipset](https://twitter.com/slipset):
-
-{% twitter https://twitter.com/slipset/status/1251784394437734400 %}
-
-[@janstepien](https://twitter.com/janstepien)
-
-{% twitter https://twitter.com/janstepien/status/1233705430028869634 %}
+{% include quote.html url="https://byrgen.autophagy.io/notes-from-bob2019-konferenz/" author="Mika" text="This talk, given by Lars Hupel, was a super fun look at Prolog, a logical programming language developed in the 70s. […] Lars did a really great job of demonstrating Prolog's uniqueness!" %}
+{% include quote.html url="https://twitter.com/51M0NW/status/1060504606420148225" author="Simon Worthington" text="Great talk by @larsr_h on Prolog at @CodeMeshIO. I've never used it before but now I feel like I know enough to pick it up. Thanks for keeping it engaging 👏🏻" %}
+{% include quote.html url="https://twitter.com/ioctaptceb/status/1081713254127362049" author="Yulia" text="I might have implemented an assembler in prolog because of this [talk]." %}
+{% include quote.html url="https://twitter.com/slipset/status/1251784394437734400" author="Erik Assum" text="didn’t get to see the Programmation en Clojique talk by @larsr_h live at @clojuredconf, but it is really nice!" %}

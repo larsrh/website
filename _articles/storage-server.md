@@ -6,7 +6,7 @@ lang: en
 
 Recently I announced on Twitter some upgrade I did on a "home" server:
 
-{% twitter https://twitter.com/larsr_h/status/944880173308170241 %}
+{% include quote.html url="https://twitter.com/larsr_h/status/944880173308170241" author="Lars" text="Successfully upgraded the home server from 9 TB to 15 TB storage. A dozen devices all want to be backed up." %}
 
 Shortly thereafter, someone wanted to know what the setup looks like.
 So, I took some time to describe the hardware & software on the machines (I have an almost identical setup at two different locations).

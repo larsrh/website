@@ -22,14 +22,6 @@ conferences:
 
 ## Testimonials
 
-[@arkh4m](https://twitter.com/arkh4m):
-
-{% twitter https://twitter.com/arkh4m/status/1233461919425662976 %}
-
-[@kenran__](https://twitter.com/kenran__):
-
-{% twitter https://twitter.com/kenran__/status/1233809707883778048 %}
-
-[@stadolf](https://twitter.com/stadolf):
-
-{% twitter https://twitter.com/stadolf/status/1233434195470508032 %}
+{% include quote.html url="https://twitter.com/arkh4m/status/1233461919425662976" author="Ju" text="Really great talk! 🙏" %}
+{% include quote.html url="https://twitter.com/kenran__/status/1233809707883778048" author="Johannes Maier" text="Back from #BOBkonf2020. I had a blast. Only caught two talks live (by @ioctaptceb and @larsr_h), they were both very entertaining! I think it's time to give @graalvm a try..." %}
+{% include quote.html url="https://twitter.com/stadolf/status/1233434195470508032" author="Stefan Adolf" text="The final talk of #BOBkonf2020 by @larsr_h (@INNOQ) who gives a fantastic wrap-up of #Java's last 20 years, how @graalvm compiles and optimizes arbitrary languages, how partial evaluation works and which new language capabilities to expect. +1 for that duck typing slide 😂" %}

@@ -22,7 +22,7 @@ I am writing this ~~in the airplane back from Haneda to Frankfurt~~ in an attemp
 _Scala Matsuri_ is an annual Scala conference in Tokyo.
 Translated, _matsuri_ means _festival_.
 
-{% twitter https://twitter.com/eed3si9n/status/1144841545209638914 %}
+{% include quote.html url="https://twitter.com/eed3si9n/status/1144841545209638914" author="Eugene Yokota" text="matsuri means festival, so naturally we have some fun food during #ScalaMatsuri Unconference / ScalaBridge Tokyo like shaved ice and pizza" %}
 
 I had already tried the previous year (2018) to get a talk into the conference, but unfortunately, it was rejected.[^1]
 <a href="http://2019.scalamatsuri.org/index_en.html">Fast forward to 2019</a> and my proposal to [talk about property testing]({%link _talks/property-testing.md %}) got accepted.
@@ -404,7 +404,7 @@ I arrived around 23:30 local time at my flat in Munich, where I did the same thi
 I have set myself the goal to cease flying by end of 2019.
 This, naturally, makes it hard for me to come back to Japan and maybe see other places outside of Tokyo.
 
-{% twitter https://twitter.com/larsr_h/status/1124346158690775050 %}
+{% include quote.html url="https://twitter.com/larsr_h/status/1124346158690775050" author="Lars" text="My personal goal is to not fly in 2020. For all past flights (including this year's), I will donate to organizations that offset CO₂ emissions. This applies to personal & professional travel." %}
 
 Of course, I could have seen and done more things or stayed longer.
 Fortunately, I have no regrets: within the limited time of one week, I'm very happy with what I have experienced.

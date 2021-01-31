@@ -78,7 +78,6 @@ GEM
     jekyll-toc (0.17.0)
       jekyll (>= 3.9)
       nokogiri (~> 1.10)
-    jekyll-twitter-plugin (2.1.0)
     jekyll-watch (2.2.1)
       listen (~> 3.0)
     kramdown (2.3.0)
@@ -138,7 +137,6 @@ DEPENDENCIES
   jekyll-seo-tag
   jekyll-sitemap
   jekyll-toc
-  jekyll-twitter-plugin
 
 BUNDLED WITH
    2.1.4

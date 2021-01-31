@@ -68,8 +68,8 @@ conferences:
 
 ## Testimonials
 
-{% twitter https://twitter.com/ChuckMiskyes/status/1040587122049265664 %}
-{% twitter https://twitter.com/stefanobaghino/status/1040594669284012032 %}
+{% include quote.html url="https://twitter.com/ChuckMiskyes/status/1040587122049265664" author="Carlo Micieli" text="Trains are monoids and now I finally understand better my commuting issues: that's the “zero train”!" %}
+{% include quote.html url="https://twitter.com/stefanobaghino/status/1040594669284012032" author="Stefano Baghino" text="If you liked @larsr_h's talk, put a `SemiRing` on it. Crystal clear intro to numeric programming with Spire/Cats/Algebra. Kudos!" %}
 
 ## Demo code
 
