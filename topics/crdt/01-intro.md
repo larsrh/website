@@ -9,6 +9,7 @@ Dear reader!
 If you're reading this, that's most likely because you've pointed your browser to my website and/or followed a link to this page.
 Maybe you're even reading this from a mobile device![^footnote-mobile]
 Perfect conditions for motivating what all this is about.
+(If you're unsure whether this series is worth reading, check out the [testimonials](#testimonials).)
 
 ## Contents
 
@@ -197,8 +198,9 @@ You are now ready to proceed with the actual introduction.
 
 People on The Internet™ seem to enjoy these posts:
 
-{% twitter https://twitter.com/jeadorf/status/1276235893586702336 %}
-{% twitter https://twitter.com/dfkaye/status/1279152170869207040 %}
+{% include quote.html url="https://twitter.com/jeadorf/status/1276235893586702336" author="Julius Adorf" text="Great read. This is as entertaining as educational." %}
+{% include quote.html url="https://twitter.com/dfkaye/status/1279152170869207040" author="David Kaye" text="I found this incredibly accessible, as I have at best a shallow grasp of this kind of mathematics." %}
+{% include quote.html url="https://twitter.com/pchapuis/status/1355849874718285829" author="Pierre Chapuis" text="[This series] is the most thorough introduction to CRDTs for programmers I have seen so far, and I wish it had existed a few years back when I had to introduce colleagues to CRDTs." %}
 
 ## References
 
