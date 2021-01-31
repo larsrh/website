@@ -64,7 +64,7 @@ conferences:
 
 ## Interview at J On The Beach
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Pd2eQSiCOjg" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Pd2eQSiCOjg" title="YouTube player" allowfullscreen></iframe>
 
 ## Testimonials
 
