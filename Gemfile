@@ -8,4 +8,5 @@ group :jekyll_plugins do
   gem "jekyll-seo-tag"
   gem "jekyll-toc"
   gem "jekyll-assets", git: 'https://github.com/envygeeks/jekyll-assets.git'
+  gem "jekyll-last-modified-at"
 end
