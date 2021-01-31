@@ -29,7 +29,7 @@ layout: root
     {% else %}
       Published on
     {% endif %}
-    {{ page.pub_date }}.
+    {% include date.html date=page.pub_date %}
   {% endif %}
 
   {% if page.hero %}

@@ -1095,31 +1095,9 @@ samp {
   }
 }
 
-time {
-  background: #efefef;
-  background: var(--background);
-  color: #000;
-  color: var(--code);
-  padding: 2.5px 5px;
-  border-radius: 6px;
-  font-size: 1em;
-}
-
-@media (prefers-color-scheme: dark) {
-
-  time {
-  color: #ffbe85;
-  color: var(--code);
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-
-  time {
-  background: #161f27;
-  background: var(--background);
-  }
-}
+/*
+ * LARS: time styling disabled, seems useless
+ */
 
 pre > code {
   padding: 10px;
