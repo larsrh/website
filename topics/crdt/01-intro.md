@@ -201,6 +201,7 @@ People on The Internet™ seem to enjoy these posts:
 {% include quote.html url="https://twitter.com/jeadorf/status/1276235893586702336" author="Julius Adorf" text="Great read. This is as entertaining as educational." %}
 {% include quote.html url="https://twitter.com/dfkaye/status/1279152170869207040" author="David Kaye" text="I found this incredibly accessible, as I have at best a shallow grasp of this kind of mathematics." %}
 {% include quote.html url="https://twitter.com/pchapuis/status/1355849874718285829" author="Pierre Chapuis" text="[This series] is the most thorough introduction to CRDTs for programmers I have seen so far, and I wish it had existed a few years back when I had to introduce colleagues to CRDTs." %}
+{% include quote.html url="https://twitter.com/SamBroner" author="Sam Broner" text="An excellent educational tool that fills that huge void between theoretical CRDT algorithms and practical application. I've strongly suggested that new team members take a pass through Lars' work as a practical primer on eventual consistency and conflict free replicated data types." %}
 
 ## References
 
