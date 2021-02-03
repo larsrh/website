@@ -17,6 +17,10 @@
     <title>Lars Hupel &middot; {{ page.title | escape }}</title>
 
     {% seo title=false %}
+
+    <meta name="twitter:image:src" content="{{ site.url }}{% asset profile.jpg @path %}">
+    <meta property="og:image" content="{{ site.url }}{% asset profile.jpg @path %}">
+    <meta property="og:image:secure_url" content="{{ site.url }}{% asset profile.jpg @path %}">
   </head>
   <body>
 

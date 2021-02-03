@@ -1,11 +1,9 @@
 url: "https://lars.hupel.info"
-logo: "/img/profile.jpg"
 title: "Lars Hupel's website"
 author:
   name: "Lars Hupel"
   twitter: "larsr_h"
   uri: "https://lars.hupel.info"
-  picture: "/img/profile.jpg"
 twitter:
   username: "larsr_h"
 social:
@@ -13,8 +11,6 @@ social:
     - "https://github.com/larsrh"
     - "https://twitter.com/larsr_h"
     - "https://instagram.com/larsr_h"
-    - "https://keybase.io/larsrh"
-    - "https://stackoverflow.com/users/4776939/larsrh"
 include:
   - "_redirects"
   - "_headers"
