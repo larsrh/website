@@ -1,13 +1,6 @@
-<div>
-  {% if page.prev %}
-    <a href="../{{ page.prev }}" class="btn prev">Previous part</a>
-  {% else %}
-    <button disabled="disabled" class="prev">Previous part</button>
-  {% endif %}
-
-  {% if page.next %}
-    <a href="../{{ page.next }}" class="btn next">Next part</a>
-  {% else %}
-    <button disabled="disabled" class="next">Next part</button>
-  {% endif %}
-</div>
+{% unless page.url contains "01" %}
+  <details>
+    <summary>Series navigation 📜</summary>
+    {% include markdown.html src="topics/crdt/contents.md" %}
+  </details>
+{% endunless %}

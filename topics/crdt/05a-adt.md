@@ -2,8 +2,6 @@
 title: "CRDTs: Part 5 (side note)"
 subtitle: "Part 5, side note: Abstract Data Types"
 toc: false
-prev: 05-tombstones
-next: 06-time
 ---
 
 This is a side note on the concept of Abstract Data Types applied to CRDT implementations.

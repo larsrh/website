@@ -1,8 +1,6 @@
 ---
 title: "CRDTs: Part 5"
 subtitle: "Part 5: Tombstones"
-prev: 04-combinators
-next: 06-time
 ---
 
 {% include float_picture.html src="topics/crdt/tombstones.jpg" text="A bunch of tombstones in a cemetery" %}

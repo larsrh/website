@@ -2,8 +2,6 @@
 title: "CRDTs: Part 6"
 subtitle: "Part 6: Time and Causality"
 toc: false
-prev: 05-tombstones
-next: 07-deletion
 ---
 
 Let's talk about distributed systems.

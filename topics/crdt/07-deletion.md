@@ -2,8 +2,6 @@
 title: "CRDTs: Part 7"
 subtitle: "Part 7: Registers and Deletion"
 toc: false
-prev: 06-time
-next: 08-outlook
 ---
 
 ## What's happening in this episode?

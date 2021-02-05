@@ -2,7 +2,6 @@
 title: "CRDTs: Part 8"
 subtitle: "Part 8: Preliminaries"
 toc: false
-prev: 07-deletion
 ---
 
 Congrats!

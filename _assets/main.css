@@ -6,66 +6,6 @@ a {
   vertical-align: bottom;
 }
 
-@media print {
-  .next, .prev {
-    display: none;
-  }
-}
-
-.next::after {
-  content: ' ➡';
-}
-
-.prev::before {
-  content: '⬅ ';
-}
-
-/* copied from Water.css for buttons */
-
-a.next, a.prev {
-  color: #000;
-  color: var(--form-text);
-  background-color: #efefef;
-  background-color: var(--background);
-  font-family: inherit;
-  font-size: inherit;
-  margin-right: 6px;
-  margin-bottom: 6px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-right: 30px;
-  padding-left: 30px;
-  border: none;
-  border-radius: 6px;
-  outline: none;
-}
-
-a.next:hover, a.prev:hover {
-  text-decoration: none;
-  background: #ddd;
-  background: var(--button-hover);
-}
-
-a.next:focus, a.prev:focus {
-  box-shadow: 0 0 0 2px #0096bfab;
-  box-shadow: 0 0 0 2px var(--focus);
-}
-
-@media (prefers-color-scheme: dark) {
-  a.next, a.prev {
-    background-color: #161f27;
-    background-color: var(--background);
-    color: #fff;
-    color: var(--form-text);
-  }
-  a.next:hover, a.prev:hover {
-    background: #324759;
-    background: var(--button-hover);
-  }
-}
-
-/* end copy */
-
 @media (prefers-color-scheme: dark) {
   progress {
     border: none;

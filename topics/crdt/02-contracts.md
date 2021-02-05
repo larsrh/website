@@ -1,8 +1,6 @@
 ---
 title: "CRDTs: Part 2"
 subtitle: "Part 2: Algebras & contracts"
-prev: 01-intro
-next: 03-lattices
 ---
 
 ## What's happening in this episode

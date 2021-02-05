@@ -1,8 +1,6 @@
 ---
 title: "CRDTs: Part 4"
 subtitle: "Part 4: Combinators"
-prev: 03-lattices
-next: 05-tombstones
 ---
 
 {% include float_picture.html src="topics/crdt/factorio.webp" text="Avid Factorio players know: It's faster if you use tools to create tools." %}
