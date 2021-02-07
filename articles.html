@@ -34,51 +34,53 @@ title: Writing, Articles, Podcasts
   Found <span id="count"></span> post(s).
 </details>
 
-{% for article in articles %}
-  {% assign ext = false %}
-  {% if article.url contains "http" %}
-    {% assign ext = true %}
-  {% endif %}
-
-  <article {% if ext %}class="external"{% endif %} {% if article.lang %}lang="{{ article.lang }}"{% endif %} {% if article.type %}data-type="{{ article.type }}"{% endif %}>
-    <header>
-      <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
-    </header>
-    {% if article.hero %}
-      <img class="figure-float-right" src="{{ article.hero.src }}" alt="{{ article.hero.alt }}" />
+<div class="articles">
+  {% for article in articles %}
+    {% assign ext = false %}
+    {% if article.url contains "http" %}
+      {% assign ext = true %}
     {% endif %}
-    <div class="hyphenate">
-      {% if article.abstract %}
-        {{ article.abstract }}
-      {% else %}
-        {{article.content | strip_html | truncatewords: 50}}
-      {% endif %}
-    </div>
-    <footer>
-      {% if article.lang == "de" %}
-        Veröffentlicht
-      {% else %}
-        Published
-      {% endif %}
-      {% if article.journal %}in <em>{{ article.journal }}</em>{% endif %}
-      {% if article.lang == "de" %}
-        am
-      {% else %}
-        on
-      {% endif %}
-      {% include date.html date=article.pub_date %}
+
+    <article {% if ext %}class="external"{% endif %} {% if article.lang %}lang="{{ article.lang }}"{% endif %} {% if article.type %}data-type="{{ article.type }}"{% endif %}>
+      <header>
+        <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
+      </header>
       {% if article.hero %}
-        {% if article.lang == "de" %}
-          Bildnachweis:
-        {% else %}
-          Image credits:
-        {% endif %}
-        {{ article.hero.credits }}.
+        <img class="figure-float-right" src="{{ article.hero.src }}" alt="{{ article.hero.alt }}" />
       {% endif %}
-    </footer>
-    <br style="clear: both;">
-  </article>
-{% endfor %}
+      <div class="hyphenate">
+        {% if article.abstract %}
+          {{ article.abstract | markdownify }}
+        {% else %}
+          {{article.content | strip_html | truncatewords: 50}}
+        {% endif %}
+      </div>
+      <footer>
+        {% if article.lang == "de" %}
+          Veröffentlicht
+        {% else %}
+          Published
+        {% endif %}
+        {% if article.journal %}in <em>{{ article.journal }}</em>{% endif %}
+        {% if article.lang == "de" %}
+          am
+        {% else %}
+          on
+        {% endif %}
+        {% include date.html date=article.pub_date %}
+        {% if article.hero %}
+          {% if article.lang == "de" %}
+            Bildnachweis:
+          {% else %}
+            Image credits:
+          {% endif %}
+          {{ article.hero.credits }}.
+        {% endif %}
+      </footer>
+      <br style="clear: both;">
+    </article>
+  {% endfor %}
+</div>
 
 <script>
   function filterArticle({ en, de }, { article, podcast, misc }, { here, ext }, element) {

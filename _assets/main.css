@@ -89,6 +89,10 @@ article footer {
   font-size: .8em;
 }
 
+.articles article p {
+  margin: 0;
+}
+
 ul.links {
   padding-left: 0;
   padding-bottom: 1em;
