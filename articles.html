@@ -61,7 +61,12 @@ title: Writing, Articles, Podcasts
         Published
       {% endif %}
       {% if article.journal %}in <em>{{ article.journal }}</em>{% endif %}
-      on {% include date.html date=article.pub_date %}
+      {% if article.lang == "de" %}
+        am
+      {% else %}
+        on
+      {% endif %}
+      {% include date.html date=article.pub_date %}
       {% if article.hero %}
         {% if article.lang == "de" %}
           Bildnachweis:
