@@ -226,6 +226,4 @@ wörtlich, natürlich).
   Einreise drei Monate her ist, für nicht stattfindende Wahlen in den
   nächsten sechs Wochen registrieren? Die können mich doch alle mal.
 
-<hr>
-
 [^6_1]: Ja! Ich werde reich sein! Zusammengerechnet bestimmt 250 £ Lohn.

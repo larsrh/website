@@ -1,3 +1,11 @@
+div.footnotes {
+  font-size: .8em;
+}
+
+div.footnotes li p {
+  margin: 0;
+}
+
 a {
   text-decoration: underline dotted;
 }

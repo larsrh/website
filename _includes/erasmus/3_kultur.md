@@ -204,8 +204,6 @@ Diskussion, die ungefähr so ablief:
 >
 > *Person 2:* Das hat bestimmt jemand da vergessen.
 
-<hr>
-
 [^3_1]: Ich finde es super, dass die Iren Kartoffeln so mögen wie wir.
 
 [^3_2]: “Die Wellen von Tory”, eine Insel vor Nordirland

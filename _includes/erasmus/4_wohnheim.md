@@ -250,8 +250,6 @@ Ausgesperrt habe ich mich übrigens auch schon einmal. Es lief aber noch
 relativ glimpflich ab, denn ich musste nicht mit Bademantel zur
 Rezeption laufen.
 
-<hr>
-
 [^4_1]: Zumindest so ähnlich wie “Hi-arr-ye”.
 
 [^4_2]: In Deutschland würde man vielleicht “Gehacktes im Schlafrock”

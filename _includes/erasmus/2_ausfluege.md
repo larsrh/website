@@ -510,8 +510,6 @@ Insgesamt haben wir ca. fünf Stunden gebraucht, also zwei Stunden mehr,
 als der Lonely Planet vorgegeben hatte. Nun, wir sind ja auch keine
 Profi-Wanderer.
 
-<hr>
-
 [^2_1]: Unsere Kanadierin wird oftmals gefragt, wo genau das sei.
     Offenbar können das viele nicht einmal aussprechen, geschweige denn
     lokalisieren.
