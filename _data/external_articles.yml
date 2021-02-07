@@ -4,12 +4,6 @@
   url: "/pub/skript-analysis.pdf"
   lang: de
   type: misc
-- pub_date: 2010-09-22
-  title: "Überholt: Subversion ist obsolet"
-  journal: "KaffeeKlatsch"
-  abstract: "In der letzten Ausgabe des KaffeeKlatsch wurde eine Kombination aus Subversion, Mantis und CheckStyle vorgestellt. Dem ein oder anderen Leser beschlich beim Lesen des Wortes Subversion vielleicht ein seltsames Gefühl: Schreiben wir nicht das Jahr 2010? Der folgende Artikel hat sich zum Ziel gesetzt, die gängigen Vorbehalte gegenüber moderneren Tools zu zerstreuen und eine Umstellung, weg von Subversion, zu motivieren."
-  url: "http://www.bookware.de/kaffeeklatsch/archiv/KaffeeKlatsch-2010-09.pdf"
-  lang: de
 - pub_date: 2011-09-12
   title: "Geschichtsrevisionismus: Nachträgliches Ändern einer Projektgeschichte mit Git"
   journal: "KaffeeKlatsch"
