@@ -25,7 +25,7 @@ Translated, _matsuri_ means _festival_.
 {% include quote.html url="https://twitter.com/eed3si9n/status/1144841545209638914" author="Eugene Yokota" text="matsuri means festival, so naturally we have some fun food during #ScalaMatsuri Unconference / ScalaBridge Tokyo like shaved ice and pizza" %}
 
 I had already tried the previous year (2018) to get a talk into the conference, but unfortunately, it was rejected.[^1]
-<a href="http://2019.scalamatsuri.org/index_en.html">Fast forward to 2019</a> and my proposal to [talk about property testing]({%link _talks/property-testing.md %}) got accepted.
+<a href="http://2019.scalamatsuri.org/index_en.html">Fast forward to 2019</a> and my proposal to [talk about property testing]({% link _talks/property-testing.md %}) got accepted.
 
 The conference was scheduled for two and a half days: a Thursday afternoon (June 27) for an OSS hackathon, then two conference days (June 28–29) afterwards.
 I was a little unsure about how much time I should spend for sightseeing.
