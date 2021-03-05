@@ -15,16 +15,62 @@ layout: default
 </div>
 
 {% if page.speakerdeck %}
+  <div id="speakerdeck" class="hidden">
+    {% if page.lang == "de" %}
+      <h2>Folien</h2>
+    {% else %}
+      <h2>Slides</h2>
+    {% endif %}
 
-  {% if page.lang == "de" %}
-    <h2>Folien</h2>
-  {% else %}
-    <h2>Slides</h2>
-  {% endif %}
+    <div id="speakerdeck-container"></div>
 
-  <div style="width: 100%; height: 0; position: relative; padding-bottom: 56.1972%;">
-    <iframe src="https://speakerdeck.com/player/{{ page.speakerdeck }}" style="border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;" allowfullscreen title="Speaker Deck slides"></iframe>
+    <template id="speakerdeck-noconsent">
+      {% if page.lang == "de" %}
+        <p>Du hast nicht eingewilligt, externe Inhalte von Speaker Deck anzuzeigen.
+        Speaker Deck speichert möglicherweise Tracking-Cookies.</p>
+        <button>Externe Inhalte erlauben</button>
+      {% else %}
+        <p>You have not given consent to show external content from Speaker Deck.
+        Speaker Deck might set tracking cookies.</p>
+        <button> Allow content</button>
+      {% endif %}
+    </template>
+    <template id="speakerdeck-consent">
+      <div style="width: 100%; height: 0; position: relative; padding-bottom: 56.1972%;">
+        <iframe src="https://speakerdeck.com/player/{{ page.speakerdeck }}" style="border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;" allowfullscreen title="Speaker Deck slides"></iframe>
+      </div>
+    </template>
   </div>
+
+  <script>
+    function slides() {
+      const container = document.getElementById("speakerdeck-container");
+      container.innerHTML = "";
+
+      let template;
+      if (window.localStorage["speakerdeck"] === "on")
+        template = "speakerdeck-consent";
+      else
+        template = "speakerdeck-noconsent";
+
+      template = document.getElementById(template);
+
+      const clone = document.importNode(template.content, true);
+
+      const button = clone.querySelector("button");
+      if (button)
+        button.onclick = () => {
+          window.localStorage["speakerdeck"] = "on";
+          slides();
+        };
+
+      container.appendChild(clone);
+    }
+
+    slides();
+
+    document.getElementById("speakerdeck").classList = [];
+  </script>
 {% endif %}
 
 {% if page.video %}
