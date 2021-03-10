@@ -13,9 +13,9 @@ jobs:
       uses: actions/cache@v2.1.2
       with:
         path: vendor/bundle
-        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        key: ${{ runner.os }}-gems2-${{ hashFiles('**/Gemfile.lock') }}
         restore-keys: |
-          ${{ runner.os }}-gems-
+          ${{ runner.os }}-gems2-
 
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
