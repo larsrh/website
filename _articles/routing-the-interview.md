@@ -25,7 +25,7 @@ If anything, they needed people who were flexible, who didn't just work in a sil
 
 “That's great!”
 
-Even though she had submitted a strong applications with all sorts of references, he wanted her to do some coding in the interview.
+Even though she had submitted a strong application with all sorts of references, he wanted her to do some coding in the interview.
 After all, he wanted to make sure that she was a good team player, someone to rely on when you needed all hands on deck.
 In their stealth-mode startup, they didn't need shut-ins.
 
