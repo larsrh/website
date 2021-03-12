@@ -159,11 +159,11 @@ We're cloud native!”
 “_Native_, that's my middle name,” Nephele mumbled to herself.
 
 He ignored her remark and proceeded: “Typically, we implement our backends in Go.
-Will you also choose Go to solve this the problem?”
+Will you also choose Go to solve this problem?”
 
 She looked quizzically, again.
 
-“I already told your: I am going to use YAML. _No-code_, if you wish.”
+“I already told you: I am going to use YAML. _No-code_, if you wish.”
 
 He was back at bewilderment, thinking out loud, trying to process what she just said.
 
