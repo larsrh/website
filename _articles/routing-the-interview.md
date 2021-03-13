@@ -363,7 +363,7 @@ Will he remember anything from this interview?
 “Divisibility by _three_ is a bit more complicated.
 We first need to consider a state machine with exactly one state per residue modulo _k_.
 The transition function is easily computed by multiplying the residue with the base 10, then adding the current digit, then computing the residue again.
-This does not produce the minimal automaton, but it works.”
+This does not produce the minimal automaton in general, but it works.”
 
 One of these days, she really has to write a script for that.
 It comes up so frequently.
@@ -374,7 +374,7 @@ Luckily, the result is guaranteed to not upset `RE2`.”
 She chuckled.
 
 “Give me a moment while I figure out the expression, will you?
-I just quickly need to execute Brzozowski's algorithm.”
+I just quickly need to execute Brzozowski's method.”
 
 He did.
 
@@ -457,11 +457,18 @@ His mind had switched to autopilot.
 Thanks for coming in today.
 We'll be in touch.”
 
+## References
+
+* Boris Alexeev: [Minimal DFA for testing divisibility](https://doi.org/10.1016/j.jcss.2004.02.001)
+* Brzozowski algebraic method: [reference by Michael Levet](https://michaellevet.wordpress.com/2015/04/22/automata-theory-brzozowski-algebraic-method/), [reference by jmad](https://cs.stackexchange.com/a/2392)
+* [Full implementation](https://github.com/larsrh/fizzbuzz-k8s)
+
 <hr>
 
 Thanks to [Aphyr](https://aphyr.com/) for letting me “steal” the title of this post.
 Check out his [amazing series](https://aphyr.com/tags/Interviews).
 Furthermore, thanks to Marcus Bointon, Ross A. Baker, and Hillel Wayne for providing criticism and suggestions for improvements.
 No interviewers were harmed in the process of writing.
+Updated on 2021-03-13 to add references.
 
 [^1]: /ky.ber.nɛ̌ː.tɛːs/
