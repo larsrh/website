@@ -162,9 +162,8 @@ So they share some state. We can't write `(X & Y)` anymore, since we can't have 
 But worse, there are now properties of X that are NOT properties of XY
 
 <details markdown="1">
-  <summary>Side note on the modular arithmetic</summary>
-**Lars, [9:10](https://twitter.com/larsr_h/status/1371554463681495045):** unless z is in the range {0,1} with modular arithmetic 
-😉
+  <summary>Side note on modular arithmetic</summary>
+**Lars, [9:10](https://twitter.com/larsr_h/status/1371554463681495045):** unless z is in the range {0,1} with modular arithmetic 😉
 
 **Hillel, [10:16 the next day](https://twitter.com/hillelogram/status/1371933451885150210):** UNLESS
 </details>
