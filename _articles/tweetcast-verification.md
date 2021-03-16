@@ -114,7 +114,7 @@ Not necessarily! Did we remember to prove that `len(list) ≥ 0`? Because `-1 % 
 
 <details markdown="1">
   <summary>Side note on the borrow checker</summary>
-**Hillel, [8:40](https://twitter.com/hillelogram/status/1371546898511855616):** [https://twitter.com/hillelogram/status/1371546898511855616](https://semantic-domain.blogspot.com/2018/04/are-functional-programs-easier-to.html)
+**Hillel, [8:40](https://twitter.com/hillelogram/status/1371546898511855616):** [A good dive into the upstream principles that relate the borrow checker and formal verification](https://semantic-domain.blogspot.com/2018/04/are-functional-programs-easier-to.html)
 </details>
 
 **Lars, [8:38](https://twitter.com/larsr_h/status/1371546270075121666):** For your program to do anything cool it can't just manipulate it's own heap, it suddenly needs to use an FFI or call the OS or whatever. The only thing you can do here is to … assume as an axiom that the function call doesn't modify your state.
