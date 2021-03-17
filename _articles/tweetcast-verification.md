@@ -135,8 +135,8 @@ For all remaining tokens, you keep calling it, but provide NULL as the string. I
 
 **[8:58](https://twitter.com/hillelogram/status/1371551388757585927):** Let's go back to the frame problem. Cribbing from temporal logic, here's two specs of “Blinkers”. All they do is flip a flag between true and false. `x'` means “x in the next state”.
 
-X ≡ x' = ¬x
-Y ≡ y' = ¬y
+    X ≡ x' = ¬x
+    Y ≡ y' = ¬y
 
 How do we compose these
 
