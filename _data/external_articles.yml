@@ -232,3 +232,9 @@
   lang: de
   url: "https://software-architektur.tv/2021/02/19/folge50.html"
   type: "podcast"
+- pub_date: 2021-02-24
+  title: "Smart Contracts programmieren in Ethereum – Gegenwart & Zukunft"
+  journal: "t3n 63"
+  abstract: "Ethereum steht hinter einer der populärsten Kryptowährungen – und doch ist es noch sehr viel mehr. Damit kann kryptografisches Geld dank Algorithmen nämlich völlig autonom verwaltet werden. Aber wie funktionieren die sogenannten Smart Contracts und wo geht die Reise hin?"
+  lang: de
+  url: "https://t3n.de/ausgabe/t3n-63-kreativitaet-laeuft-bei-uns/"
