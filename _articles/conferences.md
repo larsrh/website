@@ -6,6 +6,10 @@ abstract: |
   I thought it'd be fun to collect a list of all conferences I've been to.
   There were a lot of them; at least fifty it seems.
   Maybe we've even crossed paths somewhere.
+hero:
+  src: "/img/topics/crdt/world.jpg"
+  alt: "Map of Europe"
+  credits: "TheAndrasBarta"
 ---
 
 ## 2007

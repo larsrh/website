@@ -2,6 +2,10 @@
 title: "Routing the technical interview"
 pub_date: 2021-03-10
 lang: en
+hero:
+  src: "/img/ship.jpg"
+  alt: "Blue and red boat on sea under white clouds during daytime"
+  credits: "Andrey Sharpilo"
 ---
 
 <link rel="stylesheet" href="{% asset rouge.css @path %}">
