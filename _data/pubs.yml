@@ -245,6 +245,14 @@
   year: 2018
   abstract: |
     CakeML is a functional programming language with a proven-correct compiler and runtime system. This entry contains an unofficial version of the CakeML semantics that has been exported from the Lem specifications to Isabelle. Additionally, there are some hand-written theory files that adapt the exported code to Isabelle and port proofs from the HOL4 formalization, e.g. termination and equivalence proofs.
+- title: "Deriving generic class instances for datatypes"
+  id: "afp-deriving"
+  authors: ["jonas", "lars"]
+  entry: "https://www.isa-afp.org/entries/Generic_Deriving.html"
+  in: "Archive of Formal Proofs"
+  year: 2018
+  abstract: |
+    We provide a framework for automatically deriving instances for generic type classes. Our approach is inspired by Haskell's generic-deriving package and Scala's shapeless library. In addition to generating the code for type class functions, we also attempt to automatically prove type class laws for these instances. As of now, however, some manual proofs are still required for recursive datatypes.
 - title: "libisabelle"
   id: "libisabelle"
   authors: ["lars"]
@@ -327,3 +335,11 @@
     <br />
     Third, a compiler that works similarly to the existing code generator, but produces a CakeML abstract syntax tree together with a correctness theorem.
     More precisely, I have combined a simple proof producing translation of recursion equations in Isabelle into a deeply embedded term language with a fully verified compilation chain to the target language CakeML.
+- title: "Hello World"
+  id: "afp-helloworld"
+  authors: ["cornelius", "lars"]
+  entry: "https://www.isa-afp.org/entries/Hello_World.html"
+  in: "Archive of Formal Proofs"
+  year: 2020
+  abstract: |
+     In this article, we present a formalization of the well-known "Hello, World!" code, including a formal framework for reasoning about IO. Our model is inspired by the handling of IO in Haskell. We start by formalizing the 🌍 and embrace the IO monad afterwards. Then we present a sample main :: IO (), followed by its proof of correctness.
