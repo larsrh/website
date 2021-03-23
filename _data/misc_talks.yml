@@ -38,3 +38,9 @@
   recording: "https://www.youtube.com/watch?v=sP5h1a1a6iA"
   slides: "https://speakerdeck.com/larsrh/blockchain-use-cases"
   year: 2020
+- title: Typelevel's Road to Scala 3
+  conference: "Scala Love in the City"
+  link: "https://inthecity.scala.love/"
+  recording: "https://www.youtube.com/watch?v=oSditqgIf6w"
+  slides: "https://speakerdeck.com/larsrh/typelevels-path-to-scala-3"
+  year: 2021
