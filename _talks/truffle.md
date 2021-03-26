@@ -41,7 +41,12 @@ conferences:
     location: Online
     link: "https://cyberjug.de/vortrag/truffleschwein/"
     slides: "https://speakerdeck.com/larsrh/das-eierlegende-truffleschwein"
-
+  - conference: "DeafIT"
+    year: 2021
+    date: "12. März"
+    location: Online
+    link: "https://www.deafit.org/konferenz/programm/"
+    slides: "https://speakerdeck.com/larsrh/das-eierlegende-truffleschwein-deafit-edition"
 ---
 
 ## Artikel
