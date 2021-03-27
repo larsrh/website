@@ -125,9 +125,9 @@ Not necessarily! Did we remember to prove that `len(list) ≥ 0`? Because `-1 % 
 
 **Lars, [8:50](https://twitter.com/larsr_h/status/1371549302464651265):** When you want to tokenize a string, you call it with the string and the delimiter. It gives you the first token.
 
-For all remaining tokens, you keep calling it, but provide NULL as the string. It stores the last non-NULL string passed to it internally.
+For all remaining tokens, you keep calling it, but provide `NULL` as the string. It stores the last non-`NULL` string passed to it internally.
 
-**[8:50](https://twitter.com/larsr_h/status/1371549463655952387):** Good luck adding to your proofs that none of your other functions call strtok!
+**[8:50](https://twitter.com/larsr_h/status/1371549463655952387):** Good luck adding to your proofs that none of your other functions call `strtok`!
 
 **Hillel, [8:53](https://twitter.com/hillelogram/status/1371550043304562693):** wut.
 
