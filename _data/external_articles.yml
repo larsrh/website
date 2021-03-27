@@ -4,12 +4,6 @@
   url: "/pub/skript-analysis.pdf"
   lang: de
   type: misc
-- pub_date: 2011-09-12
-  title: "Geschichtsrevisionismus: Nachträgliches Ändern einer Projektgeschichte mit Git"
-  journal: "KaffeeKlatsch"
-  abstract: "Was unter Historikern umstritten ist, ist mit Git ganz einfach: Die Geschichte eines Projekts im Nachhinein ändern. Welche Möglichkeiten es da gibt, soll in diesem Artikel kurz vorgestellt werden."
-  url: "http://www.bookware.de/kaffeeklatsch/archiv/KaffeeKlatsch-2011-09.pdf"
-  lang: de
 - pub_date: 2013-06-24
   title: "Deriving Type Class Instances"
   journal: "Typelevel.org blog"
