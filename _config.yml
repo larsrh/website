@@ -68,14 +68,6 @@ defaults:
       description: ""
       toc: true
       lang: en
-      codemirror: true
-      interactive:
-        - /js/html.js
-        - /js/topics/crdt/fc.js
-        - /js/topics/crdt/chai.js
-        - /js/topics/crdt/deep-eql.js
-        - /js/topics/crdt/fc-runner.js
-        - /js/topics/crdt/all_lib.js
       abstract: |
         This is a series about Conflict-Free Replicated Data Types, or CRDTs for short.
         Their purpose is to allow seamless replication of data on different nodes in a distributed system.
