@@ -1,0 +1,40 @@
+---
+layout: article
+---
+
+<link rel="stylesheet" href="{% asset leaflet.css @path %}">
+<script src="{% asset leaflet.js @path %}"></script>
+
+{{ content }}
+
+<h2>Karte</h2>
+
+<div id="map-embed"></div>
+
+<div>
+  Daten von <a href="http://www.openstreetmap.org/">OpenStreetMap</a>. Veröffentlicht unter <a href="http://opendatacommons.org/licenses/odbl/">ODbL</a>.
+</div>
+
+<script>
+  const { lat, lon } = {{ page.geo | jsonify }};
+  const markers = {{ page.markers | jsonify }};
+
+  const icon = L.icon({ iconUrl: '/img/leaflet/marker-icon.png' });
+
+  const map = L.map("map-embed").setView([lat, lon], 13);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  for (const { lat, lon } of markers)
+    L.circle([lat, lon], { color: 'red', fillColor: '#f03', fillOpacity: 0.5, radius: 300 }).addTo(map);
+</script>
+
+<h2>Hinweis</h2>
+
+<div>
+  Der hier angegebene Streckenverlauf ist ein persönlicher Erfahrungsbericht.
+  Ich übernehme keine Verantwortung für die Eignung oder Beschaffenheit.
+  Alle Angaben ohne Gewähr.
+</div>

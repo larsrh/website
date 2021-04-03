@@ -304,3 +304,7 @@ details.pub-abstract {
 blockquote > p {
   margin: 0;
 }
+
+#map-embed {
+  height: 480px;
+}
