@@ -21,7 +21,6 @@ exclude:
   - "Gemfile.lock"
   - "vendor"
   - ".ruby-version"
-  - ".ci"
   - "venv"
   - ".github"
 encoding: "utf-8"
