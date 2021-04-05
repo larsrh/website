@@ -308,3 +308,8 @@ blockquote > p {
 #map-embed {
   height: 480px;
 }
+
+.copyright-notice {
+  font-size: .8em;
+  color: var(--text-muted);
+}
