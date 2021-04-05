@@ -1,7 +1,7 @@
 ---
 title: "Mangfallknie"
 subtitle: "Das Mangfallknie zwischen Valley und Grub"
-geo: { lat: 47.9078, lon: 11.79121 }
+geo: { lat: 47.9078, lon: 11.79121, zoom: 13 }
 markers:
   - { lat: 47.92262, lon: 11.79121 }
   - { lat: 47.89298, lon: 11.77928 }

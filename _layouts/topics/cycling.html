@@ -16,12 +16,12 @@ layout: article
 </div>
 
 <script>
-  const { lat, lon } = {{ page.geo | jsonify }};
+  const { lat, lon, zoom } = {{ page.geo | jsonify }};
   const markers = {{ page.markers | jsonify }};
 
   const icon = L.icon({ iconUrl: '/img/leaflet/marker-icon.png' });
 
-  const map = L.map("map-embed").setView([lat, lon], 13);
+  const map = L.map("map-embed").setView([lat, lon], zoom);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
