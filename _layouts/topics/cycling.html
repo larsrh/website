@@ -5,6 +5,10 @@ layout: article
 <link rel="stylesheet" href="{% asset leaflet.css @path %}">
 <script src="{% asset leaflet.js @path %}"></script>
 
+{% if page.gpx %}
+  <script src="{% asset leaflet-gpx.js @path %}"></script>
+{% endif %}
+
 {{ content }}
 
 <h2>Karte</h2>
@@ -19,8 +23,6 @@ layout: article
   const { lat, lon, zoom } = {{ page.geo | jsonify }};
   const markers = {{ page.markers | jsonify }};
 
-  const icon = L.icon({ iconUrl: '/img/leaflet/marker-icon.png' });
-
   const map = L.map("map-embed").setView([lat, lon], zoom);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -29,7 +31,27 @@ layout: article
 
   for (const { lat, lon } of markers)
     L.circle([lat, lon], { color: 'red', fillColor: '#f03', fillOpacity: 0.5, radius: 300 }).addTo(map);
+
+  const gpx = {{ page.gpx | jsonify }};
+
+  const markerOptions = {
+    startIconUrl: undefined,
+    endIconUrl: undefined,
+    shadowUrl: undefined
+  };
+  for (const file of gpx)
+    new L.GPX(`/topics/cycling/${file}.gpx`, { async: true, marker_options: markerOptions }).addTo(map);
 </script>
+
+{% if page.gpx %}
+  <h2>Tracks</h2>
+
+  <ul>
+    {% for file in page.gpx %}
+      <li><a href="/topics/cycling/{{ file }}.gpx">{{ file }}.gpx</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}
 
 <h2>Hinweis</h2>
 
