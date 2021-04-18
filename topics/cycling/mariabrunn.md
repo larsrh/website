@@ -36,10 +36,16 @@ Bis nach Mariabrunn ist es noch ein kleines Stück, wobei man mit etwas Steigung
 Viel mehr gibt es zur Strecke eigentlich nicht zu sagen; mit ungefähr 17 Kilometern (gerechnet von Feldmoching aus) ist es eine sehr gemütliche Tour.
 
 Als Rückweg bin ich der Amper entlang flussaufwärts Richtung Dachau gefahren.
-Man kann dann am Zufluss der Würm (siehe Markierung auf der Karte) in südlicher Richtung abbiegen und der Würm bis nach Karlsfeld oder Pasing folgen.[^2]
+Man kann dann am Zufluss der Würm (siehe Markierung auf der Karte) in südlicher Richtung abbiegen und der Würm bis nach Karlsfeld oder Pasing folgen.
 In Karlsfeld bietet sich der Weg durch den Allacher Forst an.
 
 Fährt man bis nach Dachau, kann man auch der Alten Bayernwerkstraße (westlich der Schienen) bis nach Karlsfeld folgen.
+
+## Verknüpfungen
+
+Für die Route durch die Allacher Lohe und nach Dachau, siehe auch die [Wegbeschreibung des Ammer-Amper-Radwegs]({% link topics/cycling/amper-ffb-dachau.md %}).
+
+Den Würm-Radweg ab München bis Starnberg habe ich [hier beschrieben]({% link topics/cycling/starnberg.md %}).
 
 ## Galerie
 
@@ -52,4 +58,3 @@ Fährt man bis nach Dachau, kann man auch der Alten Bayernwerkstraße (westlich 
 </div>
 
 [^1]: Kurioserweise gibt es in dem beschaulichen Örtchen eine Subkultur, über die [auch der BR berichtet hat](https://www.youtube.com/watch?v=8AAbyVq1sEo).
-[^2]: Den Würm-Radweg ab München bis Starnberg habe ich [hier beschrieben]({% link topics/cycling/starnberg.md %}).
