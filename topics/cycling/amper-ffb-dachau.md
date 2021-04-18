@@ -13,7 +13,7 @@ gpx:
 abstract: |
   Der Isarradweg ist an Wochenenden und bei schönem Wetter stark befahren.
   Warum also nicht einmal auf die Amper ausweichen?
-  Münchner:innen haben dabei aber den Nachteil, das eine „An- und Abreise“ nötig ist.
+  Münchner:innen haben dabei aber den Nachteil, dass eine „An- und Abreise“ nötig ist.
   Diese Route beschreibt das Segment zwischen Fürstenfeldbruck und Dachau, bei dem der zusätzliche Weg überschaubar ist.
 ---
 
