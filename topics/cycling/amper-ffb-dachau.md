@@ -60,6 +60,7 @@ Kaum zu glauben, dass diese Stelle (siehe Markierung) bereits zu München gehör
   entweder, man bleibt auf der Straße Am Engelsberg und nimmt die harte Steigung nach Gelbenholzen in Kauf,
   oder man folgt dem AAR weiter (rechts halten auf der Zellhofstraße) bis nach Schöngeising.
   Bei der zweiten Option spart man sich die Steigung zwar nicht – auch hier ist der Anstieg bis nach Biburg zu bewältigen – jedoch kommt man noch in den Genuss der Amperauen (siehe Markierung).
+* Der Rückweg kann entweder der kurze Weg über Puchheim sein, oder man verlängert über Germering und Planegg und [folgt dann dem Würm-Radweg]({% link topics/cycling/starnberg.md %}).
 
 ## Verknüfungen
 
