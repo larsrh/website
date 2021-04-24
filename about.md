@@ -62,7 +62,7 @@ This page is hosted on Netlify (most content) and Manitu (some large static asse
 While Netlify offers some analytics services, I don't use them.
 
 Both hosting providers may or may not process logs on their servers; see [Netlify's Privacy Policy](https://www.netlify.com/privacy) and [Manitu's Datenschutzerklärung](https://www.manitu.de/datenschutz/) for details.
-I have signed a Data Processing Agreements with [both](https://www.netlify.com/gdpr-ccpa) [providers](https://www.manitu.de/unternehmen/eu-datenschutz-grundverordnung-dsgvo/).
+I have signed Data Processing Agreements with [both](https://www.netlify.com/gdpr-ccpa) [providers](https://www.manitu.de/unternehmen/eu-datenschutz-grundverordnung-dsgvo/).
 Note that I have disabled logging of IP addresses where possible.
 
 ## Impressum
