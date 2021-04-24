@@ -32,7 +32,7 @@ layout: article
   for (const { lat, lon } of markers)
     L.circle([lat, lon], { color: 'red', fillColor: '#f03', fillOpacity: 0.5, radius: 300 }).addTo(map);
 
-  const gpx = {{ page.gpx | jsonify }};
+  const gpx = ({{ page.gpx | jsonify }}) || [];
 
   const markerOptions = {
     startIconUrl: undefined,
