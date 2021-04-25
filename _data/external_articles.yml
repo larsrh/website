@@ -237,3 +237,15 @@
   abstract: "Auf dieser Seite sammle ich Beschreibungen für Tages- oder Halbtagestouren in & um München. Alle Strecken bin ich selbst gefahren."
   lang: de
   url: "/topics/cycling/"
+- pub_date: 2021-04-23
+  title: "Verträge im Äther: Eine Einführung in die Ethereum-Blockchain"
+  journal: "c't"
+  abstract: "Blockchains werden oft mit Kryptowährungen gleich­gesetzt, aber die Technologie kann mehr als Geld verwalten. „Smart Contracts“ erlauben die Blockchain als Computer zu ­benutzen und ermöglichen zum Beispiel virtuelle Organi­sationen oder Non-Fungible-­Tokens (NFT). Ethereum ist der Vorreiter bei diesen Anwendungen."
+  lang: de
+  url: "https://www.heise.de/select/ct/2021/10/2107417461842152315"
+- pub_date: 2021-04-23
+  title: "Geld im Äther: Ein kleiner Praxisleitfaden zu Ethereum-Wallets"
+  journal: "c't"
+  abstract: "Tesla akzeptiert Bitcoin-Zahlungen, auf Ethereum werden Tweets verkauft – von Kryptowährungen hört man ständig. Aber wie benutzt man so ein System, wie kommt man an das virtuelle Geld und wie überweist man es? Zum entspannten Lernen eignet sich Ethereum: Dessen Blockchain ist einfach zu benutzen und erlaubt freies Experimentieren in Testnetzen."
+  lang: de
+  url: "https://www.heise.de/select/ct/2021/10/2107417485918240728"
