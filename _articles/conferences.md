@@ -111,10 +111,12 @@ In between, I went to a truckload of conferences and meetups.
 * February: [Lambda Days](https://www.lambdadays.org/lambdadays2019), Krakow, Poland
 * March: [JavaLand](https://www.javaland.eu/de/javaland-2019/), Brühl, Germany
 * March: [BOB Konferenz](https://bobkonf.de/2019/), Berlin, Germany
+* March: Software Architecture Summit, Munich, Germany
 * May: [J on the Beach](https://2019.jonthebeach.com/), Marbella, Spain
 * June: [Scala Days](https://www.innoq.com/de/blog/scala-days-2019-lausanne/) and [Typelevel Summit Lausanne](https://typelevel.org/event/2019-06-summit-lausanne/), Lausanne, Switzerland
 * June: [Scala Matsuri]({% link _articles/scala-matsuri.md %}), Tokyo, Japan
 * September: [Herbstcampus](https://www.herbstcampus.de/2019/), Nuremberg, Germany
+* September: INNOQ-Jubiläumsevent
 * September: Software Architecture Summit, Berlin, Germany
 * November: Blockchain Technology Conference, Berlin, Germany
 
@@ -128,9 +130,11 @@ After that, all online.
 * April: Scala Love
 * September: [MuniHac](https://munihac.de/2020.html)
 * November: [Haskell eXchange](https://skillsmatter.com/conferences/13135-haskell-exchange-2020)
+* December: [INNOQ Technology Day](https://technologyday.innoq.com/)
 
 ## 2021
 
 * February: Scala Love in the City
+* February: [BOB Konferenz](https://bobkonf.de/2021/)
 
 To be continued.
