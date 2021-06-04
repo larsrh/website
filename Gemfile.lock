@@ -1,6 +1,7 @@
 GIT
-  remote: https://github.com/envygeeks/jekyll-assets.git
-  revision: 056d2c88719ef3b1f90967a606dd1441581dd832
+  remote: https://github.com/larsrh/jekyll-assets.git
+  revision: 98b2728c479dd7412de05bf0e0e11e9200faee71
+  branch: fork/ruby-3
   specs:
     jekyll-assets (4.0.0.alpha)
       activesupport (>= 5, < 7)
@@ -128,6 +129,7 @@ GEM
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unicode-display_width (1.7.0)
+    webrick (1.7.0)
     yell (2.2.2)
     zeitwerk (2.4.2)
 
@@ -142,6 +144,7 @@ DEPENDENCIES
   jekyll-seo-tag
   jekyll-sitemap
   jekyll-toc
+  webrick
 
 BUNDLED WITH
-   2.2.14
+   2.2.18
