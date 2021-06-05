@@ -8,6 +8,8 @@
   <updated>{{ site.time | date_to_xmlschema }}</updated>
   <id>{{ page.url | absolute_url | xml_escape }}</id>
 
+  <icon>{{ site.url }}{% asset favicon.ico @path %}</icon>
+
   <title type="html">{{ site.title | xml_escape }}</title>
 
   <author>
