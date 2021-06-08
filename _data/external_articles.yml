@@ -249,3 +249,20 @@
   abstract: "Tesla akzeptiert Bitcoin-Zahlungen, auf Ethereum werden Tweets verkauft – von Kryptowährungen hört man ständig. Aber wie benutzt man so ein System, wie kommt man an das virtuelle Geld und wie überweist man es? Zum entspannten Lernen eignet sich Ethereum: Dessen Blockchain ist einfach zu benutzen und erlaubt freies Experimentieren in Testnetzen."
   lang: de
   url: "https://www.heise.de/select/ct/2021/10/2107417485918240728"
+- pub_date: 2021-05-22
+  title: "Den Äther programmieren: Smart Contracts für die Ethereum-Blockchain schreiben"
+  journal: "c't"
+  abstract: "Bei Ethereum denken viele an eine Kryptowährung, dabei ­handelt es sich eigentlich um ein weltweit verteiltes Rechen­zentrum, das Programme – ­sogenannte Smart Contracts – auf einer Blockchain ausführt. Wir zeigen Ihnen, wie Sie einen solchen Smart Contract programmieren, um „Schere, Stein, Papier“ auf der Ethereum-­Blockchain zu spielen"
+  lang: de
+  url: "https://www.heise.de/select/ct/2021/12/2107417503316581754"
+- pub_date: 2021-06-07
+  title: "Dezentralisierte Architektur: Was steckt hinter Blockchains?"
+  journal: "iSAQB"
+  abstract: "Befeuert von immer neuen Kurshöhen der Kryptowährungen, findet derzeit eine lebhafte Debatte über Blockchains statt. Die einen preisen die „autarken“ Währungen als Heilsbringer in Krisenzeiten, die anderen sehen im exzessiven Stromverbrauch einen Klimakiller. Doch welche Chancen und Risiken die neuen Technologien für Softwarearchitektur bringen, wird selten diskutiert. Über diese Fragestellung möchte ich hier einen kleinen Überblick geben."
+  lang: de
+  url: "https://www.isaqb.org/de/blog/dezentralisierte-architektur-was-steckt-hinter-blockchains/"
+- pub_date: 2021-06-07
+  title: "Decentralized Architecture: What’s Behind Blockchains?"
+  journal: "iSAQB"
+  abstract: "Fueled by ever new highs in cryptocurrency prices, there is currently a lively debate about blockchains. Some praise the “self-sustaining” currencies as saviors in times of crisis, while others see their excessive power consumption as a climate killer. But which opportunities and risks the new technologies harbor for software architecture is rarely a matter of debate. I would like to give a brief overview of this issue."
+  url: "https://www.isaqb.org/blog/decentralized-architecture-whats-behind-blockchains/"
