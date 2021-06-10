@@ -218,7 +218,7 @@
   journal: "c't"
   abstract: "14 Jahre nach Erscheinen von Scala 2.0 wagt die Sprache den nächsten großen Schritt. Wird Scala mit Version 3 so, wie es immer sein sollte? Ein Release Candidate steht schon in den Startlöchern und zeigt, wie sich die Scalable Language weiterentwickelt."
   lang: de
-  url: "https://www.heise.de/select/ct/2021/5/2101311434993763436"
+  url: "https://www.innoq.com/de/articles/2021/06/stufe-3/"
 - pub_date: 2021-02-19
   title: "#SoftwareArchitektur – Diversity"
   journal: "Softwarearchitektur im Stream"
