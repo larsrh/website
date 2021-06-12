@@ -76,6 +76,32 @@ Now, whenever I use a local host name, the domain `intranet.hupel.info` gets app
 
 The DNS + DHCP setup is nothing fancy, but it's been serving me well so far.
 
+**Update:**
+Prompted by a [Twitter conversation](https://twitter.com/jeeger/status/1402873948413562882) in June 2021, I wanted to make sure that Unbound caches properly.
+In order to figure that out, I had to add a few more lines to the config file:
+
+```
+remote-control:
+        control-enable: yes
+        control-interface: 127.0.0.1
+```
+
+This allows the CLI utility `unbound-control` to query various pieces of information from the DNS server.
+For example, I can dump the cache:
+
+```
+$ sudo unbound-control dump_cache
+START_RRSET_CACHE
+;rrset 79968 1 0 8 3
+ping.archlinux.org.     79968   IN      CNAME   redirect.archlinux.org.
+
+... lots more ...
+```
+
+As of writing this update, the cache contains approximately 17k lines, including the DNS root servers.
+
+According to `unbound-control stats_noreset`, about half of my DNS requests are served from the cache, and the median response time is 26 ms (average being 53 ms), although I'm not entirely sure I'm interpreting those numbers correctly.
+
 [^1]: Despite its name, it is a really useful resource for all Linux distributions.
 
 [^2]: Bonus points if you wrote a cronjob that auto-updates the list; I couldn't be bothered.
