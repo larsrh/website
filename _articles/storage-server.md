@@ -4,6 +4,8 @@ pub_date: 2017-12-28
 lang: en
 ---
 
+_Updated continuously after publication._
+
 Recently I announced on Twitter some upgrade I did on a "home" server:
 
 {% include quote.html url="https://twitter.com/larsr_h/status/944880173308170241" author="Lars" text="Successfully upgraded the home server from 9 TB to 15 TB storage. A dozen devices all want to be backed up." %}
@@ -13,10 +15,9 @@ So, I took some time to describe the hardware & software on the machines (I have
 
 ## Hardware
 
-The base hardware is an [HP ProLiant N40L](http://n40l.wikia.com).
-This is a cute little cube with a rather slow, but sufficient CPU (AMD Neo, 1.5 GHz).
+The base hardware is an [HP ProLiant N54L](https://n40l.fandom.com/wiki/Base_Hardware_N54L).
+This is a cute little cube with a rather slow, but sufficient CPU (AMD Turion II Neo, 2.2 GHz).
 This model is already some years old: it is from Gen 7 with dual-core AMD CPUs, whereas the latest model as of writing is a Gen 10 with dual-core Opteron.
-Unfortunately, the N40L Wikia only covers Gen 7 and Gen 8, but you should be able to find ample information on the newer models on the web as well, since there's an active user base.
 It is also possible to upgrade the RAM (unbuffered ECC) in these devices, because they have two slots with only one used.
 
 The basic setup of these devices is unchanged:
@@ -25,7 +26,7 @@ Details might vary over generations, but it should be possible to put a fifth di
 For booting, you can also use an external USB drive.
 Most models have an "internal external" USB port on the mainboard with enough space for a USB pen.
 
-My N40L however can boot from the ODD slot, so I put four large drives (3 TB, WD Red) in there, and moved the included system HDD (some sub-TB model from Seagate) to the ODD slot.
+My N54L however can boot from the ODD slot, so I put four large drives (3 TB, WD Red) in there, and moved the included system HDD (some sub-TB model from Seagate) to the ODD slot.
 That required some mechanical fiddling:
 I used a 3.5"-in-5.25" vibe fixer from Sharkoon, which works pretty well.
 If I were to re-setup the machine today, I would probably put four even larger drives (6 TB, WD Red) in there.
@@ -33,7 +34,7 @@ If I were to re-setup the machine today, I would probably put four even larger d
 Additionally, I recently installed an external SATA enclosure (Icy Box) for two disks.
 I put four 6 TB WD Red disks in there.
 The external enclosure has RAID functionality, but I don't use it.
-It offers eSATA and USB 3 ports, but because I wasn't sure whether the N40L supported SATA port multiplier, I instead installed a USB 3 PCIe card into the cube and used that.
+It offers eSATA and USB 3 ports, but because I wasn't sure whether the N54L supported SATA port multiplier, I instead installed a USB 3 PCIe card into the cube and used that.
 The disadvantage of that is that `smartctl` will probably never be able to get detailed S.M.A.R.T. data out of the USB-SATA controller.
 
 Most of the disks (12 in total) are WD Red.
@@ -47,7 +48,7 @@ However, I can't really say how well that works.
 Make sure to read the relevant forum threads before you buy anything.
 
 **Update:**
-As of January 2018, my trusty old N36L (an older model than the N40L that I operated at another location) died.
+As of January 2018, my trusty old N36L (an older model than the N54L that I operated at another location) died.
 I am pretty confident that some capacitor in the PSU blew off.
 Unfortunately, because it's not a "real server", there's no secondary PSU in the device.
 A replacement PSU would have been prohibitively expensive, so instead, I bought the latest model, a Gen 10, with an AMD Opteron X3216.
@@ -58,6 +59,10 @@ There are a few significant changes from the Gen 7 series:
 * There are sufficiently many USB 3 ports, so a PCIe controller is not necessary.
 * It supports booting via UEFI. I have hence partitioned the boot disk as GPT.
 * The CPU supports AES-NI. If I were to re-setup the encrypted device, I would have chosen AES accordingly, instead of Twofish.
+
+**Update:**
+As of 2021, I have also replaced the N54L because of old age (it was almost a decade old).
+[See the Section below for details.](#the-new-intel-server-2021)
 
 ## Partitioning
 
@@ -70,10 +75,10 @@ The resulting volume of approximately 6 TB.
 
 Between the RAID and btrfs, there's dm-crypt for full-disk encryption layered in between.
 The performance is not great, but sufficient for NAS purposes.
-Below is the output of `cryptsetup benchmark` for, in order: the N36L cube, the N40L cube, and for reference, my laptop (a quad-core i7-6920HQ at 2.9 GHz).
+Below is the output of `cryptsetup benchmark` for, in order: the N54L cube, the Gen 10 cube, and for reference, my laptop (a quad-core i7-6920HQ at 2.9 GHz).
 
 ```
-# N40L
+# N54L
 #  Algorithm | Key |  Encryption |  Decryption
      aes-cbc   128b   129.8 MiB/s   144.2 MiB/s
  serpent-cbc   128b    52.4 MiB/s   141.9 MiB/s
@@ -200,6 +205,46 @@ I would like to migrate this to a mixed `rsync` and `unison` solution that uses 
 The cube itself is backed up only partially.
 Some parts, like maildirs, are synced to the other location with Unison.
 Others, like configuration, are not backed up at all.
-But I am currently in the process of setting up [Duplicati 2](https://www.duplicati.com/), which offers a convenient web interface.[^2]
+But I am currently in the process of setting up [Duplicati 2](https://www.duplicati.com/), which offers a convenient web interface.[^duplicati]
 
-[^2]: Do not construe this as a recommendation of Duplicati. Research backup software yourself.
+**Update:**
+I have given up the `rsync` backup and use Duplicati everywhere now.
+
+## The new Intel server (2021)
+
+The N54L cube got a bit old and slow.
+In particular, the system drive was still the original one (ca. 2013).[^hdd]
+
+Because the current (2021) offerings of HP weren't quit up to my taste, I looked around.
+The additional complication was that bulk parts are still hard to get because of supplys shortages.
+I chose to go with a [built-on-demand](https://www.servershop-bayern.de/ecsus-Cube-UP-Xeon-Coffee-Lake-4-Bay-Server-ZFS-ready) server with a similar (cube) form factor.
+It has an Intel i3-9300 CPU (quad core, 3.7 GHz), 8 GB of RAM and an NVMe SSD.
+
+Naturally, the benchmarks for disk encryption look a lot better:
+
+```
+#     Algorithm |       Key |      Encryption |      Decryption
+        aes-cbc        128b      1296.9 MiB/s      3915.8 MiB/s
+    serpent-cbc        128b       103.7 MiB/s       824.6 MiB/s
+    twofish-cbc        128b       241.7 MiB/s       435.8 MiB/s
+        aes-cbc        256b       984.9 MiB/s      3159.5 MiB/s
+    serpent-cbc        256b       109.2 MiB/s       825.6 MiB/s
+    twofish-cbc        256b       241.7 MiB/s       436.6 MiB/s
+        aes-xts        256b      2456.5 MiB/s      2428.7 MiB/s
+    serpent-xts        256b       792.1 MiB/s       778.6 MiB/s
+    twofish-xts        256b       402.3 MiB/s       404.2 MiB/s
+        aes-xts        512b      2254.1 MiB/s      2241.9 MiB/s
+    serpent-xts        512b       792.2 MiB/s       777.5 MiB/s
+    twofish-xts        512b       402.5 MiB/s       403.6 MiB/s
+```
+
+What's nice about that machine is that it has an embedded IPMI server.
+Setting it up was a breeze.
+
+Funnily enough, the old N54L still sold for about half the retail price:
+
+{% include quote.html url="https://twitter.com/larsr_h/status/1411689557549096963" author="Lars" text="Almost a decade after I bought it, I sold an HP ProLiant N54L (then: 190 €) for 90 €. Has been used continuously without downtime. No idea why they are still in such high demand 🤔" %}
+
+
+[^duplicati]: Do not construe this as a recommendation of Duplicati. Research backup software yourself.
+[^hdd]: As opposed to the data drives, which I routinely swap out on a rolling schedule, approximately every five years, or earlier if S.M.A.R.T. indicates issues.
