@@ -1,6 +1,6 @@
 ---
 title: "CRDTs: Part 8"
-subtitle: "Part 8: Preliminaries"
+subtitle: "Part 8: Outlook"
 toc: false
 ---
 
