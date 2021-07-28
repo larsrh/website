@@ -14,7 +14,7 @@ I worked with a friend on a competing implementation of Miles' infamous early [s
 As everyone who knows a bit about contemporary Scala will confirm, shapeless prevailed, but my interest in open source Scala was piqued regardless.
 
 The next year, I found myself creating a Twitter account,[^2] just before [Scala Days 2012](https://skillsmatter.com/conferences/1140-scala-days-2012) in London.
-Both my friend from the course went to London, knowing fuck all about conferences nor London, but alas, there were student-priced tickets, so at least we didn't get bankrupt.
+Both my friend from the course and me went to London, knowing fuck all about conferences nor London, but alas, there were student-priced tickets, so at least we didn't get bankrupt.
 I still vividly remember meeting at The Shakespeare, having the just-introduced specialization (and its problems) explained to me by [Erik](https://twitter.com/d6).
 He had a notebook and gave his best explaining things to me, but I don't think I understood anything.
 I was just way too excited.
