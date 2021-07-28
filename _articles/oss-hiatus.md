@@ -25,7 +25,7 @@ Another year later, I gave my [first conference talk in English](https://www.you
 Due to sheer luck I ran into them in the train from the airport to downtown, so I had someone to explain the SEPTA token system to me.
 I don't remember who, but someone suggested we go to dinner together at some fancy place, and I just remember screaming internally at the prices (I was a Master's student).
 The conference itself was phenomenal and based on many conversations I had there, Typelevel was founded.[^3]
-I came home from the US feeling like I found I place where I belong.
+I came home from the US feeling like I found a place where I belong.
 
 I could spend a lot more time telling stories about conferences.
 What's amazing is that all of that was so long ago.
