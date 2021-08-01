@@ -272,3 +272,9 @@
   journal: "iSAQB"
   abstract: "Fueled by ever new highs in cryptocurrency prices, there is currently a lively debate about blockchains. Some praise the “self-sustaining” currencies as saviors in times of crisis, while others see their excessive power consumption as a climate killer. But which opportunities and risks the new technologies harbor for software architecture is rarely a matter of debate. I would like to give a brief overview of this issue."
   url: "https://www.isaqb.org/blog/decentralized-architecture-whats-behind-blockchains/"
+- pub_date: 2021-07-30
+  title: "Geld statt Kohle: Warum Kryptowährungen auf Proof of Stake umstellen wollen"
+  journal: "c't"
+  abstract: "Viele Kryptowährungen nutzen Blockchains mit „Proof of Work“, aus dem ein enormer Energieverbrauch resultieren kann. „Proof of Stake“ löst dieses Problem, doch das Verfahren hat auch Nachteile. Ganz ohne Proof of Irgendwas lässt sich eine Kryptowährung aber kaum realisieren."
+  lang: de
+  url: "https://www.heise.de/select/ct/2021/17/2116008595413429691"
