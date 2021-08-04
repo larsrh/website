@@ -47,6 +47,7 @@ conferences:
     location: Online
     link: "https://www.deafit.org/konferenz/programm/"
     slides: "https://speakerdeck.com/larsrh/das-eierlegende-truffleschwein-deafit-edition"
+    recording: "https://www.youtube.com/watch?v=AzOQJfDUnV8"
 ---
 
 ## Artikel
