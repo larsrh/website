@@ -51,7 +51,7 @@ conferences:
     year: 2018
     date: June 8th
     location: Lisbon, Portugal
-    link: "http://www.lxscala.com/schedule/"
+    link: "https://web.archive.org/web/20180527013208/http://www.lxscala.com/schedule/"
     slides: "https://speakerdeck.com/larsrh/numeric-programming-with-spire-lx-scala-edition"
   - conference: "Scala Portugal"
     year: 2016
