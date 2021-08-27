@@ -242,24 +242,24 @@
   journal: "c't"
   abstract: "Blockchains werden oft mit Kryptowährungen gleich­gesetzt, aber die Technologie kann mehr als Geld verwalten. „Smart Contracts“ erlauben die Blockchain als Computer zu ­benutzen und ermöglichen zum Beispiel virtuelle Organi­sationen oder Non-Fungible-­Tokens (NFT). Ethereum ist der Vorreiter bei diesen Anwendungen."
   lang: de
-  url: "https://www.heise.de/select/ct/2021/10/2107417461842152315"
+  url: "https://www.innoq.com/de/articles/2021/08/ethereum-blockchain-contracts-einfuehrung/"
 - pub_date: 2021-04-23
   title: "Geld im Äther: Ein kleiner Praxisleitfaden zu Ethereum-Wallets"
   journal: "c't"
   abstract: "Tesla akzeptiert Bitcoin-Zahlungen, auf Ethereum werden Tweets verkauft – von Kryptowährungen hört man ständig. Aber wie benutzt man so ein System, wie kommt man an das virtuelle Geld und wie überweist man es? Zum entspannten Lernen eignet sich Ethereum: Dessen Blockchain ist einfach zu benutzen und erlaubt freies Experimentieren in Testnetzen."
   lang: de
-  url: "https://www.heise.de/select/ct/2021/10/2107417485918240728"
+  url: "https://www.innoq.com/de/articles/2021/08/ethereum-wallets/"
 - pub_date: 2021-05-22
   title: "Den Äther programmieren: Smart Contracts für die Ethereum-Blockchain schreiben"
   journal: "c't"
   abstract: "Bei Ethereum denken viele an eine Kryptowährung, dabei handelt es sich eigentlich um ein weltweit verteiltes Rechenzentrum, das Programme – sogenannte Smart Contracts – auf einer Blockchain ausführt. Wir zeigen Ihnen, wie Sie einen solchen Smart Contract programmieren, um „Schere, Stein, Papier“ auf der Ethereum-Blockchain zu spielen."
   lang: de
-  url: "https://www.heise.de/select/ct/2021/12/2107417503316581754"
+  url: "https://www.innoq.com/de/articles/2021/08/ethereum-contract-programmierung/"
 - pub_date: 2021-05-27
   title: "Die Top 5 der Neuerungen in Scala 3"
   journal: "Javamagazin 07/2021"
   abstract: "Schon seit geraumer Zeit arbeitet das Team um Martin Odersky an der nächsten großen Version von Scala. Deren Spitzname „Dotty“ leitet sich ab von „Dependent Object Types“, dem logischen Kalkül, welches dem Typsystem zugrunde liegt. Doch es gibt nicht nur Verbesserungen in den Eingeweiden des Compilers. Die aktuell in der Release-Candidate-Phase befindliche Vorschau auf Scala 3 verspricht, das Programmiererlebnis deutlich zu verbessern."
-  url: "https://kiosk.entwickler.de/java-magazin/java-magazin-7-2021/die-top-5-der-neuerungen-in-scala-3/"
+  url: "https://www.innoq.com/de/articles/2021/05/top5-neuerungen-scala/"
   lang: de
 - pub_date: 2021-06-07
   title: "Dezentralisierte Architektur: Was steckt hinter Blockchains?"
