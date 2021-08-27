@@ -277,4 +277,9 @@
   journal: "c't"
   abstract: "Viele Kryptowährungen nutzen Blockchains mit „Proof of Work“, aus dem ein enormer Energieverbrauch resultieren kann. „Proof of Stake“ löst dieses Problem, doch das Verfahren hat auch Nachteile. Ganz ohne Proof of Irgendwas lässt sich eine Kryptowährung aber kaum realisieren."
   lang: de
-  url: "https://www.heise.de/select/ct/2021/17/2116008595413429691"
+  url: "https://www.heise.de/hintergrund/Proof-of-Stake-klimafreundlicheres-Kryptogeld-6147207.html"
+- pub_date: 2021-08-28
+  title: "Benutzerfreundlicher Äther: Smart Contracts in dezentrale Applikationen einbetten"
+  journal: "c't"
+  abstract: "Smart Contracts, wie sie die Ethereum-Blockchain kennt, sind technisch eine feine Sache. Aber sie brauchen eine Bedienoberfläche, wenn sie nicht nur Entwicklern nützen sollen – dann werden daraus „dezentrale Applikationen“. Um so eine DApp zu programmieren braucht man nur etwas HTML und JavaScript."
+  lang: de
