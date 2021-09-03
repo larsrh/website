@@ -259,7 +259,7 @@
   title: "Die Top 5 der Neuerungen in Scala 3"
   journal: "Javamagazin 07/2021"
   abstract: "Schon seit geraumer Zeit arbeitet das Team um Martin Odersky an der nächsten großen Version von Scala. Deren Spitzname „Dotty“ leitet sich ab von „Dependent Object Types“, dem logischen Kalkül, welches dem Typsystem zugrunde liegt. Doch es gibt nicht nur Verbesserungen in den Eingeweiden des Compilers. Die aktuell in der Release-Candidate-Phase befindliche Vorschau auf Scala 3 verspricht, das Programmiererlebnis deutlich zu verbessern."
-  url: "https://www.innoq.com/de/articles/2021/05/top5-neuerungen-scala/"
+  url: "https://www.innoq.com/de/articles/2021/08/top5-neuerungen-scala/"
   lang: de
 - pub_date: 2021-06-07
   title: "Dezentralisierte Architektur: Was steckt hinter Blockchains?"
