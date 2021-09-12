@@ -1,6 +1,6 @@
 ---
 title: Warum die Briefwahl nur die zweite Wahl sein sollte
-pub_date: 2021-09-21
+pub_date: 2021-09-12
 lang: de
 ---
 
