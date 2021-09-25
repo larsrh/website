@@ -142,7 +142,7 @@ Pflichtbewusst sende ich das Folterschreiben an _AZ Direct._
 Dass sie die Weitergabe an _Deutsche Post Direkt_ nicht erwähnt haben: geschenkt.
 Aber die Datenquelle ist höchst interessant.
 Es handelt sich dabei um die _b2c Performance GmbH_.
-Laut Selbstdarstellung ein ~~Adressdealer~~ nicht zu beanstandenden Verticker von Adressen mit – nach eigenen Angaben – ein Team von „echten Profis“.
+Laut Selbstdarstellung ein ~~Adressdealer~~ nicht zu beanstandender Verticker von Adressen mit – nach eigenen Angaben – ein Team von „echten Profis“.
 
 Auch b2c Performance leidet an mangelnder Performance im ERP-System.
 Nach anfänglicher Fehlanzeige musste ich nachhaken, um wenigstens die mir bereits bekannten Vorgänge verbeauskunftet zu bekommen (Kommunikation mit AZ Direct).
@@ -166,7 +166,7 @@ Nach eigenen Angaben wird man dort unter dem Markennamen _Limited24_ zu „Ausla
 Ein schwacher Trost, dass [der Brexit diesem Geschäftsmodell in die Suppe gespuckt hat](https://www.lto.de/recht/kanzleien-unternehmen/k/olg-muenchen-urteil-parteifaehigkeit-limited-brexit-gesellschaftsrecht-haftung-sitztheorie-niederlassungsfreiheit-1/).
 Die Verbindung mit Phnom Penh bleibt mir allerdings weiterhin rätselhaft.
 
-Die niedersächsischen Behörden fühlen sich übrigens – trotz Zuständigkeit für b2c Performance mit Sitz in Buxtehude – nicht zuständig:
+Die niedersächsischen Behörden sehen übrigens – trotz Zuständigkeit für b2c Performance mit Sitz in Buxtehude – keinen Grund zur Veranlassung:
 
 > Nach Prüfung und rechtlicher Würdigung des von Ihnen vorgetragenen Sachverhaltes und in Ausübung des mir zustehenden Ermessens, komme ich hier zu dem Ergebnis, dass ein gegebenenfalls vorliegender Verstoß […] als gering zu bewerten wäre.
 
