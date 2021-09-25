@@ -18,10 +18,13 @@ layout: root
   {% endif %}
 
   {% if page.is_article %}
-    {% if page.lang == "de" %}
-      Lesedauer: {{ content | number_of_words | divided_by: 180 }} Minuten.
-    {% else %}
-      Reading time: {{ content | number_of_words | divided_by: 180 }} minutes.
+    {% assign reading_time = content | number_of_words | divided_by: 180 %}
+    {% if reading_time > 1 %}
+      {% if page.lang == "de" %}
+        Lesedauer: {{ reading_time }} Minuten.
+      {% else %}
+        Reading time: {{ reading_time }} minutes.
+      {% endif %}
     {% endif %}
 
     {% if page.lang == "de" %}
