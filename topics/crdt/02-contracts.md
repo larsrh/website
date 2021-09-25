@@ -244,7 +244,7 @@ Of course, any set is also a subset of itself.
 
 We can formally define the subset relationship as follows: _S_ is a subset of _T_ if all elements of _S_ are contained in _T_.
 This is quite possible to write in JavaScript, and for that, we'll use the built-in `Set` type of JavaScript.
-Unfortunately, it has no `isSubsetOf` method, so we'll just monkey-patch it (yolo):
+Unfortunately, it has no `isSubsetOf` method, so we'll just monkey-patch it (yolo):[^footnote-monkey]
 
 ```
 {% include topics/crdt/lib-set.js %}
@@ -355,3 +355,5 @@ Spoiler: more order!
 * John Bercow by UK Parliament on [YouTube](https://www.youtube.com/watch?v=yztSL08SgVY), CC-BY 3.0
 * Hasse diagram by KSmrq on [Wikimedia Commons](https://commons.wikimedia.org/w/index.php?title=File:Hasse_diagram_of_powerset_of_3.svg&oldid=368528490), CC-BY-SA 3.0
 * Lattice of divisors by Watchduck on [Wikimedia Commons](https://commons.wikimedia.org/w/index.php?title=File:Infinite_lattice_of_divisors.svg&oldid=379240153), public domain
+
+[^footnote-monkey]: Astute readers will observe the weird `configurable: true` property, which I have to add here because technically the property gets overwritten every time you execute the snippet.

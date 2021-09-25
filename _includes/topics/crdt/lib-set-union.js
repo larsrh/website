@@ -1,5 +1,8 @@
 set = (...elems) => new Set(elems);
 
-Set.prototype.union = function (that) {
-  return set(...this.values(), ...that.values());
-}
+Object.defineProperty(Set.prototype, "union", {
+  configurable: true,
+  value: function (that) {
+    return set(...this.values(), ...that.values());
+  }
+});
