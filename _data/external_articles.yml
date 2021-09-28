@@ -291,3 +291,9 @@
   lang: de
   url: "https://www.innoq.com/de/podcast/093-proof-of-stake/"
   type: "podcast"
+- pub_date: 2021-09-28
+  title: "Injecting environment variables into static websites using NGINX"
+  journal: "INNOQ"
+  abstract: "Static site generation is a perfect fit for publishing documentation. In a recent project, we chose to use NGINX as a web server to host the HTML and CSS files. However, we also wanted to protect the site using SSO. This is where things get a bit difficult."
+  url: "https://www.innoq.com/en/blog/nginx-ssi-env/"
+  lang: en
