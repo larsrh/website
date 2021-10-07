@@ -219,6 +219,10 @@
   abstract: "14 Jahre nach Erscheinen von Scala 2.0 wagt die Sprache den nächsten großen Schritt. Wird Scala mit Version 3 so, wie es immer sein sollte? Ein Release Candidate steht schon in den Startlöchern und zeigt, wie sich die Scalable Language weiterentwickelt."
   lang: de
   url: "https://www.innoq.com/de/articles/2021/06/stufe-3/"
+  hero:
+    src: "/img/stairs.jpg"
+    alt: "Red stairway"
+    credits: "stokpic/Pixabay"
 - pub_date: 2021-02-19
   title: "#SoftwareArchitektur – Diversity"
   journal: "Softwarearchitektur im Stream"
@@ -261,6 +265,10 @@
   abstract: "Schon seit geraumer Zeit arbeitet das Team um Martin Odersky an der nächsten großen Version von Scala. Deren Spitzname „Dotty“ leitet sich ab von „Dependent Object Types“, dem logischen Kalkül, welches dem Typsystem zugrunde liegt. Doch es gibt nicht nur Verbesserungen in den Eingeweiden des Compilers. Die aktuell in der Release-Candidate-Phase befindliche Vorschau auf Scala 3 verspricht, das Programmiererlebnis deutlich zu verbessern."
   url: "https://www.innoq.com/de/articles/2021/08/top5-neuerungen-scala/"
   lang: de
+  hero:
+    src: "/img/stairs.jpg"
+    alt: "Red stairway"
+    credits: "stokpic/Pixabay"
 - pub_date: 2021-06-07
   title: "Dezentralisierte Architektur: Was steckt hinter Blockchains?"
   journal: "iSAQB"
