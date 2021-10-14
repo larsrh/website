@@ -16,7 +16,7 @@ conferences:
     location: Berlin, Germany
     link: "https://bobkonf.de/2020/hupel.html"
     slides: "https://speakerdeck.com/larsrh/js-rust-python-and-the-holy-graal"
-    recording: "https://www.youtube.com/watch?v=W9OB8LVKccM&list=PLHvf3gk-RdgWClskb81nBwwCCv7sRZqDm&index=15&t=0s"
+    recording: "https://www.youtube.com/watch?v=W9OB8LVKccM"
 
 ---
 
