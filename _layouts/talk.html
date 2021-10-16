@@ -3,6 +3,7 @@ layout: default
 ---
 
 <link rel="stylesheet" href="{% asset rouge.css @path %}">
+<link rel="stylesheet" href="{% asset slider.css @path %}">
 
 {% if page.lang == "de" %}
   <h2>Zusammenfassung</h2>
@@ -14,8 +15,40 @@ layout: default
   {{ page.abstract }}
 </div>
 
-{% if page.speakerdeck %}
+{% if page.slides %}
+  {% if page.lang == "de" %}
+    <h2>Folien</h2>
+  {% else %}
+    <h2>Slides</h2>
+  {% endif %}
 
+  <a href="https://assets.hupel.info/img{{ page.id }}/{{ page.slides.file }}.pdf">Download (PDF)</a>
+
+  <div class="slider" role="region" aria-label="Folien" tabindex="0">
+    <ul class="slider__all">
+      {% assign last = page.slides.length | plus: -1 %}
+      {% for i in (0..last) %}
+        <li class="slider__slide">
+          <picture class="slider__page">
+            <source type="image/avif" srcset="https://assets.hupel.info/img{{ page.id }}/{{ page.slides.file }}-{{ i }}.avif">
+            <source type="image/webp" srcset="https://assets.hupel.info/img{{ page.id }}/{{ page.slides.file }}-{{ i }}.webp">
+            <img src="https://assets.hupel.info/img{{ page.id }}/{{ page.slides.file }}-{{ i }}.jpg" alt="{{ i | plus: 1 }}/{{ page.slides.length }}" title="{{ i | plus: 1 }}/{{ page.slides.length }}" width="1280" height="720" loading="lazy"  />
+          </picture>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="slider__instructions hyphenate">
+    {% if page.lang == "de" %}
+      Klicke zum Fokussieren. Dann kannst du mit den Pfeiltasten navigieren. Bei Mobilgeräten einfach wischen.
+    {% else %}
+      Click to focus, then use left and right arrow on your keyboard to navigate (or swipe on mobile).
+    {% endif %}
+  </div>
+{% endif %}
+
+{% if page.speakerdeck %}
   {% if page.lang == "de" %}
     <h2>Folien</h2>
   {% else %}

@@ -5,7 +5,9 @@ abstract: |
   But rarely is this elaborated into something concrete.
   Just how can we extract tangible information from types beyond playing mere type tetris?
   The secret sauce is called parametricity, first described by John C. Reynolds, and later applied to Haskell by Philip Wadler in his seminal paper “Theorems for free!”.
-speakerdeck: "2fe07ea60ad14a559aed67eccf2f5290"
+slides:
+  file: "slides"
+  length: 55
 video: { yt: sR1tEk5nTFU }
 conferences:
   - conference: "MuniHac"

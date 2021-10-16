@@ -1,0 +1,41 @@
+/**
+ * Based on the INNOQ Styleguide <https://innoq.style/>
+ *
+ * Copyright 2018 innoQ Deutschland GmbH. All rights reserved.
+ */
+
+.slider {
+  display: block;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  outline: 2px solid var(--border);
+
+  margin-top: .5em;
+  margin-bottom: .5em;
+}
+
+.slider:focus {
+  outline: 4px solid var(--border);
+}
+
+.slider__all {
+  padding: 0;
+  margin-top: 0;
+  list-style: none;
+  list-style-type: none;
+
+  position: relative;
+  display: flex;
+  margin: 0;
+}
+
+.slider__slide {
+  display: block;
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+}
+
+.slider__instructions {
+  color: var(--text-muted);
+  font-size: .8em;
+}
