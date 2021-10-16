@@ -6,7 +6,9 @@ abstract: |
   Später gesellten sich ein paar Skriptsprachen hinzu, wie zum Beispiel Jython und JRuby.
   Und die neuen kompilierten Sprachen wie Scala und Kotlin haben das Zeitalter der polyglotten Programmierung endgültig eingeläutet.
   Das zur GraalVM zugehörige Truffle-Projekt verspricht nun, es noch einfacher zu machen, auch eigentlich JVM-fremde Sprachen mit dem Ökosystem zu verzahnen.
-speakerdeck: "3705dfa60fa044c5a332b07600ac5f11"
+slides:
+  file: "slides"
+  length: 25
 video: { yt: "ap6c_3wwYLs" }
 conferences:
   - conference: "JUG Ingolstadt"

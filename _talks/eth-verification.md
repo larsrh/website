@@ -6,7 +6,9 @@ abstract: |
   Eine Vielzahl von Geschäftsfällen werden inzwischen durch solche Verträge abgebildet.
   Ethereum ist dafür eine beliebte Plattform.
   In diesem Vortrag wollen wir uns anschauen, wie man die Qualität des Codes sicherstellen kann.
-speakerdeck: "2f807f224b694378a376d22efd198a90"
+slides:
+  file: "slides"
+  length: 59
 video: { yt: "MI-EnUq_yFA" }
 conferences:
   - conference: "Blockchain Technology Conference"

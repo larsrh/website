@@ -4,7 +4,10 @@ abstract: |
   Everybody knows monads by now, so a talk about monads would hardly be worthwhile.
   Let's take it to the next level: monad transformers.
   You'll learn what they are, how they naturally emerge in your code base and how to make good use of them in Scala – and maybe even how to create your own.
-speakerdeck: "7156efb286e148ce95ad56d12c9d39a2"
+slides:
+  file: "slides"
+  length: 39
+  width: 960
 video: { vimeo: "128466888" }
 conferences:
   - conference: "Lambda World"

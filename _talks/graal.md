@@ -7,7 +7,9 @@ abstract: |
   It didn’t take long for compiled languages to catch up. With Scala and Kotlin, we have definitely entered the age of polyglot programming on the JVM.
   The Truffle project – part of GraalVM – is a promising approach to make it easy, efficient, and seamless to run alternative languages on the same VM as Java.
   This talk will look at the new age of polyglot programming and all the cool things we can do with it.
-speakerdeck: "34d3d12870ad4716a5b1fa6099feb09c"
+slides:
+  file: "slides"
+  length: 57
 video: { yt: "W9OB8LVKccM" }
 conferences:
   - conference: "BOB"

@@ -7,6 +7,10 @@ abstract: |
   There are countless rants on that topic, but this talk isn't one.
   Instead, we'll explore the functional approach in Haskell: Designing a small language supporting the desired behaviour, and then writing interpreters which can execute its semantics in various ways.
   Testing I/O code was never easier.
+slides:
+  file: "slides"
+  length: 63
+  width: 960
 video: { vimeo: 125038982 }
 conferences:
   - conference: "Lambda Days"

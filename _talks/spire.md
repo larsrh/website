@@ -6,7 +6,9 @@ abstract: |
   This interplay between abstract and concrete, and the fact that everything needs to run on finite hardware, is what makes good library support necessary for writing fast & correct programs.
   Spire is such a library in the Typelevel Scala ecosystem.
   This talk is an introduction to Spire, showcasing the ‘number tower’, real-ish numbers and how to obey the law.
-speakerdeck: "1c85f64818c548c68044654b16ad2adc"
+slides:
+  file: "slides"
+  length: 54
 video: { vimeo: "296367334" }
 conferences:
   - conference: "J On The Beach"
@@ -59,7 +61,6 @@ conferences:
     location: Lisbon, Portugal
     link: "https://www.meetup.com/Scala-Portugal/events/231961828/"
     slides: "https://speakerdeck.com/larsrh/numeric-programming-with-spire"
-
 ---
 
 ## Interview at J On The Beach

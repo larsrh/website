@@ -6,7 +6,9 @@ abstract: |
   But "property testing" has a lot of aspects: randomized or exhaustive, minimization and generalization of counter examples, custom generators and filters, to name a few.
   Very often, property tests don't exploit all the features of the framework.
   In this talk, I'll give an overview of the state of the art of property testing and show some common use cases, techniques and pitfalls.
-speakerdeck: "f76461abb59243f28784c7e1a569972a"
+slides:
+  file: "slides"
+  length: 37
 video: { yt: "OPD1V8ZOL2U" }
 conferences:
   - conference: "flatMap(Oslo)"

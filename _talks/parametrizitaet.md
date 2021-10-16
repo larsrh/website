@@ -3,7 +3,9 @@ title: Lieber ein Typparameter zu viel als einer zu wenig
 lang: de
 abstract: |
   So gut wie alle modernen Programmiersprachen erlauben es, Routinen zu parametrisieren – über Werte und über Typen. Für Letzteres gibt es verschiedenen Begriffe: "Templates", "Generics" oder aber "Parametric Polymorphism". Diese Begriffe sollen hier einmal geklärt werden. Außerdem lernen wir die Vorteile von Typparametern kennen und warum Type Erasure in Java nicht nur richtig, sondern auch notwendig ist. Schließlich kommen wir auf Philipp Wadlers einflussreichen Artikel "Theorems For Free" zu sprechen, welcher eine Technik beschreibt, mit der wir Aussagen über Programme nur anhand der Typen treffen können.
-speakerdeck: "0b6023a7d310448e85e78c43531c4e00"
+slides:
+  file: "slides"
+  length: 100
 video: { yt: "TTI-ry4aRxw" }
 conferences:
   - conference: "rheinJUG"

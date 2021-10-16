@@ -4,7 +4,9 @@ abstract: |
   Prolog is one of the most underrated programming languages around; possibly because of its strange syntax and the unusual paradigm.
   But it is a very nice special-purpose programming language.
   In this talk, I introduce Prolog’s programming model, showcase some programming domains in which Prolog allows for very concise, elegant programs, and finally describe how it can also be used as a general-purpose tool.
-speakerdeck: "9ba58ce3e0224cbbb83332e722bfc448"
+slides:
+  file: "slides"
+  length: 71
 video: { yt: "VjJQQTfxuP0" }
 conferences:
   - conference: "Copenhagen Tech Polyglot Meetup"
