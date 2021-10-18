@@ -187,6 +187,11 @@ Allen EU-Bürger:innen kann ich trotzdem dazu raten, zu versuchen, die eigenen R
 Die Webseite [Datenanfragen.de bietet hierzu einen praktischen Generator](https://www.datenanfragen.de/generator/), zusammen mit einer großen Datenbank von Unternehmen.
 Anfragen kann man routinemäßig bei den großen Auskunfteien stellen, oder aber anlassbezogen und punktuell.
 
+**Nachtrag:** Im Oktober 2021 hat [noyb Beschwerde gegen Acxiom und CRIF Bürgel](https://noyb.eu/de/rechtswidrige-kreditscores-noyb-bringt-weitere-beschwerde-ein) eingereicht.
+Nach Auffassung der Datenschutz-NGO verstößt – so wörtlich – „der Datenhandel zwischen diesen Unternehmen mit personenbezogenen Daten von Millionen Deutschen gegen die DSGVO sowie nationales Datenschutzrecht“.
+Folgen die Behörden der Argumentation, so dürfte CRIF Bürgel künftig keine Daten, die dem Direktmarketing entstammen, für Kreditscores heranziehen (wie z.B. von Acxiom).
+Möglicherweise ist dadurch auch Arvato Infoscore betroffen; dies kann ich als juristischer Laie aber nicht beantworten.
+
 [^footnote-mobil]: Ferner war noch ein legitimer Datenlieferant angegeben: mein Mobilfunkprovider.
 [^footnote-folter]: Folter lehne ich grundsätzlich strengstens ab, außer es handelt sich um Kapitalgesellschaften, bei denen ich dazu rate.
 [^footnote-fl]: Übermittlung vermutlich per Alphorn.
