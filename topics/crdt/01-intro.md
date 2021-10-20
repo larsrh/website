@@ -6,7 +6,6 @@ toc: false
 
 Dear reader!
 If you're reading this, that's most likely because you've pointed your browser to my website and/or followed a link to this page.
-Maybe you're even reading this from a mobile device![^footnote-mobile]
 Perfect conditions for motivating what all this is about.
 (If you're unsure whether this series is worth reading, check out the [testimonials](#testimonials).)
 
@@ -198,5 +197,3 @@ People on The Internet™ seem to enjoy these posts:
 
 * Map by TheAndrasBarta on [Pixabay](https://pixabay.com/photos/world-europe-map-connections-1264062/)
 * Abed Nadir on [Giphy](https://giphy.com/gifs/community-abed-cool-2HONNTJbRhzKE)
-
-[^footnote-mobile]: This page is developed on a desktop browser. I've tried my best to make it accessible on mobile browsers too, but I'm not so experienced, so any bug reports are appreciated!
