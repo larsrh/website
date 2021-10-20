@@ -14,11 +14,56 @@
 
     <title>Lars Hupel &middot; {{ page.title | escape }}</title>
 
-    {% seo title=false %}
-
-    <meta name="twitter:image:src" content="{{ site.url }}{% asset profile.jpg @path %}">
+    <meta property="og:title" content="{{ page.title | escape }}" />
+    <meta property="og:locale" content="{% if page.lang %}{{ page.lang }}{% else %}en{% endif %}" />
     <meta property="og:image" content="{{ site.url }}{% asset profile.jpg @path %}">
     <meta property="og:image:secure_url" content="{{ site.url }}{% asset profile.jpg @path %}">
+    <meta property="og:url" content="{{ site.url }}{{ page.id }}" />
+    <meta property="og:site_name" content="{{ site.title | escape }}" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@larsr_h" />
+    <meta name="twitter:creator" content="@larsr_h" />
+    <meta name="twitter:image:src" content="{{ site.url }}{% asset profile.jpg @path %}">
+
+    <meta name="author" content="Lars Hupel" />
+    <link rel="canonical" href="{{ site.url }}{{ page.id }}" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        {% if page.pub_date %}
+          "@type": "Article",
+          "datePublished": "{{ page.pub_date | date_to_xmlschema }}",
+          "dateCreated": "{{ page.pub_date | date_to_xmlschema }}",
+          "abstract":
+            {% if page.abstract %}
+              "{{ page.abstract | markdownify | strip_html | escape }}",
+            {% else %}
+              "{{page.content | strip_html | truncatewords: 50 | escape}}",
+            {% endif %}
+        {% else %}
+          "@type": "WebPage",
+        {% endif %}
+        {% if page.hero %}
+          "image": "{{ site.url }}{{ page.hero.src }}",
+        {% endif %}
+        "headline": "{{ page.title | escape }}",
+        "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",
+        "url": "{{ site.url }}{{ page.id }}",
+        "author": {
+          "@type": "Person",
+          "name": "Lars Hupel",
+          "familyName": "Hupel",
+          "gender": "non-binary",
+          "url": "{{ site.url }}",
+          "homeLocation": {
+            "@type": "Place",
+            "name": "München"
+          }
+        }
+      }
+    </script>
   </head>
   <body>
 

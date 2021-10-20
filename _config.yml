@@ -1,16 +1,5 @@
 url: "https://lars.hupel.info"
-title: "Lars Hupel's website"
-author:
-  name: "Lars Hupel"
-  twitter: "larsr_h"
-  uri: "https://lars.hupel.info"
-twitter:
-  username: "larsr_h"
-social:
-  links:
-    - "https://github.com/larsrh"
-    - "https://twitter.com/larsr_h"
-    - "https://instagram.com/larsr_h"
+title: "Lars Hupel’s website"
 include:
   - "_redirects"
   - "_headers"

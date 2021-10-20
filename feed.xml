@@ -13,8 +13,8 @@
   <title type="html">{{ site.title | xml_escape }}</title>
 
   <author>
-    <name>{{ site.author.name | xml_escape }}</name>
-    <uri>{{ site.author.uri | xml_escape }}</uri>
+    <name>Lars Hupel</name>
+    <uri>{{ site.url }}</uri>
   </author>
 
   {% assign articles = site.articles | concat: site.data.external_articles | sort: 'pub_date' | reverse %}
@@ -36,8 +36,8 @@
       </summary>
 
       <author>
-        <name>{{ site.author.name | xml_escape }}</name>
-        <uri>{{ site.author.uri | xml_escape }}</uri>
+        <name>Lars Hupel</name>
+        <uri>{{ site.url }}</uri>
       </author>
     </entry>
   {% endfor %}
