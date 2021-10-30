@@ -305,3 +305,10 @@
   abstract: "Static site generation is a perfect fit for publishing documentation. In a recent project, we chose to use NGINX as a web server to host the HTML and CSS files. However, we also wanted to protect the site using SSO. This is where things get a bit difficult."
   url: "https://www.innoq.com/en/blog/nginx-ssi-env/"
   lang: en
+- pub_date: 2021-10-29
+  title: "#SoftwareArchitektur – Funktionale Programmierung in der Praxis"
+  journal: "Softwarearchitektur im Stream"
+  abstract: "Keine Seiteneffekte, einfaches Testen, die Korrektheit der Programme kann sogar bewiesen werden - alles Vorteile von funktionaler Programmierung. Sie hat im akademischen Bereich schon immer eine Rolle gespielt, aber auch in der Industrie wird sie zunehmend populärer - aber gleichzeitig wirkt sie abgehoben und schwer zu verstehen. In dieser Episode berichten Lars Hupel und Isabel Wingen darüber, wie sie von funktionaler Programmierung im Projekt-Alltag profitieren, welche Erfahrungen sie gemacht haben und wie man selber starten kann."
+  lang: de
+  url: "https://software-architektur.tv/2021/10/29/folge89.html"
+  type: "podcast"
