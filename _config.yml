@@ -65,6 +65,27 @@ defaults:
         Understanding the code is necessary for understanding the concepts, so you should be familiar with JavaScript.
         If you notice any bugs on this page, [please let me know](https://github.com/larsrh/website/issues)!
   - scope:
+      path: "topics/recursion"
+    values:
+      long_title: What, if anything, is recursion? A primer.
+      layout: topics/recursion
+      extra_header: topics/recursion/header.html
+      permalink: /:path/:basename/
+      nav: articles
+      description: ""
+      toc: true
+      lang: en
+      abstract: |
+        Tired of those clichéd “Recursion: see recursion” jokes?
+        Me too.
+        Because that is not actually an example of recursion!
+        Hence this series, in which I set out to explain what recursion actually is.
+        Prepare for a wild ride into set theory.
+        But don't worry!
+        All concepts are explained using interactive code snippets that can be executed in your browser.
+        Understanding the code is necessary for understanding the concepts, so you should be familiar with JavaScript.
+        If you notice any bugs on this page, [please let me know](https://github.com/larsrh/website/issues)!
+  - scope:
       path: "topics/cycling"
     values:
       long_title: Fahrradstrecken in & um München
