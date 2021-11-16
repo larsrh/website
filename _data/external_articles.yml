@@ -312,3 +312,9 @@
   lang: de
   url: "https://software-architektur.tv/2021/10/29/folge89.html"
   type: "podcast"
+- pub_date: 2021-11-16
+  title: "Was macht eigentlich ein Bundler?"
+  journal: "Informatik Aktuell"
+  abstract: "In der Frontend-Entwicklung kommt man selten ohne JavaScript aus. Gestandene Backend-Profis sehen sich dann mit einer komplett neuen Toolchain konfrontiert, die vor unbekannten Fachbegriffen nur so strotzt. Doch hinter der Komplexität steckt System."
+  lang: de
+  url: "https://www.informatik-aktuell.de/entwicklung/programmiersprachen/was-macht-eigentlich-ein-bundler.html"
