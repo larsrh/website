@@ -318,3 +318,10 @@
   abstract: "In der Frontend-Entwicklung kommt man selten ohne JavaScript aus. Gestandene Backend-Profis sehen sich dann mit einer komplett neuen Toolchain konfrontiert, die vor unbekannten Fachbegriffen nur so strotzt. Doch hinter der Komplexität steckt System."
   lang: de
   url: "https://www.informatik-aktuell.de/entwicklung/programmiersprachen/was-macht-eigentlich-ein-bundler.html"
+- pub_date: 2021-11-24
+  title: "TypeScript – Die Komplexität von JavaScript bändigen"
+  journal: "t3n 66"
+  abstract: "2022 feiert TypeScript zehnjähriges Jubiläum. Anlass genug, auf die Anfänge zurückzublicken – und Einsteigern alles an die Hand zu geben, was sie für die Arbeit mit der Programmiersprache brauchen."
+  lang: de
+  url: "https://t3n.de/ausgabe/t3n-66-planet-a-i-ki-fuers-klima/"
+  
