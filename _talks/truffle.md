@@ -43,6 +43,12 @@ conferences:
     location: Online
     link: "https://cyberjug.de/vortrag/truffleschwein/"
     slides: "https://speakerdeck.com/larsrh/das-eierlegende-truffleschwein"
+  - conference: "IT-Tage"
+    year: 2021
+    date: "21. Januar"
+    location: Online
+    link: "https://www.ittage.informatik-aktuell.de/programm/365/jvm-sprachen-/-graalvm-/-truffle-das-eierlegende-truffleschwein.html"
+    slides: "https://speakerdeck.com/larsrh/das-eierlegende-truffleschwein"
   - conference: "DeafIT"
     year: 2021
     date: "12. März"
@@ -50,6 +56,7 @@ conferences:
     link: "https://www.deafit.org/konferenz/programm/"
     slides: "https://speakerdeck.com/larsrh/das-eierlegende-truffleschwein-deafit-edition"
     recording: "https://www.youtube.com/watch?v=AzOQJfDUnV8"
+
 ---
 
 ## Artikel
