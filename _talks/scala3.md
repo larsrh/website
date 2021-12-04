@@ -21,6 +21,12 @@ conferences:
     link: "https://www.meetup.com/de-DE/INNOQ-Technology-Lunch/events/279730962/"
     slides: "https://speakerdeck.com/larsrh/was-ist-neu-in-scala-3"
     recording: "https://www.youtube.com/watch?v=ojTP3iCpmDE"
+  - conference: "IT-Tage"
+    year: 2021
+    date: "7. Dezember"
+    location: Online
+    link: "https://www.ittage.informatik-aktuell.de/programm/2021/neuigkeiten-in-scala-3.html"
+    slides: "https://speakerdeck.com/larsrh/was-ist-neu-in-scala-3"
 ---
 
 ## Artikel
