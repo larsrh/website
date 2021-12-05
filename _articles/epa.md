@@ -71,6 +71,14 @@ Antwort:
 
 Keine Pointe.
 
+**Nachtrag:** Dieser Artikel wurde von mehreren Menschen auf Twitter aufgegriffen, die die ePA aus verschiedenen Gesichtspunkten kritisieren und ablehnen.
+Daher möchte ich folgendes klarstellen:
+Natürlich lasse ich Datenschutzbedenken gelten; außerdem die mangelhafte technische Umsetzung.
+Ich möchte hier nicht argumentieren, dass alle die (aktuelle Implementierung der) ePA benutzen sollten und damit alle Probleme gelöst sind.
+Mir geht es einzig und allein darum, dass es für Patient:innen eindeutig zu schwer ist, Einsicht in ihre (vollständigen!) Behandlungsakten zu erhalten.
+Was nützt mir ein Hausarzt, der mir sagt, dass mein Blutbild in Ordnung sei, wenn ein weiterbehandelnder Arzt im Notfall das nicht nachvollziehen kann (z.B. genau welche Parameter untersucht worden sind)?
+Ob die Lösung dafür jetzt „ePA“ oder irgendwie anders heißt, spielt hier keine Rolle.
+
 [^footnote-epa]: Nicht zu verwechseln mit dem elektronischen Personalausweis (abgekürzt nPA). Ebenfalls nicht zu verwechseln mit der elektronischen Gesundheitsakte (eGA).
 [^footnote-expect]: I don't know what I expected.
 [^footnote-befund]: Erinnert ihr euch noch? Das mit dem Blutbild. Der Anlass dieser ganzen Sache hier.
