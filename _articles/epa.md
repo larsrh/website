@@ -9,7 +9,7 @@ Zunächst habe ich meine eigene „private Akte“ angelegt und dort Befunde ges
 Teilweise musste ich diese noch bei verschiedenen Praxen anfragen (z.B. der Bereitschaftspraxis, bei der ich ursprünglich vorstellig war).
 Das hat mehr oder weniger gut geklappt:
 Die Bereitschaftspraxis hat mir beispielsweise nur Kopien der ausgestellten Kassenrezepte geschickt, aber keine genaueren Details.
-Ich hatte allerdings zumindest mal die Informationen beisamme, die für die weitere Behandlung notwendig war.
+Ich hatte allerdings zumindest mal die Informationen beisammen, die für die weitere Behandlung notwendig war.
 
 Einige Monate später hatte mir meine Augenärztin empfohlen, nochmals ein Blutbild zur Kontrolle meiner Leberwerte anfertigen zu lassen.
 So weit, so gewöhnlich.
