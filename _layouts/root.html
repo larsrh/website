@@ -18,7 +18,7 @@
     <meta property="og:locale" content="{% if page.lang %}{{ page.lang }}{% else %}en{% endif %}" />
     <meta property="og:image" content="{{ site.url }}{% asset profile.jpg @path %}">
     <meta property="og:image:secure_url" content="{{ site.url }}{% asset profile.jpg @path %}">
-    <meta property="og:url" content="{{ site.url }}{{ page.id }}" />
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
     <meta property="og:site_name" content="{{ site.title | escape }}" />
 
     <meta name="twitter:card" content="summary" />
@@ -27,7 +27,7 @@
     <meta name="twitter:image:src" content="{{ site.url }}{% asset profile.jpg @path %}">
 
     <meta name="author" content="Lars Hupel" />
-    <link rel="canonical" href="{{ site.url }}{{ page.id }}" />
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
 
     <script type="application/ld+json">
       {
@@ -50,7 +50,7 @@
         {% endif %}
         "headline": "{{ page.title | escape }}",
         "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",
-        "url": "{{ site.url }}{{ page.id }}",
+        "url": "{{ site.url }}{{ page.url }}",
         "author": {
           "@type": "Person",
           "name": "Lars Hupel",
