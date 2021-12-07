@@ -44,19 +44,21 @@ Does _S_ shave themselves?
 
 Bertrand Russell pointed out this problem in 1901, although it was formulated a bit more abstractly:
 
+{% include float_picture.html src="topics/recursion/is-this-a-set.jpg" text="Is this a set?" %}
+
 > Let _R_ be the set of all sets that are not members of themselves.
 > If _R_ is an element of _R_, then _R_ is not an element of _R_ and vice versa.
 
 This has made a lot of people very angry and been widely regarded as a bad move.
-
-{% include float_picture.html src="topics/recursion/is-this-a-set.jpg" text="Is this a set?" %}
 
 Now, I don't want to re-tell the entire story of the _Grundlagenkrise_ (literally: “foundational crisis of mathematics”) here,[^footnote-logicomix]
 but suffice it to say, you can't just “define” a set by using any string of words.
 
 ## Now what?
 
-The core problem of Russell's paradox (or “antimony”, if you want to sound fancy) lies within _self-reference._
+{% include float_picture.html src="topics/recursion/antimony.jpg" text="Russell discovered an antinomy, not antimony. Big difference." %}
+
+The core problem of Russell's paradox (or “antinomy”, if you want to sound fancy) lies within _self-reference._
 We are attempting to define a set by the properties of its elements.
 Normally, this isn't a problem:
 you wouldn't want to define the set of even numbers by listing all of them.
@@ -96,7 +98,7 @@ An axiomatic system such as ZF comprises a set of axioms that allow you to const
 Each axiom is kind of like a tool in a toolbox.
 You are allowed to combine them in an arbitrary fashion to build sets from smaller components.
 For example, the _Axiom of the empty set_ states that there is a set such that nothing is element of that set.[^footnote-empty]
-We usally call that set the _empty set_, or ∅.
+We usually call that set the _empty set_, or ∅.
 
 Additionally, ZF includes the _Axiom of extensionality_ which we can use to prove equality of two given sets _A_ and _B_.
 Perhaps unsurprisingly, they are equal if and only if for any object, that object is either both a member of _A_ and _B_ or neither a member of _A_ and _B_.
@@ -179,7 +181,7 @@ Feel free to check that (or just believe me):
 
 ZF conveniently declares that Big Chungus exists,[^footnote-fiat] so, based on a clever naming scheme, we can define the natural numbers that we know and love.
 
-When I told my good friend [Manuel from Austria](http://cl-informatik.uibk.ac.at/users/meberl/) about this, he commented:
+When I told my good friend [Manuel from Austria](http://pruvisto.org/) about this, he commented:
 
 > Set theory is just wrong.
 > “Is 42 an element of 47,” statements dreamt up by the utterly deranged
