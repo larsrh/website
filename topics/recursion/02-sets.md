@@ -249,6 +249,7 @@ Presumably, it will be about getting to work on those natural numbers.
 ## References
 
 * Chainsaw by Benjamin Jopen on [Unsplash](https://unsplash.com/photos/dQcj0H8BcmU)
+* Antimony on [Wikimedia Commons](https://commons.wikimedia.org/w/index.php?title=File:Antimony-4.jpg&oldid=607212952), CC-BY 3.0
 
 [^footnote-logicomix]: If you're interested in that kind of thing, I can recommend – despite its flaws – [the graphic novel _Logicomix_](http://www.logicomix.com/).
 [^footnote-infinity]: Clearly, extensional definitions of infinite sets are hard to write out.
