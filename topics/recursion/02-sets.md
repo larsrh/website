@@ -8,7 +8,7 @@ subtitle: "Part 2: Set theory"
 We will learn about how sets work.
 Even though that sounds simple, it is actually a very complicated topic.
 And I will prove that to you.
-My mathematics teacher in grade 9 posed a problem that – at the time – didn't understand (as opposed to most of my classmates).
+My mathematics teacher in grade 9 posed a problem that – at the time – I didn't understand (as opposed to most of my classmates).
 
 {% include float_picture.html src="topics/recursion/soldier.jpg" text="An actual photo of my notes from grade 9 mathematics, specifying the “soldier problem” in German." %}
 
@@ -37,10 +37,10 @@ I'll wait.
 The correct answer is “no”.
 Here's the kicker:
 Let _S_ be the soldier that has been given the instruction.
-Does _S_ shave themselves?
+Does _S_ shave themself?
 
-* If yes, then – according to the instructions – _S_ should not be shaving _S_, because they are shaving themselves.
-* If no, then _S_ should be shaving _S_, because they are not shaving themselves.
+* If yes, then – according to the instructions – _S_ should not be shaving _S_, because they are shaving themself.
+* If no, then _S_ should be shaving _S_, because they are not shaving themself.
 
 Bertrand Russell pointed out this problem in 1901, although it was formulated a bit more abstractly:
 
@@ -97,7 +97,7 @@ Many mathematicians also throw in another axiom for good measure (the Axiom of C
 An axiomatic system such as ZF comprises a set of axioms that allow you to construct sets.
 Each axiom is kind of like a tool in a toolbox.
 You are allowed to combine them in an arbitrary fashion to build sets from smaller components.
-For example, the _Axiom of the empty set_ states that there is a set such that nothing is element of that set.[^footnote-empty]
+For example, the _Axiom of the empty set_ states that there is a set such that nothing is an element of that set.[^footnote-empty]
 We usually call that set the _empty set_, or ∅.
 
 Additionally, ZF includes the _Axiom of extensionality_ which we can use to prove equality of two given sets _A_ and _B_.
@@ -227,7 +227,7 @@ s stands for the successor construction as we have seen above, i.e., s(_n_) = _n
 We use a dedicated symbol to not confuse it with addition (which isn't defined yet).
 
 Does the definition above look vaguely familiar?
-Maybe it becomes familiar if I'm telling you about the following proof principle:
+Maybe it becomes familiar if I tell you about the following proof principle:
 
 If you want to prove that a property _P_ holds for all natural numbers, then you have to prove that
 
@@ -239,7 +239,7 @@ This is why we call the above definition of ℕ the _inductive_ definition.
 In order for the definition to work, we need to do all the heavy lifting described earlier, but once we've done it, the induction principle just falls out of it.
 
 Now, I promise you that all of this is connected to recursion.
-But it'll take a few more episodes to get behind that.
+But it'll take a few more episodes to get to the bottom of that.
 
 ## What's next?
 
