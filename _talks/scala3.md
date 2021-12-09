@@ -29,6 +29,73 @@ conferences:
     slides: "https://speakerdeck.com/larsrh/was-ist-neu-in-scala-3"
 ---
 
+## Code-Beispiele
+
+```scala
+// Enumerations
+enum Colour:
+  case Cyan, Magenta, Red
+
+enum BrushType:
+  case Pencil(colour: Colour)
+  case Ink(colour: Colour, tilt: Float)
+  case Smudge(force: Int)
+  case Eraser
+
+case class Brush(size: Int, brushType: BrushType)
+
+// optionale Klammern
+trait Semigroup[T]:
+  def combine(x: T, y: T): T
+
+  extension (xs: List[T])
+    def combineAll: T =
+      xs.reduceLeft(combine)
+
+given Semigroup[String] with
+  def combine(x: String, y: String): String =
+    x + y
+
+def fact(n: Int): Int =
+  if n <= 0 then
+    1
+  else
+    n * fact(n - 1)
+
+// neue Implicits
+case class Circle(x: Double, y: Double, radius: Double)
+
+extension (c: Circle) def circumference: Double =
+  c.radius * math.Pi * 2
+
+trait Semigroup[T] {
+  def combine(x: T, y: T): T
+
+  def combineAll(xs: List[T]): T =
+    xs.reduceLeft(combine)
+
+  extension (xs: List[T]) def combineAll: T =
+    xs.reduceLeft(combine)
+}
+
+given Semigroup[String] with {
+  def combine(x: String, y: String): String =
+    x + y
+}
+
+// opake Typen
+object Time {
+  opaque type Milliseconds = Int
+  opaque type Seconds = Int
+
+  extension (num: Int) def seconds: Seconds =
+    num
+
+  extension (num: Seconds) def toMillis: Milliseconds =
+    num * 1000
+}
+```
+
 ## Artikel
 
 Zu diesem Thema habe ich zwei Artikel geschrieben, die jeweils frei online verfügbar sind:
