@@ -16,10 +16,8 @@ My mathematics teacher in grade 9 posed a problem that – at the time – I did
 > “Shave all the soldiers in the barracks that do not shave themselves, and only those!”
 > Does this instruction describe a _set_?
 
-But before looking at the problem, our teacher recounted the definition of a “set” based on Georg Cantor's work from the 19th century (in German and [in English](https://archive.org/details/contributionstof00cant)):
+But before looking at the problem, our teacher recounted the definition of a “set” based on Georg Cantor's [work from the 19th century](https://archive.org/details/contributionstof00cant):
 
-> <span lang="de">Eine Menge ist eine Zusammenfassung bestimmter, wohlunterschiedener Objekte unserer Anschauung oder unseres Denkens zu einem Ganzen. Diese Objekte heißen Elemente der Menge.</span>
->
 > An “aggregate” (or set) is any collection into a whole of definite and separate objects of our intuition or our thought.
 > These objects are called the elements of the set.
 
@@ -42,7 +40,7 @@ Does _S_ shave themself?
 * If yes, then – according to the instructions – _S_ should not be shaving _S_, because they are shaving themself.
 * If no, then _S_ should be shaving _S_, because they are not shaving themself.
 
-Bertrand Russell pointed out this problem in 1901, although it was formulated a bit more abstractly:
+Bertrand Russell [pointed out this problem in 1901](https://plato.stanford.edu/entries/russell-paradox/), although it was formulated a bit more abstractly:
 
 {% include float_picture.html src="topics/recursion/is-this-a-set.jpg" text="Is this a set?" %}
 
@@ -73,7 +71,7 @@ The ∈ here stands for “member of set”.
 Russell now made it so that _P_ itself refers to _S_.
 
 The second part of the paradox is that once you obtain a contradiction, you can infer anything.
-Virtually all flavours of mathematical logics feature this principle, which is referred to as _principle of explosion_ (or _ex falso quodlibet_ in Latin).
+Virtually all flavours of mathematical logics feature this principle, which is referred to as _principle of explosion_ (or [_ex falso quodlibet_](https://plato.stanford.edu/entries/logic-classical/) in Latin).
 This reasoning principle is a bit unusual in day-to-day-life, so I'm going to give you an example:
 
 > If the moon is made out of cheese, you should not get vaccinated against COVID-19.
@@ -108,7 +106,7 @@ If you break down ZF and look at it from a distance, there is only the empty set
 This means that literally anything in mathematics has to be constructed using those primitive means.
 It is perfectly fine to have a set such as {∅, {∅}, {∅, {∅}}} or – equivalently – {% raw %}{{}, {{}}, {{}, {{}}}}{% endraw %}.
 _There is nothing else._
-It's sets all the way down.[^footnote-ur]
+It's sets all the way down.[^footnote-zf]
 
 One thing that ZF doesn't allow you to do is to just define a set intensionally using any predicate.
 Instead, you can define a subset of a given set.
@@ -203,6 +201,8 @@ We do that by taking only the elements of _BC_ that also appear in _any other se
 In other words, we look at all the sets that are sort of like _BC_ and compute their intersection, arriving at just the natural numbers.
 In order for that to work, we need to know that _BC_ actually exists, which is guaranteed by the axiom of infinity.
 
+<br style="clear: both;">
+
 {% include float_picture.html src="topics/recursion/work.jpg" text="A logger, presumably getting rid of nonstandard trees" %}
 
 What a trip, right?
@@ -254,6 +254,6 @@ Presumably, it will be about getting to work on those natural numbers.
 [^footnote-logicomix]: If you're interested in that kind of thing, I can recommend – despite its flaws – [the graphic novel _Logicomix_](http://www.logicomix.com/).
 [^footnote-infinity]: Clearly, extensional definitions of infinite sets are hard to write out.
 [^footnote-empty]: Actually, this isn't even an axiom, since it can be deduced from other axioms.
-[^footnote-ur]: There is a notion of “urelement” which is an object that is not itself a set, but can be a member of a set. But let's not stray into model theory.
+[^footnote-zf]: To be completely fair, we don't know whether that's all we got. The axioms of ZF do not rule out other structures, but let's not stray too much into model theory.
 [^footnote-union]: As opposed to labour unions, set unions cannot be busted, since they're axiomatic.
-[^footnote-fiat]: Natural numbers are fiat numbers! Wake up, nocoiners!
+[^footnote-fiat]: The ZFCB (Zermelo–Fraenkel Central Bank) just keeps printing fiat numbers! Wake up! Use only [artisanal, hand-crafted](https://www.brooklynintegers.com/) numbers!
