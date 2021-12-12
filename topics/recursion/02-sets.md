@@ -243,8 +243,8 @@ But it'll take a few more episodes to get to the bottom of that.
 
 ## What's next?
 
-The next episode has yet to be written!
-Presumably, it will be about getting to work on those natural numbers.
+Now that we have successfully defined the natural numbers, we should ideally try to do something with them.
+The [next episode]({% link topics/recursion/03-primrec.md %}) is going to deal with _primitive recursion._
 
 ## References
 
