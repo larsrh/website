@@ -466,6 +466,8 @@ We'll be in touch.”
 * Boris Alexeev: [Minimal DFA for testing divisibility](https://doi.org/10.1016/j.jcss.2004.02.001)
 * Brzozowski algebraic method: [reference by Michael Levet](https://michaellevet.wordpress.com/2015/04/22/automata-theory-brzozowski-algebraic-method/), [reference by jmad](https://cs.stackexchange.com/a/2392)
 * [Full implementation](https://github.com/larsrh/fizzbuzz-k8s)
+* [Discussion on HN](https://news.ycombinator.com/item?id=26428143)
+* [Discussion on Lobsters](https://lobste.rs/s/ttcxph)
 
 <hr>
 

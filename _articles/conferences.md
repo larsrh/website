@@ -130,11 +130,16 @@ After that, all online.
 * April: Scala Love
 * September: [MuniHac](https://munihac.de/2020.html)
 * November: [Haskell eXchange](https://skillsmatter.com/conferences/13135-haskell-exchange-2020)
-* December: [INNOQ Technology Day](https://technologyday.innoq.com/)
+* December: [INNOQ Technology Day](https://technologyday.innoq.com/2020)
 
 ## 2021
 
 * February: Scala Love in the City
 * February: [BOB Konferenz](https://bobkonf.de/2021/)
+* May: [YOW! Lambda Jam](https://yowconference.com/lambdajam/)
+* November: [ScalaCon](https://www.scalacon.org/)
+* November: [Digitale Leute Summit](https://www.digitale-leute.de/summit/21/), Cologne, Germany
+* December: [INNOQ Technology Day](https://technologyday.innoq.com/)
+* December: [IT-Tage](https://www.ittage.informatik-aktuell.de/)
 
 To be continued.
