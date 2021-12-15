@@ -8,7 +8,7 @@ abstract: |
 slides:
   file: "slides"
   length: 61
-video: { yt: "cVqt_hcUR3w" }
+video: { yt: "aEYxduckcxg" }
 conferences:
   - conference: "YOW! Lambda Jam"
     year: 2021
@@ -23,5 +23,6 @@ conferences:
     location: Online
     link: "http://www.scalacon.org/talks/"
     slides: "https://speakerdeck.com/larsrh/typelevel-the-past-the-present-the-future"
+    recording: "https://www.youtube.com/watch?v=aEYxduckcxg"
 
 ---
