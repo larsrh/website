@@ -42,7 +42,7 @@ Wir ließen uns also chinesisch bekochen (Anmerkung von Herr König: Im chinesis
 
 {% include float_picture.html src="cablecar.jpg" thumb="cablecar.thumb.jpg" text="Cable Car" %}
 
-#### Sonntag, der 6. Mai
+### Sonntag, der 6. Mai
 Am Sonntag haben wir uns um 9.00 Uhr in der Lobby getroffen und sind die Straße hoch zum Segafredo-Frühstückscafé gelaufen und dort amerikanisch gefrühstückt. In der nahegelegenen Pharmacy Walgreens deckten wir uns mit Getränken ein. Um 10.00 Uhr fuhren wir dann mit dem Cable Car zu Fisherman's Wharf, wo wir dann auch zu Mittag gegessen haben.
 
 Am Nachmittag hatten wir dann ein Treffen mit Herrn Fehr und den Gewinnern aus NRW, auch drei Schüler inklusive Lehrer. Vom Hotel aus sind wir dann zum *Moscone Center* gelaufen, wo wir unsere Konferenzpässe abgeholt haben. Dazu gabs außerdem einen tollen Rucksack mit jeder Menge Werbezeug und ein T-Shirt.
