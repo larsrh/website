@@ -324,4 +324,9 @@
   abstract: "2022 feiert TypeScript zehnjähriges Jubiläum. Anlass genug, auf die Anfänge zurückzublicken – und Einsteigern alles an die Hand zu geben, was sie für die Arbeit mit der Programmiersprache brauchen."
   lang: de
   url: "https://t3n.de/ausgabe/t3n-66-planet-a-i-ki-fuers-klima/"
-  
+- pub_date: 2021-12-21
+  title: "What Does a Bundler Actually Do?"
+  journal: "INNOQ"
+  abstract: "Frontend development without JavaScript is rarely possible. Seasoned backend developers are then confronted with a completely new toolchain overflowing with unknown technical terms. But there is method behind the complexity."
+  lang: en
+  url: "https://www.innoq.com/en/articles/2021/12/what-does-a-bundler-actually-do/"
