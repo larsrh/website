@@ -49,6 +49,7 @@ nav ul {
 nav li {
   display: inline;
   padding-right: var(--spacer-sm);
+  white-space: nowrap;
 }
 
 nav li::before {
@@ -106,9 +107,14 @@ article footer {
   margin: 0;
 }
 
+dl dd {
+  margin-top: var(--spacer-xs);
+  margin-bottom: var(--spacer-sm);
+}
+
 ul.links {
   padding-left: 0;
-  padding-bottom: 1em;
+  padding-bottom: var(--spacer-sm);
 }
 
 ul.links li {
@@ -239,8 +245,12 @@ td, th {
 }
 
 .interactive-buttons {
-  padding-top: .5em;
-  padding-bottom: .5em;
+  padding-top: var(--spacer-sm);
+  padding-bottom: var(--spacer-sm);
+}
+
+.interactive-buttons button {
+  margin-right: var(--spacer-sm);
 }
 
 .interactive .error::before {
