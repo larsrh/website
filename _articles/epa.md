@@ -51,7 +51,7 @@ Zur Vergabe einer App-PIN werde ich gezwungen, zusätzlich muss ich mich zwische
 Puh.
 Für eGK fehlt mir immer noch die zugehörige PIN.
 Und was „al.vi“ ist, weiß ich nicht.
-Die [Gematik klärt auf](https://www.gematik.de/glossar/begriffe/alternative-versichertenidentitaet/541/):
+Die [Gematik klärt auf](https://web.archive.org/web/20210513065012/https://www.gematik.de/glossar/begriffe/alternative-versichertenidentitaet/541/):[^footnote-gematik]
 
 > Mit Hilfe einer alternativen Versichertenidentität [al.vi] kann sich ein Versicherter ohne eGK am ePA-Aktensystem identifizieren. Die Identität wird z.B. von einem ePA-Modul FdV an einem Signaturdienst erfragt und von diesem nach Authentisierung des Versicherten ausgestellt.
 
@@ -79,6 +79,7 @@ Mir geht es einzig und allein darum, dass es für Patient:innen eindeutig zu sch
 Was nützt mir ein Hausarzt, der mir sagt, dass mein Blutbild in Ordnung sei, wenn ein weiterbehandelnder Arzt im Notfall das nicht nachvollziehen kann (z.B. genau welche Parameter untersucht worden sind)?
 Ob die Lösung dafür jetzt „ePA“ oder irgendwie anders heißt, spielt hier keine Rolle.
 
+[^footnote-gematik]: Aus unerfindlichen Gründen ist dieser Eintrag von der offiziellen Gematik-Seite verschwunden; Stand Januar 2022 ist dort keine Spur mehr von „al.vi“.
 [^footnote-epa]: Nicht zu verwechseln mit dem elektronischen Personalausweis (abgekürzt nPA). Ebenfalls nicht zu verwechseln mit der elektronischen Gesundheitsakte (eGA).
 [^footnote-expect]: I don't know what I expected.
 [^footnote-befund]: Erinnert ihr euch noch? Das mit dem Blutbild. Der Anlass dieser ganzen Sache hier.

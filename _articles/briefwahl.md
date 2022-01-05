@@ -6,7 +6,7 @@ lang: de
 
 In zwei Wochen ist [Bundestagswahl](https://www.wahlrecht.de/ergebnisse/bundestag.htm).
 Es ist zu erwarten, dass der Anteil der Briefwähler:innen weiterhin ansteigen wird.
-Nach [Medienberichten](https://www.abendzeitung-muenchen.de/politik/post-bereitet-sich-auf-deutlich-mehr-briefwaehler-vor-art-751960) rechnet die Deutsche Post mit mindestens 40 %, trifft aber auch Vorbereitungen für 60 %.
+Nach [Medienberichten](https://web.archive.org/web/20210826090830/https://www.abendzeitung-muenchen.de/politik/post-bereitet-sich-auf-deutlich-mehr-briefwaehler-vor-art-751960) rechnet die Deutsche Post mit mindestens 40 %, trifft aber auch Vorbereitungen für 60 %.
 Dieser Trend zeichnet sich bereits seit längerer Zeit ab:
 bei der vergangenen Bundestagswahl 2017 nahmen in der [Stadt München ca. 43 % der Wähler:innen](https://www.sueddeutsche.de/muenchen/landtagswahl-in-bayern-zahl-der-briefwaehler-koennte-in-muenchen-einen-neuen-rekord-erreichen-1.4126803) per Brief teil.
 
