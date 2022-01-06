@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="overpass-ide"><metadata><desc>Filtered OSM data converted to GPX by overpass turbo</desc><copyright author="The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."/><time>2022-01-06T10:44:41Z</time></metadata><trk><name>way/110433765</name><desc>bicycle=yes
+foot=yes
+highway=track
+smoothness=very_bad
+surface=gravel
+tracktype=grade2</desc><link href="http://osm.org/browse/way/110433765"/><trkseg><trkpt lat="48.4928254" lon="11.9505491"/><trkpt lat="48.4931347" lon="11.9503345"/><trkpt lat="48.4932995" lon="11.9502268"/><trkpt lat="48.4933731" lon="11.9501544"/><trkpt lat="48.4934602" lon="11.9500961"/><trkpt lat="48.4935507" lon="11.9500616"/><trkpt lat="48.4936936" lon="11.9500203"/><trkpt lat="48.4938134" lon="11.9499583"/></trkseg></trk><trk><name>way/110433770</name><desc>bicycle=yes
+foot=yes
+highway=track
+smoothness=intermediate
+surface=fine_gravel
+tracktype=grade2
+width=2</desc><link href="http://osm.org/browse/way/110433770"/><trkseg><trkpt lat="48.492748" lon="11.9506076"/><trkpt lat="48.4927073" lon="11.9506277"/><trkpt lat="48.4922492" lon="11.9500874"/><trkpt lat="48.4919307" lon="11.949694"/><trkpt lat="48.4918877" lon="11.9496393"/><trkpt lat="48.4912615" lon="11.9488434"/><trkpt lat="48.4910096" lon="11.9485207"/></trkseg></trk><trk><name>way/110433772</name><desc>access=permit
+bicycle=permit
+bridge=yes
+flood_prone=yes
+foot=yes
+highway=track
+layer=1
+note=Betreten auf eigene Gefahr
+smoothness=good
+surface=asphalt
+tracktype=grade1</desc><link href="http://osm.org/browse/way/110433772"/><trkseg><trkpt lat="48.4938134" lon="11.9499583"/><trkpt lat="48.4939232" lon="11.9498819"/></trkseg></trk><trk><name>way/110433774</name><desc>embankment=yes
+highway=path
+informal=yes
+smoothness=very_bad
+surface=earth
+tracktype=grade4
+width=1</desc><link href="http://osm.org/browse/way/110433774"/><trkseg><trkpt lat="48.4940745" lon="11.9497811"/><trkpt lat="48.494136" lon="11.949828"/><trkpt lat="48.4941679" lon="11.9499122"/><trkpt lat="48.4942174" lon="11.9499813"/><trkpt lat="48.4942757" lon="11.9500809"/><trkpt lat="48.4943693" lon="11.9502496"/><trkpt lat="48.4944545" lon="11.9504145"/><trkpt lat="48.4945584" lon="11.950524"/><trkpt lat="48.4946379" lon="11.9506167"/><trkpt lat="48.4947302" lon="11.9507106"/><trkpt lat="48.4948279" lon="11.9507506"/><trkpt lat="48.4949442" lon="11.9507534"/><trkpt lat="48.4951264" lon="11.9507416"/><trkpt lat="48.4954109" lon="11.9507963"/><trkpt lat="48.4955187" lon="11.9508312"/><trkpt lat="48.4956281" lon="11.9508322"/><trkpt lat="48.4956551" lon="11.9508314"/><trkpt lat="48.4957217" lon="11.9508259"/><trkpt lat="48.4957533" lon="11.9508307"/><trkpt lat="48.4957866" lon="11.9508432"/><trkpt lat="48.4958298" lon="11.9508643"/><trkpt lat="48.4958934" lon="11.9508704"/><trkpt lat="48.4959922" lon="11.9508903"/><trkpt lat="48.4960826" lon="11.9509169"/><trkpt lat="48.496133" lon="11.9509552"/><trkpt lat="48.4961873" lon="11.9509792"/><trkpt lat="48.4962366" lon="11.9510106"/><trkpt lat="48.4962915" lon="11.9510358"/><trkpt lat="48.4965302" lon="11.951132"/><trkpt lat="48.4967256" lon="11.951234"/><trkpt lat="48.4968298" lon="11.9512987"/><trkpt lat="48.4969407" lon="11.951331"/><trkpt lat="48.4970943" lon="11.9514388"/><trkpt lat="48.4972645" lon="11.9515752"/><trkpt lat="48.4973661" lon="11.9516459"/><trkpt lat="48.4974508" lon="11.9517339"/><trkpt lat="48.497518" lon="11.9518288"/><trkpt lat="48.4975609" lon="11.9518807"/><trkpt lat="48.4975962" lon="11.9519045"/><trkpt lat="48.4976739" lon="11.9519541"/><trkpt lat="48.497735" lon="11.9519567"/><trkpt lat="48.497791" lon="11.9519754"/></trkseg></trk><trk><name>way/785529335</name><desc>bicycle=designated
+embankment=yes
+foot=designated
+highway=track
+smoothness=bad
+surface=asphalt
+tracktype=grade1
+width=1</desc><link href="http://osm.org/browse/way/785529335"/><trkseg><trkpt lat="48.4986703" lon="11.9531585"/><trkpt lat="48.4988313" lon="11.9533989"/><trkpt lat="48.4991416" lon="11.9539684"/><trkpt lat="48.4992417" lon="11.9541765"/><trkpt lat="48.4994404" lon="11.9545914"/><trkpt lat="48.4996215" lon="11.9550504"/><trkpt lat="48.4997735" lon="11.9554748"/><trkpt lat="48.4999557" lon="11.9559809"/><trkpt lat="48.5000214" lon="11.9562431"/></trkseg></trk><trk><name>way/808455692</name><desc>bicycle=yes
+foot=yes
+highway=track
+smoothness=intermediate
+surface=fine_gravel
+tracktype=grade2
+width=2</desc><link href="http://osm.org/browse/way/808455692"/><trkseg><trkpt lat="48.4909238" lon="11.9484114"/><trkpt lat="48.4908002" lon="11.9482523"/><trkpt lat="48.4901238" lon="11.9474272"/><trkpt lat="48.4896289" lon="11.9468264"/><trkpt lat="48.4891966" lon="11.9463114"/><trkpt lat="48.4888875" lon="11.9459153"/><trkpt lat="48.4887081" lon="11.9457062"/><trkpt lat="48.4884657" lon="11.9454451"/><trkpt lat="48.4884122" lon="11.9453748"/><trkpt lat="48.4882667" lon="11.9451834"/><trkpt lat="48.487817" lon="11.9447681"/><trkpt lat="48.4874731" lon="11.9446247"/><trkpt lat="48.4871403" lon="11.9443593"/></trkseg></trk><trk><name>way/948833266</name><desc>bicycle=designated
+embankment=yes
+foot=designated
+highway=track
+smoothness=very_bad
+surface=gravel
+tracktype=grade3
+width=1</desc><link href="http://osm.org/browse/way/948833266"/><trkseg><trkpt lat="48.4939232" lon="11.9498819"/><trkpt lat="48.4939974" lon="11.9498165"/><trkpt lat="48.4940745" lon="11.9497811"/></trkseg></trk><trk><name>way/948833267</name><desc>bicycle=designated
+embankment=yes
+foot=designated
+highway=track
+smoothness=bad
+surface=earth
+tracktype=grade3
+width=1</desc><link href="http://osm.org/browse/way/948833267"/><trkseg><trkpt lat="48.497791" lon="11.9519754"/><trkpt lat="48.4981199" lon="11.9523875"/><trkpt lat="48.4983289" lon="11.9526437"/><trkpt lat="48.4986703" lon="11.9531585"/></trkseg></trk></gpx>

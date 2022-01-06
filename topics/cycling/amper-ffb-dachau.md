@@ -1,7 +1,7 @@
 ---
 title: "Amper zwischen Fürstenfeldbruck und Dachau"
 subtitle: "Ammer-Amper-Radweg zwischen Fürstenfeldbruck und Dachau"
-geo: { lat: 48.1963, lon: 48.27, lon: 11.4096, zoom: 11 }
+geo: { lat: 48.1963, lon: 11.4096, zoom: 11 }
 markers:
   - { lat: 48.1640, lon: 11.3819 }
   - { lat: 48.1539, lon: 11.2279 }
@@ -62,7 +62,7 @@ Kaum zu glauben, dass diese Stelle (siehe Markierung) bereits zu München gehör
   Bei der zweiten Option spart man sich die Steigung zwar nicht – auch hier ist der Anstieg bis nach Biburg zu bewältigen – jedoch kommt man noch in den Genuss der Amperauen (siehe Markierung).
 * Der Rückweg kann entweder der kurze Weg über Puchheim sein, oder man verlängert über Germering und Planegg und [folgt dann dem Würm-Radweg]({% link topics/cycling/starnberg.md %}).
 
-## Verknüfungen
+## Verknüpfungen
 
 Sowohl auf dem Hin- als auch Rückweg habe ich die Würm gequert; dadurch lässt sich eine Ringstrecke fahren (siehe auch [die Streckenbeschreibung für die Würm zwischen Dachau und Pasing]({% link topics/cycling/mariabrunn.md %})).
 
