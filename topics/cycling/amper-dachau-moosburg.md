@@ -12,7 +12,7 @@ abstract: |
   Der Isarradweg ist an Wochenenden und bei schönem Wetter stark befahren.
   Warum also nicht einmal auf die Amper ausweichen?
   Münchner:innen haben dabei aber den Nachteil, dass eine „An- und Abreise“ nötig ist.
-  Diese Route beschreibt das letzte Segment ab Dachau bis Moosburg; beide sind gut per öffentlichem Nachverkehr erreichbar.
+  Diese Route beschreibt das letzte Segment ab Dachau bis Moosburg; beide sind gut per öffentlichem Nahverkehr erreichbar.
 ---
 
 Im Gegensatz zum [vorherigen Segment]({% link topics/cycling/amper-ffb-dachau.md %}) bin ich den letzten Teil des Ammer-Amper-Radweg _(AAR)_ flussabwärts geradelt, so dass nur sehr wenig Steigung zu schaffen ist.
@@ -35,7 +35,7 @@ In der Galerie habe ich einige Fotos zusammengetragen, die ich auf dem AAR gemac
 
 Die offensichtliche Fortsetzung ist natürlich der [Isarradweg](https://www.isarradweg.de/), auf den man direkt in Moosburg wechseln kann.
 
-Eine kleinen Abstecher kann man ungefähr bei Ampermoching zur [Schlosswirtschaft Mariabrunn]({% link topics/cycling/mariabrunn.md %}) machen.
+Einen kleinen Abstecher kann man ungefähr bei Ampermoching zur [Schlosswirtschaft Mariabrunn]({% link topics/cycling/mariabrunn.md %}) machen.
 
 Auch der Zusammenfluss von Würm und Amper liegt auf der Strecke (siehe Markierung), man kann also eine längere Tour [in Starnberg beginnen]({% link topics/cycling/starnberg.md %}).
 
