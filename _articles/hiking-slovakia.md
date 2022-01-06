@@ -22,7 +22,7 @@ Fortunately, we did not starve.
 
 ## Day 1
 
-Equipped with a hiking guide book for the [Low Tatra mountains](https://en.wikipedia.org/wiki/Low_Tatras), we picked an easy hike (about four hours walking time, 400 m of altitude) to the quaint village of [Vlkolínec](https://www.vlkolinec.sk/), a UNESCO World Heritage site.
+Equipped with a hiking guide book for the [Low Tatra mountains](https://en.wikipedia.org/wiki/Low_Tatras), we picked an easy hike (about four hours walking time, 400 m of altitude) to the quaint village of [Vlkolínec](https://slovakia.travel/en/vlkolinec), a UNESCO World Heritage site.
 The village is famous for its traditional architecture of the wooden houses.
 As soon as we arrived we started eating all the sheep cheese – apparently a staple in Liptov's cuisine – that they were willing to sell us.
 It was definitely worth a visit, but take into account that it is also a popular tourist destination, since it can be easily reached by car.
@@ -82,6 +82,7 @@ Also, we had to pay an entrance fee of 1.50 € per person to aid the maintenanc
   {% include article_picture.html src="20210818_081534" text="Through the gorge; a bridge" %}
   {% include article_picture.html src="20210818_090503" text="Through the gorge; river bed" %}
   {% include article_picture.html src="20210818_092359" text="Through the gorge; a ladder" %}
+  {% include article_picture.html src="20210818_092426" text="Climbing the ladder (fortunately without a long wait, since we beat the crowd)" %}
 </div>
 
 ## Day 5
@@ -115,6 +116,7 @@ Very satisfied we drove back and consumed alarming quantities of Quattro Formagg
   {% include article_picture.html src="20210819_091800" text="On the way up to Ďumbier; view to the North" %}
   {% include article_picture.html src="20210819_091809" text="On the way up to Ďumbier; view of myself" %}
   {% include article_picture.html src="20210819_101642" text="On the way up to Ďumbier; view to the North including the lake" %}
+  {% include article_picture.html src="20210819_101732" text="On the way up to Ďumbier; our companion taking in the view" %}
   {% include article_picture.html src="20210819_102756" text="Stone path from the saddle to Ďumbier" %}
   {% include article_picture.html src="20210819_105450" text="View from the ridge to the North" %}
   {% include article_picture.html src="20210819_110415" text="View from the ridge to the South" %}
@@ -125,7 +127,7 @@ Very satisfied we drove back and consumed alarming quantities of Quattro Formagg
 
 A beautiful day today.
 To add a bit of culture to our itinerary, we hiked up [Liptovský hrad](https://www.openstreetmap.org/node/442720666) (“Liptov Castle”).
-As the [tourist information](https://visit.ruzomberok.sk/en/kam-ist/historicke-pamiatky/liptovsky-hrad/) writes:
+As the [tourist information](https://web.archive.org/web/20211009041001/https://visit.ruzomberok.sk/en/kam-ist/historicke-pamiatky/liptovsky-hrad/) writes:
 
 > Liptov Castle, which is situated on Sestrč Hill, at altitude of 1000 meters, used to be the castle with the highest altitude in Slovakia.
 
@@ -140,6 +142,7 @@ We rounded off the day by once again going for a swim at the reservoir.
 Our host had given us a few recommendations for nice spots and [we found one that was not as crowded](https://www.openstreetmap.org/way/320838930) as the one on Day 1.
 
 <div class="gallery">
+  {% include article_picture.html src="20210820_110946" text="At the castle" %}
   {% include article_picture.html src="20210820_111044" text="View from the castle to the lake" %}
   {% include article_picture.html src="20210820_113512" text="Liptovský hrad" %}
   {% include article_picture.html src="20210820_122503" text="Refreshment on the way down from Liptovský hrad" %}
@@ -147,7 +150,7 @@ Our host had given us a few recommendations for nice spots and [we found one tha
 
 ## Day 7
 
-Inspired by yesterday's view of Veľký Choč, two third of our group decided to hike up there as the final tour.
+Inspired by yesterday's view of Veľký Choč, two third of our group decided to hike up there as the final tour.[^choc]
 Me on the other hand stayed at home because my ankle felt a bit funny, and I had to be able to drive back home on the following day.
 They started the hike from Lúčky Kúpele and I picked them up from the nearby Lisková.
 As far as they told me, the views were great, which the following picture attests to:
@@ -166,3 +169,4 @@ Off we go, back to Budapest to return the car!
 [^lipt]: Many places here are just called _Liptovský + male name_ for random male names (or _Liptovska_ for the female equivalent). If someone could explain that to me, I'm all ears.
 [^cave]: Is a cave indoor or outdoor, though? Topologically speaking probably outdoor.
 [^lucky]: There are multiple towns called _Lúčky_ in Slovakia, so be careful when operating your GPS device.
+[^choc]: Our companion has [written about the trip here](https://fromtheexpertsmouth.com/lessons-hiking-journey-tatra-mountains/).
