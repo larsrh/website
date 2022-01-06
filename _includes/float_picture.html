@@ -1,9 +1,6 @@
-{% if include.thumb %}
-  {% assign thumb = include.thumb %}
-{% else %}
-  {% assign thumb = include.src %}
-{% endif %}
-
-<a href="/img{{ page.id }}/{{ include.src }}" class="figure-float-right lightbox" title="{{ include.text }}">
-  <img src="/img{{ page.id }}/{{ thumb }}" alt="{{ include.text }}" class="img-fluid img-thumbnail">
-</a>
+<figure class="figure-float-right">
+  <a href="/img{{ page.id }}/{{ include.src }}" class="lightbox" title="{{ include.text }}">
+    <img src="/img{{ page.id }}/{{ include.src }}" alt="{{ include.text }}">
+  </a>
+  <figcaption>{{ include.text }}</figcaption>
+</figure>
