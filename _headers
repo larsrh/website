@@ -2,7 +2,6 @@
   Cache-Control: public, max-age=31536000, immutable
 
 /*
-  Permissions-Policy: interest-cohort=()
   X-Frame-Options: SAMEORIGIN
   X-Content-Type-Options: nosniff
   Referrer-Policy: same-origin
