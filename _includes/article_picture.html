@@ -1,3 +1,6 @@
-<a href="https://assets.hupel.info/img{{ page.url }}{{ include.src }}.small.jpg" title="{{ include.text }}" class="lightbox" title="{{ include.text }}">
-  <img src="https://assets.hupel.info/img{{ page.url }}{{ include.src }}.thumb.jpg" alt="{{ include.text }}">
-</a>
+<figure>
+  <a href="https://assets.hupel.info/img{{ page.url }}{{ include.src }}.small.jpg" title="{{ include.text }}" class="lightbox" title="{{ include.text }}">
+    <img src="https://assets.hupel.info/img{{ page.url }}{{ include.src }}.thumb.jpg" alt="{{ include.text }}">
+  </a>
+  <figcaption>{{ include.text }}</figcaption>
+</figure>

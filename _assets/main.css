@@ -11,6 +11,17 @@ body {
   padding: var(--spacer-md);
 }
 
+figure {
+  margin: 0;
+}
+
+figcaption {
+  hyphens: none;
+  text-align: center;
+  font-size: .8em;
+  color: var(--text-muted);
+}
+
 div.footnotes {
   font-size: .8em;
 }
@@ -66,13 +77,13 @@ nav li.active::before {
 
 .masonry {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   gap: var(--spacer-lg);
 }
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
   gap: var(--spacer-md);
 }
 
