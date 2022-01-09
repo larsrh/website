@@ -30,12 +30,12 @@ Bei weiterer Recherche stelle sich heraus, dass ich nicht der einzige bin, den d
 Schließlich ging es weiter über Hohendilching nach Valley.
 Die Ankunft im Landkreis Miesbach wird belohnt mit großartiger Sicht auf die Alpen sowie dem Gefahrzeichen _Viehtrieb_.
 
-Die Abfahrt ins Mangfalltal ([siehe Karte](#map-embed)) ist nur etwas für Geübte, denn die Steigung beträgt bis zu 20%.
+Die Abfahrt ins Mangfalltal ist nur etwas für Geübte, denn die Steigung beträgt bis zu 20%.
 Ebenso die Auffahrt Richtung Sonderdilching (Gemeinde Weyarn).
 Auch hier gibt es wieder schöne Alpenblicke.
 Meine Fahrt setzte ich fort Richtung Norden, dem Mangfallknie nähernd.
 
-Kurz bevor die Straße die Mangfall überquert (Brücke Grubmühle, [siehe Karte](#map-embed)), gibt es die Gelegenheit für ein Picknick und kurz die Füße in die Mangfall zu halten.
+Kurz bevor die Straße die Mangfall überquert (Brücke Grubmühle), gibt es die Gelegenheit für ein Picknick und kurz die Füße in die Mangfall zu halten.
 Diese Stelle ist gut zugänglich, wenn man kein Problem mit einem Steinufer hat.
 Vom Schwimmen würde ich allerdings abraten, da die Strömung gefährlich sein kann.[^footnote-mangfall]
 
