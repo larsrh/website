@@ -330,3 +330,10 @@
   abstract: "Frontend development without JavaScript is rarely possible. Seasoned backend developers are then confronted with a completely new toolchain overflowing with unknown technical terms. But there is method behind the complexity."
   lang: en
   url: "https://www.innoq.com/en/articles/2021/12/what-does-a-bundler-actually-do/"
+- pub_date: 2022-01-10
+  title: "CRDT, konfliktfrei + kollaborativ"
+  journal: "INNOQ-Podcast"
+  abstract: "Ihr kennt es bestimmt: die gemeinsam verwaltete digitale Einkaufsliste. Oder: Tools wie Etherpad und Google Docs, die uns das gleichzeitige Bearbeiten des selben Texts ermöglichen. Doch was steckt technisch dahinter? Wir erklären, was theoretisch dahintersteckt. Und wie Ihr es praktisch nutzen könnt!"
+  lang: de
+  url: "https://www.innoq.com/de/podcast/099-crdt/"
+  type: "podcast"
