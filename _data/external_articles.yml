@@ -337,3 +337,9 @@
   lang: de
   url: "https://www.innoq.com/de/podcast/099-crdt/"
   type: "podcast"
+- pub_date: 2022-01-14
+  title: "Der Nächste, bitte! Wie die Event-Loop asynchronen Code im Browser ermöglicht"
+  journal: "c't"
+  abstract: "In der Regel läuft der Code von Webseiten in nur einem Thread, modernen Multicore-Prozessoren zum Trotz. Echte Parallelität gibt es so nicht, aber ein schlaues Programmiermodell erlaubt dennoch „asynchronen“ Code, der nicht linear abgearbeitet wird."
+  lang: de
+  url: "https://www.heise.de/select/ct/2022/3/2130513444016008707"
