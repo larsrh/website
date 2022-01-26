@@ -49,6 +49,7 @@ conferences:
     location: Online
     link: "https://www.ittage.informatik-aktuell.de/programm/365/jvm-sprachen-/-graalvm-/-truffle-das-eierlegende-truffleschwein.html"
     slides: "https://speakerdeck.com/larsrh/das-eierlegende-truffleschwein"
+    recording: "https://www.youtube.com/watch?v=oSLOp2uTsQ4"
   - conference: "DeafIT"
     year: 2021
     date: "12. März"
