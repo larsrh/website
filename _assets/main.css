@@ -79,12 +79,14 @@ nav li.active::before {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   gap: var(--spacer-lg);
+  width: 100%
 }
 
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
   gap: var(--spacer-md);
+  width: 100%
 }
 
 @media (max-width: 768px) {
