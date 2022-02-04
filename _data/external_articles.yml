@@ -331,7 +331,7 @@
   lang: en
   url: "https://www.innoq.com/en/articles/2021/12/what-does-a-bundler-actually-do/"
 - pub_date: 2022-01-10
-  title: "CRDT, konfliktfrei + kollaborativ"
+  title: "CRDT. Konfliktfrei + Kollaborativ"
   journal: "INNOQ-Podcast"
   abstract: "Ihr kennt es bestimmt: die gemeinsam verwaltete digitale Einkaufsliste. Oder: Tools wie Etherpad und Google Docs, die uns das gleichzeitige Bearbeiten des selben Texts ermöglichen. Doch was steckt technisch dahinter? Wir erklären, was theoretisch dahintersteckt. Und wie Ihr es praktisch nutzen könnt!"
   lang: de
@@ -343,3 +343,10 @@
   abstract: "In der Regel läuft der Code von Webseiten in nur einem Thread, modernen Multicore-Prozessoren zum Trotz. Echte Parallelität gibt es so nicht, aber ein schlaues Programmiermodell erlaubt dennoch „asynchronen“ Code, der nicht linear abgearbeitet wird."
   lang: de
   url: "https://www.heise.de/select/ct/2022/3/2130513444016008707"
+- pub_date: 2022-02-01
+  title: "#SoftwareArchitektur – Hilfe, wir syncen!"
+  journal: "Softwarearchitektur im Stream"
+  abstract: "Live von der OOP: Lisa befragt Lars und Lucas zu ihrem Vortrag auf der OOP."
+  lang: de
+  url: "https://software-architektur.tv/2022/02/01/folge105.html"
+  type: "podcast"
