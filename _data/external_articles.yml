@@ -350,3 +350,10 @@
   lang: de
   url: "https://software-architektur.tv/2022/02/01/folge105.html"
   type: "podcast"
+- pub_date: 2022-02-15
+  title: "Switching Protocols. Schnell, schnell!"
+  journal: "INNOQ-Podcast"
+  abstract: "In <a href='https://www.innoq.com/de/podcast/092-das-technologische-rueckgrat-des-webs/'>Folge 92</a> haben Robert und Lucas die Grundlagen des Webs erklärt. Ein wichtiges Thema dabei: HTTP, das Protokoll, mit dem Ressourcen vom Server zum Client kommen. Schnell wie SPDY Gonzales schieben wir nun eine weitere Folge nach, in der Lars von Lucas erfährt, wie man ein Quantum Performance aus diesem Protokoll herausholen kann."
+  lang: de
+  url: "https://www.innoq.com/de/podcast/101-switching-protocols/"
+  type: "podcast"
