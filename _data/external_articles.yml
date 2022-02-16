@@ -120,6 +120,11 @@
   journal: "INNOQ"
   abstract: "You have implemented a smart contract for Ethereum, and now you are wondering how you can test it under real-life conditions, but without spending money in case there's a problem? Luckily, there are test networks that can help you with this."
   url: "https://www.innoq.com/en/blog/testing-ethereum/"
+- pub_date: 2019-10-31
+  title: "Type checking JSX: A can of props"
+  journal: "INNOQ"
+  abstract: "In this post, I’d like to describe how JSX type checking in TypeScript actually works and the problems you’re going to encounter when implementing custom, non-React JSX components."
+  url: "https://www.innoq.com/en/blog/type-checking-tsx/"
 - pub_date: 2019-12-04
   title: "Das eierlegende Truffleschwein"
   journal: "Javamagazin 01/2020"
