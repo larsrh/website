@@ -317,6 +317,7 @@ All that's left for me is to:
 * give some pointers to further literature, and
 * link to some ready-to-use libraries.
 
+Head on over to the [final episode now]({% link topics/crdt/08-outlook.md %}).
 Then, I'll send you on your journey of building great distributed applications.
 
 ## References
