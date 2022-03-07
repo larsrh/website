@@ -4,7 +4,7 @@ pub_date: 2021-02-20
 lang: en
 abstract: |
   I thought it'd be fun to collect a list of all conferences I've been to.
-  There were a lot of them; at least fifty it seems.
+  There were a lot of them; at least sixty it seems.
   Maybe we've even crossed paths somewhere.
 hero:
   src: "/img/topics/crdt/world.jpg"
@@ -141,5 +141,10 @@ After that, all online.
 * November: [Digitale Leute Summit](https://www.digitale-leute.de/summit/21/), Cologne, Germany
 * December: [INNOQ Technology Day](https://technologyday.innoq.com/)
 * December: [IT-Tage](https://www.ittage.informatik-aktuell.de/)
+
+## 2022
+
+* January: [OOP](https://www.oop-konferenz.de/oop-2022/)
+* February: [Code Days](https://www.code-days.de/code-days-2022/)
 
 To be continued.
