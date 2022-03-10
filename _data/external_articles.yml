@@ -328,7 +328,7 @@
   journal: "t3n 66"
   abstract: "2022 feiert TypeScript zehnjähriges Jubiläum. Anlass genug, auf die Anfänge zurückzublicken – und Einsteigern alles an die Hand zu geben, was sie für die Arbeit mit der Programmiersprache brauchen."
   lang: de
-  url: "https://t3n.de/ausgabe/t3n-66-planet-a-i-ki-fuers-klima/"
+  url: "https://www.innoq.com/de/articles/2022/03/typescript-komplexitaet-baendigen/"
 - pub_date: 2021-12-21
   title: "What Does a Bundler Actually Do?"
   journal: "INNOQ"
