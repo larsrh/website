@@ -146,5 +146,6 @@ After that, all online.
 
 * January: [OOP](https://www.oop-konferenz.de/oop-2022/)
 * February: [Code Days](https://www.code-days.de/code-days-2022/)
+* March: [JavaLand](https://www.javaland.eu/), Brühl, Germany
 
 To be continued.

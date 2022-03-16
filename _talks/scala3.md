@@ -27,6 +27,12 @@ conferences:
     location: Online
     link: "https://www.ittage.informatik-aktuell.de/programm/2021/neuigkeiten-in-scala-3.html"
     slides: "https://speakerdeck.com/larsrh/was-ist-neu-in-scala-3"
+  - conference: "JavaLand"
+    year: 2022
+    date: "15. März"
+    location: Brühl, Deutschland
+    link: "https://shop.doag.org/javaland/2022/agenda/"
+    slides: "https://speakerdeck.com/larsrh/was-ist-neu-in-scala-3"
 ---
 
 ## Code-Beispiele
