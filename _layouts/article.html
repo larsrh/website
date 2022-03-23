@@ -4,7 +4,7 @@ layout: root
 
 <header>
   {% if page.hero %}
-    <img style="margin-top: 1em;" src="{{ page.hero.src }}" alt="{{ page.hero.alt }}" />
+    <img style="margin-top: 1em;" src="{% asset '{{ page.hero.src }}' @path %}" alt="{{ page.hero.alt }}" />
   {% endif %}
 
   {% if page.long_title %}

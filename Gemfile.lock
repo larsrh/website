@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/larsrh/jekyll-assets.git
-  revision: 98b2728c479dd7412de05bf0e0e11e9200faee71
+  revision: 48e267dabd6a464c9ef9832f104778fad25113f0
   branch: fork/ruby-3
   specs:
     jekyll-assets (4.0.0.alpha)

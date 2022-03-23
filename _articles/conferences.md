@@ -7,7 +7,7 @@ abstract: |
   There were a lot of them; at least sixty it seems.
   Maybe we've even crossed paths somewhere.
 hero:
-  src: "/img/topics/crdt/world.jpg"
+  src: "img/topics/crdt/world.jpg"
   alt: "Map of Europe"
   credits: "TheAndrasBarta"
 ---

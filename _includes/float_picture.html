@@ -1,6 +1,8 @@
 <figure class="figure-float-right">
-  <a href="/img{{ page.id }}/{{ include.src }}" class="lightbox" title="{{ include.text }}">
-    <img src="/img{{ page.id }}/{{ include.src }}" alt="{{ include.text }}">
+  {% assign url = 'img/' | append: include.src %}
+  {% assign dimensions = assets[url].dimensions %}
+  <a href="{% asset '{{ url }}' @path %}" class="lightbox" title="{{ include.text }}">
+    <img src="{% asset '{{ url }}' @path %}" alt="{{ include.text }}" {% if dimensions %}width="{{ dimensions.width }}" height="{{ dimensions.height }}"{% endif %}>
   </a>
   <figcaption>{{ include.text }}</figcaption>
 </figure>
