@@ -58,7 +58,6 @@ But don't worry, this list will clear up some common misunderstandings.
 The list of references is incomplete.
 Feel free to [add more here.](https://github.com/larsrh/website/blob/main/{{ page.path }})
 
-* World Health Organization: [Gender and Genetics](https://www.who.int/genomics/gender/en/)
 * Scientific American: [Stop Using Phony Science To Justify Transphobia](https://blogs.scientificamerican.com/voices/stop-using-phony-science-to-justify-transphobia/)
 * Scientific American: [Visualizing Sex as a Spectrum](https://blogs.scientificamerican.com/sa-visual/visualizing-sex-as-a-spectrum/)
 * Dumic et al.: [Report of Fertility in a Woman with a Predominantly 46,XY Karyotype ...](https://doi.org/10.1210/jc.2007-2155)
