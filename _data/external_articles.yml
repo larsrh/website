@@ -86,7 +86,7 @@
   url: "https://www.innoq.com/de/articles/2019/07/verifikation-von-smart-contracts/"
   lang: de
   hero:
-    src: "/img/bug.jpg"
+    src: "img/bug.jpg"
     alt: "A moth on a piece of paper, believed to be the first computer bug"
     credits: "U.S. Naval Historical Center"
 - pub_date: 2019-07-03
@@ -95,7 +95,7 @@
   abstract: "Smart contracts are used to execute code on blockchains. A variety of business cases are now represented with such contracts. Ethereum is a popular platform for this purpose. However, as with all software, the question arises of how to ensure the quality of the code."
   url: "https://www.innoq.com/en/articles/2019/07/verifikation-von-smart-contracts/"
   hero:
-    src: "/img/bug.jpg"
+    src: "img/bug.jpg"
     alt: "A moth on a piece of paper, believed to be the first computer bug"
     credits: "U.S. Naval Historical Center"
 - pub_date: 2019-08-01
@@ -132,7 +132,7 @@
   url: "https://www.innoq.com/de/articles/2020/02/eierlegendes-truffleschwein/"
   lang: de
   hero:
-    src: "/img/chercheur_de_truffes.jpg"
+    src: "img/chercheur_de_truffes.jpg"
     alt: "Historisches Bild eines Trüffelschweins"
     credits: "gemeinfrei"
 - pub_date: 2020-01-31
@@ -225,7 +225,7 @@
   lang: de
   url: "https://www.innoq.com/de/articles/2021/06/stufe-3/"
   hero:
-    src: "/img/stairs.jpg"
+    src: "img/stairs.jpg"
     alt: "Red stairway"
     credits: "stokpic/Pixabay"
 - pub_date: 2021-02-19
@@ -271,7 +271,7 @@
   url: "https://www.innoq.com/de/articles/2021/08/top5-neuerungen-scala/"
   lang: de
   hero:
-    src: "/img/stairs.jpg"
+    src: "img/stairs.jpg"
     alt: "Red stairway"
     credits: "stokpic/Pixabay"
 - pub_date: 2021-06-07

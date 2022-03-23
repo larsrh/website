@@ -6,7 +6,7 @@ abstract: |
   I thought it'd be fun to collect a list of all countries I've been to.
   This list will be updated every time I visit a new one.
 hero:
-  src: "/img/topics/crdt/world.jpg"
+  src: "img/topics/crdt/world.jpg"
   alt: "Map of Europe"
   credits: "TheAndrasBarta"
 ---

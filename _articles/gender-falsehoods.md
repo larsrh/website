@@ -3,7 +3,7 @@ title: "Falsehoods Programmers Believe About Gender"
 pub_date: 2019-10-25
 lang: en
 hero:
-  src: "/img/articles/gender-falsehoods/form.png"
+  src: "img/gender-form.png"
   alt: "Gender select form with options: Male, Female, Custom (upload custom gender, max 10 MB)"
   credits: "@chordbug"
 ---

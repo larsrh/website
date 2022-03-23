@@ -3,7 +3,7 @@ title: "Hiking in Slovakia"
 pub_date: 2021-09-13
 lang: en
 hero:
-  src: "/img/articles/hiking-slovakia/dumbier.jpg"
+  src: "img/dumbier.jpg"
   alt: "Ďumbier mountain"
   credits: "Jerzy Opioła (CC-BY-SA 4.0)"
 ---

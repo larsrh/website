@@ -4,7 +4,7 @@ pub_date: 2019-11-10
 lang: en
 toc: true
 hero:
-  src: "/img/articles/scala-matsuri/hydrangea.jpg"
+  src: "img/articles/scala-matsuri/hydrangea.jpg"
   alt: "Hydrangea in Kamakura"
   credits: "me"
 ---
@@ -327,7 +327,7 @@ In two of the three tracks, there were two pairs of interpreters translating fro
 This meant that talks could be held in Japanese and English and all participants could listen, no matter their proficiency in either language.
 Naturally, this extended to the Q&A session too: speakers could also use the pocket receiver to hear questions in their native language.
 
-{% include float_picture.html src="subtitled_slide.png" text="Slide in English, subtitled in Japanese" %}
+{% include float_picture.html src="articles/scala-matsuri/subtitled_slide.png" text="Slide in English, subtitled in Japanese" %}
 
 All talks that I attended – even the ones delivered in Japanese – had slides written in English.
 To allow Japanese attendees to follow them along more easily, speakers had to submit their slides a month in advance so that the organizers could return them with subtitles.

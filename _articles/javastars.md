@@ -6,7 +6,7 @@ lang: de
 abstract: |
   Wir, Lars Hupel, Thomas Milde und Richard Tschirschnitz sowie unserer Lehrer Mirko König sind am 5. Mai 2007 nach San Francisco geflogen, um an der weltweit größten Entwicklerkonferenz – der JavaOne 2007 – teilzunehmen. Dies hatten wir als 1. Preis beim Programmierwettbewerb „Java Stars 2006 – Sun Microsystems Award“ gewonnen und durften daher für einige Tage in den USA verweilen.
 hero:
-  src: "/img/articles/javastars/hero.jpg"
+  src: "img/articles/javastars/hero.jpg"
   alt: "v.l.n.r.: ich, Richard Tschirschnitz, Thomas Milde"
   credits: "MK"
 ---
@@ -40,7 +40,7 @@ Anschließend fuhren wir mit dem SF Municipal Railway (Muni, das örtliche, sehr
 
 Wir ließen uns also chinesisch bekochen (Anmerkung von Herr König: Im chinesischen Restaurant gab es eine separate Karte nur für Teigtaschen) und weil wir alle so müde waren, lagen wir dann auch eine halbe Stunde später im Bett.
 
-{% include float_picture.html src="cablecar.jpg" text="Cable Car" %}
+{% include float_picture.html src="articles/javastars/cablecar.jpg" text="Cable Car" %}
 
 ### Sonntag, der 6. Mai
 Am Sonntag haben wir uns um 9.00 Uhr in der Lobby getroffen und sind die Straße hoch zum Segafredo-Frühstückscafé gelaufen und dort amerikanisch gefrühstückt. In der nahegelegenen Pharmacy Walgreens deckten wir uns mit Getränken ein. Um 10.00 Uhr fuhren wir dann mit dem Cable Car zu Fisherman's Wharf, wo wir dann auch zu Mittag gegessen haben.
@@ -58,7 +58,7 @@ Später haben wir uns dann das Business-Center im Hotel angesehen, was ultimativ
 
 Des Abends gingen wir in ein Thai-Restaurant. Für Richard und Lars gab es jeweils einen Liter Suppe, weshalb es während des Essens auch nicht weniger wurde. Beim Rückweg sind wir dann durch etwas verruchtere Stadtteile gegangen.
 
-{% include float_picture.html src="moscone.jpg" text="v.l.n.r.: ich, Richard Tschirschnitz, Mirko König, Thomas Milde" %}
+{% include float_picture.html src="articles/javastars/moscone.jpg" text="v.l.n.r.: ich, Richard Tschirschnitz, Mirko König, Thomas Milde" %}
 
 ### Dienstag, der 8. Mai – der erste Konferenztag
 Heute mussten wir um 6.00 Uhr aufstehen, um pünktlich zum Frühstück im Moscone Center zu erscheinen, welches in einem riesigen Saal stattfand.

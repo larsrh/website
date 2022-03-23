@@ -194,7 +194,7 @@ When a message is sent, the sending node increases only its own clock, but inclu
 On the other side when a message is received, the receiving node again increments its own clock, and for everyone else's clock, it takes the maximum of the own vector and the received vector.
 
 <div>
-  <img src="/img/topics/crdt/vector-clock.svg" alt="see text below for a description">
+  <img src="{% asset topics/crdt/vector-clock.svg @path %}" alt="see text below for a description">
 </div>
 
 In this diagram, we can again see three nodes _A_, _B_, and _C_ sending messages to each other.
