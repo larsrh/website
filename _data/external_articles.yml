@@ -362,3 +362,9 @@
   lang: de
   url: "https://www.innoq.com/de/podcast/101-switching-protocols/"
   type: "podcast"
+- pub_date: 2022-04-07
+  title: "Next Please: How the Event Loop Enables Asynchronous Code in Browsers"
+  journal: "INNOQ"
+  abstract: "Despite modern multicore processors, website code usually runs in only one thread. True parallelism therefore does not exist, but a clever programming model still allows “asynchronous” code that is not processed linearly."
+  lang: en
+  url: "https://www.innoq.com/en/articles/2022/04/async-javascript-event-loop/"
