@@ -368,3 +368,9 @@
   abstract: "Despite modern multicore processors, website code usually runs in only one thread. True parallelism therefore does not exist, but a clever programming model still allows “asynchronous” code that is not processed linearly."
   lang: en
   url: "https://www.innoq.com/en/articles/2022/04/async-javascript-event-loop/"
+- pub_date: 2022-04-08
+  title: "Gemischtdatenladen: Mit Python und Pandas die eigenen Einkaufsdaten analysieren"
+  journal: "c't"
+  abstract: "Genau wie das persönliche Surfverhalten sind die Einkaufsgewohnheiten eines Menschen sehr aufschlussreich – wenn man es schafft, die unhandlichen Daten zu analysieren. Wer so einen Datenschatz im Selbstversuch auswertet, bekommt Einblicke ins eigene Einkaufsverhalten, Erfahrung in der Analyse von Daten und obendrein ein unterhaltsames Programmierprojekt."
+  lang: de
+  url: "https://www.heise.de/select/ct/2022/9/2206114520121740477"
