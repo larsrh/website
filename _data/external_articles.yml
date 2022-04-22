@@ -374,8 +374,8 @@
   abstract: "Genau wie das persönliche Surfverhalten sind die Einkaufsgewohnheiten eines Menschen sehr aufschlussreich – wenn man es schafft, die unhandlichen Daten zu analysieren. Wer so einen Datenschatz im Selbstversuch auswertet, bekommt Einblicke ins eigene Einkaufsverhalten, Erfahrung in der Analyse von Daten und obendrein ein unterhaltsames Programmierprojekt."
   lang: de
   url: "https://www.heise.de/select/ct/2022/9/2206114520121740477"
-- pub_date: 2021-11-24
-  title: "TypeScript – Die Komplexität von JavaScript bändigen"
+- pub_date: 2022-04-22
+  title: "TypeScript – Taming the Complexity of JavaScript"
   journal: "INNOQ"
   abstract: "TypeScript celebrates its tenth anniversary in 2022. A good reason to look back at its beginnings – and to provide beginners with everything they need to know for working with this programming language. "
   lang: en
