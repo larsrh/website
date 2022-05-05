@@ -13,7 +13,7 @@ Ganz grundsätzlich bin ich aber der Meinung, dass Adresshandel ohne Einwilligun
 Deswegen begrüße ich, dass die Landesdatenschutzbehörden [dieser Praxis ein Ende setzen wollen.](https://heise.de/-7075325)
 Doch: Nordrhein-Westfalen zögert.
 
-Deswegen habe ich bei der zuständigen Landesdatenschutzbeauftragten wie folgt um Stellungnahme gebeten:
+Deswegen habe ich bei der zuständigen Landesdatenschutzbeauftragten [(Kontaktdaten)](https://www.ldi.nrw.de/kontakt) wie folgt um Stellungnahme gebeten:
 
 > Guten Tag,
 >
