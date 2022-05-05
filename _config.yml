@@ -35,7 +35,6 @@ defaults:
     values:
       layout: article
       nav: articles
-      card_theme: bg-dark text-white
       is_article: true
       description: ""
   - scope:
