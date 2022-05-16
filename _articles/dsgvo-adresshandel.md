@@ -33,3 +33,8 @@ Um herauszufinden, ob das der Fall ist, bietet sich [der Auskunftsgenerator des 
 Da die Datenschutzbehörden üblicherweise regierungsunabhängig sind, ist es leider unmöglich, weiteren Druck von dieser Seite aus auszuüben.
 Es bleibt nur der Gang zur Legislative.
 Wer also in NRW wohnt, darf gerne seine Abgeordneten hierzu kontaktieren.
+
+**Nachtrag:** Wenige Tage nach meiner Anfrage erhielt ich Auskunft von der LDI.
+Dort verweist die Behörde darauf, dass „der Adresshandel vor Inkrafttreten der Datenschutzgrundverordnung (DS-GVO) in dem vom Bundesdatenschutzgesetz (BDSG) konkretisierten Umfang zulässig“ war.
+Obwohl diese Zulässigkeit nunmehr im Rahmen der DSGVO umstritten sei, beruft sich die LDI darauf, „dass die alte Regelung des BDSG ein berechtigtes Interesse an Werbung konkretisiert hatte und diese damalige gesetzliche Wertung zur Auslegung des berechtigten Interesses nach der DS-GVO weiterhin herangezogen werden kann“.
+In anderen Worten also: „Das haben wir schon immer so gemacht.“
