@@ -33,6 +33,12 @@ conferences:
     location: Brühl, Deutschland
     link: "https://shop.doag.org/javaland/2022/agenda/"
     slides: "https://speakerdeck.com/larsrh/was-ist-neu-in-scala-3"
+  - conference: "Karlsruher Entwicklertag"
+    year: 2022
+    date: "17. Mai"
+    location: Karlsruhe, Deutschland
+    link: "https://www.entwicklertag.de/karlsruhe/2022/conference_day.html"
+    slides: "https://speakerdeck.com/larsrh/was-ist-neu-in-scala-3"
 ---
 
 ## Code-Beispiele

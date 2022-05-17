@@ -12,13 +12,6 @@ slides:
   length: 48
 video: { yt: "nGh-UdLbgfk" }
 conferences:
-  - conference: "INNOQ Technology Lunch"
-    link: "https://www.meetup.com/INNOQ-Technology-Lunch/events/285539947"
-    year: 2022
-    date: "11. Mai"
-    slides: "https://speakerdeck.com/larsrh/was-macht-eigentlich-ein-bundler"
-    location: Online
-    recording: "https://www.youtube.com/watch?v=nGh-UdLbgfk"
   - conference: "Code Days"
     link: "https://www.code-days.de/code-days-2022/"
     recording: "https://www.youtube.com/watch?v=5WRbvAv-FBI"
@@ -26,6 +19,19 @@ conferences:
     year: 2022
     date: "2. Februar"
     location: Online
+  - conference: "INNOQ Technology Lunch"
+    link: "https://www.meetup.com/INNOQ-Technology-Lunch/events/285539947"
+    year: 2022
+    date: "11. Mai"
+    slides: "https://speakerdeck.com/larsrh/was-macht-eigentlich-ein-bundler"
+    location: Online
+    recording: "https://www.youtube.com/watch?v=nGh-UdLbgfk"
+  - conference: "Karlsruher Entwicklertag"
+    year: 2022
+    date: "17. Mai"
+    location: Karlsruhe, Deutschland
+    link: "https://www.entwicklertag.de/karlsruhe/2022/conference_day.html"
+    slides: "https://speakerdeck.com/larsrh/was-macht-eigentlich-ein-bundler"
 ---
 
 ## Ressourcen
