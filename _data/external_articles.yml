@@ -373,10 +373,16 @@
   journal: "c't"
   abstract: "Genau wie das persönliche Surfverhalten sind die Einkaufsgewohnheiten eines Menschen sehr aufschlussreich – wenn man es schafft, die unhandlichen Daten zu analysieren. Wer so einen Datenschatz im Selbstversuch auswertet, bekommt Einblicke ins eigene Einkaufsverhalten, Erfahrung in der Analyse von Daten und obendrein ein unterhaltsames Programmierprojekt."
   lang: de
-  url: "https://www.heise.de/select/ct/2022/9/2206114520121740477"
+  url: "https://www.heise.de/ratgeber/Mit-Python-und-Pandas-die-eigenen-Einkaufsdaten-analysieren-6668748.html"
 - pub_date: 2022-04-22
   title: "TypeScript – Taming the Complexity of JavaScript"
   journal: "INNOQ"
   abstract: "TypeScript celebrates its tenth anniversary in 2022. A good reason to look back at its beginnings – and to provide beginners with everything they need to know for working with this programming language. "
   lang: en
   url: "https://www.innoq.com/en/articles/2022/04/typescript-komplexitaet-baendigen/"
+- pub_date: 2022-05-07
+  title: "Marktanalyse: Supermarkt-Apps und -APIs seziert"
+  journal: "c't"
+  abstract: "Viele Webdienste bieten interessante Datenquellen, halten damit aber hinterm Berg. Wer weiß, wie’s geht, kann jedoch auch undokumentierte Quellen finden und mit Python anzapfen. Im zweiten Teil unserer Inspektion der eigenen Einkaufsdaten erforschen wir die APIs des Supermarktes anhand von Browser- und App-Analysen."
+  lang: de
+  url: "https://www.heise.de/ratgeber/Python-Reverse-Engineering-von-Supermarkt-Apps-7081446.html"
