@@ -386,3 +386,9 @@
   abstract: "Viele Webdienste bieten interessante Datenquellen, halten damit aber hinterm Berg. Wer weiß, wie’s geht, kann jedoch auch undokumentierte Quellen finden und mit Python anzapfen. Im zweiten Teil unserer Inspektion der eigenen Einkaufsdaten erforschen wir die APIs des Supermarktes anhand von Browser- und App-Analysen."
   lang: de
   url: "https://www.heise.de/ratgeber/Python-Reverse-Engineering-von-Supermarkt-Apps-7081446.html"
+- pub_date: 2022-05-19
+  title: "Customer-specific documentation with Jekyll"
+  journal: "INNOQ"
+  abstract: "Static site generation is a perfect fit for publishing documentation. In a recent project, we chose to use Jekyll for rendering our content. As a special requirement, we had to build different “flavours” for different customers."
+  lang: en
+  url: "https://www.innoq.com/en/blog/customer-specific-documentation-with-jekyll/"
