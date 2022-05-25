@@ -12,6 +12,13 @@ slides:
   length: 39
 video: { yt: "tkbtJM5LgBg" }
 conferences:
+  - conference: "INNOQ Technology Lunch"
+    link: "https://www.meetup.com/INNOQ-Technology-Lunch/events/285857259/"
+    year: 2022
+    date: "25. Mai"
+    slides: "https://speakerdeck.com/larsrh/hilfe-wir-syncen"
+    recording: "https://www.youtube.com/watch?v=afoMdKedHR4"
+    location: Online
   - conference: "OOP"
     link: "https://www.oop-konferenz.de/oop-2022/programm/konferenzprogramm"
     year: 2022
