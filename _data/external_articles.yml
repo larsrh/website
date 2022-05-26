@@ -392,3 +392,9 @@
   abstract: "Static site generation is a perfect fit for publishing documentation. In a recent project, we chose to use Jekyll for rendering our content. As a special requirement, we had to build different “flavours” for different customers."
   lang: en
   url: "https://www.innoq.com/en/blog/customer-specific-documentation-with-jekyll/"
+- pub_date: 2022-05-26
+  title: "Rich code documentation with Jekyll"
+  journal: "INNOQ"
+  abstract: "Static site generation is a perfect fit for publishing documentation. In a recent project, we chose to use a combination of Jekyll and NGINX to build and host the documentation. In this post, I show how to process and include other types of assets."
+  lang: en
+  url: "https://www.innoq.com/en/blog/rich-code-documentation-with-jekyll/"
