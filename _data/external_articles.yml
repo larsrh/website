@@ -373,7 +373,7 @@
   journal: "c't"
   abstract: "Genau wie das persönliche Surfverhalten sind die Einkaufsgewohnheiten eines Menschen sehr aufschlussreich – wenn man es schafft, die unhandlichen Daten zu analysieren. Wer so einen Datenschatz im Selbstversuch auswertet, bekommt Einblicke ins eigene Einkaufsverhalten, Erfahrung in der Analyse von Daten und obendrein ein unterhaltsames Programmierprojekt."
   lang: de
-  url: "https://www.heise.de/ratgeber/Mit-Python-und-Pandas-die-eigenen-Einkaufsdaten-analysieren-6668748.html"
+  url: "https://www.innoq.com/de/articles/2022/05/gemischtdatenladen/"
 - pub_date: 2022-04-22
   title: "TypeScript – Taming the Complexity of JavaScript"
   journal: "INNOQ"
