@@ -1,1 +1,1 @@
-html5validator==0.4.0
+html5validator==0.4.2
