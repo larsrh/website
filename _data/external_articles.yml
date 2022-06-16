@@ -398,3 +398,9 @@
   abstract: "Static site generation is a perfect fit for publishing documentation. In a recent project, we chose to use a combination of Jekyll and NGINX to build and host the documentation. In this post, I show how to process and include other types of assets."
   lang: en
   url: "https://www.innoq.com/en/blog/rich-code-documentation-with-jekyll/"
+- pub_date: 2022-06-15
+  title: "Dependently-Typed TypeScript"
+  journal: "INNOQ"
+  abstract: "TypeScript is a programming language with some special features: Unlike most other typed programming languages, it was developed as an add-on for JavaScript (JS). In the process, Microsoft has placed great value on ensuring that the language integrates as seamlessly as possible into the existing ecosystems (Node.js and browser). TypeScript’s syntax “merely” adds types to JavaScript, while the compilation “merely” removes the type annotations. This has made TypeScript the de-facto standard for building type-safe JS-based applications."
+  lang: en
+  url: "https://www.innoq.com/en/articles/2022/06/dependently-typed-typescript/"
