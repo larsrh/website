@@ -9,10 +9,6 @@ updates:
   allow:
   - dependency-type: direct
   - dependency-type: indirect
-  ignore:
-  - dependency-name: ethon
-    versions:
-    - 0.13.0
 - package-ecosystem: pip
   directory: "/"
   schedule:
