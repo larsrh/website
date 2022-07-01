@@ -385,7 +385,7 @@
   journal: "c't"
   abstract: "Viele Webdienste bieten interessante Datenquellen, halten damit aber hinterm Berg. Wer weiß, wie’s geht, kann jedoch auch undokumentierte Quellen finden und mit Python anzapfen. Im zweiten Teil unserer Inspektion der eigenen Einkaufsdaten erforschen wir die APIs des Supermarktes anhand von Browser- und App-Analysen."
   lang: de
-  url: "https://www.heise.de/ratgeber/Python-Reverse-Engineering-von-Supermarkt-Apps-7081446.html"
+  url: "https://www.innoq.com/de/articles/2022/06/marktanalyse/"
 - pub_date: 2022-05-19
   title: "Customer-specific documentation with Jekyll"
   journal: "INNOQ"
@@ -404,3 +404,9 @@
   abstract: "TypeScript is a programming language with some special features: Unlike most other typed programming languages, it was developed as an add-on for JavaScript (JS). In the process, Microsoft has placed great value on ensuring that the language integrates as seamlessly as possible into the existing ecosystems (Node.js and browser). TypeScript’s syntax “merely” adds types to JavaScript, while the compilation “merely” removes the type annotations. This has made TypeScript the de-facto standard for building type-safe JS-based applications."
   lang: en
   url: "https://www.innoq.com/en/articles/2022/06/dependently-typed-typescript/"
+- pub_date: 2022-06-29
+  title: "We Are Developers World Congress 2022 in Berlin: Our Experience Report"
+  journal: "INNOQ"
+  abstract: "Our colleagues were on site, staffing the booth, speaking with fellow developers, and delivering two talks."
+  lang: en
+  url: "https://www.innoq.com/en/blog/we-are-developers-world-congress-2022-berlin/"
