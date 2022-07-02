@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
 
     steps:
     - uses: actions/checkout@v2
@@ -20,7 +20,7 @@ jobs:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 3.0.1
+        ruby-version: 3.1.2
     - name: Install Ruby dependencies
       run: bundle install
     - name: Build site
@@ -44,6 +44,6 @@ jobs:
       with:
         node-version: '12'
     - name: Install pa11y-ci
-      run: npm install -g pa11y-ci@2.4.0
+      run: npm install -g pa11y-ci@3.0.1
     - name: Run pa11y-ci
       run: find ./_site/ -name "*.html" | xargs pa11y-ci
