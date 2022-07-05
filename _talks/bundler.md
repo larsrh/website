@@ -32,6 +32,12 @@ conferences:
     location: Karlsruhe, Deutschland
     link: "https://www.entwicklertag.de/karlsruhe/2022/conference_day.html"
     slides: "https://speakerdeck.com/larsrh/was-macht-eigentlich-ein-bundler"
+  - conference: "Developer Week"
+    year: 2022
+    date: "6. Juli"
+    location: Nürnberg, Deutschland
+    link: "https://www.developer-week.de/"
+    slides: "https://speakerdeck.com/larsrh/was-macht-eigentlich-ein-bundler"
 ---
 
 ## Ressourcen
