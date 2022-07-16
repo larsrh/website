@@ -131,6 +131,16 @@ Dachte ich mir zumindest in meinem jugendlichen Leichtsinn.
 Offensichtlich sind ERP-Systeme schwer in den Griff zu kriegen, denn Vodafone Kabel Deutschland schwört Stein und Bein, noch nie im Leben von mir gehört zu haben.
 Eingabe ist raus, nun befasst sich das _Bayerisches Landesamt für Datenschutzaufsicht_ mit der Causa.
 
+**Nachtrag (Juli 2022):** Nach über einem Jahr hat das BayLDA meine Beschwerde beschieden.
+Die Behörde hat festgestellt, dass Vodafone Kabel Deutschland sich in meinem Fall nicht an die in der DSGVO beschriebenen Fristen gehalten habe.
+Deswegen wurden sie „nachdrücklich dazu angehalten […] die datenschutzkonforme Bearbeitung […] in der Zukunft zu gewährleisten“.
+Dies bezieht sich allerdings nicht auf den inhaltlichen Teil meiner Beschwerde, sondern lediglich um die Form bzw. Dauer der Antwort auf meine Auskunftsanfrage.
+
+Inhaltlich hat Vodafone Kabel Deutschland auf Anfrage der Ansbacher Behörde mitgeteilt, dass eine Weitergabe von Acxiom „nicht ausgeschlossen werden könne“, die Daten jedoch „alle 3 Monate gelöscht“ würden.
+Daraus hat Vodafone Kabel Deutschland eine Erklärung konstruiert, wodurch die Negativauskunft gerechtfertigt sei, denn die Übermittlung von Acxiom hätte schließlich in einem Zweijahreszeitraum erfolgt sein können.
+Zwei Jahre sind aber wesentlich länger als drei Monate.
+Die Datenschutzbehörde folgt dieser hanebüchenen Erklärung und erklärt den Fall damit für erledigt.
+
 ## Spur 3: AZ Direct
 
 Das Unternehmen AZ Direct ist mir an zwei Stellen untergekommen:
@@ -187,7 +197,7 @@ Allen EU-Bürger:innen kann ich trotzdem dazu raten, zu versuchen, die eigenen R
 Die Webseite [Datenanfragen.de bietet hierzu einen praktischen Generator](https://www.datenanfragen.de/generator/), zusammen mit einer großen Datenbank von Unternehmen.
 Anfragen kann man routinemäßig bei den großen Auskunfteien stellen, oder aber anlassbezogen und punktuell.
 
-**Nachtrag:** Im Oktober 2021 hat [noyb Beschwerde gegen Acxiom und CRIF Bürgel](https://noyb.eu/de/rechtswidrige-kreditscores-noyb-bringt-weitere-beschwerde-ein) eingereicht.
+**Nachtrag (Oktober 2021):** Im Oktober 2021 hat [noyb Beschwerde gegen Acxiom und CRIF Bürgel](https://noyb.eu/de/rechtswidrige-kreditscores-noyb-bringt-weitere-beschwerde-ein) eingereicht.
 Nach Auffassung der Datenschutz-NGO verstößt – so wörtlich – „der Datenhandel zwischen diesen Unternehmen mit personenbezogenen Daten von Millionen Deutschen gegen die DSGVO sowie nationales Datenschutzrecht“.
 Folgen die Behörden der Argumentation, so dürfte CRIF Bürgel künftig keine Daten, die dem Direktmarketing entstammen, für Kreditscores heranziehen (wie z.B. von Acxiom).
 Möglicherweise ist dadurch auch Arvato Infoscore betroffen; dies kann ich als juristischer Laie aber nicht beantworten.
