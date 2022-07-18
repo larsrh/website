@@ -48,7 +48,7 @@ It was the first proper talk I gave in English.
 * February: [Northeast Scala Symposium](https://nescala.io/2013/), Philadelphia, US
 * April: Mathema Campus, Erlangen, Germany
 * July: [Fourth Annual Scala Workshop](http://lampwww.epfl.ch/~hmiller/scala2013/), co-located with [ECOOP](https://www.lirmm.fr/ecoop13/), Montpellier, France
-* October: [scala.io](https://scala.io/2013/), Paris, France
+* October: [scala.io](https://web.archive.org/web/20201202145732/https://scala.io/2013/), Paris, France
 
 ## 2014
 
@@ -61,7 +61,7 @@ So far, this was the only keynote I ever gave.
 * May: [flatMap(Oslo)](http://2014.flatmap.no/), Oslo, Norway
 * July: [Conferences on Intelligent Computer Mathematics](https://cicm-conference.org/2014/cicm.php), Coimbra, Portugal
 * September: [International Conference on Functional Programming](http://icfpconference.org/icfp2014/), Gothenburg, Sweden
-* October: [scala.io](https://scala.io/2014/), Paris, France
+* October: [scala.io](https://web.archive.org/web/20201202150406/https://scala.io/2014/), Paris, France
 * December: [Scala eXchange](https://skillsmatter.com/conferences/1948-scala-exchange-2014), London, UK
 
 ## 2015
@@ -72,7 +72,7 @@ I had already visited the year before for a week.
 
 * February: [Lambda Days](https://www.lambdadays.org/lambdadays2015), Krakow, Poland
 * April: [flatMap(Oslo)](http://2015.flatmap.no/), Oslo, Norway
-* June: [International Symposium on Formal Methods](http://fm2015.ifi.uio.no/), Oslo, Norway
+* June: [International Symposium on Formal Methods](https://web.archive.org/web/20220127091633/http://fm2015.ifi.uio.no/), Oslo, Norway
 * September: Scala World, Penrith, UK
 * October: [Haskell eXchange](https://skillsmatter.com/conferences/7069-haskell-exchange-2015), London, UK
 * October: Haskell World, Cádiz, Spain

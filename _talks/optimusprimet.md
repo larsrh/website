@@ -28,7 +28,6 @@ conferences:
     year: 2014
     date: October 24th
     location: Paris, France
-    link: "https://scala.io/2014/talks.html#/#BGS-827"
     slides: "https://speakerdeck.com/larsrh/optimusprimet"
     recording: "https://www.youtube.com/watch?v=lN5viUFz21U"
 ---

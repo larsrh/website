@@ -5,7 +5,7 @@ pub_date: 2010-09-22
 abstract: |
   In der letzten Ausgabe des KaffeeKlatsch wurde eine Kombination aus Subversion, Mantis und CheckStyle vorgestellt.
   Dem ein oder anderen Leser beschlich beim Lesen des Wortes _Subversion_ vielleicht ein seltsames Gefühl: Schreiben wir nicht das Jahr 2010? Der folgende Artikel hat sich zum Ziel gesetzt, die gängigen Vorbehalte gegenüber moderneren Tools zu zerstreuen und eine Umstellung, weg von Subversion, zu motivieren.
-  (Dieser Artikel erschien ursprünglich im [KaffeeKlatsch 09/2010](https://www.bookware.de/kaffeeklatsch/archiv/KaffeeKlatsch-2010-09.pdf).)
+  (Dieser Artikel erschien ursprünglich im KaffeeKlatsch 09/2010.)
 lang: de
 ---
 

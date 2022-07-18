@@ -6,7 +6,7 @@ abstract: |
   Was unter Historikern verpönt ist, ist mit Git ganz einfach:
   Die Geschichte eines Projekts im Nachhinein ändern.
   Welche Möglichkeiten es da gibt, soll in diesem Artikel kurz vorgestellt werden.
-  (Dieser Artikel erschien ursprünglich im [KaffeeKlatsch 09/2011](https://www.bookware.de/kaffeeklatsch/archiv/KaffeeKlatsch-2011-09.pdf).)
+  (Dieser Artikel erschien ursprünglich im KaffeeKlatsch 09/2011.)
 lang: de
 ---
 
