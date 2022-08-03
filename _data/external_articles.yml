@@ -410,3 +410,11 @@
   abstract: "Our colleagues were on site, staffing the booth, speaking with fellow developers, and delivering two talks."
   lang: en
   url: "https://www.innoq.com/en/blog/we-are-developers-world-congress-2022-berlin/"
+- pub_date: 2022-08-01
+  title: "Dokumentation technisch umsetzen. Das Tooling macht‘s aus"
+  journal: "INNOQ-Podcast"
+  abstract: "„Selbst eine Word-Doku ist besser als gar keine Doku“ – Dokumentation von Software ist oft ein leidiges Thema mit noch leidigeren Werkzeugen. Lucas und Lars schauen sich in dieser Folge mal die vorhandenen Tools und Formate zur technischen Umsetzung einer guten Softwaredokumentation an. Damit am Ende niemand mehr sagen kann: „es gibt keine Doku, weil die Tools nerven“."
+  lang: de
+  url: "https://www.innoq.com/de/podcast/109-dokumentation-technisch-umsetzen/"
+  type: "podcast"
+  
