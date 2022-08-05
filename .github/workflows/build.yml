@@ -26,7 +26,7 @@ jobs:
     - name: Build site
       run: bundle exec jekyll build
     - name: Run htmlproofer
-      run: bundle exec htmlproofer --disable-external --enforce-https=false ./_site
+      run: bundle exec htmlproofer --disable-external=true --enforce-https=false ./_site
 
     - name: Set up Python
       uses: actions/setup-python@v2
