@@ -34,3 +34,9 @@
   recording: "https://www.youtube.com/watch?v=oSditqgIf6w"
   slides: "https://speakerdeck.com/larsrh/typelevels-path-to-scala-3"
   year: 2021
+- title: Advanced Typing in TypeScript
+  conference: "We Are Developers World Congress"
+  link: "https://www.wearedevelopers.com/world-congress/"
+  recording: "https://www.youtube.com/watch?v=vtfzCLVxbFc"
+  slides: "https://speakerdeck.com/larsrh/advanced-typing-in-typescript"
+  year: 2022
