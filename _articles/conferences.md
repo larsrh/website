@@ -147,5 +147,9 @@ After that, all online.
 * January: [OOP](https://www.oop-konferenz.de/oop-2022/)
 * February: [Code Days](https://www.code-days.de/code-days-2022/)
 * March: [JavaLand](https://www.javaland.eu/), Brühl, Germany
+* June: [WeAreDevelopers World Congress](https://www.wearedevelopers.com/world-congress/), Berlin, Germany
+* June: [CloudLand](https://www.cloudland.org/de/cloudland-2022/), Brühl, Germany
+* July: [Developer Week](https://www.developer-week.de/), Nuremberg, Germany
+* September: [Africa Money and DeFi Summit](https://africamoneydefisummit.com/), Accra, Ghana
 
 To be continued.

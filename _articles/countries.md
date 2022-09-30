@@ -21,6 +21,7 @@ I only count proper “stays”, e.g. layovers are not included.
 1. Canada
    * British Columbia
    * Yukon Territory
+1. Croatia
 1. Czech Republic
 1. Denmark
 1. France
@@ -39,6 +40,7 @@ I only count proper “stays”, e.g. layovers are not included.
 1. Portugal
 1. Republic of Ireland
 1. Slovakia
+1. Slovenia
 1. Spain
 1. Sweden
 1. Switzerland
