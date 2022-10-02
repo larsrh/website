@@ -202,6 +202,14 @@ Nach Auffassung der Datenschutz-NGO verstößt – so wörtlich – „der Daten
 Folgen die Behörden der Argumentation, so dürfte CRIF Bürgel künftig keine Daten, die dem Direktmarketing entstammen, für Kreditscores heranziehen (wie z.B. von Acxiom).
 Möglicherweise ist dadurch auch Arvato Infoscore betroffen; dies kann ich als juristischer Laie aber nicht beantworten.
 
+**Nachtrag (September 2022):** Die Berliner Datenschutzbeauftragte teilt in Bezug auf meine Beschwerde über Kapitaxx Ltd mit:
+
+> Die von Ihnen geschilderte Problematik (Fingieren von Einwilligungserklärungen via Gewinnspielen) ist bereits Anlass umfassender Prüfungen bei Verantwortlichen, die ihren Sitz in Berlin haben und die zum Teil in Verbindung mit der Kapitaxx Ltd stehen.
+> […]
+> Es spricht vieles dafür, dass die stattgefundene Verarbeitung Ihrer Daten rechtswidrig war.
+> Da die Kapitaxx Ltd jedoch ihren Hauptsitz in Großbritannien hat, bestehen für uns […] keine wirksamen Maßnahmen zur Durchsetzung bzw. Vollstreckung.
+> Aktuell führen wir allerdings weitere Beschwerdeverfahren gegenüber einem Verantwortlichen in Berlin […] gegen den wir nach erfolgter Prüfung entsprechende aufsichtsrechtliche Maßnahmen treffen werden.
+
 [^footnote-mobil]: Ferner war noch ein legitimer Datenlieferant angegeben: mein Mobilfunkprovider.
 [^footnote-folter]: Folter lehne ich grundsätzlich strengstens ab, außer es handelt sich um Kapitalgesellschaften, bei denen ich dazu rate.
 [^footnote-fl]: Übermittlung vermutlich per Alphorn.
