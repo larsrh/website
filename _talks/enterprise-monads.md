@@ -21,7 +21,7 @@ conferences:
     year: 2021
     date: Nov 3rd
     location: Online
-    link: "http://www.scalacon.org/talks/"
+    link: "http://www.scalacon.org/"
     slides: "https://speakerdeck.com/larsrh/typelevel-the-past-the-present-the-future"
     recording: "https://www.youtube.com/watch?v=aEYxduckcxg"
 

@@ -139,7 +139,7 @@ After that, all online.
 * May: [YOW! Lambda Jam](https://yowconference.com/lambdajam/)
 * November: [ScalaCon](https://www.scalacon.org/)
 * November: [Digitale Leute Summit](https://www.digitale-leute.de/summit/21/), Cologne, Germany
-* December: [INNOQ Technology Day](https://technologyday.innoq.com/)
+* December: [INNOQ Technology Day](https://technologyday.innoq.com/2021)
 * December: [IT-Tage](https://www.ittage.informatik-aktuell.de/)
 
 ## 2022
