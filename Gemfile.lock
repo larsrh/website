@@ -141,7 +141,6 @@ DEPENDENCIES
   jekyll-last-modified-at
   jekyll-sitemap
   jekyll-toc
-  webrick
 
 BUNDLED WITH
    2.3.22
