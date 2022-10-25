@@ -374,6 +374,10 @@
   abstract: "Genau wie das persönliche Surfverhalten sind die Einkaufsgewohnheiten eines Menschen sehr aufschlussreich – wenn man es schafft, die unhandlichen Daten zu analysieren. Wer so einen Datenschatz im Selbstversuch auswertet, bekommt Einblicke ins eigene Einkaufsverhalten, Erfahrung in der Analyse von Daten und obendrein ein unterhaltsames Programmierprojekt."
   lang: de
   url: "https://www.innoq.com/de/articles/2022/05/gemischtdatenladen/"
+  hero:
+    src: "img/groceries.jpg"
+    alt: "A wide variety of vegetables in a grocery store"
+    credits: "nrd/Unsplash"
 - pub_date: 2022-04-22
   title: "TypeScript – Taming the Complexity of JavaScript"
   journal: "INNOQ"
@@ -386,6 +390,10 @@
   abstract: "Viele Webdienste bieten interessante Datenquellen, halten damit aber hinterm Berg. Wer weiß, wie’s geht, kann jedoch auch undokumentierte Quellen finden und mit Python anzapfen. Im zweiten Teil unserer Inspektion der eigenen Einkaufsdaten erforschen wir die APIs des Supermarktes anhand von Browser- und App-Analysen."
   lang: de
   url: "https://www.innoq.com/de/articles/2022/06/marktanalyse/"
+  hero:
+    src: "img/groceries.jpg"
+    alt: "A wide variety of vegetables in a grocery store"
+    credits: "nrd/Unsplash"
 - pub_date: 2022-05-19
   title: "Customer-specific documentation with Jekyll"
   journal: "INNOQ"
@@ -417,4 +425,13 @@
   lang: de
   url: "https://www.innoq.com/de/podcast/109-dokumentation-technisch-umsetzen/"
   type: "podcast"
-  
+- pub_date: 2022-10-21
+  title: "Blaupausen: Wie Objekte in JavaScript funktionieren"
+  journal: "c't"
+  abstract: "JavaScripts Art der Objektorientierung ist anders als die anderer Sprachen. Daran hat auch die Einführung von Klassen nichts geändert, obwohl es auf den ersten Blick so aussehen mag. So funktioniert das ungewöhnliche System."
+  lang: de
+  url: "https://www.heise.de/select/ct/2022/23/2222011521641800458"
+  hero:
+    src: "img/blueprint.jpg"
+    alt: "Blueprints"
+    credits: "xresch/Pixabay"
