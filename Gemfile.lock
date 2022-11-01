@@ -129,7 +129,7 @@ GEM
     unicode-display_width (2.3.0)
     webrick (1.7.0)
     yell (2.2.2)
-    zeitwerk (2.6.1)
+    zeitwerk (2.6.3)
 
 PLATFORMS
   ruby
