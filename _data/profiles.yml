@@ -10,6 +10,9 @@
 - name: Twitter
   icon: 🐦
   link: "https://twitter.com/larsr_h"
+- name: Mastodon
+  icon: 🐘
+  link: "https://mastodon.social/@larsrh"
 - name: Instagram
   icon: 📷
   link: "https://instagram.com/larsr_h"

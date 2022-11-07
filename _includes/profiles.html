@@ -1,5 +1,5 @@
 <ul style="list-style-type: none; margin: 0; padding: 0;">
   {% for profile in site.data.profiles %}
-    <li>{{ profile.icon }} <a href="{{ profile.link }}">{{ profile.name }}</a></li>
+    <li>{{ profile.icon }} <a href="{{ profile.link }}" rel="me">{{ profile.name }}</a></li>
   {% endfor %}
 </ul>
