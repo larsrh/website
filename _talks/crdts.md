@@ -48,3 +48,5 @@ Zum gleichen Thema haben wir einen [Podcast](https://www.innoq.com/de/podcast/09
 Außerdem wurden wir von Lisa Maria Moritz [auf der OOP interviewed](https://software-architektur.tv/2022/02/01/folge105.html).
 
 Eine [Einführung in die mathematischen Grundlagen von CRDTs]({% link topics/crdt/01-intro.md %}) mit JavaScript-Playground ist auf meiner Webseite verfügbar.
+
+Jörg Stroisch von der Konferenz „Digitale Leute“ hat eine [Zusammenfassung des Vortrags geschrieben](https://www.digitale-leute.de/interview/wie-man-konfliktfrei-daten-auf-unterschiedlichen-endgeraeten-nutzt/).
