@@ -37,6 +37,7 @@ conferences:
     year: 2021
     date: "16. November"
     slides: "https://speakerdeck.com/larsrh/hilfe-wir-syncen"
+    recording: "https://www.youtube.com/watch?v=2ogTGcBG5tk"
     location: Köln, Deutschland
 ---
 
