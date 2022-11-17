@@ -430,7 +430,7 @@
   journal: "c't"
   abstract: "JavaScripts Art der Objektorientierung ist anders als die anderer Sprachen. Daran hat auch die Einführung von Klassen nichts geändert, obwohl es auf den ersten Blick so aussehen mag. So funktioniert das ungewöhnliche System."
   lang: de
-  url: "https://www.heise.de/select/ct/2022/23/2222011521641800458"
+  url: "https://www.innoq.com/de/articles/2022/11/blaupausen/"
   hero:
     src: "img/blueprint.jpg"
     alt: "Blueprints"
