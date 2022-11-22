@@ -435,3 +435,10 @@
     src: "img/blueprint.jpg"
     alt: "Blueprints"
     credits: "xresch/Pixabay"
+- pub_date: 2022-11-22
+  title: "Parsen statt validieren? Der Leserbrief"
+  journal: "INNOQ-Security-Podcast"
+  abstract: "Bei der Absicherung von Web-Anwendungen sind Input Validation und Output-Encoding Pflicht. Aber geht das noch besser? Lars meint ja und hat kurzerhand einen Leserbrief geschrieben. Seine These: Parsing ist das bessere Validieren. Wie das funktioniert, was Parsing anders macht und ob sich die Methoden am Ende sogar ergänzen, darum geht’s in dieser Folge des Security-Podcasts."
+  lang: de
+  url: "https://www.innoq.com/de/podcast/022-parsen-statt-validieren/"
+  type: "podcast"
