@@ -105,7 +105,7 @@ GEM
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     posix-spawn (0.3.15)
-    public_suffix (5.0.0)
+    public_suffix (5.0.1)
     racc (1.6.1)
     rack (2.2.4)
     rainbow (3.1.1)
