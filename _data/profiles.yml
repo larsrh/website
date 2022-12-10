@@ -1,6 +1,3 @@
-- name: INNOQ
-  icon: 💼
-  link: "https://www.innoq.com/en/staff/lars-hupel/"
 - name: Google Scholar
   icon: 🎓
   link: "https://scholar.google.com/citations?user=VdxLaDEAAAAJ"
@@ -19,9 +16,6 @@
 - name: Speaker Deck
   icon: 🎙️
   link: "https://speakerdeck.com/larsrh"
-- name: XING
-  icon: 👔
-  link: "https://www.xing.com/profile/Lars_Hupel"
 - name: LinkedIn
   icon: 🕴️
   link: "https://www.linkedin.com/in/lars-hupel"
