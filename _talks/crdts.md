@@ -50,3 +50,5 @@ Außerdem wurden wir von Lisa Maria Moritz [auf der OOP interviewed](https://sof
 Eine [Einführung in die mathematischen Grundlagen von CRDTs]({% link topics/crdt/01-intro.md %}) mit JavaScript-Playground ist auf meiner Webseite verfügbar.
 
 Jörg Stroisch von der Konferenz „Digitale Leute“ hat eine [Zusammenfassung des Vortrags geschrieben](https://www.digitale-leute.de/interview/wie-man-konfliktfrei-daten-auf-unterschiedlichen-endgeraeten-nutzt/).
+
+Eine englische Version des Talks haben wir unter dem Titel „Mayday, We're Syncing!“ auf dem [iSAQB Software Architecture Gathering 2022](https://skillsmatter.com/skillscasts/18210-mayday-we-re-syncing) gegeben.
