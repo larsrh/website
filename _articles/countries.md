@@ -39,6 +39,7 @@ I only count proper “stays”, e.g. layovers are not included.
 1. Poland
 1. Portugal
 1. Republic of Ireland
+1. Rwanda
 1. Slovakia
 1. Slovenia
 1. Spain
