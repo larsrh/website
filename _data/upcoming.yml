@@ -1,0 +1,20 @@
+- conference: "ITU DC³"
+  date: 2023-01-27
+  location: Online
+  link: "https://www.itu.int/en/ITU-T/Workshops-and-Seminars/2023/0124/Pages/default.aspx"
+- conference: "BOB"
+  date: 2023-03-17
+  location: Berlin, Germany
+  link: "https://bobkonf.de/2023/en/"
+- conference: "JAX"
+  date: 2023-05-09
+  location: Mainz, Germany
+  link: "https://jax.de/core-java-jvm-languages/eigenschaftsbasiertes-testen/"
+- conference: "DevDays Europe"
+  date: 2023-05-25
+  location: Vilnius, Lithuania
+  link: "https://devdays.lt/"
+- conference: "GOTO Amsterdam"
+  date: 2023-06-28
+  location: Amsterdam, Netherlands
+  link: "https://gotoams.nl/2023/sessions/2468/digital-cash-what-it-is-and-how-it-works"

@@ -1,0 +1,7 @@
+<ul>
+  {% for upcoming in site.data.upcoming %}
+    <li>
+      {% include date.html date=upcoming.date %} <a href="{{ upcoming.link }}">{{ upcoming.conference }}</a>, {{ upcoming.location }}</li>
+    </li>
+  {% endfor %}
+</ul>
