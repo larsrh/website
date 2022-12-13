@@ -442,3 +442,13 @@
   lang: de
   url: "https://www.innoq.com/de/podcast/022-parsen-statt-validieren/"
   type: "podcast"
+- pub_date: 2022-12-01
+  title: "Transaction validation and privacy implications"
+  journal: "IPEN Webinar on central bank digital currency"
+  abstract: "CBDC in the world opened a huge discussion about the role of the different stakeholders intervening in the validation of transactions of a digital currency when a payment is operated. According to different design choices, different validation mechanisms can be used. How a transaction can be validated and by which actor if a distributed architecture is chosen instead of a centralized one? What is the difference between a bearer-based and an account-based solution is implemented? Moreover, in case the amount of digital currency in circulation is limited via a threshold or a tier approach, how those requirements can be technically enforced while respecting privacy of the different parties involved in the transaction? And what about in case of offline systems that involves secure hardware solutions? How to avoid the possibility to “create money” and/or fake transactions?  In particular, the panel will analyze in depth the privacy implications and the maturity of the privacy enhancing technologies that can support these processing operations."
+  url: "https://edps.europa.eu/press-publications/press-news/videos/ipen-webinar-central-bank-digital-currency-panel-1-transaction-validation-and-privacy-implications_en"
+  type: "podcast"
+  hero:
+    src: "img/ipen.jpg"
+    alt: "Headshot of me with the quote: “In order to be widely accepted, a CBDC must protect the privacy of users while still fulfilling government compliance requirements. G+D Filia is designed to be a secure and trusted CBDC.”"
+    credits: "G+D"
