@@ -12,7 +12,7 @@ abstract: |
 slides:
   file: "slides"
   length: 18
-video: { yt: "ojTP3iCpmDE" }
+video: { id: "ojTP3iCpmDE" }
 conferences:
   - conference: "INNOQ Technology Lunch"
     date: 2021-08-11

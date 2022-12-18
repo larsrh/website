@@ -53,9 +53,17 @@ Special thanks to my dear colleagues [Lucas Dohmen](https://lucas.dohmen.io/) an
 
 ## Cookies and stuff
 
+<div class="hyphenate" markdown="1">
+
 This page does not store cookies.
 If you find one, it's a bug, and I'd appreciate if you'd let me know.
-Some embeds (like YouTube) pull in third-party JavaScript, but I've used the non-tracking embed codes where possible.
+
+To show my talk recordings, I rely on third-party embeds from YouTube and Vimeo.
+To prevent non-consensual tracking as far as possible, these iframes are “hidden” behind a button.
+If you want to see the video, click on the button and your browser will load the iframe.
+Note that I've used the non-tracking embed codes, yet YouTube and/or Vimeo may still track you; this is beyond my control.
+My website doesn't remember whether you've clicked the button or not, which means that you'll have to click it again every time you encounter one (or not, if you're not interested in the video).
+This also saves a lot of bandwith, since the third-party iframes pull in a lot of JavaScript.
 
 Also, I don't use any kind of analytics.
 This page is hosted on Netlify (most content) and Manitu (some large static assets).
@@ -65,11 +73,13 @@ Both hosting providers may or may not process logs on their servers; see [Netlif
 I have signed Data Processing Agreements with [both](https://www.netlify.com/gdpr-ccpa) [providers](https://www.manitu.de/unternehmen/eu-datenschutz-grundverordnung-dsgvo/).
 Note that I have disabled logging of IP addresses where possible.
 
+</div>
+
 ## Impressum
 
 The following block contains legal information in German.
 
-<details lang="de" markdown="1">
+<details lang="de" class="hyphenate" markdown="1">
   <summary>Impressum ⚖️</summary>
 
 ### Angaben gemäß § 5 TMG

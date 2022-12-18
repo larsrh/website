@@ -9,7 +9,7 @@ abstract: |
 slides:
   file: "slides"
   length: 67
-video: { yt: "teX3orA5zWI" }
+video: { id: "teX3orA5zWI" }
 conferences:
   - conference: "CloudLand"
     link: "https://shop.doag.org/events/cloudland/2022/agenda/"

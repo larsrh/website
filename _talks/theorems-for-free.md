@@ -8,7 +8,7 @@ abstract: |
 slides:
   file: "slides"
   length: 55
-video: { yt: sR1tEk5nTFU }
+video: { id: sR1tEk5nTFU }
 conferences:
   - conference: "MuniHac"
     date: 2020-09-11

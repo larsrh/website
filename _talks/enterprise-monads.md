@@ -8,7 +8,7 @@ abstract: |
 slides:
   file: "slides"
   length: 61
-video: { yt: "aEYxduckcxg" }
+video: { id: "aEYxduckcxg" }
 conferences:
   - conference: "YOW! Lambda Jam"
     date: 2021-05-05

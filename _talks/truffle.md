@@ -9,7 +9,7 @@ abstract: |
 slides:
   file: "slides"
   length: 25
-video: { yt: "ap6c_3wwYLs" }
+video: { id: "ap6c_3wwYLs" }
 conferences:
   - conference: "JUG Ingolstadt"
     date: 2019-09-10

@@ -7,7 +7,7 @@ abstract: |
 slides:
   file: "slides"
   length: 71
-video: { yt: "VjJQQTfxuP0" }
+video: { id: "VjJQQTfxuP0" }
 conferences:
   - conference: "Copenhagen Tech Polyglot Meetup"
     date: 2018-03-14
@@ -47,7 +47,7 @@ conferences:
 
 At [:clojureD 2020](https://clojured.de/), I gave a version of this talk that uses core.logic instead of Prolog.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/kmi2JM-scUU" title="YouTube player" allowfullscreen></iframe>
+{% include video.html id="kmi2JM-scUU" %}
 
 ## Testimonials
 

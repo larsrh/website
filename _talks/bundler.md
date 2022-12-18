@@ -10,7 +10,7 @@ abstract: |
 slides:
   file: "slides"
   length: 48
-video: { yt: "nGh-UdLbgfk" }
+video: { id: "nGh-UdLbgfk" }
 conferences:
   - conference: "Code Days"
     link: "https://www.code-days.de/code-days-2022/"

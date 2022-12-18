@@ -9,7 +9,7 @@ abstract: |
 slides:
   file: "slides"
   length: 54
-video: { vimeo: "296367334" }
+video: { id: "296367334", site: vimeo }
 conferences:
   - conference: "J On The Beach"
     date: 2019-05-16
@@ -57,7 +57,7 @@ conferences:
 
 ## Interview at J On The Beach
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Pd2eQSiCOjg" title="YouTube player" allowfullscreen></iframe>
+{% include video.html id="Pd2eQSiCOjg" %}
 
 ## Testimonials
 

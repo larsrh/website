@@ -11,7 +11,7 @@ slides:
   file: "slides"
   length: 63
   width: 960
-video: { vimeo: 125038982 }
+video: { id: 125038982, site: vimeo }
 conferences:
   - conference: "Lambda Days"
     date: 2015-02-26

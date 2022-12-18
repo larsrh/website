@@ -10,7 +10,7 @@ abstract: |
 slides:
   file: "slides"
   length: 39
-video: { yt: "tkbtJM5LgBg" }
+video: { id: "tkbtJM5LgBg" }
 conferences:
   - conference: "INNOQ Technology Lunch"
     link: "https://www.meetup.com/INNOQ-Technology-Lunch/events/285857259/"

@@ -9,7 +9,7 @@ abstract: |
 slides:
   file: "slides"
   length: 37
-video: { yt: "OPD1V8ZOL2U" }
+video: { id: "OPD1V8ZOL2U" }
 conferences:
   - conference: "flatMap(Oslo)"
     location: Oslo, Norway

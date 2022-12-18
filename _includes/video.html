@@ -1,5 +1,26 @@
-{% if include.video.vimeo %}
-  <iframe src="https://player.vimeo.com/video/{{ include.video.vimeo }}?dnt=1" width="640" height="360" title="Vimeo player" allowfullscreen></iframe>
-{% elsif include.video.yt %}
-  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/{{ include.video.yt }}" title="YouTube player" allowfullscreen></iframe>
-{% endif %}
+<div class="video">
+  <template>
+    {% if include.site == "vimeo" %}
+      <iframe src="https://player.vimeo.com/video/{{ include.id }}?dnt=1" title="Vimeo player" allowfullscreen></iframe>
+    {% else %}
+      <iframe src="https://www.youtube-nocookie.com/embed/{{ include.id }}" title="YouTube player" allowfullscreen></iframe>
+    {% endif %}
+  </template>
+  <div class="video-consent hyphenate">
+    {% if page.lang == "de" %}
+      <p>
+        📺 Hier befindet sich ein externes Video.
+        Du kannst den untenstehenden Button klicken, um es zu laden, aber dadurch könnte es zu Übermittlung von personenbezogenen Daten an YouTube und/oder Vimeo kommen.
+        Konsultiere <a href="{% link about.md %}#cookies-and-stuff">diese Seite für Details</a> (Englisch).
+      </p>
+      <button>Video aktivieren</button>
+    {% else %}
+      <p>
+        📺 There is an external video here.
+        You can click the button below to load it, but note that personally-identifying information may be transmitted to YouTube and/or Vimeo.
+        Check <a href="{% link about.md %}#cookies-and-stuff">this page for details</a>.
+      </p>
+      <button>Activate video</button>
+    {% endif %}
+  </div>
+</div>

@@ -8,7 +8,7 @@ slides:
   file: "slides"
   length: 39
   width: 960
-video: { vimeo: "128466888" }
+video: { id: "128466888", site: vimeo }
 conferences:
   - conference: "Lambda World"
     date: 2015-10-24

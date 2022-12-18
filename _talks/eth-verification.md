@@ -9,7 +9,7 @@ abstract: |
 slides:
   file: "slides"
   length: 59
-video: { yt: "MI-EnUq_yFA" }
+video: { id: "MI-EnUq_yFA" }
 conferences:
   - conference: "Blockchain Technology Conference"
     location: Berlin, Deutschland

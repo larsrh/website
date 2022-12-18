@@ -10,7 +10,7 @@ abstract: |
 slides:
   file: "slides"
   length: 100
-video: { yt: "TTI-ry4aRxw" }
+video: { id: "TTI-ry4aRxw" }
 conferences:
   - conference: "rheinJUG"
     link: "http://rheinjug.de/rheinjug/event/2020/02/26/double-feature-webanwendungen-mit-mvc-1-dot-0-slash-typparameter.html"

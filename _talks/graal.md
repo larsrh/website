@@ -10,7 +10,7 @@ abstract: |
 slides:
   file: "slides"
   length: 57
-video: { yt: "W9OB8LVKccM" }
+video: { id: "W9OB8LVKccM" }
 conferences:
   - conference: "BOB"
     location: Berlin, Germany
