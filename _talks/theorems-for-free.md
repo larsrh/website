@@ -11,30 +11,23 @@ slides:
 video: { yt: sR1tEk5nTFU }
 conferences:
   - conference: "MuniHac"
-    year: 2020
-    date: September 11th
+    date: 2020-09-11
     location: Munich, Germany
     link: "https://munihac.de/2020.html"
     recording: "https://www.youtube.com/watch?v=TGLmbl9x7s0"
     slides: "https://speakerdeck.com/larsrh/theorems-for-free"
   - conference: "Haskell eXchange"
-    year: 2020
-    date: November 5th
-    location: Online
+    date: 2020-11-05
     link: "https://skillsmatter.com/conferences/13135-haskell-exchange-2020#program"
     recording: "https://skillsmatter.com/skillscasts/14900-theorems-for-free"
     slides: "https://speakerdeck.com/larsrh/theorems-for-free"
   - conference: "INNOQ Technology Day"
-    year: 2020
-    date: December 9th
-    location: Online
+    date: 2020-12-09
     link: "https://technologyday.innoq.com/programm/theorems-for-free"
     recording: "https://www.youtube.com/watch?v=EC0O2vJGVjw"
     slides: "https://speakerdeck.com/larsrh/theorems-for-free"
   - conference: "BOB"
-    year: 2021
-    date: February 26th
-    location: Online
+    date: 2021-02-26
     link: "https://bobkonf.de/2021/hupel.html"
     recording: "https://www.youtube.com/watch?v=sR1tEk5nTFU"
     slides: "https://speakerdeck.com/larsrh/theorems-for-free-bob-edition"

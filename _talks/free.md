@@ -14,21 +14,18 @@ slides:
 video: { vimeo: 125038982 }
 conferences:
   - conference: "Lambda Days"
-    year: 2015
-    date: February 26th
+    date: 2015-02-26
     location: Kraków, Poland
     link: "http://www.lambdadays.org/lambdadays2015/lars-hupel"
     recording: "https://vimeo.com/125038982"
     slides: "https://speakerdeck.com/larsrh/functional-mocking"
   - conference: "Regensburg Haskell Meetup"
-    year: 2015
-    date: March 16th
+    date: 2015-03-16
     location: Regensburg, Germany
     link: "https://www.meetup.com/Regensburg-Haskell-Meetup/events/220597934/"
     slides: "https://speakerdeck.com/larsrh/free-functors-and-monads"
   - conference: "Oslo Socially Functional Programmers"
-    year: 2015
-    date: June 23rd
+    date: 2015-06-23
     location: Oslo, Norway
     link: "https://web.archive.org/web/20151003155233/https://www.meetup.com/Oslo-Socially-Functional/events/223097000/"
     slides: "https://speakerdeck.com/larsrh/functional-mocking-oslosfp-edition"

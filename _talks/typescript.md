@@ -12,16 +12,13 @@ slides:
 video: { yt: "vs8BiA1h_vk" }
 conferences:
   - conference: "We Are Developers World Congress"
-    year: 2022
-    date: June 15th
+    date: 2022-06-15
     location: Berlin, Germany
     link: "https://www.wearedevelopers.com/world-congress/"
     recording: "https://www.youtube.com/watch?v=vtfzCLVxbFc"
     slides: "https://speakerdeck.com/larsrh/advanced-typing-in-typescript"
   - conference: "INNOQ Technology Lunch"
-    year: 2022
-    date: October 10th
-    location: Online
+    date: 2022-10-10
     link: "https://www.meetup.com/de-DE/innoq-technology-lunch/events/288943460/"
     recording: "https://www.youtube.com/watch?v=vs8BiA1h_vk"
     slides: "https://speakerdeck.com/larsrh/advanced-typing-in-typescript"

@@ -14,23 +14,21 @@ conferences:
   - conference: "CloudLand"
     link: "https://shop.doag.org/events/cloudland/2022/agenda/"
     slides: "https://speakerdeck.com/larsrh/was-kubernetes-ingress-regeln-mit-der-chomsky-hierarchie-zu-tun-haben"
-    year: 2022
-    date: "29. Juni"
+    location: Brühl, Deutschland
+    date: 2022-07-29
   - conference: "AWS User Group Nürnberg"
     link: "https://www.meetup.com/Nurnberg-AWS-User-Group/events/287138454/"
     slides: "https://speakerdeck.com/larsrh/was-kubernetes-ingress-regeln-mit-der-chomsky-hierarchie-zu-tun-haben"
-    year: 2022
-    date: "12. September"
+    location: Nürnberg, Deutschland
+    date: 2022-09-12
   - conference: "#iFreak"
     link: "https://next.edudip.com/de/webinar/ifreak-webinar-ifreak-was-die-chomsky-hierachie-mit-kubernetes-ingress-regeln-zu-tun-hat/1847222"
     slides: "https://speakerdeck.com/larsrh/was-kubernetes-ingress-regeln-mit-der-chomsky-hierarchie-zu-tun-haben"
-    year: 2022
-    date: "28. Oktober"
+    date: 2022-10-28
   - conference: "INNOQ Technology Day"
     link: "https://technologyday.innoq.com/programm/was-kubernetes-ingress-regeln-mit-der-chomsky-hierarchie-zu-tun-haben"
     slides: "https://speakerdeck.com/larsrh/was-kubernetes-ingress-regeln-mit-der-chomsky-hierarchie-zu-tun-haben"
-    year: 2022
-    date: "30. November"
+    date: 2022-11-30
     recording: "https://www.youtube.com/watch?v=teX3orA5zWI"
 
 ---

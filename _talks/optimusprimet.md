@@ -11,22 +11,19 @@ slides:
 video: { vimeo: "128466888" }
 conferences:
   - conference: "Lambda World"
-    year: 2015
-    date: October 24th
+    date: 2015-10-24
     location: Cádiz, Spain
     link: "https://www.youtube.com/playlist?list=PL4yAk3UBuBSobwxE4M_2V9DGMOUrkZGfa"
     slides: "https://speakerdeck.com/larsrh/optimusprimet-cats-edition"
     recording: "https://www.youtube.com/watch?v=QUPsrxzE6I0"
   - conference: "flatMap(Oslo)"
-    year: 2015
-    date: April 27th
+    date: 2015-04-27
     location: Oslo, Norway
     link: "http://2015.flatmap.no/hupel.html#session"
     slides: "https://speakerdeck.com/larsrh/optimusprimet-cats-edition"
     recording: "https://vimeo.com/128466888"
   - conference: "Scala.io"
-    year: 2014
-    date: October 24th
+    date: 2014-10-24
     location: Paris, France
     slides: "https://speakerdeck.com/larsrh/optimusprimet"
     recording: "https://www.youtube.com/watch?v=lN5viUFz21U"
@@ -34,5 +31,5 @@ conferences:
 
 ## Errata
 
-Unfortunately, there is a mistake in all of the 2014–2015 slide sets which SpeakerDeck won't let me fix.
+Unfortunately, there is a mistake in all of the 2014–2015 slide sets.
 In the slide where `map2` is implemented in terms of `flatMap`, the inner `flatMap` should be `map`.

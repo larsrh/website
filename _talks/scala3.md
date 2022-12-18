@@ -15,34 +15,27 @@ slides:
 video: { yt: "ojTP3iCpmDE" }
 conferences:
   - conference: "INNOQ Technology Lunch"
-    year: 2021
-    date: "11. August"
-    location: Online
+    date: 2021-08-11
     link: "https://www.meetup.com/de-DE/INNOQ-Technology-Lunch/events/279730962/"
     slides: "https://speakerdeck.com/larsrh/was-ist-neu-in-scala-3"
     recording: "https://www.youtube.com/watch?v=ojTP3iCpmDE"
   - conference: "IT-Tage"
-    year: 2021
-    date: "7. Dezember"
-    location: Online
+    date: 2021-12-07
     link: "https://www.ittage.informatik-aktuell.de/programm/2021/neuigkeiten-in-scala-3.html"
     slides: "https://speakerdeck.com/larsrh/was-ist-neu-in-scala-3"
     recording: "https://www.youtube.com/watch?v=m28wK8U2GUg"
   - conference: "JavaLand"
-    year: 2022
-    date: "15. März"
+    date: 2022-03-15
     location: Brühl, Deutschland
     link: "https://shop.doag.org/javaland/2022/agenda/"
     slides: "https://speakerdeck.com/larsrh/was-ist-neu-in-scala-3"
   - conference: "Karlsruher Entwicklertag"
-    year: 2022
-    date: "17. Mai"
+    date: 2022-05-17
     location: Karlsruhe, Deutschland
     link: "https://www.entwicklertag.de/karlsruhe/2022/conference_day.html"
     slides: "https://speakerdeck.com/larsrh/was-ist-neu-in-scala-3"
   - conference: "Developer Week"
-    year: 2022
-    date: "5. Juli"
+    date: 2022-07-05
     location: Nürnberg, Deutschland
     link: "https://www.developer-week.de/"
     slides: "https://speakerdeck.com/larsrh/was-ist-neu-in-scala-3"

@@ -12,52 +12,44 @@ slides:
 video: { vimeo: "296367334" }
 conferences:
   - conference: "J On The Beach"
-    year: 2019
-    date: May 16th
+    date: 2019-05-16
     location: Marbella, Spain
     link: "https://www.jonthebeach.com/"
     recording: "https://www.youtube.com/watch?v=8pNzWzH5NUc"
     slides: "https://speakerdeck.com/larsrh/numeric-programming-with-spire-ksug-edition"
   - conference: "Scala Hamburg"
-    year: 2019
-    date: May 2nd
+    date: 2019-05-02
     location: Hamburg, Germany
     link: "https://www.meetup.com/Scala-Hamburg/events/259340037/"
     slides: "https://speakerdeck.com/larsrh/numeric-programming-with-spire-ksug-edition"
   - conference: "Kraków Scala User Group"
-    year: 2019
-    date: February 21st
+    date: 2019-02-21
     location: Kraków, Poland
     link: "https://www.meetup.com/Krakow-Scala-User-Group/events/258677272/"
     slides: "https://speakerdeck.com/larsrh/numeric-programming-with-spire-ksug-edition"
   - conference: "Scala Romandie"
-    year: 2018
-    date: December 18th
+    date: 2018-12-18
     location: Lausanne, Switzerland
     link: "https://www.meetup.com/Scala-Romandie/events/255055382/"
     slides: "https://speakerdeck.com/larsrh/numeric-programming-with-spire-scala-italy-edition"
   - conference: "Scala Italy"
-    year: 2018
-    date: September 14th
+    date: 2018-09-14
     location: Florence, Italy
     link: "http://2018.scala-italy.it/"
     recording: "https://vimeo.com/296367334"
     slides: "https://speakerdeck.com/larsrh/numeric-programming-with-spire-scala-italy-edition"
   - conference: "Munich Scala User Group"
-    year: 2018
-    date: June 13th
+    date: 2018-06-13
     location: Munich, Germany
     link: "https://www.meetup.com/ScalaMuc/events/250936958/"
     slides: "https://speakerdeck.com/larsrh/numeric-programming-with-spire-lx-scala-edition"
   - conference: "LX Scala"
-    year: 2018
-    date: June 8th
+    date: 2018-06-08
     location: Lisbon, Portugal
     link: "https://web.archive.org/web/20180527013208/http://www.lxscala.com/schedule/"
     slides: "https://speakerdeck.com/larsrh/numeric-programming-with-spire-lx-scala-edition"
   - conference: "Scala Portugal"
-    year: 2016
-    date: June 25th
+    date: 2016-06-25
     location: Lisbon, Portugal
     link: "https://www.meetup.com/Scala-Portugal/events/231961828/"
     slides: "https://speakerdeck.com/larsrh/numeric-programming-with-spire"

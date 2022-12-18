@@ -12,15 +12,12 @@ slides:
 video: { yt: "MI-EnUq_yFA" }
 conferences:
   - conference: "Blockchain Technology Conference"
-    year: 2019
-    date: "13. November"
     location: Berlin, Deutschland
+    date: 2019-11-13
     link: "https://blockchainconf.net/blockchain-advanced-development/verifikation-von-smart-contracts/"
     slides: "https://speakerdeck.com/larsrh/verification-of-smart-contracts"
   - conference: "INNOQ Technology Lunch"
-    year: 2021
-    date: "10. Februar"
-    location: Online
+    date: 2021-02-10
     link: "https://www.meetup.com/INNOQ-Technology-Lunch/events/276144224/"
     slides: "https://speakerdeck.com/larsrh/verification-of-smart-contracts-innoq-edition"
     recording: "https://www.youtube.com/watch?v=MI-EnUq_yFA"

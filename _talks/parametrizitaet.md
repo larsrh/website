@@ -14,34 +14,29 @@ video: { yt: "TTI-ry4aRxw" }
 conferences:
   - conference: "rheinJUG"
     link: "http://rheinjug.de/rheinjug/event/2020/02/26/double-feature-webanwendungen-mit-mvc-1-dot-0-slash-typparameter.html"
-    year: 2020
-    date: "2. Februar"
+    date: 2020-02-02
     slides: "https://speakerdeck.com/larsrh/lieber-ein-typparameter-zu-viel-als-einer-zu-wenig-herbstcampus"
     recording: "https://www.youtube.com/watch?v=TTI-ry4aRxw"
     location: Düsseldorf, Deutschland
   - conference: "Softwerkskammer Rhein–Neckar"
     link: "https://www.meetup.com/Softwerkskammer-Rhein-Neckar/events/263352891/"
-    year: 2019
-    date: "11. November"
+    date: 2019-11-11
     slides: "https://speakerdeck.com/larsrh/lieber-ein-typparameter-zu-viel-als-einer-zu-wenig-herbstcampus"
     location: Mannheim, Deutschland
   - conference: "Herbstcampus"
     link: "https://www.innoq.com/de/talks/2019/09/lieber-ein-typparameter-zu-viel-als-zu-wenig-herbstcampus/"
-    year: 2019
-    date: "4. September"
+    date: 2019-09-04
     slides: "https://speakerdeck.com/larsrh/lieber-ein-typparameter-zu-viel-als-einer-zu-wenig-herbstcampus"
     location: Nürnberg, Deutschland
   - conference: "JUG Ostfalen"
     link: "https://www.jug-ostfalen.de/event/2019/07/18/typparameter.html"
     slides: "https://speakerdeck.com/larsrh/lieber-ein-typparameter-zu-viel-als-einer-zu-wenig-jug-ostfalen"
-    year: 2019
-    date: "18. Juli"
+    date: 2019-07-18
     location: Braunschweig, Deutschland
   - conference: "JavaLand"
     link: "https://programm.javaland.eu/2019/#/scheduledEvent/569668"
     slides: "https://speakerdeck.com/larsrh/lieber-ein-typparameter-zu-viel-als-einer-zu-wenig"
-    year: 2019
-    date: "19. März"
+    date: 2019-03-19
     location: Brühl, Deutschland
 ---
 

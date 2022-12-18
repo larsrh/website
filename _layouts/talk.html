@@ -51,26 +51,16 @@ layout: default
   {% endif %}
 </div>
 
-{% if page.video %}
-  {% if page.lang == "de" %}
-    <h2>Aufzeichnung</h2>
-  {% else %}
-    <h2>Recording</h2>
-  {% endif %}
-
-  {% include video.html video=page.video %}
+{% if page.lang == "de" %}
+  <h2>Aufzeichnung</h2>
+{% else %}
+  <h2>Recording</h2>
 {% endif %}
+
+{% include video.html video=page.video %}
 
 <h2>Events</h2>
 
-<ul>
-  {% for conf in page.conferences %}
-    <li>
-      {{ conf.conference }}, {{ conf.location }}, {{ conf.date }}, {{ conf.year }}
-      {% assign talk=conf %}
-      {% include talk_details.html %}
-    </li>
-  {% endfor %}
-</ul>
+{% include talk_list.html talks=page.conferences %}
 
 {{ content }}

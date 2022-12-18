@@ -11,16 +11,12 @@ slides:
 video: { yt: "aEYxduckcxg" }
 conferences:
   - conference: "YOW! Lambda Jam"
-    year: 2021
-    date: May 5th
-    location: Online
+    date: 2021-05-05
     link: "https://yowconference.com/talks/lars-hupel/yow-lambda-jam-2021/a-history-of-enterprise-monads-15228/"
     slides: "https://speakerdeck.com/larsrh/a-history-of-enterprise-monads"
     recording: "https://www.youtube.com/watch?v=cVqt_hcUR3w"
   - conference: "ScalaCon"
-    year: 2021
-    date: Nov 3rd
-    location: Online
+    date: 2021-11-03
     link: "http://www.scalacon.org/"
     slides: "https://speakerdeck.com/larsrh/typelevel-the-past-the-present-the-future"
     recording: "https://www.youtube.com/watch?v=aEYxduckcxg"

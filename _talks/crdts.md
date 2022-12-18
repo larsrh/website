@@ -14,28 +14,21 @@ video: { yt: "tkbtJM5LgBg" }
 conferences:
   - conference: "INNOQ Technology Lunch"
     link: "https://www.meetup.com/INNOQ-Technology-Lunch/events/285857259/"
-    year: 2022
-    date: "25. Mai"
+    date: 2022-05-25
     slides: "https://speakerdeck.com/larsrh/hilfe-wir-syncen"
     recording: "https://www.youtube.com/watch?v=afoMdKedHR4"
-    location: Online
   - conference: "OOP"
     link: "https://www.oop-konferenz.de/oop-2022/programm/konferenzprogramm"
-    year: 2022
-    date: "1. Februar"
+    date: 2022-02-01
     slides: "https://speakerdeck.com/larsrh/hilfe-wir-syncen"
     recording: "https://www.youtube.com/watch?v=tkbtJM5LgBg"
-    location: Online
   - conference: "INNOQ Technology Day"
     link: "https://technologyday.innoq.com/programm/hilfe-wir-syncen"
-    year: 2021
-    date: "1. Dezember"
+    date: 2021-12-01
     slides: "https://speakerdeck.com/larsrh/hilfe-wir-syncen"
-    location: Online
   - conference: "Digitale Leute Summit"
     link: "https://www.digitale-leute.de/summit/21/"
-    year: 2021
-    date: "16. November"
+    date: 2021-11-16
     slides: "https://speakerdeck.com/larsrh/hilfe-wir-syncen"
     recording: "https://www.youtube.com/watch?v=2ogTGcBG5tk"
     location: Köln, Deutschland

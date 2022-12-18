@@ -16,25 +16,19 @@ conferences:
     link: "https://www.code-days.de/code-days-2022/"
     recording: "https://www.youtube.com/watch?v=5WRbvAv-FBI"
     slides: "https://speakerdeck.com/larsrh/was-macht-eigentlich-ein-bundler"
-    year: 2022
-    date: "2. Februar"
-    location: Online
+    date: 2022-02-02
   - conference: "INNOQ Technology Lunch"
     link: "https://www.meetup.com/INNOQ-Technology-Lunch/events/285539947"
-    year: 2022
-    date: "11. Mai"
+    date: 2022-05-11
     slides: "https://speakerdeck.com/larsrh/was-macht-eigentlich-ein-bundler"
-    location: Online
     recording: "https://www.youtube.com/watch?v=nGh-UdLbgfk"
   - conference: "Karlsruher Entwicklertag"
-    year: 2022
-    date: "17. Mai"
+    date: 2022-05-17
     location: Karlsruhe, Deutschland
     link: "https://www.entwicklertag.de/karlsruhe/2022/conference_day.html"
     slides: "https://speakerdeck.com/larsrh/was-macht-eigentlich-ein-bundler"
   - conference: "Developer Week"
-    year: 2022
-    date: "6. Juli"
+    date: 2022-07-06
     location: Nürnberg, Deutschland
     link: "https://www.developer-week.de/"
     slides: "https://speakerdeck.com/larsrh/was-macht-eigentlich-ein-bundler"

@@ -10,39 +10,33 @@ slides:
 video: { yt: "VjJQQTfxuP0" }
 conferences:
   - conference: "Copenhagen Tech Polyglot Meetup"
-    year: 2018
-    date: March 14th
+    date: 2018-03-14
     location: Copenhagen, Denmark
     link: "https://www.meetup.com/Copenhagen-Tech-Polyglots/events/247377247/"
   - conference: "Munich Lambda"
-    year: 2018
-    date: July 4th
+    date: 2018-07-04
     location: Munich, Germany
     link: "https://www.meetup.com/Munich-Lambda/events/251049900/"
   - conference: "Code Mesh"
-    year: 2018
-    date: November 8th
+    date: 2018-11-08
     location: London, UK
     link: "https://codesync.global/conferences/code-mesh-2018/"
     recording: "https://www.youtube.com/watch?v=VjJQQTfxuP0"
     slides: "https://speakerdeck.com/larsrh/programmation-en-logique-code-mesh-edition"
   - conference: "BOB"
-    year: 2019
-    date: March 22nd
+    date: 2019-03-22
     location: Berlin, Germany
     link: "https://bobkonf.de/2019/hupel.html"
     recording: "https://www.youtube.com/watch?v=PgZCzDveh1Q&t=1049s"
     slides: "https://speakerdeck.com/larsrh/programmation-en-logique-lambdadays-edition"
   - conference: "Lambda Days"
-    year: 2019
-    date: February 21st
+    date: 2019-02-21
     location: Kraków, Poland
     link: "http://www.lambdadays.org/lambdadays2019/lars-hupel"
     recording: "https://www.youtube.com/watch?v=4WJziTGp5mM"
     slides: "https://speakerdeck.com/larsrh/programmation-en-logique-lambdadays-edition"
   - conference: ":clojureD"
-    year: 2020
-    date: February 29th
+    date: 2020-02-29
     location: Berlin, Germany
     link: "https://clojured.de/"
     recording: "https://www.youtube.com/watch?v=kmi2JM-scUU"

@@ -47,11 +47,4 @@ Wenn du einen bestimmten Talk teilen möchtest, würde ich dich bitten, nicht di
 <p>This is a partial list of other talks I gave.
 Only talks with recordings are listed here.</p>
 
-<ul>
-  {% for talk in site.data.misc_talks reversed %}
-    <li>
-      {{ talk.title }}, {{ talk.conference }}, {{ talk.year }}
-      {% include talk_details.html %}
-    </li>
-  {% endfor %}
-</ul>
+{% include talk_list.html talks=site.data.misc_talks %}

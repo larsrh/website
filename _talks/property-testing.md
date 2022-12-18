@@ -12,29 +12,25 @@ slides:
 video: { yt: "OPD1V8ZOL2U" }
 conferences:
   - conference: "flatMap(Oslo)"
-    year: 2016
-    date: May 2nd
     location: Oslo, Norway
+    date: 2016-05-02
     link: "http://2016.flatmap.no/hupel.html#session"
     slides: "https://speakerdeck.com/larsrh/how-to-test-proper-l-t-y"
     recording: "https://vimeo.com/165852636"
   - conference: "Scala Matsuri"
-    year: 2019
-    date: June 29th
+    date: 2019-06-29
     location: Tokyo, Japan
     link: "http://2019.scalamatsuri.org/index_en.html"
     slides: "https://speakerdeck.com/larsrh/how-to-test-proper-t-l-y-scala-matsuri-edition"
     recording: "https://www.youtube.com/watch?v=OPD1V8ZOL2U"
   - conference: "Munich Scala User Group"
-    year: 2019
-    date: August 21st
+    date: 2019-08-21
     location: Munich, Germany
     link: "https://www.meetup.com/ScalaMuc/events/262805286/"
     slides: "https://speakerdeck.com/larsrh/how-to-test-proper-t-l-y-scala-matsuri-edition"
     recording: "https://www.youtube.com/watch?v=BPDKN0kuDFQ"
   - conference: "Belgian Scala User Group"
-    year: 2019
-    date: October 22nd
+    date: 2019-10-22
     location: Leuven, Belgium
     link: "https://www.meetup.com/BeScala/events/265114733"
     slides: "https://speakerdeck.com/larsrh/how-to-test-proper-t-l-y-scala-matsuri-edition"
