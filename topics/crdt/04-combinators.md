@@ -379,4 +379,4 @@ Spoiler: prepare for tombstones 👻
 
 * Factorio Gameplay on [gfycat](https://gfycat.com/charmingbarrencow)
 
-[^footnote-parametricity]: I've [written elsewhere](/talks/parametrizitaet/) about this subject. Unfortunately, this is in German, but by typing “parametricity” into your favourite search engine, you may find some further material.
+[^footnote-parametricity]: I've [written elsewhere]({% link _talks/parametrizitaet.md %}) about this subject. Unfortunately, this is in German, but by typing “parametricity” into your favourite search engine, you may find some further material.

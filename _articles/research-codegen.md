@@ -6,7 +6,7 @@ lang: en
 
 This page contains the archived research information relating to the paper “A Verified Compiler from Isabelle/HOL to CakeML”.
 It reflects the state from approximately October 2019.
-For a list of all publications, refer to [this page](/research/).
+For a list of all publications, refer to [this page]({% link research.html %}).
 
 ## Goal
 
@@ -19,7 +19,7 @@ What is the trusted code base of the pipeline?
 : We rely on faithful export from Lem to Isabelle, an unverified printer of CakeML AST to CakeML source text, and the kernel of Isabelle.
 There is ongoing work to use [OpenTheory](http://www.gilith.com/software/opentheory/) to get a more faithful representation of the CakeML formalization in Isabelle.<br>
 _Update, July 2019:_ The current – more promising approach – is to virtualize HOL4 in Isabelle.
-Refer to the upcoming ITP'19 paper by Immler, Raedle and Wenzel for details.
+Refer to the [ITP'19 paper by Immler, Raedle and Wenzel](https://doi.org/10.4230/LIPIcs.ITP.2019.21) for details.
 
 Does the pipeline target existing CakeML library constructs, like the built-in lists?
 : No, it does not, and it is not intended at the moment.
@@ -42,7 +42,7 @@ _Update, August 2018:_ Some (not all) compiler phases have been proved to be tot
 
 ## Supplementary Material
 
-* [Formalization for "A Verified Compiler from Isabelle/HOL to CakeML"](/pub/isabelle-cakeml-supplements.zip)<br>
+* [Formalization for "A Verified Compiler from Isabelle/HOL to CakeML"]({% link pub/isabelle-cakeml-supplements.zip %})<br>
   Submitted: 2017-10-20<br>
   Archived as: DOI [10.5281/zenodo.1167616](http://doi.org/10.5281/zenodo.1167616)<br>
   Obsoleted by: <a href="https://www.isa-afp.org/entries/CakeML_Codegen.html">AFP entry</a>

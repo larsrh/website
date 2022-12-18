@@ -13,7 +13,7 @@ I enjoy programming, cycling, travelling, dogs, and conferences.
 ## Standing invitation
 
 If you want to talk research or software, I want to talk to you.
-My email addresses & social media handles can be [found here](/).
+My email addresses & social media handles can be [found here]({% link index.html %}).
 Email is much preferred. Unless it's urgent, avoid calling me (I prefer async communication).
 
 * _I like getting email._

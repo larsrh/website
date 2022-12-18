@@ -99,7 +99,7 @@ A few months later when people started asking questions about 2020's Typelevel S
 I feel like running almost ten conferences in my spare time (2016–2019) ought to be enough for a lifetime.
 However, I am grateful for what I've learned, even though it was often as easy to drink as water from a firehose.
 
-I had only week to relax after Scala Days before I went to Japan for Scala Matsuri, an event where [I've already documented my experiences](/articles/scala-matsuri/).
+I had only week to relax after Scala Days before I went to Japan for Scala Matsuri, an event where [I've already documented my experiences]({% link _articles/scala-matsuri.md %}).
 That week I was invited to the annual Sommerfest of the computer science department of TUM:
 The university awarded me with a teaching award for 2018.
 That was about the only official appreciation I've received for pouring endless hours and overtime into student success.

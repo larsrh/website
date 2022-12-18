@@ -10,7 +10,7 @@ hero:
 ---
 
 I'm not regularly in the habit of writing personal blog posts.
-I had an old blog once in which I shared my experiences during [my Erasmus semester in Northern Ireland](/articles/erasmus).
+I had an old blog once in which I shared my experiences during [my Erasmus semester in Northern Ireland]({% link _articles/erasmus.html %}).
 After that, I have largely resorted to technical writing.
 This text is an attempt to balance that out again; mostly for my own sake, but maybe some readers find it entertaining.
 It is about Scala Matsuri, a conference that took place in June 2019 in Tokyo.
@@ -344,7 +344,7 @@ The live interpretation was fascinating and allowed speakers and audience to sha
 
 ### Saturday, June 29
 
-[My talk](/talks/property-testing) was right after lunch on the final conference day.
+[My talk]({% link _talks/property-testing.md %}) was right after lunch on the final conference day.
 In the morning, I had spoken with the interpreters (see Friday) where we prepared each other for the talk.
 The talk went well and I even got some questions in Japanese.
 
