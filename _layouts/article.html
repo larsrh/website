@@ -32,7 +32,7 @@ layout: root
     {% else %}
       Published on
     {% endif %}
-    {% include date.html date=page.pub_date %}
+    {% include date.html date=page.pub_date trailer="." %}
   {% endif %}
 
   {% if page.hero %}

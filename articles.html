@@ -67,7 +67,7 @@ title: Writing, Articles, Podcasts
         {% else %}
           on
         {% endif %}
-        {% include date.html date=article.pub_date %}
+        {% include date.html date=article.pub_date trailer="." %}
         {% if article.hero %}
           {% if article.lang == "de" %}
             Bildnachweis:

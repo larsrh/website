@@ -1,7 +1,10 @@
-<ul>
+<dl>
   {% for upcoming in site.data.upcoming %}
-    <li>
-      {% include date.html date=upcoming.date %} <a href="{{ upcoming.link }}">{{ upcoming.conference }}</a>, {{ upcoming.location }}
-    </li>
+    <dt>
+      {% include date.html date=upcoming.date %}
+    </dt>
+    <dd>
+      <a href="{{ upcoming.link }}">{{ upcoming.conference }}</a>, {{ upcoming.location }}
+    </dd>
   {% endfor %}
-</ul>
+</dl>
