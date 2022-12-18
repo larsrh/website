@@ -4,6 +4,16 @@ permalink: /talks/
 title: Talks
 ---
 
+{% assign count = site.data.misc_talks.size %}
+{% assign count_recording = count %}
+{% for talk in site.talks %}
+  {% assign count = count | plus: talk.conferences.size %}
+  {% assign with_recordings = talk.conferences | where_exp: "item", "item.recording" %}
+  {% assign count_recording = count_recording | plus: with_recordings.size %}
+{% endfor %}
+
+Over the years, I have given at least {{ count }} talks, of which {{ count_recording }} recordings are provided here.
+
 <h2 id="en">Selected talks</h2>
 
 <p class="hyphenate">These are talks that I have given multiple times over the years at various conferences.
