@@ -1,21 +1,18 @@
-- name: Google Scholar
-  icon: 🎓
-  link: "https://scholar.google.com/citations?user=VdxLaDEAAAAJ"
 - name: GitHub
   icon: 💻
   link: "https://github.com/larsrh"
-- name: Twitter
-  icon: 🐦
-  link: "https://twitter.com/larsr_h"
-- name: Mastodon
-  icon: 🐘
-  link: "https://mastodon.social/@larsrh"
+- name: Google Scholar
+  icon: 🎓
+  link: "https://scholar.google.com/citations?user=VdxLaDEAAAAJ"
 - name: Instagram
   icon: 📷
   link: "https://instagram.com/larsr_h"
-- name: Speaker Deck
-  icon: 🎙️
-  link: "https://speakerdeck.com/larsrh"
 - name: LinkedIn
   icon: 🕴️
   link: "https://www.linkedin.com/in/lars-hupel"
+- name: Mastodon
+  icon: 🐘
+  link: "https://mastodon.social/@larsrh"
+- name: Speaker Deck
+  icon: 🎙️
+  link: "https://speakerdeck.com/larsrh"
