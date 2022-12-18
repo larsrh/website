@@ -13,9 +13,8 @@ slides:
 video: { yt: "W9OB8LVKccM" }
 conferences:
   - conference: "BOB"
-    year: 2020
-    date: February 28th
     location: Berlin, Germany
+    date: 2020-02-28
     link: "https://bobkonf.de/2020/hupel.html"
     slides: "https://speakerdeck.com/larsrh/js-rust-python-and-the-holy-graal"
     recording: "https://www.youtube.com/watch?v=W9OB8LVKccM"
