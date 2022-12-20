@@ -14,20 +14,24 @@
 
     <title>Lars Hupel &middot; {{ page.title | escape }}</title>
 
-    <meta property="og:title" content="{{ page.title | escape }}" />
-    <meta property="og:locale" content="{% if page.lang %}{{ page.lang }}{% else %}en{% endif %}" />
+    <meta property="og:title" content="{{ page.title | escape }}">
+    <meta property="og:locale" content="{% if page.lang %}{{ page.lang }}{% else %}en{% endif %}">
     <meta property="og:image" content="{{ site.url }}{% asset profile.jpg @path %}">
     <meta property="og:image:secure_url" content="{{ site.url }}{% asset profile.jpg @path %}">
-    <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
-    <meta property="og:site_name" content="{{ site.title | escape }}" />
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:site_name" content="{{ site.title | escape }}">
 
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@larsr_h" />
-    <meta name="twitter:creator" content="@larsr_h" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@larsr_h">
+    <meta name="twitter:creator" content="@larsr_h">
     <meta name="twitter:image:src" content="{{ site.url }}{% asset profile.jpg @path %}">
 
-    <meta name="author" content="Lars Hupel" />
-    <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+    {% for profile in site.data.profiles %}
+      <link href="{{ profile.link }}" rel="me">
+    {% endfor %}
+
+    <meta name="author" content="Lars Hupel">
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
 
     <script type="application/ld+json">
       {
