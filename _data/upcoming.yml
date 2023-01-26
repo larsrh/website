@@ -1,6 +1,3 @@
-- conference: "ITU DC³"
-  date: 2023-01-27
-  link: "https://www.itu.int/en/ITU-T/Workshops-and-Seminars/2023/0124/Pages/default.aspx"
 - conference: "BOB"
   date: 2023-03-17
   location: Berlin, Germany
@@ -13,6 +10,10 @@
   date: 2023-05-25
   location: Vilnius, Lithuania
   link: "https://devdays.lt/"
+- conference: "Lambda Days"
+  date: 2023-06-05
+  location: Krakow, Poland
+  link: "https://www.lambdadays.org/lambdadays2023"
 - conference: "GOTO Amsterdam"
   date: 2023-06-28
   location: Amsterdam, Netherlands
