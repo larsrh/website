@@ -452,3 +452,9 @@
     src: "img/ipen.jpg"
     alt: "Headshot of me with the quote: “In order to be widely accepted, a CBDC must protect the privacy of users while still fulfilling government compliance requirements. G+D Filia is designed to be a secure and trusted CBDC.”"
     credits: "G+D"
+- pub_date: 2023-01-27
+  title: "Eigenschaftsbasiertes Testen mit „fast-check“"
+  journal: "JavaSPEKTRUM 1/2023"
+  abstract: "Dass man als Entwickler:in nicht nur Code, sondern auch Tests zu schreiben hat, ist ein alter Hut. Trotzdem ist es für viele eine lästige und monotone Arbeit. Außerdem ist es noch lange nicht garantiert, dass Unittests auch wirklich alle Grenz- und Nicht-Grenz-Fälle abdecken. Ein moderner Ansatz ist eigenschaftsbasiertes Testen, bei dem eine abstrakte Bedingung spezifiziert und dann vom Testframework automatisch überprüft wird."
+  url: "https://webreader.javaspektrum.de/de/profiles/4967c6d5eae1-javaspektrum/editions/javaspektrum-01-2023/"
+  lang: de
