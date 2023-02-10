@@ -3,7 +3,7 @@
   location: Berlin, Germany
   link: "https://bobkonf.de/2023/en/"
 - conference: "JAX"
-  date: 2023-05-09
+  date: 2023-05-10
   location: Mainz, Germany
   link: "https://jax.de/core-java-jvm-languages/eigenschaftsbasiertes-testen/"
 - conference: "DevDays Europe"
@@ -13,7 +13,7 @@
 - conference: "Lambda Days"
   date: 2023-06-05
   location: Krakow, Poland
-  link: "https://www.lambdadays.org/lambdadays2023"
+  link: "https://www.lambdadays.org/lambdadays2023/lars-hupel"
 - conference: "GOTO Amsterdam"
   date: 2023-06-28
   location: Amsterdam, Netherlands
