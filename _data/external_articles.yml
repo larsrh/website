@@ -470,3 +470,7 @@
   abstract: "JavaScript’s approach to object orientation is different from other languages. This hasn’t been changed by the introduction of classes, even if it looks that way at first glance. Read on to learn how this unusual system works."
   lang: en
   url: "https://www.innoq.com/en/articles/2023/02/blueprints-how-objects-work-in-javascript/"
+  hero:
+    src: "img/blueprint.jpg"
+    alt: "Blueprints"
+    credits: "xresch/Pixabay"
