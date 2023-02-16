@@ -464,3 +464,9 @@
   abstract: "One feature that is often required of a CBDC for financial inclusion is the ability to make payments offline. This ensures that payments can be made even if there is no connection to the Internet, e.g. in remote locations. The panel considered some potential solutions for offline transactions for CBDC and discuss considerations for technical standards that may be needed."
   url: "https://www.youtube.com/watch?v=gxnkygwjZ2o"
   type: "podcast"
+- pub_date: 2023-02-16
+  title: "Blueprints: How objects work in JavaScript"
+  journal: "INNOQ"
+  abstract: "JavaScript’s approach to object orientation is different from other languages. This hasn’t been changed by the introduction of classes, even if it looks that way at first glance. Read on to learn how this unusual system works."
+  lang: en
+  url: "https://www.innoq.com/en/articles/2023/02/blueprints-how-objects-work-in-javascript/"
