@@ -1,7 +1,3 @@
-- conference: "BOB"
-  date: 2023-03-17
-  location: Berlin, Germany
-  link: "https://bobkonf.de/2023/en/"
 - conference: "JAX"
   date: 2023-05-10
   location: Mainz, Germany
@@ -11,7 +7,7 @@
   location: Berlin, Germany
   link: "https://omnisecure.berlin/author/lars-hupel/"
 - conference: "DevDays Europe"
-  date: 2023-05-25
+  date: 2023-05-26
   location: Vilnius, Lithuania
   link: "https://devdays.lt/"
 - conference: "Lambda Days"
