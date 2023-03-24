@@ -79,24 +79,24 @@ Let's stay with JS as an example of a language that is now universally used and 
 
 ```java
 public abstract class JSMultiplyNode extends JSBinaryNode {
- 
+
   public abstract Object execute(Object a, Object b);
- 
+
   @Specialization(guards = "b > 0", rewriteOn = ArithmeticException.class)
   protected int doIntBLargerZero(int a, int b) {
     return Math.multiplyExact(a, b);
   }
- 
+
   @Specialization(rewriteOn = ArithmeticException.class)
   protected int doInt(int a, int b) {
     // ...
   }
- 
+
   @Specialization
   protected double doDouble(double a, double b) {
     return a * b;
   }
- 
+
   // ...
 }
 ```
@@ -156,7 +156,7 @@ In addition, the Enterprise Edition of GraalVM also offers a sandbox mode for C 
 
 ```c
 #include <stdio.h>
- 
+
 int main(int argc, char *argv[]) {
   printf("number of arguments: %n\n", argc);
   return 0;
