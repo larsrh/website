@@ -474,3 +474,9 @@
     src: "img/blueprint.jpg"
     alt: "Blueprints"
     credits: "xresch/Pixabay"
+- pub_date: 2023-04-06
+  title: "Property-based Testing with “fast-check”"
+  journal: "INNOQ"
+  abstract: "It isn’t exactly news that developers have to write not only code but also tests. Nevertheless, many find this to be burdensome and monotonous work. Plus, it is far from guaranteed that unit tests actually cover all the border and non-border cases. A modern approach is property-based testing, which consists of specifying an abstract condition that is then automatically checked by the test framework."
+  lang: en
+  url: "https://www.innoq.com/en/articles/2023/04/testing-fast-check/"
