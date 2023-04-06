@@ -4,7 +4,7 @@ pub_date: 2021-02-20
 lang: en
 abstract: |
   I thought it'd be fun to collect a list of all conferences I've been to.
-  There were a lot of them; at least sixty it seems.
+  There were a lot of them; at least seventy it seems.
   Maybe we've even crossed paths somewhere.
 hero:
   src: "img/topics/crdt/world.jpg"
@@ -151,5 +151,13 @@ After that, all online.
 * June: [CloudLand](https://www.cloudland.org/de/cloudland-2022/), Brühl, Germany
 * July: [Developer Week](https://www.developer-week.de/), Nuremberg, Germany
 * September: [Africa Money and DeFi Summit](https://africamoneydefisummit.com/), Accra, Ghana
+* November: [Software Architecture Gathering](https://conferences.isaqb.org/software-architecture-gathering/)
+* December: [INNOQ Technology Day](https://technologyday.innoq.com/)
+
+## 2023
+
+* January: [DC³](https://www.itu.int/en/ITU-T/Workshops-and-Seminars/2023/0124/Pages/default.aspx)
+* February: [Bank der Zukunft](https://internationalbankersforum.org/event/26bdz/), Munich, Germany
+* March: [BOB Konferenz](https://bobkonf.de/2023/), Berlin, Germany
 
 To be continued.
