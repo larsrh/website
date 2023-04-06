@@ -45,7 +45,7 @@ I still remember Erik Osheim explaining specialization to me in a pub near the B
 The Northeast Scala Symposium was the conference that really kickstarted my speaking career.
 It was the first proper talk I gave in English.
 
-* February: [Northeast Scala Symposium](https://nescala.io/2013/), Philadelphia, US
+* February: [Northeast Scala Symposium](https://web.archive.org/web/20211104213442/https://nescala.io/2013/), Philadelphia, US
 * April: Mathema Campus, Erlangen, Germany
 * July: [Fourth Annual Scala Workshop](http://lampwww.epfl.ch/~hmiller/scala2013/), co-located with [ECOOP](https://www.lirmm.fr/ecoop13/), Montpellier, France
 * October: [scala.io](https://web.archive.org/web/20201202145732/https://scala.io/2013/), Paris, France
@@ -57,7 +57,7 @@ I had a total of fourteen flights.
 I was on two academic conferences and gave one keynote at an industrial conference (Scala eXchange).
 So far, this was the only keynote I ever gave.
 
-* February: [Northeast Scala Symposium](https://nescala.io/2014/), New York, US
+* February: [Northeast Scala Symposium](https://web.archive.org/web/20211104213441/https://nescala.io/2014/), New York, US
 * May: [flatMap(Oslo)](http://2014.flatmap.no/), Oslo, Norway
 * July: [Conferences on Intelligent Computer Mathematics](https://cicm-conference.org/2014/cicm.php), Coimbra, Portugal
 * September: [International Conference on Functional Programming](http://icfpconference.org/icfp2014/), Gothenburg, Sweden
@@ -82,7 +82,7 @@ I had already visited the year before for a week.
 Nominally, I was travelling less this year than 2015, but also, I organized two conferences, so I still had plenty to do.
 Due to an unlikely coincidence, I visited the lovely Portuguese city of Coimbra for a second time.
 
-* March: [Typelevel Summit Philadelphia](https://typelevel.org/event/2016-03-summit-philadelphia/) and [Northeast Scala Symposium](https://nescala.io/2016/), Philadelphia, US
+* March: [Typelevel Summit Philadelphia](https://typelevel.org/event/2016-03-summit-philadelphia/) and [Northeast Scala Symposium](https://web.archive.org/web/20211119175714/https://nescala.io/2016/), Philadelphia, US
 * April: Mathema Campus, Erlangen, Germany
 * May: [Typelevel Summit Oslo](https://typelevel.org/event/2016-05-summit-oslo/) and [flatMap(Oslo)](http://2016.flatmap.no/), Oslo, Norway
 * June: [International Joint Conference on Automated Reasoning](https://www.uc.pt/en/congressos/ijcar2016), Coimbra, Portugal
