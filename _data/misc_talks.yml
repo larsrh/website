@@ -38,3 +38,9 @@
   recording: "https://www.youtube.com/watch?v=oSditqgIf6w"
   slides: "https://speakerdeck.com/larsrh/typelevels-path-to-scala-3"
   date: 2021-02-13
+- title: The Role of DSLs in Architecture Design
+  conference: "Software Architecture Gathering"
+  link: "https://conferences.isaqb.org/software-architecture-gathering/"
+  recording: "https://www.youtube.com/watch?v=gwaF16KPqgQ"
+  slides: "https://speakerdeck.com/larsrh/the-role-of-dsls-in-architecture-design"
+  date: 2022-11-17
