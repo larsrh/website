@@ -151,3 +151,5 @@ If a social media app crashes while scrolling through the timeline, it may cost 
 [Google](https://www.phoronix.com/news/Google-KataOS),
 [Intel](https://www.cl.cam.ac.uk/~jrh13/slides/oregonsummerschool-26jul12/slides.pdf)
 and Apple, among others, who have built up their own teams for formal methods and routinely use them for particularly critical applications.
+
+_This post has also been [published on LinkedIn](https://www.linkedin.com/pulse/when-testing-just-doesnt-cut-dr-lars-hupel)._
