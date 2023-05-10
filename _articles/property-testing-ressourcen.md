@@ -17,4 +17,6 @@ In diesem Post sammle ich als Begleitmaterial [zu meinem Vortrag](https://jax.de
 * Stefan Macke schreibt auf Heise Developer über [JUnit Quickcheck](https://github.com/pholser/junit-quickcheck) (eine Alternative zu jqwik) und [benennt auch dort mehrere Arten von Properties](https://www.heise.de/hintergrund/Property-based-Testing-mit-JUnit-QuickCheck-3935767.html).
 * Der Vortrag basiert auf meinem [Artikel über „fast-check”](https://www.innoq.com/de/articles/2023/02/testing-fast-check/), eine Bibliothek für Property-based Testing in JavaScript und TypeScript.
 
+Das Beispielprojekt aus dem Vortrag ist [auf GitHub verfügbar](https://github.com/larsrh/jqwik-jax-example).
+
 Ergänzungen nehme ich gerne entgegen!
