@@ -17,6 +17,7 @@ figure {
 
 figcaption {
   hyphens: none;
+  -webkit-hyphens: none;
   text-align: center;
   font-size: .8em;
   color: var(--text-muted);
@@ -181,6 +182,7 @@ ul.links li:first-child::before {
 
 .hyphenate {
   text-align: justify;
+  -webkit-hyphens: auto;
   hyphens: auto;
 }
 
