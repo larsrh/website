@@ -65,6 +65,10 @@ Note that I've used the non-tracking embed codes, yet YouTube and/or Vimeo may s
 My website doesn't remember whether you've clicked the button or not, which means that you'll have to click it again every time you encounter one (or not, if you're not interested in the video).
 This also saves a lot of bandwith, since the third-party iframes pull in a lot of JavaScript.
 
+Some recordings are hosted on the EU-based CDN Bunny.
+Read their [GDPR policy here](https://bunny.net/gdpr/).
+According to their website, they do not collect, store or distribute personally-identifying information.
+
 Also, I don't use any kind of analytics.
 This page is hosted on Netlify (most content) and Manitu (some large static assets).
 While Netlify offers some analytics services, I don't use them.
