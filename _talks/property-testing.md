@@ -3,7 +3,7 @@ title: "How to test proper{t,l}y"
 abstract: |
   Writing unit tests is pretty much established practice and in addition to that, property testing has caught up on popularity.
   Most functional languages have one, sometimes even many implementations.
-  But "property testing" has a lot of aspects: randomized or exhaustive, minimization and generalization of counter examples, custom generators and filters, to name a few.
+  But “property testing” has a lot of aspects: randomized or exhaustive, minimization and generalization of counter examples, custom generators and filters, to name a few.
   Very often, property tests don't exploit all the features of the framework.
   In this talk, I'll give an overview of the state of the art of property testing and show some common use cases, techniques and pitfalls.
 slides:

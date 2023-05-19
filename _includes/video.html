@@ -1,6 +1,20 @@
 <div class="video">
   {% if include.site == "bunny" %}
     <iframe src="https://iframe.mediadelivery.net/embed/123528/{{ include.id }}?autoplay=false" title="Bunny player" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen></iframe>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "name": "{{ page.title }}",
+      "description": "{{ page.abstract }}",
+      "thumbnailUrl": [
+        "{{ page.video.thumb }}"
+       ],
+      "uploadDate": "2016-03-31T08:00:00+08:00",
+      "duration": "PT{{ page.video.length }}",
+      "embedUrl": "https://iframe.mediadelivery.net/embed/123528/{{ include.id }}?autoplay=false"
+    }
+    </script>
   {% else %}
     <template>
       {% if include.site == "vimeo" %}
