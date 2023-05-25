@@ -480,3 +480,9 @@
   abstract: "It isn’t exactly news that developers have to write not only code but also tests. Nevertheless, many find this to be burdensome and monotonous work. Plus, it is far from guaranteed that unit tests actually cover all the border and non-border cases. A modern approach is property-based testing, which consists of specifying an abstract condition that is then automatically checked by the test framework."
   lang: en
   url: "https://www.innoq.com/en/articles/2023/04/testing-fast-check/"
+- pub_date: 2023-05-24
+  title: "The CBDC Broadcast Session #16: CBDC Offline Capabilities"
+  journal: "The CBDC Broadcast"
+  abstract: "CBDC’s Offline capabilities is a crucial topic that holds significant implications for the future of digital payments and financial systems worldwide. As digital transformation rapidly reshapes the way we conduct transactions, it is imperative that we ensure inclusivity, accessibility, and privacy for every individual and business. CBDCs have emerged as a powerful tool in this transformative landscape, revolutionizing the way we think about money. However, we must address a critical question: How can we ensure that CBDC systems work for everyone in society, regardless of their location or connectivity? The answer lies in exploring and understanding the offline capabilities of CBDCs. The ability to conduct transactions offline not only provides a layer of resilience but also supports crucial objectives, such as financial inclusion, accessibility, and privacy. To discuss the intricacies of CBDC offline capabilities, guests Beju Shah (BIS Innovation Hub) and Dr Lars Hupel (Giesecke+Devrient) joined FNA to explore the technologies, security threats and risks associated with offline payments and delve into the CBDC design criteria that enable privacy, inclusion and resilience."
+  url: "https://fna.fi/insights/the-cbdc-broadcast-session-16-2/"
+  type: "podcast"
