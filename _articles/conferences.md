@@ -156,8 +156,14 @@ After that, all online.
 
 ## 2023
 
+End of 2022 I changed jobs, which means that I am now going to fewer engineering conferences, and adding finance events to the mix.
+
 * January: [DC³](https://www.itu.int/en/ITU-T/Workshops-and-Seminars/2023/0124/Pages/default.aspx)
 * February: [Bank der Zukunft](https://internationalbankersforum.org/event/26bdz/), Munich, Germany
 * March: [BOB Konferenz](https://bobkonf.de/2023/), Berlin, Germany
+* May: [JAX](https://jax.de/), Mainz, Germany
+* May: [Omnisecure](https://omnisecure.berlin/proceedings-2023/), Berlin, Germany
+* May: [DevDays Europe](https://devdays.lt/), Vilnius, Lithuania
+* June: [Lambda Days](https://www.lambdadays.org/lambdadays2023), Krakow, Poland
 
 To be continued.

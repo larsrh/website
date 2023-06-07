@@ -33,6 +33,7 @@ I only count proper “stays”, e.g. layovers are not included.
 1. Italy
 1. Japan
 1. Liechtenstein
+1. Lithuania
 1. Mexico
 1. Netherlands
 1. Norway
