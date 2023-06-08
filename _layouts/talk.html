@@ -2,6 +2,14 @@
 layout: default
 ---
 
+{% if page.lang == "de" %}
+  <h2>Aufzeichnung</h2>
+{% else %}
+  <h2>Recording</h2>
+{% endif %}
+
+{% include video.html id=page.video.id site=page.video.site %}
+
 <link rel="stylesheet" href="{% asset rouge.css @path %}">
 <link rel="stylesheet" href="{% asset slider.css @path %}">
 
@@ -50,14 +58,6 @@ layout: default
     Click to focus, then use left and right arrow on your keyboard to navigate (or swipe on mobile).
   {% endif %}
 </div>
-
-{% if page.lang == "de" %}
-  <h2>Aufzeichnung</h2>
-{% else %}
-  <h2>Recording</h2>
-{% endif %}
-
-{% include video.html id=page.video.id site=page.video.site %}
 
 <h2>Events</h2>
 
