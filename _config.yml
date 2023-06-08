@@ -28,6 +28,9 @@ collections:
     output: true
     permalink: /:collection/:name/
 
+liquid:
+  strict_filters: true
+
 defaults:
   - scope:
       path: ""
