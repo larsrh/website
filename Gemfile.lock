@@ -137,7 +137,7 @@ GEM
     rouge (4.1.2)
     ruby-rc4 (0.1.5)
     safe_yaml (1.0.5)
-    sass-embedded (1.63.2)
+    sass-embedded (1.63.3)
       google-protobuf (~> 3.23)
       rake (>= 10.0.0)
     sassc (2.4.0)
