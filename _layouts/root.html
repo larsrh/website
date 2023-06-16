@@ -50,7 +50,7 @@
           "@type": "WebPage",
         {% endif %}
         {% if page.hero %}
-          "image": "{{ site.url }}{{ page.hero.src }}",
+          "image": "{{ site.url }}/{{ page.hero.src }}",
         {% endif %}
         "headline": "{{ page.title | escape }}",
         "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",
