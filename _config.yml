@@ -38,7 +38,6 @@ defaults:
     values:
       layout: article
       nav: articles
-      is_article: true
       description: ""
   - scope:
       path: ""

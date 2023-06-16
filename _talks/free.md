@@ -1,5 +1,6 @@
 ---
 title: Functional Mocking
+date: 2015-04-15
 abstract: |
   Mocking is an infamous technique from object-oriented programming.
   The goal is to be able to test stateful systems in small pieces by simulating the behaviour of certain objects.

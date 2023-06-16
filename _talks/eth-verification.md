@@ -1,5 +1,6 @@
 ---
 title: Verifikation von Smart Contracts
+date: 2021-02-10
 lang: de
 abstract: |
   Smart Contracts sind eine Technologie, mit der man Code auf Blockchains ausführt.

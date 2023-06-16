@@ -1,5 +1,6 @@
 ---
 title: Programmation en Logique
+date: 2019-03-06
 abstract: |
   Prolog is one of the most underrated programming languages around; possibly because of its strange syntax and the unusual paradigm.
   But it is a very nice special-purpose programming language.

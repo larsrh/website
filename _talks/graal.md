@@ -1,5 +1,6 @@
 ---
 title: JS, Rust, Python and the Holy Graal
+date: 2020-04-19
 abstract: |
   In the old times, way back, Java used to be the only JVM language.
   Later on, a few other players entered the field, such as Jython and JRuby.

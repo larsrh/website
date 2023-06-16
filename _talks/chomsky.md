@@ -1,5 +1,6 @@
 ---
 title: Was Kubernetes-Ingress-Regeln mit der Chomsky-Hierarchie zu tun haben
+date: 2022-12-12
 lang: de
 abstract: |
   Eines schönen Tages kam ich auf die Idee, FizzBuzz in Kubernetes zu implementieren.

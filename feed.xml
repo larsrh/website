@@ -17,21 +17,21 @@
     <uri>{{ site.url }}</uri>
   </author>
 
-  {% assign articles = site.articles | concat: site.data.external_articles | sort: 'date' | reverse %}
+  {% assign pages = site.pages | where_exp: "item", "item.date" | concat: site.documents | concat: site.data.external_articles | sort: 'date' | reverse %}
 
-  {% for article in articles limit: 20 %}
-    <entry {% if article.lang %}xml:lang="{{ article.lang }}"{% endif %}>
-      <title type="html">{{ article.title | xml_escape }}</title>
-      <link href="{{ article.url | absolute_url }}" rel="alternate" type="text/html" title="{{ article.title | xml_escape }}" />
-      <published>{{ article.date | date_to_xmlschema }}</published>
-      <updated>{{ article.last_modified_at | default: article.date | date_to_xmlschema }}</updated>
-      <id>tag:lars.hupel.info,{{ article.date | date: "%Y-%m-%d" }}:{{ article.title | slugify: "ascii" }}</id>
+  {% for page in pages limit: 20 %}
+    <entry {% if page.lang %}xml:lang="{{ page.lang }}"{% endif %}>
+      <title type="html">{{ page.title | xml_escape }}</title>
+      <link href="{{ page.url | absolute_url }}" rel="alternate" type="text/html" title="{{ page.title | xml_escape }}" />
+      <published>{{ page.date | date_to_xmlschema }}</published>
+      <updated>{{ page.last_modified_at | default: page.date | date_to_xmlschema }}</updated>
+      <id>tag:lars.hupel.info,{{ page.date | date: "%Y-%m-%d" }}:{{ page.title | slugify: "ascii" }}</id>
 
       <summary type="html">
-        {% if article.abstract %}
-          {{ article.abstract | markdownify | strip_html | xml_escape }}
+        {% if page.abstract %}
+          {{ page.abstract | markdownify | strip_html | xml_escape }}
         {% else %}
-          {{article.content | strip_html | truncatewords: 50 | xml_escape}}
+          {{page.content | strip_html | truncatewords: 50 | xml_escape}}
         {% endif %}
       </summary>
 

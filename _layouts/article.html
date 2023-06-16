@@ -17,16 +17,16 @@ layout: root
     <p style="font-weight: bold; font-size: 1.5em;">{{ page.subtitle }}</p>
   {% endif %}
 
-  {% if page.is_article %}
-    {% assign reading_time = content | number_of_words | divided_by: 180 %}
-    {% if reading_time > 1 %}
-      {% if page.lang == "de" %}
-        Lesedauer: {{ reading_time }} Minuten.
-      {% else %}
-        Reading time: {{ reading_time }} minutes.
-      {% endif %}
+  {% assign reading_time = content | number_of_words | divided_by: 180 %}
+  {% if reading_time > 1 %}
+    {% if page.lang == "de" %}
+      Lesedauer: {{ reading_time }} Minuten.
+    {% else %}
+      Reading time: {{ reading_time }} minutes.
     {% endif %}
+  {% endif %}
 
+  {% if page.date %}
     {% if page.lang == "de" %}
       Veröffentlicht am
     {% else %}
