@@ -227,7 +227,6 @@
   id: "isabelle-cakeml"
   authors: ["lars", "tobias"]
   in: "European Symposium on Programming (ESOP, Open Access)"
-  errata: true
   springer: true
   year: 2018
   doi: "10.1007/978-3-319-89884-1_35"
