@@ -7,7 +7,7 @@ lang: de
 Hat man das Prinzip des Property-based Testing (oder „eigenschaftsbasiertem Testing“) einmal verstanden, steht man oft vor einer neuen Herausforderung:
 Es ist gar nicht so einfach, von spezifischen Testfällen auf Eigenschaften umzudenken und die bisherigen Tests zu verallgemeinern.
 
-In diesem Post sammle ich als Begleitmaterial [zu meinem Vortrag](https://jax.de/core-java-jvm-languages/eigenschaftsbasiertes-testen/) verschiedene Ressourcen, die den Einstieg erleichtern.
+In diesem Post sammle ich als Begleitmaterial [zu meinem Vortrag]({% link _talks/1000-auf-einen-streich.md %}) verschiedene Ressourcen, die den Einstieg erleichtern.
 
 * [jqwik](https://jqwik.net) ist eine Bibliothek für Property-based Testing in Java.
   Sie verfügt über eine ausführliches [Handbuch](https://jqwik.net/docs/current/user-guide.html).
