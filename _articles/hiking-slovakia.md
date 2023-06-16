@@ -1,6 +1,6 @@
 ---
 title: "Hiking in Slovakia"
-pub_date: 2021-09-13
+date: 2021-09-13
 lang: en
 hero:
   src: "img/dumbier.jpg"

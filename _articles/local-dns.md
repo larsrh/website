@@ -1,6 +1,6 @@
 ---
 title: "My local DNS setup"
-pub_date: 2021-03-05
+date: 2021-03-05
 lang: en
 ---
 

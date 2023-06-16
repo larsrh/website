@@ -4,7 +4,7 @@ permalink: /articles/
 title: Writing, Articles, Podcasts
 ---
 
-{% assign articles = site.articles | concat: site.data.external_articles | sort: 'pub_date' | reverse %}
+{% assign articles = site.articles | concat: site.data.external_articles | sort: 'date' | reverse %}
 
 <details style="display: none;" id="filter">
   <summary>Post filters 🔎</summary>
@@ -67,7 +67,7 @@ title: Writing, Articles, Podcasts
         {% else %}
           on
         {% endif %}
-        {% include date.html date=article.pub_date trailer="." %}
+        {% include date.html date=article.date trailer="." %}
         {% if article.hero %}
           {% if article.lang == "de" %}
             Bildnachweis:

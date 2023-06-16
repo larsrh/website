@@ -1,6 +1,6 @@
 ---
 title: "Countries I've been to"
-pub_date: 2021-09-25
+date: 2021-09-25
 lang: en
 abstract: |
   I thought it'd be fun to collect a list of all countries I've been to.

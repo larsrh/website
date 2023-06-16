@@ -1,6 +1,6 @@
 ---
 title: When testing just doesn't cut it
-pub_date: 2023-04-16
+date: 2023-04-16
 lang: en
 abstract: |
   Writing tests is common practice these days.

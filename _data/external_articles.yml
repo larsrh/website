@@ -1,85 +1,85 @@
-- pub_date: 2010-04-21
+- date: 2010-04-21
   title: "Analysis für Informatiker"
   abstract: "Inoffizielles Skript zur Vorlesung „Analysis für Informatiker“ des WS 2009/2010, gehalten von Prof. Dr. P. Rentrop, niedergeschrieben und illustriert von Markus Grimm, Andreas Heider, Lars Hupel, Michael Kerscher, Philipp Meyer, Janosch Peters und Sylvester Tremmel."
   url: "/pub/skript-analysis.pdf"
   lang: de
   type: misc
-- pub_date: 2013-06-24
+- date: 2013-06-24
   title: "Deriving Type Class Instances"
   journal: "Typelevel.org blog"
   abstract: "The use of type classes has become pervasive in Scala programming. Type classes are encoded as traits, hence the most basic way of declaring an instance is writing implicit methods which return objects extending from these traits. However, those implicit methods are regular Scala methods, so we can use all features provided by the language to derive instances.  In this post, a technique is described to compose instances into larger ones, which will not only allow for construction of instances for case classes, but also for other nested structures with minimum boilerplate."
   url: "https://typelevel.org/blog/2013/06/24/deriving-instances-1.html"
-- pub_date: 2013-11-17
+- date: 2013-11-17
   title: "Law Enforcement using Discipline"
   journal: "Typelevel.org blog"
   abstract: "Some nine or ten months ago, Spire’s project structure underwent a major reorganization. Simultaneously, the Scalacheck bindings were refactored, completely overhauling the law-checking infrastructure."
   url: "https://typelevel.org/blog/2013/11/17/discipline.html"
-- pub_date: 2015-12-03
+- date: 2015-12-03
   title: "Formale Wahrheit"
   journal: "fatum"
   abstract: "Am Lehrstuhl für Logik und Verifikation der TUM wird Isabelle entwickelt, ein Programm mithilfe dessen man Theoreme beweisen kann. Interaktive Theorembeweiser sind relative neue Hilfsmittel in der Werkzeugsammlung von Mathematikern. Sind solche vom Computer verifizierten Argumentationsketten aber noch Beweise im mathematischen Sinn?"
   url: "https://www.fatum-magazin.de/ausgaben/traeume-und-wahrheiten/in-die-werkstatt/formale-wahrheit.html"
   lang: de
-- pub_date: 2016-08-09
+- date: 2016-08-09
   title: "Functional Geekery, Episode 62"
   journal: "Functional Geekery"
   abstract: "In this episode Proctor talks with Lars Hupel. We talk his introduction to Functional Programming with Haskell, Scala, and move to working on Isabelle for creating theorems about proving your program."
   url: "https://www.functionalgeekery.com/episode-62-lars-hupel/"
   type: podcast
-- pub_date: 2016-10-17
+- date: 2016-10-17
   title: "Let's build ourselves a small ScalaCheck"
   journal: "Typelevel.org blog"
   abstract: "ScalaCheck is a well-known property-based testing library, based on ideas from Haskell’s QuickCheck. It is also a Typelevel project. In this post, I’d like to show some of the underlying mechanisms, stripped down to the bare minimum."
   url: "https://typelevel.org/blog/2016/10/17/minicheck.html"
-- pub_date: 2018-04-29
+- date: 2018-04-29
   title: "Marelle"
   journal: "Playing with Prolog (Season 2)"
   abstract: "Playing with Prolog is back for Season 2 with a new host. Annie and Lars take a look at Marelle, the SWI-Prolog based devops system."
   url: "https://www.youtube.com/watch?v=gPJFOdy9ZII"
   type: misc
-- pub_date: 2018-09-08
+- date: 2018-09-08
   title: "Job Scheduling"
   journal: "Playing with Prolog (Season 2)"
   abstract: "This month in Playing with Prolog we help Lars out at work. He needs to schedule jobs for his CI servers."
   url: "https://www.youtube.com/watch?v=D2lDNUh1plU"
   type: misc
-- pub_date: 2018-10-06
+- date: 2018-10-06
   title: "Node-RED"
   journal: "Playing with Prolog (Season 2)"
   abstract: "IBM's node-red flow programming language is an interesting declarative language. Recently Annie's been experimenting with it. In this video she shows it to Lars."
   url: "https://www.youtube.com/watch?v=6BWPEMCFuCw"
   type: misc
-- pub_date: 2019-05-22
+- date: 2019-05-22
   title: "Adressen und Transaktionen in Kryptowährungen – Teil 1: Bitcoin"
   journal: "INNOQ"
   abstract: "Kryptowährungen sind in aller Munde. Tutorials und Erklärungen gibt es zuhauf. In dieser Artikelserie soll ein bestimmter Aspekt, nämlich der der Adressen und Transaktionen, detailliert für populäre Blockchains geklärt werden. Denn unter der Oberfläche verbirgt sich einiges an Komplexität. Teil 1: Bitcoin."
   url: "https://www.innoq.com/de/articles/2019/05/kryptowaehrungen-transaktionen-teil-1/"
   lang: de
-- pub_date: 2019-05-29
+- date: 2019-05-29
   title: "Adressen und Transaktionen in Kryptowährungen – Teil 2: Ethereum"
   journal: "INNOQ"
   abstract: "Kryptowährungen sind in aller Munde. Tutorials und Erklärungen gibt es zuhauf. In dieser Artikelserie soll ein bestimmter Aspekt, nämlich der der Adressen und Transaktionen, detailliert für populäre Blockchains geklärt werden. Denn unter der Oberfläche verbirgt sich einiges an Komplexität. Teil 2: Ethereum."
   url: "https://www.innoq.com/de/articles/2019/05/kryptowaehrungen-transaktionen-teil-2/"
   lang: de
-- pub_date: 2019-05-31
+- date: 2019-05-31
   title: "Parametrizität in Java"
   journal: "JavaSPEKTRUM 3/2019"
   abstract: "So gut wie alle modernen Programmiersprachen erlauben es, Routinen über Werte und über Typen zu parametrisieren. In Java wird letzteres „Generics“ genannt, in C++ hingegen „Templates“. Obwohl die Konzepte die gleichen sind, unterscheidet sich die Implementation doch stark. In diesem Artikel möchte ich diese Art der Parametrisierung in Java unter die Lupe nehmen und erklären, warum „Type Erasure“ doch eine ganz gute Idee ist."
   url: "https://www.innoq.com/de/articles/2019/06/parametrizitaet-in-java/"
   lang: de
-- pub_date: 2019-06-05
+- date: 2019-06-05
   title: "Adressen und Transaktionen in Kryptowährungen – Teil 3: Altcoins"
   journal: "INNOQ"
   abstract: "Kryptowährungen sind in aller Munde. Tutorials und Erklärungen gibt es zuhauf. In dieser Artikelserie soll ein bestimmter Aspekt, nämlich der der Adressen und Transaktionen, detailliert für populäre Blockchains geklärt werden. Denn unter der Oberfläche verbirgt sich einiges an Komplexität. Teil 3: Altcoins."
   url: "https://www.innoq.com/de/articles/2019/06/kryptowaehrungen-transaktionen-teil-3/"
   lang: de
-- pub_date: 2019-06-27
+- date: 2019-06-27
   title: "Scala Days 2019 in Lausanne"
   journal: "INNOQ"
   abstract: "Im Juni 2019 fanden die Scala Days anlässlich des 10. Jubiläums wieder in Lausanne – an der Geburtsstätte von Scala – statt. Heuer gab es nicht nur zwei Konferenztage, sondern auch eine ganze Reihe von Community-Events davor und danach. INNOQ war die ganze Woche vor Ort und unsere Kollegen berichten hier von ihren Erfahrungen."
   url: "https://www.innoq.com/de/blog/scala-days-2019-lausanne/"
   lang: de
-- pub_date: 2019-07-03
+- date: 2019-07-03
   title: "Verifikation von Smart Contracts"
   journal: "INNOQ"
   abstract: "Smart Contracts sind eine Technologie, mit der man Code auf Blockchains ausführt. Eine Vielzahl von Geschäftsfällen werden inzwischen durch solche Verträge abgebildet. Ethereum ist dafür eine beliebte Plattform. Doch wie bei aller Software stellt sich die Frage, wie man die Qualität des Codes sicherstellen kann."
@@ -89,7 +89,7 @@
     src: "img/bug.jpg"
     alt: "A moth on a piece of paper, believed to be the first computer bug"
     credits: "U.S. Naval Historical Center"
-- pub_date: 2019-07-03
+- date: 2019-07-03
   title: "Verification of smart contracts"
   journal: "INNOQ"
   abstract: "Smart contracts are used to execute code on blockchains. A variety of business cases are now represented with such contracts. Ethereum is a popular platform for this purpose. However, as with all software, the question arises of how to ensure the quality of the code."
@@ -98,34 +98,34 @@
     src: "img/bug.jpg"
     alt: "A moth on a piece of paper, believed to be the first computer bug"
     credits: "U.S. Naval Historical Center"
-- pub_date: 2019-08-01
+- date: 2019-08-01
   title: "Integrating Logback with JLine"
   journal: "INNOQ"
   abstract: "Logback is a popular logging library for Java. JLine can be used to create nice shell-like applications. Combining both is not as hard as it looks."
   url: "https://www.innoq.com/en/blog/logback-jline/"
-- pub_date: 2019-08-02
+- date: 2019-08-02
   title: "Tabling"
   journal: "Playing with Prolog (Season 3)"
   abstract: "We cover the newly added Tabling for SWI-Prolog to help Annie get around Bangalore."
   url: "https://www.youtube.com/watch?v=HfQGSprQ5Tk"
   type: misc
-- pub_date: 2019-09-27
+- date: 2019-09-27
   title: "Private Blockchains: Vergleich von Fabric und Corda"
   journal: "JavaSPEKTRUM 5/2019"
   abstract: "Der Markt an Blockchain-Technologien ist hart umkämpft. Seit der Einführung von Bitcoin kam es zu einer Proliferation von Forks, Neuentwicklungen und Innovationen. Doch im Unternehmenskontext ist es selten sinnvoll, interne Geschäftsvorgänge auf öffentlichen Blockchains zu verwalten. Daher etabliert sich im Moment eine neue Nische, die der privaten oder zugangsbeschränkten (permissioned) Blockchains."
   lang: de
   url: "https://www.innoq.com/de/articles/2019/09/fabric-vs-corda/"
-- pub_date: 2019-10-15
+- date: 2019-10-15
   title: "The many ways of testing Smart Contracts in Ethereum"
   journal: "INNOQ"
   abstract: "You have implemented a smart contract for Ethereum, and now you are wondering how you can test it under real-life conditions, but without spending money in case there's a problem? Luckily, there are test networks that can help you with this."
   url: "https://www.innoq.com/en/blog/testing-ethereum/"
-- pub_date: 2019-10-31
+- date: 2019-10-31
   title: "Type checking JSX: A can of props"
   journal: "INNOQ"
   abstract: "In this post, I’d like to describe how JSX type checking in TypeScript actually works and the problems you’re going to encounter when implementing custom, non-React JSX components."
   url: "https://www.innoq.com/en/blog/type-checking-tsx/"
-- pub_date: 2019-12-04
+- date: 2019-12-04
   title: "Das eierlegende Truffleschwein"
   journal: "Javamagazin 01/2020"
   abstract: "Viele, die im Java-Umfeld unterwegs sind, werden von ihr gehört haben: der sagenumwobenen GraalVM. Diese magische neue Virtual Machine für Java soll vor allem für blanke Performance sorgen, indem sie den Java-Bytecode in nativen Code kompiliert. Dadurch fällt insbesondere der Startup-Overhead weg, da weite Teile der Initialisierung bereits vom Compiler erledigt werden. So oder so ähnlich ist es vielerorts zu lesen. Hinzu kommt, dass die GraalVM zu nicht weniger das Potential hat als eine neue Ära der polyglotten Programmierung auf der JVM einzuläuten. Die Rede ist von der Truffle API, einem generischen Framework zur Implementierung von Interpretern."
@@ -135,90 +135,90 @@
     src: "img/chercheur_de_truffes.jpg"
     alt: "Historisches Bild eines Trüffelschweins"
     credits: "gemeinfrei"
-- pub_date: 2020-01-31
+- date: 2020-01-31
   title: "So you want to compose some functions"
   journal: "INNOQ"
   abstract: "Let’s say you have a list of functions and you want to compose them. Shouldn’t be too hard, right? Of course it is, but maybe there’s an elegant way."
   url: "https://www.innoq.com/en/blog/function-monoids/"
-- pub_date: 2020-02-06
+- date: 2020-02-06
   title: "Lars Hupel on Algebraic Design"
   journal: "CaSE podcast"
   abstract: "In this episode of the CaSE podcast, Lucas talks to Lars Hupel of Typelevel-fame about algebraic design. Lars starts to explain how the expression problem views the difference between the functional and Object Oriented style of programming. He then explains the concept of an algebra – from coupling trains to CRDTs. This leads to a discussion on comprehensive and iterative thinking styles and how different styles of testing and proving work. Finally, they bring it all back to type systems."
   url: "https://www.case-podcast.org/29-lars-hupel-on-algebraic-design"
   type: "podcast"
-- pub_date: 2020-04-14
+- date: 2020-04-14
   title: "Cross-platform testing of TypeScript code with Jasmine and Karma"
   journal: "INNOQ"
   abstract: "I like TypeScript. Writing code that already underwent basic checks (i.e. typechecking) before it can even touch an execution engine is a big win in my book. In particular, TypeScript is nice because it integrates well into the broader JavaScript ecosystem and comes with batteries (i.e. types) included. Unfortunately, most test runners require extra setup to work with tests written in TypeScript. Some even require staggering amounts of configuration."
   url: "https://www.innoq.com/de/blog/ts-jasmine-karma/"
-- pub_date: 2020-04-27
+- date: 2020-04-27
   title: "Remote Training, funktioniert das?"
   journal: "INNOQ"
   abstract: "Heimarbeit hat sich mittlerweile – mehr oder weniger freiwillig – bei den meisten Unternehmen in der IT durchgesetzt. Doch beim Thema Schulungen sind viele noch skeptisch, ob das funktionieren könnte. Wir haben es für das iSAQB-Modul BLOCKCHAIN ausprobiert."
   lang: de
   url: "https://www.innoq.com/de/blog/remote-blockchain-training/"
-- pub_date: 2020-05-04
+- date: 2020-05-04
   title: "TypeScript. Was sind das denn für Typen?"
   journal: "INNOQ-Podcast"
   abstract: "TypeScript ist in aller Munde. In dieser Folge will Lucas von Lars wissen, wieso er sich so sehr für diese Sprache begeistert. Wie ordnet ein erfahrener Scala-Entwickler wie Lars das Typsystem von TypeScript ein? Lars beschreibt zudem, welche Vorteile ein mächtiges Typsystem mit sich bringt, und erklärt, wie die Interaktion mit JavaScript-Bibliotheken funktioniert."
   lang: de
   url: "https://www.innoq.com/de/podcast/073-type-script/"
   type: "podcast"
-- pub_date: 2020-07-03
+- date: 2020-07-03
   title: "An introduction to Conflict-Free Replicated Data Types"
   abstract: "This is a series about Conflict-Free Replicated Data Types, or CRDTs for short. Their purpose is to allow seamless replication of data on different nodes in a distributed system. Merging is by construction always possible, without any conflicts. This series assumes no knowledge about CRDTs, but be prepared to learn a thing or two about algebras."
   url: "/topics/crdt/01-intro"
-- pub_date: 2020-07-31
+- date: 2020-07-31
   title: "Modernes funktionales Programmieren in Java"
   journal: "JavaSPEKTRUM 4/2020"
   abstract: "Erfahrene Java-Entwickler\\*innen können viele der Entwurfsmuster des „Gang of Four“-Buches aus dem Stand zitieren, identifizieren und anwenden. Trotzdem stehen diese praktisch seit der Erscheinung des Buches unter Kritik: da sie teils vage definiert sind, strotzen „moderne“ Codebasen nur so von Singletons, Factories und Buildern. Auf der anderen Seite stehen die Anhänger\\*innen der funktionalen Programmierung, die sich gerne über die objektorientierten Patterns lustig machen. Die Wahrheit liegt wie so oft in der Mitte: seit Version 8 lassen sich auch in Java die cleveren Gedanken aus der funktionalen Welt effektiv und komfortabel benutzen, ohne die Objektorientierung aufzugeben."
   lang: de
   url: "https://www.innoq.com/de/articles/2020/07/modernes-funktionales-programmieren/"
-- pub_date: 2020-08-20
+- date: 2020-08-20
   title: "Train Consists"
   journal: "Playing with Prolog (Season 3)"
   abstract: "Poor Lars is having trouble arranging cars in his trains. Annie helps him out using constraint programming."
   url: "https://www.youtube.com/watch?v=KckDVWysAes"
   type: misc
-- pub_date: 2020-08-26
+- date: 2020-08-26
   title: "Smart Contracts in der Programmiersprache Rust"
   journal: "Heise Developer"
   abstract: "Wie wäre es, Rust in Kombination mit WebAssembly zu nutzen, um Smart Contracts zu entwickeln, die gegebenenfalls Millionen von Krypto-Tokens verwalten können?"
   lang: de
   url: "https://heise.de/-4877153"
-- pub_date: 2020-09-29
+- date: 2020-09-29
   title: "Postel’s Law. Grob gehackt oder fein geschnitten?"
   journal: "INNOQ-Podcast"
   abstract: "Grob gehackt oder lieber ein feiner Julienne-Schnitt für die Tags in der Suppe? Lucas und Lars diskutieren in dieser Folge über Postel’s Law. Was es besagt und wie liberal ein Service eigentlich beim Akzeptieren von Eingabedaten sein sollte – darum geht’s in dieser Folge!"
   lang: de
   url: "https://www.innoq.com/de/podcast/079-postels-law/"
   type: "podcast"
-- pub_date: 2020-10-05
+- date: 2020-10-05
   title: "Dependently-Typed TypeScript"
   journal: "Funktionale Programmierung"
   abstract: "TypeScript ist eine Programmiersprache mit einigen Besonderheiten: Im Gegensatz zu den allermeisten anderen getypten Programmiersprachen wurde sie als Aufsatz für JavaScript (JS) entwickelt. Dabei hat Microsoft besonderen Wert darauf gelegt, dass sich die Sprache möglichst nahtlos in die bestehenden Ökosysteme (Node.js und Browser) integriert. Das wird dadurch erreicht, dass die TypeScript-Syntax „bloß“ die Typen zu JavaScript hinzufügt und die Kompilierung aus dem Entfernen der Typannotationen besteht. Damit hat sich TypeScript zum de-facto Standard entwickelt, wenn es darum geht, typsichere Anwendungen auf JS-Basis zu bauen."
   url: "https://funktionale-programmierung.de/2020/10/05/dependently-typed-typescript.html"
   lang: de
-- pub_date: 2020-11-03
+- date: 2020-11-03
   title: "Informatik-Theorie für praktizierende Architekten"
   journal: "SoftwareArchitektTOUR"
   abstract: "In dieser Episode des SoftwareArchitekTOUR-Podcasts spricht Stefan Tilkov mit Gast Lars Hupel über den Nutzen von Informatik-Grundlagenwissen für praktizierende Softwarearchitekten."
   url: "https://heise.de/-4945175"
   lang: de
   type: "podcast"
-- pub_date: 2020-12-29
+- date: 2020-12-29
   title: "Jahresend-Mix 2020"
   journal: "INNOQ-Security-Podcast"
   abstract: "Welche Security-Themen haben euch 2020 am meisten beschäftigt? Was hat euch besonders beeindruckt oder einfach nur überrascht? Diese Fragen stellte Simon Kölsch 16 INNOQ Kolleginnen und Kollegen. Die Antworten ergeben einen bunten Themen-Mix, angefangen mit der Bedeutung von UX in der Security über Threat Modelling bis hin zu neuen Ideen für die spielerische Auseinandersetzung mit Security-Themen."
   url: "https://www.innoq.com/de/podcast/009-jahresend-mix-2020/"
   lang: de
   type: "podcast"
-- pub_date: 2021-01-07
+- date: 2021-01-07
   title: "Deploying a WebAssembly smart contract on Oasis Ethereum"
   journal: "INNOQ"
   abstract: "One of the cornerstones of Ethereum 2.0 is the migration from the “classic” EVM to a WebAssembly-based virtual machine. In this post, I explain how to deploy a compiled WebAssembly contract to the Oasis Ethereum chain."
   url: "https://www.innoq.com/de/blog/wasm-oasis/"
-- pub_date: 2021-02-12
+- date: 2021-02-12
   title: "Stufe 3: Neuerungen in der dritten Version der Programmiersprache Scala"
   journal: "c't"
   abstract: "14 Jahre nach Erscheinen von Scala 2.0 wagt die Sprache den nächsten großen Schritt. Wird Scala mit Version 3 so, wie es immer sein sollte? Ein Release Candidate steht schon in den Startlöchern und zeigt, wie sich die Scalable Language weiterentwickelt."
@@ -228,43 +228,43 @@
     src: "img/stairs.jpg"
     alt: "Red stairway"
     credits: "stokpic/Pixabay"
-- pub_date: 2021-02-19
+- date: 2021-02-19
   title: "#SoftwareArchitektur – Diversity"
   journal: "Softwarearchitektur im Stream"
   abstract: "Gerade in der Software-Entwicklung sind viele Gruppen unterrepräsentiert. Führen zu homogene Teams eigentlich zu schlechterer Software? Und warum? Das Thema hat auf jeden Fall Auswirkungen auf Software-Architekt:innen, unser Arbeitsumfeld und unsere Arbeitgeber. In dieser Episode diskutieren wir mit Lars Hupel, Lena Kraaz und Aminata Sidibe von INNOQ, wie Diversity in der Software-Architektur und -Entwicklung verbessert werden kann und ob das eine gute Idee ist."
   lang: de
   url: "https://software-architektur.tv/2021/02/19/folge50.html"
   type: "podcast"
-- pub_date: 2021-02-24
+- date: 2021-02-24
   title: "Smart Contracts programmieren in Ethereum – Gegenwart & Zukunft"
   journal: "t3n 63"
   abstract: "Ethereum steht hinter einer der populärsten Kryptowährungen – und doch ist es noch sehr viel mehr. Damit kann kryptografisches Geld dank Algorithmen nämlich völlig autonom verwaltet werden. Aber wie funktionieren die sogenannten Smart Contracts und wo geht die Reise hin?"
   lang: de
   url: "https://t3n.de/news/ethereum-webassembly-smart-contracts-programmieren-1421559/"
-- pub_date: 2021-04-03
+- date: 2021-04-03
   title: "Fahrradstrecken in & um München"
   abstract: "Auf dieser Seite sammle ich Beschreibungen für Tages- oder Halbtagestouren in & um München. Alle Strecken bin ich selbst gefahren."
   lang: de
   url: "/topics/cycling/"
-- pub_date: 2021-04-23
+- date: 2021-04-23
   title: "Verträge im Äther: Eine Einführung in die Ethereum-Blockchain"
   journal: "c't"
   abstract: "Blockchains werden oft mit Kryptowährungen gleich­gesetzt, aber die Technologie kann mehr als Geld verwalten. „Smart Contracts“ erlauben die Blockchain als Computer zu ­benutzen und ermöglichen zum Beispiel virtuelle Organi­sationen oder Non-Fungible-­Tokens (NFT). Ethereum ist der Vorreiter bei diesen Anwendungen."
   lang: de
   url: "https://www.innoq.com/de/articles/2021/08/ethereum-blockchain-contracts-einfuehrung/"
-- pub_date: 2021-04-23
+- date: 2021-04-23
   title: "Geld im Äther: Ein kleiner Praxisleitfaden zu Ethereum-Wallets"
   journal: "c't"
   abstract: "Tesla akzeptiert Bitcoin-Zahlungen, auf Ethereum werden Tweets verkauft – von Kryptowährungen hört man ständig. Aber wie benutzt man so ein System, wie kommt man an das virtuelle Geld und wie überweist man es? Zum entspannten Lernen eignet sich Ethereum: Dessen Blockchain ist einfach zu benutzen und erlaubt freies Experimentieren in Testnetzen."
   lang: de
   url: "https://www.innoq.com/de/articles/2021/08/ethereum-wallets/"
-- pub_date: 2021-05-22
+- date: 2021-05-22
   title: "Den Äther programmieren: Smart Contracts für die Ethereum-Blockchain schreiben"
   journal: "c't"
   abstract: "Bei Ethereum denken viele an eine Kryptowährung, dabei handelt es sich eigentlich um ein weltweit verteiltes Rechenzentrum, das Programme – sogenannte Smart Contracts – auf einer Blockchain ausführt. Wir zeigen Ihnen, wie Sie einen solchen Smart Contract programmieren, um „Schere, Stein, Papier“ auf der Ethereum-Blockchain zu spielen."
   lang: de
   url: "https://www.innoq.com/de/articles/2021/08/ethereum-contract-programmierung/"
-- pub_date: 2021-05-27
+- date: 2021-05-27
   title: "Die Top 5 der Neuerungen in Scala 3"
   journal: "Javamagazin 07/2021"
   abstract: "Schon seit geraumer Zeit arbeitet das Team um Martin Odersky an der nächsten großen Version von Scala. Deren Spitzname „Dotty“ leitet sich ab von „Dependent Object Types“, dem logischen Kalkül, welches dem Typsystem zugrunde liegt. Doch es gibt nicht nur Verbesserungen in den Eingeweiden des Compilers. Die aktuell in der Release-Candidate-Phase befindliche Vorschau auf Scala 3 verspricht, das Programmiererlebnis deutlich zu verbessern."
@@ -274,101 +274,101 @@
     src: "img/stairs.jpg"
     alt: "Red stairway"
     credits: "stokpic/Pixabay"
-- pub_date: 2021-06-07
+- date: 2021-06-07
   title: "Dezentralisierte Architektur: Was steckt hinter Blockchains?"
   journal: "iSAQB"
   abstract: "Befeuert von immer neuen Kurshöhen der Kryptowährungen, findet derzeit eine lebhafte Debatte über Blockchains statt. Die einen preisen die „autarken“ Währungen als Heilsbringer in Krisenzeiten, die anderen sehen im exzessiven Stromverbrauch einen Klimakiller. Doch welche Chancen und Risiken die neuen Technologien für Softwarearchitektur bringen, wird selten diskutiert. Über diese Fragestellung möchte ich hier einen kleinen Überblick geben."
   lang: de
   url: "https://www.isaqb.org/de/blog/dezentralisierte-architektur-was-steckt-hinter-blockchains/"
-- pub_date: 2021-06-07
+- date: 2021-06-07
   title: "Decentralized Architecture: What’s Behind Blockchains?"
   journal: "iSAQB"
   abstract: "Fueled by ever new highs in cryptocurrency prices, there is currently a lively debate about blockchains. Some praise the “self-sustaining” currencies as saviors in times of crisis, while others see their excessive power consumption as a climate killer. But which opportunities and risks the new technologies harbor for software architecture is rarely a matter of debate. I would like to give a brief overview of this issue."
   url: "https://www.isaqb.org/blog/decentralized-architecture-whats-behind-blockchains/"
-- pub_date: 2021-07-30
+- date: 2021-07-30
   title: "Geld statt Kohle: Warum Kryptowährungen auf Proof of Stake umstellen wollen"
   journal: "c't"
   abstract: "Viele Kryptowährungen nutzen Blockchains mit „Proof of Work“, aus dem ein enormer Energieverbrauch resultieren kann. „Proof of Stake“ löst dieses Problem, doch das Verfahren hat auch Nachteile. Ganz ohne Proof of Irgendwas lässt sich eine Kryptowährung aber kaum realisieren."
   lang: de
   url: "https://www.heise.de/hintergrund/Proof-of-Stake-klimafreundlicheres-Kryptogeld-6147207.html"
-- pub_date: 2021-08-28
+- date: 2021-08-28
   title: "Benutzerfreundlicher Äther: Smart Contracts in dezentrale Applikationen einbetten"
   journal: "c't"
   abstract: "Smart Contracts, wie sie die Ethereum-Blockchain kennt, sind technisch eine feine Sache. Aber sie brauchen eine Bedienoberfläche, wenn sie nicht nur Entwicklern nützen sollen – dann werden daraus „dezentrale Applikationen“. Um so eine DApp zu programmieren braucht man nur etwas HTML und JavaScript."
   lang: de
   url: "https://www.innoq.com/de/articles/2021/12/ethereum-contract-dapp/"
-- pub_date: 2021-08-30
+- date: 2021-08-30
   title: "Proof of Stake. Wie hoch ist dein Einsatz?"
   journal: "INNOQ-Podcast"
   abstract: "Cardano tut es bereits und Ethereum will es tun: Immer mehr Kryptowährungen nutzen „Proof of Stake“ als Alternative zum etablierten „Proof of Work“-Konzept, wenn es um die Absicherung ihrer Blockchain geht. Warum tun sie das? Und wo liegen die Vor- und Nachteile? Darüber sprechen Lucas und Lars in dieser Folge. Außerdem werfen sie einen Blick über den Tellerrand und geben einen Überblick über weitere Methoden, mit denen Blockchains vor Manipulation geschützt werden können."
   lang: de
   url: "https://www.innoq.com/de/podcast/093-proof-of-stake/"
   type: "podcast"
-- pub_date: 2021-09-28
+- date: 2021-09-28
   title: "Injecting environment variables into static websites using NGINX"
   journal: "INNOQ"
   abstract: "Static site generation is a perfect fit for publishing documentation. In a recent project, we chose to use NGINX as a web server to host the HTML and CSS files. However, we also wanted to protect the site using SSO. This is where things get a bit difficult."
   url: "https://www.innoq.com/en/blog/nginx-ssi-env/"
   lang: en
-- pub_date: 2021-10-29
+- date: 2021-10-29
   title: "#SoftwareArchitektur – Funktionale Programmierung in der Praxis"
   journal: "Softwarearchitektur im Stream"
   abstract: "Keine Seiteneffekte, einfaches Testen, die Korrektheit der Programme kann sogar bewiesen werden - alles Vorteile von funktionaler Programmierung. Sie hat im akademischen Bereich schon immer eine Rolle gespielt, aber auch in der Industrie wird sie zunehmend populärer - aber gleichzeitig wirkt sie abgehoben und schwer zu verstehen. In dieser Episode berichten Lars Hupel und Isabel Wingen darüber, wie sie von funktionaler Programmierung im Projekt-Alltag profitieren, welche Erfahrungen sie gemacht haben und wie man selber starten kann."
   lang: de
   url: "https://software-architektur.tv/2021/10/29/folge89.html"
   type: "podcast"
-- pub_date: 2021-11-16
+- date: 2021-11-16
   title: "Was macht eigentlich ein Bundler?"
   journal: "Informatik Aktuell"
   abstract: "In der Frontend-Entwicklung kommt man selten ohne JavaScript aus. Gestandene Backend-Profis sehen sich dann mit einer komplett neuen Toolchain konfrontiert, die vor unbekannten Fachbegriffen nur so strotzt. Doch hinter der Komplexität steckt System."
   lang: de
   url: "https://www.informatik-aktuell.de/entwicklung/programmiersprachen/was-macht-eigentlich-ein-bundler.html"
-- pub_date: 2021-11-24
+- date: 2021-11-24
   title: "TypeScript – Die Komplexität von JavaScript bändigen"
   journal: "t3n 66"
   abstract: "2022 feiert TypeScript zehnjähriges Jubiläum. Anlass genug, auf die Anfänge zurückzublicken – und Einsteigern alles an die Hand zu geben, was sie für die Arbeit mit der Programmiersprache brauchen."
   lang: de
   url: "https://www.innoq.com/de/articles/2022/03/typescript-komplexitaet-baendigen/"
-- pub_date: 2021-12-21
+- date: 2021-12-21
   title: "What Does a Bundler Actually Do?"
   journal: "INNOQ"
   abstract: "Frontend development without JavaScript is rarely possible. Seasoned backend developers are then confronted with a completely new toolchain overflowing with unknown technical terms. But there is method behind the complexity."
   lang: en
   url: "https://www.innoq.com/en/articles/2021/12/what-does-a-bundler-actually-do/"
-- pub_date: 2022-01-10
+- date: 2022-01-10
   title: "CRDT. Konfliktfrei + Kollaborativ"
   journal: "INNOQ-Podcast"
   abstract: "Ihr kennt es bestimmt: die gemeinsam verwaltete digitale Einkaufsliste. Oder: Tools wie Etherpad und Google Docs, die uns das gleichzeitige Bearbeiten des selben Texts ermöglichen. Doch was steckt technisch dahinter? Wir erklären, was theoretisch dahintersteckt. Und wie Ihr es praktisch nutzen könnt!"
   lang: de
   url: "https://www.innoq.com/de/podcast/099-crdt/"
   type: "podcast"
-- pub_date: 2022-01-14
+- date: 2022-01-14
   title: "Der Nächste, bitte! Wie die Event-Loop asynchronen Code im Browser ermöglicht"
   journal: "c't"
   abstract: "In der Regel läuft der Code von Webseiten in nur einem Thread, modernen Multicore-Prozessoren zum Trotz. Echte Parallelität gibt es so nicht, aber ein schlaues Programmiermodell erlaubt dennoch „asynchronen“ Code, der nicht linear abgearbeitet wird."
   lang: de
   url: "https://www.innoq.com/de/articles/2022/03/async-javascript-event-loop/"
-- pub_date: 2022-02-01
+- date: 2022-02-01
   title: "#SoftwareArchitektur – Hilfe, wir syncen!"
   journal: "Softwarearchitektur im Stream"
   abstract: "Live von der OOP: Lisa befragt Lars und Lucas zu ihrem Vortrag auf der OOP."
   lang: de
   url: "https://software-architektur.tv/2022/02/01/folge105.html"
   type: "podcast"
-- pub_date: 2022-02-15
+- date: 2022-02-15
   title: "Switching Protocols. Schnell, schnell!"
   journal: "INNOQ-Podcast"
   abstract: "In <a href='https://www.innoq.com/de/podcast/092-das-technologische-rueckgrat-des-webs/'>Folge 92</a> haben Robert und Lucas die Grundlagen des Webs erklärt. Ein wichtiges Thema dabei: HTTP, das Protokoll, mit dem Ressourcen vom Server zum Client kommen. Schnell wie SPDY Gonzales schieben wir nun eine weitere Folge nach, in der Lars von Lucas erfährt, wie man ein Quantum Performance aus diesem Protokoll herausholen kann."
   lang: de
   url: "https://www.innoq.com/de/podcast/101-switching-protocols/"
   type: "podcast"
-- pub_date: 2022-04-07
+- date: 2022-04-07
   title: "Next Please: How the Event Loop Enables Asynchronous Code in Browsers"
   journal: "INNOQ"
   abstract: "Despite modern multicore processors, website code usually runs in only one thread. True parallelism therefore does not exist, but a clever programming model still allows “asynchronous” code that is not processed linearly."
   lang: en
   url: "https://www.innoq.com/en/articles/2022/04/async-javascript-event-loop/"
-- pub_date: 2022-04-08
+- date: 2022-04-08
   title: "Gemischtdatenladen: Mit Python und Pandas die eigenen Einkaufsdaten analysieren"
   journal: "c't"
   abstract: "Genau wie das persönliche Surfverhalten sind die Einkaufsgewohnheiten eines Menschen sehr aufschlussreich – wenn man es schafft, die unhandlichen Daten zu analysieren. Wer so einen Datenschatz im Selbstversuch auswertet, bekommt Einblicke ins eigene Einkaufsverhalten, Erfahrung in der Analyse von Daten und obendrein ein unterhaltsames Programmierprojekt."
@@ -378,13 +378,13 @@
     src: "img/groceries.jpg"
     alt: "A wide variety of vegetables in a grocery store"
     credits: "nrd/Unsplash"
-- pub_date: 2022-04-22
+- date: 2022-04-22
   title: "TypeScript – Taming the Complexity of JavaScript"
   journal: "INNOQ"
   abstract: "TypeScript celebrates its tenth anniversary in 2022. A good reason to look back at its beginnings – and to provide beginners with everything they need to know for working with this programming language. "
   lang: en
   url: "https://www.innoq.com/en/articles/2022/04/typescript-komplexitaet-baendigen/"
-- pub_date: 2022-05-07
+- date: 2022-05-07
   title: "Marktanalyse: Supermarkt-Apps und -APIs seziert"
   journal: "c't"
   abstract: "Viele Webdienste bieten interessante Datenquellen, halten damit aber hinterm Berg. Wer weiß, wie’s geht, kann jedoch auch undokumentierte Quellen finden und mit Python anzapfen. Im zweiten Teil unserer Inspektion der eigenen Einkaufsdaten erforschen wir die APIs des Supermarktes anhand von Browser- und App-Analysen."
@@ -394,38 +394,38 @@
     src: "img/groceries.jpg"
     alt: "A wide variety of vegetables in a grocery store"
     credits: "nrd/Unsplash"
-- pub_date: 2022-05-19
+- date: 2022-05-19
   title: "Customer-specific documentation with Jekyll"
   journal: "INNOQ"
   abstract: "Static site generation is a perfect fit for publishing documentation. In a recent project, we chose to use Jekyll for rendering our content. As a special requirement, we had to build different “flavours” for different customers."
   lang: en
   url: "https://www.innoq.com/en/blog/customer-specific-documentation-with-jekyll/"
-- pub_date: 2022-05-26
+- date: 2022-05-26
   title: "Rich code documentation with Jekyll"
   journal: "INNOQ"
   abstract: "Static site generation is a perfect fit for publishing documentation. In a recent project, we chose to use a combination of Jekyll and NGINX to build and host the documentation. In this post, I show how to process and include other types of assets."
   lang: en
   url: "https://www.innoq.com/en/blog/rich-code-documentation-with-jekyll/"
-- pub_date: 2022-06-15
+- date: 2022-06-15
   title: "Dependently-Typed TypeScript"
   journal: "INNOQ"
   abstract: "TypeScript is a programming language with some special features: Unlike most other typed programming languages, it was developed as an add-on for JavaScript (JS). In the process, Microsoft has placed great value on ensuring that the language integrates as seamlessly as possible into the existing ecosystems (Node.js and browser). TypeScript’s syntax “merely” adds types to JavaScript, while the compilation “merely” removes the type annotations. This has made TypeScript the de-facto standard for building type-safe JS-based applications."
   lang: en
   url: "https://www.innoq.com/en/articles/2022/06/dependently-typed-typescript/"
-- pub_date: 2022-06-29
+- date: 2022-06-29
   title: "We Are Developers World Congress 2022 in Berlin: Our Experience Report"
   journal: "INNOQ"
   abstract: "Our colleagues were on site, staffing the booth, speaking with fellow developers, and delivering two talks."
   lang: en
   url: "https://www.innoq.com/en/blog/we-are-developers-world-congress-2022-berlin/"
-- pub_date: 2022-08-01
+- date: 2022-08-01
   title: "Dokumentation technisch umsetzen. Das Tooling macht‘s aus"
   journal: "INNOQ-Podcast"
   abstract: "„Selbst eine Word-Doku ist besser als gar keine Doku“ – Dokumentation von Software ist oft ein leidiges Thema mit noch leidigeren Werkzeugen. Lucas und Lars schauen sich in dieser Folge mal die vorhandenen Tools und Formate zur technischen Umsetzung einer guten Softwaredokumentation an. Damit am Ende niemand mehr sagen kann: „es gibt keine Doku, weil die Tools nerven“."
   lang: de
   url: "https://www.innoq.com/de/podcast/109-dokumentation-technisch-umsetzen/"
   type: "podcast"
-- pub_date: 2022-10-21
+- date: 2022-10-21
   title: "Blaupausen: Wie Objekte in JavaScript funktionieren"
   journal: "c't"
   abstract: "JavaScripts Art der Objektorientierung ist anders als die anderer Sprachen. Daran hat auch die Einführung von Klassen nichts geändert, obwohl es auf den ersten Blick so aussehen mag. So funktioniert das ungewöhnliche System."
@@ -435,14 +435,14 @@
     src: "img/blueprint.jpg"
     alt: "Blueprints"
     credits: "xresch/Pixabay"
-- pub_date: 2022-11-22
+- date: 2022-11-22
   title: "Parsen statt validieren? Der Leserbrief"
   journal: "INNOQ-Security-Podcast"
   abstract: "Bei der Absicherung von Web-Anwendungen sind Input Validation und Output-Encoding Pflicht. Aber geht das noch besser? Lars meint ja und hat kurzerhand einen Leserbrief geschrieben. Seine These: Parsing ist das bessere Validieren. Wie das funktioniert, was Parsing anders macht und ob sich die Methoden am Ende sogar ergänzen, darum geht’s in dieser Folge des Security-Podcasts."
   lang: de
   url: "https://www.innoq.com/de/podcast/022-parsen-statt-validieren/"
   type: "podcast"
-- pub_date: 2022-12-01
+- date: 2022-12-01
   title: "Transaction validation and privacy implications"
   journal: "IPEN Webinar on central bank digital currency"
   abstract: "CBDC in the world opened a huge discussion about the role of the different stakeholders intervening in the validation of transactions of a digital currency when a payment is operated. According to different design choices, different validation mechanisms can be used. How a transaction can be validated and by which actor if a distributed architecture is chosen instead of a centralized one? What is the difference between a bearer-based and an account-based solution is implemented? Moreover, in case the amount of digital currency in circulation is limited via a threshold or a tier approach, how those requirements can be technically enforced while respecting privacy of the different parties involved in the transaction? And what about in case of offline systems that involves secure hardware solutions? How to avoid the possibility to “create money” and/or fake transactions?  In particular, the panel will analyze in depth the privacy implications and the maturity of the privacy enhancing technologies that can support these processing operations."
@@ -452,19 +452,19 @@
     src: "img/ipen.jpg"
     alt: "Headshot of me with the quote: “In order to be widely accepted, a CBDC must protect the privacy of users while still fulfilling government compliance requirements. G+D Filia is designed to be a secure and trusted CBDC.”"
     credits: "G+D"
-- pub_date: 2023-01-27
+- date: 2023-01-27
   title: "Eigenschaftsbasiertes Testen mit „fast-check“"
   journal: "JavaSPEKTRUM 1/2023"
   abstract: "Dass man als Entwickler:in nicht nur Code, sondern auch Tests zu schreiben hat, ist ein alter Hut. Trotzdem ist es für viele eine lästige und monotone Arbeit. Außerdem ist es noch lange nicht garantiert, dass Unittests auch wirklich alle Grenz- und Nicht-Grenz-Fälle abdecken. Ein moderner Ansatz ist eigenschaftsbasiertes Testen, bei dem eine abstrakte Bedingung spezifiziert und dann vom Testframework automatisch überprüft wird."
   url: "https://www.innoq.com/de/articles/2023/02/testing-fast-check/"
   lang: de
-- pub_date: 2023-01-27
+- date: 2023-01-27
   title: "Importance of offline payments for CBDCs and financial inclusion"
   journal: "DC³ Conference"
   abstract: "One feature that is often required of a CBDC for financial inclusion is the ability to make payments offline. This ensures that payments can be made even if there is no connection to the Internet, e.g. in remote locations. The panel considered some potential solutions for offline transactions for CBDC and discuss considerations for technical standards that may be needed."
   url: "https://www.youtube.com/watch?v=gxnkygwjZ2o"
   type: "podcast"
-- pub_date: 2023-02-16
+- date: 2023-02-16
   title: "Blueprints: How objects work in JavaScript"
   journal: "INNOQ"
   abstract: "JavaScript’s approach to object orientation is different from other languages. This hasn’t been changed by the introduction of classes, even if it looks that way at first glance. Read on to learn how this unusual system works."
@@ -474,13 +474,13 @@
     src: "img/blueprint.jpg"
     alt: "Blueprints"
     credits: "xresch/Pixabay"
-- pub_date: 2023-04-06
+- date: 2023-04-06
   title: "Property-based Testing with “fast-check”"
   journal: "INNOQ"
   abstract: "It isn’t exactly news that developers have to write not only code but also tests. Nevertheless, many find this to be burdensome and monotonous work. Plus, it is far from guaranteed that unit tests actually cover all the border and non-border cases. A modern approach is property-based testing, which consists of specifying an abstract condition that is then automatically checked by the test framework."
   lang: en
   url: "https://www.innoq.com/en/articles/2023/04/testing-fast-check/"
-- pub_date: 2023-05-24
+- date: 2023-05-24
   title: "The CBDC Broadcast Session #16: CBDC Offline Capabilities"
   journal: "The CBDC Broadcast"
   abstract: "CBDC’s Offline capabilities is a crucial topic that holds significant implications for the future of digital payments and financial systems worldwide. As digital transformation rapidly reshapes the way we conduct transactions, it is imperative that we ensure inclusivity, accessibility, and privacy for every individual and business. CBDCs have emerged as a powerful tool in this transformative landscape, revolutionizing the way we think about money. However, we must address a critical question: How can we ensure that CBDC systems work for everyone in society, regardless of their location or connectivity? The answer lies in exploring and understanding the offline capabilities of CBDCs. The ability to conduct transactions offline not only provides a layer of resilience but also supports crucial objectives, such as financial inclusion, accessibility, and privacy. To discuss the intricacies of CBDC offline capabilities, guests Beju Shah (BIS Innovation Hub) and Dr Lars Hupel (Giesecke+Devrient) joined FNA to explore the technologies, security threats and risks associated with offline payments and delve into the CBDC design criteria that enable privacy, inclusion and resilience."

@@ -1,6 +1,6 @@
 ---
 title: "Conferences I've been to"
-pub_date: 2021-02-20
+date: 2021-02-20
 lang: en
 abstract: |
   I thought it'd be fun to collect a list of all conferences I've been to.

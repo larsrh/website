@@ -1,6 +1,6 @@
 ---
 title: "Routing the technical interview"
-pub_date: 2021-03-10
+date: 2021-03-10
 lang: en
 hero:
   src: "img/ship.jpg"

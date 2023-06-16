@@ -1,6 +1,6 @@
 ---
 title: Wenn Software-Testing nicht ausreicht
-pub_date: 2023-05-24
+date: 2023-05-24
 lang: de
 abstract: |
   Das Schreiben von Tests ist heutzutage gängige Praxis.

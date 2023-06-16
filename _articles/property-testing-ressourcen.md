@@ -1,6 +1,6 @@
 ---
 title: "Ressourcen über Property-based Testing"
-pub_date: 2023-05-06
+date: 2023-05-06
 lang: de
 ---
 

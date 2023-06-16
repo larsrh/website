@@ -1,6 +1,6 @@
 ---
 title: "Adresshandel möglicherweise rechtswidrig"
-pub_date: 2022-05-05
+date: 2022-05-05
 lang: de
 abstract: |
   Übereinstimmenden Medienberichten zufolge sind die überwiegende Mehrheit der Landesdatenschutzbehörden der Auffassung, dass „die DSGVO eine Weitergabe mit Adressen für Marketingzwecke ohne Zustimmung der Betroffenen nicht mehr zulässt“.

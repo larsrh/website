@@ -36,10 +36,10 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        {% if page.pub_date %}
+        {% if page.url contains '/articles/' %}
           "@type": "Article",
-          "datePublished": "{{ page.pub_date | date_to_xmlschema }}",
-          "dateCreated": "{{ page.pub_date | date_to_xmlschema }}",
+          "datePublished": "{{ page.date | date_to_xmlschema }}",
+          "dateCreated": "{{ page.date | date_to_xmlschema }}",
           "abstract":
             {% if page.abstract %}
               "{{ page.abstract | markdownify | strip_html | escape }}",

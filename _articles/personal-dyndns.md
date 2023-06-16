@@ -1,6 +1,6 @@
 ---
 title: "How to build your own personal DynDNS service"
-pub_date: 2021-10-08
+date: 2021-10-08
 lang: en
 ---
 

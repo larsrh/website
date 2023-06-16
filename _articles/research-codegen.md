@@ -1,6 +1,6 @@
 ---
 title: "Verified Code Generation"
-pub_date: 2019-10-25
+date: 2019-10-25
 lang: en
 ---
 

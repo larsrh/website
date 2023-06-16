@@ -1,6 +1,6 @@
 ---
 title: "2019 in Review"
-pub_date: 2019-12-21
+date: 2019-12-21
 lang: en
 ---
 

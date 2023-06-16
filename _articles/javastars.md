@@ -1,7 +1,7 @@
 ---
 title: Javastars
 long_title: "Javastars: Unsere Reise nach San Francisco"
-pub_date: 2007-07-09
+date: 2007-07-09
 lang: de
 abstract: |
   Wir, Lars Hupel, Thomas Milde und Richard Tschirschnitz sowie unserer Lehrer Mirko König sind am 5. Mai 2007 nach San Francisco geflogen, um an der weltweit größten Entwicklerkonferenz – der JavaOne 2007 – teilzunehmen. Dies hatten wir als 1. Preis beim Programmierwettbewerb „Java Stars 2006 – Sun Microsystems Award“ gewonnen und durften daher für einige Tage in den USA verweilen.

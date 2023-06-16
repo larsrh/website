@@ -1,6 +1,6 @@
 ---
 title: "A week in Tokyo"
-pub_date: 2019-11-10
+date: 2019-11-10
 lang: en
 toc: true
 hero:

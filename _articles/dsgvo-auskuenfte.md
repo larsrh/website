@@ -1,6 +1,6 @@
 ---
 title: "Was die DSGVO-Betroffenenrechte in der Praxis wert sind"
-pub_date: 2021-09-25
+date: 2021-09-25
 lang: de
 abstract: |
   Die Geschichte über einen Menschen, der auszog, Auskünfte über seine persönlichen Daten zu erhalten und über die Steine, die ihm dabei in den Weg gelegt worden sind.

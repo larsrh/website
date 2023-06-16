@@ -1,7 +1,7 @@
 ---
 title: "Why is it so hard to reuse formally verified code?"
 subtitle: "Transcript of a tweetcast"
-pub_date: 2021-03-16
+date: 2021-03-16
 lang: en
 ---
 

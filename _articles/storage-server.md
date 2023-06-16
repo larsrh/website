@@ -1,6 +1,6 @@
 ---
 title: "My storage server setup"
-pub_date: 2017-12-28
+date: 2017-12-28
 lang: en
 ---
 

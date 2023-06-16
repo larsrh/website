@@ -1,6 +1,6 @@
 ---
 title: "What does a Chief Evangelist do?"
-pub_date: 2023-02-05
+date: 2023-02-05
 lang: en
 abstract: |
   My new job title is “Chief CBDC Evangelist”, but what does that mean?

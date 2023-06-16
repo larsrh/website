@@ -8,7 +8,7 @@ abstract: |
     But this is by far not the only feature Oracle has given GraalVM. It also has the potential to usher in a new era of polyglot programming on the JVM. We are talking about the Truffle API, a generic framework for implementing interpreters.
     (This article has been originally published in devmio Volume 2, based on a German version published in late 2019.)
 lang: en
-pub_date: 2023-03-24
+date: 2023-03-24
 ---
 
 When the JVM was newly released in 1994, it was still inseparable from the Java language. It can be clearly seen that the JVM bytecode had been created in such a way that Java's "flavor" of object-oriented programming could be mapped in it. This is consistent from a historical point of view, because after all, the JVM should be able to execute compiled Java code efficiently.

@@ -1,6 +1,6 @@
 ---
 title: Ein kurzer Bericht über die elektronische Patientenakte
-pub_date: 2021-12-04
+date: 2021-12-04
 lang: de
 ---
 
