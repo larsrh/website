@@ -48,6 +48,10 @@ defaults:
       nav: talks
       description: ""
   - scope:
+      path: "pub/*"
+    values:
+      sitemap: false
+  - scope:
       path: "topics/crdt"
     values:
       long_title: An introduction to Conflict-Free Replicated Data Types
