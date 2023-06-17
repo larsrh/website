@@ -2,8 +2,7 @@
 
 <gpx version="1.1" creator="Garmin Connect" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" xmlns:gpsm="http://www.gpsmaster.org/schema/gpsm/v1">
 <metadata>
-<name>activity_6525320734.gpx</name>
-<time>2021-03-31T08:51:03Z</time>
+<name>Ammer-Amper-Radweg</name>
 <link href="connect.garmin.com">
 <text>Garmin Connect</text>
 </link><bounds minlat="48.15193313" minlon="11.24759180" maxlat="48.25717907" maxlon="11.52617809"/>
@@ -11,9 +10,6 @@
 <trk>
 <name>Dachau–FFB</name>
 <type>cycling</type>
-<extensions>
-<gpsm:color>f7ba0bff</gpsm:color>
-</extensions>
 <trkseg>
 <trkpt lat="48.18766384" lon="11.52599595">
 <ele>505.79998779</ele>
@@ -7986,12 +7982,6 @@
 <trkpt lat="48.16894856" lon="11.45926871">
 <ele>517.00000000</ele>
 </trkpt>
-<extensions>
-<gpsm:color>f7ba0bff</gpsm:color>
-</extensions>
 </trkseg>
 </trk>
-<extensions>
-<gpsm:color>f7ba0bff</gpsm:color>
-<gpsm:activity>Cycling</gpsm:activity>
-</extensions></gpx>
+</gpx>
