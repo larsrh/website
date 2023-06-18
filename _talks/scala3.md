@@ -1,5 +1,6 @@
 ---
 title: Neuigkeiten in Scala 3
+date: 2021-12-03
 lang: de
 abstract: |
   Seit geraumer Zeit in Arbeit, erschien die finale Version von Scala 3.0 im Mai 2021.

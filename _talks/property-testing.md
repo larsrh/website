@@ -1,5 +1,6 @@
 ---
 title: "How to test proper{t,l}y"
+date: 2019-07-15
 abstract: |
   Writing unit tests is pretty much established practice and in addition to that, property testing has caught up on popularity.
   Most functional languages have one, sometimes even many implementations.

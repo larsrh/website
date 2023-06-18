@@ -1,5 +1,6 @@
 ---
 title: Was macht eigentlich ein Bundler?
+date: 2022-05-11
 lang: de
 abstract: |
   In der Frontend-Entwicklung kommt man selten ohne JavaScript aus.

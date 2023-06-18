@@ -1,5 +1,6 @@
 ---
 title: Das eierlegende Truffleschwein
+date: 2019-11-06
 lang: de
 abstract: |
   Damals, ganz früher, da war Java noch die alleinherschende Sprache auf der JVM und konnte tun und lassen, was sie wollte.

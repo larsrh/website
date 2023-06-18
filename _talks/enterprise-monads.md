@@ -1,5 +1,6 @@
 ---
 title: A History of Enterprise Monads
+date: 2021-11-30
 abstract: |
   The early 2010’s were exciting times for Scala.
   The language & ecosystem started to professionalize, both from a technical (binary compatibility) and a community point of view (many conferences were started).

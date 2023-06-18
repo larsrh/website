@@ -1,5 +1,6 @@
 ---
 title: OptimusPrimeT
+date: 2015-03-24
 abstract: |
   Everybody knows monads by now, so a talk about monads would hardly be worthwhile.
   Let's take it to the next level: monad transformers.

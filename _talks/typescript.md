@@ -1,5 +1,6 @@
 ---
 title: Advanced Typing in TypeScript
+date: 2022-10-19
 abstract: |
   TypeScript is a powerful language with a type system that has been designed towards common programming patterns in the JavaScript world.
   Coupled with outstanding type inference and IDE support, it makes programming a breeze.

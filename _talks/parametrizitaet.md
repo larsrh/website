@@ -1,5 +1,6 @@
 ---
 title: Lieber ein Typparameter zu viel als einer zu wenig
+date: 2019-07-15
 lang: de
 abstract: |
   So gut wie alle modernen Programmiersprachen erlauben es, Routinen zu parametrisieren – über Werte und über Typen.

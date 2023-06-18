@@ -1,5 +1,6 @@
 ---
 title: Hilfe, wir syncen!
+date: 2022-02-12
 lang: de
 abstract: |
   Im Zeitalter der Smartphone-Apps sehen sich viele Entwickler:innen dem immer wieder gleichen Problem ausgesetzt:

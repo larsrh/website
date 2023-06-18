@@ -1,5 +1,6 @@
 ---
 title: Numeric Programming with Spire
+date: 2018-10-22
 abstract: |
   Numeric programming is a notoriously difficult topic. For number crunching, e.g. solving systems of linear equations, we need raw performance.
   However, using floating-point numbers may lead to inaccurate results. On top of that, as functional programmers, we’d really like to abstract over concrete number types, which is where abstract algebra comes into play.

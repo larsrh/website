@@ -1,5 +1,6 @@
 ---
 title: 1000 auf einen Streich
+date: 2023-06-16
 lang: de
 abstract: |
   Das man als Entwickler:in nicht nur Code, sondern auch Tests zu schreiben hat, ist ein alter Hut.

@@ -1,5 +1,6 @@
 ---
 title: Theorems for Free
+date: 2020-10-14
 abstract: |
   In the typed functional programming communities, there is much talk about “reasoning with types”.
   But rarely is this elaborated into something concrete.

@@ -1,5 +1,6 @@
 ---
 title: How to integrate CBDC with DLTs?
+date: 2023-05-12
 abstract: |
   Central Bank Digital Currency (CBDC) is gaining traction as a digital version of cash issued by central banks.
   Several countries have already implemented a CBDC, and many others are actively investigating or piloting one.
