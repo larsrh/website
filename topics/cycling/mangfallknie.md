@@ -1,5 +1,6 @@
 ---
 title: "Mangfallknie"
+date: 2021-04-03
 subtitle: "Das Mangfallknie zwischen Valley und Grub"
 geo: { lat: 47.9078, lon: 11.79121, zoom: 13 }
 markers:
@@ -50,6 +51,10 @@ Es ist allerdings problemlos möglich, per S-Bahn an- oder abzureisen; es gibt i
 
 In der Nähe von Grub, südlich der Mangfalltalbahn, befindet sich die [Teufelsgrafenbrücke](https://de.wikipedia.org/wiki/Teufelsgrabenbr%C3%BCcke_(Valley)).
 Wegen mangelnder Planung hatte ich dieses Bauwerk nicht auf dem Schirm und habe es deswegen nicht besichtigt.
+
+**Nachtrag (2023):** Rund zwei Jahre später habe ich die Besichtigung dieses Bauwerks nachgeholt; allerdings zu Fuß.
+Unsere Wanderstrecke orientierte sich an der Tour Nr. 35 „Teufelsgraben und Mangfall“ im [Burghardtschen Wanderführer](https://www.rother.de/de/reihe/rother-wanderfuhrer/munchen.html) (ähnliche Tour auf [Komoot](https://www.komoot.de/smarttour/37492)).
+Der Fahrradweg entlang der Mangfalltalbahn ist durchaus gut befahrbar und verbindet die Grubmühle mit dem Bahnhof Kreuzstraße: eine sinnvollere Variante, als die Landstraße durch Grub zu benutzen.
 
 ## Galerie
 
