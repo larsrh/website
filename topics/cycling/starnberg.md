@@ -27,7 +27,7 @@ Teilweise führt der Weg hier nicht auf Radwegen, sondern direkt über Straßen.
 Insbesondere in Gauting ist die Beschilderung nicht optimal:
 Es gibt einen scharfen Abzweig nach links kurz vor dem Stadtzentrum, den ich jedes Mal aufs Neue verpasse, wenn ich kein GPS benutze.
 
-Südlich von Gauting kommt dann der schönste Teil des Radwegs, aber obacht: auch der anstrengendste.
+Südlich von Gauting kommt dann der schönste Teil des Radwegs, aber Obacht: auch der anstrengendste.
 Der Weg führt durch das Waldgebiet [Forstenrieder Park](https://de.wikipedia.org/wiki/Forstenrieder_Park) mit einigen Steigungen und teils schmalen Wegen.
 Mit ein bisschen Kondition sollte der Weg aber auch für weniger Erfahrene machbar sein.
 
