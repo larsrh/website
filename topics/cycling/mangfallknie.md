@@ -56,6 +56,10 @@ Wegen mangelnder Planung hatte ich dieses Bauwerk nicht auf dem Schirm und habe 
 Unsere Wanderstrecke orientierte sich an der Tour Nr. 35 „Teufelsgraben und Mangfall“ im [Burghardtschen Wanderführer](https://www.rother.de/de/reihe/rother-wanderfuhrer/munchen.html) (ähnliche Tour auf [Komoot](https://www.komoot.de/smarttour/37492)).
 Der Fahrradweg entlang der Mangfalltalbahn ist durchaus gut befahrbar und verbindet die Grubmühle mit dem Bahnhof Kreuzstraße: eine sinnvollere Variante, als die Landstraße durch Grub zu benutzen.
 
+## Verknüpfungen
+
+Die Anreise zum Mangfallknie kann auch via [Mangfall-Radweg]({% link topics/cycling/mangfall-rosenheim.md %}) erfolgen.
+
 ## Galerie
 
 <div class="gallery">
