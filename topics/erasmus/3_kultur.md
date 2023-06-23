@@ -1,6 +1,9 @@
-## Kultur
+---
+title: "Kultur"
+subtitle: "Teil 3: Kultur"
+---
 
-### Irische Tänze
+## Irische Tänze
 
 Um ehrlich zu sein: Ich wusste nicht genau, worauf ich mich einlasse.
 Auf unserem tollen Zettel stand etwas von “Céilí and Irish Stew Buffet”.
@@ -27,7 +30,7 @@ Insgesamt ging die Tanzerei über zwei Stunden und die Schweißperlen
 waren allen anzusehen. Vielleicht mache ich ja doch einen Tanzkurs. Das
 Interesse daran wurde bei mir heute jedenfalls wieder geweckt.
 
-### Kanadische Köstlichkeiten
+## Kanadische Köstlichkeiten
 
 <div class="gallery">
   {% include article_picture.html src="pancakes-PA026189" text="Pancakes im Akkord" %}
@@ -52,7 +55,7 @@ Genau so wenig wie Brot, aber ein Besuch im polnischen Supermarkt, von
 dem ich vage gehört habe, dass es da ordentliches “dunkles” Brot gäbe,
 ist fest eingeplant.
 
-### Slow, slow, quick, quick
+## Slow, slow, quick, quick
 
 Einen Tanzkurs für irische Tänze gibt es bei “Queen’s Sports” nicht im
 Angebot, dafür aber “Jive & Swing”. Dieser läuft für zehn Wochen und wir
@@ -62,7 +65,7 @@ Anfängerkurs, also ohne jegliche Voraussetzung. Spaß macht es sehr, und
 wie bei solcherlei Kursen üblich, ist die Damenquote eine völlig andere
 als in meinem Studiengang.
 
-### Bananenbrot und Kürbisse
+## Bananenbrot und Kürbisse
 
 Jedes Wochenende findet in Belfast der “St George’s Market” statt. Das
 wollten wir uns natürlich auch nicht entgehen lassen und sind deswegen
@@ -93,7 +96,7 @@ Stände mit Gemälden und diesen alten Metallschildern mit verschiedenen
 Abbildungen der Titanic. Alles in allem ein sehr angenehmer Vormittag,
 auch wegen der Live-Musik, die inmitten des Trubels gespielt wurde.
 
-### There’s no such thing as a small part
+## There’s no such thing as a small part
 
 <div class="gallery">
   {% include article_picture.html src="waterfront" text="Waterfront Hall, gelegen am Lagan (by Ehrenberg Kommunikation)" %}
@@ -129,7 +132,7 @@ investierter Eintrittspreis.
 Ein kleiner Kritikpunkt bleibt aber: Der Souvenierladen in der
 Waterfront Hall hatte keine ordentlichen Postkarten.
 
-### Irish Reggae
+## Irish Reggae
 
 In Belfast gibt es ja, aufgrund der unmittelbaren Lage auf (bzw. in)
 Irland, eine ganze Menge Irish Pubs. Aktueller Favorit hier im Wohnheim
@@ -167,7 +170,7 @@ Maddens den Tipp gegeben hat. Bis auf ein Stück, welches einen
 englischen Refrain hatte, wussten wir zwar nicht, wovon sie reden, aber
 nichtsdestotrotz hat sich der Abend wirklich gelohnt.
 
-### Weihnachtsstimmung
+## Weihnachtsstimmung
 
 <div class="gallery">
   {% include article_picture.html src="wohnheim-PC036417" text="Weihnachtsbaum im Wohnheim" %}
@@ -203,6 +206,12 @@ Diskussion, die ungefähr so ablief:
 > *Person 1:* Ja. Ich war überrascht.
 >
 > *Person 2:* Das hat bestimmt jemand da vergessen.
+
+## Quellennachweis
+
+<ul>
+  <li><a href="https://www.flickr.com/photos/ehrenbergkommunikation/11819356415/">Belfast Laganside, UK</a>: CC BY-SA 2.0</li>
+</ul>
 
 [^3_1]: Ich finde es super, dass die Iren Kartoffeln so mögen wie wir.
 

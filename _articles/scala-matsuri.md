@@ -10,7 +10,7 @@ hero:
 ---
 
 I'm not regularly in the habit of writing personal blog posts.
-I had an old blog once in which I shared my experiences during [my Erasmus semester in Northern Ireland]({% link _articles/erasmus.html %}).
+I had an old blog once in which I shared my experiences during [my Erasmus semester in Northern Ireland]({% link topics/erasmus/1_universitaet.md %}).
 After that, I have largely resorted to technical writing.
 This text is an attempt to balance that out again; mostly for my own sake, but maybe some readers find it entertaining.
 It is about Scala Matsuri, a conference that took place in June 2019 in Tokyo.

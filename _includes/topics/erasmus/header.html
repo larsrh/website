@@ -1,0 +1,11 @@
+<details>
+  <summary>Inhaltsübersicht 📜</summary>
+
+  <ol>
+    {% for page in site.pages %}
+      {% if page.path contains 'topics/erasmus/' %}
+        <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ol>
+</details>

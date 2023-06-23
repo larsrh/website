@@ -1,6 +1,9 @@
-## Verschiedenes
+---
+title: "Verschiedenes"
+subtitle: "Teil 5: Verschiedenes"
+---
 
-### Wir werden kopiert, schamlos
+## Wir werden kopiert, schamlos
 
 <div class="gallery">
   {% include article_picture.html src="vauxhall-P9196068" text="Vauxhall Astra" %}
@@ -22,7 +25,7 @@ Kurioserweise wurde offenbar auch das Logo so angepasst, dass Form und
 verwendete Schrift wie beim Opel-Logo sind, weswegen mir das auch so
 bekannt vorkam.
 
-### Irische Post
+## Irische Post
 
 So richtig klappt es nicht. Aus der Heimat erwarte ich ein Paket, was
 aber schon seit mehreren Tagen unterwegs ist. DHL sagt, es lagere bei
@@ -51,7 +54,7 @@ Das Paket ist später übrigens wohlbehalten angekommen. Wie aber DHL in
 ihrem Online-System auf “Die Sendung konnte nicht zugestellt werden”
 kommt, bleibt aber rätselhaft.
 
-### Wintereinbruch
+## Wintereinbruch
 
 <div class="gallery">
   {% include article_picture.html src="kipferln-PB306398" text="Weihnachtsgebäck" %}

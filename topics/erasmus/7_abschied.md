@@ -1,6 +1,9 @@
-## Abschied
+---
+title: "Abschied"
+subtitle: "Teil 7: Abschied"
+---
 
-### Nach Hause?
+## Nach Hause?
 
 17.12.
 : Gestern gab es dann doch mal etwas mehr Schnee (immer noch nicht viel,
@@ -36,7 +39,7 @@ Zug an. Da ich natürlich Zugbindung hatte, war mein ursprüngliches
 Ticket wertlos und ich durfte ein hübsches Sümmchen für ein neues
 bezahlen.
 
-### Endspurt im Januar
+## Endspurt im Januar
 
 <div class="gallery">
   {% include article_picture.html src="tour-100_4013" text="Mit Herrn H. in einem roten Taxi auf Black Taxi Tour (von Stephan Helmrich)" %}

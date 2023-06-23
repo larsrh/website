@@ -1,6 +1,9 @@
-## Ausflüge
+---
+title: "Ausflüge"
+subtitle: "Teil 2: Ausflüge"
+---
 
-### Wandern in und um Belfast
+## Wandern in und um Belfast
 
 <div class="gallery">
   {% include article_picture.html src="freshers-P9206078" text="Fresher’s Week" %}
@@ -47,7 +50,7 @@ einer wunderschönen Landschaft.
 Der Weg abwärts ging dann im wahrsten Sinne des Wortes querfeldein, bis
 wir zufällig eine Bushaltestelle erreichten und zurück fahren konnten.
 
-### Auf nach Bangor
+## Auf nach Bangor
 
 <div class="gallery">
   {% include article_picture.html src="bangor-PA036209" text="Fresher’s Week" %}
@@ -88,7 +91,7 @@ blamieren) auf Yucca tippen.
 Ziemlich müde vom vielen Laufen sind wir dann zurückgefahren, wo der am
 Morgen vorbereitete Pizzateig auf uns wartete.
 
-### A Giant’s Cause
+## A Giant’s Cause
 
 <div class="gallery">
   {% include article_picture.html src="carrickfergus-PA316254" text="Carrickfergus Castle" %}
@@ -230,7 +233,7 @@ Dementsprechend ging es auf der schnelleren Strecke wieder zurück nach
 Belfast. Fast rechtzeitig zum großen Halloween-Feuerwerk erschienen,
 rundete das den erlebnisreichen Tag ab.
 
-### Einmal England und zurück
+## Einmal England und zurück
 
 Derzeit hat es ja unter meinen Freunden einige ins Ausland gezogen.
 Zufälligerweise sind auch neben mir noch drei weitere im Vereinigten
@@ -467,7 +470,7 @@ habe. Der weitere Weg verlief unproblematisch – theoretisch wäre ich
 sogar noch rechtzeitig zu meiner Vorlesung in Belfast angekommen, welche
 ich mir aber zwecks Ausgleichs meines Schlafdefizits geschenkt habe.
 
-### Sliabh Dónairt
+## Sliabh Dónairt
 
 <div class="gallery">
   {% include article_picture.html src="mourne-P1176571" text="Früher Bahnhof, jetzt Lidl" %}
@@ -509,6 +512,12 @@ unerfindlichen Gründen ist meine Jacke jedoch verschont geblieben.
 Insgesamt haben wir ca. fünf Stunden gebraucht, also zwei Stunden mehr,
 als der Lonely Planet vorgegeben hatte. Nun, wir sind ja auch keine
 Profi-Wanderer.
+
+## Quellennachweis
+
+<ul>
+  <li><a href="https://commons.wikimedia.org/w/index.php?title=File:Chinatown_Arch_Newcastle_UK.jpg&oldid=158134727">Chinatown Arch, Newcastle, UK</a>: CC BY-SA 3.0</li>
+</ul>
 
 [^2_1]: Unsere Kanadierin wird oftmals gefragt, wo genau das sei.
     Offenbar können das viele nicht einmal aussprechen, geschweige denn

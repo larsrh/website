@@ -19,6 +19,8 @@ https://larsrh-website.netlify.app/* https://lars.hupel.info/:splat 301!
 
 /research/codegen/   /articles/research-codegen/ 301!
 
+/articles/erasmus    /topics/erasmus/1_universitaet/ 301!
+
 /pub/bsc_hupel.html                  /pub/bsc_hupel.pdf                  301
 /pub/directed-security-policies.html /pub/directed-security-policies.pdf 301
 /pub/haskell-programmers.html        /pub/haskell-programmers.pdf        301

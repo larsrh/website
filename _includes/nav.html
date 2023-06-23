@@ -2,6 +2,6 @@
   <li {% if page.url == "/" %}class="active"{% endif %}><a href="/">Home</a></li>
   <li {% if page.url == "/research/" %}class="active"{% endif %}><a href="/research/">Research</a></li>
   <li {% if page.url contains "/talks/" %}class="active"{% endif %}><a href="/talks/">Talks</a></li>
-  <li {% if page.url contains "/articles/" %}class="active"{% endif %}><a href="/articles/">Articles</a></li>
+  <li {% if page.url contains "/articles/" or page.url contains "/topics/"%}class="active"{% endif %}><a href="/articles/">Articles</a></li>
   <li {% if page.url == "/about/" %}class="active"{% endif %}><a href="/about/">About</a></li>
 </ul>
