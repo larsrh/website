@@ -14,10 +14,6 @@
   journal: "Typelevel.org blog"
   abstract: "Some nine or ten months ago, Spire’s project structure underwent a major reorganization. Simultaneously, the Scalacheck bindings were refactored, completely overhauling the law-checking infrastructure."
   url: "https://typelevel.org/blog/2013/11/17/discipline.html"
-- date: 2015-06-02
-  title: "Ein Semester in Belfast"
-  abstract: "Diese Serie enthält gesammelte Texte aus meinem Blog aus der Zeit vom September 2010 bis zum Januar 2011, während der ich ein Austauschsemester an der Queen’s University of Belfast absolvierte. In meinem Blog habe ich für Familie, Freunde und Bekannte meine Eindrücke und Erfahrungen festgehalten. Zur gleichen Zeit studierte auch noch ein Münchner Kommilitone in Belfast, ein weiterer in Newcastle und ein Freund aus Heidelberg in Durham. Von jenen wird im folgenden auch das ein oder andere Mal die Rede sein. Die Texte sind hier nicht in ihrer chronologischen Reihenfolge wiedergegeben, sondern thematisch gruppiert. Insofern habe ich einige kleine Änderungen vorgenommen, um logische Sprünge zu vermeiden."
-  url: "/topics/erasmus/1_universitaet"
 - date: 2015-12-03
   title: "Formale Wahrheit"
   journal: "fatum"
@@ -168,10 +164,6 @@
   lang: de
   url: "https://www.innoq.com/de/podcast/073-type-script/"
   type: "podcast"
-- date: 2020-07-03
-  title: "An introduction to Conflict-Free Replicated Data Types"
-  abstract: "This is a series about Conflict-Free Replicated Data Types, or CRDTs for short. Their purpose is to allow seamless replication of data on different nodes in a distributed system. Merging is by construction always possible, without any conflicts. This series assumes no knowledge about CRDTs, but be prepared to learn a thing or two about algebras."
-  url: "/topics/crdt/01-intro"
 - date: 2020-07-31
   title: "Modernes funktionales Programmieren in Java"
   journal: "JavaSPEKTRUM 4/2020"
@@ -245,11 +237,6 @@
   abstract: "Ethereum steht hinter einer der populärsten Kryptowährungen – und doch ist es noch sehr viel mehr. Damit kann kryptografisches Geld dank Algorithmen nämlich völlig autonom verwaltet werden. Aber wie funktionieren die sogenannten Smart Contracts und wo geht die Reise hin?"
   lang: de
   url: "https://t3n.de/news/ethereum-webassembly-smart-contracts-programmieren-1421559/"
-- date: 2021-04-03
-  title: "Fahrradstrecken in & um München"
-  abstract: "Auf dieser Seite sammle ich Beschreibungen für Tages- oder Halbtagestouren in & um München. Alle Strecken bin ich selbst gefahren."
-  lang: de
-  url: "/topics/cycling/"
 - date: 2021-04-23
   title: "Verträge im Äther: Eine Einführung in die Ethereum-Blockchain"
   journal: "c't"
