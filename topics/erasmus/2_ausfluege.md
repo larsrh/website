@@ -53,7 +53,7 @@ wir zufällig eine Bushaltestelle erreichten und zurück fahren konnten.
 ## Auf nach Bangor
 
 <div class="gallery">
-  {% include article_picture.html src="bangor-PA036209" text="Fresher’s Week" %}
+  {% include article_picture.html src="bangor-PA036209" text="Bangor" %}
   {% include article_picture.html src="bangor-PA036213" text="Boat House Restaurant in Bangor" %}
   {% include article_picture.html src="bangor-PA036220" text="Farbenfrohe Fassaden in Bangor" %}
 </div>
