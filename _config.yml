@@ -38,14 +38,11 @@ defaults:
     values:
       layout: article
       nav: articles
-      description: ""
   - scope:
       path: ""
       type: talks
     values:
       layout: talk
-      nav: talks
-      description: ""
   - scope:
       path: "pub/*"
     values:
@@ -57,8 +54,6 @@ defaults:
       layout: topics/crdt
       extra_header: topics/crdt/header.html
       permalink: /:path/:basename/
-      nav: articles
-      description: ""
       toc: true
       lang: en
       abstract: |
@@ -76,8 +71,6 @@ defaults:
       layout: topics/cycling
       extra_header: topics/cycling/header.html
       permalink: /:path/:basename/
-      nav: articles
-      description: ""
       lang: de
   - scope:
       path: "topics/erasmus"
