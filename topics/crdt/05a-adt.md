@@ -1,5 +1,4 @@
 ---
-title: "CRDTs: Part 5 (side note)"
 subtitle: "Part 5, side note: Abstract Data Types"
 toc: false
 ---

@@ -1,6 +1,5 @@
 ---
-title: "Geschichtsrevisionismus"
-long_title: "Geschichtsrevisionismus: Nachträgliches Ändern einer Projektgeschichte mit Git"
+title: "Geschichtsrevisionismus: Nachträgliches Ändern einer Projektgeschichte mit Git"
 date: 2011-09-12
 abstract: |
   Was unter Historikern verpönt ist, ist mit Git ganz einfach:

@@ -1,5 +1,4 @@
 ---
-title: "Mangfallknie"
 date: 2021-04-03
 subtitle: "Das Mangfallknie zwischen Valley und Grub"
 geo: { lat: 47.9078, lon: 11.79121, zoom: 13 }

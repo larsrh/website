@@ -1,5 +1,4 @@
 ---
-title: "Amper zwischen Haimhausen und Moosburg"
 subtitle: "Ammer-Amper-Radweg zwischen Haimhausen und Moosburg (Isarmündung)"
 geo: { lat: 48.4142, lon: 11.6022, zoom: 10 }
 markers:

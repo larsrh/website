@@ -1,6 +1,5 @@
 ---
-title: "Ausflüge"
-subtitle: "Teil 2: Ausflüge"
+subtitle: "Ausflüge"
 ---
 
 ## Wandern in und um Belfast

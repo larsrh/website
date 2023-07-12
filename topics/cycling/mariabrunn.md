@@ -1,5 +1,4 @@
 ---
-title: "Mariabrunn"
 subtitle: "Ampermoching und die Schlosswirtschaft Mariabrunn"
 geo: { lat: 48.27, lon: 11.48, zoom: 12 }
 markers:

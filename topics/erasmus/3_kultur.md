@@ -1,6 +1,5 @@
 ---
-title: "Kultur"
-subtitle: "Teil 3: Kultur"
+subtitle: "Kultur"
 ---
 
 ## Irische Tänze

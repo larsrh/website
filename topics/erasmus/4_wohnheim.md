@@ -1,6 +1,5 @@
 ---
-title: "Wohnheim"
-subtitle: "Teil 4: Wohnheim"
+subtitle: "Wohnheim"
 ---
 
 ## Die Iren kommen

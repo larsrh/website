@@ -1,5 +1,4 @@
 ---
-title: "CRDTs: Part 7"
 subtitle: "Part 7: Registers and Deletion"
 toc: false
 ---

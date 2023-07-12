@@ -1,6 +1,5 @@
 ---
-title: Javastars
-long_title: "Javastars: Unsere Reise nach San Francisco"
+title: "Javastars: Unsere Reise nach San Francisco"
 date: 2007-07-09
 lang: de
 abstract: |

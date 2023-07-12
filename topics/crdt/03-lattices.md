@@ -1,5 +1,4 @@
 ---
-title: "CRDTs: Part 3"
 subtitle: "Part 3: Lattices"
 ---
 

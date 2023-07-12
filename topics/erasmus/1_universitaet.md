@@ -1,6 +1,5 @@
 ---
-title: "Universität"
-subtitle: "Teil 1: Universität"
+subtitle: "Universität"
 ---
 
 ## Angekommen

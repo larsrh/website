@@ -12,9 +12,15 @@
     <link rel="stylesheet" href="{% asset water.css @path %}">
     <link rel="stylesheet" href="{% asset main.css @path %}">
 
-    <title>Lars Hupel &middot; {{ page.title | escape }}</title>
+    {% assign full_title = page.title | escape %}
+    {% if page.subtitle %}
+      {% assign subtitle = page.subtitle | escape %}
+      {% assign full_title = page.title | append: ' · ' | append: subtitle %}
+    {% endif %}
 
-    <meta property="og:title" content="{{ page.title | escape }}">
+    <title>Lars Hupel · {{ full_title }}</title>
+
+    <meta property="og:title" content="{{ full_title }}">
     <meta property="og:locale" content="{% if page.lang %}{{ page.lang }}{% else %}en{% endif %}">
     <meta property="og:image" content="{{ site.url }}{% asset profile.jpg @path %}">
     <meta property="og:image:secure_url" content="{{ site.url }}{% asset profile.jpg @path %}">
@@ -52,7 +58,7 @@
         {% if page.hero %}
           "image": "{{ site.url }}/{{ page.hero.src }}",
         {% endif %}
-        "headline": "{{ page.title | escape }}",
+        "headline": "{{ full_title }}",
         "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",
         "url": "{{ site.url }}{{ page.url }}",
         "author": {

@@ -1,5 +1,4 @@
 ---
-title: "Die südliche Würm"
 subtitle: "Entlang der Würm von der Blutenburg nach Starnberg"
 geo: { lat: 48.08, lon: 11.4, zoom: 11 }
 markers:

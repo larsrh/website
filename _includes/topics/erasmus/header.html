@@ -4,7 +4,7 @@
   <ol>
     {% for page in site.pages %}
       {% if page.path contains 'topics/erasmus/' %}
-        <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+        <li><a href="{{ page.url }}">{{ page.subtitle }}</a></li>
       {% endif %}
     {% endfor %}
   </ol>

@@ -1,6 +1,5 @@
 ---
-title: "Abschied"
-subtitle: "Teil 7: Abschied"
+subtitle: "Abschied"
 ---
 
 ## Nach Hause?

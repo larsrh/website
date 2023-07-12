@@ -1,6 +1,5 @@
 ---
-title: "Überholt"
-long_title: "Überholt: Subversion ist obsolet"
+title: "Überholt: Subversion ist obsolet"
 date: 2010-09-22
 abstract: |
   In der letzten Ausgabe des KaffeeKlatsch wurde eine Kombination aus Subversion, Mantis und CheckStyle vorgestellt.

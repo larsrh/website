@@ -1,5 +1,4 @@
 ---
-title: "Mangfall-Radweg nach Rosenheim"
 date: 2023-06-22
 subtitle: "Entlang der Mangfall bis nach Rosenheim"
 gpx:

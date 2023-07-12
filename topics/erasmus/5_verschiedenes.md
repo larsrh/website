@@ -1,6 +1,5 @@
 ---
-title: "Verschiedenes"
-subtitle: "Teil 5: Verschiedenes"
+subtitle: "Verschiedenes"
 ---
 
 ## Wir werden kopiert, schamlos

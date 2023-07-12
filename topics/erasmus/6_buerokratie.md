@@ -1,6 +1,5 @@
 ---
-title: "Bürokratie"
-subtitle: "Teil 6: Bürokratie"
+subtitle: "Bürokratie"
 ---
 
 ## Erster Akt

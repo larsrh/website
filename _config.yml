@@ -50,7 +50,7 @@ defaults:
   - scope:
       path: "topics/crdt"
     values:
-      long_title: An introduction to Conflict-Free Replicated Data Types
+      title: An introduction to Conflict-Free Replicated Data Types
       layout: topics/crdt
       extra_header: topics/crdt/header.html
       permalink: /:path/:basename/
@@ -67,7 +67,7 @@ defaults:
   - scope:
       path: "topics/cycling"
     values:
-      long_title: Fahrradstrecken in & um München
+      title: Fahrradstrecken in & um München
       layout: topics/cycling
       extra_header: topics/cycling/header.html
       permalink: /:path/:basename/
@@ -75,7 +75,7 @@ defaults:
   - scope:
       path: "topics/erasmus"
     values:
-      long_title: "Ein Semester in Belfast: Erfahrungen meines Auslandssemesters"
+      title: "Ein Semester in Belfast: Erfahrungen meines Auslandssemesters"
       layout: article
       permalink: /:path/:basename/
       extra_header: topics/erasmus/header.html

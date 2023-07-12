@@ -1,5 +1,4 @@
 ---
-title: "CRDTs: Part 5"
 subtitle: "Part 5: Tombstones"
 ---
 
