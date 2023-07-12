@@ -1,6 +1,9 @@
-## Bürokratie
+---
+title: "Bürokratie"
+subtitle: "Teil 6: Bürokratie"
+---
 
-### Erster Akt
+## Erster Akt
 
 17.09.
 : Bekomme vom Erasmus-Beauftragten für den Studiengang Informatik eine
@@ -88,7 +91,7 @@ langsam oder das Absenderdatum falsch.
   setzen. Außerdem würde ich noch einen Brief bekommen, was ich alles noch
   an Unterlagen mitbringen soll.
 
-### Zweiter Akt
+## Zweiter Akt
 
 10.11.
 : Ui, ein offizieller Brief, zumindest steht “On Her Majesty’s Service”
@@ -154,7 +157,7 @@ noch nützlich sein. Hole auch den Zettel vom Wohnheim ab, den sie unter
 Außerachtlassung meines Kopierbedürfnisses in einen Umschlag gesteckt
 und diesen verschlossen haben. Öffne und kopiere trotzdem, so.
 
-### Dritter Akt
+## Dritter Akt
 
 17.11.
 : Welch Service: Um 09:30 ruft jemand bei mir an und gibt mir nochmal die

@@ -38,14 +38,11 @@ defaults:
     values:
       layout: article
       nav: articles
-      description: ""
   - scope:
       path: ""
       type: talks
     values:
       layout: talk
-      nav: talks
-      description: ""
   - scope:
       path: "pub/*"
     values:
@@ -57,8 +54,6 @@ defaults:
       layout: topics/crdt
       extra_header: topics/crdt/header.html
       permalink: /:path/:basename/
-      nav: articles
-      description: ""
       toc: true
       lang: en
       abstract: |
@@ -76,6 +71,21 @@ defaults:
       layout: topics/cycling
       extra_header: topics/cycling/header.html
       permalink: /:path/:basename/
-      nav: articles
-      description: ""
       lang: de
+  - scope:
+      path: "topics/erasmus"
+    values:
+      long_title: "Ein Semester in Belfast: Erfahrungen meines Auslandssemesters"
+      layout: article
+      permalink: /:path/:basename/
+      extra_header: topics/erasmus/header.html
+      toc: true
+      lang: de
+      date: "2015-06-02"
+      abstract: |
+        Diese Serie enthält gesammelte Texte aus meinem Blog aus der Zeit vom September 2010 bis zum Januar 2011, während der ich ein Austauschsemester an der Queen’s University of Belfast absolvierte.
+        In meinem Blog habe ich für Familie, Freunde und Bekannte meine Eindrücke und Erfahrungen festgehalten.
+        Zur gleichen Zeit studierte auch noch ein Münchner Kommilitone in Belfast, ein weiterer in Newcastle und ein Freund aus Heidelberg in Durham.
+        Von jenen wird im folgenden auch das ein oder andere Mal die Rede sein.
+        Die Texte sind hier nicht in ihrer chronologischen Reihenfolge wiedergegeben, sondern thematisch gruppiert.
+        Insofern habe ich einige kleine Änderungen vorgenommen, um logische Sprünge zu vermeiden.
