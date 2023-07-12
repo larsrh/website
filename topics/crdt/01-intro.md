@@ -9,10 +9,6 @@ If you're reading this, that's most likely because you've pointed your browser t
 Perfect conditions for motivating what all this is about.
 (If you're unsure whether this series is worth reading, check out the [testimonials](#testimonials).)
 
-## Series contents
-
-{% include topics/crdt/contents.md %}
-
 ## The web is a truly distributed application platform
 
 {% include float_picture.html src="topics/crdt/world.jpg" text="A network of nodes" %}

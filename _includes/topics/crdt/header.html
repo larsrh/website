@@ -1,6 +1,18 @@
-{% unless page.url contains "01" %}
-  <details>
-    <summary>Series navigation 📜</summary>
-    {% include markdown.html src="topics/crdt/contents.md" %}
-  </details>
-{% endunless %}
+<details>
+  <summary>Series navigation 📜</summary>
+
+  <ol>
+    <li><a href="{% link topics/crdt/01-intro.md %}">Preliminaries</a></li>
+    <li><a href="{% link topics/crdt/02-contracts.md %}">Algebras & contracts</a></li>
+    <li><a href="{% link topics/crdt/03-lattices.md %}">Lattices</a></li>
+    <li><a href="{% link topics/crdt/04-combinators.md %}">Combinators</a></li>
+    <li><a href="{% link topics/crdt/05-tombstones.md %}">Tombstones</a>
+      <ul>
+        <li>Side note on <a href="{% link topics/crdt/05a-adt.md %}">Abstract Data Types</a></li>
+      </ul>
+    </li>
+    <li><a href="{% link topics/crdt/06-time.md %}">Time</a></li>
+    <li><a href="{% link topics/crdt/07-deletion.md %}">Registers and Deletion</a></li>
+    <li><a href="{% link topics/crdt/08-outlook.md %}">Outlook</a></li>
+  </ol>
+</details>
