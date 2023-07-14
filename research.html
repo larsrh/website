@@ -34,8 +34,9 @@ title: Research & Publications
       {% if pub.springer %}
         <div><small>The final publication is available at <a href="http://link.springer.com/">Springer Link</a>.</small></div>
       {% endif %}
+
       <details class="pub-abstract">
-        <summary><span>{{pub.abstract | strip_html | truncatewords: 30}}</span></summary>
+        <summary>Abstract</summary>
 
         <div class="hyphenate">
           {{ pub.abstract }}

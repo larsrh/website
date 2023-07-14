@@ -6,34 +6,6 @@ title: Writing, Articles, Podcasts
 
 {% assign articles = site.articles | concat: site.data.external_articles | sort: 'date' | reverse %}
 
-<details style="display: none;" id="filter">
-  <summary>Post filters 🔎</summary>
-
-  <div>
-    <strong>Language:</strong>
-    <input id="lang-en" type="checkbox" checked="checked">
-    <label for="lang-en">English</label>
-    <input id="lang-de" type="checkbox" checked="checked">
-    <label for="lang-de">German</label>
-    <br>
-    <strong>Type:</strong>
-    <input id="type-article" type="checkbox" checked="checked">
-    <label for="type-article">Article</label>
-    <input id="type-podcast" type="checkbox" checked="checked">
-    <label for="type-podcast">Podcasts &amp; Discussions</label>
-    <input id="type-misc" type="checkbox" checked="checked">
-    <label for="type-misc">Miscellaneous</label>
-    <br>
-    <strong>Location:</strong>
-    <input id="loc-here" type="checkbox" checked="checked">
-    <label for="loc-here">Here</label>
-    <input id="loc-ext" type="checkbox" checked="checked">
-    <label for="loc-ext">External</label>
-  </div>
-
-  Found <span id="count"></span> post(s).
-</details>
-
 <div class="articles">
   {% for article in articles %}
     {% assign ext = false %}
@@ -81,46 +53,3 @@ title: Writing, Articles, Podcasts
     </article>
   {% endfor %}
 </div>
-
-<script>
-  function filterArticle({ en, de }, { article, podcast, misc }, { here, ext }, element) {
-    const lang = element.lang || "en";
-    const showLang = (en && lang == "en") || (de && lang == "de");
-
-    const type = element.dataset.type || "article";
-    const showType = (article && type == "article") || (podcast && type == "podcast") || (misc && type == "misc");
-
-    const isExt = element.classList.contains("external");
-    const showLocation = (here && !isExt) || (ext && isExt);
-
-    const show = showLang && showType && showLocation;
-
-    if (show)
-      element.style.display = "block";
-    else
-      element.style.display = "none";
-
-    return show;
-  }
-
-  function filter() {
-    const [en, de, article, podcast, misc, here, ext] =
-        ["lang-en", "lang-de", "type-article", "type-podcast", "type-misc", "loc-here", "loc-ext"]
-          .map(name => document.getElementById(name).checked);
-
-    let count = 0;
-
-    for (const element of document.querySelectorAll("article"))
-      if (filterArticle({ en, de }, { article, podcast, misc }, { here, ext }, element))
-        count += 1;
-
-    document.getElementById("count").innerHTML = count;
-  }
-
-  for (const input of document.querySelectorAll("#filter input"))
-    input.onchange = filter;
-
-  filter();
-
-  document.getElementById("filter").style.display = "block";
-</script>
