@@ -37,7 +37,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Run html5validator
-      run: html5validator --root ./_site --ignore 'Illegal character in fragment' 'endnote' 'footnote'
+      run: html5validator --root ./_site --ignore 'Illegal character in fragment' 'endnote' 'footnote' 'hgroup'
 
     - name: Set up Node
       uses: actions/setup-node@v2

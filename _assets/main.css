@@ -36,11 +36,13 @@ a {
   text-decoration: underline dotted;
 }
 
-@media (prefers-color-scheme: dark) {
-  progress {
-    border: none;
-    background-color: #ffffff;
-  }
+hgroup p.subtitle {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+main .abstract {
+  font-style: italic;
 }
 
 nav ul {
@@ -333,4 +335,14 @@ blockquote > p {
 
 #map-embed {
   aspect-ratio: 16 / 9;
+}
+
+header .hero {
+  margin-top: var(--spacer-md);
+}
+
+ul.profiles {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
