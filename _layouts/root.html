@@ -12,15 +12,15 @@
     <link rel="stylesheet" href="{% asset water.css @path %}">
     <link rel="stylesheet" href="{% asset main.css @path %}">
 
-    {% assign full_title = page.title | escape %}
+    {% assign full_title = page.title %}
     {% if page.subtitle %}
-      {% assign subtitle = page.subtitle | escape %}
-      {% assign full_title = page.title | append: ' · ' | append: subtitle %}
+      {% assign subtitle = page.subtitle %}
+      {% assign full_title = full_title | append: ' · ' | append: subtitle %}
     {% endif %}
 
-    <title>Lars Hupel · {{ full_title }}</title>
+    <title>Lars Hupel · {{ full_title | escape }}</title>
 
-    <meta property="og:title" content="{{ full_title }}">
+    <meta property="og:title" content="{{ full_title | escape }}">
     <meta property="og:locale" content="{% if page.lang %}{{ page.lang }}{% else %}en{% endif %}">
     <meta property="og:image" content="{{ site.url }}{% asset profile.jpg @path %}">
     <meta property="og:image:secure_url" content="{{ site.url }}{% asset profile.jpg @path %}">

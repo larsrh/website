@@ -20,12 +20,18 @@
   {% assign pages = site.pages | where_exp: "item", "item.date" | concat: site.documents | concat: site.data.external_articles | sort: 'date' | reverse %}
 
   {% for page in pages limit: 20 %}
+
+    {% assign full_title = page.title %}
+    {% if page.subtitle %}
+      {% assign full_title = page.title | append: ': ' | append: page.subtitle %}
+    {% endif %}
+
     <entry {% if page.lang %}xml:lang="{{ page.lang }}"{% endif %}>
-      <title type="html">{{ page.title | xml_escape }}</title>
-      <link href="{{ page.url | absolute_url }}" rel="alternate" type="text/html" title="{{ page.title | xml_escape }}" />
+      <title type="html">{{ full_title | xml_escape }}</title>
+      <link href="{{ page.url | absolute_url }}" rel="alternate" type="text/html" title="{{ full_title | xml_escape }}" />
       <published>{{ page.date | date_to_xmlschema }}</published>
       <updated>{{ page.last_modified_at | default: page.date | date_to_xmlschema }}</updated>
-      <id>tag:lars.hupel.info,{{ page.date | date: "%Y-%m-%d" }}:{{ page.title | slugify: "ascii" }}</id>
+      <id>tag:lars.hupel.info,{{ page.date | date: "%Y-%m-%d" }}:{{ full_title | slugify: "ascii" }}</id>
 
       <summary type="html">
         {% if page.abstract %}
@@ -40,5 +46,6 @@
         <uri>{{ site.url }}</uri>
       </author>
     </entry>
+
   {% endfor %}
 </feed>
