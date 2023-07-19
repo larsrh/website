@@ -4,10 +4,6 @@ permalink: /about/
 title: About
 ---
 
-<a href="{% asset portrait.jpg @path %}" class="lightbox figure-float-right" title="Portrait drawn by mei (@mei_kins on Twitter)">
-  <img src="{% asset portrait.jpg @path %}" alt="Drawn portrait of Lars Hupel">
-</a>
-
 I enjoy programming, cycling, travelling, dogs, and conferences.
 
 ## Standing invitation

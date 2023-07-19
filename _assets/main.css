@@ -79,14 +79,34 @@ nav li.active::before {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   gap: var(--spacer-lg);
-  width: 100%
 }
 
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
   gap: var(--spacer-md);
-  width: 100%
+}
+
+img.profile {
+  border-radius: 100%;
+}
+
+.card {
+  display: grid;
+  gap: var(--spacer-md);
+  align-items: center;
+}
+
+@media (min-width: 52rem) {
+  .card {
+    grid-template-columns: 1fr 3fr;
+  }
+}
+
+@media (max-width: 52rem) {
+  header h1.intro {
+    text-align: center;
+  }
 }
 
 @media (max-width: 768px) {

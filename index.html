@@ -1,33 +1,56 @@
 ---
-layout: default
-title: Lars Hupel's homepage
+layout: root
+title: Homepage
 ---
 
-{% include synopsis.html %}
+<header>
+  <div class="card">
 
-<div class="masonry">
-  <div>
-    <h2>Contact</h2>
-    {% include contact.html %}
+    <img class="profile" src="{% asset profile.jpg @path %}" alt="Profile picture">
+
+    <div>
+      <h1 class="intro">Hi! This is Lars’ homepage.</h1>
+
+      <div class="hyphenate">
+        Lars is an Evangelist at <a href="https://www.gi-de.com/">Giesecke+Devrient,</a> a global company specialized in payments, connectivity, identities, and digital infrastructure.
+        An engineer at heart, they are working to bring modern financial services to people.
+        Lars <a href="{% link articles.html %}">writes articles</a> and <a href="{% link talks.html %}">talks about</a> a multitude of topics.
+
+        <p>
+          Previously, Lars was a PhD student at <a href="https://www21.in.tum.de">TU München</a> in the field of logic and verification.
+          Their <a href="{% link research.html %}">research</a> focus was on techniques for verified code generation from theorem provers.
+        </p>
+      </div>
+    </div>
+
   </div>
-  <div>
-    <h2>Profiles</h2>
-    {% include profiles.html %}
+</header>
+
+<main>
+  <div class="masonry">
+    <div>
+      <h2>Contact</h2>
+      {% include contact.html %}
+    </div>
+    <div>
+      <h2>Profiles</h2>
+      {% include profiles.html %}
+    </div>
+    <div>
+      <h2>Standing invitation</h2>
+      {% include invitation.html %}
+    </div>
+    <div>
+      <h2>Upcoming talks</h2>
+      {% include upcoming.html %}
+    </div>
+    <div>
+      <h2>Flight status</h2>
+      {% include flights.html %}
+    </div>
+    <div>
+      <h2>Cookies</h2>
+      {% include cookies.html %}
+    </div>
   </div>
-  <div>
-    <h2>Standing invitation</h2>
-    {% include invitation.html %}
-  </div>
-  <div>
-    <h2>Upcoming talks</h2>
-    {% include upcoming.html %}
-  </div>
-  <div>
-    <h2>Flight status</h2>
-    {% include flights.html %}
-  </div>
-  <div>
-    <h2>Cookies</h2>
-    {% include cookies.html %}
-  </div>
-</div>
+</main>
