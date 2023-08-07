@@ -36,7 +36,7 @@ GEM
       timers (~> 4.1)
     colorator (1.1.0)
     concurrent-ruby (1.2.2)
-    console (1.20.0)
+    console (1.21.0)
       fiber-annotation
       fiber-local
     em-websocket (0.5.3)
