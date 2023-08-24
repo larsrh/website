@@ -342,3 +342,11 @@
   year: 2020
   abstract: |
      In this article, we present a formalization of the well-known "Hello, World!" code, including a formal framework for reasoning about IO. Our model is inspired by the handling of IO in Haskell. We start by formalizing the 🌍 and embrace the IO monad afterwards. Then we present a sample main :: IO (), followed by its proof of correctness.
+- title: "Fixed-Length Vectors"
+  id: "afp-vectors"
+  authors: ["lars"]
+  entry: "https://www.isa-afp.org/entries/Fixed_Length_Vector.html"
+  in: "Archive of Formal Proofs"
+  year: 2023
+  abstract: |
+    This theory introduces a type constructor for lists with known length, also known as "vectors". Those vectors are indexed with a numeral type that represent their length. This can be employed to avoid carrying around length constraints on lists. Instead, those constraints are discharged by the type checker. As compared to the vectors defined in the distribution, this definition can easily work with unit vectors. We exploit the fact that the cardinality of an infinite type is defined to be 0: thus any infinite length index type represents a unit vector. Furthermore, we set up automation and BNF support.
