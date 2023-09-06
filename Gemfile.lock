@@ -142,7 +142,7 @@ GEM
       rake (>= 13.0.0)
     sassc (2.4.0)
       ffi (~> 1.9)
-    sprockets (4.2.0)
+    sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
     terminal-table (3.0.2)
