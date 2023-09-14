@@ -1,8 +1,8 @@
-- conference: "We Are Developers"
-  date: 2023-07-28
-  location: Berlin, Germany
-  link: "https://www.wearedevelopers.com/world-congress/speakers"
 - conference: "Software Architecture Alliance"
   date: 2023-09-28
   location: Munich, Germany
   link: "https://www.software-architecture-alliance.de/2023/programm/programm"
+- conference: "Hong Kong FinTech Week"
+  date: 2023-10-30
+  location: Hong Kong
+  link: "https://www.fintechweek.hk/"
