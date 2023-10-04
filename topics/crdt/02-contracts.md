@@ -137,7 +137,7 @@ The "partial" part comes from the fact that the comparator may fail to produce a
 
 Such a partial ordering needs to satisfy two laws:
 
-1. any value must be equal to itself (_reflexivity_)
+1. any value must be ≤ to itself (_reflexivity_)[^footnote-refl]
 2. if you have three values _x_, _y_, and _z_, and you know that _x_ ≤ _y_ and _y_ ≤ _z_, then _x_ ≤ _z_ (_transitivity_)
 
 This math-speak can be translated into a contract as follows:
@@ -356,3 +356,4 @@ Spoiler: more order!
 * Lattice of divisors by Watchduck on [Wikimedia Commons](https://commons.wikimedia.org/w/index.php?title=File:Infinite_lattice_of_divisors.svg&oldid=379240153), public domain
 
 [^footnote-monkey]: Astute readers will observe the weird `configurable: true` property, which I have to add here because technically the property gets overwritten every time you execute the snippet.
+[^footnote-refl]: In a previous version of this episode, this said "must be equal to itself", but as [@indolamine](https://github.com/larsrh/website/issues/315) pointed out, that was not correct. We are defining ≤ here, not =, therefore the law should speak about ≤.
