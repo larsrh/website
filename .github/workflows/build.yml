@@ -4,23 +4,16 @@ on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     steps:
     - uses: actions/checkout@v2
-
-    - name: Cache Ruby dependencies
-      uses: actions/cache@v2.1.2
-      with:
-        path: vendor/bundle
-        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-gems-
 
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 3.2.2
+        bundler-cache: true
     - name: Install Ruby dependencies
       run: bundle install
     - name: Build site
@@ -29,9 +22,9 @@ jobs:
       run: bundle exec htmlproofer --disable-external --no-enforce-https ./_site
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
-        python-version: 3.8
+        python-version: 3.12
     - name: Install Python dependencies
       run: |
         python -m pip install --upgrade pip
@@ -40,10 +33,10 @@ jobs:
       run: html5validator --root ./_site --ignore 'Illegal character in fragment' 'endnote' 'footnote' 'hgroup'
 
     - name: Set up Node
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v4
       with:
-        node-version: '12'
+        node-version: '20'
     - name: Install pa11y-ci
-      run: npm install -g pa11y-ci@3.0.1
+      run: npm install -g pa11y-ci@3.1.0
     - name: Run pa11y-ci
       run: find ./_site/ -name "*.html" | xargs pa11y-ci
