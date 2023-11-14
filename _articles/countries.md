@@ -17,10 +17,13 @@ I only count proper “stays”, e.g. layovers are not included.
 
 1. Austria
 1. Belgium
+1. Bhutan
 1. Bulgaria
 1. Canada
    * British Columbia
    * Yukon Territory
+1. China (People's Republic)
+   * Hong Kong SAR
 1. Croatia
 1. Czech Republic
 1. Denmark
@@ -29,23 +32,31 @@ I only count proper “stays”, e.g. layovers are not included.
 1. Ghana
 1. Greece
 1. Hungary
+1. India
+   * Assam
+   * Delhi
+   * Rajasthan
+   * Uttar Pradesh
+   * West Bengal
 1. Indonesia
+1. Ireland (Republic)
 1. Italy
 1. Japan
 1. Liechtenstein
 1. Lithuania
 1. Mexico
+1. Nepal
 1. Netherlands
 1. Norway
 1. Poland
 1. Portugal
-1. Republic of Ireland
 1. Rwanda
 1. Slovakia
 1. Slovenia
 1. Spain
 1. Sweden
 1. Switzerland
+1. Thailand
 1. Turkey
 1. United Kingdom
    * England
