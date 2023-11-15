@@ -3,7 +3,6 @@
   abstract: "Inoffizielles Skript zur Vorlesung „Analysis für Informatiker“ des WS 2009/2010, gehalten von Prof. Dr. P. Rentrop, niedergeschrieben und illustriert von Markus Grimm, Andreas Heider, Lars Hupel, Michael Kerscher, Philipp Meyer, Janosch Peters und Sylvester Tremmel."
   url: "/pub/skript-analysis.pdf"
   lang: de
-  type: misc
 - date: 2013-06-24
   title: "Deriving Type Class Instances"
   journal: "Typelevel.org blog"
@@ -25,7 +24,6 @@
   journal: "Functional Geekery"
   abstract: "In this episode Proctor talks with Lars Hupel. We talk his introduction to Functional Programming with Haskell, Scala, and move to working on Isabelle for creating theorems about proving your program."
   url: "https://www.functionalgeekery.com/episode-62-lars-hupel/"
-  type: podcast
 - date: 2016-10-17
   title: "Let's build ourselves a small ScalaCheck"
   journal: "Typelevel.org blog"
@@ -36,19 +34,16 @@
   journal: "Playing with Prolog (Season 2)"
   abstract: "Playing with Prolog is back for Season 2 with a new host. Annie and Lars take a look at Marelle, the SWI-Prolog based devops system."
   url: "https://www.youtube.com/watch?v=gPJFOdy9ZII"
-  type: misc
 - date: 2018-09-08
   title: "Job Scheduling"
   journal: "Playing with Prolog (Season 2)"
   abstract: "This month in Playing with Prolog we help Lars out at work. He needs to schedule jobs for his CI servers."
   url: "https://www.youtube.com/watch?v=D2lDNUh1plU"
-  type: misc
 - date: 2018-10-06
   title: "Node-RED"
   journal: "Playing with Prolog (Season 2)"
   abstract: "IBM's node-red flow programming language is an interesting declarative language. Recently Annie's been experimenting with it. In this video she shows it to Lars."
   url: "https://www.youtube.com/watch?v=6BWPEMCFuCw"
-  type: misc
 - date: 2019-05-22
   title: "Adressen und Transaktionen in Kryptowährungen – Teil 1: Bitcoin"
   journal: "INNOQ"
@@ -108,7 +103,6 @@
   journal: "Playing with Prolog (Season 3)"
   abstract: "We cover the newly added Tabling for SWI-Prolog to help Annie get around Bangalore."
   url: "https://www.youtube.com/watch?v=HfQGSprQ5Tk"
-  type: misc
 - date: 2019-09-27
   title: "Private Blockchains: Vergleich von Fabric und Corda"
   journal: "JavaSPEKTRUM 5/2019"
@@ -145,7 +139,6 @@
   journal: "CaSE podcast"
   abstract: "In this episode of the CaSE podcast, Lucas talks to Lars Hupel of Typelevel-fame about algebraic design. Lars starts to explain how the expression problem views the difference between the functional and Object Oriented style of programming. He then explains the concept of an algebra – from coupling trains to CRDTs. This leads to a discussion on comprehensive and iterative thinking styles and how different styles of testing and proving work. Finally, they bring it all back to type systems."
   url: "https://www.case-podcast.org/29-lars-hupel-on-algebraic-design"
-  type: "podcast"
 - date: 2020-04-14
   title: "Cross-platform testing of TypeScript code with Jasmine and Karma"
   journal: "INNOQ"
@@ -163,7 +156,6 @@
   abstract: "TypeScript ist in aller Munde. In dieser Folge will Lucas von Lars wissen, wieso er sich so sehr für diese Sprache begeistert. Wie ordnet ein erfahrener Scala-Entwickler wie Lars das Typsystem von TypeScript ein? Lars beschreibt zudem, welche Vorteile ein mächtiges Typsystem mit sich bringt, und erklärt, wie die Interaktion mit JavaScript-Bibliotheken funktioniert."
   lang: de
   url: "https://www.innoq.com/de/podcast/073-type-script/"
-  type: "podcast"
 - date: 2020-07-31
   title: "Modernes funktionales Programmieren in Java"
   journal: "JavaSPEKTRUM 4/2020"
@@ -175,7 +167,6 @@
   journal: "Playing with Prolog (Season 3)"
   abstract: "Poor Lars is having trouble arranging cars in his trains. Annie helps him out using constraint programming."
   url: "https://www.youtube.com/watch?v=KckDVWysAes"
-  type: misc
 - date: 2020-08-26
   title: "Smart Contracts in der Programmiersprache Rust"
   journal: "Heise Developer"
@@ -188,7 +179,6 @@
   abstract: "Grob gehackt oder lieber ein feiner Julienne-Schnitt für die Tags in der Suppe? Lucas und Lars diskutieren in dieser Folge über Postel’s Law. Was es besagt und wie liberal ein Service eigentlich beim Akzeptieren von Eingabedaten sein sollte – darum geht’s in dieser Folge!"
   lang: de
   url: "https://www.innoq.com/de/podcast/079-postels-law/"
-  type: "podcast"
 - date: 2020-10-05
   title: "Dependently-Typed TypeScript"
   journal: "Funktionale Programmierung"
@@ -201,14 +191,12 @@
   abstract: "In dieser Episode des SoftwareArchitekTOUR-Podcasts spricht Stefan Tilkov mit Gast Lars Hupel über den Nutzen von Informatik-Grundlagenwissen für praktizierende Softwarearchitekten."
   url: "https://heise.de/-4945175"
   lang: de
-  type: "podcast"
 - date: 2020-12-29
   title: "Jahresend-Mix 2020"
   journal: "INNOQ-Security-Podcast"
   abstract: "Welche Security-Themen haben euch 2020 am meisten beschäftigt? Was hat euch besonders beeindruckt oder einfach nur überrascht? Diese Fragen stellte Simon Kölsch 16 INNOQ Kolleginnen und Kollegen. Die Antworten ergeben einen bunten Themen-Mix, angefangen mit der Bedeutung von UX in der Security über Threat Modelling bis hin zu neuen Ideen für die spielerische Auseinandersetzung mit Security-Themen."
   url: "https://www.innoq.com/de/podcast/009-jahresend-mix-2020/"
   lang: de
-  type: "podcast"
 - date: 2021-01-07
   title: "Deploying a WebAssembly smart contract on Oasis Ethereum"
   journal: "INNOQ"
@@ -230,7 +218,6 @@
   abstract: "Gerade in der Software-Entwicklung sind viele Gruppen unterrepräsentiert. Führen zu homogene Teams eigentlich zu schlechterer Software? Und warum? Das Thema hat auf jeden Fall Auswirkungen auf Software-Architekt:innen, unser Arbeitsumfeld und unsere Arbeitgeber. In dieser Episode diskutieren wir mit Lars Hupel, Lena Kraaz und Aminata Sidibe von INNOQ, wie Diversity in der Software-Architektur und -Entwicklung verbessert werden kann und ob das eine gute Idee ist."
   lang: de
   url: "https://software-architektur.tv/2021/02/19/folge50.html"
-  type: "podcast"
 - date: 2021-02-24
   title: "Smart Contracts programmieren in Ethereum – Gegenwart & Zukunft"
   journal: "t3n 63"
@@ -294,7 +281,6 @@
   abstract: "Cardano tut es bereits und Ethereum will es tun: Immer mehr Kryptowährungen nutzen „Proof of Stake“ als Alternative zum etablierten „Proof of Work“-Konzept, wenn es um die Absicherung ihrer Blockchain geht. Warum tun sie das? Und wo liegen die Vor- und Nachteile? Darüber sprechen Lucas und Lars in dieser Folge. Außerdem werfen sie einen Blick über den Tellerrand und geben einen Überblick über weitere Methoden, mit denen Blockchains vor Manipulation geschützt werden können."
   lang: de
   url: "https://www.innoq.com/de/podcast/093-proof-of-stake/"
-  type: "podcast"
 - date: 2021-09-28
   title: "Injecting environment variables into static websites using NGINX"
   journal: "INNOQ"
@@ -307,7 +293,6 @@
   abstract: "Keine Seiteneffekte, einfaches Testen, die Korrektheit der Programme kann sogar bewiesen werden - alles Vorteile von funktionaler Programmierung. Sie hat im akademischen Bereich schon immer eine Rolle gespielt, aber auch in der Industrie wird sie zunehmend populärer - aber gleichzeitig wirkt sie abgehoben und schwer zu verstehen. In dieser Episode berichten Lars Hupel und Isabel Wingen darüber, wie sie von funktionaler Programmierung im Projekt-Alltag profitieren, welche Erfahrungen sie gemacht haben und wie man selber starten kann."
   lang: de
   url: "https://software-architektur.tv/2021/10/29/folge89.html"
-  type: "podcast"
 - date: 2021-11-16
   title: "Was macht eigentlich ein Bundler?"
   journal: "Informatik Aktuell"
@@ -332,7 +317,6 @@
   abstract: "Ihr kennt es bestimmt: die gemeinsam verwaltete digitale Einkaufsliste. Oder: Tools wie Etherpad und Google Docs, die uns das gleichzeitige Bearbeiten des selben Texts ermöglichen. Doch was steckt technisch dahinter? Wir erklären, was theoretisch dahintersteckt. Und wie Ihr es praktisch nutzen könnt!"
   lang: de
   url: "https://www.innoq.com/de/podcast/099-crdt/"
-  type: "podcast"
 - date: 2022-01-14
   title: "Der Nächste, bitte! Wie die Event-Loop asynchronen Code im Browser ermöglicht"
   journal: "c't"
@@ -345,14 +329,12 @@
   abstract: "Live von der OOP: Lisa befragt Lars und Lucas zu ihrem Vortrag auf der OOP."
   lang: de
   url: "https://software-architektur.tv/2022/02/01/folge105.html"
-  type: "podcast"
 - date: 2022-02-15
   title: "Switching Protocols. Schnell, schnell!"
   journal: "INNOQ-Podcast"
   abstract: "In <a href='https://www.innoq.com/de/podcast/092-das-technologische-rueckgrat-des-webs/'>Folge 92</a> haben Robert und Lucas die Grundlagen des Webs erklärt. Ein wichtiges Thema dabei: HTTP, das Protokoll, mit dem Ressourcen vom Server zum Client kommen. Schnell wie SPDY Gonzales schieben wir nun eine weitere Folge nach, in der Lars von Lucas erfährt, wie man ein Quantum Performance aus diesem Protokoll herausholen kann."
   lang: de
   url: "https://www.innoq.com/de/podcast/101-switching-protocols/"
-  type: "podcast"
 - date: 2022-04-07
   title: "Next Please: How the Event Loop Enables Asynchronous Code in Browsers"
   journal: "INNOQ"
@@ -415,7 +397,6 @@
   abstract: "„Selbst eine Word-Doku ist besser als gar keine Doku“ – Dokumentation von Software ist oft ein leidiges Thema mit noch leidigeren Werkzeugen. Lucas und Lars schauen sich in dieser Folge mal die vorhandenen Tools und Formate zur technischen Umsetzung einer guten Softwaredokumentation an. Damit am Ende niemand mehr sagen kann: „es gibt keine Doku, weil die Tools nerven“."
   lang: de
   url: "https://www.innoq.com/de/podcast/109-dokumentation-technisch-umsetzen/"
-  type: "podcast"
 - date: 2022-10-21
   title: "Blaupausen: Wie Objekte in JavaScript funktionieren"
   journal: "c't"
@@ -432,13 +413,11 @@
   abstract: "Bei der Absicherung von Web-Anwendungen sind Input Validation und Output-Encoding Pflicht. Aber geht das noch besser? Lars meint ja und hat kurzerhand einen Leserbrief geschrieben. Seine These: Parsing ist das bessere Validieren. Wie das funktioniert, was Parsing anders macht und ob sich die Methoden am Ende sogar ergänzen, darum geht’s in dieser Folge des Security-Podcasts."
   lang: de
   url: "https://www.innoq.com/de/podcast/022-parsen-statt-validieren/"
-  type: "podcast"
 - date: 2022-12-01
   title: "Transaction validation and privacy implications"
   journal: "IPEN Webinar on central bank digital currency"
   abstract: "CBDC in the world opened a huge discussion about the role of the different stakeholders intervening in the validation of transactions of a digital currency when a payment is operated. According to different design choices, different validation mechanisms can be used. How a transaction can be validated and by which actor if a distributed architecture is chosen instead of a centralized one? What is the difference between a bearer-based and an account-based solution is implemented? Moreover, in case the amount of digital currency in circulation is limited via a threshold or a tier approach, how those requirements can be technically enforced while respecting privacy of the different parties involved in the transaction? And what about in case of offline systems that involves secure hardware solutions? How to avoid the possibility to “create money” and/or fake transactions?  In particular, the panel will analyze in depth the privacy implications and the maturity of the privacy enhancing technologies that can support these processing operations."
   url: "https://edps.europa.eu/press-publications/press-news/videos/ipen-webinar-central-bank-digital-currency-panel-1-transaction-validation-and-privacy-implications_en"
-  type: "podcast"
   hero:
     src: "img/ipen.jpg"
     alt: "Headshot of me with the quote: “In order to be widely accepted, a CBDC must protect the privacy of users while still fulfilling government compliance requirements. G+D Filia is designed to be a secure and trusted CBDC.”"
@@ -454,7 +433,6 @@
   journal: "DC³ Conference"
   abstract: "One feature that is often required of a CBDC for financial inclusion is the ability to make payments offline. This ensures that payments can be made even if there is no connection to the Internet, e.g. in remote locations. The panel considered some potential solutions for offline transactions for CBDC and discuss considerations for technical standards that may be needed."
   url: "https://www.youtube.com/watch?v=gxnkygwjZ2o"
-  type: "podcast"
 - date: 2023-02-16
   title: "Blueprints: How objects work in JavaScript"
   journal: "INNOQ"
@@ -476,4 +454,3 @@
   journal: "The CBDC Broadcast"
   abstract: "CBDC’s Offline capabilities is a crucial topic that holds significant implications for the future of digital payments and financial systems worldwide. As digital transformation rapidly reshapes the way we conduct transactions, it is imperative that we ensure inclusivity, accessibility, and privacy for every individual and business. CBDCs have emerged as a powerful tool in this transformative landscape, revolutionizing the way we think about money. However, we must address a critical question: How can we ensure that CBDC systems work for everyone in society, regardless of their location or connectivity? The answer lies in exploring and understanding the offline capabilities of CBDCs. The ability to conduct transactions offline not only provides a layer of resilience but also supports crucial objectives, such as financial inclusion, accessibility, and privacy. To discuss the intricacies of CBDC offline capabilities, guests Beju Shah (BIS Innovation Hub) and Dr Lars Hupel (Giesecke+Devrient) joined FNA to explore the technologies, security threats and risks associated with offline payments and delve into the CBDC design criteria that enable privacy, inclusion and resilience."
   url: "https://fna.fi/insights/the-cbdc-broadcast-session-16-2/"
-  type: "podcast"
