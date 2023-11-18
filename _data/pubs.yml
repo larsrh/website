@@ -350,3 +350,21 @@
   year: 2023
   abstract: |
     This theory introduces a type constructor for lists with known length, also known as "vectors". Those vectors are indexed with a numeral type that represent their length. This can be employed to avoid carrying around length constraints on lists. Instead, those constraints are discharged by the type checker. As compared to the vectors defined in the distribution, this definition can easily work with unit vectors. We exploit the fact that the cardinality of an infinite type is defined to be 0: thus any infinite length index type represents a unit vector. Furthermore, we set up automation and BNF support.
+- title: "How does post-quantum cryptography affect Central Bank Digital Currency?"
+  id: "pqc-cbdc"
+  authors: ["lars", "makan"]
+  year: 2023
+  in: "International Conference on Ubiquitous Security (UbiSec)"
+  abstract: |
+    Central Bank Digital Currency (CBDC) is an emerging trend in digital payments, with the vast majority of central banks around the world researching, piloting, or even operating a digital version of cash. While design choices differ broadly, such as accounts vs. tokens, the wallets are generally protected through cryptographic algorithms that safeguard against double spending and ensure non-repudiation. But with the advent of quantum computing, these algorithms are threatened by new attack vectors. To better understand those threats, we conducted a study of typical assets in a CBDC system, describe which ones are most amenable to post-quantum cryptography, and propose an upgrade strategy.
+  arxiv: "2308.15787"
+- title: "Extending Isabelle/HOL's Code Generator with support for the Go programming language"
+  id: "go-codegen"
+  authors: ["lars", "terru"]
+  year: 2023
+  abstract: |
+    The Isabelle proof assistant includes a small functional language, which allows users to write and reason about programs. So far, these programs could be extracted into a number of functional languages: Standard ML, OCaml, Scala, and Haskell. This work adds support for Go as a fifth target language for the Code Generator. Unlike the previous targets, Go is not a functional language and encourages code in an imperative style, thus many of the features of Isabelle's language (particularly data types, pattern matching, and type classes) have to be emulated using imperative language constructs in Go. The developed Code Generation is provided as an add-on library that can be simply imported into existing theories.
+  arxiv: "2310.02704"
+  extra:
+    - link: "https://github.com/isabelle-prover/isabelle-go-codegen"
+      text: "Code"
