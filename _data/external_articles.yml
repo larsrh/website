@@ -433,6 +433,7 @@
   journal: "DC³ Conference"
   abstract: "One feature that is often required of a CBDC for financial inclusion is the ability to make payments offline. This ensures that payments can be made even if there is no connection to the Internet, e.g. in remote locations. The panel considered some potential solutions for offline transactions for CBDC and discuss considerations for technical standards that may be needed."
   url: "https://www.youtube.com/watch?v=gxnkygwjZ2o"
+  lang: en
 - date: 2023-02-16
   title: "Blueprints: How objects work in JavaScript"
   journal: "INNOQ"
@@ -459,3 +460,10 @@
   journal: "Gotopia"
   abstract: "The emergence and development of cryptocurrencies and Blockchain technology has increased interest in cashless societies and digital currency. As a result, governments and central banks throughout the world are considering the use of government-backed digital currencies. John Davies and Lars Hupel explore the distinctiveness of CBDC compared to cryptocurrencies. They emphasize the technical underpinnings, architecture, and practical applications of CBDC, focusing on its potential to facilitate offline payments, enhance security, and ensure efficient, instantly settled transactions. The conversation underscores the flexibility of CBDC and its coexistence with existing payment methods, making it a compelling topic for tech-savvy individuals. This discussion offers technical audiences valuable insights into CBDC's technical foundations and its transformative potential in the digital payment landscape."
   url: "https://gotopia.tech/articles/274/central-bank-digital-currency-the-technical-breakdown"
+  lang: en
+- date: 2023-11-17
+  title: "Innovation in Corporate Banking"
+  journal: "Zühlke Late Afternoon Banking Talk"
+  abstract: "Mit welchen Herausforderungen sieht sich das Corporate Banking konfrontiert? Was sind die neusten Trends und wie tragen Innovationen dazu bei, die Business-Ziele zu erreichen? Welche Anwendungsfälle für künstliche Intelligenz lassen sich bereits heute im Corporate Banking umsetzen und was bedeutet die Entwicklung von „Digital Money“ für das Corporate-Geschäft? Diese und andere Fragen hat unser Panel in diesem Late Afternoon Talk diskutiert."
+  url: "https://www.youtube.com/watch?v=7ZwZopOqqko"
+  lang: en
