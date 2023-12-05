@@ -1,52 +1,52 @@
-- id: lars
+lars:
   name: "Lars Hupel"
   link: "/"
   orcid: "0000-0002-8442-856X"
-- id: julius
+julius:
   name: "Julius Michaelis"
   link: "https://liftm.de/"
-- id: max
+max:
   name: "Maximilian Haslbeck"
   link: "https://home.in.tum.de/~haslbecm/"
   orcid: "0000-0002-9900-5746"
-- id: peter
+peter:
   name: "Peter Lammich"
   link: "http://www21.in.tum.de/~lammich/"
   orcid: "0000-0003-3576-0504"
-- id: cornelius
+cornelius:
   name: "Cornelius Diekmann"
   link: "https://www.net.in.tum.de/members/diekmann/"
   orcid: "0000-0002-3026-2621"
-- id: tobias
+tobias:
   name: "Tobias Nipkow"
   link: "https://www21.in.tum.de/~nipkow/"
   orcid: "0000-0003-0730-515X"
-- id: jasmin
+jasmin:
   name: "Jasmin Christian Blanchette"
   link: "http://www.cs.vu.nl/~jbe248/"
   orcid: "0000-0002-8367-0936"
-- id: lars-n
+lars-n:
   name: "Lars Noschinski"
-- id: dmitriy
+dmitriy:
   name: "Dmitriy Traytel"
   link: "http://people.inf.ethz.ch/trayteld/"
   orcid: "0000-0001-7982-2768"
-- id: carle
+carle:
   name: "Georg Carle"
   link: "https://www.net.in.tum.de/members/carle/"
   orcid: "0000-0002-2347-1839"
-- id: viktor
+viktor:
   name: "Viktor Kunčak"
   link: "http://lara.epfl.ch/~kuncak/"
-- id: dominik
+dominik:
   name: "Dominik Vinan"
-- id: yu
+yu:
   name: "Yu Zhang"
-- id: jonas
+jonas:
   name: "Jonas Rädle"
-- id: terru
+terru:
   name: "Terru Stübinger"
   link: "https://stuebinm.eu/"
   orcid: "0009-0006-7411-2533"
-- id: makan
+makan:
   name: "Makan Rafiee"

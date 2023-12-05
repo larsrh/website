@@ -61,7 +61,6 @@
 - title: "Interactive Simplifier Tracing and Debugging in Isabelle"
   id: "simp-trace"
   authors: ["lars"]
-  springer: true
   in: "Intelligent Computer Mathematics (CICM)"
   year: 2014
   doi: "10.1007/978-3-319-08434-3_24"
@@ -118,7 +117,6 @@
   authors: ["cornelius", "lars", "carle"]
   in: "Formal Methods (FM)"
   year: 2015
-  springer: true
   doi: "10.1007/978-3-319-19249-9_13"
   arxiv: "1604.00206"
   code: "https://github.com/diekmann/Iptables_Semantics"
@@ -182,7 +180,6 @@
 - title: "Translating Scala Programs to Isabelle/HOL"
   id: "translating-scala"
   authors: ["lars", "viktor"]
-  springer: true
   in: "International Joint Conference on Automated Reasoning (IJCAR)"
   year: 2016
   doi: "10.1007/978-3-319-40229-1_38"
@@ -227,7 +224,6 @@
   id: "isabelle-cakeml"
   authors: ["lars", "tobias"]
   in: "European Symposium on Programming (ESOP, Open Access)"
-  springer: true
   year: 2018
   doi: "10.1007/978-3-319-89884-1_35"
   slides: "https://speakerdeck.com/larsrh/hol-to-cakeml"
@@ -264,7 +260,6 @@
 - title: "Verified iptables Firewall Analysis and Verification"
   id: "verified-iptables"
   authors: ["cornelius", "lars", "julius", "max", "carle"]
-  springer: true
   doi: "10.1007/s10817-017-9445-1"
   in: "Journal of Automated Reasoning (Open Access)"
   year: 2018

@@ -23,15 +23,12 @@ title: Research & Publications
     <dd>
       <div class="pub-authors">
         {% for author in pub.authors %}
-          {% for author_desc in site.data.authors %}
-            {% if author == author_desc.id %}
-              <span class="pub-author">{% if author_desc.link %}<a href="{{ author_desc.link }}">{{ author_desc.name }}</a>{% else %}{{ author_desc.name }}{% endif %}{% if author_desc.orcid %} <a href="https://orcid.org/{{ author_desc.orcid }}"><img class="orcid" src="{% asset orcid.png @path %}" alt="ORCID"></a>{% endif %}</span>
-            {% endif %}
-          {% endfor %}
+          {% assign author_desc = site.data.authors[author] %}
+          <span class="pub-author">{% if author_desc.link %}<a href="{{ author_desc.link }}">{{ author_desc.name }}</a>{% else %}{{ author_desc.name }}{% endif %}{% if author_desc.orcid %} <a href="https://orcid.org/{{ author_desc.orcid }}"><img class="orcid" src="{% asset orcid.png @path %}" alt="ORCID"></a>{% endif %}</span>
         {% endfor %}
       </div>
       <div>{{ pub.in }}{% if pub.in %}, {% endif %}{{ pub.year }}</div>
-      {% if pub.springer %}
+      {% if pub.doi contains "10.1007/" %}
         <div><small>The final publication is available at <a href="http://link.springer.com/">Springer Link</a>.</small></div>
       {% endif %}
 
