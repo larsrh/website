@@ -72,7 +72,7 @@
   title: "Scala Days 2019 in Lausanne"
   journal: "INNOQ"
   abstract: "Im Juni 2019 fanden die Scala Days anlässlich des 10. Jubiläums wieder in Lausanne – an der Geburtsstätte von Scala – statt. Heuer gab es nicht nur zwei Konferenztage, sondern auch eine ganze Reihe von Community-Events davor und danach. INNOQ war die ganze Woche vor Ort und unsere Kollegen berichten hier von ihren Erfahrungen."
-  url: "https://www.innoq.com/de/blog/scala-days-2019-lausanne/"
+  url: "https://www.innoq.com/de/blog/2019/06/scala-days-2019-lausanne/"
   lang: de
 - date: 2019-07-03
   title: "Verifikation von Smart Contracts"
@@ -97,7 +97,7 @@
   title: "Integrating Logback with JLine"
   journal: "INNOQ"
   abstract: "Logback is a popular logging library for Java. JLine can be used to create nice shell-like applications. Combining both is not as hard as it looks."
-  url: "https://www.innoq.com/en/blog/logback-jline/"
+  url: "https://www.innoq.com/en/blog/2019/08/logback-jline/"
 - date: 2019-08-02
   title: "Tabling"
   journal: "Playing with Prolog (Season 3)"
@@ -113,12 +113,12 @@
   title: "The many ways of testing Smart Contracts in Ethereum"
   journal: "INNOQ"
   abstract: "You have implemented a smart contract for Ethereum, and now you are wondering how you can test it under real-life conditions, but without spending money in case there's a problem? Luckily, there are test networks that can help you with this."
-  url: "https://www.innoq.com/en/blog/testing-ethereum/"
+  url: "https://www.innoq.com/en/blog/2019/10/testing-ethereum/"
 - date: 2019-10-31
   title: "Type checking JSX: A can of props"
   journal: "INNOQ"
   abstract: "In this post, I’d like to describe how JSX type checking in TypeScript actually works and the problems you’re going to encounter when implementing custom, non-React JSX components."
-  url: "https://www.innoq.com/en/blog/type-checking-tsx/"
+  url: "https://www.innoq.com/en/blog/2019/10/type-checking-tsx/"
 - date: 2019-12-04
   title: "Das eierlegende Truffleschwein"
   journal: "Javamagazin 01/2020"
@@ -133,7 +133,7 @@
   title: "So you want to compose some functions"
   journal: "INNOQ"
   abstract: "Let’s say you have a list of functions and you want to compose them. Shouldn’t be too hard, right? Of course it is, but maybe there’s an elegant way."
-  url: "https://www.innoq.com/en/blog/function-monoids/"
+  url: "https://www.innoq.com/en/blog/2020/01/function-monoids/"
 - date: 2020-02-06
   title: "Lars Hupel on Algebraic Design"
   journal: "CaSE podcast"
@@ -143,13 +143,13 @@
   title: "Cross-platform testing of TypeScript code with Jasmine and Karma"
   journal: "INNOQ"
   abstract: "I like TypeScript. Writing code that already underwent basic checks (i.e. typechecking) before it can even touch an execution engine is a big win in my book. In particular, TypeScript is nice because it integrates well into the broader JavaScript ecosystem and comes with batteries (i.e. types) included. Unfortunately, most test runners require extra setup to work with tests written in TypeScript. Some even require staggering amounts of configuration."
-  url: "https://www.innoq.com/de/blog/ts-jasmine-karma/"
+  url: "https://www.innoq.com/de/blog/2020/04/ts-jasmine-karma/"
 - date: 2020-04-27
   title: "Remote Training, funktioniert das?"
   journal: "INNOQ"
   abstract: "Heimarbeit hat sich mittlerweile – mehr oder weniger freiwillig – bei den meisten Unternehmen in der IT durchgesetzt. Doch beim Thema Schulungen sind viele noch skeptisch, ob das funktionieren könnte. Wir haben es für das iSAQB-Modul BLOCKCHAIN ausprobiert."
   lang: de
-  url: "https://www.innoq.com/de/blog/remote-blockchain-training/"
+  url: "https://www.innoq.com/de/blog/2020/04/remote-blockchain-training/"
 - date: 2020-05-04
   title: "TypeScript. Was sind das denn für Typen?"
   journal: "INNOQ-Podcast"
@@ -201,7 +201,7 @@
   title: "Deploying a WebAssembly smart contract on Oasis Ethereum"
   journal: "INNOQ"
   abstract: "One of the cornerstones of Ethereum 2.0 is the migration from the “classic” EVM to a WebAssembly-based virtual machine. In this post, I explain how to deploy a compiled WebAssembly contract to the Oasis Ethereum chain."
-  url: "https://www.innoq.com/de/blog/wasm-oasis/"
+  url: "https://www.innoq.com/en/blog/2021/01/wasm-oasis/"
 - date: 2021-02-12
   title: "Stufe 3: Neuerungen in der dritten Version der Programmiersprache Scala"
   journal: "c't"
@@ -285,7 +285,7 @@
   title: "Injecting environment variables into static websites using NGINX"
   journal: "INNOQ"
   abstract: "Static site generation is a perfect fit for publishing documentation. In a recent project, we chose to use NGINX as a web server to host the HTML and CSS files. However, we also wanted to protect the site using SSO. This is where things get a bit difficult."
-  url: "https://www.innoq.com/en/blog/nginx-ssi-env/"
+  url: "https://www.innoq.com/en/blog/2021/09/nginx-ssi-env/"
   lang: en
 - date: 2021-10-29
   title: "#SoftwareArchitektur – Funktionale Programmierung in der Praxis"
@@ -372,13 +372,13 @@
   journal: "INNOQ"
   abstract: "Static site generation is a perfect fit for publishing documentation. In a recent project, we chose to use Jekyll for rendering our content. As a special requirement, we had to build different “flavours” for different customers."
   lang: en
-  url: "https://www.innoq.com/en/blog/customer-specific-documentation-with-jekyll/"
+  url: "https://www.innoq.com/en/blog/2022/05/customer-specific-documentation-with-jekyll/"
 - date: 2022-05-26
   title: "Rich code documentation with Jekyll"
   journal: "INNOQ"
   abstract: "Static site generation is a perfect fit for publishing documentation. In a recent project, we chose to use a combination of Jekyll and NGINX to build and host the documentation. In this post, I show how to process and include other types of assets."
   lang: en
-  url: "https://www.innoq.com/en/blog/rich-code-documentation-with-jekyll/"
+  url: "https://www.innoq.com/en/blog/2022/05/rich-code-documentation-with-jekyll/"
 - date: 2022-06-15
   title: "Dependently-Typed TypeScript"
   journal: "INNOQ"
@@ -390,7 +390,7 @@
   journal: "INNOQ"
   abstract: "Our colleagues were on site, staffing the booth, speaking with fellow developers, and delivering two talks."
   lang: en
-  url: "https://www.innoq.com/en/blog/we-are-developers-world-congress-2022-berlin/"
+  url: "https://www.innoq.com/en/blog/2022/06/we-are-developers-world-congress-2022-berlin/"
 - date: 2022-08-01
   title: "Dokumentation technisch umsetzen. Das Tooling macht‘s aus"
   journal: "INNOQ-Podcast"

@@ -43,7 +43,7 @@ How can I come up with properties?
 : There are a bunch of resources on this.
   Oskar Wickström has done a [case study](https://wickstrom.tech/programming/2019/03/02/property-based-testing-in-a-screencast-editor-introduction.html) for a non-trivial program (screencast editor).
   The code is in Haskell, but the general ideas should apply to other programs written in a (purely) functional style.
-  A recent paper on the topic from John Hughes, pioneer of property testing, [How to Specify it!](https://www.tfp2019.org/resources/tfp2019-how-to-specify-it.pdf) is a readable guide to writing properties.
+  A recent paper on the topic from John Hughes, pioneer of property testing, [How to Specify it!](https://research.chalmers.se/publication/517894/file/517894_Fulltext.pdf) is a readable guide to writing properties.
   Johannes Link, author of a property testing library in Java, has [translated this guide to Java](https://johanneslink.net/how-to-specify-it/).
 
 How can I introduce properties in my existing code base?
