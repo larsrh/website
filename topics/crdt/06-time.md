@@ -222,7 +222,7 @@ Safety is ensured because `join` is also commutative.
 To conclude:
 even though uniform, global time is hard to define in a distributed system, we still have a formal notion of causality.
 Equipped with this, we can also define the unique properties of CRDTs, namely that they eventually arrive at the same state on all nodes, assuming that the replicas can deliver updates to each other.
-In the [next episode](../07-deletion), we will use some of that knowledge to look at more sophisticated notions of deletion.
+In the [next episode]({% link topics/crdt/07-deletion.md %}), we will use some of that knowledge to look at more sophisticated notions of deletion.
 
 ## References
 

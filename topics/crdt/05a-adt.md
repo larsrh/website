@@ -6,7 +6,7 @@ toc: false
 This is a side note on the concept of Abstract Data Types applied to CRDT implementations.
 Feel free to skip this; I won't use it later in the series.
 
-I told you in [Part 5](../05-tombstones) that we can use a common data structure (`Map`) to power different kinds of CRDTs, including 2P-Sets.
+I told you in [Part 5]({% link topics/crdt/05-tombstones.md %}) that we can use a common data structure (`Map`) to power different kinds of CRDTs, including 2P-Sets.
 However, to prevent nonsensical operations, we may only expose a subset of the operations on that data structure.
 It turns out that we can express this a little more formally, and potentially use that as a basis of a functional (in the “Functional Programming” sense) implementation.
 For this, we need two assumptions:

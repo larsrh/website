@@ -177,7 +177,7 @@ new Test("reader")
 ## Onwards
 
 You are now ready to proceed with the actual introduction.
-[Go here](../02-contracts) to learn all about contracts.
+[Go here]({% link topics/crdt/02-contracts.md %}) to learn all about contracts.
 
 ## Testimonials
 
