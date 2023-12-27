@@ -210,7 +210,7 @@ I have one more mind-blowing concrete example for this, but before we go into th
 I've already told you that a G-Counter is a CRDT.
 But why is that?
 
-In their 2011 paper, [Shapiro et al.](https://hal.inria.fr/inria-00555588/) define a particular kind of CRDTs, so-called _State-based CRDTs_, as data types that:
+In their 2011 paper, [Shapiro et al.](https://inria.hal.science/inria-00555588/) define a particular kind of CRDTs, so-called _State-based CRDTs_, as data types that:
 
 1. have a join-semilattice
 2. only support _monotonic_ operations
@@ -373,9 +373,5 @@ I've spent four episodes and well above 7000 words to explain liek two different
 But fear not, for now we have all the tools we need to proceed to more complex CRDTs.
 In the [next episode]({% link topics/crdt/05-tombstones.md %}), we're going to look at how to deal with deletion.
 Spoiler: prepare for tombstones 👻
-
-## References
-
-* Factorio Gameplay on [gfycat](https://gfycat.com/charmingbarrencow)
 
 [^footnote-parametricity]: I've [written elsewhere]({% link _talks/parametrizitaet.md %}) about this subject. Unfortunately, this is in German, but by typing “parametricity” into your favourite search engine, you may find some further material.

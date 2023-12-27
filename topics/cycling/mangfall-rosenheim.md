@@ -20,7 +20,7 @@ Der Mangfall-Radweg ist allerdings recht lange entlang einer vielbefahrenen Stra
 Ab Dürnhaar wird es besser und man verzweigt auf Wald- und Feldwege.
 
 Spätestens hinter Aying wird es dann endgültig provinziell und wir zirkeln im Zickzack durch verschiedene Dörfer, um in südöstlicher Richtung uns der Mangfall anzunähern.
-Kurz vor der Mangfall gibt es die Gelegenheit, den [BergTierPark Blindham](https://www.chiemsee-alpenland.de/entdecken/alle-sehenswuerdigkeiten/bergtierpark-blindham-65f38dc88f) aufzusuchen.
+Kurz vor der Mangfall gibt es die Gelegenheit, den [BergTierPark Blindham](https://www.chiemsee-alpenland.de/entdecken/alle-sehenswuerdigkeiten/bergtierpark-blindham-da2ee0188a) aufzusuchen.
 Der Mangfall-Radweg macht seinem Namen alle Ehren und folgt ab Feldolling weitestgehend dem Flusslauf.
 Bänke zum Verweilen und Genießen gibt es genügend auf dem Weg.
 

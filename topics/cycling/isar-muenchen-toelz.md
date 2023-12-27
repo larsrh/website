@@ -47,7 +47,7 @@ Hier wird es stellenweise noch mal anstrengend durch starke Anstiege.
 
 Die Anstrengungen lohnen sich aber auf jeden Fall.
 Es gibt zahlreiche Stellen mit großartigem Ausblick auf die Isar; sowie Strände, die zum Picknicken einladen.
-Freund:innen der Astronomie können einen Zwischenstopp an der [Isartalsternwarte](http://www.isartalsternwarte.de/) einlegen.
+Freund:innen der Astronomie können einen Zwischenstopp an der [Isartalsternwarte](https://www.isartalsternwarte.de/) einlegen.
 Auf weitestgehend asphaltierter Strecke geht es – manchmal auch kurzzeitig auf Hauptstraßen – gen Bad Tölz.
 Ich war vorher noch nie dort und war überrascht, wie bekannt mir die Marktstraße vom  _Bullen von Tölz_ vorkam.
 Der Endspurt besteht dann aus ein paar Höhenmetern Richtung Bahnhof, wo man in die BOB zurück nach München einsteigen kann.

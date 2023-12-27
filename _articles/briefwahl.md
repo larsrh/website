@@ -14,7 +14,7 @@ Natürlich ist die Abneigung gegen die Präsenzwahl wegen der andauernden Covid-
 Bei der Kommunalwahl 2020 in Bayern sorgte diese sogar stellenweise dafür, dass die eigens vom Kreisverwaltungsreferat eingerichteten Sonderbriefkästen – bei denen der Einwurf und die rechtzeitige Abholung der Wahlbriefe noch am Wahltag bis 18 Uhr garantiert sind – am Wahltag überfüllt waren.
 
 Grundsätzlich ist das Wahlrecht ein hohes Gut und der Staat sollte alles erdenkliche dafür tun, dass möglichst viele Wahlberechtigte von diesem Recht Gebrauch machen können.
-Kritik ist daher an mehreren Stellen berechtigt, z.B. die komplizierten Prozesse für Auslandsdeutsche und [die vermehrt zentralisierte Auszählung in dünn besiedelten Regionen](https://www.shz.de/lokales/norddeutsche-rundschau/Kleine-Wilstermarsch-Doerfer-legen-Wahllokale-zusammen-id32753947.html).
+Kritik ist daher an mehreren Stellen berechtigt, z.B. die komplizierten Prozesse für Auslandsdeutsche und [die vermehrt zentralisierte Auszählung in dünn besiedelten Regionen](https://www.shz.de/lokales/kellinghusen/artikel/kleine-wilstermarsch-doerfer-legen-wahllokale-zusammen-20969583).
 Richtig eingesetzt kann die Briefwahl ein wichtiger Baustein sein, Barrieren abzubauen und für höhere demokratische Beteiligung zu sorgen.
 Vor diesem Hintergrund befürworte ich auch die Abschaffung der Begründung bei der Beantragung der Unterlagen.
 

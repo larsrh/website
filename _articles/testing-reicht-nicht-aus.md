@@ -21,7 +21,7 @@ Allerdings hat die Sache einen Haken. Egal ob man sich nun an TDD hält oder die
 
 Dazu ein Praxisbeispiel. In der Java-Standardbibliothek findet sich eine Sortierfunktion, die auf dem Algorithmus „TimSort“ basiert. Fast alle Java-Software, auch unter Android, nutzt diese Routine, um Listen zu sortieren. Man sollte also meinen, dass Fehler hier schon längst aufgefallen wären. Dennoch [fand eine Forschungsgruppe einen Bug,](http://www.envisage-project.eu/timsort-specification-and-verification/) der eine bestimmte Annahme im Code verletzt und damit einen Crash provoziert.
 
-Nun ist „TimSort“ ein eher komplizierter Algorithmus. Doch auch in einfacheren Algorithmen, die in jedem Informatikstudium vorkommen, können sich leicht Fehler einschleichen. Joshua Bloch, früherer Chefarchitekt für Java bei Google, [schrieb schon 2006,](https://ai.googleblog.com/2006/06/extra-extra-read-all-about-it-nearly.html) dass die einfache Zeile
+Nun ist „TimSort“ ein eher komplizierter Algorithmus. Doch auch in einfacheren Algorithmen, die in jedem Informatikstudium vorkommen, können sich leicht Fehler einschleichen. Joshua Bloch, früherer Chefarchitekt für Java bei Google, [schrieb schon 2006,](https://blog.research.google/2006/06/extra-extra-read-all-about-it-nearly.html) dass die einfache Zeile
 
 ```java
 int mid = (low + high) / 2

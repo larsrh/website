@@ -17,7 +17,7 @@ The vision of this project is to provide an alternative (or extension) to the cu
 
 What is the trusted code base of the pipeline?
 : We rely on faithful export from Lem to Isabelle, an unverified printer of CakeML AST to CakeML source text, and the kernel of Isabelle.
-There is ongoing work to use [OpenTheory](http://www.gilith.com/software/opentheory/) to get a more faithful representation of the CakeML formalization in Isabelle.<br>
+There is ongoing work to use [OpenTheory](https://www.gilith.com/software/opentheory/) to get a more faithful representation of the CakeML formalization in Isabelle.<br>
 _Update, July 2019:_ The current – more promising approach – is to virtualize HOL4 in Isabelle.
 Refer to the [ITP'19 paper by Immler, Raedle and Wenzel](https://doi.org/10.4230/LIPIcs.ITP.2019.21) for details.
 
@@ -32,7 +32,7 @@ Does that mean that arithmetic on natural numbers in Isabelle is mapped to unary
 
 How are (8-bit) characters treated?
 : The most naive possible translation, 256-way enumerations, would lead to very large code sizes. Instead, we translate characters to bytes, i.e. 8-tuples of `bool`s.
-[As of Isabelle2018](http://isabelle.in.tum.de/repos/isabelle/rev/1f9f973eed2a), this will become the default of code generation in Isabelle, including other (unverified) targets.
+[As of Isabelle2018](https://isabelle.in.tum.de/repos/isabelle/rev/1f9f973eed2a), this will become the default of code generation in Isabelle, including other (unverified) targets.
 
 Is the generated code guaranteed to terminate?
 : The current Isabelle code generator only guarantees partial correctness (which has been proved on paper).

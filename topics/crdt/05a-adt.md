@@ -101,7 +101,7 @@ In that case, the update function would no longer be a function, but a `Map<K, V
 The `update` method on `MonotonicMap` would iterate through the keys of the map and apply each state update.
 
 In case you've used React before, this should sound oddly familiar.
-The state of React Components [works similarly](https://reactjs.org/docs/state-and-lifecycle.html):
+The state of React Components [works similarly](https://legacy.reactjs.org/docs/state-and-lifecycle.html):
 
 > When you call `setState()`, React merges the object you provide into the current state.
 

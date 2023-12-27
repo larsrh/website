@@ -37,7 +37,7 @@ I met countless people from the Scala community.
 I still remember Erik Osheim explaining specialization to me in a pub near the Barbican (I still know [exactly which pub](https://www.theshakespearebarbican.co.uk/)).
 
 * March: Mathema Campus, Erlangen, Germany
-* April: [Scala Days](https://skillsmatter.com/conferences/1140-scala-days-2012), London, Germany
+* April: [Scala Days](https://web.archive.org/web/20230607090554/https://skillsmatter.com/conferences/1140-scala-days-2012), London, Germany
 * September: [Herbstcampus](https://www.herbstcampus.de/hc12/), Nuremberg, Germany
 
 ## 2013
@@ -47,7 +47,7 @@ It was the first proper talk I gave in English.
 
 * February: [Northeast Scala Symposium](https://web.archive.org/web/20211104213442/https://nescala.io/2013/), Philadelphia, US
 * April: Mathema Campus, Erlangen, Germany
-* July: [Fourth Annual Scala Workshop](http://lampwww.epfl.ch/~hmiller/scala2013/), co-located with [ECOOP](https://www.lirmm.fr/ecoop13/), Montpellier, France
+* July: Fourth Annual Scala Workshop, co-located with [ECOOP](https://www.lirmm.fr/ecoop13/), Montpellier, France
 * October: [scala.io](https://web.archive.org/web/20201202145732/https://scala.io/2013/), Paris, France
 
 ## 2014
@@ -62,7 +62,7 @@ So far, this was the only keynote I ever gave.
 * July: [Conferences on Intelligent Computer Mathematics](https://cicm-conference.org/2014/cicm.php), Coimbra, Portugal
 * September: [International Conference on Functional Programming](http://icfpconference.org/icfp2014/), Gothenburg, Sweden
 * October: [scala.io](https://web.archive.org/web/20201202150406/https://scala.io/2014/), Paris, France
-* December: [Scala eXchange](https://skillsmatter.com/conferences/1948-scala-exchange-2014), London, UK
+* December: [Scala eXchange](https://web.archive.org/web/20230606173504/https://skillsmatter.com/conferences/1948-scala-exchange-2014), London, UK
 
 ## 2015
 
@@ -74,7 +74,7 @@ I had already visited the year before for a week.
 * April: [flatMap(Oslo)](http://2015.flatmap.no/), Oslo, Norway
 * June: [International Symposium on Formal Methods](https://web.archive.org/web/20220127091633/http://fm2015.ifi.uio.no/), Oslo, Norway
 * September: Scala World, Penrith, UK
-* October: [Haskell eXchange](https://skillsmatter.com/conferences/7069-haskell-exchange-2015), London, UK
+* October: [Haskell eXchange](https://web.archive.org/web/20230623052404/https://skillsmatter.com/conferences/7069-haskell-exchange-2015), London, UK
 * October: Haskell World, Cádiz, Spain
 
 ## 2016
@@ -129,14 +129,14 @@ After that, all online.
 * February: [:clojureD](https://clojured.de/archiv/schedule-2020/), Berlin, Germany
 * April: Scala Love
 * September: [MuniHac](https://munihac.de/2020.html)
-* November: [Haskell eXchange](https://skillsmatter.com/conferences/13135-haskell-exchange-2020)
+* November: [Haskell eXchange](https://web.archive.org/web/20230607150255/https://skillsmatter.com/conferences/13135-haskell-exchange-2020)
 * December: [INNOQ Technology Day](https://technologyday.innoq.com/2020)
 
 ## 2021
 
 * February: Scala Love in the City
 * February: [BOB Konferenz](https://bobkonf.de/2021/)
-* May: [YOW! Lambda Jam](https://yowconference.com/lambdajam/)
+* May: YOW! Lambda Jam
 * November: [ScalaCon](https://www.scalacon.org/)
 * November: [Digitale Leute Summit](https://www.digitale-leute.de/summit/21/), Cologne, Germany
 * December: [INNOQ Technology Day](https://technologyday.innoq.com/2021)

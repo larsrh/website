@@ -17,13 +17,13 @@ My local DNS server should satisfy three criteria:
 2. DNSSEC validation
 3. authoritative for a few hosts in my LAN
 
-Like most good stories, this one [started in the ArchWiki](https://wiki.archlinux.org/index.php/Domain_name_resolution).[^1]
+Like most good stories, this one [started in the ArchWiki](https://wiki.archlinux.org/title/Domain_name_resolution).[^1]
 I quickly narrowed it down to [Unbound](https://www.nlnetlabs.nl/projects/unbound/about/).
 I run Debian on that server, so the installation was just an `apt install unbound` away.
 
 As usual, the Debian package maintainers have provided a baseline configuration that I just had to adapt to my tastes.
 If you install `unbound-anchor` too, you should also get DNSSEC.
-The [ArchWiki page on Unbound](https://wiki.archlinux.org/index.php/Unbound) has instructions on testing the DNSSEC setup.
+The [ArchWiki page on Unbound](https://wiki.archlinux.org/title/Unbound) has instructions on testing the DNSSEC setup.
 
 I added two more things to the configuration.
 First, I created the directory `/etc/unbound/server.conf.d` for additional local zones.

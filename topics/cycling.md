@@ -7,7 +7,7 @@ Auf dieser Seite sammle ich Beschreibungen für Tages- oder Halbtagestouren in &
 Alle Strecken bin ich selbst gefahren.
 Trotzdem rate ich allen dazu, die Strecken unter Berücksichtigung der eigenen Kondition zu planen.
 Insbesondere empfehle ich, lieber „zu kurze“ als „zu lange“ Strecken zu fahren sowie Punkte zur vorzeitigen Rückkehr einzuplanen.
-Für letzteres bieten sich insbesondere S-Bahn-Haltestellen an, da man in der S-Bahn bequem [Fahrräder transportieren](https://www.muenchen.de/verkehr/fahrrad/fahrradmitnahme.html) kann.
+Für letzteres bieten sich insbesondere S-Bahn-Haltestellen an, da man in der S-Bahn bequem [Fahrräder transportieren](https://www.muenchen.de/verkehr/fahrrad/infos-zur-fahrradmitnahme-u-und-s-bahn-muenchen) kann.
 
 <ul>
   {% for page in site.pages %}

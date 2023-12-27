@@ -29,7 +29,7 @@ About a year earlier, the Groovy language had already appeared, which originally
 
 Scala and Groovy are far from the only examples of alternative JVM languages. Some are typed, others are more dynamic. What they all have in common, however, is that the JVM is an attractive platform because of its performance and existing libraries. Ports of existing languages (Jython, JRuby) also became increasingly popular in the 2000s.
 
-Java 7 followed in 2011, bringing the long-hoped-for bytecode extension invokedynamic. This allows efficient implementation of dynamic method calls, which dominate in untyped languages. This was preceded by work on the so-called [Da Vinci Virtual Machine](https://openjdk.java.net/projects/mlvm/), with which Sun experimented on first-class support for other languages on the JVM.
+Java 7 followed in 2011, bringing the long-hoped-for bytecode extension invokedynamic. This allows efficient implementation of dynamic method calls, which dominate in untyped languages. This was preceded by work on the so-called [Da Vinci Virtual Machine](https://openjdk.org/projects/mlvm/), with which Sun experimented on first-class support for other languages on the JVM.
 
 In Java itself, non-static method calls are made using the invokevirtual or invokeinterface instructions. Here, the argument types are already specified, but the implementing class is selected at runtime. In the simplest example:
 
