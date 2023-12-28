@@ -113,7 +113,7 @@ GEM
     mercenary (0.4.0)
     mini_portile2 (2.8.5)
     minitest (5.20.0)
-    nokogiri (1.15.5)
+    nokogiri (1.16.0)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     pathutil (0.16.2)
