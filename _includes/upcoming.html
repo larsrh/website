@@ -1,10 +1,14 @@
 <dl>
-  {% for upcoming in site.data.upcoming %}
-    <dt>
-      {% include date.html date=upcoming.date %}
-    </dt>
-    <dd>
-      <a href="{{ upcoming.link }}">{{ upcoming.conference }}</a>, {{ upcoming.location | default: "Online" }}
-    </dd>
-  {% endfor %}
+  {% if site.date.upcoming %}
+    {% for upcoming in site.data.upcoming %}
+      <dt>
+        {% include date.html date=upcoming.date %}
+      </dt>
+      <dd>
+        <a href="{{ upcoming.link }}">{{ upcoming.conference }}</a>, {{ upcoming.location | default: "Online" }}
+      </dd>
+    {% endfor %}
+  {% else %}
+    No upcoming talks 🙀 Suprising, huh?
+  {% endif %}
 </dl>
