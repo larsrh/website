@@ -1,5 +1,5 @@
-<dl>
-  {% if site.date.upcoming %}
+{% if site.date.upcoming %}
+  <dl>
     {% for upcoming in site.data.upcoming %}
       <dt>
         {% include date.html date=upcoming.date %}
@@ -8,7 +8,7 @@
         <a href="{{ upcoming.link }}">{{ upcoming.conference }}</a>, {{ upcoming.location | default: "Online" }}
       </dd>
     {% endfor %}
-  {% else %}
-    No upcoming talks 🙀 Suprising, huh?
-  {% endif %}
-</dl>
+  </dl>
+{% else %}
+  No upcoming talks 🙀 Suprising, huh?
+{% endif %}
