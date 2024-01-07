@@ -92,8 +92,6 @@ GEM
       pathutil (~> 0.16)
     jekyll-sass-converter (3.0.0)
       sass-embedded (~> 1.54)
-    jekyll-sitemap (1.4.0)
-      jekyll (>= 3.7, < 5.0)
     jekyll-toc (0.18.0)
       jekyll (>= 3.9)
       nokogiri (~> 1.12)
@@ -166,7 +164,6 @@ DEPENDENCIES
   jekyll (>= 4)
   jekyll-assets!
   jekyll-last-modified-at
-  jekyll-sitemap
   jekyll-toc
 
 BUNDLED WITH

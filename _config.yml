@@ -44,10 +44,6 @@ defaults:
     values:
       layout: talk
   - scope:
-      path: "pub/*"
-    values:
-      sitemap: false
-  - scope:
       path: "topics/crdt"
     values:
       title: An introduction to Conflict-Free Replicated Data Types
