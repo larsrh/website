@@ -1,0 +1,1259 @@
+---
+title: How does post-quantum cryptography affect Central Bank Digital Currency?
+---
+
+<h2 id="introduction">Introduction</h2>
+<p>Central Bank Digital Currency (CBDC) is a digital means of payment,
+issued by a country’s (or region’s) central bank, denominated in the
+national currency. Over 130 countries are researching, developing, or
+piloting a CBDC, according to the latest data in <a href="https://www.atlanticcouncil.org/cbdctracker/">Atlantic
+Council’s CBDC tracker.</a> An additional 11 have already launched a CBDC.
+Although consensus around the precise definition of “launch” has yet to
+surface, a production system is generally understood to encompass the following
+criteria:</p>
+<ul>
+<li><p>continuous and uninterrupted availability for an indefinite
+amount of time, i.e. no unannounced shutdown,</p></li>
+<li><p>real legal tender that can always be exchanged at face value with
+cash and deposit money,</p></li>
+<li><p>no system resets, i.e. holdings will remain valid,</p></li>
+<li><p>upgrade and maintenance work requires little to no intervention
+from users, except for long-term hardware upgrades, similar to the 2-5
+year cycle of bank cards and smartphones.</p></li>
+</ul>
+<p>Any CBDC operating within this framework will face a multitude of
+challenges, including operational, security, and monetary. In this
+paper, we are focusing on a core security aspect: cryptography. In
+particular, we examine the security requirements of CBDC – and more
+broadly, of comparable digital assets –, the cryptographic algorithms
+used to control for these security requirements, and the implications of
+quantum computing on these aspects.</p>
+<h3 id="current-state">Current state</h3>
+<p>The current gold standard in asymmetric cryptography, elliptic
+curves, are well-understood and widely deployed. Even though multiple
+sets of parameters for elliptic curves exist, they all share broadly
+similar characteristics regarding key generation, key lengths, and
+performance. For example, the ECDSA signature standard with an
+underlying NIST secp256r1 curve is available in the vast majority of
+programming languages, as well as in dedicated hardware devices such as
+HSMs or smart card chips. This enables excellent performance, which in
+turn means that secp256r1 enjoys popularity.</p>
+<h3 id="cryptographic-evolution">Cryptographic evolution</h3>
+<p>However, all elliptic curves, including secp256r1, are known not to
+withstand the emerging threat of quantum computing. Their security
+relies on the discrete logarithm, which cannot be computed efficiently
+by classical computers. In other words, with today’s methods, it is
+computationally infeasible to obtain the private key given only the
+public key. An algorithm discovered already in the 90s by Peter W. Shor
+can perform this operation efficiently given sufficiently large quantum
+computers <span class="citation" data-cites="Shor1995 Proos2003">[<a
+href="#ref-Shor1995" role="doc-biblioref">1</a>, <a
+href="#ref-Proos2003" role="doc-biblioref">2</a>]</span>.</p>
+<p>Consequently, classical asymmetric cryptographic algorithms are at
+risk, not only those deployed in CBDCs. While the precise timelines for
+the hitherto theoretical turning into practical risk are not yet clear,
+it is strongly advisable that post-quantum cryptography be incorporated
+into a CBDC’s design. The library of employed cryptographic primitives
+in digital currencies is huge: extending not only to wallets, but also
+to technical components of intermediaries, communication channels, and
+management of CBDC supply.</p>
+<p>A basic consequence of the criteria for a launched CBDC is that any
+replacement or upgrade of cryptographic algorithms needs to be carried
+out in a rolling fashion, where new and old algorithm can coexist for a
+period of several months to several years, depending on whether the
+algorithm is used only in software or also in hardware.</p>
+<h3 id="structure">Structure</h3>
+<p>The goal of this paper is to, therefore, provide insight into the
+future of cryptography as it applies to CBDC. We first give an overview
+of classical cryptographic algorithms and what they are used for in the
+CBDC context (Section <a href="#classical-cryptographic-algorithms"
+data-reference-type="ref"
+data-reference="classical-cryptographic-algorithms">2</a>). Then, we
+introduce the threats that quantum computing poses, as well as
+post-quantum algorithms that address those threats (Section <a
+href="#post-quantum-cryptography" data-reference-type="ref"
+data-reference="post-quantum-cryptography">3</a>). Equipped with this,
+we can then examine the cryptography in use for CBDC implementations and
+match them to appropriate algorithms (Section <a
+href="#cryptographic-inventory" data-reference-type="ref"
+data-reference="cryptographic-inventory">4</a>). Finally, we propose an
+opinionated framework for rolling updates, i.e., to put the earlier
+insights into practice (Section <a href="#rolling-upgrades"
+data-reference-type="ref" data-reference="rolling-upgrades">5</a>). Over
+the course of the paper, we will sometimes refer to cryptocurrencies as
+examples, as they share many cryptographic aspects with CBDC, but are
+often better researched, owing to their longer time of operation.</p>
+<h3 id="terminology">Terminology</h3>
+<p>In general, we define “wallets” as containers of digital assets, and
+more specifically, CBDC. Wallets can be in hardware or software form and
+manage private key material. Typically, “hardware wallet” refers to a
+physical device that is in the hands of a user. Naturally, they also
+require software to operate, but the hardware aspect refers to the
+security measures (e.g. secure elements in smart cards or other embedded
+devices). In contrast, “software wallets” can mean keys managed by some
+remote server where users access their funds through an app that
+authenticates towards the wallet’s operator. Note that this distinction
+becomes blurred in case of self-custodial wallets, where users may use
+any combination of soft- and/or hardware, including open source or
+self-written, to manage their own keys. Following the majority opinion
+across central banks, we exclude this from consideration here.</p>
+<p>As for the CBDC model, we follow the standard “token” vs. “account”
+distinction (see also Section <a href="#threats-to-digital-assets"
+data-reference-type="ref"
+data-reference="threats-to-digital-assets">3.1.3</a>), but do not assume
+either for the purpose of the paper, except when otherwise noted. When
+it becomes necessary in context, the term “token” is assumed to refer to
+key material that is short-lived.</p>
+<p>“Central bank register” or “register” for short, refers to the
+centralized storage of transaction and/or token records at a central
+bank, which may or may not be implemented as a DLT. In public
+cryptocurrencies, this register is typically a proof-of-work or
+proof-of-stake blockchain. The register is said to “validate”
+transactions and/or tokens.</p>
+<h3 id="related-work">Related work</h3>
+<p>The Bank for International Settlements (BIS), has analysed risks to
+the global financial infrastructure stemming from quantum computing. In
+particular, they have built a secure VPN tunnel connection two central
+banks <span class="citation" data-cites="BIS2023">[<a
+href="#ref-BIS2023" role="doc-biblioref">3</a>]</span>. In the CBDC
+context, this is useful for inter-bank connectivity, but does not apply
+to wallets.</p>
+<p>Ciulei <em>et al.</em> <span class="citation"
+data-cites="Ciulei2022">[<a href="#ref-Ciulei2022"
+role="doc-biblioref">4</a>]</span> and Allende <em>et al.</em> <span
+class="citation" data-cites="Allende2023">[<a href="#ref-Allende2023"
+role="doc-biblioref">5</a>]</span> have conducted studies regarding the
+quantum-resistance of popular blockchains. The latter paper also
+provides an “end-to-end framework for for post-quantum blockchain
+networks,” based on Ethereum <span class="citation"
+data-cites="Allende2023">[<a href="#ref-Allende2023"
+role="doc-biblioref">5</a>]</span>. Our paper complements this work with
+specific considerations pertaining to hardware wallets, and suggests
+upgrade strategies for quantum-proofing live systems.</p>
+<h2 id="classical-cryptographic-algorithms">Classical cryptographic
+algorithms</h2>
+<p>When shifting payments from physical cash to digital assets, a
+multitude of cryptographic primitives must be employed to control for
+security requirements. We will first sketch the security requirements
+and then explain which cryptographic primitives are used to satisfy
+them.</p>
+<h3 id="security-requirements-for-cash-and-digital-assets">Security
+requirements for cash and digital assets</h3>
+<p>When two people engage in a cash transaction, e.g. a customer
+rendering banknotes to a merchant, a number of security requirements are
+already controlled for.</p>
+<p>First, both the payer’s and the payee’s identities are established
+merely through personal trust: Both people trust the other person to be
+the rightful sender (or receiver, respectively) of the payment.</p>
+<p>Second, authenticity of the banknotes can be established by haptic
+and visual properties of the physical objects. In many circumstances,
+for example, when the paid amount exceeds a certain threshold, a
+receiving party will employ additional authenticity checks of the
+banknotes: an ultraviolet lamp, a counting machine, or other
+devices.</p>
+<p>Third, the rightful ownership of the banknotes is proved by merely
+demonstrating physical possession.</p>
+<p>Fourth, and relatedly to the previous point, the payment is completed
+and settled by change of ownership of the banknotes: the cash physically
+changes hands.</p>
+<p>Fifth, the payer is prevented from double-spending, i.e. using the
+same banknotes for two concurring payments: as opposed to data, physical
+objects cannot be cloned.</p>
+<p>Finally, in a series of multiple of cash payments, it is impossible
+for any third party to track the payment patterns.</p>
+<p>Applying those security requirements to digital assets, they can be
+summarized in more technical terms as follows:</p>
+<ol>
+<li><p>Authenticity of sender and receiver</p></li>
+<li><p>Authenticity of the asset</p></li>
+<li><p>Proof-of-ownership of the asset</p></li>
+<li><p>Non-repudiation of transactions</p></li>
+<li><p>Prevention of double-spending</p></li>
+<li><p>Privacy</p></li>
+</ol>
+<p>For cash, those requirements can be easily derived from its defining
+characteristics: its physical nature and it being a bearer
+instrument.</p>
+<p>In contrast, in a digital asset ecosystem, they must be controlled
+for with cryptographic primitives. Note that in cryptocurrencies, the
+first point is often not guaranteed, whereas in CBDC, some form of
+identity will typically be established, at least locally between
+participants.</p>
+<h3
+id="classification-of-cryptographic-primitives-for-digital-assets">Classification
+of cryptographic primitives for digital assets</h3>
+<p>To ensure the authenticity of sender and receiver, we employ wallet
+certificates. Those wallet certificates include some identifier, and are
+derived by a PKI operated by the central bank. The underlying
+cryptographic primitive are digital signatures, either based on elliptic
+curves or RSA. Wallet signatures can also be used to ensure
+non-repudiation of transactions. (See also Section <a
+href="#wallet-identification" data-reference-type="ref"
+data-reference="wallet-identification">5.2</a> for a more detailed
+treatment of wallet identifiers in our framework.)</p>
+<p>Furthermore, the wallet certificates can also be used to establish an
+end-to-end encrypted channel between the wallets by using a key exchange
+algorithm, such as ECDH. The communication channel is then encrypted
+with a symmetric cipher, e.g. AES-128 GCM.</p>
+<p>The authenticity of the tokens must also be checked using digital
+signatures. This comprises the proof-of-ownership from the sender (which
+can be checked locally by the receiver), as well as a double-spending
+check (which relies on global knowledge). Therefore, a verifying
+instance must be involved. In the case of CBDC, this instance can be
+centrally operated by the central bank, whereas cryptocurrencies would
+typically use a DLT. Since a central bank has complete knowledge of the
+tokens in circulation, we refer to its verifying instance as the
+“central bank register”.</p>
+<p>For CBDC, there is an additional requirement in that the register
+must communicate the authenticity of a token to the receiver thereof.
+(In blockchains, this is achieved by the receiver monitoring the
+newly-added blocks.) Consequently, the register can digitally sign its
+response using a well-known certificate (see also Section <a
+href="#other-long-and-short-lived-keys" data-reference-type="ref"
+data-reference="other-long-and-short-lived-keys">4.2.4</a>).</p>
+<p>In summary, both symmetric and asymmetric cryptography must be used
+to control for the security requirements in a CBDC ecosystem.</p>
+<h2 id="post-quantum-cryptography">Post-quantum cryptography</h2>
+<p>In this section, we will explain the new threat model that quantum
+computing creates for digital currencies, or more generally, any type of
+digital asset. One of the ways to alleviate this problem is to switch to
+cryptographic algorithms, some of them novel, that do not suffer from
+those threats. Therefore, we give an overview of the top contenders in
+NIST’s standardization competition for such post-quantum algorithms.
+Alternatively or complementary to that, best practices can be applied to
+mitigate quantum threats in the short term, which we will discuss here
+too.</p>
+<h3 id="new-attack-model">New attack model</h3>
+<p>Recall the overview of classical cryptographic algorithms from above,
+with RSA and elliptic curves being the most notable representatives.
+Their security relies on the impossibility to factorize a number into
+prime factors, and to invert exponentiation in a discrete group
+(discrete logarithm), respectively. While the precise details are out of
+scope for this paper, we can illustrate the factorization problem using
+RSA as an example.</p>
+<h4 id="the-factorization-problem-and-quantum-advantage">The
+factorization problem and quantum advantage</h4>
+<p>Assume we generate two large prime numbers
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>q</mi><annotation encoding="application/x-tex">q</annotation></semantics></math>
+at random. Using classical computers, it is easy to compute their
+product
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mi>p</mi><mi>q</mi></mrow><annotation encoding="application/x-tex">n = pq</annotation></semantics></math>.
+However, computing
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>q</mi><annotation encoding="application/x-tex">q</annotation></semantics></math>
+from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+is hard, with the basic algorithm only being able to try all possible
+numbers for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>,
+then attempting to compute
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>q</mi><annotation encoding="application/x-tex">q</annotation></semantics></math>
+as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>/</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">n/p</annotation></semantics></math>.
+If the length of the prime factors is doubled, this naïve algorithm
+takes four times the time, enabling the security of RSA: a user merely
+has to choose large enough prime numbers that factorization of their
+product cannot be feasibly achieved with the amount of computation power
+an (estimated) attacker has available. The best known factorization of a
+composite number has occurred in 2020, where researchers have computed
+the prime factors of a 250-digit long integer (829 bits, with current
+best practice to use at least 2048-bit keys in RSA).</p>
+<p>More optimized algorithms can run faster than trial-and-error
+division. Yet the only known way to provide a substantial speedup to
+scale to larger prime factors is to leverage a quantum computer’s
+capability to first reduce the problem of integer factorization and
+discrete logarithm to a periodicity problem and then solve it by
+applying a Quantum Fourier transform to solve this new problem. An
+attacker, therefore, gains considerable advantage compared to classical
+computers. This can be practically implemented using Shor’s algorithm,
+which also has the capacity to break the discrete logarithm problem
+(DLP).</p>
+<p>The ability to run Shor’s algorithm at scale is currently limited
+through practical constraints of quantum computers, such as the amount
+of qubits available and their reliability. According to Roetteler <em>et
+al.</em>’s estimation <span class="citation"
+data-cites="Roetteler2017">[<a href="#ref-Roetteler2017"
+role="doc-biblioref">6</a>]</span>, breaking a 2048-bit RSA key with
+Shor’s algorithm would require approximately 4000 qubits (excluding
+error correction). For 256-bit elliptic curve keys, the situation is
+more dire, with only 2330 qubits necessary. The currently largest-known
+quantum computer, the IBM “Osprey”, unveiled in 2022, sports 433 qubits.
+This is a three-fold increase from its 2021 predecessor system “Eagle”,
+which had 127 qubits available <span class="citation"
+data-cites="IBM2021 IBM2022">[<a href="#ref-IBM2021"
+role="doc-biblioref">7</a>, <a href="#ref-IBM2022"
+role="doc-biblioref">8</a>]</span>.</p>
+<p>A 2022 paper with another estimate for breaking the elliptic curve
+used in Bitcoin let cryptographer Bruce Schneier to conclude that a
+practical threat will arise “no time soon” <span class="citation"
+data-cites="Schneier2022">[<a href="#ref-Schneier2022"
+role="doc-biblioref">9</a>]</span>. While it is impossible to estimate
+precisely when that time will arrive, it stands to reason that a roadmap
+with countermeasures should be in place before that.</p>
+<h4 id="quantum-computing-and-symmetric-cryptography">Quantum computing
+and symmetric cryptography</h4>
+<p>Symmetric ciphers and cryptographic hash functions do not rely on
+one-way functions but rather on the speed of searching a large key
+space.</p>
+<p>Grover’s algorithm is a quantum algorithm that significantly speeds
+up the search for keys in a key space. Fortunately, by doubling the key
+sizes of symmetric encryption algorithms to 256 bits and hash algorithms
+to 512 bits, even Grover’s algorithm does not pose a threat to symmetric
+cryptography.</p>
+<h4 id="threats-to-digital-assets">Threats to digital assets</h4>
+<p>To make the above discussion concrete, let us consider an example:
+assets in digital currencies are typically represented as public-private
+keypairs. In the cryptocurrency sphere, the main contenders Bitcoin and
+Ethereum both use the secp256k1 elliptic curve as a basis. Knowledge of
+the private key corresponding to some digital assets enables the owner
+to spend that asset. CBDCs would follow the same or a very similar
+model. Shor’s algorithm can be used advantageously not just for breaking
+RSA keys, but also for breaking elliptic curve keys.</p>
+<p>Incoming payments require the sender to know the recipient’s public
+key, which is often referred to as an “address”. Conversely, outgoing
+payments requires producing a digital signature which uses the private
+key, but can be validated just with the knowledge of the public key,
+which is typically recorded in a blockchain (or in the case of CBDC, the
+register). This allows anyone to send assets to a particular address,
+but only the rightful owner to spend from that address. Security of
+one’s assets relies on keeping the private key confidential.</p>
+<p>Using classical computers, keeping the private key confidential, but
+allowing the public key to be known or recorded by third parties, does
+not threaten security.</p>
+<p>However, under a quantum regime, an attacker can use a public key to
+run Shor’s algorithm, obtaining the corresponding private key.
+Therefore, the attacker is equipped with the ability to produce valid
+digital signatures. In consequence, stealing the assets.</p>
+<p>When sending assets to a particular address, both Bitcoin and
+Ethereum do not use the public key directly as an address, but rather a
+hash of the public key. As explained in the earlier section,
+sufficiently long hashes cannot be easily inverted by quantum computers.
+While the assets are at rest, i.e. have been received on an address but
+not yet spent, a quantum attacker does not have an advantage over a
+classical attacker. But as soon as assets are transferred out, the
+legitimate owner must disclose the public key so that the blockchain
+network (or in the case of CBDC, the register) can validate the
+signature. In other words, as soon as the assets are in transit, they
+are at risk.</p>
+<h3 id="classical-mitigation-measures">Classical mitigation
+measures</h3>
+<p>Not all cryptocurrencies have the same exposure to this threat.
+Bitcoin, or more broadly speaking, “token-based” (also referred to as
+“UTxO”) digital assets, discourage reuse of the same public-private
+keypair, and some variants forbid it outright. The advantage lies within
+the fact that an outgoing transaction from an address will always
+consume the entirety of the assets associated with that address. For
+example, if address
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+has a balance of 10 €, and its owner wants to send 2 € to address
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>,
+the wallet will also move the remaining 8 € to a freshly-generated
+address
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math>.
+An attacker breaking the public key of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+will not be able to steal any assets, since they are now located at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math>,
+its public key not known to the attacker.</p>
+<p>However, if a quantum attacker can outperform the payment network,
+and can break
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>’s
+private key faster than the network or blockchain can validate and
+finalize the aforementioned payment, they could generate a new
+transaction, moving parts or all of the funds to another address that is
+controlled by the attacker.</p>
+<p>Ethereum, or more broadly speaking, “account-based” digital assets
+particularly suffer from this problem, since addresses are routinely
+reused. In other words, the first time an outgoing transaction is signed
+from an Ethereum address, all assets at rest in that address are
+available for subsequent theft from an attacker. According to a 2021
+survey by Deloitte, approximately 65% of all Ether in the public
+Ethereum network are stored in addresses with revealed public keys <span
+class="citation" data-cites="Barnes2022">[<a href="#ref-Barnes2022"
+role="doc-biblioref">10</a>]</span>.</p>
+<p>To summarize, in the case of public cryptocurrencies, using public
+key hashes and frequent address rotation are both feasible, albeit not
+perfect, mitigation strategies <span class="citation"
+data-cites="Barnes2021">[<a href="#ref-Barnes2021"
+role="doc-biblioref">11</a>]</span>. CBDCs with a tighter control
+through the issuing entity and less public exposure can go further: for
+example, digital signatures and public keys that are transferred from a
+wallet to backend systems or to another wallet can be additionally
+protected by end-to-end transit encryption, such as TLS. Unfortunately,
+these mitigations are also not perfect and subject to quantum threats.
+Therefore, for some aspects of a CBDC, it becomes necessary to select
+truly quantum-safe algorithms.</p>
+<h3 id="nist-competition">NIST competition</h3>
+<figure>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">PKE/KEM</th>
+<th style="text-align: left;">Signature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Lattice-based</td>
+<td style="text-align: left;">CRYSTALS-Kyber</td>
+<td style="text-align: left;">CRYSTALS-Dilithium<br>FALCON</td>
+</tr>
+<tr>
+<td style="text-align: left;">Hash-based</td>
+<td style="text-align: left;">n/a</td>
+<td style="text-align: left;">SPHINCS+</td>
+</tr>
+</tbody>
+</table>
+<figcaption>Overview over the winners of the NIST competition</figcaption>
+</figure>
+<p>The National Institute of Standard and Technology (NIST) has a
+history of holding competitions to evaluate, select and standardize
+cryptographic algorithms. The most prominent of those competitions were
+the Advanced Encryption Standard (AES) standardization process between
+1997 and 2000 and the NIST hash function competition between 2007 and
+2012 <span class="citation" data-cites="NIST2001 NIST2012">[<a
+href="#ref-NIST2001" role="doc-biblioref">12</a>, <a
+href="#ref-NIST2012" role="doc-biblioref">13</a>]</span>.</p>
+<p>The competition entails multiple rounds with each round eliminating a
+number of submitted algorithms. Research groups are encouraged to submit
+algorithms, which are then tested and evaluated by the NIST and the
+broader scientific community. NIST specifies evaluation criteria for the
+competition and selects the winning algorithm at the end of the
+process.</p>
+<p>During the leading post-quantum cryptography conference PQCrypto in
+2016, the NIST announced a new competition for selecting quantum secure
+asymmetric cryptographic algorithms <span class="citation"
+data-cites="Moody2016">[<a href="#ref-Moody2016"
+role="doc-biblioref">14</a>]</span>.</p>
+<p>While all previous competitions were designated to select exactly one
+winning algorithm, such as a symmetric encryption algorithm (AES) or a
+flexible hash function (SHA-3), this new competition, however, selects
+multiple new asymmetric algorithms as winners. The algorithms are
+divided in two subcategories: Public Key Encryption/Key Encapsulation
+Method and Signature Scheme.</p>
+<p>The reason for selecting multiple algorithms as winners is a result
+of the inevitable drawbacks that these new algorithms will bring: Some
+are very slow in signature creation, while others have very large key
+material. Since there is no one-fits-all solution, algorithms must be
+selected for their specific use cases. Selecting multiple winning
+algorithms yields greater flexibility in cryptographic agility and
+enables implementors to tailor the choice of algorithms to their
+specific needs.</p>
+<p>Five mathematical one-way functions turned out to be promising for
+designing quantum secure algorithms: hash-based, lattice-based,
+code-based, multivariate polynomial-based and supersingular elliptic
+curve isogeny-based.</p>
+<p>In July 2022, the NIST announced the winners of the competition as
+well as further algorithms to be considered <span class="citation"
+data-cites="NIST2022 NIST2022Round4">[<a href="#ref-NIST2022"
+role="doc-biblioref">15</a>, <a href="#ref-NIST2022Round4"
+role="doc-biblioref">16</a>]</span>. Lattice-based algorithms and
+hash-based signatures were the only one-way functions in the winning
+algorithms.</p>
+<p>The most prominent multivariate and isogeny-based algorithms were
+both broken last year in a matter of days and fell out of relevance for
+further consideration <span class="citation"
+data-cites="Castryck2022 Beullens2022">[<a href="#ref-Castryck2022"
+role="doc-biblioref">17</a>, <a href="#ref-Beullens2022"
+role="doc-biblioref">18</a>]</span>.</p>
+<h4 id="winners-of-the-nist-competition">Winners of the NIST
+competition</h4>
+<p>CRYSTALS-Kyber was the only algorithm selected for PKE/KEM, which
+does not yield flexibility in the choice of algorithms. Therefore, in
+the following, we will only consider the advantages and drawbacks of the
+signature algorithms: CRYSTALS-Dilithium, FALCON and SPHINCS+.</p>
+<h4 id="comparison-of-signature-algorithms">Comparison of signature
+algorithms</h4>
+<p>In 2020, Sikeridis <em>et al.</em> ran a performance study on
+quantum-secure signature algorithms to analyze and compare key sizes
+and operational run-time <span class="citation"
+data-cites="Sikeridis2020">[<a href="#ref-Sikeridis2020"
+role="doc-biblioref">19</a>]</span>.</p>
+<h5 id="size-comparison">Size comparison</h5>
+<figure>
+<table>
+<thead>
+<tr>
+<th>Signature Algorithm</th>
+<th>Public Key Size (Byte)</th>
+<th>Private Key Size (Byte)</th>
+<th>Signature Size (Byte)</th>
+<th>Claimed Classical Security Level</th>
+<th>Claimed PQ Security Level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">RSA 3072</td>
+<td style="text-align: right;">387</td>
+<td style="text-align: right;">384</td>
+<td style="text-align: right;">384</td>
+<td style="text-align: right;">128 bits</td>
+<td style="text-align: right;">0 bits</td>
+</tr>
+<tr>
+<td style="text-align: left;">ECDSA 384</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">192 bits</td>
+<td style="text-align: right;">0 bits</td>
+</tr>
+<tr>
+<td style="text-align: left;">Dilithium II</td>
+<td style="text-align: right;">1184</td>
+<td style="text-align: right;">2800</td>
+<td style="text-align: right;">2044</td>
+<td style="text-align: right;">100 bits</td>
+<td style="text-align: right;">103 bits</td>
+</tr>
+<tr>
+<td style="text-align: left;">Dilithium IV</td>
+<td style="text-align: right;">1760</td>
+<td style="text-align: right;">3856</td>
+<td style="text-align: right;">3366</td>
+<td style="text-align: right;">174 bits</td>
+<td style="text-align: right;">158 bits</td>
+</tr>
+<tr>
+<td style="text-align: left;">FALCON 512</td>
+<td style="text-align: right;">897</td>
+<td style="text-align: right;">1281</td>
+<td style="text-align: right;">690</td>
+<td style="text-align: right;">114 bits</td>
+<td style="text-align: right;">103 bits</td>
+</tr>
+<tr>
+<td style="text-align: left;">FALCON 1024</td>
+<td style="text-align: right;">1793</td>
+<td style="text-align: right;">2305</td>
+<td style="text-align: right;">1330</td>
+<td style="text-align: right;">264 bits</td>
+<td style="text-align: right;">230 bits</td>
+</tr>
+<tr>
+<td style="text-align: left;">SPHINCS+</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">64</td>
+<td style="text-align: right;">16976</td>
+<td style="text-align: right;">128 bits</td>
+<td style="text-align: right;">64 bits</td>
+</tr>
+</tbody>
+</table>
+<figcaption>Size comparison of signature algorithms, adapted from Sikeridis
+<em>et al.</em> <span class="citation" data-cites="Sikeridis2020">[<a
+href="#ref-Sikeridis2020" role="doc-biblioref">19</a>]</span>, Table I,
+with Specification column omitted (verbatim copy with some data removed
+for brevity)</figcaption>
+</figure>
+<p>It can be observed that the classical algorithms RSA and ECDSA have
+remarkably low key and signature sizes, which cannot be reached by the
+quantum secure alternatives. Only SPHINCS+ has much lower key sizes,
+which is counteracted by the immensely large signature sizes of over
+16,000 bytes and comparatively low levels of post-quantum security
+levels.</p>
+<p>For approximately the same levels of post-quantum security, Dilithium
+and FALCON yield similar public key sizes, albeit much larger than
+classical primitives as RSA and ECDSA. FALCON, however, yields
+significantly smaller private key and signature sizes than
+Dilithium.</p>
+<h5 id="performance-comparison">Performance comparison</h5>
+<figure>
+<table>
+<thead>
+<tr>
+<th>Signature Algorithm</th>
+<th>Sign (Mean) (ms)</th>
+<th>Sign (St. Derivation) (ms)</th>
+<th>Verify (Mean) (ms)</th>
+<th>Verify (St. Derivation) (ms)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">RSA 3072</td>
+<td style="text-align: right;">3.19</td>
+<td style="text-align: right;">0.023</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.001</td>
+</tr>
+<tr>
+<td style="text-align: left;">ECDSA 384</td>
+<td style="text-align: right;">1.32</td>
+<td style="text-align: right;">0.012</td>
+<td style="text-align: right;">1.05</td>
+<td style="text-align: right;">0.020</td>
+</tr>
+<tr>
+<td style="text-align: left;">Dilithium II</td>
+<td style="text-align: right;">0.82</td>
+<td style="text-align: right;">0.021</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.005</td>
+</tr>
+<tr>
+<td style="text-align: left;">Dilithium IV</td>
+<td style="text-align: right;">1.25</td>
+<td style="text-align: right;">0.021</td>
+<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.012</td>
+</tr>
+<tr>
+<td style="text-align: left;">FALCON 512</td>
+<td style="text-align: right;">5.22</td>
+<td style="text-align: right;">0.054</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.004</td>
+</tr>
+<tr>
+<td style="text-align: left;">FALCON 1024</td>
+<td style="text-align: right;">11.37</td>
+<td style="text-align: right;">0.102</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.005</td>
+</tr>
+<tr>
+<td style="text-align: left;">SPHINCS+</td>
+<td style="text-align: right;">93.37</td>
+<td style="text-align: right;">0.654</td>
+<td style="text-align: right;">3.92</td>
+<td style="text-align: right;">0.043</td>
+</tr>
+</tbody>
+</table>
+<figcaption>Performance comparison of signature algorithms, adapted from
+Sikeridis <em>et al.</em> <span class="citation"
+data-cites="Sikeridis2020">[<a href="#ref-Sikeridis2020"
+role="doc-biblioref">19</a>]</span>, Table II (verbatim copy with some
+data removed for brevity)</figcaption>
+</figure>
+<p>While classical algorithms were strictly better in all size
+comparisons, quantum-secure alternatives can have competitive sign and
+verify performance. SPHINCS+ is the slowest algorithm and comes with
+much longer signature creation and verification times, up to 100x slower
+signature creation times than classical ECDSA.</p>
+<p>Dilithium and FALCON both have similarly low verify operations, even
+outperforming ECDSA by a large margin. Additionally, Dilithium even
+outperforms both RSA and ECDSA for signature creating times. Falcons
+signature creation performance is significantly higher than
+Dilithium.</p>
+<p>In summary, SPHINCS+ comes with the most drawbacks of both large
+signature sizes and slow sign operations but having very small key
+sizes. Dilithium and FALCON come with different strengths and
+weaknesses: Dilithium has a much better signature creation performance,
+while Falcon comes with smaller key and signature sizes. Hence, the
+choice of which algorithm to use strongly depends on the concrete size
+and requirements and must be tailored to each particular use case.</p>
+<h2 id="cryptographic-inventory">Cryptographic inventory</h2>
+<p>In this section, we will go into greater detail about the
+cryptographic mechanisms employed in a digital asset ecosystem, and how
+they can be made fit for post-quantum cryptography. The first point,
+public-key infrastructure, is only applicable to a CBDC, whereas the
+later points can also be applied to other types of (decentralized)
+digital assets.</p>
+<h3 id="public-key-infrastructure">Public-key infrastructure</h3>
+<p>In order to authenticate participating entities in the CBDC
+ecosystem, either to the central bank or to each other, employing
+certificates is a natural choice. Certificate owners can either be
+natural persons, such as customers of a commercial bank, or abstract
+entities such as a centrally managed service or a smart card. Since the
+trust of customers to a CBDC is, as the name says, dependent on the
+customers’ trust towards the central bank, it is also a natural choice
+to build a Public Key Infrastructure (PKI) managed by the central bank.
+Then, the trust in the authenticity of all entities in the CBDC
+ecosystem is derived from trusting one Root Certificate Authority (CA)
+certificate managed by the central bank. The central bank can exercise
+full control over which entities are eligible to partake in the
+ecosystem or, alternatively, delegate the trust by issuing sub CA
+certificates to trusted partners.</p>
+<p>By verifying these certificates and their respective certificate
+chains, customers and services could always ensure that communication
+partners are trustworthy.</p>
+<p>Since certificates usually have long validity periods, cryptographic
+agility must be carefully considered and planned, long before the threat
+by quantum computers materializes.</p>
+<p>While there are different certificate formats, most prominently the
+X.509 format, the approaches to tackle quantum agility can be achieved
+similarly if the certificate offer extension fields or not (described in
+more detail below).</p>
+<p>Transitioning to a quantum-secure PKI can be done abruptly, by
+deactivating the classical PKI and building a new PKI as soon as the
+quantum threat materializes. This approach, however, is in most cases
+not applicable nor desirable. Specifically, a CBDC ecosystem must ensure
+a constant run-time of the system without any interruptions.</p>
+<p>A smooth transition to a quantum-secure PKI is both more desirable
+and more challenging. The transition must be initiated in time and would
+result in a transition period where both classical and quantum-secure
+algorithms are used in certificates simultaneously. These so-called
+hybrid certificates can be designed in two ways: composite and
+non-composite.</p>
+<p><strong>Composite certificates</strong> have been under consideration
+in an IETF draft <span class="citation" data-cites="Truskovsky2018">[<a
+href="#ref-Truskovsky2018" role="doc-biblioref">20</a>]</span> and
+describe how certificates with multiple signature algorithms could look
+like. There are two options being discussed: with and without extension
+fields.</p>
+<p>In case the certificate format allows for extension fields, as for
+example X.509, then a quantum-secure signature algorithm would be
+included in a certificate in such an extension field.</p>
+<figure id="composite-certificate">
+  <img src="{% asset "img/research/pqc-cbdc/hybrid-certificate.svg" @path %}" alt="">
+<figcaption>Hybrid certificates (adapted from Vogt and Funke <span
+class="citation" data-cites="Vogt2021">[<a href="#ref-Vogt2021"
+role="doc-biblioref">21</a>]</span> and Truskovsky <em>et al.</em> <span
+class="citation" data-cites="Truskovsky2018">[<a
+href="#ref-Truskovsky2018"
+role="doc-biblioref">20</a>]</span>)</figcaption>
+</figure>
+<p>In case extension fields are not existing in the used certificate
+format, the classical and quantum-secure algorithm information would
+exist in the same field in the certificate; either by concatenation or
+by clear separation within the certificate field. In this case,
+certificates parsing would need to be adjusted in all relying
+parties.</p>
+<p>In both cases, a transition can be made smoothly. Policy makers could
+enforce certificate verifications to entail either only the classical
+algorithm, or the quantum-secure algorithm, or both. This policy
+adjustment can be made in run-time, and would not require any
+interference by the central bank with any circulating certificates.</p>
+<p>An inevitable disadvantage of composite certificates is the larger
+size of the certificates resulting from the additional key material and
+signatures. Particularly bearer-tokens as smart cards could have
+difficulties with the resulting larger certificates. An informed choice
+of algorithm (see also Section <a
+href="#winners-of-the-nist-competition" data-reference-type="ref"
+data-reference="winners-of-the-nist-competition">3.3.1</a>) is
+necessary.</p>
+<p>Alternatively, the idea of <strong>non-composite
+certificates</strong> is that instead of including all the key material
+in the same certificates, every entity in the PKI could also be equipped
+with two separately issued certificates. These certificates do not need
+to be issued at the same time, but can be issued at different points in
+time. The certificates must be, however, linked to each other by a
+reference mechanism <span class="citation" data-cites="Becker2022">[<a
+href="#ref-Becker2022" role="doc-biblioref">22</a>]</span>.</p>
+<p>The CSR for the certificate with the quantum-secure certificate would
+be signed with the private key corresponding to the classical
+certificate. This approach also results in greater flexibility, as the
+policy makers could also enforce verification requirements on the
+relying parties. Either only the classical-certificate, or only the
+quantum-secure certificate, or both verifications must be
+successful.</p>
+<h3 id="algorithm-choice-in-the-cbdc-ecosystem">Algorithm choice in the
+CBDC ecosystem</h3>
+<p>We now discuss suitable algorithms for various types of key
+material.</p>
+<h4 id="pki-root-keys">PKI root keys</h4>
+<p>The choice of quantum-secure algorithms in a PKI greatly depends on
+the requirements arising from which entities create, manage, and
+verifies the certificates. For example, a root CA key has highest
+security requirements and must be stored securely at the central bank in
+an air-gapped HSM. Regular signature operations are not expected and
+small private key material is also not necessary. These requirements
+can, therefore, be ignored. The public key and signature sizes are
+important, however, since all relying parties in the PKI must securely
+store the root CA certificate locally to be able to verify all
+certificate chains. In the case when hardware is used as a bearer
+instrument for CBDC, e.g. a smart card, hybrid certificates for a smooth
+post-quantum transition would come with large root CA certificate
+sizes.</p>
+<p>FALCON would be a suitable choice for the root CA signature
+algorithm, since the slightly longer signature creation times are
+outweighed by the smaller signature sizes.</p>
+<h4 id="account-and-wallet-keys">Account and wallet keys</h4>
+<p>Account and/or wallet keys (depending on the CBDC model) are
+long-lived: the key material is created once and is persists for a long
+time, up to many years. They are most likely part of the centrally
+managed PKI to ensure that only authenticated accounts and wallets
+partake in the CBDC ecosystem. That said, the key usage might differ
+according to the design specifications of the payment protocols. Account
+and wallet keys can be used to establish a secure channel by means of
+classical ECDH or, for post-quantum security, CRYSTALS-Kyber, since it
+is the only selected PKE/KEM algorithm by NIST. A symmetric AES key is
+negotiated and derived by choosing the appropriate key derivation
+functions (KDFs) and hash lengths.</p>
+<p>For maximum flexibility, it is also a viable option to choose
+different algorithms within the same PKI. For example, in the case that
+wallet certificates are used to sign CBDC transactions, the expected
+number of sign operations is very high in contrast to a root CA
+certificate. Furthermore, private key material of a root CA certificate
+does not have strict size and performance requirements since it is
+stored in an HSM, which are capable of handling large key sizes
+sufficiently fast. Conversely, private key material of wallet
+certificates could be stored in devices with limited memory.</p>
+<p>Therefore, FALCON and Dilithium are viable algorithm choices for root
+CA certificates. For end certificates with a high expected number of
+sign operations, FALCON is the better choice. SPHINCS+ is not
+recommended for either because of the large signature sizes.</p>
+<h4 id="token-keys">Token keys</h4>
+<p>Tokens are keys that are created both at the central bank (minting
+process) but also in wallets during regular operations. In contrast to
+account and wallet keys, token keys are short-lived and are not part of
+any PKI. (See also Section <a href="#token-upgrade-strategies"
+data-reference-type="ref"
+data-reference="token-upgrade-strategies">5.3</a> for a more detailed
+discussion of cipher upgrades for tokens.)</p>
+<p>Since token keys are created and deleted regularly, a new arising
+requirement are short key pair generation times.</p>
+<p>While Dilithium has much lower key pair generation times than FALCON
+or SPHINCS+ <span class="citation" data-cites="Raavi2021">[<a
+href="#ref-Raavi2021" role="doc-biblioref">23</a>]</span>, Dilithium
+signatures are up to three times as large as FALCON signatures (see
+above). Therefore, the choice between FALCON or Dilithium for token key
+material strongly depends on the concrete design of the payment
+protocols and the expected number of key creations and limitations in
+memory for token signatures. As mentioned above, SPHINCS+ is not suited
+for token keys because of the large signature sizes.</p>
+<h4 id="other-long-and-short-lived-keys">Other long- and short-lived
+keys</h4>
+<p>Apart from the key material discussed above, other keys and
+certificates might be used for digital assets. For example, the central
+bank register responsible to validate transactions is a crucial
+component for security. Transaction must be verified and a receipt must
+be returned to the payer or payee to trust and finish the transaction.
+These receipts require a trustworthy signature from the register. The
+certificate used for receipt signatures has a long validity period with
+low key size and key generation time requirements, but must perform an
+abundance of signatures to verify transactions. Since Dilithium has much
+faster signature creation times than FALCON and SPHINCS+, Dilithium is a
+good choice for a register certificate.</p>
+<h2 id="rolling-upgrades">Rolling upgrades</h2>
+<p>The requirements for a production-grade, widely available CBDC,
+outlined in the introductions, imply that the system cannot be stopped
+for a coordinated upgrade of cryptographic algorithms. Therefore, any
+upgrade roadmap must consider a rolling upgrade strategy. Especially
+popular in operations of large-scale distributed systems, a rolling
+upgrade entails a step-by-step upgrade of individual components with a
+specified timeframe in which old and new versions can coexist and
+continue to interact.</p>
+<p>Key questions now include:</p>
+<ul>
+<li><p>How should a component be designed to enable both forward (old
+system understands new instructions) and backward (new system understand
+old instructions) compatibility?</p></li>
+<li><p>How long should the timeframe for compatibility be?</p></li>
+<li><p>Can the upgrade be coordinated effectively?</p></li>
+</ul>
+<p>Despite the similarities between cryptocurrencies and CBDC that we
+have alluded to earlier, their answers to these key questions differ
+dramatically. Hence, we will focus this section on CBDC.</p>
+<h3 id="design-decisions-that-may-influence-upgrade-strategy">Design
+decisions that may influence upgrade strategy</h3>
+<p>An important dimension in CBDC design is the use of software- and
+hardware-based wallets for transactions. In more ambitious designs,
+hardware wallets can be used both in online and offline payment
+scenarios and exchange money with other hardware wallets, but also
+software wallets.</p>
+<p>Software-based wallets can come in many shapes, e.g. as a smartphone
+app, but also as a database entry managed by a financial intermediary,
+such as a commercial bank. In the latter case, upgrades would be
+completely transparent to the user.</p>
+<p>For hardware-based wallets, the form factor is a core consideration.
+The cheapest form factor available is a commodity smart card, like what
+is in use today with credit or debit cards. Using CBDC on smart cards
+relies on availability of hardware acceleration for cryptographic
+algorithms (such as ECDSA with particular curve parameters) to be
+feasible. Typically, implementors do not have the ability to choose from
+a variety of algorithms.</p>
+<p>Another dimension to be considered is whether self-custody is
+allowed, a topic that is hotly debated in literature <span
+class="citation" data-cites="Narula2023 MortimerLee2023">[<a
+href="#ref-Narula2023" role="doc-biblioref">24</a>, <a
+href="#ref-MortimerLee2023" role="doc-biblioref">25</a>]</span>. Simply
+speaking, a CBDC offering self-custody would enable individual users to
+provision their own wallets, based on hardware and software that they
+deem fit. Central banks, or financial intermediaries that act as wallet
+issuers, would have significantly reduced control over the evolution of
+such self-custody wallets. For that reason, we exclude them from further
+discussions.</p>
+<h3 id="wallet-identification">Wallet identification</h3>
+<p>In cryptocurrencies, addresses are computed from private
+cryptographic material. For example, an Ethereum address is computed by
+hashing an elliptic curve public key. Wallets would scan the blockchain
+for any transaction involving this address. While this avoids the
+problem of routing payments to particular entities based on e.g. address
+prefixes, like in IBANs, the downside is that the address of the asset
+is conflated with the identity to the wallet.</p>
+<p>This conflation can be dissolved in CBDCs, where wallet identifiers
+do not have to be coupled to the cryptographic keys stored therein. In
+fact, a wallet identifier could be akin to a traditional bank account
+number, which stays fixed over the lifetime of a bank account, even
+though internal implementations details may change. Similarly, a credit
+card number would stay the same even after the physical credit card is
+replaced.</p>
+<p>The reason for this discrepancy is that in CBDC, which should be
+accessible to the broad public without in-depth knowledge of
+cryptography, it would be poor user experience to change wallet
+identifiers if the algorithm changes.</p>
+<p>Therefore, we propose that wallet identifiers should not be based on
+private cryptographic material, but are randomized upon creation and
+remain stable over time (“agnostic identifiers”). Note that such
+identifiers are only used for routing in online payment scenarios, i.e.,
+for a sending wallet to identify the entity managing the receiving
+wallet. Offline payment scenarios do not require routing due to physical
+proximity. But more importantly, the central bank register can be made
+oblivious to identifiers, since it only concerns itself with digital
+signatures from the key material associated with the assets themselves,
+therefore avoiding a privacy risk.</p>
+<p>The disadvantage of this approach is that agnostic identifiers, as
+opposed to a Bitcoin or Ethereum address, cannot be used to deduce which
+cryptographic algorithm is supported. This is balanced by the advantage
+that agnostic identifiers can support multiple algorithms with full
+transparency.</p>
+<p>The remainder of this section discusses token upgrade strategies in
+general, and hardware concerns based specifically on agnostic
+identifiers.</p>
+<h3 id="token-upgrade-strategies">Token upgrade strategies</h3>
+<p>As mentioned earlier, rolling updates are already a routine process
+in backend systems. In the case of new cryptographic algorithms, forward
+compatibility is much more difficult to achieve than backward
+compatibility. As an example, consider adding a data field to a message:
+forward compatibility is satisfied if a component can ignore the new
+data field and can still process the message. But a new cryptographic
+algorithm would need to be available on the component, otherwise the
+message cannot be understood.</p>
+<p>Instead, focus should be placed on careful backwards compatibility,
+coupled with feature detection, if necessary.</p>
+<p>Consider a hypothetical upgrade of a cryptographic algorithm, e.g.
+replacing ECDSA with FALCON as digital signature scheme for CBDC tokens.
+ECDSA and FALCON have different private key formats and lengths,
+therefore necessitating a dedicated process.</p>
+<p>As a first step, the central bank would equip its register with the
+new cryptographic algorithm. In the case of a token-based CBDC, the
+register would need to offer a way to convert old-style EC tokens to
+FALCON tokens. But since such a CBDC would already support a transaction
+where one EC token can be exchanged for another one, simply adding a
+“token version” field in the token format easily enables this kind of
+protocol evolution. The case of hybrid schemes may complicate
+implementation details, but can still be achieved in this manner.</p>
+<p>This new algorithm becomes available at a certain point in time, with
+the central bank mandating a deadline of migrating all tokens. For
+simplicity, we use “new wallet” and “old wallet” to refer to wallets
+held in software components that are or are not aware of FALCON yet.
+Recall that with agnostic wallet identifiers, the sending wallet would
+not be able to deduce the supported key formats of the receiving
+wallet.</p>
+<p>Now, we distinguish between the following cases and subcases for
+transactions, and discuss a migration strategy for each:</p>
+<ol>
+<li><p>old wallet paying to old wallet</p>
+<ol>
+<li><p>EC tokens: works unmodified</p></li>
+<li><p>FALCON tokens: would not occur</p></li>
+</ol></li>
+<li><p>old wallet paying to new wallet</p>
+<ol>
+<li><p>EC tokens: new wallet needs to be backwards compatible,
+auto-detection possible</p></li>
+<li><p>FALCON tokens: would not occur</p></li>
+</ol></li>
+<li><p>new wallet paying to old wallet</p>
+<ol>
+<li><p>EC tokens: works unmodified</p></li>
+<li><p>FALCON tokens: only works if register supports version
+downgrade</p></li>
+</ol></li>
+<li><p>new wallet paying to new wallet</p>
+<ol>
+<li><p>EC tokens: new wallet needs to be backwards compatible,
+auto-detection possible</p></li>
+<li><p>FALCON tokens: works unmodified</p></li>
+</ol></li>
+</ol>
+<p>Backwards-compatible auto-detection is trivial to implement, since
+the receiving wallet merely needs to check the version of the incoming
+token.</p>
+<p>The opposite direction, namely detecting if a receiving wallet only
+supports an earlier version (case 3) can be solved by imitating
+HTTP-style content negotiation: when the sending wallet initiates a
+payment, it first contacts the receiving wallet and offers a set of
+token versions, which will then be selected by the receiving wallet.</p>
+<p>Should a version downgrade (subcase 3b) not be desired or implemented
+by the central bank, it is advisable that wallet operators avoid
+premature conversion before the deadline for migration (subcases 2a and
+4a). This should be weighed against the possibility to run small trials
+of a new cryptographic algorithm to gather more experience, and slowly
+ramp up the percentage of wallets that use the new version.</p>
+<p>Note that this upgrade strategy can also be applied for other
+protocol changes, e.g. increasing the resolution of monetary values (two
+decimal digits to four decimal digits).</p>
+<h3 id="hardware-upgrade-strategies">Hardware upgrade strategies</h3>
+<p>While token upgrades in hardware wallets follow the same logic as
+described in the previous section, there are some additional
+considerations relating to their restricted compute power and their
+offline capability.</p>
+<p>Typical credit or debit cards have expiration times between three to
+five years. Therefore, consumers are already familiar with the procedure
+of routinely exchanging payment cards. Since simple smart cards are easy
+to manufacture and distribute, we anticipate no significant issues
+leveraging this strategy to upgrade CBDC hardware wallets.</p>
+<p>A problem remains if a CBDC is offline-capable. Some implementations
+use deferred communication between hardware wallets and the central bank
+register: transactions instantly settle even offline, but wallets keep a
+record of digital signatures to upload them to the register and have
+them validated at a later point. This may complicate subcase 3b, which
+should be avoided in such a setting.</p>
+<p>Applied to the above example, this would imply the following
+timeline:</p>
+<ul>
+<li><p>At a particular time, FALCON becomes available at the
+register.</p></li>
+<li><p>Soon afterwards, hardware wallets supporting both EC and FALCON
+become available. They never upgrade tokens unless prompted by receiving
+a FALCON token.</p></li>
+<li><p>Once all users have obtained new wallets (to be defined as a soft
+deadline), all software wallets upgrade tokens. FALCON tokens start to
+appear in hardware wallets, due to software-to-hardware
+top-ups.</p></li>
+<li><p>Slowly, the hardware wallet ecosystem upgrades, due to
+hardware-to-hardware payments.</p></li>
+</ul>
+<p>The hard migration deadline, i.e. the time when the register would no
+longer accept EC tokens, would need to be defined to be at least the
+soft deadline, plus validity of the new hardware wallets. An additional
+safety margin would allow users to exchange their funds in case they let
+a wallet sit unused for an extended amount of time, similarly to how the
+Eurozone’s national banks to this date still allow exchange of local
+currency to the Euro.</p>
+<p>Perfect enforcement of the aforementioned deadlines is almost
+impossible in any manner, since hardware wallets in full offline
+operation may not have access to trusted clocks <span class="citation"
+data-cites="Bundesbank2021">[<a href="#ref-Bundesbank2021"
+role="doc-biblioref">26</a>]</span>.</p>
+<p>Finally, we will briefly consider point-of-sale (or other payment)
+terminals. In the case of online terminals, support for new algorithms
+can be added through routine over-the-air updates. For pure offline
+terminals, this is naturally not possible.</p>
+<p>Therefore, it is advantageous to design the payment protocol between
+hardware wallets to be independent of the communication channel and the
+terminal. Concretely, the terminal and wallet(s) may have a shared
+interface for payment lifecycle (initiation, retry, cancelation), but
+the token-level protocol is opaque towards the terminal. This prevents
+the need for terminal upgrades altogether. On a low level, this can be
+achieved by modularizing terminals and allowing merchants to merely
+exchange the smart card (or chip) on which the wallet resides.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>We have discussed how the advent of quantum computing affects the
+kind of cryptography used in digital assets, more specifically, a
+central bank digital currency (CBDC). In particular, the problem that
+elliptic curve private keys could be computed by quantum attackers
+merely by the disclosure of the corresponding public key is a looming
+issue that threatens safe custody of assets. Even worse, it could lead
+to loss of funds without any user interactions whatsoever.</p>
+<p>While many concerns are shared between CBDC and cryptocurrency, the
+universal nature of CBDC poses additional challenges: for example,
+upgrades of cryptographic algorithms must be completely transparent to
+users as to not hinder adoption. However, given that CBDC is also more
+centralized, it stands to reason that central banks can use their more
+granular control over the ecosystem to ensure smooth transitions.</p>
+<p>We have shown that a digital asset ecosystem comes with a great deal
+of key material with a multitude of different requirements. The choice
+of the correct quantum-secure algorithm in accordance with NIST
+recommendations is, therefore, not straightforward and must be
+considered carefully. In order to grant full flexibility for crypto
+agility, we proposed not choosing one algorithm for all components, but
+instead select the algorithm for each specific component.</p>
+<p>Our proposed cryptographic upgrade framework enables just that and
+can be applied to a token-based CBDC design. The framework’s
+cornerstones are the use of agnostic wallet identifiers, decoupling
+user-facing addresses from private key material, and a conservative
+upgrade strategy relying on auto-detection of wallet capabilities. We
+expect this framework to be used for both software and hardware wallets,
+and potentially for self-custodial wallets as well.</p>
+<h2 id="acknowledgements">Acknowledgements</h2>
+<p>We thank our colleague Hermann Drexler for fruitful discussions about
+post-quantum cryptography. This work has been partially supported by the
+Federal Ministry of Education and Research (BMBF), Verbundprojekt
+CONTAIN (13N16582).</p>
+<div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-Shor1995" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div
+class="csl-right-inline">Shor, P.W.: Polynomial-time algorithms for
+prime factorization and discrete logarithms on a quantum computer. SIAM
+J.Sci.Statist.Comput. 26 (1997) 1484. (1995). https://doi.org/<a
+href="https://doi.org/10.1137/S0097539795293172">10.1137/S0097539795293172</a>.</div>
+</div>
+<div id="ref-Proos2003" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div
+class="csl-right-inline">Proos, J., Zalka, C.: Shor’s discrete logarithm
+quantum algorithm for elliptic curves. QIC 3 (No. 4) (2003) pp.317-344.
+(2003). https://doi.org/<a
+href="https://doi.org/10.48550/arXiv.quant-ph/0301141">10.48550/arXiv.quant-ph/0301141</a>.</div>
+</div>
+<div id="ref-BIS2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Bank
+for International Settlements: <a
+href="https://www.bis.org/publ/othp67.pdf"><span class="nocase">Project
+Leap: Quantum-proofing the financial system</span></a>. (2023).</div>
+</div>
+<div id="ref-Ciulei2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div
+class="csl-right-inline">Ciulei, A.-T., Crețu, M.-C., Simion, E.:
+Preparation for post-quantum era: A survey about blockchain schemes from
+a post-quantum perspective, <a
+href="https://eprint.iacr.org/2022/026">https://eprint.iacr.org/2022/026</a>,
+(2022).</div>
+</div>
+<div id="ref-Allende2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">5. </div><div
+class="csl-right-inline">Allende, M., León, D.L., Cerón, S., Pareja, A.,
+Pacheco, E., Leal, A., Silva, M.D., Pardo, A., Jones, D., Worrall, D.J.,
+Merriman, B., Gilmore, J., Kitchener, N., Venegas-Andraca, S.E.:
+Quantum-resistance in blockchain networks. Scientific Reports. 13,
+(2023). https://doi.org/<a
+href="https://doi.org/10.1038/s41598-023-32701-6">10.1038/s41598-023-32701-6</a>.</div>
+</div>
+<div id="ref-Roetteler2017" class="csl-entry" role="listitem">
+<div class="csl-left-margin">6. </div><div
+class="csl-right-inline">Roetteler, M., Naehrig, M., Svore, K.M.,
+Lauter, K.: Quantum resource estimates for computing elliptic curve
+discrete logarithms. (2017). https://doi.org/<a
+href="https://doi.org/10.48550/arXiv.1706.06752">10.48550/arXiv.1706.06752</a>.</div>
+</div>
+<div id="ref-IBM2021" class="csl-entry" role="listitem">
+<div class="csl-left-margin">7. </div><div class="csl-right-inline">IBM:
+IBM unveils breakthrough 127-qubit quantum processor, <a
+href="https://newsroom.ibm.com/2021-11-16-IBM-Unveils-Breakthrough-127-Qubit-Quantum-Processor">https://newsroom.ibm.com/2021-11-16-IBM-Unveils-Breakthrough-127-Qubit-Quantum-Processor</a>,
+(2021).</div>
+</div>
+<div id="ref-IBM2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">8. </div><div class="csl-right-inline">IBM:
+IBM unveils 400 qubit-plus quantum processor and next-generation IBM
+quantum system two, <a
+href="https://newsroom.ibm.com/2022-11-09-IBM-Unveils-400-Qubit-Plus-Quantum-Processor-and-Next-Generation-IBM-Quantum-System-Two">https://newsroom.ibm.com/2022-11-09-IBM-Unveils-400-Qubit-Plus-Quantum-Processor-and-Next-Generation-IBM-Quantum-System-Two</a>,
+(2022).</div>
+</div>
+<div id="ref-Schneier2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">9. </div><div
+class="csl-right-inline">Schneier, B.: Breaking 256-bit elliptic curve
+encryption with a quantum computer, <a
+href="https://www.schneier.com/blog/archives/2022/02/breaking-245-bit-elliptic-curve-encryption-with-a-quantum-computer.html">https://www.schneier.com/blog/archives/2022/02/breaking-245-bit-elliptic-curve-encryption-with-a-quantum-computer.html</a>,
+(2022).</div>
+</div>
+<div id="ref-Barnes2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">10. </div><div
+class="csl-right-inline">Barnes, I., Bosch, B., Haalstra, O.: Quantum
+risk to the ethereum blockchain - a bump in the road or a brick wall?,
+<a
+href="https://web.archive.org/web/20221227103628/https://www2.deloitte.com/nl/nl/pages/risk/articles/quantum-risk-to-the-ethereum-blockchain.html">https://web.archive.org/web/20221227103628/https://www2.deloitte.com/nl/nl/pages/risk/articles/quantum-risk-to-the-ethereum-blockchain.html</a>.</div>
+</div>
+<div id="ref-Barnes2021" class="csl-entry" role="listitem">
+<div class="csl-left-margin">11. </div><div
+class="csl-right-inline">Barnes, I., Bosch, B.: Quantum computers and
+the bitcoin blockchain, <a
+href="https://web.archive.org/web/20230119123701/https://www2.deloitte.com/nl/nl/pages/innovatie/artikelen/quantum-computers-and-the-bitcoin-blockchain.html">https://web.archive.org/web/20230119123701/https://www2.deloitte.com/nl/nl/pages/innovatie/artikelen/quantum-computers-and-the-bitcoin-blockchain.html</a>.</div>
+</div>
+<div id="ref-NIST2001" class="csl-entry" role="listitem">
+<div class="csl-left-margin">12. </div><div
+class="csl-right-inline">NIST: Cryptographic standards and guidelines -
+AES development, <a
+href="https://csrc.nist.gov/projects/cryptographic-standards-and-guidelines/archived-crypto-projects/aes-development">https://csrc.nist.gov/projects/cryptographic-standards-and-guidelines/archived-crypto-projects/aes-development</a>.</div>
+</div>
+<div id="ref-NIST2012" class="csl-entry" role="listitem">
+<div class="csl-left-margin">13. </div><div
+class="csl-right-inline">NIST: NIST selects winner of secure hash
+algorithm (SHA-3) competition, <a
+href="https://www.nist.gov/news-events/news/2012/10/nist-selects-winner-secure-hash-algorithm-sha-3-competition">https://www.nist.gov/news-events/news/2012/10/nist-selects-winner-secure-hash-algorithm-sha-3-competition</a>,
+(2012).</div>
+</div>
+<div id="ref-Moody2016" class="csl-entry" role="listitem">
+<div class="csl-left-margin">14. </div><div
+class="csl-right-inline">Moody, D.: Post-quantum cryptography: NIST’s
+plan for the future, <a
+href="https://pqcrypto2016.jp/data/pqc2016_nist_announcement.pdf">https://pqcrypto2016.jp/data/pqc2016_nist_announcement.pdf</a>,
+(2016).</div>
+</div>
+<div id="ref-NIST2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">15. </div><div
+class="csl-right-inline">NIST: NIST announces first four
+quantum-resistant cryptographic algorithms, <a
+href="https://www.nist.gov/news-events/news/2022/07/nist-announces-first-four-quantum-resistant-cryptographic-algorithms">https://www.nist.gov/news-events/news/2022/07/nist-announces-first-four-quantum-resistant-cryptographic-algorithms</a>,
+(2022).</div>
+</div>
+<div id="ref-NIST2022Round4" class="csl-entry" role="listitem">
+<div class="csl-left-margin">16. </div><div
+class="csl-right-inline">NIST: Post-quantum cryptography - round 4
+submissions, <a
+href="https://csrc.nist.gov/Projects/post-quantum-cryptography/round-4-submissions">https://csrc.nist.gov/Projects/post-quantum-cryptography/round-4-submissions</a>.</div>
+</div>
+<div id="ref-Castryck2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">17. </div><div
+class="csl-right-inline">Castryck, W., Decru, T.: An efficient key
+recovery attack on SIDH, <a
+href="https://eprint.iacr.org/2022/975">https://eprint.iacr.org/2022/975</a>,
+(2022).</div>
+</div>
+<div id="ref-Beullens2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">18. </div><div
+class="csl-right-inline">Beullens, W.: Breaking rainbow takes a weekend
+on a laptop, <a
+href="https://eprint.iacr.org/2022/214">https://eprint.iacr.org/2022/214</a>,
+(2022).</div>
+</div>
+<div id="ref-Sikeridis2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">19. </div><div
+class="csl-right-inline">Sikeridis, D., Kampanakis, P., Devetsikiotis,
+M.: Post-quantum authentication in TLS 1.3: A performance study, <a
+href="https://eprint.iacr.org/2020/071">https://eprint.iacr.org/2020/071</a>,
+(2020). https://doi.org/<a
+href="https://doi.org/10.14722/ndss.2020.24203">10.14722/ndss.2020.24203</a>.</div>
+</div>
+<div id="ref-Truskovsky2018" class="csl-entry" role="listitem">
+<div class="csl-left-margin">20. </div><div
+class="csl-right-inline">Truskovsky, A., Geest, D.V., Fluhrer, S.,
+Kampanakis, P., Ounsworth, M., Mister, S.: <a
+href="https://datatracker.ietf.org/doc/draft-truskovsky-lamps-pq-hybrid-x509/01/"><span>Multiple
+Public-Key Algorithm X.509 Certificates</span></a>. Internet Engineering
+Task Force; Internet Engineering Task Force (2018).</div>
+</div>
+<div id="ref-Vogt2021" class="csl-entry" role="listitem">
+<div class="csl-left-margin">21. </div><div
+class="csl-right-inline">Vogt, S., Funke, H.: How quantum computers
+threat security of PKIs and thus eIDs. In: Open identity summit 2021.
+pp. 83–94. Gesellschaft für Informatik e.V., Bonn (2021).</div>
+</div>
+<div id="ref-Becker2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">22. </div><div
+class="csl-right-inline">Becker, A., Guthrie, R., Jenkins, M.J.: <a
+href="https://datatracker.ietf.org/doc/draft-becker-guthrie-noncomposite-hybrid-auth/00/"><span
+class="nocase">Non-Composite Hybrid Authentication in PKIX and
+Applications to Internet Protocols</span></a>. Internet Engineering Task
+Force; Internet Engineering Task Force (2022).</div>
+</div>
+<div id="ref-Raavi2021" class="csl-entry" role="listitem">
+<div class="csl-left-margin">23. </div><div
+class="csl-right-inline">Raavi, M., Wuthier, S., Chandramouli, P.,
+Balytskyi, Y., Zhou, X., Chang, S.-Y.: Security comparisons and
+performance analyses of post-quantum signature algorithms. In: Sako, K.
+and Tippenhauer, N.O. (eds.) Applied cryptography and network security.
+pp. 424–447. Springer International Publishing, Cham (2021).</div>
+</div>
+<div id="ref-Narula2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">24. </div><div
+class="csl-right-inline">Narula, N., Swartz, L.: Central bank digital
+currency? How money could be redesigned, <a
+href="https://www.weforum.org/agenda/2023/01/davos23-central-bank-digital-currency-redesigning-money/">https://www.weforum.org/agenda/2023/01/davos23-central-bank-digital-currency-redesigning-money/</a>,
+(2023).</div>
+</div>
+<div id="ref-MortimerLee2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">25. </div><div
+class="csl-right-inline">Mortimer-Lee, P.: <a
+href="https://www.ft.com/content/92fb7d93-8705-44a0-850b-65f2ddef1018">Letter:
+Freedom and security are part of CBDC debate too</a>. Financial Times.
+(2023).</div>
+</div>
+<div id="ref-Bundesbank2021" class="csl-entry" role="listitem">
+<div class="csl-left-margin">26. </div><div
+class="csl-right-inline">Deutsche Bundesbank: Eurosystem experimentation
+regarding a digital euro: Research workstream on hardware bearer
+instrument, <a
+href="https://www.bundesbank.de/resource/blob/873282/bd327431598f204c2ebac99f197ce863/mL/eurosystem-experimentation-regarding-a-digital-euro-data.pdf">https://www.bundesbank.de/resource/blob/873282/bd327431598f204c2ebac99f197ce863/mL/eurosystem-experimentation-regarding-a-digital-euro-data.pdf</a>,
+(2021).</div>
+</div>
+</div>
