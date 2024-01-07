@@ -44,7 +44,7 @@ layout: default
         <picture class="slider__page">
           <source type="image/avif" srcset="https://assets.hupel.info/img{{ page.id }}/{{ page.slides.file }}-{{ i }}.avif">
           <source type="image/webp" srcset="https://assets.hupel.info/img{{ page.id }}/{{ page.slides.file }}-{{ i }}.webp">
-          <img src="https://assets.hupel.info/img{{ page.id }}/{{ page.slides.file }}-{{ i }}.jpg" alt="{{ i | plus: 1 }}/{{ page.slides.length }}" title="{{ i | plus: 1 }}/{{ page.slides.length }}" width="{{ width }}" height="720" loading="lazy"  />
+          <img src="https://assets.hupel.info/img{{ page.id }}/{{ page.slides.file }}-{{ i }}.jpg" alt="{{ i | plus: 1 }}/{{ page.slides.length }}" title="{{ i | plus: 1 }}/{{ page.slides.length }}" width="{{ width }}" height="720" loading="lazy">
         </picture>
       </li>
     {% endfor %}
