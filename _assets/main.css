@@ -24,6 +24,12 @@ figcaption {
   color: var(--text-muted);
 }
 
+.disclaimer {
+  color: var(--text-muted);
+  font-size: var(--font-small);
+}
+
+
 div.footnotes {
   font-size: var(--font-small);
 }

@@ -1,6 +1,6 @@
 <ul>
   <li {% if page.url == "/" %}class="active"{% endif %}><a href="{% link index.html %}">Home</a></li>
-  <li {% if page.url == "/research/" %}class="active"{% endif %}><a href="{% link research.html %}">Research</a></li>
+  <li {% if page.url contains "/research/" %}class="active"{% endif %}><a href="{% link research.html %}">Research</a></li>
   <li {% if page.url contains "/talks/" %}class="active"{% endif %}><a href="{% link talks.html %}">Talks</a></li>
   <li {% if page.url contains "/topics/" %}class="active"{% endif %}><a href="{% link topics.md %}">Topics</a></li>
   <li {% if page.url contains "/articles/" %}class="active"{% endif %}><a href="{% link articles.html %}">Articles</a></li>

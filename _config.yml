@@ -27,6 +27,9 @@ collections:
   talks:
     output: true
     permalink: /:collection/:name/
+  research:
+    output: true
+    permalink: /:collection/:name/
 
 liquid:
   strict_filters: true
@@ -43,6 +46,11 @@ defaults:
       type: talks
     values:
       layout: talk
+  - scope:
+      path: ""
+      type: research
+    values:
+      layout: research
   - scope:
       path: "topics/crdt"
     values:

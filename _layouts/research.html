@@ -1,0 +1,30 @@
+---
+layout: root
+---
+
+<link rel="stylesheet" href="{% asset research.css @path %}">
+
+{% assign pub_id = page.name | split: "." | first %}
+{% assign pub_desc = site.data.pubs | find_exp: "item", "item.id == pub_id" %}
+
+<header>
+  <h1>{{ page.title | escape }}</h1>
+  {% include authors.html authors=pub_desc.authors %}
+  <div>{{ pub_desc.in }}{% if pub_desc.in %}, {% endif %}{{ pub_desc.year }}</div>
+
+  <p class="disclaimer">
+    You are viewing an experimental HTML version of this article.
+    The original PDF version is <a href="/pub/{{ pub_id }}.pdf">also available</a>.
+  </p>
+</header>
+
+<main>
+  <div class="abstract hyphenate">
+    <p>{{ pub_desc.abstract }}</p>
+  </div>
+  <hr>
+
+  <article class="hyphenate">
+    {{ content }}
+  </article>
+</main>

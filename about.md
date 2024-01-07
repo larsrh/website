@@ -43,9 +43,14 @@ Website created with:
 * <a href="https://www.openstreetmap.org/">OpenStreetMap</a>
 * <a href="https://www.netlify.com/">Netlify</a>
 
+Additionally, the research section uses:
+
+* [STIX fonts](https://github.com/stipub/stixfonts)
+* [Pandoc](https://pandoc.org/)
+
 The source code is [available on GitHub](https://github.com/larsrh/website).
 
-Special thanks to my dear colleagues [Lucas Dohmen](https://lucas.dohmen.io/) and [Joy Heron](https://joyheron.com/) for their CSS help.
+Special thanks to [Lucas Dohmen](https://lucas.dohmen.io/), [Joy Heron](https://joyheron.com/), and [FND](https://prepitaph.org/) for their CSS help.
 
 ## Cookies and stuff
 
