@@ -1,10 +1,9 @@
 ---
 title: "How to build your own personal DynDNS service"
 date: 2021-10-08
+highlight: true
 lang: en
 ---
-
-<link rel="stylesheet" href="{% asset rouge.css @path %}">
 
 Consumer-grade internet subscriptions typically come with NAT and dynamically-assigned IP addresses.
 In order to reach [my home server]({% link _articles/storage-server.md %}) from the outside, I decided to build my own dynamic DNS service.

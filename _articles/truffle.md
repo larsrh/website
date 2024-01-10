@@ -9,6 +9,7 @@ abstract: |
     (This article has been originally published in devmio Volume 2, based on a German version published in late 2019.)
 lang: en
 date: 2023-03-24
+highlight: true
 ---
 
 When the JVM was newly released in 1994, it was still inseparable from the Java language. It can be clearly seen that the JVM bytecode had been created in such a way that Java's "flavor" of object-oriented programming could be mapped in it. This is consistent from a historical point of view, because after all, the JVM should be able to execute compiled Java code efficiently.
@@ -62,7 +63,7 @@ Nevertheless, such optimizations are selective at best. A full Futamura projecti
 
 ```java
 interface Interpreter {
-    Object runCode(String code, Object input);
+  Object runCode(String code, Object input);
 }
 ```
 
@@ -223,5 +224,3 @@ Despite all interoperability, one limitation remains: It is not possible to mana
 ## Conclusion
 
 It's worth taking a close look at GraalVM, because it has many radically new capabilities. The development is progressing rapidly: While currently the official GraalVM is only compatible with Java 8, releases for newer Java versions are already being worked on at full speed. Notwithstanding this, polyglot programming is also largely possible with newer JVMs, if you can do without generating native code. It is quite possible that we will soon see more Java on the desktop again thanks to the combination of these features.
-
-<link rel="stylesheet" href="{% asset rouge.css @path %}">

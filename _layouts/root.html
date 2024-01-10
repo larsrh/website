@@ -12,6 +12,10 @@
     <link rel="stylesheet" href="{% asset water.css @path %}">
     <link rel="stylesheet" href="{% asset main.css @path %}">
 
+    {% if page.highlight %}
+      <link rel="stylesheet" href="{% asset rouge.css @path %}">
+    {% endif %}
+
     {% assign full_title = page.title %}
     {% if page.subtitle %}
       {% assign subtitle = page.subtitle %}

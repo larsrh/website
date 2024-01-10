@@ -46,6 +46,7 @@ defaults:
       type: talks
     values:
       layout: talk
+      highlight: true
   - scope:
       path: ""
       type: research
