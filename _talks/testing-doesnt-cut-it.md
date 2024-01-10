@@ -35,6 +35,11 @@ conferences:
     link: "https://www.lambdadays.org/lambdadays2023/lars-hupel"
     slides: "https://speakerdeck.com/larsrh/when-testing-just-doesnt-cut-it-lambda-days-edition"
     recording: "https://www.youtube.com/watch?v=dJ5Z2M9iCzk"
+  - conference: "WeAreDevelopers World Congress"
+    location: Berlin, Germany
+    date: 2023-07-28
+    link: "https://www.wearedevelopers.com/world-congress/program-2023"
+    slides: "https://speakerdeck.com/larsrh/when-testing-just-doesnt-cut-it"
 ---
 
 ## Article

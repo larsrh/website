@@ -12,7 +12,7 @@ slides:
   length: 31
 video: { id: "vs8BiA1h_vk" }
 conferences:
-  - conference: "We Are Developers World Congress"
+  - conference: "WeAreDevelopers World Congress"
     date: 2022-06-15
     location: Berlin, Germany
     link: "https://www.wearedevelopers.com/world-congress/"
