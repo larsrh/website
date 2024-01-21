@@ -6,7 +6,8 @@ make_thumbs()
 {
   local file="$1"
   echo "*** $file ***"
-  local short="$(basename "$file" ".jpg")"
+  local base="$(basename "$file")"
+  local short="${base%.*}"
   local dir="$(dirname "$file")"
   local small="$dir/$short.small.jpg"
   convert "$file" -resize "1600>" "$small"
