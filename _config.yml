@@ -23,7 +23,7 @@ assets:
 collections:
   articles:
     output: true
-    permalink: /:collection/:name/
+    permalink: /:collection/:path/
   talks:
     output: true
     permalink: /:collection/:name/
