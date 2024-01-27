@@ -12,6 +12,7 @@ exclude:
   - ".ruby-version"
   - "venv"
   - ".github"
+  - ".pa11yci"
 encoding: "utf-8"
 
 assets:
