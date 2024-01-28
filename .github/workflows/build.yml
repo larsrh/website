@@ -7,34 +7,27 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 3.2.2
         bundler-cache: true
     - name: Build site
       run: bundle exec jekyll build
     - name: Run htmlproofer
       run: bundle exec htmlproofer --disable-external --no-enforce-https ./_site
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: 3.12
-    - name: Install Python dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-    - name: Run html5validator
-      run: html5validator --root ./_site --ignore 'hgroup'
-
     - name: Set up Node
       uses: actions/setup-node@v4
       with:
         node-version: '20'
-    - name: Install pa11y-ci
-      run: npm install -g pa11y-ci@3.1.0
+        cache: 'npm'
+
+    - name: Install Node packages
+      run: npm ci
+
     - name: Run pa11y-ci
-      run: find ./_site/ -name "*.html" | xargs pa11y-ci
+      run: ./node_modules/.bin/pa11y-ci '_site/**/*.html'
+    - name: Run vnu
+      run: ./scripts/validate.sh --skip-non-html --filterpattern '.*void elements.*' _site/

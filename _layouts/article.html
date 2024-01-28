@@ -2,6 +2,8 @@
 layout: root
 ---
 
+<article>
+
 <header>
   {% if page.hero %}
     <img class="hero" src="{% asset '{{ page.hero.src }}' @path %}" alt="{{ page.hero.alt }}" />
@@ -47,17 +49,19 @@ layout: root
   {% endif %}
 </header>
 
-<main>
-  {% if page.abstract %}
-    <div class="abstract hyphenate">
-      {{ page.abstract | markdownify }}
-    </div>
-    <hr>
-  {% endif %}
-  {% if page.toc %}
-    {{ content | toc_only }}
-  {% endif %}
-  <article class="hyphenate">
-    {{ content }}
-  </article>
-</main>
+{% if page.abstract %}
+  <div class="abstract hyphenate">
+    {{ page.abstract | markdownify }}
+  </div>
+  <hr>
+{% endif %}
+
+{% if page.toc %}
+  {{ content | toc_only }}
+{% endif %}
+
+<div class="hyphenate">
+  {{ content }}
+</div>
+
+</article>
