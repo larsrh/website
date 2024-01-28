@@ -28,6 +28,6 @@ jobs:
       run: npm ci
 
     - name: Run pa11y-ci
-      run: find ./_site/ -name "*.html" | xargs ./node_modules/.bin/pa11y-ci
+      run: ./node_modules/.bin/pa11y-ci '_site/**/*.html'
     - name: Run vnu
       run: ./scripts/validate.sh --skip-non-html --filterpattern '.*void elements.*' _site/
