@@ -13,12 +13,6 @@
   journal: "Typelevel.org blog"
   abstract: "Some nine or ten months ago, Spire’s project structure underwent a major reorganization. Simultaneously, the Scalacheck bindings were refactored, completely overhauling the law-checking infrastructure."
   url: "https://typelevel.org/blog/2013/11/17/discipline.html"
-- date: 2015-12-03
-  title: "Formale Wahrheit"
-  journal: "fatum"
-  abstract: "Am Lehrstuhl für Logik und Verifikation der TUM wird Isabelle entwickelt, ein Programm mithilfe dessen man Theoreme beweisen kann. Interaktive Theorembeweiser sind relative neue Hilfsmittel in der Werkzeugsammlung von Mathematikern. Sind solche vom Computer verifizierten Argumentationsketten aber noch Beweise im mathematischen Sinn?"
-  url: "https://www.fatum-magazin.de/ausgaben/traeume-und-wahrheiten/in-die-werkstatt/formale-wahrheit.html"
-  lang: de
 - date: 2016-08-09
   title: "Functional Geekery, Episode 62"
   journal: "Functional Geekery"
