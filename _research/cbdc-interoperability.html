@@ -1,0 +1,720 @@
+---
+title: Interoperability aspects of CBDC across ecosystems and borders
+date: 2024-02-09
+---
+
+<h2 id="introduction">Introduction</h2>
+<p>The vast majority of central banks around the world are investigating
+or piloting <em>a Central Bank Digital Currency (CBDC)</em>, with a
+select few already running live systems. Although there is no single
+universal definition of CBDC as of writing, it is commonly understood to
+be:</p>
+<ul>
+<li><p><strong>a digital representation of a country’s or region’s
+existing currency:</strong> this means that the CBDC will be denoted in
+the same currency and be 1:1 exchangeable for other types of money, such
+as deposit money, in a way that resembles cash;</p></li>
+<li><p><strong>issued directly by the central bank:</strong> unlike
+deposit money and e-money, which is issued by private entities, CBDC
+represents a direct claim on the issuing central bank and therefore, the
+central bank has full control over its supply;</p></li>
+<li><p><strong>usable in electronic payments:</strong> unlike cash,
+which can only be used for payments in physical proximity, CBDC as
+digital money can be used both offline and online; and</p></li>
+<li><p><strong>legal tender:</strong> the ability to use CBDC for any
+purpose and to discharge monetary obligations.</p></li>
+</ul>
+<p>The <em>Bank for International Settlements (BIS)</em>, an
+international financial body whose membership comprises over 60 central
+banks, succinctly defines CBDC as a “digital payment instrument,
+denominated in the national unit of account, which is a direct liability
+of the central bank” <span class="citation" data-cites="Kosse2023">[<a
+href="#ref-Kosse2023" role="doc-biblioref">1</a>]</span>. For a
+comparison to other common payment instruments and digital assets, refer
+to the table below (excluding commodity-backed instruments).</p>
+
+
+<figure>
+<table>
+<thead>
+<tr>
+  <td></td>
+  <th>CBDC</th>
+  <th>Cash</th>
+  <th>Reserve account</th>
+  <th>Deposit money</th>
+  <th>Stablecoin</th>
+  <th>Crypto&shy;currency</th>
+</tr>
+</thead>
+
+<tbody>
+
+  <tr>
+    <th>Issuer</th>
+    <td>central bank</td>
+    <td>central bank</td>
+    <td>central bank</td>
+    <td>financial intermediary</td>
+    <td>private company/financial intermediary</td>
+    <td>anonymous network</td>
+  </tr>
+  <tr>
+    <th>Embodiment</th>
+    <td>digital</td>
+    <td>physical</td>
+    <td>digital</td>
+    <td>digital</td>
+    <td>digital</td>
+    <td>digital</td>
+  </tr>
+  <tr>
+    <th>Currency</th>
+    <td>sovereign</td>
+    <td>sovereign</td>
+    <td>sovereign</td>
+    <td>private, denoted in sovereign currency</td>
+    <td>private, backed by various assets, denoted in sovereign currency</td>
+    <td>built-in, not backed</td>
+  </tr>
+  <tr>
+    <th>Accessibility</th>
+    <td>rCBDC: universal<br>wCBDC: only for intermediaries</td>
+    <td>universal</td>
+    <td>only for intermediaries</td>
+    <td>universal (in principle)</td>
+    <td>universal (in principle)</td>
+    <td>universal (in principle)</td>
+  </tr>
+  <tr>
+    <th>Legal tender</th>
+    <td>yes</td>
+    <td>yes</td>
+    <td>yes</td>
+    <td>no</td>
+    <td>no</td>
+    <td>no</td>
+  </tr>
+
+</tbody>
+</table>
+<figcaption>
+  Comparison of CBDC to some common payment instruments and digital assets
+</figcaption>
+</figure>
+
+<p>While not strictly necessary according to the above definitions, CBDC
+payments are usually expected to be settled instantly. In terms of
+accessibility, we can distinguish two types of CBDC. <em>Retail CBDC
+(rCBDC)</em> can be used by anyone in the country, whereas <em>Wholesale
+CBDC (wCBDC)</em> is only available for regulated financial
+intermediaries <span class="citation" data-cites="Presto2023">[<a
+href="#ref-Presto2023" role="doc-biblioref">2</a>]</span>. The name
+refers to the idea that the former allows for retail payments, whereas
+the latter would be used by financial institutions.</p>
+<p>BIS’ latest survey report about central banks’ engagement in CBDC and
+other digital assets found that in 2022, 93% of central banks are
+conducting work on “some form of CBDC” <span class="citation"
+data-cites="Kosse2023">[<a href="#ref-Kosse2023"
+role="doc-biblioref">1</a>]</span>. Of those, about three quarters are
+focusing both on retail and wholesale CBDC. This suggests that both
+types have distinct use cases that cannot be easily achieved within a
+single framework.</p>
+<p>Concretely, the survey suggests that “work on wholesale CBDC is
+driven mainly by the desire to enhance cross-border payments” <span
+class="citation" data-cites="Kosse2023">[<a href="#ref-Kosse2023"
+role="doc-biblioref">1</a>]</span>. Awareness of this topic reaches back
+at least four years: In 2019, <em>Bank of Canada</em> and the Monetary
+Authority of Singapore published a design paper of “Project
+Jasper–Ubin”, in which both banks investigated cross-border payments
+between their jurisdictions <span class="citation"
+data-cites="BankOfCanada2019">[<a href="#ref-BankOfCanada2019"
+role="doc-biblioref">3</a>]</span>. Additionally, in 2020, the
+<em>Financial Stability Board (FSB)</em> has identified the need of
+“factoring an international dimension into CBDC design” as a building
+block towards enhancing cross-border payments <span class="citation"
+data-cites="FSB2020">[<a href="#ref-FSB2020"
+role="doc-biblioref">4</a>]</span>.</p>
+<p>From these developments, it becomes clear that any CBDC
+implementation will not realize its full potential in isolation, but in
+combination with other types of domestic or cross-border CBDC. More
+broadly, it means that CBDCs must be interoperable with other payment
+systems. According to the BIS definition, participating institutions,
+for example from different jurisdictions, should be able to “conduct,
+clear and settle payments across systems without participating in
+multiple systems” <span class="citation" data-cites="Boar2021">[<a
+href="#ref-Boar2021" role="doc-biblioref">5</a>]</span>.</p>
+<h2 id="unique-challenges-and-opportunities-with-cbdc">Unique challenges
+and opportunities with CBDC</h2>
+<p>In the broader context of payments, interoperability is not a novel
+topic. This year, the BIS and Bank of England have published a report on
+“Project Meridian,” linking the Bank’s real-time gross settlement system
+(RTGS) to a digitized land registry through a synchronisation operator.
+The purpose of the project was to demonstrate how to facilitate a
+delivery-vs-payment approach for housing transactions, essentially
+reducing the settlement risk by synchronising the multiple fund and
+asset transfers involved in a real estate transaction. The key ideas are
+to represent the real estate deed digitally on a ledger and to earmark
+funds in the RTGS before the transaction is completed, thereby
+preventing them from being misused <span class="citation"
+data-cites="BIS2023Meridian">[<a href="#ref-BIS2023Meridian"
+role="doc-biblioref">6</a>]</span>.</p>
+<p>There has also been work conducted regarding synchronisation of
+instant payment solutions across countries to facilitate cross-border
+payments. A report from last year describes a prototype to synchronise
+USD and EUR instant payment systems, where “settlement in one system is
+made conditional to the settlement in the next system”, therefore
+providing strong guarantees about the progress of a transaction <span
+class="citation" data-cites="Kulk2022">[<a href="#ref-Kulk2022"
+role="doc-biblioref">7</a>]</span>. A similar project has been
+undertaken by BIS, linking the Eurozone’s, Malaysia’s, and Singapore’s
+instant payment systems <span class="citation"
+data-cites="BIS2023Nexus">[<a href="#ref-BIS2023Nexus"
+role="doc-biblioref">8</a>]</span>.</p>
+<p>As the BIS notes, a “retail CBDC differs from existing forms of
+cashless payment instruments [...], as it represents a direct claim on a
+central bank rather than the liability of a private financial
+institution” <span class="citation" data-cites="Kosse2023">[<a
+href="#ref-Kosse2023" role="doc-biblioref">1</a>]</span>. This presents
+a unique opportunity for interoperability, because much friction in
+payment processes is introduced due to the need of converting between
+different private instruments with counterparty risk. Even more so, the
+literature around CBDC suggests designing it as a bearer instrument,
+which gives yet higher flexibility in terms of storage and transmission
+of monetary value; an advantage that also applies to wCBDC as compared
+to traditional RTGS. For example, transfer of CBDC tokens can be
+facilitated in a peer-to-peer fashion, which possibly makes it more
+efficient than using existing payment networks. This represents a unique
+opportunity to ease fragmentation in the payments ecosystem: CBDC
+infrastructure would be a standard right from the start.</p>
+<p>This flexibility also introduces a challenge: lack of
+standardisation. While many (international) standardisation bodies are
+currently engaged in work on CBDC and/or digital assets, there is no
+clear picture yet in critical areas, such as wallet and message formats.
+Also, there is no consensus yet about which existing standards apply or
+can be repurposed for CBDC, for example ISO 20022 (message formats) or
+ISO 9362 (business identifier codes). It is not hard to imagine that
+this situation could cause widespread fragmentation.</p>
+<h2 id="interoperability-domains">Interoperability domains</h2>
+<p>In this paper, we focus on connection points between (retail and
+wholesale) CBDC vis-à-vis other systems, be they existing or emerging
+infrastructure. We discuss those different domains based on a
+classification according to the following key criteria:</p>
+<ul>
+<li><p>The <strong>unit</strong> is the currency symbol, such as EUR or
+USD, or alternatively another asset identifier, such as an
+<em>International Securities Identification Number (ISIN)</em> for
+securities. For the purpose of this section, we assume that the asset is
+fungible and divisible (up to a certain extent) and exclude
+<em>non-fungible tokens (NFTs)</em>.</p></li>
+<li><p>The <strong>issuer</strong> is the entity that manages the supply
+of the digital currency; this responsibility includes increasing (or
+reducing) currency supply in the economy. For CBDC, the issuer is the
+central bank, and the unit would be their jurisdiction’s currency. Other
+combinations are possible, e.g., stablecoins that are privately issued
+but denominated in a national currency unit.</p></li>
+<li><p>The <strong>platform</strong> is the technical infrastructure
+that may or may not be operated by the issuer of the currency. Most
+rCBDC platforms will be sovereign national infrastructure, whereas
+cross-border CBDCs may be under joint operation by multiple countries.
+On the other hand, stablecoins are typically implemented on top of
+public blockchains.</p></li>
+</ul>
+<p>Interoperability becomes more challenging, the more of those key
+criteria differ. We can now analyse different interoperability domains
+based on the key criteria.</p>
+<h3 id="existing-instant-payment-systems">Existing instant payment
+systems</h3>
+<p>According to data from this year, 52% of “central banks regulate or
+operate an instant payments system” <em>(IPS)</em> <span
+class="citation" data-cites="CentralBanking2023">[<a
+href="#ref-CentralBanking2023" role="doc-biblioref">9</a>]</span>.
+Consequently, at least the connection of a domestic IPS with a domestic
+CBDC will be a high priority for central banks. While the currency unit
+will definitely be the same and the platform will most likely be
+different, the situation for the issuer may be unclear. For example,
+some countries may choose to delegate CBDC wallet funding and defunding
+transactions – effectively an instant payment between (private) deposit
+money and central bank money – to the private sector, therefore letting
+commercial banks implement individual integrations.</p>
+<h3 id="domestic-retail-and-wholesale-cbdc">Domestic retail and
+wholesale CBDC</h3>
+<p>Should a central bank decide to implement multiple domestic CBDCs,
+then unit and issuer will be identical, but their platforms will most
+likely differ. To prevent high participants’ costs because of liquidity
+requirements on both platforms, central banks should allow for 24/7
+seamless funds transfer between systems.</p>
+<figure id="fig:multi-lateral">
+  <img src="{% asset "img/research/cbdc-interoperability/multi-lateral.png" @path %}" alt="">
+<figcaption> Two models of multi-laterality. Left: a fully connected
+model with all possible pairs. Right: a hub-and-spoke model. For four
+countries, a fully connected model requires 6 connections; for 10
+countries, the number rises to 45. In the hub-and-spoke model, the
+number of connections is always equal to the number of countries.
+Source: author’s own elaboration. </figcaption>
+</figure>
+<h3 id="foreign-cbdc">Foreign CBDC</h3>
+<p>Considering foreign CBDCs, all key criteria differ. A defining issue
+for connecting multiple CBDCs across countries is multi-laterality. In
+the classical approach, each pair of currencies needs a dedicated
+connection. Mathematically, with 10 different currencies, 45 pairs would
+be required.
+(There are 45 unique pairings in a set of 10 subjects,
+calculated using the formula
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>÷</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">n \times (n - 1) \div 2</annotation></semantics></math>.)
+Worse, since a central bank
+typically cannot manage the foreign-exchange liquidity alone, the
+private sector must offer exchange services. (There are exceptions to
+this, for example in the case of pegged currencies.) Another model could
+improve the situation, with a setup where individual domestic CBDCs
+connect to a common cross-border CBDC in a hub-and-spoke fashion (see
+Figure <a href="#fig:multi-lateral" data-reference-type="ref"
+data-reference="fig:multi-lateral">1</a> for a comparison). Examples for
+this approach are “Project Mariana” <span class="citation"
+data-cites="BIS2023Mariana">[<a href="#ref-BIS2023Mariana"
+role="doc-biblioref">10</a>]</span> and “Project mBridge” <span
+class="citation" data-cites="BIS2022mBridge">[<a
+href="#ref-BIS2022mBridge" role="doc-biblioref">11</a>]</span>. In
+particular, Mariana sought to not only solve multi-laterality on the
+technical level, but also the liquidity level.</p>
+<h3 id="stablecoins">Stablecoins</h3>
+<p>Even though the major stablecoins retain a 1:1 peg to their backing
+currency unit, they cannot always guarantee full at-par convertibility.
+This means that (often centralized) exchanges are necessary to convert
+CBDC to stablecoins, even though their platform might be the same, for
+example, if a wCBDC were to be issued on the ERC-20 standard. We
+therefore assume that the key criteria unit and issuer will differ to a
+domestic CBDC.</p>
+<h2 id="technical-interoperability-options">Technical interoperability
+options</h2>
+<p>Due to the heterogenous interoperability domains, there is no
+one-size-fits-all solution. We have identified three technical
+interoperability options whose suitability for a given domain depends on
+the similarities and differences across the key criteria explained
+above:</p>
+<ol>
+<li><p>A <strong>bridge</strong> is a deep, bidirectional connection
+between two (or more) systems, where participants can seamlessly
+transfer value. For example, a bank could request conversion of a
+particular amount
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi></semantics></math>
+of rCBDC into the equivalent amount of wCBDC, therefore reducing the
+supply of retail CBDC
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>M</mi><mi>R</mi><mi>′</mi></msubsup><mo>=</mo><msub><mi>M</mi><mi>R</mi></msub><mo>−</mo><mi>x</mi></mrow></semantics></math>)
+and increasing the supply of wCBDC
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>M</mi><mi>W</mi><mi>′</mi></msubsup><mo>=</mo><msub><mi>M</mi><mi>W</mi></msub><mo>+</mo><mi>x</mi></mrow></semantics></math>).
+However, the total circulating CBDC supply stays constant
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mi>R</mi></msub><mo>+</mo><msub><mi>M</mi><mi>W</mi></msub><mo>=</mo><msubsup><mi>M</mi><mi>R</mi><mi>′</mi></msubsup><mo>+</mo><msubsup><mi>M</mi><mi>W</mi><mi>′</mi></msubsup></mrow></semantics></math>).
+This option works especially well if both unit and issuer are the same,
+or alternatively if the units have a fixed exchange rate. Of course,
+both platforms need to support this kind of value transfer on a
+technical level.</p>
+<p>Such a connection can be easily operated on a 24/7 basis. But it
+should not be considered if the central bank is not in control of the
+other system, due to a substantial risk that vulnerabilities in
+third-party systems could propagate across bridges <span
+class="citation" data-cites="Chainalysis2022">[<a
+href="#ref-Chainalysis2022" role="doc-biblioref">12</a>]</span>.</p>
+<p>We assume that this option is suitable for the interoperability with
+IPS and across domestic CBDC. This could aid commercial banks in their
+liquidity management, since they would not need to retain balances or
+tokens in two distinct systems, and can exchange monetary value on
+demand. For example, if a bank’s customers withdraw more retail CBDC
+from their deposit accounts than is currently available in that bank’s
+digital vault, it could request an instant conversion from its RTGS
+balance.</p></li>
+<li><p>An <strong>exchange</strong> is an entity that controls liquidity
+of two or more assets that may differ on unit, issuer, and platform,
+providing a service that allows participants to trade one asset for
+another. In this option, a payment across systems would comprise at
+least two transactions: A payer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+pays an amount
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+to the exchange
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>E</mi><annotation encoding="application/x-tex">E</annotation></semantics></math>.
+Subsequently, the exchange triggers a payment of an amount
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>
+based on a pre-determined rate to the payee
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>.
+Depending on the precise technical design, more parties might be
+involved. Independent of that, the total monetary supply on each
+individual system stays constant for each transaction.</p>
+<p>There are technical measures to make the orchestration more reliable.
+Most importantly, the individual transactions should not diverge, i.e.,
+one transaction should complete if and only if the other one completes
+(so called <em>atomic settlement</em> or <em>atomic swap</em>). This can
+be achieved through <em>Hash-Time Lock Contracts (HTLC)</em>, a type of
+smart contract that can work across platforms. Though if both systems
+use the same platform, <em>Automated Market Makers (AMMs)</em>, another
+type of smart contract, can prevent divergence and manage liquidity and
+pricing automatically.</p>
+<p>An automated, standardized exchange mechanism could solve
+multi-laterality. But we note that the foreign-exchange market is
+currently highly decentralised, therefore consistent pricing through
+smart contracts is not yet achievable. There is active work conducted on
+AMM research <span class="citation" data-cites="Bartoletti2022">[<a
+href="#ref-Bartoletti2022" role="doc-biblioref">13</a>]</span>. Using
+AMMs, a hub-and-spoke model can be easily implemented, because there is
+a unified liquidity pool across multiple currencies.</p>
+<p>This option naturally lends itself to interoperability with foreign
+CBDC. It can also be employed for IPS (where no currency conversion is
+required) and stablecoins.</p></li>
+<li><p>A <strong>wrapper</strong> is a technical facility where the
+central bank or an authorized intermediary would provide a
+representation of the CBDC in another system, sharing the same unit. A
+conversion request would therefore entail locking or earmarking CBDC
+into a dedicated wallet and issuing the same amount on the other system.
+Effectively, this would increase the monetary supply since the same
+value is now present in two systems. By construction, wrapper solutions
+cannot easily work in a hub-and-spoke model.</p>
+<p>The challenge with wrappers is that each participant must trust that
+the funds are actually locked and can be converted back at any time,
+should they so request. Note that stablecoin issuers follow this
+approach, but typically, they do not have access to central bank money
+to use as collateral.</p>
+<p>We foresee that the wrapper option could be used in jurisdictions
+where cash issuance is devolved to commercial banks based on strict
+reserve criteria imposed by the central bank. Additionally, Project
+Mariana, in implementing a multilateral cross-border CBDC, combines an
+AMM exchange with domestic rCBDC wrappers (unfortunately also named
+“bridge”) <span class="citation" data-cites="BIS2023Mariana">[<a
+href="#ref-BIS2023Mariana" role="doc-biblioref">10</a>]</span>.</p></li>
+</ol>
+<p>Based on these considerations, it becomes clear that any CBDC design
+should take each of those options into account. Fortunately, there is
+overlap and technical requirements can be easily incorporated depending
+on the use cases.</p>
+<h2 id="case-study-equipping-an-ips-with-offline-capability">Case study:
+Equipping an IPS with offline capability</h2>
+<p><em>Banco Central do Brasil (BCB)</em> has created the instant
+payment system <a href="https://www.bcb.gov.br/en/financialstability/pix_en">Pix</a>
+in 2020, enabling “enables its users
+— people, companies and governmental entities — to send or receive
+payment transfers in few seconds at any time, including non-business
+days.” According to recent statistics, Pix enjoys popularity within
+Brazil’s population; with about 3 billion transactions per month. Since
+its inception, “the Pix system has been used by more than 140 million
+individuals,” which corresponds to “about 80 percent of the adult
+population,” as well as 13 million firms <span class="citation"
+data-cites="Saiyid2023">[<a href="#ref-Saiyid2023"
+role="doc-biblioref">14</a>]</span>.</p>
+<p>According to the <em>International Monetary Fund (IMF)</em>, some of
+the factors contributing to Pix’ success are instant settlement, low
+transaction costs, and the central bank acting as infrastructure
+provider and regulator <span class="citation"
+data-cites="Saiyid2023">[<a href="#ref-Saiyid2023"
+role="doc-biblioref">14</a>]</span>. Those success factors are shared
+with the design criteria of an rCBDC. Therefore, a natural question
+arises: What could an rCBDC bring to the table, if a domestic IPS is
+already popular?</p>
+<p>A possible answer is given by examining a shortcoming of Pix: It is
+not possible to conduct a transaction without a smartphone or network
+connectivity, since Pix only supports online payment processing. This
+poses a challenge to resilience, but also to financial inclusion.</p>
+<p>To reimagine instant payments with offline capability,
+Giesecke+Devrient submitted a proposal to BCB’s “LIFT challenge”, a
+broad initiative to further the central bank’s innovation agenda <span
+class="citation" data-cites="GD2023">[<a href="#ref-GD2023"
+role="doc-biblioref">15</a>]</span>.</p>
+<p>Filia<sup>®</sup> is a token-based CBDC that focuses on retail use
+cases, such as offline payments, but supports other types of digital
+currency as well. It is designed for, but not limited to, a multi-tier
+distribution model where:</p>
+<ul>
+<li><p>the issuing central bank provides the core infrastructure, such
+as the underlying protocol, the backend to assure the integrity of
+currency in circulation, as well as mechanisms to govern the CBDC
+ecosystem; and</p></li>
+<li><p>private sector intermediaries, such as financial service
+providers, to provision end user wallets and build innovative services
+based on the core technology and regulatory framework provided by the
+central bank.</p></li>
+</ul>
+<p>The offline functionality supports payments where both payer and
+payee use devices without online connectivity, coined “dual offline” by
+BCB. The underlying security model relies on, broadly speaking, secure
+hardware, end-to-end encrypted communication channels, and an
+industrial-strength public key infrastructure.</p>
+<p>In our proposal, we explore how Brazil’s instant payments could be
+augmented with Filia<sup>®</sup> offline technology. Users would be
+equipped with a secure hardware wallet that is bound to their existing
+bank account, and that can manage tokenized offline-transferable money.
+We then describe the following scenario, conducted by and end-user
+through a mobile app:</p>
+<ol>
+<li><p>a user transfers bank account money to their offline
+wallet</p></li>
+<li><p>they use their secure hardware wallet to conduct offline
+transactions</p></li>
+<li><p>they transfer back their offline value to their bank
+account</p></li>
+</ol>
+<p>This corresponds to an exchange between account-based bank deposit
+money and a tokenized rCBDC that is specialized to offline payments.
+Notably, there is no need to reflect offline transactions in a bank’s
+general ledger, since the tokenized offline money more closely resembles
+physical cash, with the mobile app being an “ATM” that supports
+withdrawing and depositing tokens. This resemblance also provides a
+considerable opportunity: Only the conversion between deposit money and
+cash requires a bank account and connectivity, but intermediate
+transactions can occur also between individuals without bank accounts.
+Most importantly, funds received offline can be immediately respent,
+which provides benefits over existing store-value card systems.</p>
+<p>The Filia<sup>®</sup> Mobile SDK and backend components are modular
+and allow a custom integration into a commercial bank’s (or central
+bank’s) system landscape. With them, a bank can implement the
+onboarding, (de)funding, and payment flows for secure hardware wallets
+in existing mobile apps. Alternatively to an exchange model operated by
+commercial banks, our proposal could also be implemented on a central
+bank level as a bridge.</p>
+<p>Our report concludes that adding offline payments to an IPS
+“emphasize[s] the unique value proposition of CBDC [...], such as ease
+of use, convenience, enhanced privacy and lower overall costs.”
+Therefore, these benefits would “significantly translate to broad user
+adoption of a Digital Real in real life payment scenarios.” Finally,
+from a user perspective, these “design features could effectively extend
+accessibility of digital payments to the 10% of unbanked Brazilians as
+well as 11% of those who are underbanked,” providing a real benefit to
+economy and society <span class="citation" data-cites="GD2023">[<a
+href="#ref-GD2023" role="doc-biblioref">15</a>]</span>.</p>
+<h2
+id="case-study-cross-border-payments-using-an-international-payments-network">Case
+study: Cross-border payments using an international payments
+network</h2>
+<p>As a case study, we will consider a proof of concept implemented in a
+joint project by Giesecke+Devrient and the UDPN Alliance <span
+class="citation" data-cites="UDPN2023">[<a href="#ref-UDPN2023"
+role="doc-biblioref">16</a>]</span>. The solution connects two products:
+the <em>Universal Digital Payments Network (UDPN)</em> platform as the
+multilateral cross-border infrastructure and Filia<sup>®</sup> as one
+example of a domestic rCBDC platform (see previous section for
+details).</p>
+<p>The UDPN is a global messaging network supporting
+government-regulated digital currency systems, including regulated
+stablecoins and CBDCs. It allows any entity to transfer and swap digital
+currencies across borders, currencies, and systems in a low-cost and
+convenient manner. Technically, it comprises a DLT-based application
+layer where smart contracts can be deployed and called for core UDPN
+functions (e.g., transfer, swap) and also allows third parties to
+innovate and deploy their own smart contract-based value-added services
+for functions such as <em>Know Your Customer checks (KYC)</em> or
+<em>foreign currency exchange (FX)</em>. Within UDPN, the DLT nodes
+validating transactions are operated in a decentralized governance
+structure by an industrial consortium of multiple entities. This enables
+a hub-and-spoke model where new systems and participants can be
+onboarded easily. UDPN relies on the open <em>Decentralised Identifiers
+(DID)</em> standard <span class="citation" data-cites="DID">[<a
+href="#ref-DID" role="doc-biblioref">17</a>]</span> to establish
+relationships between entities across different systems.</p>
+<p>The goal of the joint project is to connect both systems and enable
+bidirectional, peer-to-peer payments across currencies. As a showcase,
+we implemented payments from hypothetical EUR (running on
+Filia<sup>®</sup>) to INR (running on UDPN) rCBDCs. This included
+transfers between end-user wallets, currency conversion, liquidity
+management, CBDC issuance, identity, and wallet management.</p>
+<p>For the purpose of the prototype, it was decided to employ two
+different CBDC issuance models: the hypothetical Digital Euro is issued
+in a two-tier model on the Filia<sup>®</sup> platform, and the Digital
+Rupee in a synthetic model natively on UDPN. In terms of the above
+classification, the prototype is an exchange between two systems with
+different units, issuers, and platforms.</p>
+<figure id="fig:udpn">
+  <img src="{% asset "img/research/cbdc-interoperability/udpn.svg" @path %}" alt="">
+<figcaption>High-level architecture of the joint G+D and UDPN prototype.
+Source: G+D and UDPN Alliance.</figcaption>
+</figure>
+<p>The high-level transaction flow for a EUR-to-INR transaction can be
+described as follows (Figure <a href="#fig:udpn"
+data-reference-type="ref" data-reference="fig:udpn">2</a>):</p>
+<ol>
+<li><p>In the Filia<sup>®</sup> app, the first user initiates a
+cross-remittance transaction to the second user with the
+cross-remittance transaction information: beneficiary unique identifier
+(such as registered e-mail ID, phone number, etc.), beneficiary bank,
+amount (EUR), etc. The system queries and displays the best FX rate
+applicable and receivable in local currency (INR) to the sender to
+confirm the cross-border transactions.</p></li>
+<li><p>After the first user confirms the transaction, their bank
+initiates the EUR transfer from their EUR wallet to the FX Settlement
+Bank’s EUR wallet (EUR liquidity pool). The Filia<sup>®</sup> system
+will process the payment and return the result to the first user’s
+bank.</p></li>
+<li><p>The first user’s bank initiates a swap request from EUR to INR by
+calling the “Transfer and Swap” smart contract deployed by the FX
+Settlement Bank on the UDPN.</p></li>
+<li><p>The FX Settlement Bank confirms the status of EUR transaction
+result from the Filia<sup>®</sup> payment processor.</p></li>
+<li><p>After confirming the transfer, the FX Settlement Bank will
+initiate an INR transfer and send the INR from its INR liquidity pool to
+the second user’s INR wallet by calling the “eINR Wallet” smart
+contract.</p></li>
+<li><p>Once the INR transfer is complete, the transaction result will be
+synchronized to the participating banks and the “Transfer &amp; Swap”
+contract.</p></li>
+<li><p>Both users can retrieve the result of the swap transaction from
+their respective banking apps with transaction logs, including
+timestamps, FX rates, and transaction/service fees (if
+applicable).</p></li>
+</ol>
+<p>Key benefits presented by this solution are lower transactions costs,
+faster transaction times with 24/7 availability (end-to-end in less than
+one minute), settlement in national currencies, improved data sharing
+and transparency for all participants (including end-users), and
+regulatory compliance. Due to the modular architecture, the prototype
+addresses some key hurdles in today’s cross-border transactions. Since
+any FX provider can connect to the system, the need for intermediary
+credit is eliminated. Furthermore, this reduces the dependence on
+intermediaries and correspondent banking, which also increases transfer
+speed.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>We have presented several interoperability aspects that any (retail
+or wholesale) CBDC design must take into account. Even though CBDC is an
+instantly settled liability of the central bank, and even though a
+token-based CBDC would allow for great flexibility regarding wallets and
+transactions, there are some challenges to prevent it becoming an
+insular system. In particular, connection points exist to instant
+payment systems, other domestic CBDC, cross-border CBDC, and
+stablecoins. There is no single technological means to address all those
+connections uniformly. In this paper, we have discussed three broad
+options: bridges, exchanges, and wrappers, that each have different use
+cases. Given that cross-border payment is currently among the most
+severe pain points in the payments ecosystem, we have implemented a
+prototype that enables multilateral, peer-to-peer transactions between
+countries across currencies. Among the most effective measures to
+address the FSB’s goal to enhance cross-border payments, we suggest to
+further investigate standardisation and a hub-and-spokes model, both of
+which reduce the total complexity of the system.</p>
+<h2 id="acknowledgments">Acknowledgments</h2>
+<p>This work has been partially supported by the Federal Ministry of
+Education and Research (BMBF), Verbundprojekt CONTAIN (13N16582). The
+author wishes to thank their colleagues Polly Bäumler, Vratul Kapur,
+Daniel Nagy, as well as the anonymous referees from Journal of Payment
+Strategy &amp; Systems for their numerous suggestions to improve this
+manuscript.</p>
+<div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-Kosse2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div
+class="csl-right-inline">Kosse, A., Mattei, I.: Making headway – results
+of the 2022 BIS survey on central bank digital currencies and crypto, <a
+href="https://www.bis.org/publ/bppdf/bispap136.pdf">https://www.bis.org/publ/bppdf/bispap136.pdf</a>,
+(2023).</div>
+</div>
+<div id="ref-Presto2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div
+class="csl-right-inline">Presto, G.P., Kakebayashi, M., Yuyama, T.,
+Yamanaka, M., Matsuo, S.: Retail &amp; wholesale central bank digital
+currencies: Comparison of select models, use case &amp; exploration of
+potential technical features. SSRN Electronic Journal. (2023).
+https://doi.org/<a
+href="https://doi.org/10.2139/ssrn.4448351">10.2139/ssrn.4448351</a>.</div>
+</div>
+<div id="ref-BankOfCanada2019" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Bank
+of Canada, Monetary Authority of Singapore: Enabling cross-border high
+value transfer using distributed ledger technologies, <a
+href="https://www.mas.gov.sg/-/media/Jasper-Ubin-Design-Paper.pdf">https://www.mas.gov.sg/-/media/Jasper-Ubin-Design-Paper.pdf</a>,
+(2019).</div>
+</div>
+<div id="ref-FSB2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div
+class="csl-right-inline">Financial Stability Board: Enhancing
+cross-border payments: Stage 3 roadmap, <a
+href="https://www.fsb.org/2020/10/enhancing-cross-border-payments-stage-3-roadmap/">https://www.fsb.org/2020/10/enhancing-cross-border-payments-stage-3-roadmap/</a>,
+(2020).</div>
+</div>
+<div id="ref-Boar2021" class="csl-entry" role="listitem">
+<div class="csl-left-margin">5. </div><div
+class="csl-right-inline">Boar, C., Claessens, S., Kosse, A., Leckow, R.,
+Rice, T.: Interoperability between payment systems across borders, <a
+href="https://www.bis.org/publ/bisbull49.pdf">https://www.bis.org/publ/bisbull49.pdf</a>,
+(2021).</div>
+</div>
+<div id="ref-BIS2023Meridian" class="csl-entry" role="listitem">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline">Bank
+for International Settlements Innovation Hub: Project meridian:
+Innovating transactions with synchronisation, <a
+href="https://www.bis.org/publ/othp63.htm">https://www.bis.org/publ/othp63.htm</a>,
+(2023).</div>
+</div>
+<div id="ref-Kulk2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">7. </div><div
+class="csl-right-inline">Kulk, E., Ledford, S.: Synchronising instant
+payment systems to improve cross-border payment execution. Journal of
+Payments Strategy &amp; Systems. 16, 256–264 (2022).</div>
+</div>
+<div id="ref-BIS2023Nexus" class="csl-entry" role="listitem">
+<div class="csl-left-margin">8. </div><div class="csl-right-inline">Bank
+for International Settlements Innovation Hub: Nexus: Enabling instant
+cross-border payments, <a
+href="https://www.bis.org/publ/othp62.htm">https://www.bis.org/publ/othp62.htm</a>,
+(2023).</div>
+</div>
+<div id="ref-CentralBanking2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">9. </div><div
+class="csl-right-inline">Central Banking: <a
+href="https://www.centralbanking.com/benchmarking/payments/7958877/most-central-banks-regulate-or-operate-instant-payment-systems">Most
+central banks regulate or operate instant payment systems</a>. Central
+Banking. (2023).</div>
+</div>
+<div id="ref-BIS2023Mariana" class="csl-entry" role="listitem">
+<div class="csl-left-margin">10. </div><div
+class="csl-right-inline">Bank for International Settlements Innovation
+Hub: Project mariana: Cross-border exchange of wholesale CBDCs using
+automated market-makers, <a
+href="https://www.bis.org/publ/othp75.htm">https://www.bis.org/publ/othp75.htm</a>,
+(2023).</div>
+</div>
+<div id="ref-BIS2022mBridge" class="csl-entry" role="listitem">
+<div class="csl-left-margin">11. </div><div
+class="csl-right-inline">Bank for International Settlements Innovation
+Hub, Hong Kong Monetary Authority, Bank of Thailand, Digital Currency
+Institute of the People’s Bank of China, Central Bank of the United Arab
+Emirates: Project mBridge: Connecting economies through CBDC, <a
+href="https://www.bis.org/publ/othp59.htm">https://www.bis.org/publ/othp59.htm</a>,
+(2022).</div>
+</div>
+<div id="ref-Chainalysis2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">12. </div><div
+class="csl-right-inline">Chainalysis: <a
+href="https://www.chainalysis.com/blog/cross-chain-bridge-hacks-2022/">Vulnerabilities
+in cross-chain bridge protocols emerge as top security risk</a>.
+Chainalysis. (2022).</div>
+</div>
+<div id="ref-Bartoletti2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">13. </div><div
+class="csl-right-inline">Bartoletti, M., Chiang, J.H., Lluch-Lafuente,
+A.: A theory of automated market makers in DeFi. Logical Methods in
+Computer Science. 18, (2022). https://doi.org/<a
+href="https://doi.org/10.46298/lmcs-18(4:12)2022">10.46298/lmcs-18(4:12)2022</a>.</div>
+</div>
+<div id="ref-Saiyid2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">14. </div><div
+class="csl-right-inline">Saiyid, M.: Pix: Brazil’s successful instant
+payment system. IMF Staff Country Reports. 2023, (2023).
+https://doi.org/<a
+href="https://doi.org/10.5089/9798400249266.002">10.5089/9798400249266.002</a>.</div>
+</div>
+<div id="ref-GD2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">15. </div><div
+class="csl-right-inline">Giesecke+Devrient: <a
+href="https://revista.liftlab.com.br/lift/article/view/118">Enabling
+dual offline payments for the LIFT challenge real digital</a>. LIFT
+Papers. (2023).</div>
+</div>
+<div id="ref-UDPN2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">16. </div><div
+class="csl-right-inline">UDPN: UDPN &amp; g+d join forces in G20
+TECHSPRINT 2023 to revolutionize multilateral cross-border CBDC
+transactions, <a
+href="https://medium.com/@udpn/udpn-g-d-join-forces-in-g20-techsprint-2023-to-revolutionize-multilateral-cross-border-cbdc-12b12682a266">https://medium.com/@udpn/udpn-g-d-join-forces-in-g20-techsprint-2023-to-revolutionize-multilateral-cross-border-cbdc-12b12682a266</a>,
+(2023).</div>
+</div>
+<div id="ref-DID" class="csl-entry" role="listitem">
+<div class="csl-left-margin">17. </div><div
+class="csl-right-inline">Sporny, M., Longley, D., Sabadello, M., Reed,
+D., Steele, O., Allen, C.: Decentralized identifiers (DIDs) v1.0, <a
+href="https://www.w3.org/TR/did-core/">https://www.w3.org/TR/did-core/</a>,
+(2022).</div>
+</div>
+</div>
