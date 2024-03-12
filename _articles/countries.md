@@ -42,6 +42,7 @@ I only count proper “stays”, e.g. layovers are not included.
 1. Ireland (Republic)
 1. Italy
 1. Japan
+1. Jordan
 1. Liechtenstein
 1. Lithuania
 1. Mexico
