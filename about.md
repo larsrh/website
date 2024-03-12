@@ -98,7 +98,7 @@ Im Dorfe 16<br>
 Telefon: 036209317<br>
 E-Mail: &#x6C;&#x61;&#x72;&#x73;&#x40;&#x68;&#x75;&#x70;&#x65;&#x6C;&#x2E;&#x69;&#x6E;&#x66;&#x6F;
 
-#### Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:
+#### Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
 
 Lars Hupel<br>
 Im Dorfe 16<br>

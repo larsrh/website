@@ -105,35 +105,35 @@ langsam oder das Absenderdatum falsch.
   Also, mein Interview ist am Donnerstag um 11:15. Beigefügt ist eine
   Liste von wichtigen Dokumenten, die ich mitbringen muss:
 
-  -   gültiger Reisepass — lässt sich machen
+  - gültiger Reisepass — lässt sich machen
 
-  -   “National Identity Card” — eine Art britischer Personalausweis.
-      Sowas hab ich doch wieder nicht. Ich nehme einfach meinen
-      Personalausweis mit und hoffe dass es niemandem auffällt.
+  - “National Identity Card” — eine Art britischer Personalausweis.
+    Sowas hab ich doch wieder nicht. Ich nehme einfach meinen
+    Personalausweis mit und hoffe dass es niemandem auffällt.
 
-  -   “Letter from Employer/Contract of Employment” — einen Nachweis, dass
-      ich arbeite, habe ich nicht, und einen Arbeitsvertrag schon gar
-      nicht
+  - “Letter from Employer/Contract of Employment” — einen Nachweis, dass
+    ich arbeite, habe ich nicht, und einen Arbeitsvertrag schon gar
+    nicht
 
-  -   Lohnabrechnung — Wie soll ich bitte eine Lohnabrechnung vorweisen,
-      um meine Nummer zu kriegen, wenn ich ohne Nummer keinen Lohn
-      bekomme?
+  - Lohnabrechnung — Wie soll ich bitte eine Lohnabrechnung vorweisen,
+    um meine Nummer zu kriegen, wenn ich ohne Nummer keinen Lohn
+    bekomme?
 
-  -   Mietvertrag oder Bescheinigung vom Vermieter — ich habe so etwas
-      ähnliches, aber ob das reicht, ist ungewiss. Die Bank hat es
-      akzeptiert, aber bei Behörden weiß man ja nie
+  - Mietvertrag oder Bescheinigung vom Vermieter — ich habe so etwas
+    ähnliches, aber ob das reicht, ist ungewiss. Die Bank hat es
+    akzeptiert, aber bei Behörden weiß man ja nie
 
-  -   Bankkarte oder Kontoauszug — vorhanden
+  - Bankkarte oder Kontoauszug — vorhanden
 
-  -   Nebenkostenabrechnung oder Adressnachweis — Reicht der Mietvertrag
-      denn nicht aus?
+  - Nebenkostenabrechnung oder Adressnachweis — Reicht der Mietvertrag
+    denn nicht aus?
 
-  -   frühere Adressen in UK — nicht vorhanden
+  - frühere Adressen in UK — nicht vorhanden
 
-  -   Reisedokumente (E-Ticket, Bordpässe) — nur gut, dass ich das
-      aufgehoben habe
+  - Reisedokumente (E-Ticket, Bordpässe) — nur gut, dass ich das
+    aufgehoben habe
 
-  -   eine kleine Ziege zum Opfern — würde auch gut in diese Liste passen
+  - eine kleine Ziege zum Opfern — würde auch gut in diese Liste passen
 
   Alles klar, Unmögliches wird sofort erledigt, Wunder brauchen etwas
   länger. Habe noch einige Tage Zeit.

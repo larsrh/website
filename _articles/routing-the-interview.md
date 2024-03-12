@@ -94,7 +94,7 @@ He tried his best to hide his confusion and continued.
 
 She contemplated what he had said, carefully mulling over the nature of the problem.
 
-_This does not bode well,_ the interviewer felt. 
+_This does not bode well,_ the interviewer felt.
 Were her credentials even real?
 Before he could dwell on this further, she spoke up.
 
