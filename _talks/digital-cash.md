@@ -17,3 +17,9 @@ conferences:
     recording: "https://www.youtube.com/watch?v=8csr0dOZWPY"
     slides: "https://speakerdeck.com/larsrh/digital-cash-what-it-is-and-how-it-works"
 ---
+
+## Testimonials
+
+> Gives a pretty unbiased view on a controversial topic
+
+> Fun and explained concepts well
