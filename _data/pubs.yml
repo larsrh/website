@@ -353,6 +353,7 @@
   abstract: |
     Central Bank Digital Currency (CBDC) is an emerging trend in digital payments, with the vast majority of central banks around the world researching, piloting, or even operating a digital version of cash. While design choices differ broadly, such as accounts vs. tokens, the wallets are generally protected through cryptographic algorithms that safeguard against double spending and ensure non-repudiation. But with the advent of quantum computing, these algorithms are threatened by new attack vectors. To better understand those threats, we conducted a study of typical assets in a CBDC system, describe which ones are most amenable to post-quantum cryptography, and propose an upgrade strategy.
   arxiv: "2308.15787"
+  doi: "10.1007/978-981-97-1274-8_4"
 - title: "Extending Isabelle/HOL's Code Generator with support for the Go programming language"
   id: "go-codegen"
   authors: ["lars", "terru"]
