@@ -356,7 +356,7 @@
   doi: "10.1007/978-981-97-1274-8_4"
 - title: "Extending Isabelle/HOL's Code Generator with support for the Go programming language"
   id: "go-codegen"
-  authors: ["lars", "terru"]
+  authors: ["terru", "lars"]
   year: 2023
   abstract: |
     The Isabelle proof assistant includes a small functional language, which allows users to write and reason about programs. So far, these programs could be extracted into a number of functional languages: Standard ML, OCaml, Scala, and Haskell. This work adds support for Go as a fifth target language for the Code Generator. Unlike the previous targets, Go is not a functional language and encourages code in an imperative style, thus many of the features of Isabelle's language (particularly data types, pattern matching, and type classes) have to be emulated using imperative language constructs in Go. The developed Code Generation is provided as an add-on library that can be simply imported into existing theories.
@@ -376,3 +376,11 @@
       text: "Link"
     - link: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4636197"
       text: "SSRN"
+- title: "Go Code Generation for Isabelle"
+  id: "afp-go"
+  authors: ["terru", "lars"]
+  year: 2024
+  in: "Archive of Formal Proofs"
+  entry: "https://www.isa-afp.org/entries/Go.html"
+  abstract: |
+    This entry contains a standalone code generation target for the Go programming language. Unlike the previous targets, Go is not a functional language and encourages code in an imperative style, thus many of the features of Isabelle's language (particularly data types, pattern matching, and type classes) have to be emulated using imperative language constructs in Go. To generate Go code, users can simply import this entry, which makes the Go target available.
