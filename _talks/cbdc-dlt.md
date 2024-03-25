@@ -19,7 +19,7 @@ conferences:
   - conference: "TUM Blockchain Salon"
     location: Garching, Germany
     date: 2023-05-12
-    link: "https://net.in.tum.de/talks/workshops/blockchain_salon_23.html"
+    link: "https://net.in.tum.de/events/blockchain_salon_23.html"
     slides: "https://speakerdeck.com/larsrh/designing-cbdcs-for-seamless-integration-with-external-dlts-strategies-and-solutions"
     recording: "https://www.youtube.com/watch?v=igK0mhZB5VY"
 ---
