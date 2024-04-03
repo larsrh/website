@@ -127,7 +127,7 @@ GEM
       ruby-rc4
       ttfunk
     posix-spawn (0.3.15)
-    public_suffix (5.0.4)
+    public_suffix (5.0.5)
     racc (1.7.3)
     rack (3.0.10)
     rainbow (3.1.1)
