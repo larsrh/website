@@ -1,1 +1,7 @@
-Total CO₂ caused by flights: 90 tonnes (100% offset)
+{% assign total_kg = 0 %}
+{% for offset in site.data.carbon %}
+  {% assign total_kg = total_kg | plus: offset.kg %}
+{% endfor %}
+
+Total CO₂ caused by flights: {{ total_kg | divided_by: 1000 }} tonnes
+(100% offset based on <a href="{% link _articles/offsetting.md %}">my methodology</a>)

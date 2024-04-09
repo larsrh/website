@@ -373,3 +373,14 @@ ul.profiles {
   margin: 0;
   padding: 0;
 }
+
+time {
+  background: inherit !important;
+  color: inherit !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.text-align-right {
+  text-align: right;
+}
