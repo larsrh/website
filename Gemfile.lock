@@ -51,7 +51,7 @@ GEM
     extras (0.3.0)
       forwardable-extended (~> 2.5)
     fastimage (2.3.1)
-    ffi (1.16.3)
+    ffi (1.17.0)
     fiber-annotation (0.2.0)
     fiber-local (1.1.0)
       fiber-storage
