@@ -162,7 +162,7 @@ End of 2022 I changed jobs, which means that I am now going to fewer engineering
 * February: [Bank der Zukunft](https://internationalbankersforum.org/event/26bdz/), Munich, Germany
 * March: [BOB Konferenz](https://bobkonf.de/2023/), Berlin, Germany
 * May: [JAX](https://jax.de/), Mainz, Germany
-* May: [TUM Blockchain Salon](https://net.in.tum.de/talks/workshops/blockchain_salon_23.html), Munich, Germany
+* May: [TUM Blockchain Salon](https://net.in.tum.de/events/blockchain_salon_23.html), Munich, Germany
 * May: [Omnisecure](https://omnisecure.berlin/proceedings-2023/), Berlin, Germany
 * May: [DevDays Europe](https://devdays.lt/), Vilnius, Lithuania
 * June: [Lambda Days](https://www.lambdadays.org/lambdadays2023), Krakow, Poland
@@ -171,5 +171,10 @@ End of 2022 I changed jobs, which means that I am now going to fewer engineering
 * July: [WeAreDevelopers World Congress](https://www.wearedevelopers.com/world-congress/), Berlin, Germany
 * September: [Software Architecture Alliance](https://www.software-architecture-alliance.de/2023), Munich, Germany
 * October: [Hong Kong FinTech Week](https://www.fintechweek.hk/), Hong Kong SAR
+
+## 2024
+
+* April: [Software Quality Days](https://www.software-quality-days.com/), Vienna, Austria
+* May: [TUM Blockchain Salon](https://hedgedoc.net.in.tum.de/s/6sJs4C5Ni#), Munich, Germany
 
 To be continued.

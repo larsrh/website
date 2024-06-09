@@ -65,6 +65,7 @@ I only count proper “stays”, e.g. layovers are not included.
 1. United States of America
    * Alaska
    * California
+   * Massachusetts
    * Nevada
    * New York
    * Pennsylvania
