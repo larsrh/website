@@ -244,15 +244,6 @@ then unit and issuer will be identical, but their platforms will most
 likely differ. To prevent high participants’ costs because of liquidity
 requirements on both platforms, central banks should allow for 24/7
 seamless funds transfer between systems.</p>
-<figure id="fig:multi-lateral">
-  <img src="{% asset "img/research/cbdc-interoperability/multi-lateral.png" @path %}" alt="">
-<figcaption> Two models of multi-laterality. Left: a fully connected
-model with all possible pairs. Right: a hub-and-spoke model. For four
-countries, a fully connected model requires 6 connections; for 10
-countries, the number rises to 45. In the hub-and-spoke model, the
-number of connections is always equal to the number of countries.
-Source: author’s own elaboration. </figcaption>
-</figure>
 <h3 id="foreign-cbdc">Foreign CBDC</h3>
 <p>Considering foreign CBDCs, all key criteria differ. A defining issue
 for connecting multiple CBDCs across countries is multi-laterality. In
@@ -268,8 +259,8 @@ private sector must offer exchange services. (There are exceptions to
 this, for example in the case of pegged currencies.) Another model could
 improve the situation, with a setup where individual domestic CBDCs
 connect to a common cross-border CBDC in a hub-and-spoke fashion (see
-Figure <a href="#fig:multi-lateral" data-reference-type="ref"
-data-reference="fig:multi-lateral">1</a> for a comparison). Examples for
+figure <a href="#fig:multi-lateral" data-reference-type="ref"
+data-reference="fig:multi-lateral">below</a> for a comparison). Examples for
 this approach are “Project Mariana” <span class="citation"
 data-cites="BIS2023Mariana">[<a href="#ref-BIS2023Mariana"
 role="doc-biblioref">10</a>]</span> and “Project mBridge” <span
@@ -277,6 +268,15 @@ class="citation" data-cites="BIS2022mBridge">[<a
 href="#ref-BIS2022mBridge" role="doc-biblioref">11</a>]</span>. In
 particular, Mariana sought to not only solve multi-laterality on the
 technical level, but also the liquidity level.</p>
+<figure id="fig:multi-lateral">
+  <img src="{% asset "img/research/cbdc-interoperability/multi-lateral.png" @path %}" alt="">
+<figcaption> Two models of multi-laterality. Left: a fully connected
+model with all possible pairs. Right: a hub-and-spoke model. For four
+countries, a fully connected model requires 6 connections; for 10
+countries, the number rises to 45. In the hub-and-spoke model, the
+number of connections is always equal to the number of countries.
+Source: author’s own elaboration. </figcaption>
+</figure>
 <h3 id="stablecoins">Stablecoins</h3>
 <p>Even though the major stablecoins retain a 1:1 peg to their backing
 currency unit, they cannot always guarantee full at-par convertibility.
@@ -525,8 +525,8 @@ different units, issuers, and platforms.</p>
 Source: G+D and UDPN Alliance.</figcaption>
 </figure>
 <p>The high-level transaction flow for a EUR-to-INR transaction can be
-described as follows (Figure <a href="#fig:udpn"
-data-reference-type="ref" data-reference="fig:udpn">2</a>):</p>
+described as follows (figure <a href="#fig:udpn"
+data-reference-type="ref" data-reference="fig:udpn">above</a>):</p>
 <ol>
 <li><p>In the Filia<sup>®</sup> app, the first user initiates a
 cross-remittance transaction to the second user with the
