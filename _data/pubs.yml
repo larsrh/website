@@ -369,6 +369,7 @@
   authors: ["lars"]
   year: 2023
   in: "Journal of Payments Strategy & Systems"
+  doi: "10.69554/MBDJ6710"
   abstract: |
     There is a growing consensus that there is no “one size fits all” CBDC. Both Retail CBDC and Wholesale CBDC have their own unique value propositions and may even be deployed using different technologies. Additionally, some countries are developing multilateral cross-border CBDC solutions, as well as integrations into other digital asset ecosystems, such as stablecoins, tokenized government bonds, real estate, or others. It becomes clear that interoperability between different ecosystems is highly desirable. However, the precise design of such bridges is highly context-dependent and requires careful analysis of use cases, stakeholders, and operational concerns. This paper describes the state of the art that has been established in the digital asset community, puts forward some suggestions about the design options relating to CBDC – matching those to potential use cases – and discusses some case studies.
   extra:
