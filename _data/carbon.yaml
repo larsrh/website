@@ -42,3 +42,7 @@
   provider: Compensators
   cost: 433
   kg: 5000
+- date: 2024-08-27
+  provider: Compensators
+  cost: 57
+  kg: 693
