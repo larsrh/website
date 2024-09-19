@@ -1,15 +1,3 @@
-@font-face {
-  font-family: "STIXTwoMath-Regular";
-  font-weight: normal;
-  src:
-    local("STIXTwoMath-Regular"),
-    asset_url("STIXTwoMath-Regular.woff2") format("woff2");
-}
-
-math {
-  font-family: "STIXTwoMath-Regular";
-}
-
 main {
   counter-reset: h2num;
 

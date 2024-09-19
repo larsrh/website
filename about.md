@@ -45,7 +45,6 @@ Website created with:
 
 Additionally, the research section uses:
 
-* [STIX fonts](https://github.com/stipub/stixfonts)
 * [Pandoc](https://pandoc.org/)
 
 The source code is [available on GitHub](https://github.com/larsrh/website).
