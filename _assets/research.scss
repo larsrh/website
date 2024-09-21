@@ -1,5 +1,5 @@
 main {
-  counter-reset: h2num;
+  counter-reset: h2num fig;
 
   h2::before {
     content: counter(h2num) ' ';
@@ -25,6 +25,11 @@ main {
     content: counter(h2num) '.' counter(h3num) '.' counter(h4num) ' ';
     counter-increment: h4num;
     color: var(--text-muted);
+  }
+
+  figcaption::before {
+    content: 'Figure ' counter(fig) ': ';
+    counter-increment: fig;
   }
 }
 
