@@ -13,7 +13,7 @@ layout: root
   <div>{{ pub_desc.in }}{% if pub_desc.in %}, {% endif %}{{ pub_desc.year }}</div>
 
   <p class="disclaimer">
-    You are viewing an experimental HTML version of this article.
+    You are viewing an <a href="{% link _articles/publications-html.md %}">experimental HTML rendering</a> of this article.
     The original PDF version is <a href="/pub/{{ pub_id }}.pdf">also available</a>.
     Posted on {% include date.html date=page.date trailer="." %}
   </p>

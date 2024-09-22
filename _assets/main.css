@@ -169,6 +169,21 @@ ul.links li:first-child::before {
   content: '';
 }
 
+.pub-html::after {
+  content: 'HTML';
+  font-size: var(--font-small);
+  background-color: var(--text-muted);
+  border-radius: var(--spacer-xxs);
+  padding: var(--spacer-xxs);
+  color: var(--background);
+  text-decoration: none;
+  display: inline-block;
+}
+
+a.pub-html::after {
+  margin-left: var(--spacer-xs);
+}
+
 /* put a comma after each author */
 .pub-authors .pub-author::after {
   content: ',';

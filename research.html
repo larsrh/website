@@ -6,13 +6,17 @@ title: Research & Publications
 
 {% assign research_documents = site.documents | where: "collection", "research" %}
 
+Papers marked with <span class="pub-html"></span> have an <a href="{% link _articles/publications-html.md %}">experimental HTML rendering</a> that contains the same content as the PDF version, but should be easier to read on mobile devices.
+
 <dl>
   {% for pub in site.data.pubs reversed %}
     {% assign pdf_link="/pub/" | append: pub.id | append: ".pdf" %}
     {% assign research_document = research_documents | find_exp: "item", "item.name contains pub.id" %}
 
+    {% assign class="" %}
     {% if research_document %}
       {% assign main_link=research_document.url %}
+      {% assign class="pub-html" %}
     {% elsif pub.entry %}
       {% assign main_link=pub.entry %}
     {% elsif pub.no_pdf %}
@@ -21,7 +25,7 @@ title: Research & Publications
       {% assign main_link=pdf_link %}
     {% endif %}
 
-    <dt id="pub-{{ pub.id }}"><a href="{{ main_link }}">{{ pub.title }}</a></dt>
+    <dt id="pub-{{ pub.id }}"><a href="{{ main_link }}" class="{{ class }}">{{ pub.title }}</a></dt>
     <dd>
       {% include authors.html authors=pub.authors %}
 
