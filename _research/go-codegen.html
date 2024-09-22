@@ -1,0 +1,1663 @@
+---
+title: Extending Isabelle/HOL's Code Generator with support for the Go programming language
+date: 2024-09-22
+---
+
+<h2 id="introduction">Introduction</h2>
+<p>The interactive theorem prover <em>Isabelle</em> of the LCF
+tradition  <span class="citation" data-cites="concrete-semantics">[<a
+href="#ref-concrete-semantics" role="doc-biblioref">1</a>]</span> is
+based on a small, well-established and trusted mathematical inference
+kernel written in Standard ML. All higher-level tools and proofs, such as
+those included in the most commonly-used logic <em>Isabelle/HOL</em>,
+have to work through this kernel.</p>
+<p>Many of the tools available to users in <em>Isabelle/HOL</em> feel
+immediately familiar to anyone with experience in functional programming
+languages: it is possible to define data types, functions, and
+Haskell-style type classes and instances.</p>
+<p>Isabelle’s nature as a theorem prover further makes it easy to
+formalise and prove propositions about such programs. To allow use of
+such programs outside of the proof assistant’s environment, Isabelle
+comes equipped with a <em>Code Generator</em>, allowing users to extract
+source code in Haskell, Standard ML, Scala, or OCaml, which can then be
+compiled and executed. This translation of code works by first
+translating into an intermediate language called <em>Thingol</em>,
+shared between all targets; from this language, code is then transformed
+into the individual target languages via the principle of <em>shallow
+embedding</em>, that is, by representing constructs of the source
+language using only a well-defined subset of the target language, thus
+side-stepping the issue of finding a complete formal description of a
+target language’s behaviour <span class="citation"
+data-cites="haftmann-phd haftmann-nipkow">[<a href="#ref-haftmann-phd"
+role="doc-biblioref">2</a>, <a href="#ref-haftmann-nipkow"
+role="doc-biblioref">3</a>]</span>.</p>
+<p><em>Go</em> is a programming language introduced by Google in 2009.
+It is a general-purpose, garbage-collected, and statically typed
+language <span class="citation" data-cites="gospec">[<a
+href="#ref-gospec" role="doc-biblioref">4</a>]</span>. In contrast to
+the existing targets of Isabelle’s Code Generator, it is not a
+functional language, and encourages programming in an imperative style.
+However, it is a very popular language, and many large existing code
+bases have been written in it.</p>
+<h3 id="contributions">Contributions</h3>
+<p>This paper extends Isabelle’s Code Generation facility with support
+for Go. For that, we demonstrate a translation scheme from programs in
+Thingol to programs in Go (§<a href="#sec:translation"
+data-reference-type="ref" data-reference="sec:translation">4</a>). We
+provide this facility as a stand-alone theory file that can easily be
+imported into existing developments. We provide our development as an
+entry in the <em>Archive of Formal Proofs (AFP)</em>—a repository of
+Isabelle proof libraries—, making it immediately usable in other
+contexts <span class="citation" data-cites="Go-AFP">[<a
+href="#ref-Go-AFP" role="doc-biblioref">5</a>]</span>.</p>
+<p>The motivation for this work stems from the internal use of both
+ecosystems at Giesecke+Devrient: Isabelle for formalisation purposes,
+and Go for the real-world implementation. This naturally lead to a
+formalisation gap, which this project sought to close (§<a
+href="#sec:evaluation" data-reference-type="ref"
+data-reference="sec:evaluation">5</a>).</p>
+<h3 id="related-work">Related work</h3>
+<p>This paper describes the first attempt at translating Isabelle
+formalisations into a non-functional programming language. Prior work in
+leveraging imperative features in the Code Generator <span
+class="citation" data-cites="imperative-hol">[<a
+href="#ref-imperative-hol" role="doc-biblioref">6</a>]</span> has
+targeted the existing, functional programming languages, and thereby
+could reuse much of the existing infrastructure. There is also
+unpublished work on adding support for F# to the Code Generator <span
+class="citation" data-cites="brucker-fsharp">[<a
+href="#ref-brucker-fsharp" role="doc-biblioref">7</a>]</span>, another
+functional language.</p>
+<p>Shallow embeddings of C in proof assistant are already well known;
+for example in F* <span class="citation"
+data-cites="protzenko-fstar">[<a href="#ref-protzenko-fstar"
+role="doc-biblioref">8</a>]</span>, Isabelle <span class="citation"
+data-cites="Simpl-AFP">[<a href="#ref-Simpl-AFP"
+role="doc-biblioref">9</a>]</span>, and Why3 <span class="citation"
+data-cites="rieu">[<a href="#ref-rieu"
+role="doc-biblioref">10</a>]</span>. Those tools are not designed to
+export arbitrary code, but require developers to use a restricted subset
+of the host language. Instead, they are mainly geared towards low-level
+programming; with some providing C-style memory management. Our work
+focuses instead on translating the full functional host language into a
+high-level imperative language, therefore avoiding the need to (re)write
+host language code specifically for the purpose.</p>
+<h2 id="sec:thingol">The intermediate language Thingol</h2>
+<p>Isabelle’s Code Generation pipeline works in multiple stages.
+Crucially, all definitions made in Isabelle are first translated into an
+abstract intermediate language called <em>Thingol</em>, which is the
+last step shared between all target languages. The final stage then uses
+a shallow embedding to translate the Thingol program into source code of
+the target language.</p>
+<p>Consequently, Thingol’s design reflects the features common to
+previous target languages, and is based on a simply-typed
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>-calculus
+with ML-style polymorphism. Perhaps surprisingly, Thingol also supports
+type classes, which can be mapped easily to Haskell and Scala, but less
+easily to the other targets, which instead use a dictionary construction
+(§<a href="#sec:translation:dictionaries" data-reference-type="ref"
+data-reference="sec:translation:dictionaries">4.5</a>). The supported
+fragment of type classes and instance corresponds to Haskell98, with the
+exception of constructor classes (which would require a more expressive
+type system) <span class="citation"
+data-cites="haftmann-classes jones2003haskell">[<a
+href="#ref-haftmann-classes" role="doc-biblioref">11</a>, <a
+href="#ref-jones2003haskell" role="doc-biblioref">12</a>]</span>.</p>
+<figure id="listing:thingol">
+<pre data-basicstyle="\ttfamily\small"><code>datatype Nat = Zero | Suc Nat
+datatype α list = Nil | Cons α (α list)
+
+fun hd2 :: α list ⇒ α option where
+  hd2 xs = case xs of Nil ⇒ None
+                      | Cons x Nil ⇒ None
+                      | Cons x (Cons y xs) ⇒ Some y
+
+class semigroup where
+  (+) :: α ⇒ α ⇒ α
+
+class monoid ⊆ semigroup where
+  zero :: α
+
+instance Nat :: semigroup where
+  Zero + a = a
+  (Suc a) + b = Suc (a + b)
+
+instance Nat :: monoid where
+  zero = Zero
+
+fun sum :: (α :: monoid) list ⇒ α where
+  sum xs = fold (+) xs zero</code></pre>
+<figcaption>An example program (omitting the definition of
+<code>fold</code> for brevity)</figcaption>
+</figure>
+<p>Thingol’s terms are simple
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>-expressions
+with the addition of case expression for pattern matching on data types.
+A Thingol program is a list of declarations, i.e. top-level items which
+introduce data types, functions, type classes, and their instances.</p>
+<p>While there is no formal semantics of Thingol, it can be thought of
+as a <em>Higher-Order Rewrite System</em> (HRS) <span class="citation"
+data-cites="nipkow-hrs mayr-hrs">[<a href="#ref-nipkow-hrs"
+role="doc-biblioref">13</a>, <a href="#ref-mayr-hrs"
+role="doc-biblioref">14</a>]</span>. It provides a convenient
+abstraction over the target languages’ semantics. Because a HRS does not
+have a specified evaluation order, the Code Generator cannot guarantee
+total, but only partial correctness. (This restriction applies to all
+supported target languages.)</p>
+<p>Reusing Thingol has two immediate benefits: we can leverage the
+entire entire existing pipeline as well as its existing code
+adaptations, and are not forced to reimplement some tedious translation
+of Isabelle’s more advanced features. Additionally, creating a custom
+intermediate language would not help to meaningfully address the
+functional–imperative mismatch between Isabelle/HOL and Go, but only
+shift the complexity elsewhere.</p>
+<h2 id="sec:go">The target fragment of Go</h2>
+<p>Go, being an imperative language, differs in many aspects from the
+already-existing target languages of Isabelle’s Code Generator.
+Conversely, many of Go’s unique features are not needed by the
+generator. Since the translation works as a shallow embedding into the
+target language, it suffices to use the fragment which can be used to
+represent the various statements of Thingol. Consequently, we will focus
+on this fragment only, but discuss—if necessary—why we did not pursue
+alternative features or solutions.</p>
+<p>This approach leaves many of Go’s most interesting features
+(e.g. channels or methods) entirely unused. The fragment we use can be
+understood as a “functional subset” of the Go language, meaning that it
+comprises only those features that closely align with those of the
+(functional) pre-existing code generation targets available in Isabelle
+as well as those of Thingol.</p>
+<h3 id="sec:go:syntax">Syntax</h3>
+<p>The syntactic fragment used by the Code Generator
+(see <a href="#sec:go-syntax">Appendix</a>) is
+inspired by that of Featherweight Generic Go <span class="citation"
+data-cites="featherweight-go">[<a href="#ref-featherweight-go"
+role="doc-biblioref">15</a>]</span>, but differs in some important
+aspects:</p>
+<ol>
+<li><p>Methods are not included; instead we use “ordinary” top-level
+functions.</p></li>
+<li><p>Go distinguishes syntactically between expressions and
+statements, whereas Featherweight Generic Go does not. We retain this
+distinction and discuss conversion between them in §<a
+href="#sec:go:statements" data-reference-type="ref"
+data-reference="sec:go:statements">3.4</a>.</p></li>
+<li><p>Type parameters can be declared with an interface constraint.
+However, in our fragment the only available constraint is the
+unconstrained <code>any</code>, as Go’s other constraints are not useful
+for our translation (§<a href="#sec:translation:dictionaries"
+data-reference-type="ref"
+data-reference="sec:translation:dictionaries">4.5</a>).</p></li>
+<li><p>We use modern Go’s syntax for generics, which differs from the
+one used by Featherweight Generic Go, which pre-dates the introduction
+of generics in Go 1.18 and was meant as a proposal demonstrating a
+possible design.</p></li>
+</ol>
+<h3 id="declarations">Declarations</h3>
+<p>A (top-level) declaration
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>D</mi><annotation encoding="application/x-tex">D</annotation></semantics></math>
+can define either a new type or function. Within one package, the order
+of declarations does not matter; any item may reference any other. A
+program as a whole is simply a list
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>D</mi><mo accent="true">¯</mo></mover><annotation encoding="application/x-tex">\overline{D}</annotation></semantics></math>
+of such declarations (note that we use overlines such as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>α</mi><mo accent="true">¯</mo></mover><annotation encoding="application/x-tex">\overline\alpha</annotation></semantics></math>
+to mean syntactic repetition).</p>
+<h4 id="structure-types">Structure types</h4>
+<p>A declaration of the form
+<code>type <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mi>S</mi></msub><mo minsize="1.2" maxsize="1.2" stretchy="false" form="prefix">[</mo><mover><mrow><mi>α</mi><mspace width="0.222em"></mspace><mi>c</mi></mrow><mo accent="true">¯</mo></mover><mo minsize="1.2" maxsize="1.2" stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">t_S\big[\overline{\alpha\ c}\big]</annotation></semantics></math> struct <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mover><mrow><mi>A</mi><mspace width="0.222em"></mspace><mi>τ</mi></mrow><mo accent="true">¯</mo></mover><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{\overline{A\ \tau}\}</annotation></semantics></math></code>
+introduces a new type constructor with fields
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>A</mi><mo accent="true">¯</mo></mover><annotation encoding="application/x-tex">\overline{A}</annotation></semantics></math>
+of types
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>τ</mi><mo accent="true">¯</mo></mover><annotation encoding="application/x-tex">\overline{\tau}</annotation></semantics></math>
+to the program. It may be polymorphic and take type arguments
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>α</mi><mo accent="true">¯</mo></mover><annotation encoding="application/x-tex">\overline{\alpha}</annotation></semantics></math>
+which can be freely referenced within
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>τ</mi><mo accent="true">¯</mo></mover><annotation encoding="application/x-tex">\overline{\tau}</annotation></semantics></math>.
+Since Go’s syntax demands a constraint
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>c</mi><annotation encoding="application/x-tex">c</annotation></semantics></math>
+for each type variable
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>,
+we always use <code>any</code>, which allows any type to be substituted
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>.</p>
+<p>Note that there is no analogous construct to Thingol’s sum types;
+that is, it is not possible to a have a structure type which has more
+than one constructor. Therefore, when encountering non-trivial sum types
+in Thingol, we must encode them accordingly (see §<a
+href="#sec:translation:data" data-reference-type="ref"
+data-reference="sec:translation:data">4.2</a> for details).</p>
+<h4 id="interface-types">Interface types</h4>
+<p>A declaration of the form
+<code>type <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mi>I</mi></msub><mo minsize="1.2" maxsize="1.2" stretchy="false" form="prefix">[</mo><mover><mrow><mi>α</mi><mspace width="0.222em"></mspace><mi>c</mi></mrow><mo accent="true">¯</mo></mover><mo minsize="1.2" maxsize="1.2" stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">t_I\big[\overline{\alpha\ c}\big]</annotation></semantics></math> interface{}</code>
+introduces a new (empty) interface type to the program. While Go
+supports non-empty interfaces containing methods, we do not use this
+feature (see §<a href="#sec:translation:dictionaries"
+data-reference-type="ref"
+data-reference="sec:translation:dictionaries">4.5</a>).</p>
+<p>Unlike interfaces in typical object-oriented languages such as Java,
+Go’s interfaces are structural in nature: any <code>struct</code> value
+conforms to an interface if (and only if) the <code>struct</code>
+implements a superset of the declared methods of the interface. This can
+also be probed at runtime.</p>
+<p>This implies that empty interfaces correspond to a “top” type that
+can denote arbitrary values. Go defines the unconstrained interface
+<code>any</code> as an alias to this empty interface type, which we use
+extensively in the translation scheme of data types, for reasons that
+will be explained later (§<a href="#sec:translation:data"
+data-reference-type="ref"
+data-reference="sec:translation:data">4.2</a>). Additionally, we also
+use them for the translation of type classes (§<a
+href="#sec:translation:dictionaries" data-reference-type="ref"
+data-reference="sec:translation:dictionaries">4.5</a>).</p>
+<h4 id="functions">Functions</h4>
+<p>A declaration
+<code>func f<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo minsize="1.2" maxsize="1.2" stretchy="false" form="prefix">[</mo><mover><mrow><mi>α</mi><mspace width="0.222em"></mspace><mi>c</mi></mrow><mo accent="true">¯</mo></mover><mo minsize="1.2" maxsize="1.2" stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\big[\overline{\alpha\ c}\big]</annotation></semantics></math>(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mrow><mi>x</mi><mspace width="0.278em"></mspace><mi>τ</mi></mrow><mo accent="true">¯</mo></mover><annotation encoding="application/x-tex">\overline{x\; \tau}</annotation></semantics></math>)
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>γ</mi><mo accent="true">¯</mo></mover><annotation encoding="application/x-tex">\overline{\gamma}</annotation></semantics></math>) { s }</code>
+introduces a new function
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+to the program. The type parameters
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>α</mi><mo accent="true">¯</mo></mover><annotation encoding="application/x-tex">\overline{\alpha}</annotation></semantics></math>
+can be referenced within both argument types
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>τ</mi><mo accent="true">¯</mo></mover><annotation encoding="application/x-tex">\overline{\tau}</annotation></semantics></math>
+and the return types
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>γ</mi><mo accent="true">¯</mo></mover><annotation encoding="application/x-tex">\overline{\gamma}</annotation></semantics></math>.</p>
+<p>Unlike in Thingol, a function cannot have multiple equations nor
+perform pattern matching on its arguments. Instead there is only one
+list of argument names
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>α</mi><mo accent="true">¯</mo></mover><annotation encoding="application/x-tex">\overline{\alpha}</annotation></semantics></math>,
+which are in scope for the (unique) function body
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>s</mi><annotation encoding="application/x-tex">s</annotation></semantics></math>.</p>
+<p>An unusual feature of Go is that its functions may return more than
+one value (note that we have return types
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>γ</mi><mo accent="true">¯</mo></mover><annotation encoding="application/x-tex">\overline\gamma</annotation></semantics></math>
+instead of just a single return type
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>γ</mi><annotation encoding="application/x-tex">\gamma</annotation></semantics></math>):</p>
+<div><pre><code>func foo() (bool, int, string) {
+  return false, 42, "bar"
+}
+
+func main() {
+  x, y, z := foo()
+}
+</code></pre></div>
+<p>At first glance this might seem analogous the tuples present in
+Standard ML, with <code>foo()</code> returning a single value of the
+tuple <code>(bool, int, string)</code>. But this is not the case; Go has
+no concept of tuples. Instead, the function itself returns multiple
+values, which must be immediately assigned names (or discarded) at the
+function’s call site. Thus a call like <code>no_tuples := foo()</code>
+is not allowed.</p>
+<h3 id="expressions">Expressions</h3>
+<p>Expressions
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>e</mi><annotation encoding="application/x-tex">e</annotation></semantics></math>
+can have several forms: variables, function application, and function
+abstraction are familiar from the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>-calculus.
+The others may require a bit more explanation.</p>
+<h4 id="structure-literal">Structure literal</h4>
+<p>A literal of the form
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mi>s</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><mover><mi>α</mi><mo accent="true">¯</mo></mover><mo stretchy="true" form="postfix">]</mo></mrow><mo stretchy="false" form="prefix">{</mo><mover><mi>e</mi><mo accent="true">¯</mo></mover><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">t_s[\overline{\alpha}]\{\overline{e}\}</annotation></semantics></math>
+gives a value of the <code>struct</code> type with name
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>t</mi><mi>S</mi></msub><annotation encoding="application/x-tex">t_S</annotation></semantics></math>
+applied to type arguments
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>α</mi><mo accent="true">¯</mo></mover><annotation encoding="application/x-tex">\overline{\alpha}</annotation></semantics></math>,
+i.e., it produces a new value of the type
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mi>s</mi></msub><mo minsize="1.2" maxsize="1.2" stretchy="false" form="prefix">[</mo><mover><mi>α</mi><mo accent="true">¯</mo></mover><mo minsize="1.2" maxsize="1.2" stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">t_s\big[\overline{\alpha}\big]</annotation></semantics></math>
+in which the fields are set to the evaluated forms of the expressions
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>e</mi><mo accent="true">¯</mo></mover><annotation encoding="application/x-tex">\overline{e}</annotation></semantics></math>.
+Note that the field names present in the declaration of a
+<code>struct</code> type are absent: while they could be used, Go does
+not require them. We omit them in the interest of shorter code.</p>
+<h4 id="field-selection">Field selection</h4>
+<p>An expression
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mi>.</mi><mi>A</mi></mrow><annotation encoding="application/x-tex">e.A</annotation></semantics></math>
+selects the field named
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+of an expression
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>e</mi><annotation encoding="application/x-tex">e</annotation></semantics></math>,
+which must have a fitting <code>struct</code> type
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>τ</mi><mi>S</mi></msub><annotation encoding="application/x-tex">\tau_S</annotation></semantics></math>
+that was declared with a field name
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>,
+and returns the value of that field. This is the only place outside a
+structure type’s declaration that field names are used.</p>
+<h4 id="type-conversion">Type conversion</h4>
+<p>An expression
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>τ</mi><mi>I</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>e</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\tau_I(e)</annotation></semantics></math>
+evaluates to a value of the interface type
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>τ</mi><mi>I</mi></msub><annotation encoding="application/x-tex">\tau_I</annotation></semantics></math>
+which contains the evaluated form of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>e</mi><annotation encoding="application/x-tex">e</annotation></semantics></math>
+as its inner value. The original type
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>σ</mi><annotation encoding="application/x-tex">\sigma</annotation></semantics></math>
+of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>e</mi><annotation encoding="application/x-tex">e</annotation></semantics></math>
+is not erased at runtime; it can be recovered using a type assertion
+statement (see the next section). This expression can also be thought of
+as an “upcast”.</p>
+<h3 id="sec:go:statements">Statements</h3>
+<p>Unlike in Isabelle (and in Thingol) where “everything is an
+expression”, Go has the same syntactic distinction between expression
+and statements that is common across imperative languages: an assignment
+<code>x := 42;</code> is a statement, not an expression, and cannot be
+used in places where an expression is expected.</p>
+<p>However, we constrain our fragment to only include sequences of
+statements that end in a <code>return</code>. This enables easy
+embedding of a statement into an expression: wrapping it into an
+immediately-called lambda <code>func () τ { s }()</code>
+suffices. Note that a sequence of statements interspersed with
+<code>;</code> is treated syntactically as a single statement.</p>
+<p>The remainder of this section introduces the statement forms of our
+fragment. All but the type assertion should feel familiar from similar
+languages.</p>
+<h4 id="return">Return</h4>
+<p>A statement <code>return <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>e</mi><mo accent="true">¯</mo></mover><annotation encoding="application/x-tex">\overline{e}</annotation></semantics></math></code> evaluates one or more
+expressions, then returns from the current function. The
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>e</mi><mo accent="true">¯</mo></mover><annotation encoding="application/x-tex">\overline{e}</annotation></semantics></math>
+must match the return types given in the function’s head.</p>
+<h4 id="if-statement">If statement</h4>
+<p>A statement of the form <code>if (e) { <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mn>1</mn></msub><annotation encoding="application/x-tex">s_1</annotation></semantics></math> }; <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mn>2</mn></msub><annotation encoding="application/x-tex">s_2</annotation></semantics></math></code> will
+evaluate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>e</mi><annotation encoding="application/x-tex">e</annotation></semantics></math>,
+which must have a boolean type. If it evaluates to the built-in value
+<code>true</code>, then
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mn>1</mn></msub><annotation encoding="application/x-tex">s_1</annotation></semantics></math>
+is evaluated. Since all statements end in <code>return</code>, it will
+then return from the current function. Otherwise,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mn>2</mn></msub><annotation encoding="application/x-tex">s_2</annotation></semantics></math>
+is evaluated. The form <code>if (e) { <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mn>1</mn></msub><annotation encoding="application/x-tex">s_1</annotation></semantics></math> }; else { <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mn>2</mn></msub><annotation encoding="application/x-tex">s_2</annotation></semantics></math> }</code>
+would be semantically equivalent within our fragment; we avoid it to
+reduce nesting in the generated code.</p>
+<h4 id="type-assertion">Type assertion</h4>
+<p>A statement of the form <code>x, y := e.(σ)</code> can
+be thought of as the inverse operation of type conversions, i.e., a
+“downcast”. For an expression
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>e</mi><annotation encoding="application/x-tex">e</annotation></semantics></math>
+of an interface type
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>τ</mi><mi>I</mi></msub><annotation encoding="application/x-tex">\tau_I</annotation></semantics></math>,
+the assertion checks whether the inner value contained within the
+interface value has type
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>σ</mi><annotation encoding="application/x-tex">\sigma</annotation></semantics></math>.
+The boolean variable
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>
+will indicate if the check was successful. If so,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+will be bound to that inner value; otherwise, it will be
+<code>nil</code>, Go’s null pointer. Note that the type of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>σ</mi><annotation encoding="application/x-tex">\sigma</annotation></semantics></math>.</p>
+<h2 id="sec:translation">Translation scheme</h2>
+<p>In this section, we will discuss the concrete translation schemes
+employed for Thingol programs. For brevity, we omit purely syntactic
+mappings, and focus on the non-trivial steps.</p>
+<p>The translation scheme attempts to preserve names as far as possible.
+Isabelle’s Code Generator already provides (re)naming infrastructure,
+such as generating guaranteed-unused “fresh” names where necessary. In
+addition to that, some functions and data types require upper-case
+names, to match Go’s rules for exported symbols.</p>
+<h3 id="types-terms-and-statements">Types, terms and statements</h3>
+<p>We define three translations
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi style="font-variant: small-caps;">type</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>τ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi style="font-variant: small-caps;">expr</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></semantics></math>, and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi style="font-variant: small-caps;">stmt</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></semantics></math>.
+The first is a
+straightforward syntactic mapping of types. In the remainder of the
+chapter, we will informally equate Thingol types
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>τ</mi><annotation encoding="application/x-tex">\tau</annotation></semantics></math>
+with their Go translation
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi style="font-variant: small-caps;">type</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>τ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></semantics></math>
+and write both simply
+as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>τ</mi><annotation encoding="application/x-tex">\tau</annotation></semantics></math>.
+For now, we exclude any mapping of common types (e.g. integers) to
+built-in Go types; we will revisit this topic later (§<a
+href="#sec:translation:mapping" data-reference-type="ref"
+data-reference="sec:translation:mapping">4.6</a>).</p>
+<p>The other two translations—<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi style="font-variant: small-caps;">expr</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></semantics></math> and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi style="font-variant: small-caps;">stmt</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></semantics></math>—are used for converting
+Thingol terms into Go expressions and statements. Which one is used thus
+depends on what Go expects in each particular context; for example,
+terms used as function arguments use the former;
+a term which is a function
+body uses the latter.
+Semantically, for any term
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>,
+both satisfy the following
+equivalences:</p>
+<div><pre><code><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi style="font-variant: small-caps;">stmt</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></semantics></math> ≡ return <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi style="font-variant: small-caps;">expr</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></semantics></math>;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi style="font-variant: small-caps;">expr</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></semantics></math> ≡ func() τ {<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi style="font-variant: small-caps;">stmt</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></semantics></math>}()
+</code></pre></div>
+<h4 id="abstractions">Abstractions</h4>
+<p>The translation of a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>-abstraction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>:</mo><mo>:</mo><mi>τ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi><mspace width="0.278em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>:</mo><mo>:</mo><mi>γ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\lambda (x :: \tau).\; (t :: \gamma)</annotation></semantics></math>
+demonstrates the distinction between expressions and statements:</p>
+<pre><code><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi style="font-variant: small-caps;">expr</mi><mrow><mo stretchy="true" form="prefix">(</mo>
+<mrow><mi>λ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>:</mo><mo>:</mo><mi>τ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi><mspace width="0.278em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>:</mo><mo>:</mo><mi>γ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow>
+<mo stretchy="true" form="postfix">)</mo></mrow></mrow></semantics></math> = func (x τ) γ {<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi style="font-variant: small-caps;">stmt</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></semantics></math>}
+</code></pre>
+<p>Although curried abstractions are
+unusual in Go, no effort is made to uncurry them (unlike top-level
+functions, which we do uncurry §<a
+href="#sec:translation:top-level-functions" data-reference-type="ref"
+data-reference="sec:translation:top-level-functions">4.4</a>).</p>
+<h4 id="applications-of-top-level-functions">Applications of top-level
+functions</h4>
+<p>Applications
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+are more tedious: Definitions of top-level functions are uncurried (§<a
+href="#sec:translation:top-level-functions" data-reference-type="ref"
+data-reference="sec:translation:top-level-functions">4.4</a>), so we
+first have to check if
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+is a call to such a function, i.e., if
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+has the shape
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo minsize="1.2" maxsize="1.2" stretchy="false" form="prefix">(</mo><mi>⋯</mi><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>f</mi><mrow><mo stretchy="true" form="prefix">[</mo><msub><mover><mi>τ</mi><mo accent="true">¯</mo></mover><mi>i</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow><mspace width="0.278em"></mspace><msub><mi>a</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.278em"></mspace><msub><mi>a</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>⋯</mi><mo minsize="1.2" maxsize="1.2" stretchy="false" form="postfix">)</mo><mspace width="0.278em"></mspace><msub><mi>a</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">\big(\cdots\left((f[\overline{\tau}_i]\; a_1)\; a_2\right)\cdots\big)\; a_n</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+references a top-level function or data type constructor taking
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>
+arguments.</p>
+<p>If so, we have to consider three cases:</p>
+<ol>
+<li><p>Fully-satured application
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">n = m</annotation></semantics></math>);
+all arguments are passed into
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math></p></li>
+<li><p>Unsatured application
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>&lt;</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">n &lt; m</annotation></semantics></math>);
+need to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>η</mi><annotation encoding="application/x-tex">\eta</annotation></semantics></math>-expand</p></li>
+<li><p>Over-satured application
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>&gt;</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">n &gt; m</annotation></semantics></math>).
+This occurs if
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+returns another function, with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>a</mi><mn>1</mn></msub><annotation encoding="application/x-tex">a_1</annotation></semantics></math>
+to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>a</mi><mi>m</mi></msub><annotation encoding="application/x-tex">a_m</annotation></semantics></math>
+being the immediate arguments to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+and any remaining
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>a</mi><mrow><mi>m</mi><mo>+</mo><mn>1</mn></mrow></msub><annotation encoding="application/x-tex">a_{m+1}</annotation></semantics></math>
+to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>a</mi><mi>n</mi></msub><annotation encoding="application/x-tex">a_n</annotation></semantics></math>
+as curried arguments. The latter will be passed individually.</p></li>
+</ol>
+<p>As will be described later (§<a href="#sec:translation:dictionaries"
+data-reference-type="ref"
+data-reference="sec:translation:dictionaries">4.5</a>), the dictionary
+construction used to encode Isabelle’s type classes may introduce
+additional (value-level) parameters to top-level functions, also adding
+corresponding additional arguments
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>d</mi><mn>1</mn></msub><annotation encoding="application/x-tex">d_1</annotation></semantics></math>
+to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>d</mi><mi>r</mi></msub><annotation encoding="application/x-tex">d_r</annotation></semantics></math>
+to each of their applications. These are inserted before the
+user-defined parameters.</p>
+<p>Altogether, we arrive at the following scheme when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+references a function:</p>
+<pre><code><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi style="font-variant: small-caps;">expr</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></semantics></math> = <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>τ</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>τ</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>d</mi><mi>r</mi></msub><mo>,</mo><msub><mi>a</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>a</mi><mi>m</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>a</mi><mrow><mi>m</mi><mo>+</mo><mn>1</mn></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>…</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>a</mi><mi>n</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">f[\tau_1,\dots,\tau_i](d_1,\dots,d_r,a_1,\dots,a_m)(a_{m+1})\dots(a_n)</annotation></semantics></math>
+</code></pre>
+<p>Finally, if
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+references a data type constructor of a type
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>τ</mi><annotation encoding="application/x-tex">\tau</annotation></semantics></math>
+rather than a function, the case
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>&gt;</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">n &gt; m</annotation></semantics></math>
+cannot occur. However, we must wrap the constructor into a type
+conversion to type
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>τ</mi><annotation encoding="application/x-tex">\tau</annotation></semantics></math>,
+and use slightly different syntax for passing the arguments:</p>
+<pre><code><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi style="font-variant: small-caps;">expr</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></semantics></math> = <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>κ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>f</mi><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>τ</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>τ</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow><mo stretchy="false" form="prefix">{</mo><msub><mi>d</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>d</mi><mi>r</mi></msub><mo>,</mo><msub><mi>a</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>a</mi><mi>m</mi></msub><mo stretchy="false" form="postfix">}</mo><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\kappa(f[\tau_1,\dots,\tau_i]\{d_1,\dots,d_r,a_1,\dots,a_m\})</annotation></semantics></math>
+</code></pre>
+<h4 id="lambda-applications">Lambda applications</h4>
+<p>If an application
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><msub><mi>t</mi><mn>1</mn></msub><mspace width="0.278em"></mspace><msub><mi>t</mi><mn>2</mn></msub></mrow></semantics></math>
+is not a call to a top-level function, then the translation is
+straightforward:</p>
+<pre><code><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi style="font-variant: small-caps;">expr</mi><mrow><mo stretchy="true" form="prefix">(</mo>
+<mrow><msub><mi>t</mi><mn>1</mn></msub><mspace width="0.278em"></mspace><msub><mi>t</mi><mn>2</mn></msub></mrow>
+<mo stretchy="true" form="postfix">)</mo></mrow></mrow></semantics></math> = <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi style="font-variant: small-caps;">expr</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>t</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow></semantics></math> (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi style="font-variant: small-caps;">expr</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>t</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow></semantics></math>)
+</code></pre>
+
+<h3 id="sec:translation:data">Data types</h3>
+<p>A data type
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>κ</mi><annotation encoding="application/x-tex">\kappa</annotation></semantics></math>
+defined in Thingol consists of type parameters
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>α</mi><mo accent="true">¯</mo></mover><mi>i</mi></msub><annotation encoding="application/x-tex">\overline{\alpha}_i</annotation></semantics></math>
+and constructors
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>f</mi><mo accent="true">¯</mo></mover><mi>i</mi></msub><annotation encoding="application/x-tex">\overline{f}_i</annotation></semantics></math>.
+Each
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>f</mi><mi>i</mi></msub><annotation encoding="application/x-tex">f_i</annotation></semantics></math>
+gets translated into its own separate <code>struct</code> type.</p>
+<p>As was discussed in §<a href="#sec:go" data-reference-type="ref"
+data-reference="sec:go">3</a>, Go knows no sum types, thus the
+translation has to simulate their behaviour by other means. For a data
+type, we generate a new unconstrained interface type
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>δ</mi><annotation encoding="application/x-tex">\delta</annotation></semantics></math>,
+meant to represent any constructor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>f</mi><mi>i</mi></msub><annotation encoding="application/x-tex">f_i</annotation></semantics></math>
+of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>κ</mi><annotation encoding="application/x-tex">\kappa</annotation></semantics></math>.</p>
+<p>If the data type
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>κ</mi><annotation encoding="application/x-tex">\kappa</annotation></semantics></math>
+has exactly one constructor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>f</mi><mn>1</mn></msub><annotation encoding="application/x-tex">f_1</annotation></semantics></math>,
+then no additional interface type
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>δ</mi><annotation encoding="application/x-tex">\delta</annotation></semantics></math>
+is generated.</p>
+<h4 id="constructors">Constructors</h4>
+<p>Defining a <code>struct</code> type for an individual constructor is
+straightforward. A constructor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+with fields of types
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>τ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\tau_1</annotation></semantics></math>
+to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>τ</mi><mi>i</mi></msub><annotation encoding="application/x-tex">\tau_i</annotation></semantics></math>
+is translated into Go as a <code>struct</code> with the same name and
+fields: <code>type f struct {<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mrow><mi>A</mi><mspace width="0.278em"></mspace><mi>τ</mi></mrow><mo accent="true">¯</mo></mover><mi>i</mi></msub><annotation encoding="application/x-tex">\overline{A\; \tau}_i</annotation></semantics></math>}</code>, where
+the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>A</mi><mo accent="true">¯</mo></mover><mi>i</mi></msub><annotation encoding="application/x-tex">\overline{A}_i</annotation></semantics></math>
+are newly-invented names for each of the fields, as no field names are
+present in Thingol. Note that those generated field names are entirely
+unimportant (access happens only through destructors, and the names are
+not required when constructing a value); the only requirement imposed on
+them is that each
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>A</mi><mo accent="true">¯</mo></mover><mi>i</mi></msub><annotation encoding="application/x-tex">\overline{A}_i</annotation></semantics></math>
+of the same <code>struct</code> are distinct. Thus the type
+<code>Nat</code> (Figure <a href="#listing:thingol"
+data-reference-type="ref" data-reference="listing:thingol">1</a>)
+becomes:</p>
+<pre data-basicstyle="\ttfamily\small"><code>type Nat any;
+type Zero struct { };
+type Suc struct {
+  A Nat;
+};</code></pre>
+<p>With that, we can construct the number 1 as
+<code>Nat(Suc{Nat(Zero{}))</code>. The interface type
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>δ</mi><annotation encoding="application/x-tex">\delta</annotation></semantics></math>
+(here <code>Nat</code>) acts as a faux sum type: the translation
+promises that (as long as its input program was type-correct) it will
+never contain anything but values of types <code>Zero</code> and
+<code>Suc</code>. On the Go side, there is no such guarantee: it sees
+<code>Nat</code> as unconstrained, and would happily allow such values
+as <code>Nat(Suc{nil})</code> or even <code>Suc{"wrong"}</code>, leading
+to runtime exceptions elsewhere in the generated code, especially in
+translated pattern matches (§<a href="#sec:translation:cases"
+data-reference-type="ref"
+data-reference="sec:translation:cases">4.3</a>).</p>
+<h4 id="destructors">Destructors</h4>
+<p>Along with each constructor’s <code>struct</code> type, we generate a
+synthetic function
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mtext mathvariant="monospace">_𝚍𝚎𝚜𝚝</mtext></mrow><annotation encoding="application/x-tex">f\texttt{\_dest}</annotation></semantics></math>
+not present in the Thingol program, to be used as a destructor in the
+translation of Thingol’s case expressions (§<a
+href="#sec:translation:cases" data-reference-type="ref"
+data-reference="sec:translation:cases">4.3</a>). Their sole purpose is
+to unpack and return the individual fields in a <code>struct</code>
+type, exploiting Go’s multiple return types.</p>
+<pre data-basicstyle="\ttfamily\small"><code>func f_dest (p f) (τ<sub>1</sub>, …, τ<sub>n</sub>) {
+  return p.A<sub>1</sub>, …, p.A<sub>n</sub>
+}</code></pre>
+<p>Destructors are omitted when there are no fields to unpack. For
+<code>Nat</code>, we need only one:</p>
+<pre data-basicstyle="\ttfamily\small"><code>func Suc_dest(p Suc)(Nat) {
+  return p.A;
+}</code></pre>
+<h4 id="example">Example</h4>
+<p>Slightly more involved is the <code>α list</code> data type
+(Figure <a href="#listing:thingol" data-reference-type="ref"
+data-reference="listing:thingol">1</a>). It is polymorphic, and thus
+requires use of Go’s generics:</p>
+<pre data-basicstyle="\ttfamily\small"><code>type List[a any] interface {};
+type Nil[a any] struct { };
+type Cons[a any] struct {
+  A a;
+  Aa List[a];
+};
+
+func Cons_dest[a any](p Cons[a])(a, List[a]) {
+  return p.A, p.Aa;
+}</code></pre>
+<h3 id="sec:translation:cases">Case expressions</h3>
+<p>Thingol’s case expressions implement pattern matching on a value, in
+a way which will be immediately familiar from other functional languages
+such as Standard ML or Haskell: they inspect a <em>scrutinee</em>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+and match it against a series of clauses
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mrow><msub><mi>p</mi><mi>i</mi></msub><mo>→</mo><msub><mi>b</mi><mi>i</mi></msub></mrow><mo accent="true">¯</mo></mover><annotation encoding="application/x-tex">\overline{p_i \rightarrow b_i}</annotation></semantics></math>.
+Each clause contains a pattern
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>p</mi><mi>i</mi></msub><annotation encoding="application/x-tex">p_i</annotation></semantics></math>
+and a term
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>t</mi><mi>i</mi></msub><annotation encoding="application/x-tex">t_i</annotation></semantics></math>
+that is to be evaluated if the pattern matches the scrutinee.
+Syntactically, patterns are a subset of terms; they can only be composed
+of variables and fully-satisfied applications of data type constructors
+to sub-patterns
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mspace width="0.278em"></mspace><msub><mover><mi>p</mi><mo accent="true">¯</mo></mover><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">f \; \overline{p}_i</annotation></semantics></math>
+constructed of the same subset.</p>
+<p>Since Go has no comparable feature, a data type pattern in a case
+expression is translated into a series of (possibly nested)
+<code>if</code>-conditions and calls to destructor functions. The bodies
+of the innermost <code>if</code>-condition then correspond to the
+translated terms
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>t</mi><mi>i</mi></msub><annotation encoding="application/x-tex">t_i</annotation></semantics></math>,
+which must be in statement-form, i.e., ending in a
+<code>return</code>-statement. Thus, if the pattern could be matched,
+further patterns will not be executed. Naturally, using
+<code>return</code> in this manner implies that a case expression must
+always either be in tail position, or else be wrapped into an anonymous
+function if it does not (§<a href="#sec:go" data-reference-type="ref"
+data-reference="sec:go">3</a>).</p>
+<p>If the pattern did not match, execution will continue with either the
+next block of <code>if</code>-conditions generated from the next clause,
+or encounter a final catch-all call to Go’s built-in <code>panic</code>
+function, which aborts the program in case of an incomplete pattern
+where no clause could be matched (incomplete patterns are admissable in
+Isabelle’s logic, see Hupel <span class="citation"
+data-cites="hupel-dicts">[<a href="#ref-hupel-dicts"
+role="doc-biblioref">16</a>]</span> for a detailed description). This
+<code>panic</code> can also be encountered if an external caller
+exploited the lossy conversion of sum types as described above and
+supplied, e.g., a <code>nil</code> value as a scrutinee.</p>
+<p>Taken together, an entire case expression is translated as a linear
+sequence of individual clauses, followed by a <code>panic</code>:</p>
+<pre><code><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi style="font-variant: small-caps;">stmt</mi><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mtext mathvariant="normal">case </mtext><mspace width="0.333em"></mspace></mrow><mi>t</mi><mo>:</mo><mo>:</mo><mi>τ</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> of </mtext><mspace width="0.333em"></mspace></mrow><mrow><mo stretchy="true" form="prefix">[</mo><mover><mrow><mi>p</mi><mo>→</mo><mi>b</mi></mrow><mo accent="true">¯</mo></mover><mo stretchy="true" form="postfix">]</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mover><mrow><mi style="font-variant: small-caps;">stmt</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>p</mi><mo>→</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>;</mo></mrow><mo accent="true">¯</mo></mover></mrow></semantics></math> panic(&quot;Match failed&quot;);
+</code></pre>
+<p>Let us now
+consider the concrete translation for variable and constructor
+patterns.</p>
+<h4 id="variable-pattern">Variable pattern</h4>
+<p>We assign the scrutinee
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+to the variable
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+to make it available in the scope of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>b</mi><annotation encoding="application/x-tex">b</annotation></semantics></math>:</p>
+<pre><code><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi style="font-variant: small-caps;">stmt</mi><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mi>x</mi><mo>→</mo><mi>b</mi></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mrow></semantics></math> = {x := <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi style="font-variant: small-caps;">expr</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></semantics></math>; <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi style="font-variant: small-caps;">stmt</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></semantics></math>}
+</code></pre>
+<h4 id="constructor-pattern">Constructor pattern</h4>
+<p>The pattern is of the form
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mrow><mo stretchy="true" form="prefix">[</mo><msub><mover><mi>τ</mi><mo accent="true">¯</mo></mover><mi>i</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow><mrow><mo stretchy="true" form="prefix">[</mo><msub><mover><mi>s</mi><mo accent="true">¯</mo></mover><mi>k</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">f [\overline{\tau}_i] [\overline{s}_k]</annotation></semantics></math>.
+If all sub-patterns
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>s</mi><mo accent="true">¯</mo></mover><mi>k</mi></msub><annotation encoding="application/x-tex">\overline{s}_k</annotation></semantics></math>
+are variable patterns, the translation is once again straightforward:</p>
+<pre><code><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi style="font-variant: small-caps;">stmt</mi><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mi>f</mi><mrow><mo stretchy="true" form="prefix">[</mo><msub><mover><mi>τ</mi><mo accent="true">¯</mo></mover><mi>i</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow><mrow><mo stretchy="true" form="prefix">[</mo><msub><mover><mi>s</mi><mo accent="true">¯</mo></mover><mi>k</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow><mo>→</mo><mi>b</mi></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mrow></semantics></math> = {
+  q, m := t.(<math display="inline"><mrow><mi>f</mi><mo stretchy="true" form="prefix">[</mo><msub><mover><mi>τ</mi><mo accent="true">¯</mo></mover><mi>i</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow></math>);
+  if (m) {
+    A<sub>1</sub>, …, A<sub>k</sub> := f_dest(t);
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi style="font-variant: small-caps;">stmt</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></semantics></math>
+  }
+}
+</code></pre>
+
+<p>Nested constructor patterns are translated in the
+same way, but pushed inwards into the body of the
+<code>if</code>-statement generated above:</p>
+
+<pre><code><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi style="font-variant: small-caps;">stmt</mi><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mi>f</mi><mrow><mo stretchy="true" form="prefix">[</mo><msub><mover><mi>τ</mi><mo accent="true">¯</mo></mover><mi>i</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow><mrow><mo stretchy="true" form="prefix">[</mo><msub><mover><mi>s</mi><mo accent="true">¯</mo></mover><mi>k</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow><mo>→</mo><mi>b</mi></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mrow></semantics></math> = {
+  q, m := t.(<math display="inline"><mrow><mi>f</mi><mo stretchy="true" form="prefix">[</mo><msub><mover><mi>τ</mi><mo accent="true">¯</mo></mover><mi>i</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow></math>);
+  if (m) {
+    A<sub>1</sub>, …, A<sub>k</sub> := f_dest(t);
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi style="font-variant: small-caps;">stmt</mi><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mrow><mtext mathvariant="normal">case </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>A</mi><mn>1</mn></msub><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> of </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>s</mi><mn>1</mn></msub><mo>→</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>…</mi><mo>→</mo><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mtext mathvariant="normal">case </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>A</mi><mi>k</mi></msub><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> of </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>s</mi><mi>k</mi></msub><mo>→</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mrow></semantics></math>
+  }
+}
+</code></pre>
+
+<p>In other words, the sub-patterns are treated as
+if they were further nested case expressions. This results in a total
+nesting depth of one level per constructor.</p>
+<p>Within the innermost <code>if</code>, the body
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>b</mi><annotation encoding="application/x-tex">b</annotation></semantics></math>
+of the pattern’s clause is translated as statement to ensure it returns
+from the current function.</p>
+<h4 id="optimizing-the-nesting-level">Optimizing the nesting level</h4>
+<p>The translation described in this section can translate arbitrary
+patterns, but comes at the price of potentially exponential code
+blow-up. Even a single pattern consisting of just a constructor and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+fields, none of which are proper patterns, will still produce
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+levels of nested <code>if</code>-statements. But if the fields
+themselves are again data type constructors with sub-patterns, the
+number of nested levels quickly increases further.</p>
+<p>In real-world applications, we can reduce the blow-up by optimizing
+constructor patterns without arguments. Instead of calling a destructor
+function, we can emit an equality check, since there are no fields to
+extract. Multiple equality checks can be joined together using Go’s
+conjunction operator <code>&amp;&amp;</code>.</p>
+<h4 id="example-1">Example</h4>
+<p>Consider the function <code>hd2</code> (Figure <a
+href="#listing:thingol" data-reference-type="ref"
+data-reference="listing:thingol">1</a>), which takes a list and returns
+(optionally) the second element of the list. It is translated into Go as
+follows:</p>
+<pre data-basicstyle="\ttfamily\small"><code>func Hd2[a any] (x0 List[a]) Option[a] {
+  if (x0 == (List[a](Nil[a]{}))) {
+    return (Option[a](None[a]{}));
+  }
+  q, m := x0.(Cons[a]);
+  if (m) {
+    _, c := Cons_dest(q);
+    if (c == (List[a](Nil[a]{}))) {
+      return (Option[a](None[a]{}));
+    }
+  }
+  q, m := x0.(Cons[a]);
+  if (m) {
+    _, p := Cons_dest(q);
+    q, m := p.(Cons[a]);
+    if (m) {
+      ya, _ := Cons_dest(q);
+      return (Option[a](Some[a]{ya}));
+    }
+  }
+  panic(&quot;match failed&quot;);
+}</code></pre>
+<p>This piece of generated code benefits from the optimisation described
+above (in its first two clauses). Also, observe that since unused
+variables are a compile error in Go, unused bound names above have been
+generated as <code>_</code> instead.</p>
+<h3 id="sec:translation:top-level-functions">Top-level functions</h3>
+<p>Unlike lambdas that occur within terms, top-level functions in
+Thingol can have multiple clauses and pattern-match on their arguments,
+neither of which is supported in Go. It is thus necessary to translate
+them differently: all equations of the same function will have to be
+merged, with the pattern matching on their parameters again pushed
+inwards into the then combined, single function body.</p>
+<p>Further, treating them differently from in-term lambda expression
+also allows the generator to uncurry them, creating code that is much
+closer to an idiomatic style in Go.</p>
+<h4 id="merging-multiple-clauses">Merging multiple clauses</h4>
+<p>Thingol allows Haskell-style function definition comprising multiple
+clauses. But in Go, all parameters of functions must be simple
+variables. Thus, if any of the parameters patterns
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><msub><mi>p</mi><mi>i</mi></msub><mo accent="true">¯</mo></mover><annotation encoding="application/x-tex">\overline{p_i}</annotation></semantics></math>
+is a proper pattern, a fresh name
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>i</mi></msub><annotation encoding="application/x-tex">x_i</annotation></semantics></math>
+for it is invented. Likewise, if a parameter is a variable binding
+instead of a proper pattern, but has multiple different names in two
+clauses, the name
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>i</mi></msub><annotation encoding="application/x-tex">x_i</annotation></semantics></math>
+used in the first clause is picked as the name of the parameter in
+Go.</p>
+<h4 id="pattern-matching">Pattern matching</h4>
+<p>The combined function body then contains a pattern match translation,
+as described above.<a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a> Each equation is treated as a clause
+of a synthetic case-expression; for functions matching on multiple
+parameters, we again push inwards and translate as if a nested series of
+case-expressions were present.</p>
+<h4 id="example-2">Example</h4>
+<p>Consider this definition for <code>hd2'</code>, which is semantically
+equivalent to <code>hd2</code>, but written using multiple
+equations:</p>
+<pre data-basicstyle="\ttfamily\small"><code>fun hd2&#39; :: α list ⇒ α option where
+  hd2&#39; Nil = None
+  hd2&#39; (Cons x Nil) = None
+  hd2&#39; (Cons x (Cons y xs) ys) = Some y</code></pre>
+<p>The generated Go code is identical.</p>
+<h4 id="special-case-top-level-constants">Special case: top-level
+constants</h4>
+<p>Thingol accepts top-level definitions that are not functions, for
+example: <code>definition a :: nat where a = 10</code>. Unfortunately,
+Go admits top-level variable declarations only for monomophic types, and
+further disallows function calls in their definitions.</p>
+<p>Therefore, we must treat such Thingol definitions as if they were
+nullary functions. While this changes nothing of the semantics of the
+translated program, it does incur a (potentially significant) runtime
+cost: constants will be evaluated each time they are used, instead of
+only once when the program is initialized.</p>
+<h3 id="sec:translation:dictionaries">Dictionary construction</h3>
+<p>On the surface, Isabelle’s Haskell-style type classes and Go’s
+interfaces share many of the same features, and are sometimes considered
+to be near-analogous <span class="citation"
+data-cites="generic-go-to-go">[<a href="#ref-generic-go-to-go"
+role="doc-biblioref">17</a>]</span>. However, translating type classes
+into interfaces does not work, due to an implementation concern: Go
+directly compiles methods into virtual tables for dynamic dispatch. A Go
+interface declares multiple <em>methods</em>, where each method type
+must take the generic value as its zeroth (i.e. implicit) parameter.
+Thingol has no such restriction. Consider, for example:</p>
+<pre data-basicstyle="\small\ttfamily"><code>class foo where
+  foo :: unit ⇒ α
+
+class bar where
+  bar :: (α ⇒ α) ⇒ unit</code></pre>
+<p>As Go interfaces, both are invalid: <code>foo</code> declares a
+function whose parameter types do not mention
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
+at all, while <code>bar</code>’s function does not take a simple
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
+parameter (but a parameter whose type contains
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>).</p>
+<p>To avoid the additional complexity of treating all these cases
+separately, we resort to using a dictionary construction <span
+class="citation" data-cites="hupel-dicts haftmann-nipkow">[<a
+href="#ref-haftmann-nipkow" role="doc-biblioref">3</a>, <a
+href="#ref-hupel-dicts" role="doc-biblioref">16</a>]</span> in all
+cases. Since the existing SML target of the Code Generator has to deal
+with the same issue, the required infrastructure is already in place:
+Thingol’s terms come with enough annotations to resolve all type class
+constraints during translation and replace the implicit instance
+arguments of functions making use of type classes by explicit dictionary
+values, which we represent as one data type per type class.</p>
+<p>Thus only relatively few things are left to do in Go:</p>
+<ol>
+<li><p>declare a data type for each type class, called its
+<em>dictionary</em> type</p></li>
+<li><p>translate type class constraints on functions into explicit
+function arguments of dictionary types</p></li>
+<li><p>translate type class instances into either a value of the type
+class’s dictionary type, or, if the instance itself takes type class
+constraints, to a function producing such a value when given values of
+dictionary types representing these constraints</p></li>
+<li><p>any time a top-level function is used, the already-resolved type
+class constraints must be given as explicit arguments</p></li>
+</ol>
+<h4 id="example-3">Example</h4>
+<p>The class declarations (Figure <a href="#listing:thingol"
+data-reference-type="ref" data-reference="listing:thingol">1</a>) are
+translated as follows:</p>
+<pre data-basicstyle="\small\ttfamily"><code>type Semigroup[a any] struct {
+  Plus func(a, a) a
+}
+
+type Monoid[a any] struct {
+  Semigroup_monoid Semigroup[a]
+  Zero func () a
+}
+
+func Sum[a any] (a_ Monoid[a], xs List[a]) a {
+  return Fold[a, a](
+    func (aa a) func(a) a {
+      return func (b a) a { return a_.Semigroup_monoid.Plus(aa, b); };
+    },
+    xs, a_.Zero()
+  );
+}</code></pre>
+<h3 id="sec:translation:mapping">Mapping high-level constructs</h3>
+<p>So far, the shallow embedding we have presented produced code with no
+dependencies on the Go side, with only the built-in constructs
+<code>panic</code> and <code>&amp;&amp;</code> used. All higher-level
+constructs used by programs (such as lists, numbers) must thus be
+“brought along” from Isabelle, and are translated wholesale exactly as
+they are defined in their formalisations. While this guarantees
+correctness, it is highly impractical for real-world applications: for
+example, natural numbers as defined in Isabelle/HOL (unary Peano
+representation, §<a href="#sec:translation:data"
+data-reference-type="ref" data-reference="sec:translation:data">4.2</a>)
+require linear memory and quadratic runtime even for simple operations
+like addition.</p>
+<p>Luckily, the Code Generator already has a solution for this conundrum
+in the form of <em>printing rules</em>, which can map Isabelle’s types
+and constants to user-supplied names in the target language. We have set
+up printing rules mapping:</p>
+<ul>
+<li><p>Isabelle/HOL’s booleans to booleans in Go</p></li>
+<li><p>numbers to arbitrary-precision integers (via Go’s
+<code>math/big</code> package)</p></li>
+<li><p>strings of the <code>String.literal</code> type to strings in
+Go</p></li>
+</ul>
+<p>Unfortunately, linked lists cannot be as easily mapped by default,
+because Go does not feature a standard implementation of linked
+lists.</p>
+<h2 id="sec:evaluation">Evaluation</h2>
+<p>Even though Go greatly differs from the existing targets, we have
+achieved almost full feature parity with the translation described in
+this paper. Isabelle constructs that are not (cleanly) mapped are:</p>
+<ul>
+<li><p>infinite data types, which can be defined e.g. via
+<code>codatatype</code> in Isabelle, but are rejected by Go’s
+compiler;</p></li>
+<li><p>some low-level string operations that operate on byte values of
+characters.</p></li>
+</ul>
+<h3 id="trusted-code-base">Trusted code base</h3>
+<p>All target language generators are part of Isabelle’s <em>trusted
+code base</em>, i.e. bugs inside its own code may lead to bugs in the
+generated program, and cannot be checked for by Isabelle’s kernel.
+Fortunately, our implementation is “just another module” to the core
+infrastructure; up until Thingol everything remains unchanged, in line
+with the other language targets.</p>
+<p>However, future (more ambitious) code printing may require changes in
+Thingol: If code printing shall assume more constructs of Go, it would
+be useful for Thingol itself to have some concept of the syntactic
+distinction between expressions and statements.</p>
+<h3 id="code-style">Code style</h3>
+<p>The generated Go code is not idiomatic, but neither is the generated
+code for the other languages. Even though the semantics of SML, OCaml
+and others may more closely resemble the intention of Isabelle users,
+the generated code in those languages is also littered with syntactic
+artifacts. This is evidenced by the fact that neither SML nor OCaml
+support type classes, and Scala code hardly uses type classes in the way
+that Haskell does (typically prefering object-orientation). Therefore,
+we do not envision a future need to align the style of the generated
+code more closely with the preferred style of hand-written Go code.</p>
+<p>The main challenge arises from interfacing between generated and
+hand-written Go code, both of which would be present in a typical
+application. For instance, constructing values for the translated
+<code>datatype</code> definitions or using curried functions in Go is
+unfortunately verbose, and can easily introduce errors.</p>
+<p>We therefore recommend to write wrapper code that exposes a “cleaner”
+interface, ready to be consumed by the real-world application. The
+wrapper must be written carefully: many explicit type annotations are
+needed in the code, and not all incorrect type annotations will cause
+compilation to fail. In particular, if a data type’s constructor is
+annotated with a wrong <code>interface</code> type, the assumption
+underlying the translation of case-expressions will fail, resulting in a
+“match failed” error at runtime (§<a href="#sec:translation:cases"
+data-reference-type="ref"
+data-reference="sec:translation:cases">4.3</a>).</p>
+<p>Another awkward source of problems when integrating the generated
+code with a larger code base is that Go’s standard library lacks common
+functional data structures, such as lists or tuples (§<a
+href="#sec:translation:mapping" data-reference-type="ref"
+data-reference="sec:translation:mapping">4.6</a>). Hand-written code
+would need to deal with the necessary conversions (e.g. from a Go array
+into a linked list). To some extent, this can be alleviated by
+leveraging third-party libraries for functional data structures, which
+are unfortunately not popular in the Go community.</p>
+<h3 id="case-studies">Case studies</h3>
+<p>We conducted two case studies that have confirmed our approach.</p>
+<h4 id="existing-formalisation">Existing formalisation</h4>
+<p>At Giesecke+Devrient, we use Isabelle for a substantial formalisation
+of various graph algorithms powering a financial transaction system. The
+purpose of the formalisation is to provide real-world security
+guarantees, such as inability to clone money. We have previously used
+the Code Generator to produce Scala code as a reference implementation,
+combined with some hand-written wrapper code and basic unit tests.</p>
+<p>As a simple evaluation of Go code generated from the same Isabelle
+theories, we re-wrote the unit tests and the necessary wrapper code in
+Go. We obtained equivalent results and could not find bugs in the Code
+Generator or unintended behaviour of the code it produced. Note that no
+adaptations of the Isabelle formalisation were necessary, which proves
+that the Go backend works as a drop-in replacement for the other
+targets.</p>
+<p>Starting from this, we can narrow the formalisation gap mentioned in
+the introduction. It allows us to link the Isabelle/HOL reference
+implementation with the real-world production implementation in Go.</p>
+<h4
+id="hol-codegenerator_test">HOL-Codegenerator_Test</h4>
+<p>Isabelle’s distribution contains a Code Generator test session which
+is used as a self-check for the various target languages of the Code
+Generator. For this paper, a single export command is relevant, which is
+meant to export a considerable chunk of Isabelle/HOL’s library as a
+stress-test for the Code Generator. This has worked as expected, with
+the entirety of the test suite successfully compiling in Go.</p>
+<p>As a consequence, our approach enables the vast majority of Isabelle
+users to generate Go code without having to rewrite their formalisation.
+In particular—because we map to a functional fragment of Go—there is no
+need for users to reach for a deep embedding of an imperative
+language.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>We have presented a translation from Thingol by shallow embedding
+into a fragment of Go, and implemented it as a target language for
+Isabelle’s code generation framework. The new target language has been
+used with success to port an existing Isabelle formalisation that was
+only targeting Scala to additionally target Go. The implementation is
+readily usable with a standard Isabelle2024 installation and requires
+merely importing an additional theory file. The suite of existing tests
+of Isabelle’s Code Generator is also supported.</p>
+<h3 id="future-work">Future work</h3>
+<p>The two most promising areas of future work are: leveraging Go’s
+imperative nature by tightly integrating it with Imperative/HOL <span
+class="citation" data-cites="imperative-hol">[<a
+href="#ref-imperative-hol" role="doc-biblioref">6</a>]</span>; and
+generating code that utilizes more of Go’s standard libraries through
+custom code printing rules. Both can be implemented using similar
+mechanisms. However, substantial changes to Isabelle’s code generation
+infrastructure are required, because Go demands more type annotations
+than other target languages.</p>
+<h3 id="acknowledgements">Acknowledgements</h3>
+<p>The authors would like to thank Florian Haftmann and Cornelius
+Diekmann for their contributions to the development. This work has been
+partially supported by the Federal Ministry of Education and Research
+(BMBF), Verbundprojekt CONTAIN (13N16582).</p>
+<h3 id="availability">Availability</h3>
+<p>The artifact for this paper is available in the <em>Archive of Formal
+Proofs (AFP)</em> <span class="citation" data-cites="Go-AFP">[<a
+href="#ref-Go-AFP" role="doc-biblioref">5</a>]</span> and under the DOI
+<a href="https://doi.org/10.5281/zenodo.11608252"
+class="uri">https://doi.org/10.5281/zenodo.11608252</a>.</p>
+<h2 id="sec:go-syntax">Syntax of functional Go</h2>
+<p>Overlines (such as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>α</mi><mo accent="true">¯</mo></mover><annotation encoding="application/x-tex">\overline\alpha</annotation></semantics></math>)
+denote syntactic repetition.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Field name</td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Function name</td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Variable name</td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Structure type name</td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>t</mi><mi>S</mi></msub><annotation encoding="application/x-tex">t_S</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Interface type name</td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>t</mi><mi>I</mi></msub><annotation encoding="application/x-tex">t_I</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Type parameter</td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Type name</td>
+<td style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>::=</mo><msub><mi>t</mi><mi>S</mi></msub><mspace width="1.0em"></mspace><mo stretchy="false" form="prefix">|</mo><mspace width="1.0em"></mspace><msub><mi>t</mi><mi>I</mi></msub></mrow><annotation encoding="application/x-tex">t ::= t_S\quad |\quad t_I</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Type</td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo>,</mo><mi>γ</mi><mo>,</mo><mi>σ</mi><mo>::=</mo></mrow><annotation encoding="application/x-tex">\tau, \gamma, \sigma ::=</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Parameter</td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Structure Type</td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mi>S</mi></msub><mo minsize="1.2" maxsize="1.2" stretchy="false" form="prefix">[</mo><mover><mi>τ</mi><mo accent="true">¯</mo></mover><mo minsize="1.2" maxsize="1.2" stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">t_S\big[\overline{\tau}\big]</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Interface Type</td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mi>I</mi></msub><mo minsize="1.2" maxsize="1.2" stretchy="false" form="prefix">[</mo><mover><mi>τ</mi><mo accent="true">¯</mo></mover><mo minsize="1.2" maxsize="1.2" stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">t_I\big[\overline{\tau}\big]</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Function head</td>
+<td
+style="text-align: left;">
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>::=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mover><mrow><mi>x</mi><mspace width="0.278em"></mspace><mi>τ</mi></mrow><mo accent="true">¯</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mover><mi>τ</mi><mo accent="true">¯</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">F ::= (\overline{x\; \tau}) (\overline{\tau})</annotation></semantics></math>
+</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Type literal</td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>::=</mo></mrow><annotation encoding="application/x-tex">T ::=</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Structure</td>
+<td
+style="text-align: left;"><code>struct {<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mrow><mi>A</mi><mspace width="0.278em"></mspace><mi>τ</mi></mrow><mo accent="true">¯</mo></mover></semantics></math>}</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Interface</td>
+<td style="text-align: left;"><code>interface{}</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Interface constraint</td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo>::=</mo><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">c ::=\ </annotation></semantics></math><code>any</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Declaration</td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>::=</mo></mrow><annotation encoding="application/x-tex">D ::=</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Type declaration</td>
+<td
+style="text-align: left;"><code>type <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mrow><mo stretchy="true" form="prefix">[</mo><mover><mrow><mi>α</mi><mspace width="0.222em"></mspace><mi>c</mi></mrow><mo accent="true">¯</mo></mover><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">t[\overline{\alpha\ c}]</annotation></semantics></math> T</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Function declaration</td>
+<td
+style="text-align: left;"><code>func <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mrow><mo stretchy="true" form="prefix">[</mo><mover><mrow><mi>α</mi><mspace width="0.222em"></mspace><mi>c</mi></mrow><mo accent="true">¯</mo></mover><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">f[\overline{\alpha\ c}]</annotation></semantics></math> F { s }</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Expression</td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>,</mo><mi>e</mi><mo>::=</mo></mrow><annotation encoding="application/x-tex">d, e ::=</annotation></semantics></math></td>
+</tr>
+
+<tr class="odd">
+<td style="text-align: left;">Variable</td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Function call</td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mrow><mo stretchy="true" form="prefix">[</mo><mover><mi>α</mi><mo accent="true">¯</mo></mover><mo stretchy="true" form="postfix">]</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mover><mi>e</mi><mo accent="true">¯</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">f[\overline{\alpha}](\overline{e})</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Structure literal</td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mi>s</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><mover><mi>α</mi><mo accent="true">¯</mo></mover><mo stretchy="true" form="postfix">]</mo></mrow><mo stretchy="false" form="prefix">{</mo><mover><mi>e</mi><mo accent="true">¯</mo></mover><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">t_s[\overline{\alpha}]\{\overline{e}\}</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Function abstraction</td>
+<td style="text-align: left;"><code>func
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>
+<span>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>s</mi><annotation encoding="application/x-tex">s</annotation></semantics></math>
+</span></code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Field selection</td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mi>.</mi><mi>A</mi></mrow><annotation encoding="application/x-tex">e.A</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Type conversion</td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>τ</mi><mi>I</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>e</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\tau_I(e)</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Null pointer</td>
+<td style="text-align: left;"><code>nil</code></td>
+</tr>
+
+<tr class="even">
+<td style="text-align: left;">Statement</td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>::=</mo><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">s ::=\ </annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Expression</td>
+<td style="text-align: left;"><code>return <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>e</mi><mo accent="true">¯</mo></mover><annotation encoding="application/x-tex">\overline{e}</annotation></semantics></math></code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Variable declaration</td>
+<td style="text-align: left;"><code>x := e; s</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">if-Statement</td>
+<td style="text-align: left;"><code>if (e) { s }; s</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Type assertion</td>
+<td
+style="text-align: left;"><code>x, y := e.(τ); s</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="sec:rbtree">Example: Red-black trees</h2>
+<h3 id="isabelle-specification">Isabelle specification</h3>
+<p>First, let us consider a small subset of the definition of red-black
+trees in Isabelle/HOL. Isabelle’s syntax admits abbreviations that are
+expanded both on the left-hand and right-hand sides of defining
+equations, leading to a very compact definition of balancing.</p>
+<pre><code>datatype &#39;a tree =
+  Leaf |
+  Node (&#39;a tree) &#39;a (&#39;a tree)
+
+datatype color = Red | Black
+
+type_synonym &#39;a rbt = (&#39;a * color) tree
+
+abbreviation R where R l a r == Node l (a, Red) r
+abbreviation B where B l a r == Node l (a, Black) r
+
+fun baliL :: &#39;a rbt =&gt; &#39;a =&gt; &#39;a rbt =&gt; &#39;a rbt where
+baliL (R (R t1 a t2) b t3) c t4 = R (B t1 a t2) b (B t3 c t4) |
+baliL (R t1 a (R t2 b t3)) c t4 = R (B t1 a t2) b (B t3 c t4) |
+baliL t1 a t2 = B t1 a t2</code></pre>
+<h3 id="scala-translation-for-reference">Scala translation (for
+reference)</h3>
+<p>As a point of reference, consider the generated Scala code. Note that
+the data type definitions in Isabelle/HOL are rather compact. But hidden
+behind the scenes, HOL’s implementation of recursive functions will
+always expand pattern matching to disambiguate patterns. The advantage
+is that patterns are no longer sensitive about the order in which they
+are applied. The disadvantage however is that the number of patterns may
+explode, depending on their depth. This is well-documented behaviour and
+is independent of code generation <span class="citation"
+data-cites="krauss-fun">[<a href="#ref-krauss-fun"
+role="doc-biblioref">18</a>]</span>.</p>
+<pre data-basicstyle="\scriptsize\ttfamily"><code>object RbtTest {
+
+abstract sealed class color
+final case class Red() extends color
+final case class Black() extends color
+
+abstract sealed class tree[A]
+final case class Leaf[A]() extends tree[A]
+final case class Node[A](a: tree[A], b: A, c: tree[A]) extends tree[A]
+
+def baliL[A](x0: tree[(A, color)], c: A, t4: tree[(A, color)]): tree[(A, color)]
+  =
+  (x0, c, t4) match {
+  case (Node(Node(t1, (a, Red()), t2), (b, Red()), t3), c, t4) =&gt;
+    Node[(A, color)](Node[(A, color)](t1, (a, Black()), t2), (b, Red()),
+                      Node[(A, color)](t3, (c, Black()), t4))
+  case (Node(Leaf(), (a, Red()), Node(t2, (b, Red()), t3)), c, t4) =&gt;
+    Node[(A, color)](Node[(A, color)](Leaf[(A, color)](), (a, Black()), t2),
+                      (b, Red()), Node[(A, color)](t3, (c, Black()), t4))
+  case (Node(Node(v, (vc, Black()), vb), (a, Red()), Node(t2, (b, Red()), t3)),
+         c, t4)
+    =&gt; Node[(A, color)](Node[(A, color)](Node[(A, color)](v, (vc, Black()), vb),
+  (a, Black()), t2),
+                         (b, Red()), Node[(A, color)](t3, (c, Black()), t4))
+  case (Leaf(), a, t2) =&gt; Node[(A, color)](Leaf[(A, color)](), (a, Black()), t2)
+  case (Node(Leaf(), (v, Black()), vb), a, t2) =&gt;
+    Node[(A, color)](Node[(A, color)](Leaf[(A, color)](), (v, Black()), vb),
+                      (a, Black()), t2)
+  case (Node(Leaf(), va, Leaf()), a, t2) =&gt;
+    Node[(A, color)](Node[(A, color)](Leaf[(A, color)](), va,
+                                       Leaf[(A, color)]()),
+                      (a, Black()), t2)
+  case (Node(Leaf(), va, Node(v, (ve, Black()), vd)), a, t2) =&gt;
+    Node[(A, color)](Node[(A, color)](Leaf[(A, color)](), va,
+                                       Node[(A, color)](v, (ve, Black()), vd)),
+                      (a, Black()), t2)
+  case (Node(Node(vc, (vf, Black()), ve), (v, Black()), vb), a, t2) =&gt;
+    Node[(A, color)](Node[(A, color)](Node[(A, color)](vc, (vf, Black()), ve),
+                                       (v, Black()), vb),
+                      (a, Black()), t2)
+  case (Node(Node(vc, (vf, Black()), ve), va, Leaf()), a, t2) =&gt;
+    Node[(A, color)](Node[(A, color)](Node[(A, color)](vc, (vf, Black()), ve),
+                                       va, Leaf[(A, color)]()),
+                      (a, Black()), t2)
+  case (Node(Node(vc, (vf, Black()), ve), va, Node(v, (vh, Black()), vg)), a,
+         t2)
+    =&gt; Node[(A, color)](Node[(A, color)](Node[(A,
+        color)](vc, (vf, Black()), ve),
+  va, Node[(A, color)](v, (vh, Black()), vg)),
+                         (a, Black()), t2)
+  case (Node(v, (vc, Black()), vb), a, t2) =&gt;
+    Node[(A, color)](Node[(A, color)](v, (vc, Black()), vb), (a, Black()), t2)
+}
+
+}</code></pre>
+<h3 id="go-translation">Go translation</h3>
+<p>The generated Go code has roughly four times the size as the
+reference Scala code. This is explained by the constant overhead in the
+data type definitions, as well as the overhead for encoding pattern
+matching.</p>
+<pre><code>package RbtTest
+
+import (
+)
+
+// sum type which can be Red, Black
+type Color any;
+type Red struct { };
+type Black struct { };
+
+
+
+// sum type which can be Leaf, Node
+type Tree[a any] any;
+type Leaf[a any] struct { };
+type Node[a any] struct { A Tree[a]; Aa a; Ab Tree[a]; };
+
+func Node_dest[a any](p Node[a])(Tree[a], a, Tree[a]) {
+  return p.A, p.Aa, p.Ab
+}
+
+type Prod[a, b any] struct { A a; Aa b; };
+func Pair_dest[a, b any](p Prod[a, b])(a, b) {
+  return  p.A, p.Aa;
+}
+
+func BaliL[a any] (x0 Tree[Prod[a, Color]], c a, t4 Tree[Prod[a, Color]]) Tree[Prod[a, Color]] {
+  {
+    q, m := x0.(Node[Prod[a, Color]]);
+    if m {
+      q, p, t3a := Node_dest(q);
+      r, m := q.(Node[Prod[a, Color]]);
+      if m {
+        t1a, r, t2a := Node_dest(r);
+        _ = r;
+        ab, d := Pair_dest(r);
+        if d == (Color(Red{})) {
+          _ = p;
+          ba, e := Pair_dest(p);
+          if e == (Color(Red{})) {
+            cb := c;
+            t4b := t4;
+            return Tree[Prod[a, Color]](Node[Prod[a, Color]]{Tree[Prod[a, Color]](Node[Prod[a, Color]]{t1a, Prod[a, Color]{ab, Color(Black{})}, t2a}), Prod[a, Color]{ba, Color(Red{})}, Tree[Prod[a, Color]](Node[Prod[a, Color]]{t3a, Prod[a, Color]{cb, Color(Black{})}, t4b})});
+          }
+        }
+      }
+    }
+  };
+  {
+    q, m := x0.(Node[Prod[a, Color]]);
+    if m {
+      d, q, p := Node_dest(q);
+      if d == (Tree[Prod[a, Color]](Leaf[Prod[a, Color]]{})) {
+        _ = q;
+        ab, e := Pair_dest(q);
+        if e == (Color(Red{})) {
+          r, m := p.(Node[Prod[a, Color]]);
+          if m {
+            t2a, r, t3a := Node_dest(r);
+            _ = r;
+            ba, f := Pair_dest(r);
+            if f == (Color(Red{})) {
+              cb := c;
+              t4b := t4;
+              return Tree[Prod[a, Color]](Node[Prod[a, Color]]{Tree[Prod[a, Color]](Node[Prod[a, Color]]{Tree[Prod[a, Color]](Leaf[Prod[a, Color]]{}), Prod[a, Color]{ab, Color(Black{})}, t2a}), Prod[a, Color]{ba, Color(Red{})}, Tree[Prod[a, Color]](Node[Prod[a, Color]]{t3a, Prod[a, Color]{cb, Color(Black{})}, t4b})});
+            }
+          }
+        }
+      }
+    }
+  };
+  {
+    q, m := x0.(Node[Prod[a, Color]]);
+    if m {
+      r, q, p := Node_dest(q);
+      s, m := r.(Node[Prod[a, Color]]);
+      if m {
+        va, s, vba := Node_dest(s);
+        _ = s;
+        vca, d := Pair_dest(s);
+        if d == (Color(Black{})) {
+          _ = q;
+          ab, e := Pair_dest(q);
+          if e == (Color(Red{})) {
+            t, m := p.(Node[Prod[a, Color]]);
+            if m {
+              t2a, t, t3a := Node_dest(t);
+              _ = t;
+              ba, f := Pair_dest(t);
+              if f == (Color(Red{})) {
+                cb := c;
+                t4b := t4;
+                return Tree[Prod[a, Color]](Node[Prod[a, Color]]{Tree[Prod[a, Color]](Node[Prod[a, Color]]{Tree[Prod[a, Color]](Node[Prod[a, Color]]{va, Prod[a, Color]{vca, Color(Black{})}, vba}), Prod[a, Color]{ab, Color(Black{})}, t2a}), Prod[a, Color]{ba, Color(Red{})}, Tree[Prod[a, Color]](Node[Prod[a, Color]]{t3a, Prod[a, Color]{cb, Color(Black{})}, t4b})});
+              }
+            }
+          }
+        }
+      }
+    }
+  };
+  {
+    if x0 == (Tree[Prod[a, Color]](Leaf[Prod[a, Color]]{})) {
+      ab := c;
+      t2a := t4;
+      return Tree[Prod[a, Color]](Node[Prod[a, Color]]{Tree[Prod[a, Color]](Leaf[Prod[a, Color]]{}), Prod[a, Color]{ab, Color(Black{})}, t2a});
+    }
+  };
+  {
+    q, m := x0.(Node[Prod[a, Color]]);
+    if m {
+      d, p, vba := Node_dest(q);
+      if d == (Tree[Prod[a, Color]](Leaf[Prod[a, Color]]{})) {
+        _ = p;
+        va, e := Pair_dest(p);
+        if e == (Color(Black{})) {
+          ab := c;
+          t2a := t4;
+          return Tree[Prod[a, Color]](Node[Prod[a, Color]]{Tree[Prod[a, Color]](Node[Prod[a, Color]]{Tree[Prod[a, Color]](Leaf[Prod[a, Color]]{}), Prod[a, Color]{va, Color(Black{})}, vba}), Prod[a, Color]{ab, Color(Black{})}, t2a});
+        }
+      }
+    }
+  };
+  {
+    q, m := x0.(Node[Prod[a, Color]]);
+    if m {
+      e, vaa, d := Node_dest(q);
+      if e == (Tree[Prod[a, Color]](Leaf[Prod[a, Color]]{})) && d == (Tree[Prod[a, Color]](Leaf[Prod[a, Color]]{})) {
+        ab := c;
+        t2a := t4;
+        return Tree[Prod[a, Color]](Node[Prod[a, Color]]{Tree[Prod[a, Color]](Node[Prod[a, Color]]{Tree[Prod[a, Color]](Leaf[Prod[a, Color]]{}), vaa, Tree[Prod[a, Color]](Leaf[Prod[a, Color]]{})}), Prod[a, Color]{ab, Color(Black{})}, t2a});
+      }
+    }
+  };
+  {
+    q, m := x0.(Node[Prod[a, Color]]);
+    if m {
+      d, vaa, p := Node_dest(q);
+      if d == (Tree[Prod[a, Color]](Leaf[Prod[a, Color]]{})) {
+        q, m := p.(Node[Prod[a, Color]]);
+        if m {
+          vb, q, vda := Node_dest(q);
+          _ = q;
+          vea, e := Pair_dest(q);
+          if e == (Color(Black{})) {
+            ab := c;
+            t2a := t4;
+            return Tree[Prod[a, Color]](Node[Prod[a, Color]]{Tree[Prod[a, Color]](Node[Prod[a, Color]]{Tree[Prod[a, Color]](Leaf[Prod[a, Color]]{}), vaa, Tree[Prod[a, Color]](Node[Prod[a, Color]]{vb, Prod[a, Color]{vea, Color(Black{})}, vda})}), Prod[a, Color]{ab, Color(Black{})}, t2a});
+          }
+        }
+      }
+    }
+  };
+  {
+    q, m := x0.(Node[Prod[a, Color]]);
+    if m {
+      q, p, vba := Node_dest(q);
+      r, m := q.(Node[Prod[a, Color]]);
+      if m {
+        vca, r, vea := Node_dest(r);
+        _ = r;
+        vfa, d := Pair_dest(r);
+        if d == (Color(Black{})) {
+          _ = p;
+          va, e := Pair_dest(p);
+          if e == (Color(Black{})) {
+            ab := c;
+            t2a := t4;
+            return Tree[Prod[a, Color]](Node[Prod[a, Color]]{Tree[Prod[a, Color]](Node[Prod[a, Color]]{Tree[Prod[a, Color]](Node[Prod[a, Color]]{vca, Prod[a, Color]{vfa, Color(Black{})}, vea}), Prod[a, Color]{va, Color(Black{})}, vba}), Prod[a, Color]{ab, Color(Black{})}, t2a});
+          }
+        }
+      }
+    }
+  };
+  {
+    q, m := x0.(Node[Prod[a, Color]]);
+    if m {
+      p, vaa, d := Node_dest(q);
+      if d == (Tree[Prod[a, Color]](Leaf[Prod[a, Color]]{})) {
+        q, m := p.(Node[Prod[a, Color]]);
+        if m {
+          vca, q, vea := Node_dest(q);
+          _ = q;
+          vfa, e := Pair_dest(q);
+          if e == (Color(Black{})) {
+            ab := c;
+            t2a := t4;
+            return Tree[Prod[a, Color]](Node[Prod[a, Color]]{Tree[Prod[a, Color]](Node[Prod[a, Color]]{Tree[Prod[a, Color]](Node[Prod[a, Color]]{vca, Prod[a, Color]{vfa, Color(Black{})}, vea}), vaa, Tree[Prod[a, Color]](Leaf[Prod[a, Color]]{})}), Prod[a, Color]{ab, Color(Black{})}, t2a});
+          }
+        }
+      }
+    }
+  };
+  {
+    q, m := x0.(Node[Prod[a, Color]]);
+    if m {
+      q, vaa, p := Node_dest(q);
+      r, m := q.(Node[Prod[a, Color]]);
+      if m {
+        vca, r, vea := Node_dest(r);
+        _ = r;
+        vfa, d := Pair_dest(r);
+        if d == (Color(Black{})) {
+          s, m := p.(Node[Prod[a, Color]]);
+          if m {
+            vb, s, vga := Node_dest(s);
+            _ = s;
+            vha, e := Pair_dest(s);
+            if e == (Color(Black{})) {
+              ab := c;
+              t2a := t4;
+              return Tree[Prod[a, Color]](Node[Prod[a, Color]]{Tree[Prod[a, Color]](Node[Prod[a, Color]]{Tree[Prod[a, Color]](Node[Prod[a, Color]]{vca, Prod[a, Color]{vfa, Color(Black{})}, vea}), vaa, Tree[Prod[a, Color]](Node[Prod[a, Color]]{vb, Prod[a, Color]{vha, Color(Black{})}, vga})}), Prod[a, Color]{ab, Color(Black{})}, t2a});
+            }
+          }
+        }
+      }
+    }
+  };
+  {
+    q, m := x0.(Node[Prod[a, Color]]);
+    if m {
+      va, p, vba := Node_dest(q);
+      _ = p;
+      vca, d := Pair_dest(p);
+      if d == (Color(Black{})) {
+        ab := c;
+        t2a := t4;
+        return Tree[Prod[a, Color]](Node[Prod[a, Color]]{Tree[Prod[a, Color]](Node[Prod[a, Color]]{va, Prod[a, Color]{vca, Color(Black{})}, vba}), Prod[a, Color]{ab, Color(Black{})}, t2a});
+      }
+    }
+  };
+  panic("match failed");
+}</code></pre>
+
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0"
+role="list">
+<div id="ref-concrete-semantics" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div
+class="csl-right-inline">Nipkow, T., Klein, G.: <a
+href="http://concrete-semantics.org"><span class="nocase">Concrete
+semantics with Isabelle/HOL</span></a>. Springer (2014).</div>
+</div>
+<div id="ref-haftmann-phd" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div
+class="csl-right-inline">Haftmann, F.: Code generation from
+specifications in higher-order logic, (2009).</div>
+</div>
+<div id="ref-haftmann-nipkow" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div
+class="csl-right-inline">Haftmann, F., Nipkow, T.: Code generation via
+higher-order rewrite systems. In: Functional and logic programming: 10th
+international symposium, FLOPS 2010, sendai, japan, april 19-21, 2010.
+Proceedings 10. pp. 103–117. Springer (2010). https://doi.org/<a
+href="https://doi.org/10.1007/978-3-642-12251-4_9">10.1007/978-3-642-12251-4_9</a>.</div>
+</div>
+<div id="ref-gospec" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">Go
+Team: <span>The Go Programming Language Specification</span>, <a
+href="https://go.dev/ref/spec">https://go.dev/ref/spec</a>,
+(2022).</div>
+</div>
+<div id="ref-Go-AFP" class="csl-entry" role="listitem">
+<div class="csl-left-margin">5. </div><div
+class="csl-right-inline">Stübinger, T., Hupel, L.: <span
+class="nocase">Go Code Generation for Isabelle</span>. Archive of Formal
+Proofs. (2024).</div>
+</div>
+<div id="ref-imperative-hol" class="csl-entry" role="listitem">
+<div class="csl-left-margin">6. </div><div
+class="csl-right-inline">Bulwahn, L., Krauss, A., Haftmann, F., Erkök,
+L., Matthews, J.: <span class="nocase">Imperative functional programming
+with Isabelle/HOL</span>. In: Theorem proving in higher order logics:
+21st international conference, TPHOLs 2008, montreal, canada, august
+18-21, 2008. Proceedings 21. pp. 134–149. Springer (2008).
+https://doi.org/<a
+href="https://doi.org/10.1007/978-3-540-71067-7_14">10.1007/978-3-540-71067-7_14</a>.</div>
+</div>
+<div id="ref-brucker-fsharp" class="csl-entry" role="listitem">
+<div class="csl-left-margin">7. </div><div
+class="csl-right-inline">Brucker, A.D.: <span>New Code Generator Target:
+F#</span>, <a
+href="https://mailman46.in.tum.de/pipermail/isabelle-dev/2022-August/017633.html">https://mailman46.in.tum.de/pipermail/isabelle-dev/2022-August/017633.html</a>,
+(2022).</div>
+</div>
+<div id="ref-protzenko-fstar" class="csl-entry" role="listitem">
+<div class="csl-left-margin">8. </div><div
+class="csl-right-inline">Protzenko, J., Zinzindohoué, J.-K., Rastogi,
+A., Ramananandro, T., Wang, P., Zanella-Béguelin, S., Delignat-Lavaud,
+A., Hriţcu, C., Bhargavan, K., Fournet, C., Swamy, N.: <span
+class="nocase">Verified low-level programming embedded in F*</span>.
+Proc. ACM Program. Lang. 1, (2017). https://doi.org/<a
+href="https://doi.org/10.1145/3110261">10.1145/3110261</a>.</div>
+</div>
+<div id="ref-Simpl-AFP" class="csl-entry" role="listitem">
+<div class="csl-left-margin">9. </div><div
+class="csl-right-inline">Schirmer, N.: <span class="nocase">A Sequential
+Imperative Programming Language Syntax, Semantics, Hoare Logics and
+Verification Environment</span>. Archive of Formal Proofs. (2008).</div>
+</div>
+<div id="ref-rieu" class="csl-entry" role="listitem">
+<div class="csl-left-margin">10. </div><div
+class="csl-right-inline">Rieu, R.: <span class="nocase">Development and
+verification of arbitrary-precision integer arithmetic libraries</span>,
+<a
+href="https://theses.hal.science/tel-03032942">https://theses.hal.science/tel-03032942</a>,
+(2020).</div>
+</div>
+<div id="ref-haftmann-classes" class="csl-entry" role="listitem">
+<div class="csl-left-margin">11. </div><div
+class="csl-right-inline">Haftmann, F., Wenzel, M.: <span
+class="nocase">Constructive Type Classes in Isabelle</span>. In:
+Altenkirch, T. and McBride, C. (eds.) Types for proofs and programs. pp.
+160–174. Springer Berlin Heidelberg, Berlin, Heidelberg (2007).
+https://doi.org/<a
+href="https://doi.org/10.1007/978-3-540-74464-1_11">10.1007/978-3-540-74464-1_11</a>.</div>
+</div>
+<div id="ref-jones2003haskell" class="csl-entry" role="listitem">
+<div class="csl-left-margin">12. </div><div
+class="csl-right-inline">Jones, S.P.: Haskell 98 language and libraries:
+The revised report. Cambridge University Press (2003).</div>
+</div>
+<div id="ref-nipkow-hrs" class="csl-entry" role="listitem">
+<div class="csl-left-margin">13. </div><div
+class="csl-right-inline">Nipkow, T.: Higher-order rewrite systems. In:
+Hsiang, J. (ed.) Rewriting techniques and applications. pp. 256–256.
+Springer Berlin Heidelberg, Berlin, Heidelberg (1995).
+https://doi.org/<a
+href="https://doi.org/10.1016/S0304-3975(97)00143-6">10.1016/S0304-3975(97)00143-6</a>.</div>
+</div>
+<div id="ref-mayr-hrs" class="csl-entry" role="listitem">
+<div class="csl-left-margin">14. </div><div
+class="csl-right-inline">Mayr, R., Nipkow, T.: Higher-order rewrite
+systems and their confluence. Theoretical Computer Science. 192, 3–29
+(1998). https://doi.org/<a
+href="https://doi.org/10.1016/S0304-3975(97)00143-6">10.1016/S0304-3975(97)00143-6</a>.</div>
+</div>
+<div id="ref-featherweight-go" class="csl-entry" role="listitem">
+<div class="csl-left-margin">15. </div><div
+class="csl-right-inline">Griesemer, R., Hu, R., Kokke, W., Lange, J.,
+Taylor, I.L., Toninho, B., Wadler, P., Yoshida, N.: <span>Featherweight
+Go</span>. Proc. ACM Program. Lang. 4, (2020). https://doi.org/<a
+href="https://doi.org/10.1145/3428217">10.1145/3428217</a>.</div>
+</div>
+<div id="ref-hupel-dicts" class="csl-entry" role="listitem">
+<div class="csl-left-margin">16. </div><div
+class="csl-right-inline">Hupel, L.: <span class="nocase">Certifying
+Dictionary Construction in Isabelle/HOL</span>. Fundamenta Informaticae.
+170, 177–205 (2019). https://doi.org/<a
+href="https://doi.org/10.3233/FI-2019-1859">10.3233/FI-2019-1859</a>.</div>
+</div>
+<div id="ref-generic-go-to-go" class="csl-entry" role="listitem">
+<div class="csl-left-margin">17. </div><div
+class="csl-right-inline">Ellis, S., Zhu, S., Yoshida, N., Song, L.:
+Generic go to go: Dictionary-passing, monomorphisation, and hybrid.
+Proceedings of the ACM on Programming Languages. 6, 1207–1235 (2022).
+https://doi.org/<a
+href="https://doi.org/10.1145/3563331">10.1145/3563331</a>.</div>
+</div>
+<div id="ref-krauss-fun" class="csl-entry" role="listitem">
+<div class="csl-left-margin">18. </div><div
+class="csl-right-inline">Krauss, A.: Automating recursive definitions
+and termination proofs in higher-order logic, <a
+href="http://mediatum2.ub.tum.de/doc/681651/document.pdf">http://mediatum2.ub.tum.de/doc/681651/document.pdf</a>,
+(2009).</div>
+</div>
+</div>
+<aside id="footnotes" class="footnotes footnotes-end-of-document">
+<hr />
+<ol>
+<li id="fn1"><p>The already-existing Scala target uses a similar
+transformation.<a href="#fnref1" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</aside>
