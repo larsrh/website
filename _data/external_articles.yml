@@ -474,6 +474,18 @@
   abstract: "Bis Weihnachten beantwortet täglich eine Person die Frage „Was ist eine gute Software Architektur“? Folge 13: Lars Hupel"
   url: "https://www.youtube.com/shorts/K1bAC5x9xic"
   lang: de
+- date: 2024-02-06
+  title: "Secure wallets for CBDC: how do they work?"
+  journal: "The Paypers"
+  abstract: "Everybody knows that to keep CBDC, you need a wallet. Those wallets can come in different shapes, be they physical devices, such as smartphones or smartcards, or virtual, i.e., managed by a financial institution. Wallets are used to perform transactions between users and at the point of sale. For a tool so crucial, little thought is spent on how they can be secured. Many CBDC security requirements are focusing purely on the backend system, such as the ledger. Of course, the ledger is important too. But the user will interact with the ecosystem primarily through wallets. Let us take a look and understand how to build secure wallets."
+  url: "https://thepaypers.com/expert-opinion/secure-wallets-for-cbdc-how-do-they-work--1266622"
+  lang: en
+- date: 2024-03-13
+  title: "Why accounts do not solve double-spending"
+  journal: "The Paypers"
+  abstract: "Admittedly, this is a catchy title. In my previous article, I explained how secure CBDC wallets work, in particular, hardware wallets. One of their chief purposes is to prevent double-spending in offline situations. Now, I would like to focus on the technical details: what is double-spending, how it can be exploited, and how it can be prevented."
+  url: "https://thepaypers.com/expert-opinion/why-accounts-do-not-solve-double-spending--1267213"
+  lang: en
 - date: 2024-05-13
   title: "Spreading the word: meet the chief evangelist"
   journal: "G+D Spotlight"
