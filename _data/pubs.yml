@@ -377,6 +377,7 @@
     This entry contains a standalone code generation target for the Go programming language. Unlike the previous targets, Go is not a functional language and encourages code in an imperative style, thus many of the features of Isabelle's language (particularly data types, pattern matching, and type classes) have to be emulated using imperative language constructs in Go. To generate Go code, users can simply import this entry, which makes the Go target available.
 - title: "Extending Isabelle/HOL's Code Generator with support for the Go programming language"
   id: "go-codegen"
+  in: "Formal Methods (FM)"
   authors: ["terru", "lars"]
   year: 2024
   abstract: |
