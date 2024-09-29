@@ -208,7 +208,7 @@ With LLVM or native code, this is a bit more complicated. Normally, you would ha
 
 If Java code now calls a function from Rust, this is searched for in the loaded bitcode by name, because overloading isn’t possible in Rust. The reverse is not as simple. First, the GraalVM installation provides a C header file in which certain functions are declared that can be used to load Java classes, instantiate them, and select and call their methods. These C functions are implemented in GraalVM and are not present in the bitcode. During the execution of Rust code, they are converted into corresponding Java reflection calls. Known types like integer are converted automatically.
 
-[Typical code that can be used to create and manipulate Java objects](https://ruestigraben.dev/) can be seen below.
+Typical code that can be used to create and manipulate Java objects can be seen below.
 
 ```rust
 unsafe {

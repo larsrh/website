@@ -33,7 +33,7 @@ conferences:
   - conference: "Karlsruher Entwicklertag"
     date: 2022-05-17
     location: Karlsruhe, Deutschland
-    link: "https://www.entwicklertag.de/karlsruhe/2022/conference_day.html"
+    link: "https://www.entwicklertag.de/archiv/2022/karlsruhe/2022/conference_day.html"
     slides: "https://speakerdeck.com/larsrh/was-ist-neu-in-scala-3"
   - conference: "Developer Week"
     date: 2022-07-05

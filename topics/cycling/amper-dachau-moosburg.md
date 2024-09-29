@@ -17,7 +17,7 @@ abstract: |
 Im Gegensatz zum [vorherigen Segment]({% link topics/cycling/amper-ffb-dachau.md %}) bin ich den letzten Teil des Ammer-Amper-Radweg _(AAR)_ flussabwärts geradelt, so dass nur sehr wenig Steigung zu schaffen ist.
 Die reine Strecke ist knapp über 60 km lang; dies ist gut zu schaffen, wenn man mit der Regionalbahn von oder nach Dachau oder Moosburg fährt.
 
-Der gesamte Verlauf des Ammer-Amper-Radwegs ist [auf OpenStreetMap](https://www.openstreetmap.org/relation/133148) oder [der eigens eingerichteten Webseite](https://ammer-amper-radweg.com/) zu finden.
+Der gesamte Verlauf des Ammer-Amper-Radwegs ist [auf OpenStreetMap](https://www.openstreetmap.org/relation/133148) oder [der eigens eingerichteten Webseite](https://www.tourismus-dachauer-land.de/ammer-amper-radweg/) zu finden.
 
 Wie viele andere Teile des AAR ist der Streckenverlauf oft nicht in der Nähe des Flusslaufes.
 Deswegen möchte ich hier kurz auf mein persönliches Highlight eingehen, welches sich erst hinter dem „offiziellen“ Ende des Radwegs nach Moosburg befindet.

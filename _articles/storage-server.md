@@ -217,7 +217,7 @@ In particular, the system drive was still the original one (ca. 2013).[^hdd]
 
 Because the current (2021) offerings of HP weren't quit up to my taste, I looked around.
 The additional complication was that bulk parts are still hard to get because of supplys shortages.
-I chose to go with a [built-on-demand](https://www.servershop-bayern.de/ecsus-Cube-UP-Xeon-Coffee-Lake-4-Bay-Server-ZFS-ready) server with a similar (cube) form factor.
+I chose to go with a built-on-demand server with a similar (cube) form factor.
 It has an Intel i3-9300 CPU (quad core, 3.7 GHz), 8 GB of RAM and an NVMe SSD.
 
 Naturally, the benchmarks for disk encryption look a lot better:
@@ -242,9 +242,8 @@ What's nice about that machine is that it has an embedded IPMI server.
 Setting it up was a breeze.
 
 Funnily enough, the old N54L still sold for about half the retail price:
-
-{% include quote.html url="https://twitter.com/larsr_h/status/1411689557549096963" author="Lars" text="Almost a decade after I bought it, I sold an HP ProLiant N54L (then: 190 €) for 90 €. Has been used continuously without downtime. No idea why they are still in such high demand 🤔" %}
-
+Almost a decade after I bought it (at 190 €), I sold it for 90 €.
+No idea why they are still in such high demand.
 
 [^duplicati]: Do not construe this as a recommendation of Duplicati. Research backup software yourself.
 [^hdd]: As opposed to the data drives, which I routinely swap out on a rolling schedule, approximately every five years, or earlier if S.M.A.R.T. indicates issues.

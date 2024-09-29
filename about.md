@@ -27,7 +27,7 @@ Email is much preferred. Unless it's urgent, avoid calling me (I prefer async co
 
 {% include quote.html url="https://twitter.com/astahfrom" author="Asta" text="Can confirm Lars doesn't bite." %}
 
-Inspired by [Patrick McKenzie](http://www.kalzumeus.com/standing-invitation/).
+Inspired by [Patrick McKenzie](https://www.kalzumeus.com/standing-invitation/).
 
 ## Credits
 

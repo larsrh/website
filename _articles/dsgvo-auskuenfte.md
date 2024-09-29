@@ -173,7 +173,7 @@ Ob es sich lohnt, mit dem _Information Commissioner's Office_ in Verbindung zu s
 
 Abschließend sei noch zu diesem Firmengeflecht gesagt, dass ich über nur wenige Zwischenstationen auf die Münchner Firma _Companea GmbH & Co. KG_ gestoßen bin.
 Nach eigenen Angaben wird man dort unter dem Markennamen _Limited24_ zu „Auslandsfirmen, die in Deutschland rechtsfähig sind“ beraten.
-Ein schwacher Trost, dass [der Brexit diesem Geschäftsmodell in die Suppe gespuckt hat](https://www.lto.de/recht/kanzleien-unternehmen/k/olg-muenchen-urteil-parteifaehigkeit-limited-brexit-gesellschaftsrecht-haftung-sitztheorie-niederlassungsfreiheit-1/).
+Ein schwacher Trost, dass [der Brexit diesem Geschäftsmodell in die Suppe gespuckt hat](https://web.archive.org/web/20240613195900/https://www.lto.de/recht/kanzleien-unternehmen/k/olg-muenchen-urteil-parteifaehigkeit-limited-brexit-gesellschaftsrecht-haftung-sitztheorie-niederlassungsfreiheit-1/).
 Die Verbindung mit Phnom Penh bleibt mir allerdings weiterhin rätselhaft.
 
 Die niedersächsischen Behörden sehen übrigens – trotz Zuständigkeit für b2c Performance mit Sitz in Buxtehude – keinen Grund zur Veranlassung:

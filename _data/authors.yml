@@ -11,7 +11,7 @@ max:
   orcid: "0000-0002-9900-5746"
 peter:
   name: "Peter Lammich"
-  link: "http://www21.in.tum.de/~lammich/"
+  link: "https://www21.in.tum.de/~lammich/"
   orcid: "0000-0003-3576-0504"
 cornelius:
   name: "Cornelius Diekmann"
@@ -23,13 +23,13 @@ tobias:
   orcid: "0000-0003-0730-515X"
 jasmin:
   name: "Jasmin Christian Blanchette"
-  link: "http://www.cs.vu.nl/~jbe248/"
+  link: "https://www.tcs.ifi.lmu.de/mitarbeiter/jasmin-blanchette_de.html"
   orcid: "0000-0002-8367-0936"
 lars-n:
   name: "Lars Noschinski"
 dmitriy:
   name: "Dmitriy Traytel"
-  link: "http://people.inf.ethz.ch/trayteld/"
+  link: "https://people.inf.ethz.ch/trayteld/"
   orcid: "0000-0001-7982-2768"
 carle:
   name: "Georg Carle"
