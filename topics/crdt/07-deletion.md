@@ -5,7 +5,7 @@ toc: false
 
 ## What's happening in this episode?
 
-In the [previous episode](../06-time), I've spent quite a bit of time on notions of time in distributed systems.
+In the [previous episode]({% link topics/crdt/06-time.md %}), I've spent quite a bit of time on notions of time in distributed systems.
 While we didn't learn any new CRDTs, we learned some concepts that are important to understand updates and deletion in CRDTs.
 The basic problem is how to resolve conflicts that arise by two users concurrently updating the same piece of information.
 G-Sets and 2P-Sets solve this problem by forbidding a large class of possible operations:
@@ -182,7 +182,7 @@ This can be lifted into a map where addition and deletion are equal operations.
 But I promised you in the introduction that there is another possibility.
 The _Multi-Value Register_ (_MV-Register_) does not assume the presence of an ordered clock across all nodes.
 Instead, it relies on a _vector clock_.
-Initially, I wanted to introduce those in the [previous episode](../06-time), but it was already too long.
+Initially, I wanted to introduce those in the [previous episode]({% link topics/crdt/06-time.md %}), but it was already too long.
 So, let's talk about it here.
 
 The basic principle of a vector clock is the same as for a Lamport clock.

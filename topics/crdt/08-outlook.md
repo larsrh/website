@@ -5,13 +5,13 @@ toc: false
 
 Congrats!
 You've made it through an "introduction" of epic proportions.[^footnote-words]
-As promised in the [previous episode](../07-deletion), I'd like to briefly touch on some topics that I've ignored so far.
+As promised in the [previous episode]({% link topics/crdt/07-deletion.md %}), I'd like to briefly touch on some topics that I've ignored so far.
 This episode has no narrative, so feel free to read any section that piques your interest.
 
 ## Two kinds of CRDTs
 
 The entire series dealt with state-based CRDTs, or CvRDTs.
-Their definition is given in [episode #4](../04-combinators).
+Their definition is given in [episode #4]({% link topics/crdt/04-combinators.md %}).
 They are simple and elegant because you can merge any two values (of the same data type, of course) and obtain a well-defined result.
 Their requirements to the communication channel are simple:
 to achieve convergence, you need messages to be delivered every once in a while.
