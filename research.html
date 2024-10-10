@@ -48,10 +48,10 @@ Papers marked with <span class="pub-html"></span> have an <a href="{% link _arti
         {% endif %}
         {% if pub.entry or pub.no_pdf %}
         {% else %}
-          <li><a href="/pub/{{ pub.id }}.pdf">PDF</a></li>
+          <li><a href="{% link {{ pdf_link }} %}">PDF</a></li>
         {% endif %}
         {% if pub.bib != false %}
-          <li><a href="/bib/{{ pub.id }}.bib">BibTeX</a></li>
+          <li><a href="{% link /bib/{{ pub.id }}.bib %}">BibTeX</a></li>
         {% endif %}
         {% if pub.doi %}
           <li><a href="https://doi.org/{{ pub.doi }}">DOI</a></li>

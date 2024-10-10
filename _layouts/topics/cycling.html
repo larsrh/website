@@ -46,7 +46,7 @@ layout: article
 
   <ul>
     {% for file in page.gpx %}
-      <li><a href="/topics/cycling/{{ file }}.gpx">{{ file }}.gpx</a></li>
+      <li><a href="{% link topics/cycling/{{ file }}.gpx %}">{{ file }}.gpx</a></li>
     {% endfor %}
   </ul>
 {% endif %}

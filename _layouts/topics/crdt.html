@@ -13,16 +13,16 @@ Andrea, Clement Delafargue, Heiko Seeberger, Hillel Wayne, Johannes Link, Matthe
 
 <script src="{% link assets/codemirror.js %}"></script>
 <script src="{% link assets/codemirror-js.js %}"></script>
-<script src="/js/html.js"></script>
+<script src="{% link js/html.js %}"></script>
 <script src="{% link assets/interactive.js %}"></script>
 
 <script>
   initInteractive([
-    "/js/html.js",
-    "/js/topics/crdt/fc.js",
-    "/js/topics/crdt/chai.js",
-    "/js/topics/crdt/deep-eql.js",
-    "/js/topics/crdt/fc-runner.js",
-    "/js/topics/crdt/all_lib.js"
+    "{% link js/html.js %}",
+    "{% link js/topics/crdt/fc.js %}",
+    "{% link js/topics/crdt/chai.js %}",
+    "{% link js/topics/crdt/deep-eql.js %}",
+    "{% link js/topics/crdt/fc-runner.js %}",
+    "{% link js/topics/crdt/all_lib.js %}"
   ]);
 </script>
