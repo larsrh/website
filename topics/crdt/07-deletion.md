@@ -193,7 +193,7 @@ When a message is sent, the sending node increases only its own clock, but inclu
 On the other side when a message is received, the receiving node again increments its own clock, and for everyone else's clock, it takes the maximum of the own vector and the received vector.
 
 <div>
-  <img src="{% asset topics/crdt/vector-clock.svg @path %}" alt="see text below for a description">
+  <img src="{% link assets/img/topics/crdt/vector-clock.svg %}" alt="see text below for a description">
 </div>
 
 In this diagram, we can again see three nodes _A_, _B_, and _C_ sending messages to each other.
@@ -209,7 +209,7 @@ Consequently, _A_ updates its clocks to _A_ = 3, _B_ = 3, and _C_ = 3.
 
 If this sounds familiar to you, that's because it is.
 You've seen that exact kind of thing before in this series: I'm talking about G-Counters.
-In [episode #4](../04-combinators), I've told you that they can be modeled as a set mapping replica names to the current value of the counter.
+In [episode #4]({% link topics/crdt/04-combinators.md %}), I've told you that they can be modeled as a set mapping replica names to the current value of the counter.
 The merge operation works by taking the maximum for each key–value pair in the map.
 Surely this means that we're onto something.
 

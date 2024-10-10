@@ -4,16 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="shortcut icon" type="image/x-icon" href="{% asset favicon.ico @path %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% link assets/favicon.ico %}">
 
     <link rel="alternate" type="application/atom+xml" href="{{ site.url }}/feed.xml">
 
-    <link rel="stylesheet" href="{% asset simpleLightbox.min.css @path %}">
-    <link rel="stylesheet" href="{% asset water.css @path %}">
-    <link rel="stylesheet" href="{% asset main.css @path %}">
+    <link rel="stylesheet" href="{% link assets/simpleLightbox.min.css %}">
+    <link rel="stylesheet" href="{% link assets/water.css %}">
+    <link rel="stylesheet" href="{% link assets/main.css %}">
 
     {% if page.highlight %}
-      <link rel="stylesheet" href="{% asset rouge.css @path %}">
+      <link rel="stylesheet" href="{% link assets/rouge.css %}">
     {% endif %}
 
     {% assign full_title = page.title %}
@@ -26,15 +26,15 @@
 
     <meta property="og:title" content="{{ full_title | escape }}">
     <meta property="og:locale" content="{% if page.lang %}{{ page.lang }}{% else %}en{% endif %}">
-    <meta property="og:image" content="{{ site.url }}{% asset profile.jpg @path %}">
-    <meta property="og:image:secure_url" content="{{ site.url }}{% asset profile.jpg @path %}">
+    <meta property="og:image" content="{{ site.url }}{% link assets/profile.jpg %}">
+    <meta property="og:image:secure_url" content="{{ site.url }}{% link assets/profile.jpg %}">
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
     <meta property="og:site_name" content="{{ site.title | escape }}">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@larsr_h">
     <meta name="twitter:creator" content="@larsr_h">
-    <meta name="twitter:image:src" content="{{ site.url }}{% asset profile.jpg @path %}">
+    <meta name="twitter:image:src" content="{{ site.url }}{% link assets/profile.jpg %}">
 
     {% for profile in site.data.profiles %}
       <link href="{{ profile.link }}" rel="me">
@@ -94,7 +94,7 @@
       <a href="/about/#impressum">Impressum</a>.
     </footer>
 
-    <script src="{% asset simpleLightbox.min.js @path %}"></script>
+    <script src="{% link assets/simpleLightbox.min.js %}"></script>
     <script>
       new SimpleLightbox({ elements: ".lightbox" });
     </script>

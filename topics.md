@@ -9,7 +9,7 @@ Here, you can find an overview of these “topics of interest”.
 
 ## [An introduction to Conflict-Free Replicated Data Types]({% link topics/crdt/01-intro.md %})
 
-<img src="{% asset 'topics/crdt/bigclock.jpg' @path %}" alt="">
+<img src="{% link assets/img/topics/crdt/bigclock.jpg %}" alt="">
 
 This is an interactive tutorial series about Conflict-Free Replicated Data Types, or CRDTs for short.
 It assumes no knowledge about CRDTs, but be prepared to learn a thing or two about algebras.

@@ -15,12 +15,6 @@ exclude:
   - ".pa11yci"
 encoding: "utf-8"
 
-assets:
-  source_maps: false
-  sources:
-    - "_assets"
-  digest: true
-
 collections:
   articles:
     output: true

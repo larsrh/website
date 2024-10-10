@@ -1,0 +1,60 @@
+main {
+  counter-reset: h2num fig;
+}
+
+main h2::before {
+  content: counter(h2num) ' ';
+  counter-increment: h2num;
+  color: var(--text-muted);
+}
+
+main h2 {
+  counter-reset: h3num;
+}
+
+main h3::before {
+  content: counter(h2num) '.' counter(h3num) ' ';
+  counter-increment: h3num;
+  color: var(--text-muted);
+}
+
+main h3 {
+  counter-reset: h4num;
+}
+
+main h4::before {
+  content: counter(h2num) '.' counter(h3num) '.' counter(h4num) ' ';
+  counter-increment: h4num;
+  color: var(--text-muted);
+}
+
+main figcaption::before {
+  content: 'Figure ' counter(fig) ': ';
+  counter-increment: fig;
+}
+
+div.csl-bib-body {
+  hyphens: none;
+  -webkit-hyphens: none;
+  font-size: var(--font-small);
+}
+
+/* CSS from pandoc */
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}

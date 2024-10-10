@@ -2,11 +2,11 @@
 layout: article
 ---
 
-<link rel="stylesheet" href="{% asset leaflet.css @path %}">
-<script src="{% asset leaflet.js @path %}"></script>
+<link rel="stylesheet" href="{% link assets/leaflet.css %}">
+<script src="{% link assets/leaflet.js %}"></script>
 
 {% if page.gpx %}
-  <script src="{% asset leaflet-gpx.js @path %}"></script>
+  <script src="{% link assets/leaflet-gpx.js %}"></script>
 {% endif %}
 
 {{ content }}

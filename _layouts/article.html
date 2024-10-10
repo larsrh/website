@@ -6,7 +6,7 @@ layout: root
 
 <header>
   {% if page.hero %}
-    <img class="hero" src="{% asset '{{ page.hero.src }}' @path %}" alt="{{ page.hero.alt }}" />
+    <img class="hero" src="{% link assets/{{ page.hero.src }} %}" alt="{{ page.hero.alt }}" />
   {% endif %}
 
   <hgroup>

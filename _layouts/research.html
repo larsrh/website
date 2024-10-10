@@ -2,7 +2,7 @@
 layout: root
 ---
 
-<link rel="stylesheet" href="{% asset research.css @path %}">
+<link rel="stylesheet" href="{% link assets/research.css %}">
 
 {% assign pub_id = page.name | split: "." | first %}
 {% assign pub_desc = site.data.pubs | find_exp: "item", "item.id == pub_id" %}

@@ -2,7 +2,7 @@
 layout: article
 ---
 
-<link rel="stylesheet" href="{% asset codemirror.css @path %}">
+<link rel="stylesheet" href="{% link assets/codemirror.css %}">
 
 {{ content }}
 
@@ -11,10 +11,10 @@ layout: article
 Thanks to the people who've read drafts of this series and provided valuable feedback:
 Andrea, Clement Delafargue, Heiko Seeberger, Hillel Wayne, Johannes Link, Matthew Weidner, Princess.
 
-<script src="{% asset codemirror.js @path %}"></script>
-<script src="{% asset codemirror-js.js @path %}"></script>
+<script src="{% link assets/codemirror.js %}"></script>
+<script src="{% link assets/codemirror-js.js %}"></script>
 <script src="/js/html.js"></script>
-<script src="{% asset interactive.js @path %}"></script>
+<script src="{% link assets/interactive.js %}"></script>
 
 <script>
   initInteractive([
