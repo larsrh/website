@@ -10,7 +10,7 @@ layout: default
 
 {% include video.html id=page.video.id site=page.video.site %}
 
-<link rel="stylesheet" href="{% asset slider.css @path %}">
+<link rel="stylesheet" href="{% link assets/slider.css %}">
 
 {% if page.lang == "de" %}
   <h2>Zusammenfassung</h2>
@@ -64,4 +64,4 @@ layout: default
 
 {{ content }}
 
-<script src="{% asset video.js @path %}"></script>
+<script src="{% link assets/video.js %}"></script>

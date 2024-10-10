@@ -2,11 +2,11 @@
 layout: article
 ---
 
-<link rel="stylesheet" href="{% asset leaflet.css @path %}">
-<script src="{% asset leaflet.js @path %}"></script>
+<link rel="stylesheet" href="{% link assets/leaflet.css %}">
+<script src="{% link assets/leaflet.js %}"></script>
 
 {% if page.gpx %}
-  <script src="{% asset leaflet-gpx.js @path %}"></script>
+  <script src="{% link assets/leaflet-gpx.js %}"></script>
 {% endif %}
 
 {{ content }}
@@ -46,7 +46,7 @@ layout: article
 
   <ul>
     {% for file in page.gpx %}
-      <li><a href="/topics/cycling/{{ file }}.gpx">{{ file }}.gpx</a></li>
+      <li><a href="{% link topics/cycling/{{ file }}.gpx %}">{{ file }}.gpx</a></li>
     {% endfor %}
   </ul>
 {% endif %}
