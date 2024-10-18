@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "pa11y-ci": "^3.1.0",
-    "vnu-jar": "^23.4.11"
+    "vnu-jar": "^24.10.17"
   },
   "type": "module"
 }
