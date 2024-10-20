@@ -26,13 +26,13 @@ layout: root
     {% endif %}
   {% endif %}
 
-  {% if page.date %}
+  {% if page contains "date" %}
     {% if page.lang == "de" %}
       Veröffentlicht am
     {% else %}
       Published on
     {% endif %}
-    {% include date.html date=page.date trailer="." %}
+    {% include date.html date=page.date %}
   {% endif %}
 
   {% if page.hero %}

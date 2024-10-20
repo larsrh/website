@@ -2,14 +2,14 @@
 <ul>
   {% for talk in talks %}
     <li>
-      {% if talk.title %}
+      {% if talk contains "title" %}
         {{ talk.title }},
       {% endif %}
       {{ talk.conference }},
-      {{ talk.location | default: "Online" }},
+      {{ talk.location }},
       {% include date.html date=talk.date %}
       <ul class="links">
-        {% if talk.recording %}
+        {% if talk contains "recording" %}
           <li>
             {% if page.lang == "de" %}
               <a href="{{ talk.recording }}">Aufzeichnung</a>
@@ -18,10 +18,10 @@
             {% endif %}
           </li>
         {% endif %}
-        {% if talk.slides %}
+        {% if talk contains "slides" %}
           <li><a href="{{ talk.slides }}">Slides</a></li>
         {% endif %}
-        {% if talk.link %}
+        {% if talk contains "link" %}
           <li><a href="{{ talk.link }}">Link</a></li>
         {% endif %}
       </ul>

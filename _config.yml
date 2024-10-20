@@ -27,9 +27,21 @@ collections:
     permalink: /:collection/:name/
 
 liquid:
+  error_mode: strict
   strict_filters: true
+  strict_variables: true
 
 defaults:
+  - scope:
+      path: ""
+    values:
+      subtitle:
+      extra_header:
+      toc: false
+      highlight: false
+      hero:
+      abstract:
+      lang: en
   - scope:
       path: ""
       type: articles
@@ -42,6 +54,8 @@ defaults:
     values:
       layout: talk
       highlight: true
+      slides:
+        width: 1280
   - scope:
       path: ""
       type: research
@@ -55,7 +69,6 @@ defaults:
       extra_header: topics/crdt/header.html
       permalink: /:path/:basename/
       toc: true
-      lang: en
       abstract: |
         This is an interactive tutorial series about Conflict-Free Replicated Data Types, or CRDTs for short.
         Their purpose is to allow seamless replication of data on different nodes in a distributed system.
@@ -71,6 +84,7 @@ defaults:
       layout: topics/cycling
       extra_header: topics/cycling/header.html
       permalink: /:path/:basename/
+      gpx:
       lang: de
   - scope:
       path: "topics/erasmus"

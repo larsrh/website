@@ -11,21 +11,24 @@ abstract: |
 slides:
   file: "slides"
   length: 39
-video: { id: "tkbtJM5LgBg" }
+video: { id: "tkbtJM5LgBg", site: "youtube" }
 conferences:
   - conference: "INNOQ Technology Lunch"
     link: "https://www.meetup.com/INNOQ-Technology-Lunch/events/285857259/"
     date: 2022-05-25
     slides: "https://speakerdeck.com/larsrh/hilfe-wir-syncen"
+    location: Online
     recording: "https://www.youtube.com/watch?v=afoMdKedHR4"
   - conference: "OOP"
     link: "https://www.oop-konferenz.de/oop-2022/programm/konferenzprogramm"
     date: 2022-02-01
     slides: "https://speakerdeck.com/larsrh/hilfe-wir-syncen"
+    location: Online
     recording: "https://www.youtube.com/watch?v=tkbtJM5LgBg"
   - conference: "INNOQ Technology Day"
     link: "https://technologyday.innoq.com/programm/hilfe-wir-syncen"
     date: 2021-12-01
+    location: Online
     slides: "https://speakerdeck.com/larsrh/hilfe-wir-syncen"
   - conference: "Digitale Leute Summit"
     link: "https://www.digitale-leute.de/summit/21/"

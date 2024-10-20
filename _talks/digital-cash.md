@@ -8,7 +8,7 @@ abstract: |
 slides:
   file: "slides"
   length: 35
-video: { id: "8csr0dOZWPY" }
+video: { id: "8csr0dOZWPY", site: "youtube" }
 conferences:
   - conference: "GOTO"
     date: 2023-06-28

@@ -13,17 +13,19 @@ abstract: |
 slides:
   file: "slides"
   length: 18
-video: { id: "ojTP3iCpmDE" }
+video: { id: "ojTP3iCpmDE", site: "youtube" }
 conferences:
   - conference: "INNOQ Technology Lunch"
     date: 2021-08-11
     link: "https://www.meetup.com/de-DE/INNOQ-Technology-Lunch/events/279730962/"
     slides: "https://speakerdeck.com/larsrh/was-ist-neu-in-scala-3"
+    location: Online
     recording: "https://www.youtube.com/watch?v=ojTP3iCpmDE"
   - conference: "IT-Tage"
     date: 2021-12-07
     link: "https://www.ittage.informatik-aktuell.de/programm/2021/neuigkeiten-in-scala-3.html"
     slides: "https://speakerdeck.com/larsrh/was-ist-neu-in-scala-3"
+    location: Online
     recording: "https://www.youtube.com/watch?v=m28wK8U2GUg"
   - conference: "JavaLand"
     date: 2022-03-15

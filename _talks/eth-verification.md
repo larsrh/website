@@ -10,7 +10,7 @@ abstract: |
 slides:
   file: "slides"
   length: 59
-video: { id: "MI-EnUq_yFA" }
+video: { id: "MI-EnUq_yFA", site: "youtube" }
 conferences:
   - conference: "Blockchain Technology Conference"
     location: Berlin, Deutschland
@@ -21,6 +21,7 @@ conferences:
     date: 2021-02-10
     link: "https://www.meetup.com/INNOQ-Technology-Lunch/events/276144224/"
     slides: "https://speakerdeck.com/larsrh/verification-of-smart-contracts-innoq-edition"
+    location: Online
     recording: "https://www.youtube.com/watch?v=MI-EnUq_yFA"
 
 ---

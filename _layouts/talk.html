@@ -33,17 +33,12 @@ layout: default
 <div class="slider" role="region" aria-label="Folien" tabindex="0">
   <ul class="slider__all">
     {% assign last = page.slides.length | plus: -1 %}
-    {% if page.slides.width %}
-      {% assign width = page.slides.width %}
-    {% else %}
-      {% assign width = 1280 %}
-    {% endif %}
     {% for i in (0..last) %}
       <li class="slider__slide">
         <picture class="slider__page">
           <source type="image/avif" srcset="https://lars-assets.b-cdn.net{{ page.id }}/{{ page.slides.file }}-{{ i }}.avif">
           <source type="image/webp" srcset="https://lars-assets.b-cdn.net{{ page.id }}/{{ page.slides.file }}-{{ i }}.webp">
-          <img src="https://lars-assets.b-cdn.net{{ page.id }}/{{ page.slides.file }}-{{ i }}.jpg" alt="{{ i | plus: 1 }}/{{ page.slides.length }}" title="{{ i | plus: 1 }}/{{ page.slides.length }}" width="{{ width }}" height="720" loading="lazy">
+          <img src="https://lars-assets.b-cdn.net{{ page.id }}/{{ page.slides.file }}-{{ i }}.jpg" alt="{{ i | plus: 1 }}/{{ page.slides.length }}" title="{{ i | plus: 1 }}/{{ page.slides.length }}" width="{{ page.slides.width }}" height="720" loading="lazy">
         </picture>
       </li>
     {% endfor %}

@@ -10,7 +10,7 @@ abstract: |
 slides:
   file: "slides"
   length: 31
-video: { id: "vs8BiA1h_vk" }
+video: { id: "vs8BiA1h_vk", site: "youtube" }
 conferences:
   - conference: "WeAreDevelopers World Congress"
     date: 2022-06-15
@@ -21,6 +21,7 @@ conferences:
   - conference: "INNOQ Technology Lunch"
     date: 2022-10-10
     link: "https://www.meetup.com/de-DE/innoq-technology-lunch/events/288943460/"
+    location: Online
     recording: "https://www.youtube.com/watch?v=vs8BiA1h_vk"
     slides: "https://speakerdeck.com/larsrh/advanced-typing-in-typescript"
 ---

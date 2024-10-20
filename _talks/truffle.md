@@ -10,7 +10,7 @@ abstract: |
 slides:
   file: "slides"
   length: 25
-video: { id: "ap6c_3wwYLs" }
+video: { id: "ap6c_3wwYLs", site: "youtube" }
 conferences:
   - conference: "JUG Ingolstadt"
     date: 2019-09-10
@@ -37,16 +37,19 @@ conferences:
   - conference: "CyberJUG"
     date: 2020-03-23
     link: "https://cyberjug.de/vortrag/truffleschwein/"
+    location: Online
     slides: "https://speakerdeck.com/larsrh/das-eierlegende-truffleschwein"
   - conference: "IT-Tage"
     date: 2021-01-21
     link: "https://www.ittage.informatik-aktuell.de/programm/365/jvm-sprachen-/-graalvm-/-truffle-das-eierlegende-truffleschwein.html"
     slides: "https://speakerdeck.com/larsrh/das-eierlegende-truffleschwein"
+    location: Online
     recording: "https://www.youtube.com/watch?v=oSLOp2uTsQ4"
   - conference: "DeafIT"
     date: 2021-03-12
     link: "https://www.deafit.org/konferenz/programm/"
     slides: "https://speakerdeck.com/larsrh/das-eierlegende-truffleschwein-deafit-edition"
+    location: Online
     recording: "https://www.youtube.com/watch?v=AzOQJfDUnV8"
 
 ---

@@ -58,7 +58,7 @@ conferences:
 
 ## Interview at J On The Beach
 
-{% include video.html id="Pd2eQSiCOjg" %}
+{% include video.html id="Pd2eQSiCOjg" site="youtube" %}
 
 ## Testimonials
 

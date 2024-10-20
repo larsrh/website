@@ -1,6 +1,6 @@
 <div class="pub-authors">
   {% for author in include.authors %}
     {% assign author_desc = site.data.authors[author] %}
-    <span class="pub-author">{% if author_desc.link %}<a href="{{ author_desc.link }}">{{ author_desc.name }}</a>{% else %}{{ author_desc.name }}{% endif %}{% if author_desc.orcid %} <a href="https://orcid.org/{{ author_desc.orcid }}"><img class="orcid" src="{% link assets/orcid.png %}" alt="ORCID"></a>{% endif %}</span>
+    <span class="pub-author">{% if author_desc contains "link" %}<a href="{{ author_desc.link }}">{{ author_desc.name }}</a>{% else %}{{ author_desc.name }}{% endif %}{% if author_desc contains "orcid" %} <a href="https://orcid.org/{{ author_desc.orcid }}"><img class="orcid" src="{% link assets/orcid.png %}" alt="ORCID"></a>{% endif %}</span>
   {% endfor %}
 </div>

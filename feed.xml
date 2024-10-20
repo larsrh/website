@@ -17,12 +17,12 @@
     <uri>{{ site.url }}</uri>
   </author>
 
-  {% assign pages = site.pages | where_exp: "item", "item.date" | concat: site.documents | concat: site.data.external_articles | sort: 'date' | reverse %}
+  {% assign pages = site.pages | where_exp: "item", "item contains 'date'" | concat: site.documents | concat: site.data.external_articles | sort: 'date' | reverse %}
 
   {% for page in pages limit: 20 %}
 
     {% assign full_title = page.title %}
-    {% if page.subtitle %}
+    {% if page contains 'subtitle' %}
       {% assign full_title = page.title | append: ': ' | append: page.subtitle %}
     {% endif %}
 
@@ -30,7 +30,11 @@
       <title type="html">{{ full_title | xml_escape }}</title>
       <link href="{{ page.url | absolute_url }}" rel="alternate" type="text/html" title="{{ full_title | xml_escape }}" />
       <published>{{ page.date | date_to_xmlschema }}</published>
-      <updated>{{ page.last_modified_at | default: page.date | date_to_xmlschema }}</updated>
+      {% assign last_modified_at = page.date %}
+      {% if page contains "last_modified_at" %}
+        {% assign last_modified_at = page.last_modified_at %}
+      {% endif %}
+      <updated>{{ last_modified_at | date_to_xmlschema }}</updated>
       <id>tag:lars.hupel.info,{{ page.date | date: "%Y-%m-%d" }}:{{ full_title | slugify: "ascii" }}</id>
 
       <summary type="html">

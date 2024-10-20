@@ -31,22 +31,26 @@
   link: "https://www.meetup.com/INNOQ-Technology-Lunch/events/271200341/"
   recording: "https://www.youtube.com/watch?v=sP5h1a1a6iA"
   slides: "https://speakerdeck.com/larsrh/blockchain-use-cases"
+  location: Online
   date: 2020-06-17
 - title: Typelevel's Road to Scala 3
   conference: "Scala Love in the City"
   link: "https://web.archive.org/web/20210204155328/https://inthecity.scala.love/"
   recording: "https://www.youtube.com/watch?v=oSditqgIf6w"
   slides: "https://speakerdeck.com/larsrh/typelevels-path-to-scala-3"
+  location: Online
   date: 2021-02-13
 - title: The Role of DSLs in Architecture Design
   conference: "Software Architecture Gathering"
   link: "https://conferences.isaqb.org/software-architecture-gathering/"
   recording: "https://www.youtube.com/watch?v=gwaF16KPqgQ"
   slides: "https://speakerdeck.com/larsrh/the-role-of-dsls-in-architecture-design"
+  location: Online
   date: 2022-11-17
 - title: "Der Digitale Euro: Was, Warum, Wie?"
   conference: "Bitkom_Block"
   link: "https://www.bitkom.org/Bitkom_Block"
   recording: "https://www.youtube.com/watch?v=_XZFLIi2tso"
   slides: "https://speakerdeck.com/larsrh/der-digitale-euro-was-warum-wie"
+  location: Online
   date: 2023-11-22

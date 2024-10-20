@@ -9,7 +9,7 @@ abstract: |
 slides:
   file: "slides"
   length: 55
-video: { id: sR1tEk5nTFU }
+video: { id: sR1tEk5nTFU, site: "youtube" }
 conferences:
   - conference: "MuniHac"
     date: 2020-09-11
@@ -21,15 +21,18 @@ conferences:
     date: 2020-11-05
     link: "https://skillsmatter.com/conferences/13135-haskell-exchange-2020#program"
     recording: "https://skillsmatter.com/skillscasts/14900-theorems-for-free"
+    location: Online
     slides: "https://speakerdeck.com/larsrh/theorems-for-free"
   - conference: "INNOQ Technology Day"
     date: 2020-12-09
     link: "https://technologyday.innoq.com/programm/theorems-for-free"
     recording: "https://www.youtube.com/watch?v=EC0O2vJGVjw"
+    location: Online
     slides: "https://speakerdeck.com/larsrh/theorems-for-free"
   - conference: "BOB"
     date: 2021-02-26
     link: "https://bobkonf.de/2021/hupel.html"
     recording: "https://www.youtube.com/watch?v=sR1tEk5nTFU"
+    location: Online
     slides: "https://speakerdeck.com/larsrh/theorems-for-free-bob-edition"
 ---

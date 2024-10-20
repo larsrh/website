@@ -9,17 +9,19 @@ abstract: |
 slides:
   file: "slides"
   length: 61
-video: { id: "aEYxduckcxg" }
+video: { id: "aEYxduckcxg", site: "youtube" }
 conferences:
   - conference: "YOW! Lambda Jam"
     date: 2021-05-05
     link: "https://yowconference.com/talks/lars-hupel/yow-lambda-jam-2021/a-history-of-enterprise-monads-15228/"
     slides: "https://speakerdeck.com/larsrh/a-history-of-enterprise-monads"
+    location: Online
     recording: "https://www.youtube.com/watch?v=cVqt_hcUR3w"
   - conference: "ScalaCon"
     date: 2021-11-03
     link: "http://www.scalacon.org/"
     slides: "https://speakerdeck.com/larsrh/typelevel-the-past-the-present-the-future"
+    location: Online
     recording: "https://www.youtube.com/watch?v=aEYxduckcxg"
 
 ---

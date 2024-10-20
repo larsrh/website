@@ -11,17 +11,19 @@ abstract: |
 slides:
   file: "slides"
   length: 48
-video: { id: "nGh-UdLbgfk" }
+video: { id: "nGh-UdLbgfk", site: "youtube" }
 conferences:
   - conference: "Code Days"
     link: "https://www.code-days.de/code-days-2022/"
     recording: "https://www.youtube.com/watch?v=5WRbvAv-FBI"
     slides: "https://speakerdeck.com/larsrh/was-macht-eigentlich-ein-bundler"
+    location: Online
     date: 2022-02-02
   - conference: "INNOQ Technology Lunch"
     link: "https://www.meetup.com/INNOQ-Technology-Lunch/events/285539947"
     date: 2022-05-11
     slides: "https://speakerdeck.com/larsrh/was-macht-eigentlich-ein-bundler"
+    location: Online
     recording: "https://www.youtube.com/watch?v=nGh-UdLbgfk"
   - conference: "Karlsruher Entwicklertag"
     date: 2022-05-17

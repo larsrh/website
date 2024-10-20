@@ -8,36 +8,43 @@
   journal: "Typelevel.org blog"
   abstract: "The use of type classes has become pervasive in Scala programming. Type classes are encoded as traits, hence the most basic way of declaring an instance is writing implicit methods which return objects extending from these traits. However, those implicit methods are regular Scala methods, so we can use all features provided by the language to derive instances.  In this post, a technique is described to compose instances into larger ones, which will not only allow for construction of instances for case classes, but also for other nested structures with minimum boilerplate."
   url: "https://typelevel.org/blog/2013/06/24/deriving-instances-1.html"
+  lang: en
 - date: 2013-11-17
   title: "Law Enforcement using Discipline"
   journal: "Typelevel.org blog"
   abstract: "Some nine or ten months ago, Spire’s project structure underwent a major reorganization. Simultaneously, the Scalacheck bindings were refactored, completely overhauling the law-checking infrastructure."
   url: "https://typelevel.org/blog/2013/11/17/discipline.html"
+  lang: en
 - date: 2016-08-09
   title: "Functional Geekery, Episode 62"
   journal: "Functional Geekery"
   abstract: "In this episode Proctor talks with Lars Hupel. We talk his introduction to Functional Programming with Haskell, Scala, and move to working on Isabelle for creating theorems about proving your program."
   url: "https://www.functionalgeekery.com/episode-62-lars-hupel/"
+  lang: en
 - date: 2016-10-17
   title: "Let's build ourselves a small ScalaCheck"
   journal: "Typelevel.org blog"
   abstract: "ScalaCheck is a well-known property-based testing library, based on ideas from Haskell’s QuickCheck. It is also a Typelevel project. In this post, I’d like to show some of the underlying mechanisms, stripped down to the bare minimum."
   url: "https://typelevel.org/blog/2016/10/17/minicheck.html"
+  lang: en
 - date: 2018-04-29
   title: "Marelle"
   journal: "Playing with Prolog (Season 2)"
   abstract: "Playing with Prolog is back for Season 2 with a new host. Annie and Lars take a look at Marelle, the SWI-Prolog based devops system."
   url: "https://www.youtube.com/watch?v=gPJFOdy9ZII"
+  lang: en
 - date: 2018-09-08
   title: "Job Scheduling"
   journal: "Playing with Prolog (Season 2)"
   abstract: "This month in Playing with Prolog we help Lars out at work. He needs to schedule jobs for his CI servers."
   url: "https://www.youtube.com/watch?v=D2lDNUh1plU"
+  lang: en
 - date: 2018-10-06
   title: "Node-RED"
   journal: "Playing with Prolog (Season 2)"
   abstract: "IBM's node-red flow programming language is an interesting declarative language. Recently Annie's been experimenting with it. In this video she shows it to Lars."
   url: "https://www.youtube.com/watch?v=6BWPEMCFuCw"
+  lang: en
 - date: 2019-05-22
   title: "Adressen und Transaktionen in Kryptowährungen – Teil 1: Bitcoin"
   journal: "INNOQ"
@@ -83,6 +90,7 @@
   journal: "INNOQ"
   abstract: "Smart contracts are used to execute code on blockchains. A variety of business cases are now represented with such contracts. Ethereum is a popular platform for this purpose. However, as with all software, the question arises of how to ensure the quality of the code."
   url: "https://www.innoq.com/en/articles/2019/07/verifikation-von-smart-contracts/"
+  lang: en
   hero:
     src: "img/bug.jpg"
     alt: "A moth on a piece of paper, believed to be the first computer bug"
@@ -92,11 +100,13 @@
   journal: "INNOQ"
   abstract: "Logback is a popular logging library for Java. JLine can be used to create nice shell-like applications. Combining both is not as hard as it looks."
   url: "https://www.innoq.com/en/blog/2019/08/logback-jline/"
+  lang: en
 - date: 2019-08-02
   title: "Tabling"
   journal: "Playing with Prolog (Season 3)"
   abstract: "We cover the newly added Tabling for SWI-Prolog to help Annie get around Bangalore."
   url: "https://www.youtube.com/watch?v=HfQGSprQ5Tk"
+  lang: en
 - date: 2019-09-27
   title: "Private Blockchains: Vergleich von Fabric und Corda"
   journal: "JavaSPEKTRUM 5/2019"
@@ -108,11 +118,13 @@
   journal: "INNOQ"
   abstract: "You have implemented a smart contract for Ethereum, and now you are wondering how you can test it under real-life conditions, but without spending money in case there's a problem? Luckily, there are test networks that can help you with this."
   url: "https://www.innoq.com/en/blog/2019/10/testing-ethereum/"
+  lang: en
 - date: 2019-10-31
   title: "Type checking JSX: A can of props"
   journal: "INNOQ"
   abstract: "In this post, I’d like to describe how JSX type checking in TypeScript actually works and the problems you’re going to encounter when implementing custom, non-React JSX components."
   url: "https://www.innoq.com/en/blog/2019/10/type-checking-tsx/"
+  lang: en
 - date: 2019-12-04
   title: "Das eierlegende Truffleschwein"
   journal: "Javamagazin 01/2020"
@@ -128,16 +140,19 @@
   journal: "INNOQ"
   abstract: "Let’s say you have a list of functions and you want to compose them. Shouldn’t be too hard, right? Of course it is, but maybe there’s an elegant way."
   url: "https://www.innoq.com/en/blog/2020/01/function-monoids/"
+  lang: en
 - date: 2020-02-06
   title: "Lars Hupel on Algebraic Design"
   journal: "CaSE podcast"
   abstract: "In this episode of the CaSE podcast, Lucas talks to Lars Hupel of Typelevel-fame about algebraic design. Lars starts to explain how the expression problem views the difference between the functional and Object Oriented style of programming. He then explains the concept of an algebra – from coupling trains to CRDTs. This leads to a discussion on comprehensive and iterative thinking styles and how different styles of testing and proving work. Finally, they bring it all back to type systems."
   url: "https://www.case-podcast.org/29-lars-hupel-on-algebraic-design"
+  lang: en
 - date: 2020-04-14
   title: "Cross-platform testing of TypeScript code with Jasmine and Karma"
   journal: "INNOQ"
   abstract: "I like TypeScript. Writing code that already underwent basic checks (i.e. typechecking) before it can even touch an execution engine is a big win in my book. In particular, TypeScript is nice because it integrates well into the broader JavaScript ecosystem and comes with batteries (i.e. types) included. Unfortunately, most test runners require extra setup to work with tests written in TypeScript. Some even require staggering amounts of configuration."
   url: "https://www.innoq.com/de/blog/2020/04/ts-jasmine-karma/"
+  lang: en
 - date: 2020-04-27
   title: "Remote Training, funktioniert das?"
   journal: "INNOQ"
@@ -161,6 +176,7 @@
   journal: "Playing with Prolog (Season 3)"
   abstract: "Poor Lars is having trouble arranging cars in his trains. Annie helps him out using constraint programming."
   url: "https://www.youtube.com/watch?v=KckDVWysAes"
+  lang: en
 - date: 2020-08-26
   title: "Smart Contracts in der Programmiersprache Rust"
   journal: "Heise Developer"
@@ -196,6 +212,7 @@
   journal: "INNOQ"
   abstract: "One of the cornerstones of Ethereum 2.0 is the migration from the “classic” EVM to a WebAssembly-based virtual machine. In this post, I explain how to deploy a compiled WebAssembly contract to the Oasis Ethereum chain."
   url: "https://www.innoq.com/en/blog/2021/01/wasm-oasis/"
+  lang: en
 - date: 2021-02-12
   title: "Stufe 3: Neuerungen in der dritten Version der Programmiersprache Scala"
   journal: "c't"
@@ -257,6 +274,7 @@
   journal: "iSAQB"
   abstract: "Fueled by ever new highs in cryptocurrency prices, there is currently a lively debate about blockchains. Some praise the “self-sustaining” currencies as saviors in times of crisis, while others see their excessive power consumption as a climate killer. But which opportunities and risks the new technologies harbor for software architecture is rarely a matter of debate. I would like to give a brief overview of this issue."
   url: "https://www.isaqb.org/blog/decentralized-architecture-whats-behind-blockchains/"
+  lang: en
 - date: 2021-07-30
   title: "Geld statt Kohle: Warum Kryptowährungen auf Proof of Stake umstellen wollen"
   journal: "c't"
@@ -412,6 +430,7 @@
   journal: "IPEN Webinar on central bank digital currency"
   abstract: "CBDC in the world opened a huge discussion about the role of the different stakeholders intervening in the validation of transactions of a digital currency when a payment is operated. According to different design choices, different validation mechanisms can be used. How a transaction can be validated and by which actor if a distributed architecture is chosen instead of a centralized one? What is the difference between a bearer-based and an account-based solution is implemented? Moreover, in case the amount of digital currency in circulation is limited via a threshold or a tier approach, how those requirements can be technically enforced while respecting privacy of the different parties involved in the transaction? And what about in case of offline systems that involves secure hardware solutions? How to avoid the possibility to “create money” and/or fake transactions?  In particular, the panel will analyze in depth the privacy implications and the maturity of the privacy enhancing technologies that can support these processing operations."
   url: "https://edps.europa.eu/press-publications/press-news/videos/ipen-webinar-central-bank-digital-currency-panel-1-transaction-validation-and-privacy-implications_en"
+  lang: en
   hero:
     src: "img/ipen.jpg"
     alt: "Headshot of me with the quote: “In order to be widely accepted, a CBDC must protect the privacy of users while still fulfilling government compliance requirements. G+D Filia is designed to be a secure and trusted CBDC.”"

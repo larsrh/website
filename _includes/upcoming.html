@@ -5,7 +5,7 @@
         {% include date.html date=upcoming.date %}
       </dt>
       <dd>
-        <a href="{{ upcoming.link }}">{{ upcoming.conference }}</a>, {{ upcoming.location | default: "Online" }}
+        <a href="{{ upcoming.link }}">{{ upcoming.conference }}</a>, {{ upcoming.location }}
       </dd>
     {% endfor %}
   </dl>

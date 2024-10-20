@@ -17,10 +17,8 @@ Papers marked with <span class="pub-html"></span> have an <a href="{% link _arti
     {% if research_document %}
       {% assign main_link=research_document.url %}
       {% assign class="pub-html" %}
-    {% elsif pub.entry %}
+    {% elsif pub contains "entry" %}
       {% assign main_link=pub.entry %}
-    {% elsif pub.no_pdf %}
-      {% assign main_link=pub.code %}
     {% else %}
       {% assign main_link=pdf_link %}
     {% endif %}
@@ -30,7 +28,7 @@ Papers marked with <span class="pub-html"></span> have an <a href="{% link _arti
       {% include authors.html authors=pub.authors %}
 
       <div>{{ pub.in }}{% if pub.in %}, {% endif %}{{ pub.year }}</div>
-      {% if pub.doi contains "10.1007/" %}
+      {% if pub contains "doi" and pub.doi contains "10.1007/" %}
         <div class="disclaimer">The final publication is available at <a href="https://link.springer.com/">Springer Link</a>.</div>
       {% endif %}
 
@@ -43,32 +41,24 @@ Papers marked with <span class="pub-html"></span> have an <a href="{% link _arti
       </details>
 
       <ul class="links">
-        {% if pub.entry %}
+        {% if pub contains "entry" %}
           <li><a href="{{ pub.entry }}">Entry</a></li>
-        {% endif %}
-        {% if pub.entry or pub.no_pdf %}
         {% else %}
           <li><a href="{% link {{ pdf_link }} %}">PDF</a></li>
         {% endif %}
-        {% if pub.bib != false %}
+        {% unless pub contains "no_bib" %}
           <li><a href="{% link /bib/{{ pub.id }}.bib %}">BibTeX</a></li>
-        {% endif %}
-        {% if pub.doi %}
+        {% endunless %}
+        {% if pub contains "doi" %}
           <li><a href="https://doi.org/{{ pub.doi }}">DOI</a></li>
         {% endif %}
-        {% if pub.arxiv %}
+        {% if pub contains "arxiv" %}
           <li><a href="http://arxiv.org/abs/{{ pub.arxiv }}">arXiv</a></li>
         {% endif %}
-        {% if pub.code %}
+        {% if pub contains "code" %}
           <li><a href="{{ pub.code }}">Code</a></li>
         {% endif %}
-        {% if pub.slides %}
-          <li><a href="{{ pub.slides }}">Slides</a></li>
-        {% endif %}
-        {% if pub.recording %}
-          <li><a href="{{ pub.recording }}">Recording</a></li>
-        {% endif %}
-        {% if pub.extra %}
+        {% if pub contains "extra" %}
           {% for extra in pub.extra %}
             <li><a href="{{ extra.link }}">{{ extra.text }}</a></li>
           {% endfor %}

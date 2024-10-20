@@ -8,7 +8,7 @@ title: Talks
 {% assign count_recording = count %}
 {% for talk in site.talks %}
   {% assign count = count | plus: talk.conferences.size %}
-  {% assign with_recordings = talk.conferences | where_exp: "item", "item.recording" %}
+  {% assign with_recordings = talk.conferences | where_exp: "item", "item contains 'recording'" %}
   {% assign count_recording = count_recording | plus: with_recordings.size %}
 {% endfor %}
 
@@ -24,7 +24,7 @@ If you want to share a particular talk, I would like to ask you to not link to a
 
 <dl>
   {% for talk in site.talks %}
-    {% if talk.lang == nil %}
+    {% if talk.lang == "en" %}
       <dt><a href="{{ talk.url }}">{{ talk.title }}</a></dt>
       <dd class="hyphenate">
         {{ talk.abstract }}
@@ -43,7 +43,7 @@ Wenn du einen bestimmten Talk teilen möchtest, würde ich dich bitten, nicht di
 
 <dl>
   {% for talk in site.talks %}
-    {% if talk.lang %}
+    {% if talk.lang == "de" %}
       <dt lang="{{ talk.lang }}"><a href="{{ talk.url }}">{{ talk.title }}</a></dt>
       <dd lang="{{ talk.lang }}" class="hyphenate">
         {{ talk.abstract }}
