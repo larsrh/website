@@ -498,3 +498,9 @@
   abstract: "Around a third of the world lack reliable internet access and among the two thirds that have access, disruptions and restrictions are far from unknown. Ensuring that digital payments solutions are reliable and have the broadest reach possible requires that they can function offline. Though the need is well understood, the challenges of meeting it remain. Lars Hupel, G+D’s chief evangelist, joins OMFIF’s Digital Monetary Institute editor Lewis McLellan to discuss how offline capabilities enhance the effectiveness and convenience of online payment methods and share G+D’s experience in this field."
   url: "https://www.omfif.org/podcast/meeting-the-need-for-offline-digital-payments/"
   lang: en
+- date: 2024-11-14
+  title: "Korrektheit durch formale Methoden"
+  journal: "Software Testing Podcast"
+  lang: de
+  abstract: "In der neuesten Episode des Software Testing Podcasts feiern wir die World Quality Week. Ich spreche mit mit Lars und Bianca darüber, wie man Fehlerfreiheit in Software mathematisch beweisen kann und welche Tools dabei helfen. Bianca erklärt uns anhand von Beispielen aus der Finanz- und Automobilbranche, warum bestimmte Systeme absolute Fehlerfreiheit benötigen. Lars ergänzt das Gespräch mit Einblicken in formale Methoden und wie sie in der Praxis angewendet werden. Ein besonders interessantes Thema war, wie KI uns bei der Beweisführung unterstützen kann."
+  url: "https://www.youtube.com/watch?v=o4MjWYZ2Noc"
