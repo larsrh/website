@@ -1,0 +1,1189 @@
+---
+title: A conceptual model for point-of-sale payment with Retail CBDC
+date: 2024-12-29
+---
+
+<h2 id="introduction">Introduction</h2>
+<p>Central Bank Digital Currency (CBDC) is an emerging development in
+digital payments, with most central banks worldwide researching,
+piloting, or even operating a digital version of cash. A common
+definition includes the following characteristics <span class="citation"
+data-cites="Hupel2023">[<a href="#ref-Hupel2023"
+role="doc-biblioref">1</a>]</span>:</p>
+<ul>
+<li><p>a digital representation of a country’s or region’s existing
+currency,</p></li>
+<li><p>issued directly by the central bank,</p></li>
+<li><p>usable in electronic payments,</p></li>
+<li><p>instantly settled, and</p></li>
+<li><p>being legal tender.</p></li>
+</ul>
+<p>Furthermore, there is a distinction between <em>Retail CBDC</em>,
+which can be used by anyone in the jurisdiction, and <em>Wholesale
+CBDC</em>, which is only available for regulated financial institutions
+<span class="citation" data-cites="Presto2023">[<a
+href="#ref-Presto2023" role="doc-biblioref">2</a>]</span>. The name
+refers to the idea that the former allows for retail payments, whereas
+the latter would be used by financial institutions exclusively. This
+paper focuses on retail CBDC and investigates how this new instrument
+can be used for <em>Point-of-sale (POS) payments</em>.</p>
+<h3 id="two-tier-model">Two-tier model</h3>
+<p>Users must have a way to interact with the CBDC ecosystem. Most
+central banks are exploring a two-tier model, whereby the central bank
+acts as the sole issuer of CBDC, but intermediaries—such as commercial
+banks, FinTech companies, and other financial institutions—are
+responsible for onboarding users and distributing CBDC. In this setting,
+intermediaries would provide services to users, according to the rules
+set by the central bank and regulators. In other words, central banks
+would not be dealing with users directly. This naturally extends to both
+consumers and merchants.</p>
+<h3 id="wallets-and-payments">Wallets and payments</h3>
+<p>To better understand how CBDC payments differ to today’s prevalent
+schemes, we first need to look at <em>wallets</em>. In CBDC, they are
+combinations of hardware and software that serve as containers of
+cryptographic keys. Depending on the CBDC implementation model, the keys
+may represent funds directly or serve as credentials to unlock funds
+stored elsewhere. Wallets should provide an easy-to-use interface that
+allows holders to conduct transactions. Both sides of a transaction
+would hold a wallet, and in most CBDC systems, they are symmetric:
+customer and merchant wallets differ only in their configuration. This
+allows for flexible payment flows, including direct peer-to-peer
+transactions. In this way, CBDC wallets resemble physical “cash wallets”
+more than other forms of digital wallets (see next paragraph).</p>
+<h3 id="public-money-vs.-private-money">Public money vs. private
+money</h3>
+<p>E-money operators, like PayPal, prepaid credit cards, and mobile
+money, are becoming increasingly popular around the world <span
+class="citation" data-cites="Sun2023">[<a href="#ref-Sun2023"
+role="doc-biblioref">3</a>]</span>. They, too, offer wallets to their
+customers. Their underlying instrument is a private form of deposit
+money, typically issued by a non-bank financial institution <span
+class="citation" data-cites="Wang2022 IMF2018">[<a href="#ref-Wang2022"
+role="doc-biblioref">4</a>, <a href="#ref-IMF2018"
+role="doc-biblioref">5</a>]</span>.</p>
+<p>CBDC however, is a direct claim from the user to the central bank,
+even in a custodial scenario (see also Table <a href="#tab:types"
+data-reference-type="ref" data-reference="tab:types">1</a>). This means
+the CBDC holdings managed by a financial intermediary through custodial
+wallets are not represented on that intermediaries’ balance sheet <span
+class="citation" data-cites="Bindseil2020">[<a href="#ref-Bindseil2020"
+role="doc-biblioref">6</a>]</span>. The situation can be compared to,
+for example, securities accounts. In the event of the managing
+institution’s insolvency, a user’s holdings are not at risk <span
+class="citation" data-cites="Zhao2023">[<a href="#ref-Zhao2023"
+role="doc-biblioref">7</a>]</span>. Consequently, a wallet holder is not
+exposed to credit risk from an intermediary, only operational risk <span
+class="citation" data-cites="CliffordChance">[<a
+href="#ref-CliffordChance" role="doc-biblioref">8</a>]</span>.</p>
+<p>For this reason, CBDC payments behave differently from private
+payment rails because there is no need for a (typically deferred)
+settlement step. CBDC could change the role of acquirers, with small
+businesses potentially opting to accept CBDC directly on their own
+devices without intermediaries.</p>
+<h3 id="structure-of-this-paper">Structure of this paper</h3>
+<p>I will first introduce the concept of CBDC wallets and discuss their
+different types (Section <a href="#design-of-cbdc-wallets"
+data-reference-type="ref"
+data-reference="design-of-cbdc-wallets">2</a>), focusing on their design
+and form factors (Section <a href="#wallet-form-factors"
+data-reference-type="ref" data-reference="wallet-form-factors">2.4</a>).
+Then, I will explain two methods for initiating payment, namely pull and
+push, and how they relate to POS payments (Section <a
+href="#payment-initiation" data-reference-type="ref"
+data-reference="payment-initiation">3</a>). This includes an overview of
+technical communication channels to execute a payment (Section <a
+href="#communication-channels-at-the-point-of-sale"
+data-reference-type="ref"
+data-reference="communication-channels-at-the-point-of-sale">3.1</a>).
+Finally, I will develop a conceptual model of POS payments, considering
+the unique characteristics of a retail CBDC (Section <a
+href="#payment-model-for-cbdc" data-reference-type="ref"
+data-reference="payment-model-for-cbdc">4</a>).</p>
+<h2 id="design-of-cbdc-wallets">Design of CBDC wallets</h2>
+<p>In cryptocurrencies and CBDC, wallets are the primary point of
+interaction between users and the system. While ample studies exist on
+the former, CBDC wallets are not yet widely investigated in the
+literature. Fortunately, wallets for both domains share similar traits:
+They manage cryptographic keys that unlock funds and enable users to
+transact.</p>
+<p>Wallets are the primary way for customers to initiate payments and
+for merchants to accept payments, therefore they play a critical role at
+the point of sale. This means that their design is affected by the
+interaction of hardware, software, UI/UX, security, and the physical
+environment in which they are used.</p>
+<p>CBDC, being a new form of public money, increases flexibility for
+customers and merchants, providing them with more choices and,
+therefore, fostering competition. The flip side is that now, many more
+payment scenarios must be accommodated in the already crowded space.</p>
+<h3 id="wallet-types">Wallet types</h3>
+<p>As a starting point, we can categorize wallets across the three
+dimensions relevant to this paper: custody <span class="citation"
+data-cites="Froehlich2020 Yu2024">[<a href="#ref-Froehlich2020"
+role="doc-biblioref">9</a>, <a href="#ref-Yu2024"
+role="doc-biblioref">10</a>]</span>, embodiment, and offline capability
+<span class="citation" data-cites="BISPolaris1">[<a
+href="#ref-BISPolaris1" role="doc-biblioref">11</a>]</span> (see
+table <a href="#tab:types" data-reference-type="ref"
+data-reference="tab:types">below</a>).</p>
+<p>Naturally, the design choices of the overall system, such as the
+ledger, influences which wallet types are supported for a given CBDC.
+Yet, this is not an exact 1:1 mapping, so multiple wallet types might
+coexist in the same ecosystem, as evidenced by the vast number of wallet
+implementations for cryptocurrencies <span class="citation"
+data-cites="Eskandari2015">[<a href="#ref-Eskandari2015"
+role="doc-biblioref">12</a>]</span>.</p>
+<figure id="tab:types">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Dimension</th>
+<th style="text-align: left;">Options</th>
+<th style="text-align: left;">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;" rowspan="2">Custody</td>
+<td style="text-align: left;">Self-custodial/non-custodial</td>
+<td style="text-align: left;">Wallet managed and under full control of
+the owner; funds are lost if the wallet and/or credentials are lost</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Custodial</td>
+<td style="text-align: left;">Wallet managed and under full control of a
+licensed financial intermediary; the owner requests the managing
+intermediary to initiate a transaction; wallet access can be restored if
+credentials are lost</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;" rowspan="2">Embodiment<a href="#fn1"
+class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a></td>
+<td style="text-align: left;">Hardware</td>
+<td style="text-align: left;">Logic implemented on (secure) hardware,
+such as dedicated chips</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Software</td>
+<td style="text-align: left;">Logic implemented through software, such
+as an app on a smartphone</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;" rowspan="4">Offline capability</td>
+<td style="text-align: left;">No offline capability</td>
+<td style="text-align: left;">Transactions must be initiated and
+validated with online connectivity; this is standard for
+cryptocurrencies without a trusted third party</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Staged offline</td>
+<td style="text-align: left;">No online connectivity required for
+transaction initiation, but settlement is deferred until connectivity is
+regained</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Intermittently offline</td>
+<td style="text-align: left;">No online connectivity required for
+transaction initiation and settlement, but only for a limited period
+and/or limited number of transactions</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fully offline</td>
+<td style="text-align: left;">No online connectivity required for
+transaction initiation and settlement without restrictions</td>
+</tr>
+</tbody>
+</table>
+<figcaption>Wallet types across the dimensions custody, embodiment, and
+offline capability</figcaption>
+</figure>
+<h3 id="the-special-case-of-offline-capability">The special case of
+offline capability</h3>
+<p>One of the most important motivations for CBDC adoption is offline
+capability. Many central banks investigating or implementing retail CBDC
+consider offline capabilities to be an important feature, including for
+the European Central Bank’s Digital Euro <span class="citation"
+data-cites="Kiff2022 Demertzis2023 Panetta2021">[<a href="#ref-Kiff2022"
+role="doc-biblioref">13</a>–<a href="#ref-Panetta2021"
+role="doc-biblioref">15</a>]</span>.</p>
+<p>Today, payments can be made when both parties are offline, for
+example, with credit cards. Yet, there are two major differences to
+CBDC:</p>
+<ol>
+<li><p>Credit cards face settlement risk because there may be a few days
+between payment initiation and the actual transfer of funds. CBDC would
+be settled instantly and irrevocably.</p></li>
+<li><p>Credit cards are prone to double spending, where users spend more
+funds than they have available. This is by design: the risk is born by
+the card issuer, who charges interest. CBDC, being more like cash, does
+not have credit features and must therefore carefully protect against
+double spending <span class="citation" data-cites="Kahn2021">[<a
+href="#ref-Kahn2021" role="doc-biblioref">16</a>]</span>.</p></li>
+</ol>
+<p>Applying this to the terminology from above, existing payment schemes
+only support a weak form of staged offline payments. In contrast,
+central banks typically aim for at least intermittently offline payment
+capability. Implementations would reuse existing technology, such as
+hardware secure elements, to protect against double spending.</p>
+<p>This is enabled by designing the CBDC to transfer value directly from
+one wallet to another.<a href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a> Because CBDC wallets are symmetric,
+a basic merchant acceptance device could be independent of any acquirer
+and accept a peer-to-peer payment from a customer, just like cash today
+<span class="citation" data-cites="BOGDesignPaper">[<a
+href="#ref-BOGDesignPaper" role="doc-biblioref">17</a>]</span>.</p>
+<h3 id="coexistence-of-online-and-offline-wallets">Coexistence of online
+and offline wallets</h3>
+<p>While some CBDC technology platforms cater exclusively to fully
+offline operation, with no possibility of using custodial and/or online
+wallets, the consensus among central banks is that both online and
+offline operations are desirable.</p>
+<p>Consequently, a user could hold multiple wallets, some of them purely
+for online purposes and some others for (optional) offline use. This
+mirrors the current financial system, where online balances are held as
+deposit money in commercial banks, and offline “balances” are held as
+cash. In CBDC, a user could allocate their funds across different
+wallets. This could be frictionless, since moving money from one digital
+wallet to another could be facilitated through, for example, a
+smartphone, and would not require a trip to an ATM.</p>
+<p>Applied to the point of sale, the smartphone used by the customer
+could represent multiple wallets. The Bank for International Settlements
+points out that it “is important that any online balances and offline
+balances are segregated, otherwise it may be possible for a user to
+spend the same value both offline and online and create a double-spend
+risk” <span class="citation" data-cites="BISPolaris1">[<a
+href="#ref-BISPolaris1" role="doc-biblioref">11</a>]</span>. Therefore,
+picking the correct wallet that sends the payment matters.</p>
+<p>Obviously, this impacts the user experience at points of sale. In
+Section <a href="#payment-model-for-cbdc" data-reference-type="ref"
+data-reference="payment-model-for-cbdc">4</a>, I describe the necessary
+setup for such wallet negotiations.</p>
+<h3 id="wallet-form-factors">Wallet form factors</h3>
+<figure id="fig:wallets">
+  <img src="{% link assets/img/research/cbdc-pos/wallets.drawio.svg %}" alt="">
+<figcaption>Various CBDC wallet form factors</figcaption>
+</figure>
+<p>CBDC wallets can come in many forms, evidenced by the existing CBDC
+proof of concept and pilot projects. The figure <a href="#fig:wallets"
+data-reference-type="ref" data-reference="fig:wallets">above</a> provides
+some examples:</p>
+<ol>
+<li><p>A smartphone, equipped with a wallet app. This app could either
+access a custodial wallet managed by a user’s preferred intermediary, or
+funds that are stored in secure hardware directly on the device (e.g.,
+an embedded secure element or a SIM card <span class="citation"
+data-cites="Reuver2017">[<a href="#ref-Reuver2017"
+role="doc-biblioref">18</a>]</span>).</p></li>
+<li><p>A dedicated and/or wearable device with a limited user interface,
+interacting through NFC. Examples include wristbands, smartcards,
+smartwatches, and keyfobs.</p></li>
+<li><p>A merchant acceptance device. Examples include portable
+NFC/Bluetooth card readers that connect to a smartphone and dedicated
+POS terminals that may be based on a standard mobile operating system
+like Android. Because of CBDC’s symmetric nature, the merchant device
+could itself be (i.e., contain) a wallet.</p></li>
+</ol>
+<p>Importantly, any form factor can work in a dual mode: (1) using funds
+stored directly on the device—which admits offline payments—or (2)
+serving as a strong authentication mechanism towards a custodial
+wallet.</p>
+<p>In the first <em>(peer)</em> mode, the value transfer is directly
+executed between two devices. In the second <em>(authentication)</em>
+mode, the value transfer is authorized by the customer’s device, but
+executed from the customer’s custodial wallet.<a href="#fn3"
+class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>
+This means that the card merely serves as a vehicle to authenticate the
+user to their intermediary.</p>
+<p>Offline wallets capable of peer mode are comparable to physical cash
+wallets. They would also be available for individuals (e.g. children or
+tourists) without a bank account in the domestic currency.</p>
+<h3 id="comparison-to-existing-pos-payment-schemes">Comparison to
+existing POS payment schemes</h3>
+<p>Current card payment schemes support all of the above form factors,
+but they can only operate in authentication mode. Traditionally, this
+was the reason for their delayed settlement since the flow of funds was
+not triggered immediately after authentication. Modern
+account-to-account (A2A) payment eliminates this disadvantage by relying
+on instant payment transfers in the backend.<a href="#fn9"
+class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a>
+Still, neither allows for (at least) intermittently offline payments
+that are instantly settled.</p>
+<figure id="tab:payment">
+  <table>
+<thead>
+<tr class="header">
+<th style="text-align: left;" rowspan="2">Scheme</th>
+<th style="text-align: left;" rowspan="2">Money<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></th>
+<th style="text-align: left;" rowspan="2">Offline</th>
+<th colspan="2" style="text-align: left;">Embodiments</th>
+<th colspan="2" style="text-align: left;">Custody</th>
+<th style="text-align: left;" rowspan="2">Settlement</th>
+<th style="text-align: left;" rowspan="2">Examples</th>
+</tr>
+<tr class="header">
+<th style="text-align: center;">Hardware</th>
+<th style="text-align: center;">Software</th>
+<th style="text-align: center;">Custodial</th>
+<th style="text-align: center;">Self-custodial</th>
+</tr>
+</thead>
+<tbody>
+<tr class="even">
+<td style="text-align: left;">Credit card</td>
+<td style="text-align: left;">Private</td>
+<td style="text-align: left;">Staged</td>
+<td style="text-align: center;">✓<a href="#fn5" class="footnote-ref"
+id="fnref5" role="doc-noteref"><sup>5</sup></a></td>
+<td style="text-align: center;">✓<a href="#fn6" class="footnote-ref"
+id="fnref6" role="doc-noteref"><sup>6</sup></a></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: left;">Delayed</td>
+<td style="text-align: left;">Visa, MasterCard</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A2A</td>
+<td style="text-align: left;">Private</td>
+<td style="text-align: left;">None</td>
+<td style="text-align: center;">✗<a href="#fn7" class="footnote-ref"
+id="fnref7" role="doc-noteref"><sup>7</sup></a></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: left;">Instant</td>
+<td style="text-align: left;">Pix, UPI</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cash</td>
+<td style="text-align: left;">Public</td>
+<td style="text-align: left;">Fully</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: left;">Instant</td>
+<td style="text-align: left;">Euro</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CBDC</td>
+<td style="text-align: left;">Public</td>
+<td style="text-align: left;">Intermittent (at least)</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓<a href="#fn8" class="footnote-ref"
+id="fnref8" role="doc-noteref"><sup>8</sup></a></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: left;">Instant</td>
+<td style="text-align: left;">Digital Euro</td>
+</tr>
+</tbody>
+</table>
+  <figcaption>Comparison of existing POS payment schemes with CBDC</figcaption>
+</figure>
+<p>The table <a href="#tab:payment" data-reference-type="ref"
+data-reference="tab:payment">above</a> summarizes the
+similarities and differences of existing POS payment schemes and
+CBDC.</p>
+<h2 id="payment-initiation">Payment initiation</h2>
+<figure id="fig:direction">
+  <div style="display:flex">
+  <img src="{% link assets/img/research/cbdc-pos/push-pull-Pull.drawio.png %}" alt="" style="flex:50%;width:100%;">
+  <img src="{% link assets/img/research/cbdc-pos/push-pull-Push.drawio.png %}" alt="" style="flex:50%;width:100%;">
+  <div>
+</figure>
+<figcaption>Simplified schematics of payment initiation; in reality,
+more intermediaries and/or payment networks may be involved (source:
+author’s own elaboration based on <span class="citation"
+data-cites="WorldBank GoCardless">[<a href="#ref-WorldBank"
+role="doc-biblioref">21</a>, <a href="#ref-GoCardless"
+role="doc-biblioref">22</a>]</span>)</figcaption>
+</figure>
+<p>In the traditional world of bank accounts and bank transfers,
+initiation of the flow of funds can come from two different directions
+(figure <a href="#fig:direction" data-reference-type="ref"
+data-reference="fig:direction">above</a>; <span class="citation"
+data-cites="GoCardless">[<a href="#ref-GoCardless"
+role="doc-biblioref">22</a>]</span>):</p>
+<ul>
+<li><p>A standard bank transfer flows from the sender’s bank account to
+the receiver’s. This is referred to as a <em>push payment</em> because
+the sender triggers it. Standing orders are also push-based, as are
+payments in cash.</p></li>
+<li><p>The receiver can also initiate the fund transfer: A direct debit
+(also known as debit order) is an example of a <em>pull payment</em>.
+Checks can also be classified as pull; even though the payer signs
+checks, the payee triggers the actual transfer.</p></li>
+</ul>
+<p>Both directions have advantages and disadvantages. Yet, there is a
+trend towards push payments at the point of sale. One factor driving
+this are mobile payments, which often use merchant QR codes that
+customers scan with their mobile devices <span class="citation"
+data-cites="Sun2023">[<a href="#ref-Sun2023"
+role="doc-biblioref">3</a>]</span>.</p>
+<p>Many of these schemes operate as A2A and support instant settlement.
+They experience rapid user adoption, for example Pix in Brazil <span
+class="citation" data-cites="Saiyid2023">[<a href="#ref-Saiyid2023"
+role="doc-biblioref">23</a>]</span>, UPI in India, and Swish in Sweden
+<span class="citation" data-cites="Hartmann2019">[<a
+href="#ref-Hartmann2019" role="doc-biblioref">24</a>]</span>. Other
+countries with a higher market share of debit and credit card payments,
+for example the United States, are slower to catch on <span
+class="citation" data-cites="Dresner2024">[<a href="#ref-Dresner2024"
+role="doc-biblioref">25</a>]</span>.</p>
+<p>Pull payments are often associated with settlement delay credit. This
+is why in the context of CBDC, most central banks only consider push.<a
+href="#fn10" class="footnote-ref" id="fnref10"
+role="doc-noteref"><sup>10</sup></a> In other words, funds flow from
+wallet to wallet at the request of the payer.</p>
+<p>It stands to reason that push payments in retail CBDC are most
+relevant at the point of sale. They could be designed in both the peer
+and authentication modes. Conversely, pull payments would not be able to
+work in peer mode.</p>
+<h3 id="communication-channels-at-the-point-of-sale">Communication
+channels at the point of sale</h3>
+<p>Zooming in on physical merchant locations, this section describes the
+technical communication channels that are available at the points of
+sale, i.e., for proximity payments. For simplicity, I will also assume
+that the merchant has a “smart” acceptance device, which may come in the
+form of a standalone POS terminal or a smartphone.</p>
+<p>Equipped with such a device, a merchant has the following options to
+accept a payment:</p>
+<ol>
+<li><p>A smart card can be inserted into a card reader, e.g., of a
+standalone POS terminal or a mobile reader connected to a phone via
+Bluetooth.</p></li>
+<li><p>A smart card or other mobile and/or wearable device can be
+touched via NFC.</p></li>
+<li><p>A merchant-presented QR code (either static or dynamic) can be
+scanned by the customer with their smartphone.</p></li>
+<li><p>A customer-presented QR code (either static or dynamic) can be
+scanned by the merchant with their POS terminal.</p></li>
+</ol>
+<p>Debit and credit cards mostly focus on the first two (with merchant-
+and customer-presented QR code payment specified by <span
+class="citation" data-cites="EMVCo">[<a href="#ref-EMVCo"
+role="doc-biblioref">27</a>]</span>). The actual payment gets
+transmitted through a card network. Conversely, A2A schemes mostly rely
+on merchant-presented QR code, which contain the merchant’s account or
+wallet number. The customer’s app then initiates a fund transfer to that
+account.</p>
+<p>No existing payment scheme uses any of the communication channels
+available at the point of sale for actual fund transfer. This is
+delegated to backend processes at a suitable intermediary, either the
+customer’s own bank (like in A2A schemes), or the merchant’s acquirer
+(like in debit and credit card schemes).</p>
+<p>This is where retail CBDC provides a new technological opportunity:
+NFC and Bluetooth could unify payment initiation and execution.<a
+href="#fn11" class="footnote-ref" id="fnref11"
+role="doc-noteref"><sup>11</sup></a> The next section develops a
+conceptual model how this payment scenario can coexist with other
+traditional methods, as well as how QR codes could be leveraged for CBDC
+payments.</p>
+<h2 id="payment-model-for-cbdc">Payment model for CBDC</h2>
+<p>To summarize, the earlier sections of this paper have established</p>
+<ul>
+<li><p>the fundamental characteristics of a retail CBDC, as an
+instantly-settled payment instrument that is a direct liability of the
+central bank, and therefore carries no counterparty risk;</p></li>
+<li><p>distinguishing characteristics of retail CBDC vs. other
+instruments, and its similarity to cash;</p></li>
+<li><p>different wallet types and consumer choice, including the option
+for offline payments with direct value transfer between wallets;
+and</p></li>
+<li><p>the higher relevance of push payments vs. pull payments at the
+point of sale.</p></li>
+</ul>
+<p>Based on this, the remainder of this paper introduces an existing
+mechanism to distinguish between different payment options at the point
+of sale and enhances this concept to enable CBDC payments.</p>
+<h3 id="consumer-choice-and-complexity">Consumer choice and
+complexity</h3>
+<p>As discussed earlier, users will have ample choices about wallet form
+factors. For example, they may choose to only use custodial services
+through an intermediary, only use a smart card, or a combination
+thereof. In developed economies, it is likely that users may opt for a
+smartphone to access their various wallets.</p>
+<p>This poses a challenge for UI/UX design. Imagine a customer wanting
+to pay at a store with their smartphone. On the smartphone, they may
+have a banking app as well as a credit card (e.g., in Apple Pay), a CBDC
+wallet app, and additionally offline CBDC holdings stored on the
+smartphone (e.g., in the SIM card). The customer now faces the choice to
+pick the appropriate payment channel. Both parties may have (diverging)
+preferences: The customer may prefer to use their credit card due to
+cashback and the merchant may prefer to accept CBDC due to lower fees. A
+similar issue arises should the customer present a smart card with
+multiple co-badged schemes.</p>
+<figure id="fig:aid">
+  <div style="display:flex;gap:var(--spacer-xs);">
+<table style="flex:33%;">
+<thead>
+<tr class="header">
+<th colspan="2" style="text-align: center;">List of AIDs (samples)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">American Express</td>
+<td style="text-align: left;">A00000002501</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Discover</td>
+<td style="text-align: left;">A0000001523010</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MasterCard</td>
+<td style="text-align: left;">A0000000041010</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Maestro</td>
+<td style="text-align: left;">A0000000043060</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…</td>
+<td style="text-align: left;">…</td>
+</tr>
+</tbody>
+</table>
+
+  <img src="{% link assets/img/research/cbdc-pos/application-selection.drawio.png %}" alt="" style="flex:64%;width:100%;">
+</div>
+<figcaption>Application selection: negotiating a payment scheme between
+customer and merchant device based on the <em>Application Identifier
+(AID)</em>, which uniquely identifies the payment scheme</figcaption>
+</figure>
+<p>This is not a new problem. Domestic and international card schemes
+co-exist today on shared infrastructure, i.e., customer cards and
+merchant terminals. In a process known as <em>Application Selection</em>
+<span class="citation" data-cites="Struif1995">[<a
+href="#ref-Struif1995" role="doc-biblioref">28</a>]</span>, mutually
+supported schemes, then select from that list based on prioritization on
+the customer’s card (see figure <a href="#fig:aid"
+data-reference-type="ref" data-reference="fig:aid">above</a>).</p>
+<p>In the prevailing payment landscape, these complexities are well
+understood. Current technology provides sufficient flexibility to
+integrate new payment schemes. CBDC could therefore be seamlessly
+integrated, although certain specialties must be considered. This mainly
+concerns offline payment, which is discussed in this section. Note that
+this technology can run on cheap commodity smartphones and on existing
+POS terminals, limiting merchants’ need to invest into additional
+hardware.</p>
+<h3 id="contact-and-contactless-nfc-payments">Contact and contactless
+(NFC) payments</h3>
+<p>Setting aside QR code payments for now, CBDC would introduce two new
+applications corresponding to the transfer modes discussed above: direct
+value transfer between wallets (peer mode) and authentication towards a
+custodial wallet (authentication mode).</p>
+<p>In practice, however, the peer mode is vastly different from existing
+payment schemes: they were not designed for direct value transfer.
+Additionally, it would be capable of offline payments.</p>
+<p>The Bank of England, in a POS feasibility study, has investigated
+this flow (among others) <span class="citation" data-cites="BOEPOS">[<a
+href="#ref-BOEPOS" role="doc-biblioref">29</a>]</span>. They define the
+peer mode to be “a payment <span>[</span>…<span>]</span> made between
+two devices without network connection, supporting offline payments.”
+Note that this leaves open whether the payment recipient is a merchant
+or any other CBDC wallet holder.</p>
+<p>The Bank’s study found that the existing EMV applications “were not
+appropriate for storing offline balances.” To transact with those
+offline balances, the Bank had to implement new software running on the
+customer device, as well as “a new kernel <span>[</span>on the
+terminals<span>]</span> that could interact with it” <span
+class="citation" data-cites="BOEPOS">[<a href="#ref-BOEPOS"
+role="doc-biblioref">29</a>]</span>.</p>
+<p>This result highlights that CBDC presents a new means of payment that
+enables more use cases, beyond what is available in the market today.
+Merchants could decide whether to accept payments to a hardware wallet
+contained in a smartphone or POS terminal or forward them to a custodial
+wallet. This selection can also happen dynamically depending on the
+availability of an online connection, but it could also be influenced by
+regulatory considerations.</p>
+<p>Despite the broad agreement that CBDC should enable such offline
+payments, there is little progress towards standardization. This may be
+caused by the fact that the implementation of an offline CBDC payment
+protocol is highly sensitive to the design decisions about the overall
+CBDC system, which differ widely across countries.</p>
+<p>Conversely, the authentication mode can work similarly to existing
+payment schemes. One of the five lots of the Digital Euro tender,
+entitled <em>Secure Exchange of Payment Information</em> <span
+class="citation" data-cites="ECBTokenisation Vahter2024">[<a
+href="#ref-ECBTokenisation" role="doc-biblioref">30</a>, <a
+href="#ref-Vahter2024" role="doc-biblioref">31</a>]</span>, is likely to
+deal with this.</p>
+<p>The European Central Bank has not shared any more details yet. It is
+plausible though that a card-initiated CBDC payment could mimic an A2A
+payment, with the customer’s card carrying authentication information
+towards their custodial CBDC wallet. As the study by the Bank of England
+demonstrated, this could be compatible with existing EMV kernels <span
+class="citation" data-cites="BOEPOS">[<a href="#ref-BOEPOS"
+role="doc-biblioref">29</a>]</span>.</p>
+<figure id="fig:journey-contact">
+  <img src="{% link assets/img/research/cbdc-pos/user-journeys-Card.drawio.png %}" alt="">
+<figcaption>Exemplary payment journey for contact and
+contactless</figcaption>
+</figure>
+<p>The figure above shows a possible payment
+journey. The following steps are executed:</p>
+<ol>
+<li><p>Customer presents a payment device, such as a smartcard.</p></li>
+<li><p>Customer device and merchant terminal negotiate mode, resulting
+in either (a) peer or (b) authentication mode.</p></li>
+<li><p>The flow branches:</p>
+<ol>
+<li><p>In peer mode (illustrated in red) ...</p>
+<ol type="1">
+<li><p>The merchant terminal instructs the customer’s hardware wallet
+contained in the smartcard to initiate a peer payment.</p></li>
+<li><p>The customer’s wallet transfers funds offline to the merchant’s
+wallet contained in the terminal.</p></li>
+<li><p>Optionally, the terminal can later (or immediately) forward the
+funds to the merchant’s custodial wallet. <a href="#fn12"
+class="footnote-ref" id="fnref12"
+role="doc-noteref"><sup>12</sup></a></p></li>
+</ol></li>
+<li><p>In authentication mode (illustrated in green) ...</p>
+<ol type="1">
+<li><p>The merchant terminal contacts the customer’s bank, forwards
+authentication information, and initiates a payment. <a href="#fn13"
+class="footnote-ref" id="fnref13"
+role="doc-noteref"><sup>13</sup></a></p></li>
+<li><p>The customer’s bank transfer funds online from the customer’s
+custodial wallet to the merchant’s custodial wallet.</p></li>
+<li><p>The merchant’s bank notifies the terminal that the payment is
+completed.</p></li>
+</ol></li>
+</ol></li>
+</ol>
+<p>There is no clear picture yet of how a mode would be selected. In
+addition to preferences configured by the customer’s device, either by
+the issuer or the user directly, the following considerations might come
+into play:</p>
+<ul>
+<li><p>availability of online connection (in case both parties are
+offline, then payments must be executed directly between hardware
+wallets);</p></li>
+<li><p>local regulation regarding acceptance limits (non-merchants may
+only be allowed to accept some maximum amount offline to prevent money
+laundering); and</p></li>
+<li><p>presence of secure hardware in the POS terminal (NFC-enabled
+cheap smartphones may not have the necessary technology to accept
+offline payments).</p></li>
+</ul>
+<p>However, because online and offline CBDC balances are segregated, it
+seems clear that offline payments should serve as a fallback option.
+Otherwise, users may be forced to top up their hardware wallet
+frequently.</p>
+<p>Depending on the form factor, the UI/UX can be designed to require
+little user intervention at the point of sale. Take Apple Pay: users can
+set a default card that is used when the side button is pressed.
+Physical cards do not allow this flexibility.</p>
+<p>For merchants, the trade-off is similar. Due to associated high
+risks, they may not be interested in holding large offline balances in
+their device. As described above, should the device break, their income
+would be lost. The European Central Bank has clarified that businesses
+have a “zero daily holding limit” of Digital Euro, with only “intraday
+holdings possible” <span class="citation" data-cites="ECBOnboarding">[<a
+href="#ref-ECBOnboarding" role="doc-biblioref">32</a>]</span>, albeit
+not for technical, but rather regulatory reasons.</p>
+<p>Point-of-sale terminals may need to be upgraded to consider dynamic
+factors in Application Selection. From the consumer side, the central
+bank could provide sensible defaults: e.g., on a smartphone, to use
+online payments whenever possible. This should prevent overburdening
+users with choice. Combined with an auto-top up feature where a minimum
+balance on a hardware wallet is maintained, this could enable a
+frictionless payment experience. Additionally, regulation and lower
+transaction fees could lead to CBDC being preferred over debit and
+credit card schemes in the market.</p>
+<h3 id="qr-code-payments">QR code payments</h3>
+<p>Payments with merchant-provided QR codes are easy to implement,
+provided no offline support is required. This approach closely follows
+A2A payments.</p>
+<figure id="fig:journey-qr">
+  <img src="{% link assets/img/research/cbdc-pos/user-journeys-QR.drawio.png %}" alt="">
+<figcaption>Exemplary payment journey for QR codes</figcaption>
+</figure>
+<p>To accept a CBDC payment, the merchant’s POS device could generate a
+dynamic QR code containing the merchant’s wallet address, the amount,
+and a unique transaction ID. The customer scans the code and initiates
+the transaction through their wallet app.</p>
+<p>Fortunately, adding a QR code payment option can be designed
+unobtrusively. A suitable POS terminal can display a QR code and wait
+for an NFC connection simultaneously. The customer simply chooses to do
+one or the other. Should the merchant not have online connectivity—for
+example, because of an outage—the QR code would not be displayed.</p>
+<p>Therefore, the customer’s behavior (by scanning a QR code) directly
+and unambiguously selects the payment flow.</p>
+<p>But this assumes that only one QR code standard is in use in a
+country and that that standard has either been purposely designed or has
+been made compatible with CBDC. Already in 2021, the World Bank has
+identified a “proliferation of QR codes in the market, harming
+compatibility and customer experience” <span class="citation"
+data-cites="WorldBank Naess2022">[<a href="#ref-WorldBank"
+role="doc-biblioref">21</a>, <a href="#ref-Naess2022"
+role="doc-biblioref">33</a>]</span>. As a solution, they suggest
+harmonization, for example, by central banks taking a national approach.
+This has been conducted successfully in the Bank of Thailand’s retail
+CBDC pilot, which also tested offline payments <span class="citation"
+data-cites="BOT">[<a href="#ref-BOT"
+role="doc-biblioref">34</a>]</span>.</p>
+<h3 id="discussion">Discussion</h3>
+<p>David Birch, a financial services advisor, agrees that “CBDCs have to
+work offline” and asks, “why not make all of the transactions offline so
+that there are no scaling issues?” Birch argues that this would simplify
+the “whole design and implementation” <span class="citation"
+data-cites="Birch2024LinkedIn">[<a href="#ref-Birch2024LinkedIn"
+role="doc-biblioref">35</a>]</span>.</p>
+<p>This may be true from a technical perspective. But it is also not a
+silver bullet: there are additional non-technical arguments why online
+and offline payments will co-exist well into the future. They represent
+the fundamental trade-off between accessibility and resilience. An
+online balance can be easily accessed through multiple devices, and
+device loss does not imply loss of funds. For offline balances, it is
+the exact opposite.<a href="#fn14" class="footnote-ref" id="fnref14"
+role="doc-noteref"><sup>14</sup></a></p>
+<p>Even today, many POS terminals support a dozen different card payment
+schemes, domestic and international. With no standardized cross-border
+retail CBDC on the horizon, there is little chance of domestic CBDC
+crowding out major card networks.</p>
+<p>It is, therefore, imperative that a retail CBDC design integrates
+into the existing payment landscape. A well-designed point-of-sale
+experience can avoid the impression of fragmentation while still
+realizing efficiency gains provided by instant settlement and low
+transaction fees.</p>
+<p>An interesting side effect of the CBDC technology is that the peer
+payment mode could also be provided in non-proximity situations. Direct
+value transfer not only works via NFC or Bluetooth but could also be
+conveyed through 4G or Wi-Fi networks. Birch calls this “edge
+transactions”.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>There is no doubt that retail CBDC is moving forward, with the
+Digital Euro currently being one of the most prominent projects. The
+European Central Bank clarified that offline capability and merchant
+payments are within the scope of the Digital Euro. Similarly, the Bank
+of England has investigated point-of-sale payments through a proof of
+concept, analyzing the implementation of three different payment modes
+<span class="citation" data-cites="BOEPOS">[<a href="#ref-BOEPOS"
+role="doc-biblioref">29</a>]</span>.</p>
+<p>Globally, the Bank for International Settlements observes that
+“throughout 2023, both retail and wholesale CBDC work progressed to more
+advanced stages” <span class="citation" data-cites="DiIorio2024">[<a
+href="#ref-DiIorio2024" role="doc-biblioref">36</a>]</span>.</p>
+<p>This has led to user adoption becoming an increased focus of
+research. Yet, as Lin and Chen point out, “there is a gap in the
+research on CBDC consumer adoption and its UX” <span class="citation"
+data-cites="Lin2023">[<a href="#ref-Lin2023"
+role="doc-biblioref">37</a>]</span>. Within that small body, there is
+even less treatment of POS payments <span class="citation"
+data-cites="Lin2023 Lin2023a Lin2023b Abramova2022">[<a
+href="#ref-Lin2023" role="doc-biblioref">37</a>–<a
+href="#ref-Abramova2022" role="doc-biblioref">40</a>]</span>.</p>
+<p>This paper sought to contribute a conceptual model for the
+interaction between customers and merchants through CBDC wallets.
+Because wallets can work both online and offline, they can contribute to
+increased resilience and financial inclusion. Instant settlement and
+CBDC being a central bank liability also reduce risk and enable more
+flexible payment scenarios. The model can also be applied to other forms
+of tokenized monies, such as stablecoins or tokenized deposits.</p>
+<p>However, this also leads to an increase in complexity. To some
+extent, this can be alleviated by leveraging existing standards (e.g.,
+EMV for authentication mode), which are suitable for online CBDC
+payments. QR codes can also be offered unobtrusively by integrating CBDC
+wallet addresses into domestic or international QR code standards.</p>
+<p>The remaining challenge is the user experience for offline payments.
+I have presented an approach based on the existing Application Selection
+mechanism of POS terminals to automatically select the source of funds,
+depending on static and dynamic factors. This does not prevent
+tech-savvy users from defining their preferences. On the merchant side,
+smartphones could also serve as acceptance devices, lowering the barrier
+to conduct business.</p>
+<p>The burden is on central banks and technology providers to adequately
+weigh technological trade-offs and provide reasonable defaults. However,
+more research is needed to understand user behavior when confronted with
+new payment methods. This is necessary to foster user adoption and to
+ensure that retail CBDC becomes successful.</p>
+<h2 id="acknowledgements">Acknowledgements</h2>
+<p>I thank my colleagues Nicole Saleh, Charalampos Karagiannis, Vratul
+Kapur, and Raoul-Thomas Herborg for their comments on an early draft of
+this paper. Special thanks go to John Kiff, who has contributed numerous
+suggestions for improvement. I appreciate the comments from the
+anonymous referees at JPSS, which greatly improved the paper. This work
+has been partially supported by the Federal Ministry of Education and
+Research (BMBF), Verbundprojekt CONTAIN (13N16582).</p>
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0"
+role="list">
+<div id="ref-Hupel2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div
+class="csl-right-inline">Hupel, L.: <span
+class="nocase">Interoperability aspects of CBDC across ecosystems and
+borders</span>. Journal of Payments Strategy &amp; Systems. 17, 422–432
+(2023). https://doi.org/<a
+href="https://doi.org/10.69554/MBDJ6710">10.69554/MBDJ6710</a>.</div>
+</div>
+<div id="ref-Presto2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div
+class="csl-right-inline">Presto, G.P., Kakebayashi, M., Yuyama, T.,
+Yamanaka, M., Matsuo, S.: <span class="nocase">Retail &amp; Wholesale
+Central Bank Digital Currencies: Comparison of Select Models, Use Case
+Analysis &amp; Exploration of Potential Technical Features</span>,
+(2023). https://doi.org/<a
+href="https://doi.org/10.2139/ssrn.4448351">10.2139/ssrn.4448351</a>.</div>
+</div>
+<div id="ref-Sun2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Sun,
+T., Rizaldy, R.: <a
+href="https://www.imf.org/en/Publications/WP/Issues/2023/06/09/Some-Lessons-from-Asian-E-Money-Schemes-for-the-Adoption-of-Central-Bank-Digital-Currency-534452"><span
+class="nocase">Some Lessons from Asian E-Money Schemes for the Adoption
+of Central Bank Digital Currency</span></a>. IMF Working Papers.
+(2023).</div>
+</div>
+<div id="ref-Wang2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div
+class="csl-right-inline">Wang, X., Hu, X.: <span
+class="nocase">Financial Development, Non-Bank E-Money, and Central Bank
+Digital Currency</span>, (2022). https://doi.org/<a
+href="https://doi.org/10.2139/ssrn.4052603">10.2139/ssrn.4052603</a>.</div>
+</div>
+<div id="ref-IMF2018" class="csl-entry" role="listitem">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline">IMF:
+<a
+href="https://www.imf.org/en/Publications/Policy-Papers/Issues/2018/04/03/022818-measuring-the-digital-economy"><span
+class="nocase">Measuring the Digital Economy</span></a>. IMF Policy
+Papers. (2018).</div>
+</div>
+<div id="ref-Bindseil2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">6. </div><div
+class="csl-right-inline">Bindseil, U.: <span class="nocase">Tiered CBDC
+and the financial system</span>. Working Paper Series. (2020).
+https://doi.org/<a
+href="https://doi.org/10.2866/134524">10.2866/134524</a>.</div>
+</div>
+<div id="ref-Zhao2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">7. </div><div
+class="csl-right-inline">Zhao, Y.: <span class="nocase">Balance sheet
+analysis for two-tier operating central bank digital currency under
+different settlement framework</span>, (2023). https://doi.org/<a
+href="https://doi.org/10.2139/ssrn.4647825">10.2139/ssrn.4647825</a>.</div>
+</div>
+<div id="ref-CliffordChance" class="csl-entry" role="listitem">
+<div class="csl-left-margin">8. </div><div
+class="csl-right-inline">Clifford Chance: <span class="nocase">Central
+Bank Digital Currencies: A new type of intermediary</span>, <a
+href="https://www.cliffordchance.com/content/dam/cliffordchance/briefings/2023/09/cbdcs-a-new-type-of-intermediary.pdf">https://www.cliffordchance.com/content/dam/cliffordchance/briefings/2023/09/cbdcs-a-new-type-of-intermediary.pdf</a>,
+(2023).</div>
+</div>
+<div id="ref-Froehlich2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">9. </div><div
+class="csl-right-inline">Fröhlich, M., Gutjahr, F., Alt, F.: <span
+class="nocase">Don’t lose your coin! Investigating Security Practices of
+Cryptocurrency Users</span>. In: Proceedings of the 2020 ACM designing
+interactive systems conference. ACM (2020). https://doi.org/<a
+href="https://doi.org/10.1145/3357236.3395535">10.1145/3357236.3395535</a>.</div>
+</div>
+<div id="ref-Yu2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">10. </div><div class="csl-right-inline">Yu,
+Y., Sharma, T., Das, S., Wang, Y.: <span class="nocase"><span>“Don’t put
+all your eggs in one basket”</span>: How Cryptocurrency Users Choose and
+Secure Their Wallets</span>. In: Proceedings of the CHI conference on
+human factors in computing systems. ACM (2024). https://doi.org/<a
+href="https://doi.org/10.1145/3613904.3642534">10.1145/3613904.3642534</a>.</div>
+</div>
+<div id="ref-BISPolaris1" class="csl-entry" role="listitem">
+<div class="csl-left-margin">11. </div><div class="csl-right-inline">BIS
+Innovation Hub: <span class="nocase">A handbook for offline payments
+with CBDC</span>, <a
+href="https://www.bis.org/publ/othp64.pdf">https://www.bis.org/publ/othp64.pdf</a>,
+(2023).</div>
+</div>
+<div id="ref-Eskandari2015" class="csl-entry" role="listitem">
+<div class="csl-left-margin">12. </div><div
+class="csl-right-inline">Eskandari, S., Barrera, D., Stobert, E., Clark,
+J.: <span class="nocase">A First Look at the Usability of Bitcoin Key
+Management</span>. In: Network and distributed system security (NDSS)
+symposium (2015). https://doi.org/<a
+href="https://doi.org/10.14722/usec.2015.23015">10.14722/usec.2015.23015</a>.</div>
+</div>
+<div id="ref-Kiff2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">13. </div><div
+class="csl-right-inline">Kiff, J.: <a
+href="https://www.imf.org/en/Publications/fandd/issues/2022/09/kiff-taking-digital-currencies-offline"><span>Taking
+Digital Currencies Offline</span></a>. Finance &amp; Development
+Magazine. (2022).</div>
+</div>
+<div id="ref-Demertzis2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">14. </div><div
+class="csl-right-inline">Demertzis, M., Martins, C.: <span
+class="nocase">Progress with the Digital Euro</span>. Intereconomics.
+58, 195–200 (2023). https://doi.org/<a
+href="https://doi.org/10.2478/ie-2023-0041">10.2478/ie-2023-0041</a>.</div>
+</div>
+<div id="ref-Panetta2021" class="csl-entry" role="listitem">
+<div class="csl-left-margin">15. </div><div
+class="csl-right-inline">Panetta, F.: <a
+href="https://www.suerf.org/publications/suerf-policy-notes-and-briefs/a-digital-euro-to-meet-the-expectations-of-europeans/"><span
+class="nocase">A digital euro to meet the expectations of
+Europeans</span></a>. SUERF Policy Brief. (2021).</div>
+</div>
+<div id="ref-Kahn2021" class="csl-entry" role="listitem">
+<div class="csl-left-margin">16. </div><div
+class="csl-right-inline">Kahn, C.M., Oordt, M. van, Zhu, Y.: <span
+class="nocase">Best Before? Expiring Central Bank Digital Currency and
+Loss Recovery</span>. Bank of Canada Staff Working Paper. (2021).
+https://doi.org/<a
+href="https://doi.org/10.34989/SWP-2021-67">10.34989/SWP-2021-67</a>.</div>
+</div>
+<div id="ref-BOGDesignPaper" class="csl-entry" role="listitem">
+<div class="csl-left-margin">17. </div><div
+class="csl-right-inline">Bank of Ghana: <span class="nocase">Design
+paper of the digital Cedi (eCedi)</span>, <a
+href="https://www.bog.gov.gh/wp-content/uploads/2022/03/eCedi-Design-Paper.pdf">https://www.bog.gov.gh/wp-content/uploads/2022/03/eCedi-Design-Paper.pdf</a>,
+(2022).</div>
+</div>
+<div id="ref-Reuver2017" class="csl-entry" role="listitem">
+<div class="csl-left-margin">18. </div><div
+class="csl-right-inline">Reuver, M. de, Ondrus, J.: <span
+class="nocase">When technological superiority is not enough: The
+struggle to impose the SIM card as the NFC Secure Element for mobile
+payment platforms</span>. Telecommunications Policy. 41, 253–262 (2017).
+https://doi.org/<a
+href="https://doi.org/10.1016/j.telpol.2017.01.004">10.1016/j.telpol.2017.01.004</a>.</div>
+</div>
+<div id="ref-ThalesHCE" class="csl-entry" role="listitem">
+<div class="csl-left-margin">19. </div><div
+class="csl-right-inline">Thales: <span>Host Card Emulation (HCE)</span>,
+<a
+href="https://cpl.thalesgroup.com/encryption/host-card-emulation">https://cpl.thalesgroup.com/encryption/host-card-emulation</a>.</div>
+</div>
+<div id="ref-Umar2015" class="csl-entry" role="listitem">
+<div class="csl-left-margin">20. </div><div
+class="csl-right-inline">Umar, A., Mayes, K., Markantonakis, K.: <span
+class="nocase">Performance variation in host-based card emulation
+compared to a hardware security element</span>. In: Conference on mobile
+and secure services (MOBISECSERV). IEEE (2015). https://doi.org/<a
+href="https://doi.org/10.1109/mobisecserv.2015.7072872">10.1109/mobisecserv.2015.7072872</a>.</div>
+</div>
+<div id="ref-WorldBank" class="csl-entry" role="listitem">
+<div class="csl-left-margin">21. </div><div
+class="csl-right-inline">World Bank Group: <span class="nocase">The use
+of Quick-Response Codes in payments</span>, <a
+href="https://fastpayments.worldbank.org/sites/default/files/2021-10/QR_Codes_in_Payments_Final.pdf">https://fastpayments.worldbank.org/sites/default/files/2021-10/QR_Codes_in_Payments_Final.pdf</a>,
+(2021).</div>
+</div>
+<div id="ref-GoCardless" class="csl-entry" role="listitem">
+<div class="csl-left-margin">22. </div><div
+class="csl-right-inline">GoCardless: <span class="nocase">Push vs Pull
+Payments: What’s the Difference?</span>, <a
+href="https://gocardless.com/guides/posts/push-vs-pull-payments-whats-the-difference/">https://gocardless.com/guides/posts/push-vs-pull-payments-whats-the-difference/</a>,
+(2023).</div>
+</div>
+<div id="ref-Saiyid2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">23. </div><div
+class="csl-right-inline">Saiyid, M.: <span class="nocase">Pix: Brazil’s
+Successful Instant Payment System</span>. IMF Staff Country Reports.
+2023, 1 (2023). https://doi.org/<a
+href="https://doi.org/10.5089/9798400249266.002">10.5089/9798400249266.002</a>.</div>
+</div>
+<div id="ref-Hartmann2019" class="csl-entry" role="listitem">
+<div class="csl-left-margin">24. </div><div
+class="csl-right-inline">Hartmann, M., Gijsel, L.H., Plooij, M.,
+Vandeweyer, Q.: <span class="nocase">Are instant payments becoming the
+new normal? A comparative study</span>. Occasional Paper Series. (2019).
+https://doi.org/<a
+href="https://doi.org/10.2866/845816">10.2866/845816</a>.</div>
+</div>
+<div id="ref-Dresner2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">25. </div><div
+class="csl-right-inline">Dresner, A., Gandhi, A.: <span
+class="nocase">The role of US open banking in catalyzing the adoption of
+A2A payments</span>, <a
+href="https://www.mckinsey.com/industries/financial-services/our-insights/the-role-of-us-open-banking-in-catalyzing-the-adoption-of-a2a-payments">https://www.mckinsey.com/industries/financial-services/our-insights/the-role-of-us-open-banking-in-catalyzing-the-adoption-of-a2a-payments</a>,
+(2024).</div>
+</div>
+<div id="ref-BOJ" class="csl-entry" role="listitem">
+<div class="csl-left-margin">26. </div><div
+class="csl-right-inline">Bank of Japan: <span class="nocase">Central
+Bank Digital Currency Experiments: Results and Findings from
+<span>“Proof of Concept Phase 2”</span></span>, <a
+href="https://www.boj.or.jp/en/paym/digital/dig230529a.pdf">https://www.boj.or.jp/en/paym/digital/dig230529a.pdf</a>,
+(2023).</div>
+</div>
+<div id="ref-EMVCo" class="csl-entry" role="listitem">
+<div class="csl-left-margin">27. </div><div
+class="csl-right-inline">EMVCo: <span>EMV® QR Codes</span>, <a
+href="https://www.emvco.com/emv-technologies/qr-codes/">https://www.emvco.com/emv-technologies/qr-codes/</a>.</div>
+</div>
+<div id="ref-Struif1995" class="csl-entry" role="listitem">
+<div class="csl-left-margin">28. </div><div
+class="csl-right-inline">Struif, B.M.: <span class="nocase">Smartcard
+standardization: Inter-industry commands and application
+selection</span>. Computer Standards &amp; Interfaces. 17, 81–87 (1995).
+https://doi.org/<a
+href="https://doi.org/10.1016/0920-5489(93)e0073-b">10.1016/0920-5489(93)e0073-b</a>.</div>
+</div>
+<div id="ref-BOEPOS" class="csl-entry" role="listitem">
+<div class="csl-left-margin">29. </div><div
+class="csl-right-inline">Bank of England: <span
+class="nocase">Point-of-sale proof of concept</span>, <a
+href="https://www.bankofengland.co.uk/-/media/boe/files/report/2024/point-of-sale-proof-of-concept-digital-pound-experiment-report.pdf">https://www.bankofengland.co.uk/-/media/boe/files/report/2024/point-of-sale-proof-of-concept-digital-pound-experiment-report.pdf</a>,
+(2024).</div>
+</div>
+<div id="ref-ECBTokenisation" class="csl-entry" role="listitem">
+<div class="csl-left-margin">30. </div><div
+class="csl-right-inline">European Central Bank: <span
+class="nocase">Digital euro - Secure Exchange of Payment
+Information</span>, <a
+href="https://www.ecb.europa.eu/ecb/jobsproc/proc/pdf/pro-009486_digital_euro__secure_exchange_of_payment_information_-_cn_4400-2024.pdf">https://www.ecb.europa.eu/ecb/jobsproc/proc/pdf/pro-009486_digital_euro__secure_exchange_of_payment_information_-_cn_4400-2024.pdf</a>,
+(2024).</div>
+</div>
+<div id="ref-Vahter2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">31. </div><div
+class="csl-right-inline">Vahter, M., Nurmi, S.: <span
+class="nocase">Digital Euro: Functionality of the new digital cash will
+focus on effortless consumer use</span>, <a
+href="https://qvik.com/news/digital-euro-functionality-of-the-new-digital-cash-will-focus-on-effortless-consumer-use/">https://qvik.com/news/digital-euro-functionality-of-the-new-digital-cash-will-focus-on-effortless-consumer-use/</a>,
+(2024).</div>
+</div>
+<div id="ref-ECBOnboarding" class="csl-entry" role="listitem">
+<div class="csl-left-margin">32. </div><div
+class="csl-right-inline">European Central Bank: <span
+class="nocase">End-user on-boarding and digital euro access &amp;
+holdings</span>, <a
+href="https://www.ecb.europa.eu/euro/digital_euro/timeline/profuse/shared/pdf/ecb.degov221208_item2onboardingaccessmag.en.pdf">https://www.ecb.europa.eu/euro/digital_euro/timeline/profuse/shared/pdf/ecb.degov221208_item2onboardingaccessmag.en.pdf</a>,
+(2022).</div>
+</div>
+<div id="ref-Naess2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">33. </div><div
+class="csl-right-inline">Næss-Schmidt, S., Lemberg, A., Ehmann, H.,
+Münier, L.L., Bech, S., Flindhardt, S.R.: <span
+class="nocase">Standardising QR Code Payments in Europe</span>, <a
+href="https://copenhageneconomics.com/wp-content/uploads/2022/03/ce-publication-standardising-qr-code-payments-in-europe.pdf">https://copenhageneconomics.com/wp-content/uploads/2022/03/ce-publication-standardising-qr-code-payments-in-europe.pdf</a>,
+(2022).</div>
+</div>
+<div id="ref-BOT" class="csl-entry" role="listitem">
+<div class="csl-left-margin">34. </div><div
+class="csl-right-inline">Bank of Thailand: <span>Retail CBDC Conclusion
+Report</span>, <a
+href="https://www.bot.or.th/content/dam/bot/documents/en/financial-innovation/cbdc-digital-currency/Update_Release_ENrCBDC Conclusion Report.pdf">https://www.bot.or.th/content/dam/bot/documents/en/financial-innovation/cbdc-digital-currency/Update_Release_ENrCBDC
+Conclusion Report.pdf</a>, (2024).</div>
+</div>
+<div id="ref-Birch2024LinkedIn" class="csl-entry" role="listitem">
+<div class="csl-left-margin">35. </div><div
+class="csl-right-inline">Birch, D.: <span class="nocase">CBDCs must work
+offline if they are to be rolled out successfully</span>, <a
+href="https://www.linkedin.com/feed/update/urn:li:activity:7216403081738022913/">https://www.linkedin.com/feed/update/urn:li:activity:7216403081738022913/</a>,
+(2024).</div>
+</div>
+<div id="ref-DiIorio2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">36. </div><div class="csl-right-inline">Di
+Iorio, A., Kosse, A., Mattei, I.: <a
+href="https://www.bis.org/publ/bppdf/bispap147.pdf"><span
+class="nocase">Embracing diversity, advancing together – results of the
+2023 BIS survey on central bank digital currencies and
+crypto</span></a>. BIS Papers. (2024).</div>
+</div>
+<div id="ref-Lin2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">37. </div><div
+class="csl-right-inline">Lin, Z., Chen, C.-H.: <span class="nocase">The
+influence of dynamic page interaction and multimodal operation feedback
+on the user experience of central bank digital currency</span>.
+Displays. 80, 102516 (2023). https://doi.org/<a
+href="https://doi.org/10.1016/j.displa.2023.102516">10.1016/j.displa.2023.102516</a>.</div>
+</div>
+<div id="ref-Lin2023a" class="csl-entry" role="listitem">
+<div class="csl-left-margin">38. </div><div
+class="csl-right-inline">Lin, Z., Chen, C.-H., Li, S.: <span
+class="nocase">The User Interface Interaction Design of Central Bank
+Digital Currency: An Empirical Study</span>. Human-Centered Design and
+User Experience. 114, (2023). https://doi.org/<a
+href="https://doi.org/10.54941/ahfe1004223">10.54941/ahfe1004223</a>.</div>
+</div>
+<div id="ref-Lin2023b" class="csl-entry" role="listitem">
+<div class="csl-left-margin">39. </div><div
+class="csl-right-inline">Lin, Z., Chen, C.-H.: <span
+class="nocase">Interaction Design and Research for User Interfaces of
+Central Bank Digital Currency: An Empirical Study</span>. International
+Journal of Human–Computer Interaction. 1–17 (2023). https://doi.org/<a
+href="https://doi.org/10.1080/10447318.2023.2285651">10.1080/10447318.2023.2285651</a>.</div>
+</div>
+<div id="ref-Abramova2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">40. </div><div
+class="csl-right-inline">Abramova, S., Böhme, R., Elsinger, H., Stix,
+H., Summer, M.: <a href="https://hdl.handle.net/10419/264833"><span
+class="nocase">What can CBDC designers learn from asking potential
+users? Results from a survey of Austrian residents</span></a>. OeNB
+Working Paper. (2022).</div>
+</div>
+</div>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>The Bank for International Settlements chooses a
+slightly different categorization, borrowing terminology from the
+cryptocurrency community: “A cold wallet is a hardware device and can be
+operated offline, while a hot wallet is an online service based on web
+resources (and can be operated only by online users)” <span
+class="citation" data-cites="BISPolaris1">[<a href="#ref-BISPolaris1"
+role="doc-biblioref">11</a>]</span>. I have chosen to use “hardware” and
+“software” because those terms are more common in the CBDC community.<a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>This is different from “payment tokenization” in card
+schemes, where a “payment token” is moved from one device to another.
+Those “payment tokens” do not bear monetary value directly.<a
+href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>This mode illustrates why the term “wallet” is
+ambiguous. The actual funds reside in a custodial wallet managed by an
+intermediary on a remote server. But the customer uses a “wallet app” to
+access those funds.<a href="#fnref3" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>see Section <a href="#public-money-vs.-private-money"
+data-reference-type="ref"
+data-reference="public-money-vs.-private-money">1.3</a><a href="#fnref4"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>authentication mode only<a href="#fnref5"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p><em>Host Card Emulation</em> <span class="citation"
+data-cites="ThalesHCE Umar2015">[<a href="#ref-ThalesHCE"
+role="doc-biblioref">19</a>, <a href="#ref-Umar2015"
+role="doc-biblioref">20</a>]</span><a href="#fnref6"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>possible, but not used<a href="#fnref7"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>online-only<a href="#fnref8" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>Although technically, it is possible to do instant
+payment with card schemes, market adoption has been lackluster.<a
+href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>The notable exception being Bank of Japan, which
+investigated performance of CBDC pull payments along with batch payments
+<span class="citation" data-cites="BOJ">[<a href="#ref-BOJ"
+role="doc-biblioref">26</a>]</span>.<a href="#fnref10"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11"><p>The Bank for International Settlements also
+acknowledges direct value transfers between hardware wallets using QR
+codes, but implementations are rare <span class="citation"
+data-cites="BISPolaris1">[<a href="#ref-BISPolaris1"
+role="doc-biblioref">11</a>]</span>.<a href="#fnref11"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn12"><p>If the merchant terminal does not have hardware
+capabilities to operate a hardware wallet, the peer payment could also
+directly flow to the merchant’s custodial wallet. The terminal would
+merely act as a communication proxy. This would be steered through the
+terminal and would therefore be transparent to the customer’s device.<a
+href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn13"><p>Figure <a href="#fig:journey-contact"
+data-reference-type="ref" data-reference="fig:journey-contact">4</a>
+shows a direct communication channel between terminal and the customer’s
+bank. A real implementation may still involve intermediaries and/or an
+acquirer. For example, the Bank of England study investigated two
+different communication pathways: one through the central bank and one
+through the merchant’s bank <span class="citation"
+data-cites="BOEPOS">[<a href="#ref-BOEPOS"
+role="doc-biblioref">29</a>]</span>.<a href="#fnref13"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn14"><p>As <span class="citation" data-cites="Kahn2021">[<a
+href="#ref-Kahn2021" role="doc-biblioref">16</a>]</span> proved, perfect
+loss recovery is not possible in an offline system that prevents offline
+spending. Approximate solutions exist, but they are out of scope for
+this paper.<a href="#fnref14" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>

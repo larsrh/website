@@ -387,3 +387,12 @@
   extra:
     - link: "https://github.com/isabelle-prover/isabelle-go-codegen"
       text: "Code"
+- title: "A conceptual model for point-of-sale payment with Retail CBDC"
+  id: "cbdc-pos"
+  authors: ["lars"]
+  year: 2024
+  abstract: |
+    The European Central Bank, like many other central banks, is pushing forward with the introduction of a Central Bank Digital Currency (CBDC). The Digital Euro is designed for retail use cases, which includes peer-to-peer and merchant payments. Many different form factors are supported, with a focus on offline capabilities. While the picture is clear about how users can access and obtain CBDC, the acceptance side is not fully understood yet. At points of sale, CBDC will become one of already many different payment options. This paper analyzes the technical background of CBDC wallets and proposes a conceptual model of how to introduce CBDC payment to consumers.
+  extra:
+    - link: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4912865"
+      text: "SSRN"
