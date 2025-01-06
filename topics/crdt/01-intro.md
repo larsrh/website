@@ -188,6 +188,7 @@ People on The Internet™ seem to enjoy these posts:
 {% include quote.html url="https://twitter.com/pchapuis/status/1355849874718285829" author="Pierre Chapuis" text="[This series] is the most thorough introduction to CRDTs for programmers I have seen so far, and I wish it had existed a few years back when I had to introduce colleagues to CRDTs." %}
 {% include quote.html url="https://twitter.com/SamBroner" author="Sam Broner" text="An excellent educational tool that fills that huge void between theoretical CRDT algorithms and practical application. I've strongly suggested that new team members take a pass through Lars' work as a practical primer on eventual consistency and conflict free replicated data types." %}
 {% include quote.html url="https://chaos.social/@blinry" author="blinry" text="I wanted to get into CRDTs, and wow, your interactive introduction is so helpful! Thanks for writing it! <3" %}
+{% include quote.html url="https://danilafe.com/" author="Daniel" text="I'm a big fan of the CRDT series ... It was my first introduction to lattice theory and I reference it a couple of times in another series of mine on lattice-based static program analysis" %}
 
 ## References
 
