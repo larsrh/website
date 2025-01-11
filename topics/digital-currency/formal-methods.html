@@ -1,0 +1,175 @@
+---
+title: What are formal methods, and how do they affect CBDC?
+date: 2023-06-20
+canonical: "https://www.linkedin.com/pulse/what-formal-methods-how-do-affect-cbdc-dr-lars-hupel/"
+abstract: |
+  In a recent article, I explained that the common practice of software testing may not provide sufficient confidence in the correctness of software in critical domains. As an improvement over this state of affairs, I outline various techniques referred to as “formal methods”. But in the context of CBDC, why is this important, and how can those methods be employed to increase trust in the system?
+---
+
+<h2>What are formal methods?</h2>
+
+<p>As I wrote in the <a href="{% link _articles/testing-doesnt-cut-it.md %}">earlier
+article</a>, the term <em>formal methods</em> denotes a diverse
+range of tools and approaches with which, in simple terms, the
+implementation of a software can be examined for errors without
+relying on concrete or predefined inputs and examples. To give you
+a concrete, real-life example: the algorithm running in your GPS
+navigation software should always guarantee that it finds a way
+from your current location to your destination. Since no engineer
+could test all combinations of inputs to the system, the algorithm
+could be analyzed by a tool that ensures on abstract level that
+each potential valid input leads to valid output, without actually
+testing each potential valid input.</p>
+<p>Unfortunately, real-world applications are complex, layered
+systems: They run on top of an operating system that runs on top of
+hardware (itself using firmware), relying on lots of third-party
+frameworks and libraries. Formal methods can be utilized to examine
+some parts of this stack, but will fall short in case of “black
+swan” events, such as the CPU malfunctioning.</p>
+<p>Having said that, the amount of assurance formal methods can
+provide is considerably better than simple software testing. It is
+therefore crucial to identify the most critical pieces in a
+software stack and then apply such tools to detect and fix
+problems. In the case of CBDC, this would be, for example, the core
+ledger and the wallets.</p>
+<h2>How are formal methods used?</h2>
+<p>For our CBDC solution G+D Filia, we started using a particular
+tool called <a href=
+"https://isabelle.in.tum.de/"><em>Isabelle</em></a> very early
+on. During my doctoral studies at Technical University München, I
+worked with this tool intensively, particularly on compilers for
+programming languages. Similarly, my colleague <a href=
+"https://www.linkedin.com/in/peterzel/">Peter Zeller</a>, hailing
+from Technical University Kaiserslautern, has worked with Isabelle
+on the verification of distributed applications.</p>
+<figure>
+  <img src="{% link assets/img/topics/digital-currency/formal-methods/system.png %}" alt="">
+  <figcaption>The Filia architecture, describing how CBDC evolves in
+  the digital cash cycle.</figcaption>
+</figure>
+<p>Therefore, our main focus of attention was to build a
+high-quality model of Filia’s ledger, which in our architecture is
+called the “Core System”. The purpose of this system is to verify
+tokens for authenticity and prevent double spending. As you can see
+from the diagram, the Core System is used by all other components,
+making it critical for availability and security.</p>
+<p>From the looks of it, Isabelle appears to be a programming
+language together with a development environment comprising an
+editor and a standard library. But besides from writing code in
+Isabelle, we can also prove mathematical properties.</p>
+<p>Filia is a token-based CBDC, which means that we started out
+defining what a <em>token</em> is, and how tokens evolve in the
+cash cycle. In Filia, there are only a few different modifications
+allowed on a token, which we call <em>commands</em>. There are two
+types of commands: <em>privileged</em> (can only be executed by the
+central bank) and <em>unprivileged</em> (can be executed by whoever
+is in possession of the token). Notably, unprivileged commands must
+not change the monetary supply. This is true for example when
+splitting a token of a given denomination into two tokens with
+smaller denominations. The Core System must validate that the sum
+of the resulting tokens’ denominations exactly matches the original
+token’s denomination.</p>
+<p>Now, while this may sound trivial, it actually requires
+substantial effort to validate such properties. For mathematicians,
+the set of tokens – including all historic tokens that have been
+used at some point – can be modelled as a <em>directed acyclic
+graph</em>. From this, we can derive the conditions that have to be
+checked when we validate a token. Additionally, we can study
+subsets, which is relevant for offline payments, where tokens
+cannot be immediately reported to the Core System. Ultimately, this
+allows us to process multiple tokens together during offline
+reconciliation, increasing performance. I have explained more
+details on offline payments <a href=
+"{% link topics/digital-currency/offline-payments-filia.html %}">
+in another article</a>.</p>
+<figure>
+  <img src="{% link assets/img/topics/digital-currency/formal-methods/graph.png %}" alt="">
+  <figcaption>An example for token evolution: The central bank
+  creates a token with a denomination of 10, followed by a user
+  splitting it into two tokens, worth 2 and 8.</figcaption>
+</figure>
+<p>We went even further than that and also examined how wallets
+orchestrate these modification commands for end-to-end
+transactions. This is where the tool <a href=
+"https://lamport.azurewebsites.net/tla/tla.html"><em>TLA+</em></a>
+comes into play. It excels at the verification of distributed
+systems and protocols. With it, we can also study how different
+components with independent processes work together to execute a
+payment. It allows us to reason about the tokens that are contained
+within a wallet, and how those wallets extract and insert tokens
+worth a particular denomination. TLA+ automatically explores the
+state space of the system to detect if invalid states can occur,
+such as transactions that cannot be completed due to a network
+interruption. To fix such issues, we have implemented logic to
+automatically retry online payments, therefore increasing
+resilience. But at the same time, we must prevent a retry to be
+accidentally interpreted as a duplicate payment, deducting the
+amount from the payer’s wallet twice! This is why we use formal
+methods: to make sure complex flows do not have unintended
+consequences.</p>
+<h2>What have we learned?</h2>
+<p>As you can imagine, a full CBDC solution requires many such
+components that are deployed in many different contexts: the Core
+System at the central bank, hosted wallets at intermediaries, and
+hardware wallets in user custody, to name a few (see also the
+diagram above).</p>
+<p>Both Isabelle and TLA+ were instrumental in our system design.
+While we continue using software testing, formal methods helped to
+uncover complex corner cases and feature interactions that we could
+address before they caused issues. Concretely, our garbage
+collection feature, whereby historic tokens can be pruned from the
+ledger, was first developed in Isabelle, and only later in the
+production system built with Go. Due to the formal model, we
+learned that we need to treat privileged and unprivileged commands
+differently.</p>
+<p>The concept of using formal methods for safety-critical systems
+is definitely nothing new, but at G+D Filia, we are applying it to
+concrete problems in the space of digital payment systems. To the
+best of my knowledge, this makes us an industry leader.</p>
+<p>We are actively engaged in further research on these topics. To
+mention just one example: we have recently built an extension to
+Isabelle that enables us to integrate with the Go programming
+language. Also, we participate in the bilateral Austrian–German
+<a href=
+"https://www.sifo.de/sifo/de/projekte/querschnittsthemen-und-aktivitaeten/bedrohungen-aus-dem-digitalen-raum/bedrohungen-aus-dem-digitalen-raum.html">
+research cooperation “CONTAIN”</a> (link in German), where we focus
+on the security of offline payments, including the use of formal
+methods. This is part of a broader initiative towards safeguarding
+international supply chains, where digital payments play a leading
+role.</p>
+<h2>Summary</h2>
+<p>CBDC is a critical piece of infrastructure that needs to adhere
+to high degrees of security, resilience, and correctness. Among the
+most important properties of a CBDC are: Money should never get
+lost during a transaction; the central bank should be the only
+instance to be able to create money; users cannot spend a token
+twice. How can we ensure this?</p>
+<p>🧮 Using mathematical methods, we can formally model a CBDC
+system. This model then describes the basic architecture, such as
+the underlying account- or token-based approach, and the protocols
+that are used to transact.</p>
+<p>🤔 In this model, we can reason about the guarantees the system
+provides. There are different tools available that vary in the
+depth of the analysis they perform and their degree of automation.
+For example, some tools work directly on implementation code,
+whereas others operate on abstract mathematical formulas. There is
+no one-size-fits-all solution.</p>
+<p>🌉 While this works quite well and is also used in other
+industries, there are still some gaps: 100% confidence is not
+attainable, since for some parts of the stack comprising hardware,
+operating system, libraries, programming languages, … a formal
+model is unavailable or would be prohibitively expensive to
+create.</p>
+<p>⏫ Therefore, we can think of formal methods as one tool in the
+toolbox to increase trust in the system. Many design flaws can be
+caught before they are implemented, preventing bugs even before
+they are introduced. It is important to prioritize the effort on
+the most critical parts of the infrastructure.</p>
+<p>👛 In G+D Filia, we are also using such tools to ensure the
+correctness of several technical components and protocols, proving
+properties such as: money transfers will never end up in an invalid
+state, and the amount of money in circulation stays constant
+(except for minting and melting). We have also successfully
+utilized formal methods to design new features.</p>
+<p>Thanks to my colleagues Peter Zeller, Abbas Albasha, and Markus
+Bohn for their comments on early drafts of this article.</p>

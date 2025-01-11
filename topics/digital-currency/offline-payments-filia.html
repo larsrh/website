@@ -1,0 +1,149 @@
+---
+title: "Offline payments: How does G+D Filia fare?"
+date: 2023-06-07
+canonical: "https://www.linkedin.com/pulse/what-formal-methods-how-do-affect-cbdc-dr-lars-hupel/"
+hero:
+  src: img/topics/digital-currency/offline-payments-filia/header.jpg
+  alt: Northern lights
+  credits: Jonatan Pie on Unsplash
+abstract: |
+  The <em>BIS Innovation Hub</em>, as part of <em>Project Polaris</em>, has recently published a <a href="https://www.bis.org/publ/othp64.htm">comprehensive handbook for offline payments with CBDC</a>. In this document, they investigate issues like “security, privacy, likely risks, the types of solution, their maturity and applicability, and operational factors”. In this post, I will attempt to explain how our CBDC solution G+D Filia fits within their framework, and how it fares in some of the categories they analysed. This is focused on offline payments, but if you want to learn more about our solution in general, check out <a href="https://www.gi-de.com/en/payment/central-bank-digital-currencies/cbdc-implementation">Filia's homepage</a>.
+---
+
+<h2>Modes of offline payment</h2>
+<p>G+D Filia can be characterized as <em>“intermittently
+offline”</em>: value transfer is immediate and settled instantly,
+without the need for online connectivity. This also means that
+payments are final and cannot be reversed later. We also support
+<em>consecutive offline payments</em>, where funds received offline
+can be subsequently spent offline. As opposed to a fully offline
+solution, hardware wallets must reconcile with the core system
+periodically. However, the data being transmitted does not contain
+personally identifying information, just technical data to
+authenticate tokens. The core system does not learn about the
+identities of the payment parties.</p>
+<h2>Ledger</h2>
+<p>What the Polaris paper calls “ledger”, we call “core system”.
+Its purpose is to keep a <em>register of money</em> that is
+circulating in various kinds of wallets, such as online wallets
+hosted at banks and hardware wallets in user custody. Crucially, we
+have designed our solution such that the core system does not
+retain any personally identifying information of token holders,
+only the technical information to validate the tokens’
+authenticity. Wallets can communicate with the core system to
+validate and update tokens (for example, splitting a token into
+smaller denominations). The core system does not distinguish
+between an “online” and “offline” ledger, because the token format
+is identical. In an offline situation, wallets would keep a record
+of token operations and reconcile them with the core system later.
+This does not mean that the core system must approve offline
+transactions before they are considered to be settled. Rather, the
+reconciliation process makes token updates known to the core system
+eventually. Note that the core system is agnostic about the
+underlying storage technology and supports several types of
+databases or distributed ledgers.</p>
+<h2>Wallets & values</h2>
+<p>Wallets (or “purses”) can come in <em>different form
+factors</em> in Filia. We distinguish wallets according to their
+location: hosted at a bank or hardware devices in user custody. The
+Polaris paper focuses on the latter because they can be used
+offline. In Filia, hardware wallets store CBDC value directly on a
+<em>Secure Element</em> (SE): a small, tamper-resistant security
+chip that can be embedded in many different form factors (see
+picture below). Modern smartphones have one or multiple SEs, as do
+SIM cards and standalone payment cards. CBDC is represented as a
+cryptographic private key, with an attached denomination, currency,
+and some other information. SEs keep the private keys safe and
+secret and ensure that value transfer can only happen over an
+<em>end-to-end encrypted channel,</em> which can be established
+over NFC, BLE, Wi-Fi, or other (insecure) communication
+protocols.</p>
+<figure>
+  <img src="{% link assets/img/topics/digital-currency/offline-payments-filia/form-factors.jpg %}" alt="Illustration of different devices: smart card, key fob, wristband, smart watch, phone">
+  <figcaption>Different device form factors where CBDC tokens can be stored</figcaption>
+</figure>
+<h2>Risk & security parameters</h2>
+<p>Any CBDC solution will be a prime target for attacks, especially
+in offline scenarios. Therefore, we opted to use a solution whose
+security relies on multiple pillars, with Secure Elements being one
+of the most important. In our system, money can only be transferred
+between <em>authenticated wallets</em> that are equipped with a SE,
+or online wallets storing private keys safely in Hardware Security
+Modules (HSMs). Payment devices, for example Android-based POS
+terminals, act only as communication proxies, but are not able to
+extract tokens being exchanged. In principle, our solution would
+allow for lower-security wallets on TEEs or purely software-based
+(e.g., through white-box cryptography), however this requires a
+careful risk assessment, for example disabling consecutive offline
+payments to avoid counterfeiting on less trusted devices. As a
+further security measure, central banks can configure <em>limits
+for offline payments and holdings.</em></p>
+<h2>Key generation</h2>
+<p>Hardware wallets manage – broadly speaking – two distinct kinds
+of cryptographic keys: wallet keys and token keys.</p>
+<ol>
+<li><em>Wallet keys</em> and the accompanying certificates based on
+an industry standard (comparable to X.509) equip each wallet with a
+unique identity. The certificate is signed via a PKI with the
+central bank acting as the root certificate authority and is baked
+into the wallet during manufacturing. The wallet keys are used for
+establishing end-to-end encrypted payment channels and ensuring
+authenticity in the ecosystem. Usually their lifetime is as long as
+the lifetime of the hardware wallet (typically a few
+years).</li>
+<li><em>Tokens</em> are cryptographic key pairs representing value.
+While those tokens have a digital fingerprint, they are not
+associated with the wallet holder’s identity. They are also
+frequently replaced, e.g., when tokens are split into smaller
+denominations or merged into larger denominations. On these
+occasions, one or more fresh key pairs are created autonomously by
+wallets to substitute the original token, linking them together
+using digital signatures. Wallets can generate fresh token keys
+autonomously.</li>
+</ol>
+<p>During a payment transaction, first the wallet keys are used to
+establish a secure channel, and then tokens are exchanged via that
+channel. This ensures that the information required to validate
+tokens and personal identities are neatly separated. Note that
+counterparties cannot deduce a personal identity just by looking at
+the wallet certificate, which only contains a pseudonymous serial
+number. Only the issuing bank can establish the holder’s
+identity.</p>
+<h2>Online & offline balances</h2>
+<p>Because we have a shared ledger of both online and offline
+operations, tokens cannot be kept in multiple wallets at the same
+time. In other words, a balance that may be available in a bank
+account cannot simultaneously be available as cash. This is also
+the case in Filia, where the wallet protocols ensure that tokens
+move exclusively between wallets (the core algorithms behind those
+protocols we have mathematically proved to be correct). Failing
+that, it would be possible to spend more money than is owned, by a
+clever combination of online and offline funds (the approach taken
+by credit cards). Even though this might sound overly restrictive,
+we can still use money stored in a CBDC hardware wallet for online
+payments: it is possible to, e.g., pay for online shopping by
+touching your smartcard to the back of your NFC-enabled phone, or
+to even use the money that is stored inside the Secure Element of
+your smartphone.</p>
+<h2>Summary</h2>
+<p>🔁 G+D Filia is intermittently offline. Payments are instantly
+settled offline, with occasional online reconciliation. But most
+importantly: funds received offline can be spent offline
+(consecutive offline payments).</p>
+<p>💰 Our token format is the same online and offline, therefore the
+payment protocols are similar across different kinds of wallet
+(e.g., online wallets hosted at banks and hardware wallets). No
+conversion between online or offline ledger is needed.</p>
+<p>🔐 Tokens in hardware wallets are stored in tamper-resistant
+Secure Elements. Each wallet is equipped with a certificate,
+ensuring end-to-end encryption for every payment transaction. As an
+additional safety net, wallets keep a record of offline operations
+to detect counterfeiting.</p>
+<p>🚧 Central banks can configure limits for offline wallets, such
+as maximum holding or mandatory reconciliation after some
+consecutive payments. This serves both regulatory and technical
+purposes for limiting money laundering and counterfeiting risks,
+respectively.</p>
+<p>Thanks to my colleague <a href=
+"https://www.linkedin.com/in/markus-bohn/" target="_blank">Markus
+Bohn</a> for his comments on an early draft of this article.</p>
