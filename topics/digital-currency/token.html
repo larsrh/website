@@ -1,0 +1,346 @@
+---
+title:  What, if anything, is a token?
+date: 2024-01-22
+canonical: "https://www.linkedin.com/pulse/what-anything-token-dr-lars-hupel-lszdf/"
+---
+
+<p>In my <a href=
+"{% link topics/digital-currency/wallet.html %}"
+>last article</a>, I made an attempt at defining the
+concept of a wallet, as well as categorizing the different contents
+of a wallet. To recap, I used the metaphors of <em>vouchers</em>
+and <em>credentials</em>: A credential represents an aspect of
+<em>who you are</em>, whereas a voucher represents an aspect of
+<em>what you possess</em>. On this abstract level, a wallet is a
+container of secret keys that may be used as vouchers or
+credentials. Often, those represent or enable access to money.</p>
+<p>But let us get more concrete (and technical) now. When talking
+about wallets, tokens are not far away. At the risk of repeating
+myself, but … just like in wallets, there are truly mind-bogglingly
+many different interpretations of the concept of a <em>token</em>.
+High time to shed some light on it.</p>
+<h2>Hardware or software?</h2>
+<p>The first question that we need to answer: with tokens, do we
+mean <em>hardware</em> or <em>software</em> tokens?</p>
+<p>As it turns out, hardware tokens (or security tokens) have been
+around for a long time. Those are small, special purpose devices
+that are used for authentication purposes. For example, they may
+have a small display that shows a 6-digit code that changes every
+minute. When logging into a website, the server asks for this code,
+the user looks at the device and types the code into the browser. A
+particularly popular brand of such devices, manufactured by RSA
+(the company, not the algorithm), has been around since at least
+2002.</p>
+<figure>
+  <img src="{% link assets/img/topics/digital-currency/token/keyfob.jpg %}" alt="A small square device with a fingerprint scanner in the middle">
+<figcaption>G+D StarSign® Key Fob</figcaption>
+</figure>
+<p>Modern security tokens serve the same purpose, but can be
+connected directly to a computer, for example via NFC or Bluetooth.
+In fact, such a token is also sold by G+D: the <a href=
+"https://www.gi-de.com/en/digital-security/identity-technology/enterprise-security/hardware-based-authentication/starsign-key-fob"
+>StarSign® Key Fob</a> (see picture). As an
+additional security feature, the Key Fob requires a fingerprint to
+unlock.</p>
+<p>As I have explained in the former article, there may be hardware
+devices that store cryptographic secret keys representing monetary
+value. Therefore, in the context of digital currencies, we should
+stay away from the term “token” to refer to such devices. Instead,
+let us stick to the more apt term <em>hardware wallet</em>.</p>
+<h2>Tokens in computer science</h2>
+<p>Even if we disregard hardware tokens and only consider software,
+the term “token” is still overloaded. According to a definition by
+<a href=
+"https://nlp.stanford.edu/IR-book/html/htmledition/tokenization-1.html"
+>Manning <em>et al.</em></a>, a “<em>token</em> is an
+instance of a sequence of characters in some particular document
+that are grouped together as a useful semantic unit for
+processing”. All clear? Absolutely not. Why? Because the meaning of
+“token” even depends on the particular sub-discipline of computer
+science!</p>
+<p>What I just cited comes from a book on information retrieval,
+where a computer tries to make sense of languages, both the natural
+and the programming varieties. You may have stumbled over “token”
+in the sense of “a bunch of characters or words” in the context of
+<em>Large Language Models (LLMs)</em>, which split up inputs – for
+example, an English sentence – into small, meaningful units.</p>
+<p>Clearly, that has nothing to do with tokens in digital
+currencies. So, let us zoom in there.</p>
+<h2>Tokens as surrogates</h2>
+<p>According to <a href=
+"https://www.adyen.com/knowledge-hub/payment-tokenization-guide"
+>another definition</a>, “<em>tokenization</em> is a
+process of replacing sensitive data with non-sensitive ones”. Now
+we are getting closer to the crux of the matter.</p>
+<figure>
+  <img src="{% link assets/img/topics/digital-currency/token/Credit_card_imprinter.jpg %}" alt="Mechanical credit card imprinter">
+<figcaption>Remember these things?</figcaption>
+</figure>
+<p>The best way to understand tokenization in this context is to
+look at credit cards. As I discussed in the last article, credit
+cards are – if you excuse the gross simplification – credentials
+whose only purpose is to transmit your <em>Primary Account
+Number</em> (<em>PAN</em> for short: the number embossed on the
+card) to the acquiring bank via the merchant’s point of sales
+terminal. While you are busy packing away the goods that you have
+just purchased, the acquiring bank uses the PAN to find the issuing
+bank, i.e., your bank, which confirms the transaction, and
+ultimately allows the acquiring bank to pull funds from your
+account. This is how credit cards have worked for decades, even
+when merchants still had to copy your PAN onto carbon paper using a
+knuckle-buster.</p>
+<p>This has worked very well for legitimate payments, but
+unfortunately, also for illegitimate payments. If merchants can
+draw funds from your account by mere knowledge of your PAN, who
+prevents fraudsters from doing the same?</p>
+<p>This is where tokenization in payment schemes come in. To
+continue with the above definition: “Tokenized payments are
+payments in which a token substitutes the PAN.” In this context,
+you can think of a payment token as a random number that sort of
+looks like a PAN but may be restricted in use: only for one use,
+only for a single merchant, only for a maximum amount of money, …
+you get the idea. (Once again, we have such products in our
+portfolio: for example, the <a href=
+"https://www.gi-de.com/en/financial-platforms/trusted-software/digital-payment-solutions/convego-token-cockpit"
+>Convego® Token Cockpit</a>.)</p>
+<p>This concept is very successfully used in different payment
+scenarios. For example, when you import your credit card into
+Google Pay and Apple Pay, they immediately tokenize it so that it
+can only be used from within the respective app and device. If an
+attacker were to clone the credit card number from Apple Pay, it
+would be useless to them. Relatedly, issuers can also provide
+offline-capable tokens for contactless payments. A credit card (or
+a smartphone) would store a few of those tokens on the device,
+using up exactly one token for each payment. If the card runs out
+of tokens, it needs to request new ones from the issuer, which it
+conveniently does automatically the next time it is inserted into a
+card reader.</p>
+<figure>
+  <img src="{% link assets/img/topics/digital-currency/token/phone.jpg %}" alt="A smartphone screen showing a virtual card in Google Pay">
+<figcaption>Tokenized payment cards in your smartphone's payment
+app</figcaption>
+</figure>
+<p>Technically, tokenization provides many security benefits by –
+which is perhaps counterintuitive – greatly restricting the
+usability of PANs. This also includes offline payments: As opposed
+to the old knuckle-buster times, merchants can be sure that the
+offline tokens received are unique and there is in fact a high
+chance that they can be redeemed for actual cash. Furthermore,
+tokenization may improve privacy, since merchants do not get their
+hands on your actual PAN. This explains why it is <a href=
+"https://www.opentext.com/what-is/tokenization">also used in non-payment scenarios</a>, for example with
+phone numbers, passport numbers, or social security numbers.</p>
+<h2>Digital currency tokens</h2>
+<p>We are getting increasingly into the territory of digital
+currency here. But there is another issue that we need to discuss.
+In the world of credit (or debit) cards, payments are always based
+on identities. You use a payment card as a credential to
+authenticate towards your bank, which then confirms the
+transaction. But crucially, multiple intermediaries are involved,
+which means that settlement is delayed, which means that funds are
+not immediately transferred. This is also the case in many
+high-volume and/or high-amount transactions. For example, stock
+transfers often take <a href=
+"https://www.investopedia.com/terms/t/tplus1.asp">two business days to settle</a>, down from five business
+days some decades ago. Reasons for this are manifold and I will not
+be getting into them.</p>
+<p>One promising approach to make settlement faster is – you may
+have guessed it – tokenization. Unfortunately, even in this narrow
+context, the term is still confusingly overloaded. For example,
+McKinsey, a consultancy, <a href=
+"https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-tokenization"
+>defines tokenization</a> as “the process of issuing
+a digital representation of an asset on a (typically private)
+blockchain”. Many also lump together several types of assets, such
+as <em>non-fungible tokens (NFT)</em>, <em>stablecoins</em>,
+securities, and others, and even worse, also include different
+technologies, such as smart contracts, into this big ball of mud.
+But blockchains or smart contracts are not even a prerequisite of
+tokenization.</p>
+<p>Let me try to untangle this mess.</p>
+<h2>Representing money</h2>
+<p>… and for that, we need to start with the fundamental term
+<em>asset</em>. Investopedia <a href=
+"https://www.investopedia.com/terms/a/asset.asp">defines an asset</a> as “a resource with economic value
+that an individual, corporation, or country owns”. Typical assets
+can be physical cash (banknotes), commodities (gold), stock (a
+share of a company), bonds (T-bills), or deposits (bank account
+balance). Even more broadly, some ISO standards <a href=
+"https://www.iso.org/obp/ui#iso:std:iso:22739:ed-2:v1:en">define an asset</a> as “anything that has value to a
+stakeholder”.</p>
+<p>Different assets are typically exchanged in different systems.
+For example, if you have a bank account, you can instantly transfer
+money to a friend’s account at the same bank, but if the money goes
+to a different bank, it must flow through one or more additional
+systems. This typically involves the central bank to settle
+balances across banks. Now it becomes easy to see why stock
+transfers take so long, because they are typically exchanged for
+cash, which means multiple different asset types must flow in a
+synchronized fashion through multiple different systems.</p>
+<p>The key idea is now to represent those assets on a platform
+where they can be moved much faster and possibly with less
+friction. An early example of this is Ethereum, a public blockchain
+that provides both a built-in cryptocurrency (named
+<em>Ether</em>), and a platform to implement <a href=
+"https://www.linkedin.com/pulse/dlt-necessary-build-cbdc-part-2-dr-lars-hupel/"
+>smart contracts</a>. As <a href=
+"https://www.federalreserve.gov/econres/notes/feds-notes/tokens-and-accounts-in-the-context-of-digital-currencies-122320.html"
+>Lee <em>et al.</em></a> have already pointed out in
+2020, that “current concepts of tokens and tokenization likely
+originate from their usage in the context of Ethereum”. The
+Ethereum blockchain – as opposed to Bitcoin – is flexible enough to
+represent multiple asset types on the same ledger. This has led to
+a spur of various players to issue their own assets based on
+Ethereum. In this context, such assets are referred to as
+<em>tokens</em>. In fact, there are various standards to ensure
+uniform use of different assets, with the most popular being
+<em>ERC-20</em>. These standards define generic operations, such as
+issuance and transfer. To quote Lee <em>at al.</em>, they
+effectively define “a sub-ledger of Ethereum, specific to that
+particular smart contract”. As of December 2023, <a href=
+"https://www.coinlore.com/token-types/erc20">CoinLore</a> lists 4448 such tokens (see also the
+screenshot).</p>
+<figure>
+  <img src="{% link assets/img/topics/digital-currency/token/coinlore.png %}" alt="Top 100 ERC20 Tokens, showing the first 10">
+<figcaption>Screenshot from CoinLore, taken December
+2023</figcaption>
+</figure>
+<p>Many stablecoins employ ERC-20 compliant smart contracts, and
+many newer cryptocurrency blockchains provide similar
+functionality, leading to a large ecosystem of crypto tokens.</p>
+<p>For reasons that are not relevant for this article, many central
+banks, when designing and issuing their CBDC, will not be choosing
+(public nor private) blockchains, but instead building their own
+platforms. This notwithstanding, the commonality is that some form
+of asset is represented on some type of ledger – possibly
+centralized –, with access to that ledger granted using some
+cryptographic means. In short: wallets can transact digital assets
+stored on a ledger using secret keys. Intermediaries may be
+involved in custody of assets, but settlement happens directly
+between wallets. The asset is represented as data that can move
+between participants.</p>
+<p>This now leads us to a key question: If tokens refer to assets
+managed using an ERC-20 contract on blockchain, what does
+“token-based” vs. “account-based” CBDC mean?</p>
+<h2>Native tokens</h2>
+<p>Congratulations, you have made it that far into the article
+where we finally open this can of worms. A lot has been written
+about token- vs. account-based CBDCs. You can probably find a dozen
+articles on it in less than a minute of searching the web.</p>
+<p>In the terminology of this article, accounts are credentials,
+and tokens are vouchers. It is really as simple as that. Some
+people have argued that the distinction is meaningless because
+wallets will abstract away such implementation details and users do
+not have to care. I am not denying that: your average consumer
+paying at a merchant or a friend, has no idea how that works
+currently, nor how it will work with CBDC. They care that they move
+some money from here to there.</p>
+<p>But this glosses over the fact that this seemingly tiny
+implementation detail influences the technical design of the
+overall system considerably.</p>
+<p>In my experience during workshops, I have realized that the
+notion of accounts comes naturally to people, whereas they have a
+hard time conceptualizing tokens. I will offer a possible
+explanation now.</p>
+<figure>
+  <img src="{% link assets/img/topics/digital-currency/token/account.png %}" alt="">
+<figcaption>Transferring money from account to account</figcaption>
+</figure>
+<p>This is an actual slide I use during workshops. An account-based
+system means that I have a table mapping names to balances. A
+transaction simply deducts from one balance and adds the same
+amount to another balance, here € 9. The slide shows actual names
+like <em>Alice</em> and <em>Bob</em>, but in reality, it could just
+be numbers. Now recall that what Alice and Bob really have is a
+cryptographic secret (a credential), stored in their wallets, which
+allows them to control their entire balance. This secret is
+long-lived, i.e., it stays constant as long as Alice and Bob use
+their wallets. But research in cryptography strongly recommends not
+to use long-lived secrets, but instead replace them often. What is
+more, as we have argued in <a href=
+"{% link _research/pqc-cbdc.html %}">our recent
+paper</a>, such secrets are more prone to attacks enabled by
+post-quantum computing. Ethereum – as the pioneer of an
+account-based cryptocurrency – is particularly affected by
+this.</p>
+<p>This is in contrast to a token-based approach. It was pioneered
+by Bitcoin, where it is referred to as <em>unspent transaction
+outputs</em>, or <em>UTxO</em> for shot. This phrase will become
+clear in a second.</p>
+<figure>
+  <img src="{% link assets/img/topics/digital-currency/token/tokens.gif %}" alt="">
+<figcaption>Transferring token money from wallet to wallet
+(animation)</figcaption>
+</figure>
+<p>As I mentioned, this model is harder to conceptualize, so I am
+using an animation. Alice and Bob once again have wallets. But
+instead of a flat balance, the wallets store several cryptographic
+secrets (vouchers or tokens), each standing for an individual
+value. The total value commanded by a wallet can be easily computed
+by summing up the individual token values. In the slide I have
+labelled each token with a random string and value to make clear
+that they are all distinct.</p>
+<p>To transfer € 9, Alice’s wallet must first select a subset of
+her tokens. Here, the wallet uses € 8 and € 5, which is € 4 more
+than expected. To obtain the exact change, she uses those tokens to
+create two new tokens worth € 9 and € 4. In this transaction, the
+two input tokens are consumed and lose their validity, whereas the
+two output tokens are freshly created and brought into existence.
+This is of course only admissible if Alice does not try to generate
+more money than she had before. In Bitcoin, this process is called
+<em>spending</em>. Remember “unspent transaction output”? This is
+why: Bob’s wallet has now received a token that is the result of a
+transaction and which he in turn has not spent yet.</p>
+<h2>Live fast, die young</h2>
+<p>In other words, tokens are not supposed to last. They are
+typically replaced on each payment. With respect to security, this
+even seems counter-intuitive. But in computer science, it is a
+well-understood concept. In Filia, we even went to great lengths to
+<a href=
+"{% link topics/digital-currency/formal-methods.html %}"
+>mathematically prove</a> that our implementation of
+tokens is correct. Granted, in Filia, a wallet itself also has an
+identity, albeit for different purposes (a story for another time,
+maybe).</p>
+<p>The conceptual advantage of tokens is that they are
+pseudo-anonymous by definition. The ledger system that ensures the
+tokens’ authenticity – the equivalent of the accounting system from
+above – does not need to know which wallets hold which tokens, or
+how much of them they command at any given point. If you want
+privacy by design, you need to use tokens.</p>
+<p>Before I finish off this article, let me make another point
+abundantly clear. No matter the precise choice of accounts vs.
+tokens, or even if a hybrid model is selected: this choice bears
+absolutely no influence on whether the ledger is a blockchain or a
+traditional database. All quadrants (accounts vs. balances, DLT vs.
+database) have abundant examples. (If you want to learn more about
+that aspect, check out <a href=
+"https://www.linkedin.com/pulse/dlt-necessary-build-cbdc-part-1-dr-lars-hupel/"
+>my series on DLT in the context of CBDC</a>.)</p>
+<h2>Summary</h2>
+<p>We have seen several different interpretations of the
+<em>tokens</em> and <em>tokenization</em>. The space is full of
+misunderstandings. For example, even though they fundamentally run
+on accounts, assets implemented using the ERC-20 standard are often
+confusingly referred to as <em>tokens</em>. I am sure if I were to
+look around various ISO standards, I would find even more
+contradictory definitions. (We’re <a href=
+"https://www.linkedin.com/posts/lars-hupel_last-week-a-group-of-experts-gathered-in-activity-7139184196354232320-Mkyh/"
+>working on that</a>, though!)</p>
+<p>In the context of CBDC, the most obvious use of tokens is in the
+schism between accounts and tokens. I have explained that accounts
+are long-lived, whereas tokens are short-lived. There are many more
+(technical) nuances to this debate. But to make sure everyone talks
+about the same thing, good terminology is important.</p>
+<p>This is why I suggest using <em>native tokens</em> to
+distinguish value-bearing CBDC tokens from other uses of
+tokenization.</p>
+<p>This should also illustrate my last, but not least point:
+Traditional (often pull-based) payment schemes need tokenization to
+make them more secure. In CBDC, we have the chance to design the
+system from scratch, based on best practices. A whole range of
+other requirements would immediately be addressed, among them
+privacy and security.</p>
+<p>Native tokens are the way to go: they extend the attributes of
+cash to the digital world.</p>
+
