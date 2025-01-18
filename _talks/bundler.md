@@ -26,7 +26,7 @@ conferences:
   - conference: "Karlsruher Entwicklertag"
     date: 2022-05-17
     location: Karlsruhe, Deutschland
-    link: "https://www.entwicklertag.de/karlsruhe/2022/conference_day.html"
+    link: "https://web.archive.org/web/20220701041035/https://entwicklertag.de/karlsruhe/2022/Was_macht_eigentlich_ein_Bundler.html"
     slides: "https://speakerdeck.com/larsrh/was-macht-eigentlich-ein-bundler"
   - conference: "Developer Week"
     date: 2022-07-06

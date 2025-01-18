@@ -10,7 +10,7 @@ abstract: |
 slides:
   file: "slides"
   length: 54
-video: { id: "296367334", site: vimeo }
+video: { id: "8pNzWzH5NUc", site: yt }
 conferences:
   - conference: "J On The Beach"
     date: 2019-05-16
@@ -37,7 +37,6 @@ conferences:
     date: 2018-09-14
     location: Florence, Italy
     link: "http://2018.scala-italy.it/"
-    recording: "https://vimeo.com/296367334"
     slides: "https://speakerdeck.com/larsrh/numeric-programming-with-spire-scala-italy-edition"
   - conference: "Munich Scala User Group"
     date: 2018-06-13
