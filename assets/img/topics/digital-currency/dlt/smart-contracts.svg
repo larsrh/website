@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="603.94788"
+   height="275.16666"
+   overflow="hidden"
+   version="1.1"
+   id="svg15"
+   sodipodi:docname="Figure Smart contracts.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs15" />
+  <sodipodi:namedview
+     id="namedview15"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.9777778"
+     inkscape:cx="359.24157"
+     inkscape:cy="15.674157"
+     inkscape:window-width="3072"
+     inkscape:window-height="1652"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg15" />
+  <rect
+     x="495.16666"
+     y="63.166664"
+     width="106"
+     height="52"
+     fill="#ffffff"
+     id="rect2" />
+  <text
+     font-family="Arial, Arial_MSFontService, sans-serif"
+     font-weight="400"
+     font-size="15px"
+     id="text2"
+     x="504.70468"
+     y="81.166664">special case of</text>
+  <rect
+     x="291.16666"
+     y="63.166664"
+     width="74"
+     height="52"
+     fill="#ffffff"
+     id="rect3" />
+  <text
+     font-family="Arial, Arial_MSFontService, sans-serif"
+     font-weight="400"
+     font-size="15px"
+     id="text3"
+     x="301.03366"
+     y="82.166664">manages</text>
+  <path
+     d="m 118.98567,131.84567 81.394,83.582 -37.254,36.279 -81.394005,-83.582 z"
+     fill="#ffffff"
+     fill-rule="evenodd"
+     id="path3" />
+  <text
+     font-family="Arial, Arial_MSFontService, sans-serif"
+     font-weight="400"
+     font-size="15px"
+     transform="rotate(45.759705)"
+     id="text4"
+     x="187.30399"
+     y="25.769011">is an example of</text>
+  <rect
+     x="0.66666502"
+     y="220.66667"
+     width="121"
+     height="41"
+     stroke="#2f528f"
+     stroke-width="1.33333"
+     stroke-miterlimit="8"
+     fill="#4472c4"
+     id="rect4" />
+  <text
+     fill="#ffffff"
+     font-family="Arial, Arial_MSFontService, sans-serif"
+     font-weight="400"
+     font-size="15px"
+     id="text5"
+     x="43.408669"
+     y="246.16667">Ether</text>
+  <rect
+     x="228.66667"
+     y="220.66667"
+     width="121"
+     height="41"
+     stroke="#2f528f"
+     stroke-width="1.33333"
+     stroke-miterlimit="8"
+     fill="#4472c4"
+     id="rect5" />
+  <text
+     fill="#ffffff"
+     font-family="Arial, Arial_MSFontService, sans-serif"
+     font-weight="400"
+     font-size="15px"
+     id="text6"
+     x="239.26665"
+     y="246.16667">Cryptocurrency</text>
+  <rect
+     x="229.66667"
+     y="110.66666"
+     width="120"
+     height="41"
+     stroke="#2f528f"
+     stroke-width="1.33333"
+     stroke-miterlimit="8"
+     fill="#4472c4"
+     id="rect6" />
+  <text
+     fill="#ffffff"
+     font-family="Arial, Arial_MSFontService, sans-serif"
+     font-weight="400"
+     font-size="15px"
+     id="text7"
+     x="248.44768"
+     y="136.16667">Digital Asset</text>
+  <rect
+     x="228.66667"
+     y="0.66666502"
+     width="121"
+     height="41"
+     stroke="#2f528f"
+     stroke-width="1.33333"
+     stroke-miterlimit="8"
+     fill="#4472c4"
+     id="rect7" />
+  <text
+     fill="#ffffff"
+     font-family="Arial, Arial_MSFontService, sans-serif"
+     font-weight="400"
+     font-size="15px"
+     id="text8"
+     x="239.76665"
+     y="26.166664">Smart Contract</text>
+  <rect
+     x="432.66666"
+     y="108.66666"
+     width="121"
+     height="41"
+     stroke="#2f528f"
+     stroke-width="1.33333"
+     stroke-miterlimit="8"
+     fill="#4472c4"
+     id="rect8" />
+  <text
+     fill="#ffffff"
+     font-family="Arial, Arial_MSFontService, sans-serif"
+     font-weight="400"
+     font-size="15px"
+     id="text9"
+     x="479.07468"
+     y="134.16667">DLT</text>
+  <rect
+     x="432.66666"
+     y="0.66666502"
+     width="121"
+     height="41"
+     stroke="#2f528f"
+     stroke-width="1.33333"
+     stroke-miterlimit="8"
+     fill="#4472c4"
+     id="rect9" />
+  <text
+     fill="#ffffff"
+     font-family="Arial, Arial_MSFontService, sans-serif"
+     font-weight="400"
+     font-size="15px"
+     id="text10"
+     x="457.40768"
+     y="26.166664">Blockchain</text>
+  <path
+     d="m 121.66667,241.33367 h 100.692 v 0.666 h -100.692 z m 99.358,-3.667 8,4 -8,4 z"
+     fill="#4472c4"
+     id="path10" />
+  <path
+     d="m 290,220.45735 0.31364,-62.12278 -0.66666,-0.003 -0.31364,62.12272 z m 3.97353,-60.77088 -3.95956,-8.0201 -4.04034,7.9797 z"
+     fill="#4472c4"
+     id="path11" />
+  <path
+     d="m 289.99967,41.664665 0.314,62.123005 -0.667,0.003 -0.313,-62.122005 z m 3.974,60.771005 -3.96,8.02 -4.04,-7.979 z"
+     fill="#4472c4"
+     id="path12" />
+  <path
+     d="m 493.99967,41.666665 v 60.077005 h -0.666 V 41.666665 Z m 3.667,58.744005 -4,8 -4,-8 z"
+     fill="#4472c4"
+     id="path13" />
+  <path
+     d="m 349.67966,241.50175 13.46921,-0.52546 13.3756,-1.53303 13.1639,-2.47282 12.8471,-3.34547 12.4254,-4.1511 11.8986,-4.8897 11.267,-5.5617 10.5303,-6.1668 9.6889,-6.7056 8.742,-7.1781 7.69,-7.5845 6.532,-7.9254 5.269,-8.2009 3.895,-8.4045 1.403,-4.2693 1.019,-4.2966 0.212,-1.9496 -0.663,-0.072 -0.209,1.9289 0.007,-0.0409 -1.011,4.2626 0.007,-0.0271 -1.392,4.2374 0.014,-0.0361 -3.877,8.3661 0.022,-0.04 -5.246,8.165 0.023,-0.0318 -6.509,7.8969 0.023,-0.0253 -7.667,7.5618 0.023,-0.0203 -8.72,7.1598 0.022,-0.0165 -9.667,6.6906 0.0213,-0.0135 -10.5092,6.1544 0.0209,-0.0112 -11.246,5.5513 0.0208,-0.009 -11.8776,4.8811 0.0211,-0.008 -12.404,4.14391 0.0216,-0.006 -12.825,3.33973 0.0224,-0.005 -13.1408,2.46849 0.0236,-0.004 -13.3514,1.53024 0.025,-0.002 -13.45669,0.52497 z m 146.95701,-83.49988 -3.245,-8.3349 -4.721,7.5969 z"
+     fill="#4472c4"
+     id="path14" />
+  <rect
+     x="293.16666"
+     y="170.16667"
+     width="117"
+     height="43"
+     fill="#ffffff"
+     id="rect14" />
+  <text
+     font-family="Arial, Arial_MSFontService, sans-serif"
+     font-weight="400"
+     font-size="15px"
+     id="text14"
+     x="303.13266"
+     y="189.16667">special case of</text>
+  <rect
+     x="432.16666"
+     y="223.16667"
+     width="65"
+     height="52"
+     fill="#ffffff"
+     id="rect15" />
+  <text
+     font-family="Arial, Arial_MSFontService, sans-serif"
+     font-weight="400"
+     font-size="15px"
+     id="text15"
+     x="442.25766"
+     y="241.16667">runs on</text>
+</svg>

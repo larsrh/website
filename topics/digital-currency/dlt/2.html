@@ -1,0 +1,244 @@
+---
+title: Is DLT necessary to build a CBDC? Part 2
+date: 2023-05-30
+canonical: "https://www.linkedin.com/pulse/dlt-necessary-build-cbdc-part-2-dr-lars-hupel/"
+---
+
+<p>Much has been written about different technical implementation
+options of central bank digital currencies. Often, the use of DLT
+is proposed. It appears that the choice in favour or against DLT is
+so fundamental, that the <a href="https://cbdctracker.org/"
+>CBDC Tracker</a> even has it as a dedicated category. Yet,
+I often observe a lack of clarity about what DLTs are, what they
+can provide, and how that relates to the desired characteristics of
+a CBDC. In this series, I want to examine these topics in more
+detail. Part 2 is about smart contracts and programmability.</p>
+<h2>What are smart contracts?</h2>
+<p>In this part, I will introduce one more building block towards
+understanding DLTs. Some distributed ledgers, such as Ethereum,
+provide the capability to deploy and run <em>smart contracts</em>.
+The oft-cited definition by Nick Szabo – who also coined the term
+itself – goes as follows: a smart contract is “a set of promises,
+specified in digital form, including protocols within which the
+parties perform on these promises”. This definition predates public
+blockchains, and Bitcoin specifically, which is why it does not
+reference (distributed) ledgers. Arguably, Ethereum, which was
+introduced in 2013, refined and popularized the concept of
+distributed ledgers. Simply put, instead of a simple definition of
+transactions that merely move assets from A to B, Ethereum
+introduces two new kinds of transactions: creating a smart contract
+and executing a smart contract. With the benefit of hindsight, Xu
+et al. define smart contracts as “programs deployed as data in the
+blockchain ledger and executed in transactions on the blockchain”.
+Crucially, these programs are “immutable once deployed”.</p>
+<figure>
+  <img src="{% link assets/img/topics/digital-currency/dlt/smart-contracts.svg %}"
+  alt="Diagram with boxes and arrows to illustrate relationships. Ether is an example of a cryptocurrency. Cryptocurrency runs on DLT, while blockchain is a special case of DLT. Cryptocurrency is a special case of a digital asset. Smart contracts manage digital assets.">
+<figcaption>Relationship of terminology surrounding smart contracts
+(author’s own illustration)</figcaption>
+</figure>
+<p>Consequently, Ethereum’s distributed ledger does not just manage
+individuals’ holdings of one particular asset, but arbitrary state.
+For example, the <a href="https://ens.domains/">Ethereum Name
+Service</a> manages domain names ending in “.eth”, which can be
+registered by anyone and easily transferred between users. The
+blockchain records not just the owner of a domain name, but also
+the websites they point to. Since there is no monopoly on creating
+smart contracts, anyone could easily start a clone or fork of this
+domain system.</p>
+<p>In practice, the data managed by smart contracts is typically
+organized around the concepts of “ownership” and “assets”.
+Therefore, we can think of Ethereum participants as having a set of
+assets, with smart contracts governing their transfer, usage, and
+governance. Note that Bitcoin also has smart contract capabilities,
+but they are intentionally restricted and are therefore not
+powerful enough to establish secondary assets on the network.</p>
+<h2>Case study: Stablecoins</h2>
+<p>Perhaps the most popular application of smart contracts are
+<em>stablecoins</em>, which denotes a particular class of digital
+asset, managed in smart contracts, and whose value is “pegged, or
+tied, to that of another currency, commodity or financial
+instrument” (<a href=
+"https://www.investopedia.com/terms/s/stablecoin.asp">Investopedia</a>).
+They are issued by private entities which exchange stablecoins for
+deposit money on par, and need to retain sufficiently much
+liquidity to maintain the peg. Technically, they are implemented as
+a smart contract created by the issuing entity, which exerts full
+control over the money supply, but allowing any holders to transact
+freely.</p>
+<p>Comparisons of stablecoins to e-money are often drawn, with the
+conclusion that there are large differences, due to e-money’s lack
+of interoperability.26 Stablecoins are primarily used as a <a href=
+"https://www.federalreserve.gov/econres/notes/feds-notes/the-stable-in-stablecoins-20221216.html">
+medium of exchange</a>, serving as the preferred instrument to
+settle the cash leg of cryptocurrency exchanges, but also as a
+temporary store of value on exchanges. This is due to a combination
+of two reasons: their promise of seamless trading on blockchains,
+and prohibitive fees on exchanges for cash-in and cash-out
+transactions. The two largest stablecoins, Tether and USD Coin,
+both denoted in US Dollar, have a combined market capitalization of
+$112 billion, with Tether boasting an average daily trading volume
+of $41.6 billion in March 2023 (based on CoinMarketCap data).</p>
+<h2>How do smart contracts relate to DLT?</h2>
+<p>Despite the relative age of Szabo’s definition of smart
+contracts, they are often associated with DLT, or even declared to
+be one of their defining characteristics. However, smart contracts
+– or more broadly, programming capabilities – can also be <a href=
+"https://www.federalreserve.gov/econres/notes/feds-notes/what-is-programmable-money-20210623.html">
+considered independently of the nature of the ledger</a>. In
+reference to central bank digital currency, there is often a
+distinction being made between <em>programmable money</em> and
+<em>programmable payments</em>.&nbsp;</p>
+<p>There appears to be broad agreement that programmable money
+refers to an Ethereum- or Bitcoin-like system where the “the value
+represented in those systems and the programmability of that value
+are tightly integrated” (Alexander Lee, FEDS Notes). In other
+words, there is no technical means to spend assets governed by a
+smart contract without following the rules of the contract; the
+execution of which is validated through the blockchain protocol by
+all participants in the network. In other words, there is a
+guaranteed coherence between the asset and the rules controlling
+its use. While permissioned or consortium ledgers often diverge
+significantly in design from their public counterparts, they all
+follow this philosophy to a differing extent. For example, in
+Hyperledger Fabric, contract execution is separated from the
+inclusion of the transaction in the ledger (see below for
+details).&nbsp;</p>
+<p>This contrasts with programmable payments, which refers to the
+ability to transact digital money based on code. Obviously, this
+has been possible for a long time: “digital money as a product has
+existed in many forms for years, as has the ability to write
+computer software” (Alexander Lee, FEDS Notes). Smart contracts
+would not fall into this category, but rather traditional financial
+products that can be accessed through APIs.</p>
+<h2>The oracle problem</h2>
+<p>Some smart contract platforms, especially on public DLTs, have a
+bothersome restriction. Since coherence dictates that the execution
+of a contract is tied to the validation of a transaction, and any
+participant of the DLT should be able to validate a transaction, by
+definition, smart contracts can only depend on information that is
+submitted as part of the transaction or is historically part of the
+ledger. In other words, information that is external to the system
+cannot be considered.&nbsp;</p>
+<p>To illustrate this issue: A smart contract in Ethereum cannot
+include the current weather or the stock price of a company in its
+computation. Instead, it can include current balances of Ethereum
+addresses, number of blocks that have been created so far, or the
+current time (although not exact, since clocks are not perfectly
+synchronized across the network).&nbsp;</p>
+<p>Naturally, external information such as the current stock price
+of a company can be fed to the ledger through other means, because
+Ethereum transactions can have an arbitrary format. This is
+referred to as an <a href=
+"https://ethereum.org/en/developers/docs/oracles/"><em>oracle</em></a>.
+Depending on the underlying distributed ledger, oracles may
+actively supply real-time information, or react based on requests
+from users or smart contracts. But no matter the implementation,
+they can be considered to be trusted third parties that some or all
+of the network participants must rely on. In public
+cryptocurrencies, this is not workable due to their decentralized
+and trustless nature, therefore, relying on external information is
+next to impossible.&nbsp;</p>
+<p>Permissioned systems such as Fabric forgo this issue – as
+discussed above – by decoupling contract execution from validation.
+The nodes executing contracts can access arbitrary resources and
+perform arbitrary computation. Afterwards, they generate a signed
+set of changes to the contract state that is then passed on to the
+validating nodes. Depending on configuration, a certain quorum of
+execution nodes must be presented, otherwise the transaction is
+rejected by the system. However, this also leads to weaker
+coherence guarantees, since it is not always possible to confirm
+the result of a contract execution independently.</p>
+<h2>Code is Law? Risks of smart contracts</h2>
+<p>Taken to the extreme, combining the notion of coherence with
+immutability implies a perhaps undesired consequence: Transactions
+that are generated through smart contracts are irreversible, even
+though they may have been unintentional. Even with simple payment
+transactions, there is a risk of e.g., mistyping the recipient. If
+there is complex programming logic attached to transactions, it is
+easy to see that the risk of accidental consequences increases
+manyfold. The reason for that is fundamental and well-understood:
+Smart contracts are programmes, and programmes may have bugs, i.e.,
+mismatches between the actual code and the intentions behind the
+code. This is perhaps why David G. W. Birch <a href=
+"https://www.forbes.com/sites/davidbirch/2021/09/04/theyre-not-smart-and-theyre-not-contacts/">
+emphasizes that smart contracts</a> are “not smart and […] not
+contracts”.</p>
+<p>This is a real concern in public blockchains, such as Ethereum.
+For example, in 2017, a bug in a popular wallet contract led to
+<a href=
+"https://www.cnbc.com/2017/11/08/accidental-bug-may-have-frozen-280-worth-of-ether-on-parity-wallet.html">
+$280 million worth of assets being frozen</a> indefinitely. Such
+problems appear routinely. Because of the high level of privacy in
+cryptocurrencies, exploiters rarely have to expect criminal
+proceedings, making <a href=
+"https://mediatum.ub.tum.de/doc/1641114/1641114.pdf">smart
+contracts a prime target</a>. A particularly spectacular
+counterexample is the 2022 exploit on blockchain bridge Wormhole.
+An attacker “stole” $325 million worth of cryptocurrency but did
+not proceed to withdraw or convert those to actual US Dollar.
+Instead, about a year later, the attacker moved the funds to a
+smart contract operating the Oasis protocol, in an attempt to use
+the assets for betting. Based on a UK court order, the creator of
+that smart contract leveraged an (intentional) backdoor in its
+programming to <a href=
+"https://blockworks.co/news/jump-crypto-wormhole-hack-recovery">return
+the funds to where they were stolen from</a>: the operator of the
+Wormhole bridge. The paradoxical nature of immutable code with
+backdoors has been noted in the industry, <a href=
+"https://blockworks.co/news/jump-crypto-wormhole-hack-recovery">pointing
+out that</a> “while it’s good to stop hackers, these tools can be
+quickly turned against the industry, and it’s not worth the price”
+(Adam Cochran).</p>
+<p>Even if we disregard malicious attacks, there is a more subtle
+issue at play, which is embodied by the catchphrase “code is law”.
+Reinterpreted from its original meaning that predates blockchains,
+some now take it as a defence “against claims that they have acted
+wrongly and argue that they are simply using technically complex
+rules to […] obtain outcomes (like wealth) that others did not
+believe could or would occur” (<a href=
+"https://www.forbes.com/sites/forbesbusinesscouncil/2022/05/17/code-is-law-during-the-age-of-blockchain/">John
+Quinn</a>). In other words, the smart contract programming and the
+underlying execution logic guaranteed by the blockchain is the
+single source of truth, and sits supreme over a country’s
+legislation. The Wormhole hackback, triggered by a national court,
+affecting a global, anonymous cryptocurrency, only further
+demonstrates that governments do not agree with this dogma. This
+brings another paradoxical situation, in which it needs to be
+explained that basic functions of a financial system, such as
+dispute resolution, <a href=
+"https://doi.org/10.1007/s10978-018-9224-0">would need to be
+present</a> in any legally acceptable DLT ecosystem, especially
+when it is utilized in consumer-facing activities. Having said
+that, the legal assessment changes towards a more positive outlook
+when smart contracts are used for process automation in business
+contexts, where no consumers are involved. Typically, jurisdictions
+allow a higher degree of freedom for B2B than B2C contracts. Yet,
+even those business arrangements are subject to litigation in case
+of disagreements.</p>
+<h2>Conclusion & Outlook</h2>
+<p>In this post, I have described the workings of smart contracts
+and how it relates to the term programmability. Some systems
+guarantee coherence, whereby the ledger itself guarantees that
+assets are only spent through the rules governing it. This poses a
+serious trade-off, which means that coherence is not universally
+desirable, especially in central bank digital currencies.
+Furthermore, the question whether coherence could be achieved
+without DLTs is still unanswered. I will revisit these points in a
+later part.</p>
+<h2>Notes & References</h2>
+<p><strong>Stablecoin peg.</strong> There are different ways a
+stablecoin’s peg is ensured, for example through low-risk
+collateral such as treasury bills, or algorithmically by tying the
+asset to some other (perhaps volatile) asset. Some of these pegs
+have failed historically, creating the cryptocurrency-flavoured
+equivalent of a bank run.</p>
+<p><strong>Stablecoins vs. e-money.</strong> For further reading,
+see the articles <a href=
+"https://www.ledgerinsights.com/how-blockchain-stablecoins-differ-from-conventional-e-money/">
+“How stablecoins differ from conventional e-money”</a> and <a href=
+"https://cepr.org/voxeu/columns/e-money-tokens-tokenised-money-market-shares-and-tokenised-bank-deposits">
+“E-Money tokens, tokenised money-market shares, and tokenised bank
+deposits”</a>.</p>
+<p><em>Thanks to my colleagues Daniel Nagy and Martin Rönnebeck for
+their comments on early drafts of this article.</em></p>

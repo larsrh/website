@@ -1,0 +1,108 @@
+---
+title: Are stablecoins centralized or decentralized?
+date: 2024-02-22
+hero:
+  src: img/topics/digital-currency/stablecoins/header.jpg
+  alt: An old-fashioned scale
+  credits: Piret Ilver on Unsplash
+canonical: "https://www.linkedin.com/pulse/stablecoins-centralized-decentralized-dr-lars-hupel-jxezf/"
+---
+
+<p>This sounds like a very simple question. But as usual, the
+answer is not so simple …</p>
+<p>As I have argued in <a href=
+"{% link _research/cbdc-interoperability.html %}">my
+paper</a>, CBDC needs to be interoperable with various classes of
+other payment systems, such as <em>instant payment (IPS)</em>,
+<em>real-time gross settlement (RTGS)</em>, but also stablecoins.
+Even though stablecoins and CBDC have very different operational
+characteristics, there is one commonality: they are typically
+issued by a centralized entity.</p>
+<p>The most popular stablecoins, USDT and USDC, are issued by
+Tether and Circle, respectively. Those entities exert full control
+over the supply and cash-in/cash-out transactions. Arguably, that
+makes them centralized. (Note that I only consider
+collateral-backed stablecoins here, and not algorithmic
+stablecoins, <a href=
+"https://www.bis.org/publ/bppdf/bispap136.htm">which work
+differently</a>.)</p>
+<p>But USDT and USDC are available on <a href=
+"https://tether.to/en/transparency/" target="_blank">public
+blockchains</a>, like Ethereum, Tron, Solana, and others. While
+technical details differ across this platform, most stablecoins on
+most platforms are provided in the form of a smart contract
+according to the ERC-20 standard. That means that anyone with an
+<a href=
+"{% link topics/digital-currency/wallet.html %}">
+Ethereum wallet</a> can obtain Tether and transact freely.
+Transactions are validated through the underlying consensus
+mechanisms of the distributed ledger. Arguably, that makes them
+decentralized.</p>
+<p>How can we reconcile these two positions? Instead of classifying
+stablecoins in a binary of “centralized” or “decentralized”, we
+need to take a more nuanced look.</p>
+<p>Consider the underlying ledger first. As I have discussed in a
+<a href=
+"https://www.linkedin.com/pulse/dlt-necessary-build-cbdc-part-3-dr-lars-hupel/">
+previous post</a>, cryptocurrencies rely on a decentralized
+network, using both a consensus algorithm that assumes no trust
+between participants, and an incentivization structure that rewards
+honest participation. Since stablecoins use the same
+infrastructure, this aspect applies. Specifically, third parties
+cannot prevent me from transacting with others.</p>
+<p>But the stablecoin issuer can. Tether <a href=
+"https://decrypt.co/125953/sandwich-ripper-mev-exploiter-joins-tethers-graveyard-blacklisted-addresses">
+routinely</a> <a href=
+"https://news.bitcoin.com/tether-blacklists-over-30-usdt-wallets/">freezes</a>
+addresses they believe are engaged in criminal activity. This can
+easily be <a href=
+"https://etherscan.io/token/0xdac17f958d2ee523a2206206994597c13d831ec7">
+observed on Etherscan</a>:</p>
+<figure>
+  <img src="{% link assets/img/topics/digital-currency/stablecoins/blocklist.png %}" alt="Screenshot from Etherscan, showing that an Ethereum address starting with 0x3c98 has been 'blacklisted' from the Tether smart contract">
+<figcaption>As of February 2024, this wallet address associated
+with an exploit has been frozen and is therefore blocked from
+trading Tether.</figcaption>
+</figure>
+<p>This is not specific to Tether; other stablecoin operators also
+<a href=
+"https://protos.com/paypal-stablecoin-can-be-frozen-like-tether-and-circle/">
+have the ability</a> to freeze and/or repossess holdings. Note that
+this is distinct from stealing private keys from someone’s wallet:
+it is simply a feature programmed in the smart contract. Because
+smart contracts are generally open source, this can be inspected by
+anyone. (In the case of PayPal’s PYUSD, a random programmer has
+even <a href=
+"https://github.com/paxosglobal/pyusd-contract/pull/3">proposed a
+code change</a> to remove the freezing feature.) With the advent of
+regulation that sanction the general concept of stablecoins,
+controls over how holdings can be used <a href=
+"https://www.cnbc.com/2023/04/17/crypto-stablecoins-might-need-limits-warns-bank-of-england-.html">
+are here to stay</a>.</p>
+<p>You may now wonder: If most stablecoins have centralized
+governance (like CBDC), why are they using a distributed ledger?
+Stablecoins are often used as <a href=
+"https://www.federalreserve.gov/econres/notes/feds-notes/the-stable-in-stablecoins-20221216.html">
+convenient trading vehicle</a> for cryptocurrencies, so it makes
+sense to reside on the same platform. Ethereum is particularly
+popular for this, where a lot of different assets are managed in
+ERC-20 compatible contracts.</p>
+<p>Other than that, stablecoins could also be running on different
+platforms. There are already some projects that explore such
+options, where both the issuance and the transaction aspects are
+controlled by the same entity. One such example are <a href=
+"https://www.oliverwyman.com/our-expertise/insights/2023/feb/deposit-token-a-foundation-for-stable-digital-money.html">
+deposit tokens</a>. Options here are private blockchains or fully
+centralized systems.</p>
+<h2>Conclusion</h2>
+<p>Most major stablecoins are issued by a centralized entity, which
+control the supply and cash transactions. However, these
+stablecoins are available on public blockchains, like Ethereum,
+where transactions are validated through consensus mechanisms,
+suggesting a decentralized aspect. This suggests that we should
+take a more nuanced look at stablecoins. For example, while the
+stablecoin issuer can freeze addresses suspected of criminal
+activity, third parties cannot prevent transactions. Because the
+use of stablecoins is expanding beyond a trading vehicle for
+cryptocurrencies, some projects are exploring more centralized
+approaches, removing the reliance on public blockchains.</p>

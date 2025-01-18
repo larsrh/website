@@ -1,0 +1,246 @@
+---
+title: Is DLT necessary to build a CBDC? Part 1
+date: 2023-05-19
+canonical: "https://www.linkedin.com/pulse/dlt-necessary-build-cbdc-part-1-dr-lars-hupel/"
+---
+
+<p>Much has been written about different technical implementation
+options of central bank digital currencies. Often, the use of DLT
+is proposed. It appears that the choice in favour or against DLT is
+so fundamental, that the <a href="https://cbdctracker.org/">CBDC
+Tracker</a> even has it as a dedicated category. Yet, I often
+observe a lack of clarity about what DLTs are, what they can
+provide, and how that relates to the desired characteristics of a
+CBDC. In this series, I want to examine these topics in more
+detail, starting out with an introduction to DLT. Stay tuned for
+more!</p>
+<h2>What is a DLT?</h2>
+<p>As an academic reference, I will follow the definitions by
+<a href="https://doi.org/10.1007/978-3-030-03035-3">Xu et al.</a>
+There, a <em>distributed ledger</em> is defined to be an
+“append-only store of transactions which is distributed across many
+machines”. Here, <em>append-only</em> means that the set of
+transactions keeps growing, i.e., it is impossible to remove it at
+a later point in time. Typically, this is ensured through
+cryptographic means: If an attacker were to tamper with the ledger
+on one machine, the other machines across which the ledger is
+distributed, or a client interacting with the ledger, would reject
+the entries that have been tampered with. A popular way to
+implement such append-only storage is by using chains of hashes,
+where older transactions and their hashes feed into hashes of newer
+transactions. This concept is well-understood in computer science
+and has many applications outside distributed ledgers. In other
+words, a distributed ledger is a logbook of all transactions that
+have occurred historically, and on which all nodes agree based on a
+predefined consensus algorithm.</p>
+<p>Adding on to that, Xu et al. define a blockchain to be a special
+kind of distributed ledger, in which the ledger “is structured into
+a linked list of blocks”. There, transactions are not treated in
+isolation, but rather, they are grouped and processed together.
+Typical examples for blockchains are Bitcoin and Ethereum. An
+example of a distributed ledger that is not a blockchain is
+<a href="https://www.corda.net/content/corda-technical-whitepaper.pdf">
+Corda</a>.</p>
+<p>Note that the term transaction is left unspecified in the above
+definitions. This is intentional, since transactions can have many
+different shapes. In the financial context, this is typically
+understood to mean the moving of funds between parties, where those
+movements may be simple (“A transfers $50 to B”) or conditional (“A
+transfers $50 to B, unless C vetoes within one day”). Some systems
+are more flexible and allow operators to assign custom meaning to
+transactions.</p>
+<p>Finally, let us turn our attention to the “T” in “DLT”, which
+means <em>technology</em>. In other words, DLT abstracts away from
+a concrete running system, and focuses on the technology platform
+that can be used to implement distributed ledgers. This distinction
+is important, but often murky: Ethereum can refer to both the
+public Ethereum network, or the technology platform that powers it,
+its various test networks, and many other instances. The collection
+of algorithms, conventions, code, and other contributions to the
+correct operation of a distributed ledger can be referred to as its
+protocol.</p>
+<p>For the purpose of this series, only the basic design criteria
+of distributed ledgers are relevant. Consequently, I will ignore
+most of the technical details, such as transaction and block
+format, account or UTxO model, and cryptographic algorithms. The
+reason is simple: CBDCs can be made to work on DLTs regardless of
+those technical choices.</p>
+<h2>What do distributed ledgers provide?</h2>
+<p>While there are many varieties of distributed ledger platforms,
+they share a few key characteristics, which I will discuss here:
+<em>Immutability, Atomicity, Decentralization, Consensus,</em> and
+<em>Incentivization</em>. Later in this series, I will analyse
+which of these characteristics are useful for CBDC, as well as if
+and how they can be achieved with non-distributed-ledger
+technology.</p>
+<figure>
+  <img src="{% link assets/img/topics/digital-currency/dlt/pyramid.svg %}" alt="A pyramid, from bottom to top: Immutability + Atomicity, Decentralization, Consensus, Incentivization">
+<figcaption>A pyramid of DLT characteristics. At the foundation,
+there are technical properties of the ledger describing how
+transactions are processed. Further up, it describes how
+participants coordinate to form a coherent system (author’s own
+illustration).</figcaption>
+</figure>
+<h3>Immutability</h3>
+<p>Once a transaction has been accepted for inclusion in a
+distributed ledger, it will not be removed. This is a direct
+consequence of the ledger’s append-only nature. It also ensures
+non-repudiation: parties to a transaction – once included in the
+ledger – can neither successfully nor convincingly deny that the
+transaction has happened. Another useful property is that the
+current state of the world, e.g., account balances, can always be
+re-computed by starting from any chosen state and re-applying all
+transactions that have occurred since then.</p>
+<h3>Atomicity</h3>
+<p>Although – as discussed above – there is no uniform definition
+of transactions, any distributed ledger treats its transactions as
+<em>atomic</em>. In technical terms, <a href=
+"https://docs.oracle.com/cd/E17276_01/html/programmer_reference/transapp_atomicity.html">
+atomicity</a> means that the effects of the transaction are
+indivisible, and either occur fully, should the transaction be
+included, or not at all. To give a concrete example: Given a
+payment transaction of $50 from A to B, atomicity would be violated
+if B is credited with $50, but A is not debited the same amount.
+This may be caused by a network or power outage. DLTs protect
+against this scenario and will only acknowledge inclusion of a
+transaction into the ledger if all modifications have been carried
+out properly. This may pose significant challenges if, like
+Ethereum, a single transaction may trigger a multitude of
+constituent modifications to the system’s state. One such example
+are <a href=
+"https://www.ledger.com/academy/what-is-a-flash-loan">flash
+loans</a>, where the loaned money is paid, put to use, and repaid
+in the same transaction.</p>
+<h3>Decentralization</h3>
+<p>To explain <em>decentralization</em>, it is useful to
+distinguish it from the well-understood concept of distribution. In
+computing, a <a href=
+"https://www.distributed-systems.net/index.php/books/ds4/">distributed
+system</a> refers to a network of autonomous computers that work
+together. While the network may span different data centres or even
+continents, control is typically exercised by a single entity, such
+as an organization running the system. As Xu et al. point out, in
+such a system, “a central authority could manipulate the whole
+system”. In contrast, a decentralized system would “devolve
+responsibility and capability” to individual participants. For
+example, in Bitcoin, the network is structured as follows:
+Participants form a peer-to-peer network which anybody can join.
+While everybody in the network receives new blocks of the chain and
+new pending transactions, some participants choose to also
+contribute computing power in the process known as <em>mining</em>.
+Those participants continuously solve a mathematical challenge that
+results in a new block being added approximately every ten minutes,
+and in turn, transactions being included in the ledger.
+Statistically, every individual participant will create new blocks
+at a rate that is proportional to their fraction of compute power
+compared to the whole network. Other networks like Ethereum use a
+different system, where block formation depends on reserving some
+holdings as a <em>stake</em>. But in both Bitcoin and Ethereum, the
+set of participants in potentially unbounded, and everyone “gets a
+say”. This is referred to as <em>permissionless</em>. In contrast,
+some DLTs may restrict membership on various criteria. This is
+referred to as a <em>permissioned</em>. In cases where the set of
+participants is well-known, there are typically legal arrangements
+in place that codify the operation of the system. This is referred
+to as a <a href=
+"https://hal.science/hal-02271063"><em>consortium</em></a>
+blockchain or distributed ledger. Depending on the degree of
+decentralization, distributed ledgers often enjoy <a href=
+"https://aws.amazon.com/blockchain/decentralization-in-blockchain/">
+high resilience</a>, because they can continue operating even in
+the face of network failures, which is ensured by consensus (see
+next paragraph).</p>
+<h3>Consensus</h3>
+<p>Closely related to decentralization, consensus refers to the
+algorithm that is used by the participants to collaborate. As an
+example, assume that there are five computers, each under
+individual control by different entities, that are allowed to
+validate transactions and append them to the ledger. Each computer
+keeps its own copy of the ledger (the “D” in “DLT”). If a
+transaction is submitted, they need to arrive at a common verdict
+about its validity, and later, to ensure that the ledger is updated
+uniformly across the system. From a computer science perspective,
+the challenge is to maintain immutability and atomicity in a system
+where participants may not trust each other. To solve this problem,
+multiple <em>consensus algorithms</em> are known that, in essence,
+allow all participants in a distributed system to arrive at a
+common view of the system. A particular subcategory of these
+algorithms that do not assume mutual trust between participants is
+called <em>Byzantine consensus</em>. Under normal circumstances,
+when everyone adheres to the same protocol, consensus will be
+achieved easily. In case of disagreements, a fork might occur,
+where the network participants are split into two groups which may
+have differing views over the state of the ledger. Reasons for
+disagreements include not just malicious actors, but also
+(temporary) network outages. Such forks would, if ever, rarely
+occur in consortium arrangements, where disagreements can be
+resolved through legal proceedings (<a href=
+"https://www.mayerbrown.com/en/perspectives-events/publications/2022/04/key-considerations-when-joining-a-blockchain-consortium">governance</a>).</p>
+<h3>Incentivization</h3>
+<p>Participants in a distributed ledger system may spend a
+considerable amount of computing power to validate transactions and
+append them to the ledger. This is especially true in Proof-of-Work
+systems like Bitcoin. Therefore, these participants need to be
+<em>incentivized</em>, for example by financial gains, to
+contribute. More specifically, the incentive structure must be set
+up to reward correct behaviour and punish protocol violations.
+Cryptocurrencies typically incentivize their participants through a
+combination of transaction fees and minting (<a href=
+"https://dl.acm.org/doi/10.1145/3539604">reward</a>). In more
+restricted settings such as consortium ledgers, incentive structure
+can be <a href="https://www.bis.org/publ/work924_2101.pdf">more
+subtle</a>, and range from intrinsic motivation of participants
+towards legal agreements.</p>
+<h2>Conclusion & Outlook</h2>
+<p>In this post, I have introduced the key terminology of
+distributed ledger and blockchains, as well as their key
+characteristics. Distributed ledgers ensure immutability, meaning
+once a transaction is included in the ledger, it cannot be removed.
+Atomicity is another characteristic, ensuring that the effects of a
+transaction are indivisible and either fully occur or not at all.
+Decentralization refers to the devolution of responsibility and
+capability to individual participants, while consensus is the
+algorithm used by participants to collaborate and maintain a common
+view of the system. Incentivization is important to motivate
+participants to contribute to the system. The next part of this
+series will be about smart contracts and programmability. Together,
+this will pave the way for a deeper understanding of the
+applicability of DLTs to a CBDC implementation.</p>
+<h2>Notes & References</h2>
+<p><strong>Pruning.</strong> Some distributed ledgers allow for
+pruning procedures, where the actual transaction data can be
+removed, but the full system state is retained and can always be
+verified through cryptographic hashes. Pruning therefore
+corresponds to compressing the ledger data, not to undoing
+transactions. One specific example for this is the way Ethereum
+uses Merkle trees for state roots. For further reading, see the
+articles <a href=
+"https://doi.org/10.1109/CVCBT.2018.00009">“Selective Blockchain
+Transaction Pruning and State Derivability”</a> and <a href=
+"https://blog.ethereum.org/2015/11/15/merkling-in-ethereum">“Merkling
+in Ethereum”</a>.</p>
+<p><strong>Permissioned DLTs.</strong> Restrictions to join the
+network can refer to permissions to initiate, read, validate, and
+write transactions. Examples of systems that have broad permissions
+to initiate and read, but not validate and write, are Hedera
+Hashgraph and Ripple (sometimes referred to as <em>public
+permissioned</em>). Systems that are typically used to operate in a
+fully restricted fashion are Hyperledger Fabric and Corda. In
+Corda, it is further possible to narrow down access to the system
+state further within the already restricted set of participants, so
+that participants enjoy privacy from each other.</p>
+<p><strong>Consensus.</strong> Byzantine consensus algorithms are a
+necessary prerequisite for cryptocurrencies, where participants are
+anonymous and have no reason to trust each other. It can
+successfully establish consensus given more than 50% of honest
+participants. Bitcoin’s consensus algorithm is based on
+Proof-of-Work and is often referred to as Nakamoto consensus. A
+weaker subcategory of consensus algorithm is called crash-fault
+tolerant consensus and cannot deal with malicious participants, but
+with routine network outages or storage failures. For further
+reading, see the articles <a href=
+"https://doi.org/10.1145/3379463">“Trade-offs between Distributed
+Ledger Technology&nbsp;Characteristics”</a>.</p>
+<p><em>Thanks to my colleagues Daniel Nagy, Martin Rönnebeck and
+Severino Sequeira for their comments on early drafts of this
+article.</em></p>
