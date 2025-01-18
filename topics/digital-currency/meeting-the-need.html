@@ -1,0 +1,547 @@
+---
+title: Meeting the need for offline digital payments
+date: 2024-10-01
+canonical: "https://www.linkedin.com/pulse/meeting-need-offline-digital-payments-dr-lars-hupel-y4otc/"
+---
+
+<p>Lewis McLellan of <a href="https://www.omfif.org/">OMFIF</a> has
+interviewed me about offline digital payments. The following is a
+transcript, lightly edited for readability. Listen to the <a href=
+"https://www.omfif.org/podcast/meeting-the-need-for-offline-digital-payments/">
+original recording here</a>.</p>
+<p><strong>So let’s start off with a little bit of context and
+offline payments as a concept. Can you break that down a little
+bit? I think it’s easy to assume that we know what that means. We
+understand what the words mean individually, but I think it’s not
+necessarily quite as simple as payments without Internet access.
+Can you break down a little bit the types of payments that that
+we’re talking about when we say offline payments?</strong></p>
+<p>Fundamentally, it’s about the ability to pay. We want to be able
+to pay in any scenario, be that with CBDC or with some other
+payment instruments. The analogy that we like to make is with
+cash—obviously—because G+D is also very strong in the cash
+business. Cash is wonderful for proximity payments between two
+people, you and me, somewhere out in the desert, we can make a
+payment.</p>
+<p>The other end of the spectrum would be card payments, which
+works both for proximity situations—for example I go to a shop and
+I buy something—and also for e-commerce.</p>
+<p>So basically we got two ends of the spectrum covered here, but
+currently there is no means of payment that combines the
+convenience of both, right? The convenience of cash that it works
+offline in any scenario, and the convenience of cards where we
+don’t have to carry the cash around. And yeah, this is the gap that
+we’re talking about here when we talk about digital offline
+payments.</p>
+<p>And the Bank for International Settlements has created this
+terminology in their <a href=
+"https://www.bis.org/publ/othp64.htm">Polaris project</a> where
+they distinguish three degrees of offline: They talk about “staged
+offline,” “intermittently offline,” and “fully offline.” And I
+think I have a few moments to break that down.</p>
+<p>“Fully offline” means there’s no online connectivity whatsoever.
+No mobile reception, no nothing. And you do that forever. So cash
+would be a fully offline means of payment because you never go
+online with cash.</p>
+<p>And then you have “intermittently offline,” which describes a
+payment instrument where you can make some offline transactions,
+even consecutive offline transactions. So I could pay my friend and
+then my friend could pay someone else or offline. But eventually
+you’re going to have to go online to sort of reconcile or like send
+those payments to a back end system. The payment is already settled
+offline, but you still want to kind of do some sort of
+reconciliation afterwards.</p>
+<p>And then there’s “staged offline,” where the payment is not
+really settled. So you can make a payment offline. But for example,
+the merchant who receives the payment cannot immediately use that
+money to pay someone else. So that would be in traditional card
+rails, where you can actually make these offline transactions, but
+they only settle when the merchant actually uploads this
+transaction to some back end system.</p>
+<p>So <a href=
+"{% link topics/digital-currency/offline-payments-filia.html %}">
+for CBDC we’re kind of aiming for “intermittently offline,”</a> so
+kind of for the middle ground in in here.</p>
+<p>But—as you mentioned—there’s more and more interest also about
+<a href=
+"{% link _research/cbdc-interoperability.html %}">equipping
+other payment rails with this intermittently offline functionality
+including private money</a>. So for example if you have an instant
+payment system, for example PIX or UPI, then there’s also some
+interest in providing these offline capabilities, because for now
+they don’t work offline at all.</p>
+<p><strong>I just wanted to go a little bit more into this question
+“intermittently offline” versus “fully offline”. Can you talk a
+little bit about why it’s important to have this you know,
+requirement for it to be reconciled offline versus just having it
+entirely offline the whole time?</strong></p>
+<p>Yeah, that’s a good question. And I think the easiest way to
+explain this is security. Bank notes also don’t circulate offline
+forever. Eventually they’ll come back to the central bank, and then
+they’re validated, and they’re checked if they’re actually
+authentic or counterfeit. So I think in particular central banks
+have a strategic interest in making sure that there’s no
+counterfeit money in circulation. That everything is secure and
+that you have kind of like a safety net—a digital safety net—to
+make sure that all the transactions use genuine money.</p>
+<p>If you have a “fully offline” system, that is very hard to
+achieve, because you will never be in a position to actually look
+at the payment token and say, well this is good or not. So you
+potentially have a high risk.</p>
+<p>In the “intermittently offline” approach, where you demand some
+kind of reconciliation, you do these sort of technical checks every
+once in a while, maybe every two weeks or something like that. You
+can say maybe you can do ten offline payments, something like that.
+This does not mean that you need to disclose any kind of metadata.
+So it’s not necessary for the reconciliation check to upload that I
+have paid at the grocery store, that amount of money for this
+purpose.</p>
+<p>No, it’s just about checking the actual payment instrument, so
+it’s checking that the €10 token that I have handed over to the
+grocer is actually a valid €10 token. So this has to happen
+occasionally, not all the time, in order to get a high degree of
+security that central banks rightfully expect.</p>
+<p><strong>Can you talk a little bit about why central banks, I
+guess in particular, are treating this as a topic of strategic
+importance. I mean, I guess it’s pretty obvious in countries with
+remote areas where they don’t necessarily have Internet
+connectivity or it’s not widespread or it’s not reliable, then it
+makes sense there. But in countries where that’s not the case, if
+it’s pretty universal and reliable, we’re still seeing some
+interest in offline payments. Can you talk a little bit about why
+that is?</strong></p>
+<p>Sure, this this topic about Internet connectivity, this comes up
+quite a lot. So it’s a fair question to ask, honestly.</p>
+<p>Right now we have only one truly inclusive means of payment,
+which is cash. And there’s nothing like cash available in the
+digital space and like, if you look globally, there’s 1.4 billion
+adults that remain unbanked. Even in the Eurozone, in Europe,
+there’s significant adult population that could have bank accounts
+and they don’t have bank accounts.</p>
+<p>And that doesn’t even talk about children or some unemployed
+people or tourists on there, which don’t have local bank
+accounts.</p>
+<p>So if you’re saying, well, you know everyone can get a bank
+account, you’re still excluding some people. So it’s not just about
+the connectivity, but it’s also about this kind of accessibility,
+inclusivity. Case in point: If I want to get a credit card today or
+a debit card, I need to go into a contract with some kind of third
+party provider. There’s no such thing as a as a government run
+payment scheme. There’s always this sort of a friction that is
+introduced and there’s good reason for that. If I get a credit
+card, the intermediary wants to know that I am creditworthy, right?
+So they don’t want to give me a line of credit without knowing me.
+They wouldn’t give a 10 year old child a €2000 credit line, of
+course, so there’s good reasons for that.</p>
+<p>There are also other factors here. For example, if I’m a
+merchant and I want to accept payments, they’re charging fees for
+that, and potentially some minimum fees. In some countries this
+could be prohibitively expensive. These countries see proliferation
+of alternative schemes like UPI in India.</p>
+<p>But basically, long story short, if you’re only focusing on the
+topic of Internet connectivity and say we have Internet
+connectivity, it’s why people can pay digitally, you are excluding
+still some members of society, and that’s not a good thing. So
+offline payments—as we see it—are one piece of the puzzle towards
+digital payments without having a bank account or without having an
+account with some kind of private provider.</p>
+<p>And this is why I also mentioned we can also think of offline
+payments not just in the context of CBDC, not just in the context
+of like a government-run system, but also as an <a href=
+"https://pages.gi-de.com/filia-unplugged">add-on for other
+systems</a> that are interested in “expanding the franchise,” if
+you want. And ultimately if you have more people who can pay, this
+is good for the economy, right?</p>
+<p><strong>It’s also, you know, something the development banks
+care a lot about, right? That’s always something they’re trying to
+get the number of people able to use different payment systems up
+and relying on physical cash alone for them often means they don’t
+get credit access and things like that. So yeah, getting people
+into other service, seems like a good idea.</strong></p>
+<p>Yeah, but also—sorry, just one more point because you brought it
+up. It’s also about providing choice for consumers, right? So
+ideally, in a hypothetical society, as a consumer, I can decide
+freely between using cash, using instant payments, using CBDC,
+using credit cards, or any of the other payment rails. So
+fundamentally I think it’s about providing that choice and having
+this choice also makes for a more equitable payment ecosystem.</p>
+<p>So I can, as a consumer, I say well I prefer cash because I like
+carrying this around with me. I need to see how much money I have.
+Someone else says, well, then I have to go to the ATM. So I prefer
+to use card payments and someone else says, well, I travel a lot.
+So a credit card is quite nice for that purpose.</p>
+<p>So you have all of these choices and we’re not seeing them as
+somehow competing. We’re seeing them as complementing each
+other.</p>
+<p><strong>Yeah, and that choice not being made for you by the
+circumstances.</strong></p>
+<p>Yeah, correct.</p>
+<p><strong>Certainly you can see the advantages there. It is
+something, however, that we hear a lot from, particularly the
+central banks when we did our survey of central banks, the end of
+last year that it’s something that they find difficult to deliver,
+that they need a lot of help with that. There are some technical
+challenges around. Walk us through what some of those challenges
+are. Why people are struggling.</strong></p>
+<p>Yeah, it’s definitely a big issue. Some people have said that
+having a full blown retail CBDC with full offline capability is a
+tall order. It’s already a kind of a big order when you don’t have
+offline capability and you’re adding that additional issue on
+top.</p>
+<p>Well, I mean the existing payment rails, if you look at them,
+they have only some degree of offline capability for example
+traditional card payment rails. You cannot spend these
+consecutively: I give the money to the merchant. The merchant will
+have to wait maybe for two to three days until they can pay someone
+else. So just “intermittently offline” payment capability is really
+a novel concept, so it has no equivalence in the current payment
+ecosystem. So yeah, I totally understand where this line of
+thinking is coming from.</p>
+<p>From our side, from G+D’s side, from the very beginning, we
+considered how to handle secure consecutive offline payments and we
+also spoke with a lot of central banks and this journey started
+already many years ago, back when it wasn’t even called CBCD, back
+when it was called regulated digital payments. I’m not sure if
+anyone in the audience still remembers that term, but CBDC is
+actually a fairly recent term.</p>
+<p>So the requirements we gathered there was that this offline
+payment needs to come with a very simple and intuitive user
+interface because cash: everyone can use it, even children can use
+it. So this is what we should be aiming for.</p>
+<p>Second, it needs to be available through some kind of form
+factors that are cheap, low cost, and universal. So some people
+might want to run it on their existing smartphone, but if someone
+does not have a smartphone, then it should also be available on
+smart cards. Small cheap phone factors.</p>
+<p>And the third point is—obviously, the topic of privacy which in
+in particular in the advanced economies, is a big topic, right? So
+you want to have something like privacy comparable to cash,
+“cash-like.”</p>
+<p>And what we came up with to <a href=
+"https://www.linkedin.com/pulse/true-offline-payments-impossible-dr-lars-hupel-j9thf/">
+solve all of these topics together</a> is a token-based system. So
+you have individual tokens which you could think of like as bank
+notes. They have some kind of value attached to them and then you
+can pass those tokens around between wallets.</p>
+<p>And the key point here is that those wallets need to have some
+kind of hardware security. And we can enable this hardware security
+in all of these form factors that I mentioned.</p>
+<p>Now, the reason why we’re doing that is because I mentioned you
+want to make sure that there’s no counterfeit money, no fake token
+circulating in the system. So you need to have this trust
+somehow.</p>
+<p>For a bank note, you can just look at the bank note and you can,
+you know, look at the security features and you can wave it around.
+You can see the hologram and then you’re somehow satisfied that
+it’s a good bank note. In the digital world, you can’t do that. So
+that’s why we need this hardware security.</p>
+<p>Now, you put those <a href=
+"https://thepaypers.com/expert-opinion/secure-wallets-for-cbdc-how-do-they-work--1266622">
+tokens on these hardware wallets</a> and then they can transact
+freely with each other.</p>
+<p>And we’ve kind of demonstrated that this works. So you know,
+from a technical perspective, I think a lot of the boxes have
+already been checked.</p>
+<p>There’s still, of course, the question of a rollout in a
+particular country. So I, totally understand that this is still a
+matter of discussion because all the countries are different. So to
+summarize, I think the technology is there.</p>
+<p>What’s missing now is like the remaining gaps to be addressed.
+What are the form factors in a given country? What are the privacy
+expectations in a given country? What are users familiar with? How
+do users currently do their transaction?—and then try to imitate
+that somehow. So I think this has to do a lot of with user
+research, with convenience and so on. All of these accessibility
+topics.</p>
+<p><strong>Yeah, I think that’s something that we hear a lot in the
+in the general DMI [Digital Monetary Institute] areas: the
+technological challenge is solved, but there’s a surprisingly big
+gap between that happening and central banks having made all the
+policy decisions and decided exactly what they want from it and
+that does seem to take longer. And there’s a limited way of
+generalizing from one central bank to another, right? Everyone’s
+got their own their own preferences and in in light of that, can
+you talk a little bit about the pilots that you guys have been
+involved in and maybe some of the differences in in requirements
+that people have had there?</strong></p>
+<p>Yeah. So I will start this answer with a with a short anecdote.
+As part of my job, I travel around the world quite a bit and I work
+with central banks very closely and I’ve been, for example, in
+Ghana to work there on the offline pilot that we did with the Bank
+of Ghana. But I was also in in Hong Kong where we did a pilot
+project together with Standard Chartered Bank.</p>
+<p>And in both countries I faced the same problem. When I had to
+get from the airport to the hotel, the taxi drivers only wanted to
+accept cash. And the reason why they wanted to take cash is not
+because they wanted to commit tax fraud, but because they needed to
+refuel their car after a few rides. And if you pay with card, then
+they can’t refuel their car, they need to wait for a bit. And they
+don’t have that kind of working capital—as the economists would
+say—to just do that for two or three days. So in both countries or
+regions like Ghana as an emerging economy and Hong Kong as
+technologically advanced, you have the same problem. So some points
+do generalize.</p>
+<p>This consecutive offline payment seems to be a big topic in in
+in many jurisdictions, right, so that that much for the
+anecdote.</p>
+<p>So let’s talk about the Ghana project. First, I guess when we
+did the pilot there, we actually had a few surprises in terms of
+payment patterns, right? So there were a lot very long chains of
+offline payments that we that we saw.</p>
+<p>Let’s say you’re a citizen somewhere doing your grocery
+shopping, you go to a small street merchant. And then you buy some
+rice, some other food items, and then that street merchant goes to
+a bigger merchant like some kind of big food vendor and pays there
+and then that food vendor goes to a farmer and then that farmer
+goes to a wholesale supplier. So you have all of these long chains
+of offline payments, we certainly did not anticipate that.</p>
+<p>But it was a very important learning for us and in particular
+also learning what kind of form factors people are using. So in
+Ghana we included a lot of people in the pilot who have never done
+a digital payment in their life before. So all they ever used was
+cash. So for them, the smart card was a very important form
+factor.</p>
+<p>Now if you look for example in Hong Kong. Well, people have
+smartphones in Hong Kong, right? So maybe the smart card is not
+that an important form factor.</p>
+<p>Still in Hong Kong, we did the survey and they said about 80% of
+the consumers saw the value in the offline payment of this
+hypothetical Hong Kong CBDC. So that was kind of an important
+learning also from us seeing that even in these technologically
+advanced regions you have that sort of thing.</p>
+<p>Maybe also in the Bank of Thailand project. There they were also
+more concerned with smartphones. We tried both smart cards and
+smartphones there. And <a href=
+"https://www.bot.or.th/en/financial-innovation/digital-finance/central-bank-digital-currency/_/Pilot-CBDC-2024.html">
+they gave us some really good feedback</a>, because they were
+talking about the amount of transactions that you can do while
+you’re disconnected. So they were quite happy with that.</p>
+<p>And on the other hand, they also found that handling NFC
+payments can be somewhat tricky because you have to kind of hold
+the card to a card reader and in some. In some countries, people
+are used to that. In other countries people are not used to that.
+In Thailand, a lot of people are used to QR code payments. So they
+are very happy with how that works. So they’re used to that. And
+NFC was, apparently, not so common.</p>
+<p>Whereas in Hong Kong, people could pay with NFC, no problem,
+because they’re used to that.</p>
+<p>So I guess a long-winded way of saying all of these pilots had
+very different characteristics. There were some, some
+commonalities.</p>
+<p>But again, these pilots, as we see, are very crucial to learn
+about the behaviours of people, and ultimately you want to provide
+a public utility. You want to be able to provide people with the
+ability to pay. And in order to do that, you need to understand how
+they’re paying now and what pain points they have. And then you try
+to tailor your pilot projects to address these pain points.</p>
+<p><strong>Yeah, I guess that’s a really interesting challenge
+because you know you can do all the work you want on the security
+and the settlement and so on. But ultimately this is a tool that
+people have to use every day hopefully. And I guess one of the
+challenges is if you’re going to get people to adopt, it is
+integrating it with how people are already using money because,
+presumably it is quite difficult to get people to behave in a way
+they’re unfamiliar with.</strong></p>
+<p>Yeah, that’s totally true. So you could say that there’s really
+no one-size-fits-all rollout strategy. So this is why we at G+D, we
+typically suggest a phased approach where you include the
+stakeholders from the very beginning. So we have done a few
+consulting projects also in in terms of digital payments and what
+we always start with is like: get the banks on board, get the
+merchants on board, get a few end users on board. You know you want
+to talk to them and then you start with the small pilot and you
+test your hypothesis and then you figure out the payment
+patterns.</p>
+<p>Maybe you do another survey. Maybe you do data analytics on the
+data that you’ve collected. That’s what we’ve done with Bank of
+Ghana to figure out the payment patterns, to run some analytics on
+that.</p>
+<p>And also, what you kind of mentioned is that the integration and
+the interoperability is a big topic and this is also where the
+countries differ the most, in my personal opinion.</p>
+<p>Every country has an existing payment system. They have an
+existing RTGS, they might have an existing instant payment system.
+All of these things exist. They have ATMs. In African countries,
+you have a lot of mobile money agents.</p>
+<p>So all of these very heterogeneous ecosystems are already there,
+and one thing that I find particularly charming about adding
+offline capability to existing payment schemes is also that you
+have new intermediaries, new types of intermediaries like telcos
+that could provide these kinds of services.</p>
+<p>So when we do these CBDC projects, we’re also trying to talk to
+the “non-standard” players. I want to say—like, obviously they have
+a big role to play, the telcos—but they’re typically not seen as
+banks. But there’s no reason why they couldn’t also provide
+financial services and some of them already do provide financial
+services.</p>
+<p>So we think this is a good way to increase reach. And the
+merchants, of course. If you don’t have the merchants on board,
+they don’t accept your payment method and then you can’t use it,
+right? So the merchants are kind of one of the most important
+aspects of actually using it on the ground. They need to upgrade
+their POS terminals, for example, even if they have not been
+designed with offline payments in mind, so this is also another
+important piece of the puzzle.</p>
+<p>I guess this is my way of saying that if you want to transform
+the payment ecosystem, you have to first understand the payment
+ecosystem, right?</p>
+<p><strong>Yeah, yeah, absolutely. I think, bringing, you know,
+telcos and other new entrants in is typically good from a policy
+perspective as well, right? It should be good for competition. It
+generally leads to good outcomes when you have new providers
+entering, lowering the barrier to entry and providing
+services.</strong></p>
+<p><strong>We kind of touched on it a little bit, but perhaps we
+should go into in a little bit more detail. Obviously offline
+payments is fundamentally—we’ve talked about the sort of
+non-technical aspects of making sure people can use it, but
+fundamentally, that you do need technology. You do need hardware to
+deliver this. Is that something that you can integrate with what’s
+already out there, or does it need full overhaul? What does the
+rollout for the technology side of it look like.</strong></p>
+<p>I guess the answer is yes and no. So we’re always trying to
+build on existing technology as much as possible.</p>
+<p>At its most fundamental level, we believe that <a href=
+"https://thepaypers.com/expert-opinion/why-accounts-do-not-solve-double-spending--1267213">
+secure offline payments require secure elements</a>, right? So you
+want to have industrial-strength secure hardware in order to store
+the tokens, in order to ensure that only authentic wallets are
+operating in the system and that no one can, you know, use a
+“custom” wallet that, for example, disrespects certain limits set
+by the issuer, and so on.</p>
+<p>So you want to make sure that all of this is captured in
+hardware. And this is not a new idea. We have not invented the idea
+of using Secure Elements for payments. If you look at the
+industry.</p>
+<p>Now the card industry uses Secure Elements. The identity
+industry uses Secure Elements. If you have for example a national
+ID card, there’s very high chances that there’s a Secure Element in
+there. Your phone has a Secure Element. The SIM card is a Secure
+Element, and so these pieces of hardware are incredibly
+widespread.</p>
+<p>They’re incredibly common and people—they have three or five of
+them on them at any given point in time, or, if they don’t, you
+just give them a smart card, right? The smart card is relatively
+inexpensive. It’s also nice because the smart cards can be issued
+directly to the consumer, so you can directly say: you know this is
+the code that’s running. These are the policies with it. If you
+have to go on an existing device or if you want to go on existing
+devices, which you should, then it’s a bit harder.</p>
+<p>For example, if you want to <a href=
+"https://www.linkedin.com/posts/lars-hupel_embedded-secure-elements-activity-7228694290816724993-9unM">
+put CBDC tokens on an iPhone</a>, you would have to talk to Apple.
+If you want to put it on a Samsung phone, you would need to talk to
+Samsung, and so on. But you can also put it on the eSIM. For
+example, <a href=
+"https://www.linkedin.com/posts/lars-hupel_cbdc-can-gain-further-adoption-with-esim-activity-7224730639990759424-2fBi">
+eSIM is very easy because you can just download it as a
+consumer</a>, so it’s really not big of a hassle.</p>
+<p>And that is also not a novel idea. If you look at Japan, for
+example, with the Suica card, or in Hong Kong with the Octopus
+card, those are transit cards. But you can also use them for
+payment. And they’re also available in smart cards as a mobile
+wallet, in the Secure Element, as a SIM card, and all of these
+things.</p>
+<p>And if you’re looking now at the news, if you have been
+following the news, Apple has also now provided access to the
+Secure Element of the iPhone. Not to everyone, not everywhere. So
+they’re still in early phase of this rollout. But as a developer,
+let’s say you want to equip your payment scheme, your instant
+payment scheme with offline capability. You could talk to Apple,
+you could apply for that access.</p>
+<p>I think this is a positive trend in the market because it
+enables technology vendors to leverage this secure hardware that
+was so far a lot more restricted.</p>
+<p>In the eurozone, when we talk about the digital euro, there’s
+also this <a href=
+"{% link topics/digital-currency/common-sense.html %}">
+draft legislation on the digital euro</a> that’s currently being
+considered by the European Parliament. And that one also says that
+the vendors should give access to the secure hardware in those
+devices, be it the SIM card or another type of Secure Element.</p>
+<p>So, I think from a specification point of view, we are already
+very close because all of these Secure Elements have very strict
+specifications. They all behave in similar ways. They have similar
+interfaces, so we’re ready to deploy on those.</p>
+<p>And now it’s up to the manufacturers and the regulators to kind
+of step up and say, OK, we’re happy with this use case and you’re
+granting access in the most diverse way that you could think of,
+right? So that you have all of these different form factors and if
+someone doesn’t have a smartphone, then they can still have a smart
+card. You can still equip them with that.</p>
+<p><strong>It’s very interesting here that a lot of the technology
+is already out there. But yes, I did see that about Apple and I
+guess that was fortunate because it would have been a big problem
+for the digital euro legislation, if Apple wasn’t providing that,
+you know, a provider of such scale. So I guess that’s probably not
+a coincidence, but fortunate timing.</strong></p>
+<p><strong>So yeah, well, I we’re getting close to the end here,
+but I guess let’s look a little bit into the future. How are
+people, you know,—people’s attitudes have changed a lot to what
+they expect from payments over the past five years or so or maybe a
+little bit longer, but I don’t think we’re at a final point by any
+means there. So what are you expecting in terms of changes to
+people’s attitudes towards payments and what they expect they’re
+going forward?</strong></p>
+<p>I think, honestly, we see much broader changes right now, not
+just focused on end users and consumers and so on. So we’re seeing
+kind of this, <a href=
+"{% link topics/digital-currency/tokenisation-securities.html %}">
+this idea of tokenization</a>, which would sort of permeates the
+entire payment industry, no matter what you’re talking about.</p>
+<p>Anything that affects the end user or if it affects, for example
+wholesale payments, right, because wholesale payments are still
+there. I have not talked about wholesale at all in this podcast so
+far, but, no matter where you look in the industry, everyone’s
+talking about tokenization. So it’s kind of driven by many
+different market participants and also from many different
+perspectives, right?</p>
+<p>So, a stock broker is interested in very different things than a
+merchant, but still they both suffer from some kind of restrictions
+in in existing payment systems, right? So for example, the
+stockbroker also suffers from the fact that very often they can’t
+instantly settle their payments. So you sell a lot of—you sell a
+large bond, and then you have to wait two days for the payment to
+come in.</p>
+<p>Obviously that’s a problem on a very different scale than the
+taxi driver in Hong Kong, but it’s still kind of similar—similar
+reasons for these.</p>
+<p>So, I think this token-based digital money, if you call it
+retail CBDC, if you call it deposit tokens, if you call it stable
+coins—whatever—really has the potential to transform the entire
+financial ecosystem, and retail CBDC is just one piece to this
+puzzle.</p>
+<p>And ultimately, they might have different technologies, so I
+don’t expect the digital euro to work in the same way as the
+digital pound or some kind of new stable coin in the euro area or
+whatever or wholesale, they would all probably have different,
+technological design.</p>
+<p>But ultimately, they <a href=
+"{% link _research/cbdc-interoperability.html %}">
+could work together</a> to make the system more efficient and more
+transparent. Even if you look, if you zoom in again on the on the
+end results, then offline payments will contribute also to the
+resilience in case of outages or some kind of natural disasters. So
+this is also an important aspect that’s talked about a lot. How to
+increase the resilience of the system.</p>
+<p>If you look at all of these different pieces of the puzzle that
+I’ve just mentioned, it’s clear that it needs to coexist and they
+need to cooperate, and they need to integrate with each other.</p>
+<p>And once again a reference to the Bank of International
+Settlements: they call the system “Finternet” as the analogy to the
+Internet. So they think of the Finternet as kind of value that you
+can route to multiple entities. And you know, that value can—no
+matter if the value is an offline token or a stock or whatever—you
+can kind of route it through the system.</p>
+<p>So I think this is like a broader context that we’re talking
+about here. And I think, simply put, our mission from G+D is to
+build trust in this new system both from the offline perspective,
+what was the main focus of this podcast, but also for the other
+layers that will come together there.</p>
+<p><strong>Yeah, absolutely. Very exciting time in payments. We’ll
+have to leave it there. As you said, there’s a lot more we could be
+discussing in offline payments, and it is just a part of the
+puzzle. Wholesale we haven’t touched on. But a great deal to be
+discussed going forward. Thanks for your insights,
+Lars.</strong></p>
+<p>Thanks for having me.</p>
