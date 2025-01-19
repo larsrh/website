@@ -1,0 +1,367 @@
+---
+title: Is DLT necessary to build a CBDC? Part 4
+subtitle: How does CBDC differ from other electronic payments?
+date: 2023-07-10
+canonical: "https://www.linkedin.com/pulse/dlt-necessary-build-cbdc-part-4-dr-lars-hupel/"
+---
+
+<p>Much has been written about different technical implementation
+options of central bank digital currencies. Often, the use of DLT
+is proposed. It appears that the choice in favour or against DLT is
+so fundamental, that the <a href="https://cbdctracker.org/"
+>CBDC Tracker</a> even has it as a dedicated category. Yet,
+I often observe a lack of clarity about what DLTs are, what they
+can provide, and how that relates to the desired characteristics of
+a CBDC. In this series, I want to examine these topics in more
+detail. Part 4 explains what how CBDC is defined and compares it
+with other electronic payment systems.</p>
+
+{% include topics/digital-currency/dlt.html %}
+
+<h2>Central Bank Digital Currency in a nutshell</h2>
+<p>The <a href=
+"https://www.reuters.com/markets/currencies/study-shows-130-countries-exploring-central-bank-digital-currencies-2023-06-28/"
+>vast majority of central banks</a> around the world
+are investigating or piloting a <em>Central Bank Digital
+Currency</em>, or <em>CBDC</em> for short, with a <a href=
+"https://www.bis.org/publ/bppdf/bispap136.pdf"
+>select few already running live systems</a>. Although
+there is no single universal definition of CBDC as of writing, it
+is commonly understood to be</p>
+<ul>
+<li><strong>a digital representation of a country’s or region’s
+existing currency:</strong> this means that the CBDC will be
+denoted in the same currency and be 1:1 exchangeable for other
+types of money, such as deposit money, in a way that resembles
+cash;</li>
+<li><strong>issued directly by the central bank:</strong> unlike
+deposit money and e-money, which is issued by private entities,
+CBDC represents a direct claim on the issuing central bank and
+therefore, the central bank has full control over its supply;</li>
+<li><strong>usable in electronic payments:</strong> unlike cash,
+which can only be used for payments in physical proximity, CBDC as
+digital money can be used both offline and online; and</li>
+<li><strong>legal tender:</strong> the ability to use CBDC for any
+purpose and to discharge monetary obligations.</li>
+</ul>
+<p>While not strictly speaking necessary according to the above
+definition, CBDC payments are usually expected to be settled
+instantly. In terms of accessibility, there are two types of CBDC
+that need to be distinguished. <em>Retail CBDC</em> can be used by
+anyone in the country, whereas <em>Wholesale CBDC</em> is only
+available for <a href=
+"https://bankingblog.accenture.com/cbdc-retail-wholesale-international-payments"
+>regulated financial intermediaries</a>. The name
+refers to the idea that the former allows for retail payments,
+whereas the latter would be used mainly by financial
+institutions.</p>
+<p>Let us now compare CBDC to existing instruments. Note that due
+to the lack of widespread experience with CBDC, many of its
+properties are currently only technically proven, but not
+necessarily economically.</p>
+
+<figure>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>CBDC</th>
+<th>Cash</th>
+<th>Reserve account</th>
+<th>Deposit money</th>
+<th>Stablecoin</th>
+<th>Cryptocurrency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Issuer</td>
+<td>central bank</td>
+<td>central bank</td>
+<td>central bank</td>
+<td>financial intermediary</td>
+<td>private company</td>
+<td>anonymous network</td>
+</tr>
+<tr>
+<td>Embodiment</td>
+<td>digital</td>
+<td>physical</td>
+<td>digital</td>
+<td>digital</td>
+<td>digital</td>
+<td>digital</td>
+</tr>
+<tr>
+<td>Currency</td>
+<td>sovereign</td>
+<td>sovereign</td>
+<td>sovereign</td>
+<td>private, denoted in sovereign currency</td>
+<td>private, backed by various assets, denoted in sovereign
+currency</td>
+<td>built-in, not backed</td>
+</tr>
+<tr>
+<td>Accessibility</td>
+<td>Retail CBDC: universal<br>
+Wholesale CBDC: only for intermediaries</td>
+<td>universal</td>
+<td>only for intermediaries</td>
+<td>universal (in principle)</td>
+<td>universal (in principle)</td>
+<td>universal (in principle)</td>
+</tr>
+<tr>
+<td>Legal tender</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+
+<figcaption>Comparison between different payment instruments/assets
+(author’s elaboration)</figcaption>
+</figure>
+<p>As it becomes obvious from this comparison, one of the reasons
+central banks attempt to design retail CBDC is to combine
+advantages of the other instruments. (Note that I have omitted some
+instruments such as mobile wallets from the table for brevity.) For
+the remainder of this essay, I will focus on retail CBDC.</p>
+<h2>Technical requirements for CBDC</h2>
+<p>Based on the above characteristics, many different technical
+implementations are possible; however, it is clear that a system
+that is poised to process a significant share of a country’s
+payment volume, needs to meet high security and resilience criteria
+(among others).</p>
+<p>Bank of England staffers have already <a href=
+"https://bankunderground.co.uk/2017/09/13/beyond-blockchain-what-are-the-technology-requirements-for-a-central-bank-digital-currency/"
+>proposed such criteria in 2017</a> (quoted
+verbatim):</p>
+<ul>
+<li>High operational availability (&gt;99.999%)</li>
+<li>Secure against cyberattacks</li>
+<li>Potential for several thousand transactions per second</li>
+<li>Near-instantaneous, real-time transaction processing, with
+settlement finality</li>
+<li>Private, but not anonymous</li>
+<li>Interoperable with existing systems and other CBDCs</li>
+<li>Enable the overlay of innovative features/services</li>
+<li>Ability to upgrade and enhance, without impacting service</li>
+</ul>
+<p>Those criteria are still present – and further elaborated upon –
+in the Bank of England’s 2023 <a href=
+"https://www.bankofengland.co.uk/paper/2023/the-digital-pound-technology-working-paper"
+>technology working paper</a> on the digital pound.
+Most notably, the bank now “estimates that approximately 30,000
+transactions per second may be the necessary level of performance
+needed”, with further explorations towards “more ambitious
+capabilities of […] 100,000 transactions per second”.</p>
+<p>While details, e.g. concrete figures, differ across the working
+or design papers of various central banks, by and large, they are
+similar. However, there are stark differences regarding the
+issuance model which deserve some further explanation.</p>
+<h2>How is CBDC issued?</h2>
+<p>The <em>Bank for International Settlements (BIS)</em>
+distinguishes between <a href=
+"https://www.bis.org/publ/qtrpdf/r_qt2003j.pdf"
+>three different issuance models</a>:</p>
+<ol>
+<li><strong>Direct CBDC.</strong> The digital money is issued by
+the central banks, which also manages user holdings and retail
+payments. The role of intermediaries is limited.</li>
+<li><strong>Hybrid CBDC.</strong> As in the direct model, digital
+money is issued by the central banks, but most other
+responsibilities are delegated to intermediaries, such as
+onboarding and user interaction.</li>
+<li><strong>Indirect (or synthetic) CBDC.</strong> As opposed to
+the other two models, digital money held by users is a claim on the
+intermediary. Issuance is still controlled by the central bank,
+because any intermediary wishing to distribute digital money to
+their customers must submit sufficiently much reserve balance.</li>
+</ol>
+<p>These models are ordered by decreasing involvement of the
+central bank, and closely related, increasing need for supervision
+of intermediaries.</p>
+<h2>Roles & responsibilities across a CBDC ecosystem</h2>
+<p><a href="https://www.bis.org/publ/work948.pdf"
+>In a later publication</a>, BIS further differentiates the
+second model in terms of whether retail payments are processed by
+the central bank or by intermediaries. In the latter case, the
+central bank only “sees” wholesale payments, exhibiting similarity
+to a wholesale CBDC. Perhaps more interesting is that Auer and
+Böhme no longer classify the indirect model as a retail CBDC, but
+rather as “fully backed payment accounts or stablecoins”.</p>
+<figure>
+  <img src="{% link assets/img/topics/digital-currency/dlt/responsibilities.svg %}" alt="Image description see below">
+<figcaption>Roles and responsibilities of the broader ecosystem
+players in a hybrid CBCD model (author’s elaboration)</figcaption>
+</figure>
+
+<details>
+  <summary>Image description</summary>
+  <p>Three players: Central Bank, Public Sector, Private Sector</p>
+
+  <ul>
+    <li>
+      <strong>Central Bank:</strong>
+      <ul>
+        <li>Issuance &amp; Management of CBDC</li>
+        <li>Financial stability</li>
+        <li>Payment efficiency &amp; integrity</li>
+      </ul>
+    </li>
+    <li>
+      <strong>Public Sector:</strong>
+      <ul>
+        <li>Ensure financial inclusion</li>
+        <li>Regulatory oversight</li>
+        <li>Fraud detection &amp; investigation</li>
+      </ul>
+    </li>
+    <li>
+      <strong>Private Sector:</strong>
+      <ul>
+        <li>Distribution &amp; custody of CBDC</li>
+        <li>Providing additional innovative services</li>
+      </ul>
+    </li>
+  </ul>
+</details>
+
+<p>If we give up the notion of clear technical separation between
+the different issuance models, and instead consider them on a
+spectrum, we can focus on common themes of governance, before
+moving on to assessing DLT’s appropriateness for implementing
+CBDC.</p>
+<h2>CBDC vs. stablecoins</h2>
+<p>There is common understanding across central banks that
+governance and operation of CBDC falls purely within a limited set
+of regulated entities. As opposed to traditional deposits, many
+non-banks can hold CBDC, to increase competition within the payment
+landscape for the benefit of end users.</p>
+<p>This is comparable to stablecoins. The major stablecoin issuers
+Tether (USDT), Circle (USDC), and others, follow a centralized
+governance approach. The issuer is responsible for cash-in and
+cash-out transactions, as well as ensuring that there are always
+sufficiently much backing assets (collateral) to match the
+circulating supply of the stablecoin.</p>
+<p>However, since USDT, USDC, and others are issued as smart
+contracts on Ethereum (and other smart contract-capable
+blockchains), stablecoin holders can transact in a decentral manner
+without intermediaries. They are also integrated into AMMs
+(automated market makers, see previous part) and can be therefore
+traded for other types of assets. Any interested user can also
+build their own smart contract logic to transact with stablecoins,
+such as implementing recurring payments.</p>
+<p>This gives rise to an interesting combination of centralization
+and decentralization: a fully centralized instrument that uses a
+fully decentralized platform. A hypothetical CBDC that is issued in
+a similar way would therefore satisfy certain (centralized)
+governance requirements.</p>
+<p>But the decentralized aspect of the underlying distributed
+ledger still poses a problem. The central bank would have no
+control over the evolution of the protocol, potential forks, or
+double-spending attacks. For example, consider a hypothetical
+protocol change that would negatively impact a particular token but
+is accepted by the majority of miners. The token-issuing entity has
+no way of vetoing that change, effectively yielding control over
+the token to an anonymous set of stakeholders.</p>
+<p>This also leads us to the second point: this plurality of
+anonymous blockchain participants that together form a consensus
+about whether or not a transaction is valid. In offline scenarios,
+there is by definition no connectivity to the ledger, therefore
+rendering consensus impossible. Offline payments only work if we
+can assume a basic level of trust between participants, where the
+trust may be established through hardware security. This goes
+counter to the idea of public distributed ledgers.</p>
+<p>From this, we can conclude that public blockchains, like those
+employed by stablecoins, are not desirable for CBDCs.</p>
+<h2>CBDC vs. deposits</h2>
+<p>As of today, deposit money is already electronic. It can be used
+for online payments, and to a limited extent, also offline (for
+example with contactless cards). But unlike central bank money,
+deposit money is issued by individual banks. That means that
+transfers from an account at bank A to a bank account at bank B may
+involve an additional settlement step, where bank A pays bank B the
+equivalent amount in central bank reserves. Conversely, if a
+payment happens between accounts in the same bank, it can be
+settled inside the bank (referred to as <em>on-us
+transactions</em>).</p>
+<p>Some banks have investigated tokenizing deposits, i.e., defining
+a common standard for a digital representation of their
+privately-issued money. Such a solution would entail:</p>
+<ul>
+<li>support of multiple issuers in the same system,</li>
+<li>the ability of users to transact across issuers,</li>
+<li>the ability of issuers to redeem each other’s tokens.</li>
+</ul>
+<p>The precise mechanics differ. In the <a href=
+"https://regulatedliabilitynetwork.org/"
+><em>Regulated Liabilities Network</em></a> <em>(RLN)</em>
+proposal, there is a wholesale token that represents central bank
+reserves, closely mirroring the working of current inter-bank
+settlement systems. In <a href=
+"https://die-dk.de/en/topics/article/new-working-paper-on-commercial-bank-money-token/"
+>another proposal</a>, the German Banking Industry
+Committee (<em>Die Deutsche Kreditwirtschaft</em>) has sketched
+exchange algorithms based on atomic swaps of each other’s tokens,
+possibly across different ledgers.</p>
+<p>Yet, the same questions about stablecoins remain for tokenized
+deposits. Governance would need to be decentralized; otherwise,
+where is the material difference to traditional reserve accounts?
+But then, would a central bank be willing to participate in such a
+system? Also, since the tokens are issued from multiple entities,
+they are not truly interoperable, therefore restricting flexibility
+and preventing offline payment use cases.</p>
+<p>Based on these considerations, the design space for CBDC is
+restricted further. Even a permissioned distributed ledger where
+multiple banks are members and can exert control over settlement
+will not be appropriate for a CBDC.</p>
+<h2>Conclusion</h2>
+<p>CBDC shares some aspects with other electronic payment systems,
+stablecoins, and deposits. However, the combination is unique:
+issued by the central bank, directly accessible for users, and
+offline-capable. To some extent, this simplifies matters, because
+today’s typical settlement routines often involve multiple
+intermediaries and therefore multiple kinds of money. But on the
+other hand, it also restricts the design decisions: decentralized
+governance, key feature of DLTs (as argued in earlier parts of this
+series), is detrimental to a CBDC. Is there anything left? What
+about programmability, privacy, performance? I will explore that in
+the next and final part of this series.</p>
+<h2>Notes & References</h2>
+<p><strong>CBDC definition.</strong> There are plenty of references
+on the definition of CBDC. For example, consider the high-level
+introductions by <a href=
+"https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-central-bank-digital-currency-cbdc"
+>McKinsey</a> and <a href=
+"https://www.investopedia.com/terms/c/central-bank-digital-currency-cbdc.asp"
+>Investopedia</a>. There is ongoing debate in the
+literature whether the concept of wholesale CBDC is novel, e.g.,
+with <a href=
+"https://www.ecb.europa.eu/press/key/date/2022/html/ecb.sp220926~5f9b85685a.en.html"
+>Fabio Panetta</a> likening it to central bank
+reserve accounts.</p>
+<p><strong>Legal tender.</strong> While retail CBDC is typically
+expected to become legal tender, it is important to clarify what
+that means. Legal tender can increase trust in currency, but does
+not relate to general payments. For example, merchants could refuse
+cash payments, even though it is legal tender.</p>
+<p><strong>Privacy and anonymity.</strong> There are varying levels
+of privacy in cryptocurrencies, typically ranging from pseudonymity
+to anonymity. For technical explanations, see also <a href=
+"https://dma.org.uk/article/anonymous-and-pseudonymous-data-are-they-actually-important"
+>“Anonymous and pseudonymous data: Are they actually
+important?”</a> and <a href=
+"https://blockchain-academy.hs-mittweida.de/courses/blockchain-introduction-technical-beginner-to-intermediate/lessons/lesson-4-privacy-in-blockchain-2/topic/anonymity-vs-pseudonymity/"
+>“Anonymity vs Pseudonymity”</a>.</p>
+
+<p><em>Thanks to my colleagues Daniel Nagy, Severino Sequeira, and
+Martin Rönnebeck for their comments on early drafts of this
+article.</em></p>

@@ -1,0 +1,320 @@
+---
+title: Is DLT necessary to build a CBDC? Part 3
+subtitle: Cryptocurrencies
+date: 2023-06-14
+canonical: "https://www.linkedin.com/pulse/dlt-necessary-build-cbdc-part-3-dr-lars-hupel/"
+---
+
+<p>Much has been written about different technical implementation
+options of central bank digital currencies. Often, the use of DLT
+is proposed. It appears that the choice in favour or against DLT is
+so fundamental, that the <a href="https://cbdctracker.org/"
+>CBDC Tracker</a> even has it as a dedicated category. Yet,
+I often observe a lack of clarity about what DLTs are, what they
+can provide, and how that relates to the desired characteristics of
+a CBDC. In this series, I want to examine these topics in more
+detail. Part 3 is about a popular application of DLT:
+cryptocurrencies.</p>
+
+{% include topics/digital-currency/dlt.html %}
+
+<h2>Distributed ledgers for cryptocurrencies</h2>
+<p>Distributed ledgers provide a few characteristics that make it
+an ideal basis for cryptocurrencies. Xu et al. define
+cryptocurrency as the “base currencies of blockchains”. In Bitcoin,
+the term “Bitcoin” refers to both the blockchain itself and its
+currency. Ethereum calls its currency <em>Ether</em>, and also
+allows for other assets to be defined on top of its platform via
+smart contracts.</p>
+<p>According to Andreas Antonopoulos, <a href=
+"https://finance.yahoo.com/news/andreas-antonopoulos-thinks-open-blockchains-153046668.html"
+>the five pillars of public, permissionless
+blockchains</a> are: “open, public, borderless, neutral, and
+censorship-resistant”. It is not hard to see that a decentralized
+network, using both a consensus algorithm that assumes no trust
+between participants, and an incentivization structure that rewards
+honest participation, can deliver on those pillars. To that extent,
+cryptocurrencies are a perfect match for the guarantees assured by
+distributed ledger technology.</p>
+<figure>
+  <img src="{% link assets/img/topics/digital-currency/dlt/pyramid.svg %}" alt="A pyramid, from bottom to top: Immutability + Atomicity, Decentralization, Consensus, Incentivization">
+  <figcaption>From part 1: A pyramid of DLT characteristics.</figcaption>
+</figure>
+<p>In this part, I will examine how the main characteristics of
+DLTs that I have introduced earlier – namely, atomicity,
+immutability, decentralization, consensus, and incentivization –
+are practically applied in cryptocurrencies, using Bitcoin and
+Ethereum as examples. It should become clear that many of those
+considerations are only useful in cryptocurrencies and do not
+necessarily carry over to more centralized systems. Note that I
+will exclude the question about practical applications of
+cryptocurrencies themselves here.</p>
+<h2>Atomicity & Immutability</h2>
+<p>To start out, <strong>atomicity</strong> is guaranteed in
+Bitcoin. Its built-in scripting language allows for some
+non-trivial transactions to be carried out atomically, for example
+requiring multiple signatures to sign off a payment, or funds that
+can only be unlocked within a specified time window. Due to
+Ethereum’s extensive smart contract capabilities, transactions can
+combine many different steps, giving strong atomicity guarantees.
+Ethereum’s ecosystem has inspired many others, with its virtual
+machine forming the basis of other smart contract platforms.</p>
+<p>As for <strong>immutability</strong>, there has been no known
+incident of a transaction being undone in the public Bitcoin
+network, presumably due to the sheer amount of compute power needed
+to carry out such a process (a successful attack would need to
+expend at least as much compute power as has been used for creating
+every block since the transaction that should be undone).
+Transaction reversals are also unlikely in Ethereum, which is
+second in size after Bitcoin (as of June 2023). Note that a
+reversal to refund users has happened in the aftermath of the DAO
+hack, but this was only possible because the vast majority of the
+community agreed on it.</p>
+<p>But this also means that smaller cryptocurrencies are much more
+prone to reversing transactions, therefore negating immutability.
+The Bitcoin SV fork of Bitcoin has suffered <a href=
+"https://www.forbes.com/sites/billybambrough/2021/08/04/bitcoin-fork-suffers-massive-51-attack-in-attempt-to-destroy-the-cryptocurrency-sending-its-price-sharply-lower/"
+>such an attack</a> as recent as 2021. While details
+of such attacks differ, a main goal is to get a transaction
+confirmed, then reverse it to re-obtain the funds being spent in
+exchange for other assets or services <em>(<a href=
+"https://blog.goodaudience.com/what-is-a-51-attack-or-double-spend-attack-aa108db63474"
+>double spending</a>)</em>.</p>
+<h2>Decentralization</h2>
+<p>Both Bitcoin and Ethereum – like most cryptocurrencies – are
+examples of highly <strong>decentralized</strong> systems, both in
+terms of participation and governance. The consensus mechanisms
+employed (to which I will come back later) ensure that any
+interested person with an internet connection can take part in
+creating and transacting cryptocurrency, but also shaping the
+future direction of the system. For example, in the past, there
+have been multiple occasions where miners would “vote” on proposed
+changes, by indicating their opinion in the blocks that they have
+created.</p>
+<p>Yet, cryptocurrencies experience a few re-centralization
+problems, of which I would like to highlight three categories:</p>
+<ol>
+<li><strong>Mining centralization.</strong> It is well-known that
+energy-intensive Proof-of-Work consensus tends to be carried out in
+regions with cheap electricity. That means that compute power
+accumulates much heavier in energy “hot spots”. For many years,
+this used to be China, but since regulatory changes came into
+effect in 2021 that drastically cut down Bitcoin mining, the United
+States <a href="https://ccaf.io/cbeci/mining_map"
+>has taken over</a>. From that time until January 2022, the
+US has continuously controlled more compute power than China.
+However, no other country has yet exerted over 50% control, down
+from the 75% control in China in September 2019 (according to the
+Cambridge Bitcoin Electricity Consumption Index). It is easy to see
+how a country’s legal system can hold a firm grip over a
+cryptocurrency, should mining be heavily concentrated in its own
+jurisdiction. Besides government control, another aspect is
+centralization due to <em>mining pools</em>. Since individual
+participants mining for cryptocurrency may need to invest
+prohibitively large amounts of electricity before their payoff,
+pools will bundle many participants and ensure a steady flow of
+fractional payoffs, distributed across their members. As of April
+2023, the two largest Bitcoin mining pools <a href=
+"https://cryptoslate.com/behind-the-two-mining-pools-controlling-51-percent-of-the-global-hash-rate/"
+>control over 50% of the network</a>. This is not a
+new problem, with many observers voicing concerns. The most
+egregious case happened in 2014, where a single pool <a href=
+"https://www.theguardian.com/technology/2014/jun/16/bitcoin-currency-destroyed-51-attack-ghash-io"
+>exceeded 50% of compute power</a>. Arguably, mining
+centralization caused by pools poses a more significant threat than
+if it were caused by governments; yet both problems remain. As a
+comparison, Ethereum has switched to a less energy-intensive
+Proof-of-Stake consensus protocol in <a href=
+"https://ethereum.org/en/roadmap/merge/">September
+2022</a>. Control over the network is no longer based on compute
+power, but on the amount of capital staked, i.e., locked and
+unavailable for spending. Like Bitcoin, there are staking pools
+that provide similar benefits to their members, compared to mining
+pools. As of April 2023, the largest staking pool currently manages
+33% of all staked Ether. However, only 15% of all circulating
+Ethereum supply is staked.</li>
+<li><strong>Exchange centralization.</strong> In March 2023, daily
+trading of Bitcoin vs. US Dollar averaged $28.5 billion, ranging
+between $11.2 billion (March 4) and $54.6 billion (March 14).
+Ethereum trading is less than that, but still significant, ranging
+from $4 billion to $16 billion daily over the same time period.
+According to various data sources, centralized cryptocurrency
+exchange Binance is by far the largest in the world, <a href=
+"https://research.kaiko.com/insights/the-binance-effect"
+>dominating the market</a> with about 54% of trading volume
+(as of early 2023). In Messari’s exchange rating, only two out of
+the Top 20 exchanges are decentralized. While decentralized
+exchanges are at a disadvantage regarding the markets they can
+serve – by their nature, they cannot cash in from or cash out to
+national currencies – even the volume of cryptocurrency/stablecoin
+pairs are dwarfed by the dominant players Binance, Coinbase, OKX,
+and Upbit. Those four combined account for approximately 80% of the
+market volume on centralized exchanges. Even in a hypothetical
+situation where decentralized exchanges gain more traction for
+cryptocurrency/stablecoin pairs like Bitcoin/Tether, the problem of
+centralisation is merely shifted to the stablecoin issuer. Needless
+to say, the stablecoin market is also highly centralized. It is
+easy to see how the structure of this system thwarts
+cryptocurrency’s claimed decentralization. Additionally, even
+decentralized exchanges suffer from centralization for <a href=
+"https://doi.org/10.1016/j.techsoc.2023.102251"
+>similar reasons</a> as outlined in “mining
+centralization”.</li>
+<li><strong>Software and hardware centralization.</strong> To
+manage cryptocurrencies, some kind of wallet software and/or
+hardware is required. Additionally, for mining, many
+cryptocurrencies demand special hardware for efficiency. Both of
+these aspects suffer from centralization. For software, some
+factors that drive centralization are: the small number of
+independent client software implementations, the relative
+popularity of escrow wallets compared to self-custody wallets, and
+operation of outdated software. All are described in detail in a
+<a href=
+"https://www.trailofbits.com/documents/Unintended_Centralities_in_Distributed_Ledgers.pdf"
+>2022 report</a> commissioned by DARPA. Especially
+the first one has real consequences, as demonstrated by an <a href=
+"https://www.mayerbrown.com/en/perspectives-events/publications/2023/02/stolen-crypto-uk-court-of-appeal-opens-door-to-software-developers-legal-duties-to-users"
+>ongoing UK court case</a>. There, a plaintiff is
+claiming a loss of Bitcoin worth approximately £3 billion due to an
+alleged theft. Therefore, the plaintiff seeks assistance in
+recovering those assets, by demanding that some Bitcoin core
+developers modify the Bitcoin software that is in use by the vast
+majority of network participants accordingly. If the suit were to
+be successful, this would mean that the immutability of the
+blockchain is <a href=
+"https://www.shlegal.com/insights/the-myth-of-decentralised-governance-of-bitcoin-tulip-trading-ltd-v-van-der-laan"
+>effectively being revoked</a>. For hardware, there
+have been concerns in the recent past about the availability of
+mining chips (e.g. ASICs). Since hardware manufacturing is a
+complicated process and the market for such products is much
+smaller than typical consumer electronics, this too lends itself
+naturally for centralization. Up-to-date numbers are hard to come
+by, but at some point, a particular vendor enjoyed an 80% market
+share. Attempts by new cryptocurrencies to design their protocol in
+such a way as to make mining more attractive on conventional
+hardware <a href=
+"https://www.investopedia.com/investing/why-centralized-crypto-mining-growing-problem/"
+>have not been successful so far</a>.</li>
+</ol>
+<p>To summarize, many “unintended centralities” (Sultanik et al.)
+arise in public blockchain networks. While <a href=
+"https://doi.org/10.1016/j.ipm.2021.102584">those
+effects</a> may not be entirely negative, it stands to reason that
+some degree of centralization is unavoidable.</p>
+<h2>Consensus & Incentivization</h2>
+<p>As described in the first part of the series, participants
+contributing resources (such as compute time) to the cryptocurrency
+network have to be <strong>incentivized</strong>. In practice, this
+incentivization is intricately linked to the
+<strong>consensus</strong> protocol. Bitcoin and Ethereum used to
+be based on a <em>Proof-of-Work</em> scheme, where blocks are
+formed through heavy computation, and the participant that
+successfully creates a block receives a certain predefined amount
+of cryptocurrency.</p>
+<p>While Bitcoin continues to use Proof-of-Work, Ethereum has since
+switched to a <em>Proof-of-Stake</em> scheme. While details differ
+across various cryptocurrencies, the core principle stays the same:
+To be allowed to form a block, a participant needs to commit (or
+stake) a certain amount of cryptocurrencies, turning the
+participant into a validator. One such validator may propose a
+block, with the other validators checking it, therefore arriving at
+a consensus decision. Validators proposing an invalid block lose
+their stake. Conversely, honest validators receive remuneration.
+This also poses another centralization risk, where wealth may
+accumulate in the few hands of early validators.</p>
+<figure>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Proof-of-Work</th>
+<th>Proof-of-Stake</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Block mechanism</td>
+<td>Solving a mathematical puzzle, then validation by all
+participants</td>
+<td>Proposal by random validator, then validation by all
+validators</td>
+</tr>
+<tr>
+<td>Resource requirements</td>
+<td>Special hardware, energy proportional to hashing power</td>
+<td>Committing a stake of cryptocurrency (reversible)</td>
+</tr>
+<tr>
+<td>Reward</td>
+<td>Fixed block reward</td>
+<td>Remuneration</td>
+</tr>
+<tr>
+<td>Penalty</td>
+<td>Lost resources (energy)</td>
+<td>Loss of stake</td>
+</tr>
+<tr>
+<td>Attack scenarios</td>
+<td>Control of &gt;50% of hash power</td>
+<td>Control of &gt;50% of stakes</td>
+</tr>
+</tbody>
+</table>
+
+<figcaption>Comparison of Proof-of-Work vs. Proof-of-Stake.
+Sources: see below</figcaption>
+</figure>
+<p>While both schemes have advantages and disadvantages, they
+appear to be working well in practice, delivering on the promise of
+forming consensus across an anonymous set of participants. There
+are other consensus schemes that are used in practice, such as
+Proof-of-Authority, but arguably, they compromise on
+decentralization.</p>
+<h2>Conclusion & Outlook</h2>
+<p>In this post, I have described how the popular cryptocurrencies
+Bitcoin and Ethereum leverage DLT to achieve a decentralized
+transaction system that guarantees immutability and atomicity,
+using specific consensus and incentivization mechanisms. While not
+always perfect, distributed ledgers are technologically a good fit
+for public cryptocurrencies. The consensus algorithm is precisely
+where DLTs shine. Also, their decentralized governance is hailed as
+a key benefit by proponents. But for CBDCs, this type of
+decentralization poses considerable risks, since they are by
+definition issued by central banks. But if you take the
+decentralization away, the technology reduces itself to solving the
+problem of reliable redundant storage of data, which can be
+achieved without DLT. In the next part, I will introduce the main
+terminology of CBDC and some common design criteria.</p>
+
+<p><em>Thanks to my colleagues Martin Rönnebeck and Severino
+Sequeira for their comments on early drafts of this
+article.</em></p>
+
+<h2>Notes & References</h2>
+<p><strong>Trading and staking pools.</strong> The numbers are
+based on CoinMarketCap, <a href="https://beaconcha.in/"
+>https://beaconcha.in/</a>, Messari, Kaiko, and Lido
+data.</p>
+<p><strong>Decentralized exchanges</strong>. An exchange is
+referred to as <em>decentralized</em>, if it does not rely on a
+trusted third party to execute trades, i.e., trades are executed
+solely based on smart contracts. Technical details differ, for
+example how pricing of asset pairs is determined. A particular type
+of decentralized exchanges are <em>Automated Market Makers</em>,
+which rely on pre-funded liquidity pools and do not require order
+books. Those are particularly well-suited for fully automated
+trading. For further reading, see the article <a href=
+"https://cointelegraph.com/learn/what-are-decentralized-exchanges-and-how-do-dexs-work"
+>“What are decentralized exchanges, and how do DEXs
+work?”</a>.</p>
+<p><strong>Proof-of-Work vs. Proof-of-Stake.</strong> Sources used:
+<a href=
+"https://ethereum.org/de/developers/docs/consensus-mechanisms/pos/rewards-and-penalties/"
+>“Proof-of-stake rewards and penalties”</a> and
+<a href=
+"https://www.globalxetfs.com/proof-of-work-vs-proof-of-stake-why-their-differences-matter/"
+>“Proof of Work vs. Proof of Stake: Why Their
+Differences Matter”</a>.</p>
+
