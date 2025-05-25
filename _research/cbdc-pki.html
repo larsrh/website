@@ -1,0 +1,1077 @@
+---
+title: How to design a Public Key Infrastructure for a Central Bank Digital Currency
+date: 2025-05-25
+---
+
+<h2 id="introduction">Introduction</h2>
+<p><em>Central Bank Digital Currency (CBDC)</em> is a digital means of
+payment, issued by a country’s (or region’s) central bank, denominated
+in the national currency. According to the latest results of the annual
+CBDC survey conducted by the Bank for International Settlements, 94% of
+the respondents say they are working on digital currency <span
+class="citation" data-cites="DiIorio2024">[<a href="#ref-DiIorio2024"
+role="doc-biblioref">1</a>]</span>. As of 2024, many major central banks
+are pushing forward with CBDC, including the European Central Bank with
+their <em>Digital Euro</em> project.</p>
+<p>While many of the projects are not yet in production stage, there is
+an emerging view that a full launch encompasses at least the following
+criteria <span class="citation" data-cites="Hupel2024">[<a
+href="#ref-Hupel2024" role="doc-biblioref">2</a>]</span>:</p>
+<ul>
+<li><p>continuous and uninterrupted availability for an indefinite
+amount of time, i.e. no unannounced shutdown,</p></li>
+<li><p>real legal tender that can always be exchanged at face value with
+cash and deposit money,</p></li>
+<li><p>no system resets, i.e. holdings will remain valid,</p></li>
+<li><p>upgrade and maintenance work requires little to no intervention
+from users, except for long-term hardware upgrades, similar to the 2-5
+year cycle of bank cards and smartphones.</p></li>
+</ul>
+<p>Because CBDC is public digital infrastructure, it needs to satisfy
+the highest resilience and security standards, at least on par with
+national settlement and payment systems.</p>
+<p>But there are also additional requirements unique to CBDC: As opposed
+to traditional banking infrastructure, a CBDC would operate in 24/7 mode
+and has thus very little room for maintenance and/or downtime.</p>
+<p>
+<strong>Structure of this paper.</strong>
+The remainder of the introduction gives an overview over public key
+infrastructure (PKI) (§<a href="#sec:intro-pki"
+data-reference-type="ref" data-reference="sec:intro-pki">1.1</a>) and
+explains why it matters for CBDC (§<a href="#sec:intro-pki-matters"
+data-reference-type="ref"
+data-reference="sec:intro-pki-matters">1.2</a>). Afterwards, we discuss
+related work (§<a href="#sec:related-work" data-reference-type="ref"
+data-reference="sec:related-work">2</a>): while ample literature about
+both PKI and CBDC are available, little information is available how to
+design a PKI for a production-grade CBDC.</p>
+<p>To set the stage for the rest of the paper, we further introduce the
+participants in a CBDC system (§<a href="#sec:participants"
+data-reference-type="ref" data-reference="sec:participants">3</a>).
+Based on this, we can design the PKI, taking into consideration
+pecularities of CBDC (§<a href="#sec:pki" data-reference-type="ref"
+data-reference="sec:pki">4</a>). Finally, we propose a certificate
+rollover concept (§<a href="#sec:rollover" data-reference-type="ref"
+data-reference="sec:rollover">5</a>).</p>
+<h3 id="sec:intro-pki">Public key infrastructure</h3>
+<p>The backbone of any digital currency is the correct use of
+cryptographic materials and choosing appropriate security levels. This
+includes selecting the right algorithms for encryption, key exchange,
+digital signatures, and hash functions. More succinctly: getting the
+cryptographic primitives right.</p>
+<p>But just picking the right algorithm is not enough to build trust in
+the whole system. Key material needs to be uniquely and verifiably
+connected to all entities. Many entities need to be authenticated before
+payments can happen, for example:</p>
+<ul>
+<li><p>wallets need to authenticate each other;</p></li>
+<li><p>the central bank want to ensure that only authorized wallets are
+used to hold currency; and</p></li>
+<li><p>commercial banks need to confirm that the counterparties they are
+exchanging money with are genuinely who they claim to be.</p></li>
+</ul>
+<p><em>Public Key Infrastructure (PKI)</em> is the solution to these
+problems. By mapping public key materials to abstract entities in a
+certificate, participants in the network can always rely on the
+authenticity of their communication partners. This requires a root of
+trust—a central authority—from which all certificates are derived. In
+the case of CBDC, this would be the central bank.</p>
+<p>Trusting these derived certificates is a result of users trusting the
+central bank. For that, the central bank must have proper processes in
+place to ensure a secure certificate life cycle. This entails handling
+<em>Certificate Signing Requests (CSR)</em>, rights and roles, and
+organisational procedures. RFC 3647 <span class="citation"
+data-cites="RFC3647">[<a href="#ref-RFC3647"
+role="doc-biblioref">3</a>]</span> provides a good overview of key
+considerations for designing a PKI.</p>
+<p>Focusing on CBDC, this paper explores PKI design decisions,
+authenticated entities requiring certificates, and how a seamless
+certificate rollover can be handled.</p>
+<h3 id="sec:intro-pki-matters">Why is PKI significant for CBDC?</h3>
+<p>Outages caused by public key infrastructure, for example expired or
+wrong certificates, can cause significant damage. This affects many
+industry domains <span class="citation" data-cites="Hickman2024">[<a
+href="#ref-Hickman2024" role="doc-biblioref">4</a>]</span>.</p>
+<p>For example, in 2023, a certificate with a mismatched top-level
+domain caused a short service interruption in Microsoft Sharepoint
+services <span class="citation" data-cites="Abrams2023">[<a
+href="#ref-Abrams2023" role="doc-biblioref">5</a>]</span>. While the
+problem was quickly fixed, it affected many customers across major
+services (including Microsoft Teams).</p>
+<p>Hardware may also be impacted: in the same year, Cisco hardware was
+affected by certificates expiring after their 10 year lifetime <span
+class="citation" data-cites="Chervek2023">[<a href="#ref-Chervek2023"
+role="doc-biblioref">6</a>]</span>. Renewing certificates in hardware is
+notoriously complicated, since devices may not be directly connected to
+the internet and are therefore out of the manufacturer’s control.</p>
+<p>There is one known instance of a PKI issue impacting the operation of
+a CBDC. The Eastern Carribean Central Bank suffered from an outage in
+2022, caused by expired certificates in <em>Hyperledger Fabric</em>, the
+DLT employed by the bank <span class="citation"
+data-cites="Crothers2022">[<a href="#ref-Crothers2022"
+role="doc-biblioref">7</a>]</span>. As mentioned in the introduction,
+CBDC is a national payment infrastructure, therefore prolonged service
+interruptions can cause problems for the economy.</p>
+<p>Assuming broad adoption of a CBDC in a given jurisdiction, and the
+potential use of digital currency in industrial applications, it becomes
+clear that a PKI supporting a currency’s infrastructure must be highly
+resilient. Already today, many industries see “an upward trend in
+certificate numbers” <span class="citation"
+data-cites="Keyfactor2023">[<a href="#ref-Keyfactor2023"
+role="doc-biblioref">8</a>]</span>. CBDC wallets exacerbate the problem,
+because they rely on individual certificates per wallet.</p>
+<h3 id="contributions">Contributions</h3>
+<p>There are already numerous PKIs deployed and used. Perhaps the most
+prominent example is the PKI used for internet, where multiple
+certificate authorities issue certificates in the X.509 format to a
+variety of servers, including for HTTP (web), SMTP (mail), and other
+protocols.</p>
+<p>In this work, we argue that CBDC is an application that requires and
+deserves a dedicated PKI (§§<a href="#sec:related-work"
+data-reference-type="ref" data-reference="sec:related-work">2</a>, <a
+href="#sec:participants" data-reference-type="ref"
+data-reference="sec:participants">3</a>). The main reasons for that
+are:</p>
+<ul>
+<li><p>existing PKI—particularly the decentralized internet PKI—is not
+specifically designed for the security needs of a CBDC system;</p></li>
+<li><p>the need for custom features and formats (see also §<a
+href="#sec:pki:format" data-reference-type="ref"
+data-reference="sec:pki:format">4.2</a>);</p></li>
+<li><p>allowing the central bank to exert control over the system and
+its design;</p></li>
+<li><p>disaster recovery procedures.</p></li>
+</ul>
+<p>Further evidence to this special status is that today, many financial
+and/or government applications already use dedicated PKI. Prime examples
+for this are the <em>ICAO Public Key Directory</em> for validating
+passports and other digital identity documents <span class="citation"
+data-cites="SecureIdentityAlliance2022">[<a
+href="#ref-SecureIdentityAlliance2022"
+role="doc-biblioref">9</a>]</span>, <em>SwiftNet</em> for financial
+messaging, and <em>SM-PKI</em> for smart electricity meters.</p>
+<p>We contribute a comprehensive analysis of the security parameters of
+CBDC ecosystems, and from that, derive a PKI design that takes specifics
+of digital currencies into account. The major difference to existing
+PKIs is the need to accommodate for unpowered, intermittently offline
+devices communicating directly with each other (§<a
+href="#sec:rollover:specifics" data-reference-type="ref"
+data-reference="sec:rollover:specifics">5.2</a>), which greatly
+complicates the issuance and renewal of certificates in the field. For
+example, current hardware-baed payment schemes like credit cards, do not
+offer person-to-person payments, and can therefore afford a simpler
+design.</p>
+<p>Finally, we contribute a rollover concept for seamless operation of
+the system that could be generalized for other applications.</p>
+<h2 id="sec:related-work">Related work</h2>
+<p>The literature has already acknowledged the need for robust and
+scalable Public Key Infrastructure for CBDC and other digital asset
+systems.</p>
+<p>Several publications <span class="citation"
+data-cites="Chu2022 Christodorescu2020 Zhang2024 Yang2022">[<a
+href="#ref-Chu2022" role="doc-biblioref">10</a>–<a href="#ref-Yang2022"
+role="doc-biblioref">13</a>]</span> highlight the use of PKI for offline
+payments. The core idea is that wallets carry certificates signed by an
+authority, e.g. the central bank. These can be used for mutual
+authentication between a pair of wallets before or during a transaction.
+This establishes trust in an offline scenario. Illegitimate wallets are
+consequently excluded from the system and cannot inject counterfeit
+money. As Chu <em>et al.</em> summarize, a PKI “allows safe transactions
+even though the certificate authority is offline, since a certificate
+states whether the counterpart is a trusted user” <span class="citation"
+data-cites="Chu2022">[<a href="#ref-Chu2022"
+role="doc-biblioref">10</a>]</span>.</p>
+<p>Takagari <em>et al.</em> <span class="citation"
+data-cites="Takaragi2023">[<a href="#ref-Takaragi2023"
+role="doc-biblioref">14</a>]</span> investigate the role PKI plays for
+<em>Know-your-customer (KYC)</em> checks. The authors develop a
+privacy-enhanced PKI by which a “financial institution verifies the
+identity of a prospective customer,” based on the national ID, while
+simultaneously protecting the customer’s personal information.</p>
+<p>According to Han <em>et al.</em> <span class="citation"
+data-cites="Han2019">[<a href="#ref-Han2019"
+role="doc-biblioref">15</a>]</span>, a PKI is a core ingredient for the
+regulatory layer of a CBDC. Their goal is “the supervision of objects
+such as banks and third parties in network layer and users and
+transaction in user layer.” Similarly, Zhang writes that the role of PKI
+is “maintaining trust within the network of entities authorized to
+operate the CBDC system” <span class="citation"
+data-cites="Zhang2024">[<a href="#ref-Zhang2024"
+role="doc-biblioref">12</a>]</span>.</p>
+<p>Our previous research <span class="citation"
+data-cites="Hupel2024">[<a href="#ref-Hupel2024"
+role="doc-biblioref">2</a>]</span> identifies PKI as an instrumental
+part of any CBDC ecosystem. In particular, we have evaluated the various
+cryptographic keys and their algorithms involved, to understand how they
+are affected by the migration to post-quantum cryptography. This is
+echoed by Zhang, who explains that “the PKI infrastructure adopted by
+the central bank should be quantum ready” <span class="citation"
+data-cites="Zhang2024">[<a href="#ref-Zhang2024"
+role="doc-biblioref">12</a>]</span>.</p>
+<p>In the related field of <em>Distributed Ledger Technology (DLT)</em>,
+there is literature outlining the use of PKI for operating permissioned
+ledgers, i.e., where access control limits the participation in the
+system. For example, <em>Hyperledger Fabric</em>, uses PKI for
+“signature generation, verification, and authentication” <span
+class="citation" data-cites="Campbell2019">[<a href="#ref-Campbell2019"
+role="doc-biblioref">16</a>]</span>. Pal <em>et al.</em> <span
+class="citation" data-cites="Pal2021">[<a href="#ref-Pal2021"
+role="doc-biblioref">17</a>]</span> survey some PKI strategies for major
+blockchain protocols.</p>
+<p>The ISO has published <em>Technical Report (TR)</em> 24374, entitled
+“Security information for PKI in blockchain and DLT implementations”. It
+discusses “the impact of different types of key management processes
+that are required for PKI implementations in Blockchain and DLT
+projects” <span class="citation" data-cites="ISO24374">[<a
+href="#ref-ISO24374" role="doc-biblioref">18</a>]</span>.</p>
+<h2 id="sec:participants">Participants in a CBDC ecosystem</h2>
+<p>For this paper, we assume a CBDC system with the following
+characteristics:</p>
+<ul>
+<li><p><strong>a two-tier distribution model</strong>, i.e., the central
+bank manages the supply of money and commercial banks are responsible
+for distributing money to individuals and businesses;<a href="#fn1"
+class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a></p></li>
+<li><p><strong>unbanked individuals are included</strong>, i.e., people
+without a formal bank account can get access to CBDC, with notable
+groups being rural citizens without access to a bank branch, children,
+and tourists;</p></li>
+<li><p><strong>a wide spectrum of wallets are available</strong>,
+allowing for both online and offline payments, especially hardware
+wallets embodied e.g. as smartcards;</p></li>
+<li><p>at least the payment scenarios <strong>C2B/B2C</strong>
+(customer-to-business/business-to-customer) and <strong>P2P</strong>
+(person-to-person) are supported;</p></li>
+<li><p><strong>a central bank ledger validates transactions</strong>,
+with the concrete operational model (DLT/non-DLT) abstracted for this
+paper.</p></li>
+</ul>
+<p>Figure <a href="#fig:communication-channels"
+data-reference-type="ref"
+data-reference="fig:communication-channels">1</a> shows the participants
+and communication channels.</p>
+<figure id="fig:communication-channels">
+  <img src="{% link assets/img/research/cbdc-pki/communication-channels.drawio.pdf.svg %}" alt="">
+<figcaption>Participants and communication channels in a CBDC
+ecosystem</figcaption>
+</figure>
+<p>The assumptions specified above give rise to a CBDC system that works
+similarly to cash. As the Hong Kong Monetary Authority points out, a
+CBDC is “best designed as part of a two-tier system, with an appropriate
+division of labour between the central bank and private sector
+intermediaries for the distribution and circulation of CBDC” <span
+class="citation" data-cites="HKMA2021">[<a href="#ref-HKMA2021"
+role="doc-biblioref">20</a>]</span>.</p>
+<p>This section spells out the participants in the system and what their
+roles and responsibilities are: (1) the central bank, (2) financial
+service providers, and (3) individuals and businesses.</p>
+<p>As noted above, wallets can come in different form factors, including
+hardware wallets such as smartcards. They are typically manufactured by
+a dedicated entity (see also Figure <a
+href="#fig:communication-channels" data-reference-type="ref"
+data-reference="fig:communication-channels">1</a>). But we set aside
+card manufacturing for now and will revisit this later in §<a
+href="#sec:pki:smartcard" data-reference-type="ref"
+data-reference="sec:pki:smartcard">4.1.2</a>.</p>
+<p>To keep it as simple as possible, we exclude a treatment of risk
+management, including fraud detection and investigation. This may
+require additional participants and communication channels.</p>
+<h3 id="central-bank">Central bank</h3>
+<p>The central bank focuses on “providing the core, foundational
+infrastructure of a CBDC, guaranteeing the stability of its value and
+overseeing the system’s security” <span class="citation"
+data-cites="HKMA2021">[<a href="#ref-HKMA2021"
+role="doc-biblioref">20</a>]</span>. This includes, but is not limited
+to:</p>
+<ul>
+<li><p>manage the monetary supply through minting and burning of
+CBDC;</p></li>
+<li><p>operate the central bank ledger and validating transactions
+<em>(Central Register)</em>;</p></li>
+<li><p>distribute CBDC to commercial banks;</p></li>
+<li><p>set rules and regulations for participants;</p></li>
+<li><p>operate the root certificate authority of the PKI.</p></li>
+</ul>
+<p>To a limited extent, the central bank could also provide CBDC
+wallets, for example to allow commercial banks the 1:1 exchange of
+central bank reserves for CBDC.</p>
+<p>The central bank provides various communication channels. Any
+participant can query the Central Register to validate CBDC. It must
+also communicate with FSPs.</p>
+<h3 id="financial-service-providers">Financial service providers</h3>
+<p>Commercial banks, or more broadly, <em>financial service providers
+(FSPs)</em>, are responsible “to provide retail services to customers on
+a competitive basis, and leverage their network effects to innovate in
+business and service models” <span class="citation"
+data-cites="HKMA2021">[<a href="#ref-HKMA2021"
+role="doc-biblioref">20</a>]</span>. Just like today, banks are the
+first point of contact for individuals and businesses. Their services
+include, but are not limited to:</p>
+<ul>
+<li><p>perform user onboarding, e.g. by checking their identity, to
+comply with Know-your-customer (KYC) regulation;</p></li>
+<li><p>open and operate custodial customer wallets, and develop
+smartphone apps for customers to access their funds;</p></li>
+<li><p>issue hardware devices to customers and (potentially) unbanked
+individuals, to allow for offline payments and to enable unbanked people
+to participate in the CBDC ecosystem;</p></li>
+<li><p>distribute CBDC to their customers by providing exchange between
+deposit money, cash and CBDC;</p></li>
+<li><p>value-add services such as insurances.</p></li>
+</ul>
+<p>FSPs communicate directly with their customers, with the central
+bank, and with other FSPs. They also provide communication channels to
+initiate and execute payments at the point of sale, as well as ATM
+operations, which may be proxied through existing systems and is
+therefore not specific to CBDC.</p>
+<p>Note that some jurisdictions are considering the central bank to also
+act as a retail service provider, for example to aid financial
+inclusion. In other jurisdictions, non-banks (such as post offices) are
+thought to take over this role.</p>
+<h3 id="individuals-and-businesses">Individuals and businesses</h3>
+<p>Finally, the users of the system: individuals and businesses are
+exchanging CBDC with each other and/or use CBDC to pay for goods and
+services.</p>
+<p>While details differ across jurisdictions, the most typical
+representatives of this group are local residents and merchants (both
+physical and online). Subject to various limits, they can obtain CBDC
+wallets and transact with each other. As opposed to traditional payment
+systems, CBDC payments are symmetric: a merchant’s wallet will differ
+from an individual’s wallet only in configuration.</p>
+<p>Depending on the precise payment scenario, wallets will use different
+communication channels for executing payments. In offline situations, it
+will typically be a connection based on proximity protocols such as NFC
+or Bluetooth, establishing direct peer-to-peer communication. But there
+can also be online scenarios, where a user instructs their FSP to
+execute a payment.</p>
+<h2 id="sec:pki">PKI concept</h2>
+<p>Just like cash, the trust in CBDC derives from the trust of
+participants in the central bank. This trust is the foundation of the
+secure operation of any CBDC ecosystem. As outlined above, such an
+ecosystem requires a number of entities.</p>
+<p>These entities have a wide range of requirements. For example, some
+entities are operated by the central bank itself, while others are
+completely outside its control. This section explains the certificate
+hierarchy, as well as technical and procedural concerns.</p>
+<h3 id="hierarchy">Hierarchy</h3>
+<figure id="fig:pki-hierarchy">
+  <img src="{% link assets/img/research/cbdc-pki/pki-hierarchy.drawio.pdf.svg %}" alt="">
+<figcaption>Proposed PKI hierarchy</figcaption>
+</figure>
+<p>The central bank is the trust anchor of the whole system, but cannot
+perform all necessary processes required for a trustworthy system. It
+must, therefore, delegate trust towards other entities, such as
+financial service providers or manufacturers. That notwithstanding, the
+central bank still holds full responsibility for their correct
+operation, and therefore operates the <em>Root CA</em>.</p>
+<p>Therefore, the central bank imposes requirements to these thirds
+parties and enforces compliance. Ideally, the processes carried out by
+third parties shall be audited by the central bank.</p>
+<p>The requirements in this policy could be published. This enables
+participants to understand how the PKI operates and establishes a
+factual basis for their trust.</p>
+<p>Certificates with similar security levels should be clustered under
+the same <em>Certificate Authority (CA)</em>, since certificates issued
+by the CA fulfill the same requirements towards issuance, revocation,
+delivery and further relevant processes. We cluster certificates into
+three categories (Figure <a href="#fig:pki-hierarchy"
+data-reference-type="ref" data-reference="fig:pki-hierarchy">2</a>).</p>
+<h4 id="fsp-certificates">FSP certificates</h4>
+<p>A financial service provider may only participate in the CBDC
+ecosystem after the central bank’s approval. After onboarding, they
+would be equipped with a certificate that allows them to prove their
+identity to customers and other FSPs.</p>
+<p>FSPs are authorized to open and operate wallets for customers. The
+FSPs will typically also have custody of private key material of their
+customers. Whenever a payment across banks is made, the parties need to
+make sure that their respective counterparty holds a valid CBDC
+wallet.</p>
+<p>From the user perspective, being a customer of an FSP already assumes
+(implicit) trust towards the FSP. Therefore, FSPs are already trusted to
+route payments to the desired receiver wallet, and no additional
+security gain can be achieved by equipping each online wallet with their
+own key material to authenticate the wallet. The necessary trust is
+already achieved by validating the FSP certificate, and let the FSP take
+care of routing and payment flows.</p>
+<p>This way, there are trust relationships between a user and their
+bank, as well as between a bank and the central bank, but not between
+different banks.</p>
+<h4 id="sec:pki:smartcard">Smartcard certificates</h4>
+<p>Similar to credit cards, the FSPs are responsible for distributing
+hardware wallets, such as smartcards, to their customers.</p>
+<p>In a CBDC ecosystem, peer-to-peer payments between wallets are
+allowed. This means that not all payments are routed through an
+intermediary. As a consequence, smartcards must be able to authenticate
+each other directly, which is especially important for offline
+payments.</p>
+<p>The central bank bears ultimate responsibility that all smartcards
+are trustworthy. Since central banks typically do not manufacture those
+themselves, they will delegate this process to trusted smartcard
+manufacturers.</p>
+<p>To guarantee flexibility and limit dependence on a singular smartcard
+manufacturer, multiple manufacturers should be supported.</p>
+<p>Hence, the central bank should:</p>
+<ul>
+<li><p>select a number of trustworthy smartcard manufacturers;</p></li>
+<li><p>issue and provide each smartcard manufacturer with an individual
+certificate;</p></li>
+<li><p>deliver the Root CA certificate securely to those
+manufacturers;</p></li>
+<li><p>ensure that the manufacturers comply with the rules and process
+requirements, which should happen contractually and with the help of a
+<em>Certification Practice Statement</em> <span class="citation"
+data-cites="RFC3647">[<a href="#ref-RFC3647"
+role="doc-biblioref">3</a>]</span>;</p></li>
+<li><p>perform on-site audits on the facilities to ensure the
+manufacturers comply with the requirements (optional).</p></li>
+</ul>
+<p>Parts of this could also be delegated through FSPs, who may want to
+follow their own procurement procedures.</p>
+<h4 id="operational-certificates">Operational certificates</h4>
+<p>The tasks that are performed by the central bank might be performed
+by different entities within the central bank itself. Naturally, this
+implies that multiple entities within the central bank need to hold
+individual certificates, for example:</p>
+<dl>
+<dt>Minting</dt>
+<dd>
+<p>A system authorized to mint new money in a secure environment. There
+may also be personalized certificates for one or more central bank
+employees carrying private key material in a secure device.</p>
+</dd>
+<dt>Central Register</dt>
+<dd>
+<p>A ledger tracking authenticity of money, thereby confirming the
+validity of digital money; this system itself might be hierarchical
+(depending on choice of DLT or not).</p>
+</dd>
+<dt>Timestamp Service</dt>
+<dd>
+<p>A backend system that provides signed timestamps based on a trusted
+clock.</p>
+</dd>
+</dl>
+<p>The exact entities might differ depending on the broader design
+decisions for the CBDC.</p>
+<h3 id="sec:pki:format">Certificate format</h3>
+<p>The state-of-the-art certificate format used in most industry use
+cases is <em>X.509</em> <span class="citation" data-cites="RFC5280">[<a
+href="#ref-RFC5280" role="doc-biblioref">21</a>]</span>. In addition to
+subject identifier and public key, it provides many more certificate
+fields.</p>
+<p>The X.509 standard has some drawbacks in environments with limited
+computation power, such as IoT devices or smartcards. Any auxiliary data
+and certificate fields slow down payments.</p>
+<p>The obvious choice for a stripped down X.509 certificate format,
+specifically designed for smartcards, are <em>Card Verifiable (CV)</em>
+certificates <span class="citation" data-cites="ISO7816-8">[<a
+href="#ref-ISO7816-8" role="doc-biblioref">22</a>]</span>. They enable
+smartcards to perform certificate operations with limited resources and
+power. In contrast to X.509, CV certificates are much smaller and do not
+contain irrelevant information, thereby accelerating transaction
+processing.</p>
+<h3 id="revocation">Revocation</h3>
+<p>In any PKI, handling compromised certificates is crucial to ensure
+prompt invalidation and maintaining the trust and security of the
+system. There are two ways for this:</p>
+<ol>
+<li><p>Technical handling of compromised certificates (Revocation). The
+CA can revoke certificates in its system and provide this information to
+the relying parties<a href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a> in two ways:</p>
+<ol>
+<li><p><em>Certificate Revocation Lists (CRLs)</em> are publicly
+available lists of revoked (but not expired) certificates. Whenever a
+certificate is validated, its revocation status can be looked up in the
+CRL. CRLs are issued (signed) by the responsible CA (or a dedicated CRL
+Signer).</p></li>
+<li><p><em>Online Certificate Status Protocol (OCSP)</em> allows the
+validating entity of the certificate to request the revocation status at
+a publicly available OCSP responder, which answers with good, revoked,
+or unknown.</p></li>
+</ol></li>
+<li><p>Organizational handling of compromised certificates. Certificates
+are not technically revoked, but the validating entities are manually
+informed about compromised certificates.</p></li>
+</ol>
+<p>All of these approaches come with various problems.</p>
+<p>CRLs have to be regularly updated, and revocation information may not
+be up-to-date at the time of the revocation check.</p>
+<p>OCSP comes with a lot of additional traffic and, more importantly,
+with a significant privacy risk: OCSP requests are not encrypted and
+intercepting this traffic would reveal the certificates to be validated.
+This would clearly reveal communication metadata, weakening privacy.</p>
+<p>Organizational handling of compromised certificates is difficult when
+the relying parties are numerous and unknown.</p>
+<p>Payments demand high transaction throughput and low latency. Any
+additional data transfer within a transaction—including revocation
+status checks—must be carefully considered. Both CRL and OCSP lead to
+slower transactions.</p>
+<p>Since the number of certificates in the PKI fairly limited, the
+organizational handling of compromised certificates should be considered
+instead. The relying parties are mostly controlled by the central bank,
+which means that in case of a malicious FSP, the central bank can simply
+unplug them from the system. The same is applicable to compromised
+operational certificates.</p>
+<p>In offline payment scenarios, CRL and OCSP are not applicable for the
+lack of internet connection. OCSP stapling as an alternative method can
+be considered, even though they also increase the traffic and lead to
+longer transaction times.</p>
+<h2 id="sec:rollover">Certificate rollover</h2>
+<p>In order to guarantee smooth transition between Root CA
+certificates—and therefore uninterrupted functionality of the
+PKI—rollover procedures are needed. For online entities, this is
+relatively easy, since certificates can be transmitted online for
+real-time updates. This is applicable to every entity in the PKI except
+for the smartcards.</p>
+<p>Smartcards are offline entities which may, after production, rarely
+connect to an online service. This gives rise to some additional
+complication that go beyond normal rollover procedures.</p>
+<h3 id="standard-rollover">Standard rollover</h3>
+<figure id="fig:rollover:standard">
+  <img src="{% link assets/img/research/cbdc-pki/phases-Standard.drawio.pdf.svg %}" alt="">
+<figcaption>Conceptual CA rollover (standard case)</figcaption>
+</figure>
+<p>Normally, a certificate rollover consists of three phases (see
+Figure <a href="#fig:rollover:standard" data-reference-type="ref"
+data-reference="fig:rollover:standard">3</a>). In the first phase, only
+the old Root CA certificate is used to issue certificates and verify
+certificates based on the old Root CA certificate.</p>
+<p>At the beginning of the second phase, a new Root CA certificate is
+created. New certificates in this period will be issued with the new
+Root CA certificate. Verification of certificates based of the old Root
+CA certificate will be verified with the old Root CA certificate, while
+certificates based on the new Root CA certificate will be verified with
+the new Root CA certificate.</p>
+<p>Finally, only the new Root CA certificate is used to issue new
+certificates as well as verifying certificates. This completes the
+rollover.</p>
+<h3 id="sec:rollover:specifics">CBDC and hardware wallet specifics</h3>
+<p>Due to the nature of hardware wallets, certain complications need to
+be handled.</p>
+<h4 id="pinning">Pinning</h4>
+<p>In order to guarantee functionality and security over their lifetime,
+certificates should be pinned in smartcards. These pins could be
+especially protected, e.g. through hardcoding, to prevent tampering.</p>
+<p>For the smartcards, the pinned certificates are:</p>
+<ul>
+<li><p>Root CA certificate</p></li>
+<li><p>Timestamp Service certificate</p></li>
+<li><p>Central Register certificate</p></li>
+</ul>
+<p>In addition to the above-mentioned certificates, the smartcard holds
+its own certificate chain:</p>
+<ul>
+<li><p>End-Entity (EE) (wallet) certificate</p></li>
+<li><p>Manufacturer CA certificate</p></li>
+<li><p>Hardware CA certificate</p></li>
+</ul>
+<h4 id="root-ca-ramp-up">Root CA ramp up</h4>
+<p>The Root CA certificate is the trust anchor on which the PKI builds.
+When the Root CA certificate expires, every certificate based on that
+Root CA certificate loses its validity. For hardware wallets thay may be
+offline for extended amounts of time, a new Root CA certificate has to
+be created in advanced to it becoming active. Therefore, as compared to
+the standard rollover procedure (Figure <a href="#fig:rollover:standard"
+data-reference-type="ref" data-reference="fig:rollover:standard">3</a>),
+we need to add an initial <em>ramp up</em> phase: in this phase, the new
+Root CA certificate is issued, but not active (i.e., does not sign any
+certificates). Still, it would be installed alongside the old Root CA
+certificates in the smartcards.</p>
+<h4 id="smartcard-manufacturer">Smartcard manufacturer</h4>
+<p>The certificate a manufacturer producer receives has a limited
+validity time. But, upon receiving a certificate, it should be able to
+manufacture smartcards over a period of timem independent of the issuing
+date. PKI rollover should be planed such that no change in the
+certificate chain should be needed after the initial phase, where all
+necessary certificates for production have been gathered. The validity
+of the smartcard manufacturer certificate has to be verifiable as long
+as there are smartcards in circulation based on that certificate.</p>
+<h4 id="smartcard-validity-period">Smartcard validity period</h4>
+<p>Smartcards that leave the manufacturer should always have the same
+lifetime, independent of their manufacturing date. Therefore, the
+complete certificate chain must be verifiable as long as those
+smartcards are circulating. This is true not only for online services,
+but also for mutual authentication.</p>
+<h3 id="solution-requirements">Solution requirements</h3>
+<p>We define the validity period of a smartcard certificate, denoted as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>u</mi></mrow><annotation encoding="application/x-tex">1u</annotation></semantics></math>,
+as the base unit in our concept. This can be defined by the central bank
+and will typically be a few years. All other validity periods are
+derived from this unit.</p>
+<p>Following the specifics for CBDC explained in the previous section,
+we consider the following requirements:</p>
+<ol>
+<li><p>All necessary certificates to conduct payments must be present on
+the smartcard for offline usage.</p></li>
+<li><p>Root CA, Central Register and Timestamp Service certificates must
+be pinned on the smartcard.</p></li>
+<li><p>A smartcard must be usable for its entire lifetime without
+updating pinned certificates.</p></li>
+<li><p>Smartcard manufacturer certificates must be able to be issued at
+any time.</p></li>
+<li><p>Smartcard manufacturers should be able to manufacture smartcards
+for a defined amount of time without updating their facilities with new
+certificates after receiving all necessary certificates from the central
+bank.</p></li>
+</ol>
+<p>This results in the necessity of a ramp up phase for certain
+certificates (Figure <a href="#fig:rollover:cbdc"
+data-reference-type="ref" data-reference="fig:rollover:cbdc">4</a>. The
+details are explained per certificate in the following sections.</p>
+<figure id="fig:rollover:cbdc">
+  <img src="{% link assets/img/research/cbdc-pki/phases-CBDC-Root.drawio.pdf.svg %}" alt="">
+<figcaption>Conceptual CA rollover (CBDC case with ramp up
+phase)</figcaption>
+</figure>
+<h3 id="hardware-ca-strand">Hardware CA strand</h3>
+<h4 id="manufacturer-ca">Manufacturer CA</h4>
+<p>The smartcard manufacturer must be able to issue certificates at any
+point in time during its active phase.</p>
+<p>The validity period of a the CA certificate is dependent on two
+factors. The active time is the period during which smartcards are
+manufactured based on a certain Root CA certificate. The passive time is
+the subsequent validity period of a smartcard, since functionality has
+to be guaranteed after manufacturing.</p>
+<p>Therefore, the active and passive phases of the CA must each be at
+least as long as the smartcard validity period:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mtext mathvariant="normal">Active</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mtext mathvariant="normal">Manufacturer CA</mtext><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>≥</mo><mi>u</mi></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mtext mathvariant="normal">Passive</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mtext mathvariant="normal">Manufacturer CA</mtext><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>≥</mo><mi>u</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+  \text{Active}(\text{Manufacturer CA}) &amp;\geq u \\
+  \text{Passive}(\text{Manufacturer CA}) &amp;\geq u
+\end{aligned}</annotation></semantics></math></p>
+<h4 id="hardware-ca">Hardware CA</h4>
+<p>The same reasoning can be applied to Hardware CA certificates, since
+they also must be able to issue Manufacturer CA certificates at any
+point in time. Since their validity period is at least
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>u</mi></mrow><annotation encoding="application/x-tex">2u</annotation></semantics></math>,
+with each of the phases being at least
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>u</mi><annotation encoding="application/x-tex">u</annotation></semantics></math>,
+we get:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mtext mathvariant="normal">Active</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mtext mathvariant="normal">Hardware CA</mtext><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>≥</mo><mn>2</mn><mi>u</mi></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mtext mathvariant="normal">Passive</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mtext mathvariant="normal">Hardware CA</mtext><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>≥</mo><mn>2</mn><mi>u</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+  \text{Active}(\text{Hardware CA}) &amp;\geq 2u \\
+  \text{Passive}(\text{Hardware CA}) &amp;\geq 2u
+\end{aligned}</annotation></semantics></math></p>
+<h3 id="operational-ca-strand">Operational CA strand</h3>
+<p>It must be ensured that all circulating smartcards pin the currently
+used Central Register certificate. Therefore, the <em>ramp up</em> phase
+of the Central Register certificate must be at least the smartcard
+validity period.
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mtext mathvariant="normal">RampUp</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mtext mathvariant="normal">Central Register</mtext><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mi>u</mi></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mtext mathvariant="normal">Active</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mtext mathvariant="normal">Central Register</mtext><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>≥</mo><mi>u</mi></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mtext mathvariant="normal">Passive</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mtext mathvariant="normal">Central Register</mtext><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>0</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+  \text{RampUp}(\text{Central Register}) &amp;= u \\
+  \text{Active}(\text{Central Register}) &amp;\geq u \\
+  \text{Passive}(\text{Central Register}) &amp;= 0 \\
+\end{aligned}</annotation></semantics></math> The same applies to the
+timestamp service: It is highly recommended to use the same validity
+period.</p>
+<h4 id="minting">Minting</h4>
+<p>The minting certificate is not relevant for smartcards. The only
+requirement is that its validity never exceeds the validity of the
+Operational CA. A canonical validity period is therefore
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>u</mi></mrow><annotation encoding="application/x-tex">2u</annotation></semantics></math>.</p>
+<h3 id="financial-ca-strand">Financial CA strand</h3>
+<p>This strand is not critical, since its certificates are all issued
+online. We can therefore use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>u</mi></mrow><annotation encoding="application/x-tex">2u</annotation></semantics></math>
+as the period for FSP certificates, and the same values for the
+Financial CA as the Operational CA.</p>
+<h3 id="root-ca">Root CA</h3>
+<p>At the time of activation of the new Root CA certificate, all
+circulating smartcards must already know the new certificate. Therefore,
+the ramp up phase must be at least u.</p>
+<p>Unlike the Hardware CA and the Manufacturer CA, the Root CA
+certificate does not need to be able to issue certificates at all times.
+Rather, it creates subordinate CA certificates only at specific points.
+The only requirement is that issued certificates are valid along their
+whole lifetime.</p>
+<p>To ensure that smartcard certificates issued on the last day of
+validity of the Hardware CA, we obtain a passive phase for the Root CA
+of at least 2u.</p>
+<p>To summarize:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mtext mathvariant="normal">RampUp</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mtext mathvariant="normal">Root CA</mtext><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mi>u</mi></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mtext mathvariant="normal">Passive</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mtext mathvariant="normal">Root CA</mtext><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>≥</mo><mn>2</mn><mi>u</mi></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mtext mathvariant="normal">Active</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mtext mathvariant="normal">Root CA</mtext><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mtext mathvariant="normal">Passive</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mtext mathvariant="normal">Root CA</mtext><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>≥</mo><mn>4</mn><mi>u</mi></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+  \text{RampUp}(\text{Root CA}) &amp;= u \\
+  \text{Passive}(\text{Root CA}) &amp;\geq 2u \\
+  \text{Active}(\text{Root CA}) + \text{Passive}(\text{Root CA}) &amp;\geq 4u \\
+\end{aligned}</annotation></semantics></math> There is some degree of
+freedom in choosing the precise value of Active(Root). Figure <a
+href="#fig:rollover-example" data-reference-type="ref"
+data-reference="fig:rollover-example">5</a> gives a concrete
+example.</p>
+<h3 id="summary">Summary</h3>
+<p>The table below lists the minimum periods derived from
+the considerations in the previous sections.
+Some certificates have a
+mandatory ramp up phase. The total validity (last column) is the sum of
+the ramp up, active and passive phases.
+</p>
+
+<table>
+<thead>
+<tr class="header">
+<th colspan="4" style="text-align: left;"> </th>
+<th style="text-align: left;">Ramp up</th>
+<th style="text-align: left;">Active</th>
+<th style="text-align: left;">Passive</th>
+<th style="text-align: left;">Validity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td colspan="4" style="text-align: left;">Root CA</td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>u</mi><annotation encoding="application/x-tex">u</annotation></semantics></math></td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><mn>2</mn><mi>u</mi></mrow><annotation encoding="application/x-tex">\geq 2u</annotation></semantics></math></td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><mn>2</mn><mi>u</mi></mrow><annotation encoding="application/x-tex">\geq 2u</annotation></semantics></math></td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><mn>5</mn><mi>u</mi></mrow><annotation encoding="application/x-tex">\geq 5u</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td colspan="3" style="text-align: left;">Hardware CA</td>
+<td style="text-align: left;"></td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><mn>2</mn><mi>u</mi></mrow><annotation encoding="application/x-tex">\geq 2u</annotation></semantics></math></td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><mn>2</mn><mi>u</mi></mrow><annotation encoding="application/x-tex">\geq 2u</annotation></semantics></math></td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><mn>4</mn><mi>u</mi></mrow><annotation encoding="application/x-tex">\geq 4u</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td colspan="2" style="text-align: left;">Manufacturer CA</td>
+<td style="text-align: left;"></td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><mi>u</mi></mrow><annotation encoding="application/x-tex">\geq u</annotation></semantics></math></td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><mi>u</mi></mrow><annotation encoding="application/x-tex">\geq u</annotation></semantics></math></td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><mn>2</mn><mi>u</mi></mrow><annotation encoding="application/x-tex">\geq 2u</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Smartcard</td>
+<td style="text-align: left;"></td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>u</mi><annotation encoding="application/x-tex">u</annotation></semantics></math></td>
+<td style="text-align: left;"></td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>u</mi><annotation encoding="application/x-tex">u</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td colspan="3" style="text-align: left;">Operational CA</td>
+<td style="text-align: left;"></td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><mn>2</mn><mi>u</mi></mrow><annotation encoding="application/x-tex">\geq 2u</annotation></semantics></math></td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><mi>u</mi></mrow><annotation encoding="application/x-tex">\geq u</annotation></semantics></math></td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><mn>3</mn><mi>u</mi></mrow><annotation encoding="application/x-tex">\geq 3u</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td colspan="2" style="text-align: left;">Central Register</td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>u</mi><annotation encoding="application/x-tex">u</annotation></semantics></math></td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><mi>u</mi></mrow><annotation encoding="application/x-tex">\geq u</annotation></semantics></math></td>
+<td style="text-align: left;"></td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><mn>2</mn><mi>u</mi></mrow><annotation encoding="application/x-tex">\geq 2u</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td colspan="2" style="text-align: left;">Timestamp Service</td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>u</mi><annotation encoding="application/x-tex">u</annotation></semantics></math></td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><mi>u</mi></mrow><annotation encoding="application/x-tex">\geq u</annotation></semantics></math></td>
+<td style="text-align: left;"></td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><mn>2</mn><mi>u</mi></mrow><annotation encoding="application/x-tex">\geq 2u</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td colspan="2" style="text-align: left;">Minting</td>
+<td style="text-align: left;"></td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>u</mi></mrow><annotation encoding="application/x-tex">2u</annotation></semantics></math></td>
+<td style="text-align: left;"></td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>u</mi></mrow><annotation encoding="application/x-tex">2u</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td colspan="3" style="text-align: left;">Financial CA</td>
+<td style="text-align: left;"></td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><mn>2</mn><mi>u</mi></mrow><annotation encoding="application/x-tex">\geq 2u</annotation></semantics></math></td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><mi>u</mi></mrow><annotation encoding="application/x-tex">\geq u</annotation></semantics></math></td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><mn>3</mn><mi>u</mi></mrow><annotation encoding="application/x-tex">\geq 3u</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td colspan="2" style="text-align: left;">FSP</td>
+<td style="text-align: left;"></td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>u</mi></mrow><annotation encoding="application/x-tex">2u</annotation></semantics></math></td>
+<td style="text-align: left;"></td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>u</mi></mrow><annotation encoding="application/x-tex">2u</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+
+<p>For simplicity, all direct
+subordinate CAs (Hardware, Operational, Financial CAs) should have the
+same total validity period. If possible, it also makes sense to set use
+the same active and passive periods, even if conceptually not strictly
+necessary.</p>
+<figure id="fig:rollover-example">
+  <img src="{% link assets/img/research/cbdc-pki/pki-rollover-concept.crop.pdf.svg %}" alt="">
+<figcaption>Example of a concrete rollover instantiation. Each
+certificate has a (light) active phase, and optionally a preceding
+(dark) ramp up phase and a succeeding (dark) passive phase.</figcaption>
+</figure>
+<p>Furthermore, Figure <a href="#fig:rollover-example"
+data-reference-type="ref" data-reference="fig:rollover-example">5</a>
+shows a concrete instantiation of the rollover concept. The Root CA
+active phase is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mi>u</mi></mrow><annotation encoding="application/x-tex">3u</annotation></semantics></math>
+in the first generation, and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>u</mi></mrow><annotation encoding="application/x-tex">2u</annotation></semantics></math>
+in the subsequent generations. (Subsequent generations also have a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>u</mi><annotation encoding="application/x-tex">u</annotation></semantics></math>
+ramp up phase.) All other certificate validity periods follow
+accordingly.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>We have discussed how any CBDC system needs to authenticate entities
+and thus equip them with certificates. Since the trust in the system
+hinges on the trust in the central bank, we proposed to employ a Public
+Key Infrastructure (PKI) operated by the Central Bank.</p>
+<p>In particular, we introduced categories of certificates with similar
+security requirements and security processes, which lead us to a PKI
+design with concrete certificate authorities.</p>
+<p>Furthermore, we investigated certificate formats and revocation
+procedures and concluded that stripped down X.509 certificates, such as
+CV Certificates, are appropriate for CBDC use.</p>
+<p>Technical certificate revocation procedures may negatively affect
+transaction throughput and performance. As an alternative, operational
+revocation procedures turned out to be most appropriate, since, in
+contrast to typical PKIs, relying parties are known beforehand. This
+leads to manageable revocation procedures at the relying parties,
+instead of a singe point of revocation status checks, such as OCSP
+responders and CRLs.</p>
+<p>Finally, we proposed a rollover concept for a PKI, which enables
+seamless operation despite regularly scheduled certificate expirations.
+This rollover concept is generic and can be tailored to specific central
+bank needs. The smallest unit of validity is the smartcard validity
+period, which can be chosen to be any timeframe desired, and can be
+multiplied appropriately.</p>
+<h3 id="acknowledgements">Acknowledgements</h3>
+<p>We thank our colleagues Nils Abeling, Klaus Alfert, Tolga Hazerli,
+and Peter Zeller for discussions on an early PKI concept. This work has
+been partially supported by the Federal Ministry of Education and
+Research (BMBF), Verbundprojekt CONTAIN (13N16582).</p>
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0"
+role="list">
+<div id="ref-DiIorio2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Di
+Iorio, A., Kosse, A., Mattei, I.: <a
+href="https://www.bis.org/publ/bppdf/bispap147.pdf"><span
+class="nocase">Embracing diversity, advancing together – results of the
+2023 BIS survey on central bank digital currencies and
+crypto</span></a>. BIS Papers. (2024).</div>
+</div>
+<div id="ref-Hupel2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div
+class="csl-right-inline">Hupel, L., Rafiee, M.: <span class="nocase">How
+Does Post-quantum Cryptography Affect Central Bank Digital
+Currency?</span> In: Ubiquitous security. pp. 45–62. Springer Nature
+Singapore (2024). https://doi.org/<a
+href="https://doi.org/10.1007/978-981-97-1274-8_4">10.1007/978-981-97-1274-8_4</a>.</div>
+</div>
+<div id="ref-RFC3647" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div
+class="csl-right-inline">Ford, W.S., Chokhani, S., Wu, S., Sabett, R.,
+R. Merrill, C. (Chas): <span class="nocase">Internet X.509 Public Key
+Infrastructure Certificate Policy and Certification Practices
+Framework</span>, (2003). https://doi.org/<a
+href="https://doi.org/10.17487/RFC3647">10.17487/RFC3647</a>.</div>
+</div>
+<div id="ref-Hickman2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div
+class="csl-right-inline">Hickman, C.: <a
+href="https://www.keyfactor.com/blog/2023s-biggest-certificate-outages-what-we-can-learn-from-them/"><span
+class="nocase">2023’s Biggest Certificate Outages &amp; What We Can
+Learn From Them</span></a>. Keyfactor. (2024).</div>
+</div>
+<div id="ref-Abrams2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">5. </div><div
+class="csl-right-inline">Abrams, L.: <a
+href="https://www.bleepingcomputer.com/news/microsoft/microsoft-sharepoint-outage-caused-by-use-of-wrong-tls-certificate/"><span
+class="nocase">Microsoft Sharepoint outage caused by use of wrong TLS
+certificate</span></a>. Bleeping Computer. (2023).</div>
+</div>
+<div id="ref-Chervek2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">6. </div><div
+class="csl-right-inline">Chervek, E.: <a
+href="https://www.sdxcentral.com/articles/news/cisco-sd-wan-outage-concerns-users-impacts-businesses/2023/05/"><span
+class="nocase">Cisco SD-WAN outage concerns users, impacts
+businesses</span></a>. SDxCentral. (2023).</div>
+</div>
+<div id="ref-Crothers2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">7. </div><div
+class="csl-right-inline">Crothers, B.: <a
+href="https://venafi.com/blog/digital-currency-slammed-expired-certificate-root-cause-prolonged-outage/"><span
+class="nocase">Digital Currency Hit by Expired Certificate — Root Cause
+for Prolonged Outage</span></a>. Venafi. (2022).</div>
+</div>
+<div id="ref-Keyfactor2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">8. </div><div
+class="csl-right-inline">Keyfactor: <a
+href="https://www.keyfactor.com/blog/the-state-of-machine-identity-management-more-machines-more-certificates-more-problems/"><span
+class="nocase">The State of Machine Identity Management: More Machines,
+More Certificates … More Problems?</span></a> Keyfactor. (2023).</div>
+</div>
+<div id="ref-SecureIdentityAlliance2022" class="csl-entry"
+role="listitem">
+<div class="csl-left-margin">9. </div><div
+class="csl-right-inline">Secure Identity Alliance: <span
+class="nocase">What is PKI? Understanding Public Key
+Infrastructure</span>, <a
+href="https://secureidentityalliance.org/publications-docman/public/270-2022-11-25-what-is-pki-sia-f-smith/file">https://secureidentityalliance.org/publications-docman/public/270-2022-11-25-what-is-pki-sia-f-smith/file</a>,
+(2022).</div>
+</div>
+<div id="ref-Chu2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">10. </div><div
+class="csl-right-inline">Chu, Y., Lee, J., Kim, S., Kim, H., Yoon, Y.,
+Chung, H.: <span class="nocase">Review of Offline Payment Function of
+CBDC Considering Security Requirements</span>. Applied Sciences. 12,
+4488 (2022). https://doi.org/<a
+href="https://doi.org/10.3390/app12094488">10.3390/app12094488</a>.</div>
+</div>
+<div id="ref-Christodorescu2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">11. </div><div
+class="csl-right-inline">Christodorescu, M., Gu, W.C., Kumaresan, R.,
+Minaei, M., Ozdayi, M., Price, B., Raghuraman, S., Saad, M., Sheffield,
+C., Xu, M., Zamani, M.: <span class="nocase">Towards a Two-Tier
+Hierarchical Infrastructure: An Offline Payment System for Central Bank
+Digital Currencies</span>, (2020). https://doi.org/<a
+href="https://doi.org/10.48550/ARXIV.2012.08003">10.48550/ARXIV.2012.08003</a>.</div>
+</div>
+<div id="ref-Zhang2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">12. </div><div
+class="csl-right-inline">Zhang, Z.W.: <span>CBDC Security</span>. In:
+Web3 applications security and new security landscape. pp. 73–92.
+Springer Nature Switzerland (2024). https://doi.org/<a
+href="https://doi.org/10.1007/978-3-031-58002-4_5">10.1007/978-3-031-58002-4_5</a>.</div>
+</div>
+<div id="ref-Yang2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">13. </div><div
+class="csl-right-inline">Yang, B., Zhang, Y., Tong, D.: <span
+class="nocase">DOT-M: A Dual Offline Transaction Scheme of Central Bank
+Digital Currency for Trusted Mobile Devices</span>. In: Lecture notes in
+computer science. pp. 233–248. Springer Nature Switzerland (2022).
+https://doi.org/<a
+href="https://doi.org/10.1007/978-3-031-23020-2_13">10.1007/978-3-031-23020-2_13</a>.</div>
+</div>
+<div id="ref-Takaragi2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">14. </div><div
+class="csl-right-inline">Takaragi, K., Kubota, T., Wohlgemuth, S.,
+Umezawa, K., Koyanagi, H.: <span class="nocase">Secure Revocation
+Features in eKYC - Privacy Protection in Central Bank Digital
+Currency</span>. IEICE Transactions on Fundamentals of Electronics,
+Communications and Computer Sciences. E106.A, 325–332 (2023).
+https://doi.org/<a
+href="https://doi.org/10.1587/transfun.2022cip0008">10.1587/transfun.2022cip0008</a>.</div>
+</div>
+<div id="ref-Han2019" class="csl-entry" role="listitem">
+<div class="csl-left-margin">15. </div><div
+class="csl-right-inline">Han, X., Yuan, Y., Wang, F.-Y.: <span
+class="nocase">A Blockchain-based Framework for Central Bank Digital
+Currency</span>. In: IEEE international conference on service operations
+and logistics, and informatics (SOLI). IEEE (2019). https://doi.org/<a
+href="https://doi.org/10.1109/soli48380.2019.8955032">10.1109/soli48380.2019.8955032</a>.</div>
+</div>
+<div id="ref-Campbell2019" class="csl-entry" role="listitem">
+<div class="csl-left-margin">16. </div><div
+class="csl-right-inline">Campbell, R.: <span
+class="nocase">Transitioning to a Hyperledger Fabric Quantum-Resistant
+Classical Hybrid Public Key Infrastructure</span>. The Journal of the
+British Blockchain Association. 2, 1–11 (2019). https://doi.org/<a
+href="https://doi.org/10.31585/jbba-2-2-(4)2019">10.31585/jbba-2-2-(4)2019</a>.</div>
+</div>
+<div id="ref-Pal2021" class="csl-entry" role="listitem">
+<div class="csl-left-margin">17. </div><div
+class="csl-right-inline">Pal, O., Alam, B., Thakur, V., Singh, S.: <span
+class="nocase">Key management for blockchain technology</span>. ICT
+Express. 7, 76–80 (2021). https://doi.org/<a
+href="https://doi.org/10.1016/j.icte.2019.08.002">10.1016/j.icte.2019.08.002</a>.</div>
+</div>
+<div id="ref-ISO24374" class="csl-entry" role="listitem">
+<div class="csl-left-margin">18. </div><div
+class="csl-right-inline">International Organization for Standardization:
+<span class="nocase">ISO/TR 24374:2023 Financial services — Security
+information for PKI in blockchain and DLT implementations</span>, <a
+href="https://www.iso.org/standard/78510.html">https://www.iso.org/standard/78510.html</a>,
+(2023).</div>
+</div>
+<div id="ref-BIH2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">19. </div><div class="csl-right-inline">BIS
+Innovation Hub: <span class="nocase">Project Aurum: a prototype for
+two-tier central bank digital currency (CBDC)</span>, <a
+href="https://www.bis.org/publ/othp57.pdf">https://www.bis.org/publ/othp57.pdf</a>,
+(2022).</div>
+</div>
+<div id="ref-HKMA2021" class="csl-entry" role="listitem">
+<div class="csl-left-margin">20. </div><div
+class="csl-right-inline">Hong Kong Monetary Authority: <span
+class="nocase">e-HKD: A technical perspective</span>, <a
+href="https://www.hkma.gov.hk/media/eng/doc/key-functions/financial-infrastructure/e-HKD_A_technical_perspective.pdf">https://www.hkma.gov.hk/media/eng/doc/key-functions/financial-infrastructure/e-HKD_A_technical_perspective.pdf</a>,
+(2021).</div>
+</div>
+<div id="ref-RFC5280" class="csl-entry" role="listitem">
+<div class="csl-left-margin">21. </div><div
+class="csl-right-inline">Boeyen, S., Santesson, S., Polk, T., Housley,
+R., Farrell, S., Cooper, D.: <span class="nocase">Internet X.509 Public
+Key Infrastructure Certificate and Certificate Revocation List (CRL)
+Profile</span>, (2008). https://doi.org/<a
+href="https://doi.org/10.17487/RFC5280">10.17487/RFC5280</a>.</div>
+</div>
+<div id="ref-ISO7816-8" class="csl-entry" role="listitem">
+<div class="csl-left-margin">22. </div><div
+class="csl-right-inline">International Organization for Standardization:
+<span class="nocase">ISO/IEC 7816-8:2021 Identification cards —
+Integrated circuit cards, Part 8: Commands and mechanisms for security
+operations</span>, <a
+href="https://www.iso.org/standard/79893.html">https://www.iso.org/standard/79893.html</a>,
+(2021).</div>
+</div>
+</div>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p><em>Project Aurum</em> <span class="citation"
+data-cites="BIH2022">[<a href="#ref-BIH2022"
+role="doc-biblioref">19</a>]</span> distinguishes some further subtypes,
+but they are irrelevant for this paper<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><em>Relying parties</em> are all entities validating
+certificates within a PKI. In a CBDC ecosystem, this can be many
+entities, including wallets.<a href="#fnref2" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
