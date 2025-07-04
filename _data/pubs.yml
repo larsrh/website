@@ -404,5 +404,6 @@
   year: 2025
   in: "International Conference on Security and Cryptography (SECRYPT)"
   arxiv: "2412.04051"
+  doi: "10.5220/0013562300003979"
   abstract: |
     Central Bank Digital Currency (CBDC) is a new form of money, issued by a country's or region's central bank, that can be used for a variety of payment scenarios. Depending on its concrete implementation, there are many participants in a production CBDC ecosystem, including the central bank, commercial banks, merchants, individuals, and wallet providers. There is a need for robust and scalable Public Key Infrastructure (PKI) for CBDC to ensure the continued trust of all entities in the system. This paper discusses the criteria that should flow into the design of a PKI and proposes a certificate hierarchy, together with a rollover concept ensuring continuous operation of the system. We further consider several peculiarities, such as the circulation of offline-capable hardware wallets.
