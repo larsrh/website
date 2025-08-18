@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "pa11y-ci": "^4.0.0",
+    "pa11y-ci": "^4.0.1",
     "vnu-jar": "^24.10.17"
   },
   "type": "module"
