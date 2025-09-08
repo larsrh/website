@@ -54,3 +54,7 @@
   provider: Compensators
   cost: 99
   kg: 1040
+- date: 2025-09-08
+  provider: ForTomorrow
+  cost: 327
+  kg: 4600

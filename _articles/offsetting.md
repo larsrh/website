@@ -45,6 +45,8 @@ From 2024, I will switch to another set of providers, focusing on buying and can
 I am happy about suggestions.
 (The listings above should not be construed as endorsements.)
 
+From 2025, offsetting also includes some of my partner's flights.
+
 ## The receipts
 
 This table lists all compensations on a rolling basis.
