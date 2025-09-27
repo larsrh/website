@@ -407,3 +407,11 @@
   doi: "10.5220/0013562300003979"
   abstract: |
     Central Bank Digital Currency (CBDC) is a new form of money, issued by a country's or region's central bank, that can be used for a variety of payment scenarios. Depending on its concrete implementation, there are many participants in a production CBDC ecosystem, including the central bank, commercial banks, merchants, individuals, and wallet providers. There is a need for robust and scalable Public Key Infrastructure (PKI) for CBDC to ensure the continued trust of all entities in the system. This paper discusses the criteria that should flow into the design of a PKI and proposes a certificate hierarchy, together with a rollover concept ensuring continuous operation of the system. We further consider several peculiarities, such as the circulation of offline-capable hardware wallets.
+- title: "Threshold Signatures for Central Bank Digital Currencies"
+  id: "threshold"
+  authors: ["mostafa", "filip", "lars", "kilian", "carle"]
+  year: 2025
+  arxiv: "2506.23294"
+  in: "International Workshop on Cryptocurrencies and Blockchain Technology (CBT), to appear"
+  abstract: |
+    Digital signatures are crucial for securing Central Bank Digital Currencies (CBDCs) transactions. Like most forms of digital currencies, CBDC solutions rely on signatures for transaction authenticity and integrity, leading to major issues in the case of private key compromise. Our work explores threshold signature schemes (TSSs) in the context of CBDCs. TSSs allow distributed key management and signing, reducing the risk of a compromised key. We analyze CBDC-specific requirements, considering the applicability of TSSs, and use Filia CBDC solution as a base for a detailed evaluation. As most of the current solutions rely on ECDSA for compatibility, we focus on ECDSA-based TSSs and their supporting libraries. Our performance evaluation measured the computational and communication complexity across key processes, as well as the throughput and latency of end-to-end transactions. The results confirm that TSS can enhance the security of CBDC implementations while maintaining acceptable performance for real-world deployments.

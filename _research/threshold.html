@@ -1,0 +1,1783 @@
+---
+title: Threshold Signatures for Central Bank Digital Currencies
+date: 2025-09-27
+---
+
+<h2 id="sec:introduction">Introduction</h2>
+<p>Digital signatures are essential to ensure the authenticity and
+integrity of online data. They provide a way to verify the origin and
+integrity of a message, ensuring that the message has not been tampered
+with and that it indeed comes from the claimed sender. The system’s
+security collapses if the private key
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mi>k</mi></mrow><annotation encoding="application/x-tex">sk</annotation></semantics></math>
+is compromised, as an attacker could forge signatures. Conversely, if
+the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mi>k</mi></mrow><annotation encoding="application/x-tex">sk</annotation></semantics></math>
+is lost or destroyed, valid signatures cannot be created, leading to
+availability loss. This overall leads to a single point of failure.</p>
+<p>Threshold Signature Schemes (TSSs) address the vulnerabilities
+associated with a single point of failure in private key management. The TSS
+distributes the signing
+authority among multiple parties, requiring a subset (or threshold
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>)
+of these parties to collaborate to produce a valid signature. This trust
+distribution reduces the risk of key compromise and increases the
+resilience of the cryptographic system. By eliminating a single point of
+failure, TSSs are particularly
+advantageous in high-stakes applications such as financial transactions
+and secure communications.</p>
+<p>A key application of TSSs is within blockchain and
+digital currencies, which require robust security measures due to the
+significant value they protect <span class="citation"
+data-cites="erinle2025sokdesignvulnerabilitiessecurity">[<a
+href="#ref-erinle2025sokdesignvulnerabilitiessecurity"
+role="doc-biblioref">1</a>]</span>. This is particularly relevant in the
+context of Central Bank Digital Currencies (CBDCs), which are digital
+representations of a nation’s currency issued and regulated by the
+central bank. CBDC introduces the role of a
+Financial Service Provider (FSP), which process users’
+payments and ensure funds availability. In that case, the FSP
+manages the private key of users as custodial key management. Naturally,
+a common design pattern uses online wallets distributed among various
+FSPs. However, this puts a lot
+of trust in the FSPs to create and manage hosted
+wallets. Besides, the FSPs do not trust each other.
+Therefore, TSS is a viable solution as
+the threshold number of nodes within a FSP have to collaborate,
+increasing the resilience of the FSP system. In general, we
+examine the integration of TSS in the context of CBDC
+deployments. For the scope of this paper, we select the Filia
+implementation <span class="citation" data-cites="gi-de-whitepaper">[<a
+href="#ref-gi-de-whitepaper" role="doc-biblioref">2</a>]</span>, an
+off-chain CBDC solution developed by
+G+D. Filia follows a
+similar design with a focus on FSPs for custodial key
+management, allowing the generalization of our findings to other CBDC
+implementations with similar architecture.</p>
+<p>Filia offers hardware-based (offline) and hosted (online) wallets.
+Applying threshold signatures to hardware wallets would be cumbersome
+for day-to-day transactions since it would require the user to juggle
+multiple devices. Filia’s online wallets currently only support ECDSA. For that reason, we
+focus on State-of-the-Art (SotA) ECDSA TSS
+as they apply to online wallets. The goal is to develop a threshold
+version of this key management system to enhance security by preventing
+single-point failure.</p>
+<h3 id="contributions">Contributions</h3>
+<p>We provide these key contributions:</p>
+<ul>
+<li><p>Analysis of SotA TSS based on ECDSA;</p></li>
+<li><p>Protocol design fitting the CBDC use cases;</p></li>
+<li><p>Theoretical and empirical evaluation of the protocol.</p></li>
+</ul>
+<h2 id="sec:background">Background</h2>
+<p>This section provides an overview of the CGGMP21 ECDSA TSS,
+Filia as the selected case study CBDC, and EnGINE/METHODA.</p>
+<h3 id="cggmp21">CGGMP21</h3>
+<p>The CGGMP21 protocol is a SotA
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>-out-of-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+threshold ECDSA scheme <span
+class="citation" data-cites="cryptoeprint:2021/060">[<a
+href="#ref-cryptoeprint:2021/060" role="doc-biblioref">3</a>]</span>. It
+provides features fitting the context of CBDC applications. First, it
+relies on Paillier encryption for secure multiplication of secret shares
+and utilizes Zero-Knowledge Proofs (ZKPs) to detect and attribute
+deviations from the expected behavior <span class="citation"
+data-cites="10.1145/22145.22178 10.5555/1756123.1756146">[<a
+href="#ref-10.1145/22145.22178" role="doc-biblioref">4</a>, <a
+href="#ref-10.5555/1756123.1756146" role="doc-biblioref">5</a>]</span>.
+Next, it supports pre-signing, identifiable aborts, security against
+adaptive adversaries, and universal composability under strong RSA, DDH,
+and Paillier security assumptions. It provides proactive security with
+periodic key refreshes and ensures that compromised shares within an
+epoch do not affect the system’s integrity. It offers efficiency
+trade-offs: a 3-round presign protocol with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>n</mi><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">O(n^2)</annotation></semantics></math>
+identification cost or a 6-round presign protocol with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math>
+identification cost. The protocol can be extended to general
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>-out-of-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+threshold case using Shamir’s secret sharing and converting Shamir
+secret shares into additive shares <span class="citation"
+data-cites="10.1145/359168.359176 10.1007/978-3-540-30576-7_19">[<a
+href="#ref-10.1145/359168.359176" role="doc-biblioref">6</a>, <a
+href="#ref-10.1007/978-3-540-30576-7_19"
+role="doc-biblioref">7</a>]</span>.</p>
+<h3 id="filia">Filia</h3>
+<p>Figure <a href="#fig:filia" data-reference-type="ref"
+data-reference="fig:filia">1</a> provides a high-level overview of the
+Filia system. The central bank is responsible for the core
+infrastructure. At the same time, private sector intermediaries, known
+as FSPs, offer end-user wallets and
+develop services based on the technology and regulatory framework
+established by the central bank. Each FSP maintains a wallet at the
+central bank, where the requested liquidity is transferred. Other CBDC
+solutions with similar architecture exist.</p>
+
+<figure id="fig:filia">
+  <img src="{% link assets/img/research/threshold/Filia-update.pdf.svg %}" alt="">
+<figcaption>High-Level Architecture <span class="citation"
+data-cites="gi-de-whitepaper">[<a href="#ref-gi-de-whitepaper"
+role="doc-biblioref">2</a>]</span></figcaption>
+</figure>
+
+<h3 id="enginemethoda">EnGINE/METHODA</h3>
+<p>The EnGINE/METHODA framework <span
+class="citation"
+data-cites="Rezabek2022EngineJNSM rezabek2023preprint">[<a
+href="#ref-Rezabek2022EngineJNSM" role="doc-biblioref">8</a>, <a
+href="#ref-rezabek2023preprint" role="doc-biblioref">9</a>]</span>,
+initially developed for Time Sensitive Networking emulations, provides a
+robust and scalable environment designed to support reproducible and
+modular experiments in distributed cryptographic operations. Built with
+Ansible-based orchestration, METHODA allows for flexible
+deployment and management of complex setups, making it well-suited for
+evaluating cryptographic protocols in distributed systems.</p>
+<h2 id="sec:relatedwork">Related Work</h2>
+<p>Existing research on CBDC system design highlights
+different models, including two-tier architectures where central banks
+issue digital currency but rely on intermediaries for distribution <span
+class="citation" data-cites="CBDC_Design_2024">[<a
+href="#ref-CBDC_Design_2024" role="doc-biblioref">10</a>]</span> which
+Filia follows. However, security remains a critical challenge in CBDC
+implementations, particularly in mitigating operational and cyber risks
+<span class="citation" data-cites="CBDC_Risk_2023">[<a
+href="#ref-CBDC_Risk_2023" role="doc-biblioref">11</a>]</span>. This
+paper addresses these concerns by exploring TSS
+as a means to enhance key management security and reduce the risk of
+private key compromise.</p>
+<p>There is limited work in applying TSSs in the context of CBDC, with existing research
+focusing primarily on distributed ledger-based implementations. PEReDi
+<span class="citation" data-cites="cryptoeprint:2022/974">[<a
+href="#ref-cryptoeprint:2022/974" role="doc-biblioref">12</a>]</span>
+employs TSS in a scenario where
+maintainers, including banks, financial institutions, and regulatory
+offices, each hold a share. This setup allows for selective transaction
+tracing and privacy revocation in cases of suspicious activities. IBM’s
+CBDC framework <span
+class="citation" data-cites="cryptoeprint:2023/1717">[<a
+href="#ref-cryptoeprint:2023/1717" role="doc-biblioref">13</a>]</span>
+incorporates TSS within its new endorser
+model, where TSSs enhance security and
+accountability by requiring a collective agreement from multiple
+endorsers for transaction validation. Overall, the framework focuses on
+hardening the token creation by the CBDC, minimizing the
+likelihood of the creation of unauthorized tokens. On the other hand,
+our threat model aims to protect against theft or unauthorized use of
+tokens.</p>
+<p>Numerous initiatives within the cryptocurrency industry, many of
+which are part of the MPC Alliance <span class="citation"
+data-cites="mpc-a">[<a href="#ref-mpc-a"
+role="doc-biblioref">14</a>]</span>, have adopted TSSs to
+secure digital assets. This distributed approach has enabled secure
+“Wallet as a Service” models <span class="citation"
+data-cites="cryptoeprint:2022/974 dfns2024cggmp21 fireblocks2024">[<a
+href="#ref-cryptoeprint:2022/974" role="doc-biblioref">12</a>, <a
+href="#ref-dfns2024cggmp21" role="doc-biblioref">15</a>, <a
+href="#ref-fireblocks2024" role="doc-biblioref">16</a>]</span>. These
+platforms enhance security by distributing cryptographic operations
+across multiple parties, ensuring robust protection even when certain
+parties may be compromised.</p>
+<h2 id="analysis-protocol-design">Analysis &amp; Protocol Design</h2>
+<p>The main CBDC use case analyzed in this
+work considers the FSP as the custodian of users’
+wallet private keys. In this model, the FSP securely manages private
+keys on behalf of multiple users and an entrusted central ledger
+maintains a record of public keys to ensure the legitimacy of the money.
+This section focuses on the private key lifecycle and its distribution
+relying on the TSS. First, we provide an
+overview of the Filia platform and possible solutions on how TSS
+can be integrated into it. We define general requirements relevant to
+the context of CBDC along with a detailed
+security model. We argue for selecting a suitable TSS
+based on the requirements.</p>
+<h3 id="filia-protocol">Filia Protocol</h3>
+<p>Filia relies on a modified UTxO-based model used to
+represent a digital currency. Each UTxO, referred to here as a
+<em>note</em>, consists of a public-private key pair
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>r</mi><mo>,</mo><mi>R</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(r, R)</annotation></semantics></math>
+derived from the secp256r1/P-256 curve and a denomination
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>v</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(v)</annotation></semantics></math>
+indicating its monetary value. The private component
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math>
+is securely managed within the hosted wallet by the Payment Processor (PP), the main component of
+the FSP responsible for wallet
+management and transaction handling. Meanwhile, the public component
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>R</mi><annotation encoding="application/x-tex">R</annotation></semantics></math>
+is registered and tracked by a Verifier, a central bank infrastructure
+tasked with preventing double spending and ensuring system
+integrity.</p>
+
+<p>Transactions in this system follow specific rules. Certain
+transaction types, such as currency issuance or destruction, are
+restricted to the central bank, while old transaction outputs are
+periodically garbage collected to improve system efficiency. Transaction
+commands involve consuming one or more existing notes and creating new
+ones, with the available commands being <strong>Create</strong>,
+<strong>Split</strong>, <strong>Merge</strong>, <strong>Switch</strong>,
+and <strong>Destroy</strong>. Each transaction is validated by the
+<em>Verifier</em>, which ensures the correctness of commands and
+prevents double-spending. Notes are registered in the system only if
+they are unique, and commands are rejected if any input notes have
+already been consumed in a prior transaction.</p>
+
+<figure id="fig:transaction">
+  <img src="{% link assets/img/research/threshold/transaction-update.pdf.svg %}" alt="">
+<figcaption>Filia Protocol: Remote Transaction.
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math>
+corresponds to private key and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>R</mi><annotation encoding="application/x-tex">R</annotation></semantics></math>
+to public key. </figcaption>
+</figure>
+
+<p>The Filia system differentiates between two types of transfers:
+<strong>local transfers</strong> (wallets within the same FSP)
+and <strong>remote transfers</strong> (wallets at different FSP).
+While local transfers follow a simplified protocol, remote transfers
+require additional security measures due to the lack of trust between
+different FSP. A non-repudiation
+protocol addresses this, ensuring that the sending PP can
+provide proof of the money sent. Figure <a href="#fig:transaction"
+data-reference-type="ref" data-reference="fig:transaction">2</a>
+illustrates the steps involved in a remote transfer under the Filia
+protocol:</p>
+<ol>
+<li><p><strong>Anounce Transfer:</strong> The recipient PP
+receives a announcement request from the sender PP
+with value
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>v</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(v)</annotation></semantics></math> (Step 1). The recipient PP generates a key pair
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>r</mi><mn>1</mn></msub><mo>,</mo><msub><mi>R</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(r_1, R_1)</annotation></semantics></math> Step 2)
+and sends the public key
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>R</mi><mn>1</mn></msub><annotation encoding="application/x-tex">R_1</annotation></semantics></math>
+back to the sender PP (Step 3).</p></li>
+<li><p><strong>Register New Public Key:</strong> The sender PP
+generates a second key pair
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>r</mi><mn>2</mn></msub><mo>,</mo><msub><mi>R</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(r_2, R_2)</annotation></semantics></math> (Step 4)
+and sends a request to the verifier to confirm the transfer and register
+the value
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>v</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(v)</annotation></semantics></math>
+under
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mn>1</mn></msub><mo>+</mo><msub><mi>R</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">R_1 + R_2</annotation></semantics></math> (Step 5).</p></li>
+<li><p><strong>Store Verifier Proof (Step 6):</strong> The sender PP
+stores a proof provided by the Verifier, demonstrating that the value
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>v</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(v)</annotation></semantics></math>
+has been transferred to the correct address
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mn>1</mn></msub><mo>+</mo><msub><mi>R</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">R_1 + R_2</annotation></semantics></math>
+at the Verifier.</p></li>
+<li><p><strong>Confirm Transfer:</strong> The sender PP
+sends the private key
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>r</mi><mn>2</mn></msub><annotation encoding="application/x-tex">r_2</annotation></semantics></math>
+to the recipient PP (Step 7), allowing the recipient to
+access the funds and the recipient PP replies with an
+acknowledgment (Step 8).</p></li>
+</ol>
+<p>Eventually, only the recipient PP knows
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mn>1</mn></msub><mo>+</mo><msub><mi>r</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">r_1 + r_2</annotation></semantics></math>
+and can use the note. The recipient PP can switch the funds to a
+new key or merge the funds to a previously available note (Step 9).</p>
+<p>This process ensures that the recipient cannot access the transferred
+funds until the sender has securely stored the proof of transfer.
+Additionally, because the sender does not know the private key
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>r</mi><mn>1</mn></msub><annotation encoding="application/x-tex">r_1</annotation></semantics></math>,
+they cannot reclaim the money after it has been sent.</p>
+<p>Should the sender PP not disclose
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>r</mi><mn>2</mn></msub><annotation encoding="application/x-tex">r_2</annotation></semantics></math>,
+the value
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>v</mi><annotation encoding="application/x-tex">v</annotation></semantics></math>
+will be locked; however, it will also be unable to prove correct
+transfer execution.</p>
+<h3 id="possible-solutions">Possible Solutions</h3>
+<p>Continuing with the protocol overview, we explore two potential
+solutions for implementing threshold key management within the Filia
+system at the <span data-acronym-label="fsp"
+data-acronym-form="singular+short">fsp</span> level. We outline and
+analyze each solution, including its unique pros and cons.</p>
+<h4
+id="solution-1-payment-processor-based-threshold-key-management">Solution
+1: Payment Processor-Based Threshold Key Management</h4>
+<p>In this approach, each FSP deploys
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+PPs, with each PP
+holding a share of the private key. Specifically, each PP
+holds a new note in the form
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>v</mi><mo>,</mo><msub><mi>r</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(v, r_1)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>v</mi><mo>,</mo><msub><mi>r</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(v, r_2)</annotation></semantics></math>,
+...,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>v</mi><mo>,</mo><msub><mi>r</mi><mi>n</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(v, r_n)</annotation></semantics></math>.
+Here, the TSS is directly implemented
+within the payment processing system, so when a transaction requires
+signing, a predefined number of PP collaborate to generate the
+signature.</p>
+<h4 id="solution-2-separate-kmn">Solution 2: Separate Key Management Network</h4>
+<p>This solution establishes a dedicated Key Management Network (KMN) within the FSP
+infrastructure, where a set of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+specialized nodes (key management nodes) are responsible for generating
+and storing key shares, and providing signatures. PP
+sends requests to the KMN for signatures or key
+generation as needed. Each node in the KMN holds a key share
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mn>1</mn></msub><mo>,</mo><msub><mi>r</mi><mn>2</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>r</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">r_1, r_2, \ldots, r_n</annotation></semantics></math>,
+and assigns a specific identifier (uuid) to the shares, which is sent to the
+PP. Consequently, the PP
+holds a note in the form
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>v</mi><mo>,</mo><mtext mathvariant="normal">uuid</mtext><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(v, \text{uuid})</annotation></semantics></math>
+and uses that to request a signature from the KMN.</p>
+<h4 id="discussion">Discussion</h4>
+<p>When considering the complexity, <strong>Solution 1</strong> tightly
+integrates key management into the payment processing infrastructure,
+requiring each PP to maintain its database of
+key shares. This necessitates synchronization across multiple PPs,
+significantly increasing the operational overhead, particularly in
+achieving consensus between PPs. In contrast,
+<strong>Solution 2</strong> isolates key management in a dedicated
+network, simplifying the responsibilities of PPs.
+Although this reduces complexity within the PPs, it
+adds a layer of infrastructure that requires careful management, such as
+ensuring the availability and reliability of the KMN
+nodes.</p>
+<p>Regarding latency, <strong>Solution 1</strong> has an advantage due
+to the proximity of all operations within the FSP
+infrastructure. On the other hand, <strong>Solution 2</strong>
+introduces communication overhead as PPs need to interact with the
+separate key management nodes. This added step can lead to higher
+latency, particularly in high-frequency transaction environments.</p>
+<p>The modular design of <strong>Solution 2</strong> ensures that the
+TSS can be updated or replaced
+without requiring significant changes to the PP
+codebase. The system can also take advantage of batching and
+parallelization to reduce delays and improve efficiency without
+disrupting other PP tasks. By decoupling key
+management from the payment processing system, KMN
+enhances security, as keys remain secure within the storage of dedicated
+nodes, even if PP is compromised.</p>
+<p>The KMN is selected for its
+modular design, enhanced security, and ease of updates. Decoupling key
+management from payment processing eliminates the need for consensus
+mechanisms required in <strong>Solution 1</strong>, reducing the
+implementation complexity of Proof-of-Concept (PoC). Furthermore, KMN
+enables efficient batch processing and parallelization, ensuring
+scalability without disrupting payment processing tasks, making it a
+robust choice for the Filia system.</p>
+<h3 id="system-requirements">System Requirements</h3>
+<p>We outline several key requirements for extending the Filia protocol
+by TSS and considering
+<strong>Solution 2</strong>. They must easily migrate Filia wallets and
+transaction signing to the TSS system. Notably, these
+requirements should be generalizable to designs similar to CBDC
+as Filia.</p>
+<p><strong>R1 - Transparent Support for Standard and Threshold
+Wallets:</strong> The system must conceal the type of wallet in use,
+whether standard or threshold, from external observers, including other
+FSPs. This ensures flexibility
+within the Filia system, enabling different security levels based on
+factors such as the wallet’s balance.</p>
+<p><strong>R2 - Efficient Distributed Key Generation (DKG):</strong> Due to multiple
+generation of key during transactions in Filia, the DKG
+process must be optimized for high efficiency.</p>
+<p><strong>R3 - High Signature Throughput:</strong> The signing process
+must achieve high throughput to handle the multiple signatures required
+per transaction and efficiently load high user loads. For instance,
+during a remote transfer, the process involves splitting the sender’s
+wallet and merging the transferred value into the recipient’s wallet (as
+shown in Figure <a href="#fig:transaction" data-reference-type="ref"
+data-reference="fig:transaction">2</a>, Steps 5 and 9). These operations
+require multiple signatures, so the system must be capable of processing
+these quickly.</p>
+<p><strong>R4 - Secure Key Reconstruction:</strong> The system must
+enable the secure reconstruction of short-lived keys when required.
+Specifically, when the sender’s PP generates a threshold key
+pair
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>r</mi><mn>2</mn></msub><mo>,</mo><msub><mi>R</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(r_2, R_2)</annotation></semantics></math>,
+it must securely reconstruct or export
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>r</mi><mn>2</mn></msub><annotation encoding="application/x-tex">r_2</annotation></semantics></math>
+during the process of transmitting the full key to the recipient’s PP
+(e.g., Figure <a href="#fig:transaction" data-reference-type="ref"
+data-reference="fig:transaction">2</a>, Step 7).</p>
+<p><strong>R5 - Key Update/Key Addition:</strong> The system must
+facilitate the secure addition of new key parts to existing key shares.
+For instance, as illustrated in Figure <a href="#fig:transaction"
+data-reference-type="ref" data-reference="fig:transaction">2</a>, the
+sender PP must send
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>r</mi><mn>2</mn></msub><annotation encoding="application/x-tex">r_2</annotation></semantics></math>,
+which is a full key, to the recipient PP. The recipient PP
+then combines
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>r</mi><mn>2</mn></msub><annotation encoding="application/x-tex">r_2</annotation></semantics></math>
+with their threshold key
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>r</mi><mn>1</mn></msub><annotation encoding="application/x-tex">r_1</annotation></semantics></math>.
+The result is that each node holds a share of the combined key
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mn>1</mn></msub><mo>+</mo><msub><mi>r</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">r_1 + r_2</annotation></semantics></math>.</p>
+<p><strong>R6 - Compatibility with Existing Infrastructure:</strong> The
+TSS must be fully compatible
+with ECDSA, in specific
+secp256r1/P-256 curve, to align with the existing infrastructure,
+particularly for hardware wallets that rely on smart card technology
+that use ECDSA. This requirement
+ensures that the integration of TSSs does not disrupt existing
+systems and maintains consistent security across all wallet types.</p>
+<p><strong>R7 - Security:</strong> The TSS should be secure with
+minimum assumptions and should be secure even when combined with other
+systems/protocols.</p>
+<h3 id="security-system-model">Security System Model</h3>
+<p>We define the environment and conditions under which the protocol is
+expected to operate.</p>
+<h4 id="adversary-model">Adversary Model</h4>
+<p>In our system, we assume the presence of an active, malicious
+adversary. This adversary can arbitrarily deviate from the protocol,
+aiming to disrupt the system or gain unauthorized access to
+information.</p>
+<p><strong>Threshold Structure:</strong> We operate under the assumption
+of a dishonest majority
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>&lt;</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">t &lt; n</annotation></semantics></math>),
+as the protocols provide stronger security guarantees against active
+adversaries. Even though honest majority protocols might seem
+appropriate given that all nodes are deployed at the FSP
+level by a single entity, we choose dishonest majority due to stronger
+security guarantees against active adversaries. However, this comes at
+the cost of robustness, which cannot be achieved under dishonest
+majority settings <span class="citation"
+data-cites="cryptoeprint:2022/062 cryptoeprint:2014/668">[<a
+href="#ref-cryptoeprint:2022/062" role="doc-biblioref">17</a>, <a
+href="#ref-cryptoeprint:2014/668"
+role="doc-biblioref">18</a>]</span>.</p>
+<p><strong>Computational Power:</strong> Given the active security
+setting with a dishonest majority, the protocol should aim to achieve
+computational security as perfect security is unattainable under these
+settings <span class="citation" data-cites="cryptoeprint:2022/062">[<a
+href="#ref-cryptoeprint:2022/062"
+role="doc-biblioref">17</a>]</span>.</p>
+<p><strong>Corruption Power:</strong> This model assumes static
+corruptions, as frequent key changes in Filia eliminate the need for
+proactive security or handling mobile adversaries. Key updates occur
+naturally during transactions, making explicit key refreshing after
+specific epochs unnecessary. However, this assumption can be extended to
+include proactive security measures for wallets that remain inactive for
+extended periods.</p>
+<h4 id="network-and-communication-model">Network and Communication
+Model</h4>
+<p>Our system assumes all signatories are connected through an
+authenticated and synchronous broadcast mechanism within a single FSP.
+This setup ensures that communication is public, and any message sent
+will either be received by all participants in the next round or not be
+delivered at all. Without pre-established authenticated communication,
+an adversary who previously controlled a corrupted party and managed the
+communication channels can impersonate that party indefinitely <span
+class="citation" data-cites="cryptoeprint:1998/012">[<a
+href="#ref-cryptoeprint:1998/012"
+role="doc-biblioref">19</a>]</span>.</p>
+<p>The synchronous broadcast mechanism is crucial for maintaining
+accountability and ensuring all parties reach a consensus. Without
+defined communication delays, holding any signatory accountable for
+failing to respond would be impossible. Additionally, reliable broadcast
+is vital for distributing proofs during the DKG
+process and upholding accountability throughout the protocol <span
+class="citation" data-cites="cryptoeprint:2021/060">[<a
+href="#ref-cryptoeprint:2021/060"
+role="doc-biblioref">3</a>]</span>.</p>
+<h3 id="selection-of-threshold-ecdsa-scheme">Selection of Threshold
+ECDSA Scheme</h3>
+<p>TSSs have been extensively
+explored for their role in securing digital assets. Figure <a
+href="#tab:libraries" data-reference-type="ref"
+data-reference="tab:libraries">4</a> compares some popular libraries
+available and implementations of TSSs.</p>
+<p>Two comprehensive surveys <span class="citation"
+data-cites="cryptoeprint:2020/1390 sedghighadikolaei2024comprehensivesurveythresholdsignatures">[<a
+href="#ref-cryptoeprint:2020/1390" role="doc-biblioref">20</a>, <a
+href="#ref-sedghighadikolaei2024comprehensivesurveythresholdsignatures"
+role="doc-biblioref">21</a>]</span> provide an overview of key
+developments in the field. SotA protocols such as
+CGGMP21 <span class="citation" data-cites="cryptoeprint:2021/060">[<a
+href="#ref-cryptoeprint:2021/060" role="doc-biblioref">3</a>]</span> and
+DKLs23 <span class="citation" data-cites="cryptoeprint:2023/765">[<a
+href="#ref-cryptoeprint:2023/765" role="doc-biblioref">22</a>]</span>
+build on earlier advancements <span class="citation"
+data-cites="cryptoeprint:2020/492 cryptoeprint:2020/540 cryptoeprint:2018/987 cryptoeprint:2018/499 cryptoeprint:2019/523">[<a
+href="#ref-cryptoeprint:2020/492" role="doc-biblioref">23</a>–<a
+href="#ref-cryptoeprint:2019/523" role="doc-biblioref">27</a>]</span>.
+These protocols follow standard steps:</p>
+<ul>
+<li><p>Rewriting the ECDSA signing equation into an “MPC-friendly”
+equivalent.</p></li>
+<li><p>Employing cryptographic primitives for secure multiplication
+(e.g., Oblivious Transfer, Paillier, or Class Groups).</p></li>
+<li><p>Verifying that all operations are performed honestly.</p></li>
+</ul>
+<p>The primary distinctions between these protocols lie in their
+security definitions, underlying assumptions, and communication and
+computation complexities, which depend on the used cryptographic
+primitives. Figure <a href="#tab:comparison" data-reference-type="ref"
+data-reference="tab:comparison">3</a> provides a summary of recent
+threshold signature schemes, detailing key differences in threshold
+settings, robustness, corruption strategies, and security
+assumptions.</p>
+
+<figure id="tab:comparison">
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Scheme</strong></td>
+<td style="text-align: center;"><strong>Robust</strong></td>
+<td style="text-align: center;"><strong>Corruption Strategy</strong></td>
+<td style="text-align: left;"><strong>Assumptions</strong></td>
+</tr>
+<tr>
+<td colspan="4" style="text-align: center;">Honest Majority</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gennaro et al. <span class="citation"
+data-cites="eurocrypt-1996-2312">[<a href="#ref-eurocrypt-1996-2312"
+role="doc-biblioref">28</a>]</span></td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;">Static</td>
+<td style="text-align: left;">None beyond unforgeability of DSS
+signatures</td>
+</tr>
+<tr>
+<td style="text-align: left;">Damgård et al. <span class="citation"
+data-cites="cryptoeprint:2020/501">[<a href="#ref-cryptoeprint:2020/501"
+role="doc-biblioref">29</a>]</span></td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;">Static</td>
+<td style="text-align: left;">None beyond ECDSA security</td>
+</tr>
+<tr>
+<td style="text-align: left;">Pettit <span class="citation"
+data-cites="cryptoeprint:2021/1386">[<a
+href="#ref-cryptoeprint:2021/1386"
+role="doc-biblioref">30</a>]</span></td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;">Static</td>
+<td style="text-align: left;">Decisional Diffie–Hellman (DDH), ECDSA unforgeability</td>
+</tr>
+<tr>
+<td style="text-align: left;">Bonte et al. <span class="citation"
+data-cites="cryptoeprint:2020/214">[<a href="#ref-cryptoeprint:2020/214"
+role="doc-biblioref">31</a>]</span></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">Static</td>
+<td style="text-align: left;">Discrete Logarithm Problem (DLP), MPC-friendly hash
+function</td>
+</tr>
+<tr>
+<td style="text-align: left;">Shi et al. <span class="citation"
+data-cites="10.1145/3545948.3545977">[<a
+href="#ref-10.1145/3545948.3545977"
+role="doc-biblioref">32</a>]</span></td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;">Static</td>
+<td style="text-align: left;">None beyond EdDSA security</td>
+</tr>
+<tr>
+<td style="text-align: left;">Stinson and Strobl <span class="citation"
+data-cites="Stinson2001ProvablySD">[<a href="#ref-Stinson2001ProvablySD"
+role="doc-biblioref">33</a>]</span></td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;">Static</td>
+<td style="text-align: left;">DLP</td>
+</tr>
+<tr>
+<td style="text-align: left;">Komlo and Goldberg <span class="citation"
+data-cites="cryptoeprint:2024/466">[<a href="#ref-cryptoeprint:2024/466"
+role="doc-biblioref">34</a>]</span></td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;">Static</td>
+<td style="text-align: left;">DLP, Secure hash function</td>
+</tr>
+<tr>
+<td style="text-align: left;">Kondi and Ravi <span class="citation"
+data-cites="KR24">[<a href="#ref-KR24"
+role="doc-biblioref">35</a>]</span></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">Static</td>
+<td style="text-align: left;">PKI</td>
+</tr>
+<tr>
+<td style="text-align: left;">Jonathan Katz and Antoine Urban <span
+class="citation" data-cites="cryptoeprint:2024/2011">[<a
+href="#ref-cryptoeprint:2024/2011"
+role="doc-biblioref">36</a>]</span></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">Static</td>
+<td style="text-align: left;">Semi-honest coordinator, unforgeability of
+standard ECDSA</td>
+</tr>
+<tr>
+<td colspan="4" style="text-align: center;">Dishonest Majority</td>
+</tr>
+<tr>
+<td style="text-align: left;">Canetti et al. <span class="citation"
+data-cites="cryptoeprint:2021/060">[<a href="#ref-cryptoeprint:2021/060"
+role="doc-biblioref">3</a>]</span></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">Adaptive</td>
+<td style="text-align: left;">Strong-RSA, ECDSA unforgeability, semantic
+security of Paillier encryption, DDH</td>
+</tr>
+<tr>
+<td style="text-align: left;">Abram et al. <span class="citation"
+data-cites="cryptoeprint:2021/1587">[<a
+href="#ref-cryptoeprint:2021/1587"
+role="doc-biblioref">37</a>]</span></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">Static</td>
+<td style="text-align: left;">Ring-LPN, ECDSA unforgeability</td>
+</tr>
+<tr>
+<td style="text-align: left;">Doerner et al. <span class="citation"
+data-cites="cryptoeprint:2023/765">[<a href="#ref-cryptoeprint:2023/765"
+role="doc-biblioref">22</a>]</span></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">Static</td>
+<td style="text-align: left;">Ideal commitment and two-party
+multiplication primitives</td>
+</tr>
+<tr>
+<td style="text-align: left;">Feng et al. <span class="citation"
+data-cites="cryptoeprint:2024/358">[<a href="#ref-cryptoeprint:2024/358"
+role="doc-biblioref">38</a>]</span></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">Adaptive</td>
+<td style="text-align: left;">LPN, PCF</td>
+</tr>
+<tr>
+<td style="text-align: left;">Komlo and Goldberg <span class="citation"
+data-cites="cryptoeprint:2020/852">[<a href="#ref-cryptoeprint:2020/852"
+role="doc-biblioref">39</a>]</span></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">Static</td>
+<td style="text-align: left;">DLP</td>
+</tr>
+<tr>
+<td style="text-align: left;">Ruffing et al. <span class="citation"
+data-cites="cryptoeprint:2022/550">[<a href="#ref-cryptoeprint:2022/550"
+role="doc-biblioref">40</a>]</span></td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;">Adaptive</td>
+<td style="text-align: left;">DLP</td>
+</tr>
+<tr>
+<td style="text-align: left;">Lindell <span class="citation"
+data-cites="cryptoeprint:2022/374">[<a href="#ref-cryptoeprint:2022/374"
+role="doc-biblioref">41</a>]</span></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">Static</td>
+<td style="text-align: left;">Ideal commitment and PKI</td>
+</tr>
+</tbody>
+</table>
+<figcaption>Comparison of Threshold ECDSA, EdDSA, and Schnorr Signature
+Schemes.</figcaption>
+
+</figure>
+
+<p>Among the libraries evaluated, the implementation of CGGMP21 by
+<em>Lockness</em> <span class="citation" data-cites="dfns">[<a
+href="#ref-dfns" role="doc-biblioref">42</a>]</span> meets our key
+system requirements. First, unlike other libraries, it is production
+code, not a PoC such as silence-labs <span
+class="citation" data-cites="silence-laboratories">[<a
+href="#ref-silence-laboratories" role="doc-biblioref">43</a>]</span>.
+Next, the library supports secp256r1, the elliptic curve that Filia
+(<strong>R6</strong>) requires. Additionally, it enables essential
+functionalities such as importing existing keys (<strong>R5</strong>)
+and exporting keys securely from nodes (<strong>R4</strong>). One of the
+key advantages of CGGMP21 is its efficient signing process, which is
+crucial for achieving high throughput in the Filia system. The protocol
+employs pre-signing and a one-round online signing process. This allows
+most cryptographic work to be completed ahead of time, minimizing delays
+during transactions and directly addressing the system’s need for high
+signature throughput (<strong>R3</strong>). CGGMP21 is a SotA
+threshold ECDSA scheme with four signing
+rounds.</p>
+<p>The protocol’s security is further enhanced by its Universal Composability (UC)
+<span class="citation" data-cites="cryptoeprint:2000/067">[<a
+href="#ref-cryptoeprint:2000/067" role="doc-biblioref">44</a>]</span>,
+ensuring that CGGMP21 remains secure even when composed with other
+cryptographic protocols. The UC-security guarantee fulfills
+the requirement for strong security (<strong>R7</strong>). Thus, the
+combination of compatibility, efficiency, and security makes CGGMP21 an
+optimal choice for the Filia system, particularly with the
+<em>Lockness</em> <span class="citation" data-cites="dfns">[<a
+href="#ref-dfns" role="doc-biblioref">42</a>]</span> library.</p>
+
+<figure id="tab:libraries">
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Library</strong></td>
+<td style="text-align: center;"><strong>Curves</strong></td>
+<td style="text-align: center;"><strong>Key Export/Import</strong></td>
+<td style="text-align: center;"><strong>Audited</strong></td>
+<td style="text-align: center;"><strong>Language</strong></td>
+<td style="text-align: center;"><strong>Docs</strong></td>
+<td style="text-align: center;"><strong>Purpose</strong></td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;">Honest Majority</td>
+</tr>
+<tr>
+<td style="text-align: left;">Block-Daemon <span class="citation"
+data-cites="Blockdaemon">[<a href="#ref-Blockdaemon"
+role="doc-biblioref">45</a>]</span></td>
+<td style="text-align: center;">P-224/256/384/521, Ed25519, Ed448</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;">Go, Java, Node</td>
+<td style="text-align: center;">+++</td>
+<td style="text-align: center;">Production</td>
+</tr>
+<tr>
+<td style="text-align: left;">Nakasendo <span class="citation"
+data-cites="nakasendo">[<a href="#ref-nakasendo"
+role="doc-biblioref">46</a>]</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">C++, Python</td>
+<td style="text-align: center;">+</td>
+<td style="text-align: center;">Undefined</td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;">Dishonest Majority</td>
+</tr>
+<tr>
+<td style="text-align: left;">Lockness <span class="citation"
+data-cites="dfns">[<a href="#ref-dfns"
+role="doc-biblioref">42</a>]</span></td>
+<td style="text-align: center;">secp256r1, stark</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;">Rust</td>
+<td style="text-align: center;">++</td>
+<td style="text-align: center;">Production</td>
+</tr>
+<tr>
+<td style="text-align: left;">circlefin <span class="citation"
+data-cites="circle">[<a href="#ref-circle"
+role="doc-biblioref">47</a>]</span></td>
+<td style="text-align: center;">ed25519</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">Go</td>
+<td style="text-align: center;">+</td>
+<td style="text-align: center;">Production</td>
+</tr>
+<tr>
+<td style="text-align: left;">silence-labs <span class="citation"
+data-cites="silence-laboratories">[<a href="#ref-silence-laboratories"
+role="doc-biblioref">43</a>]</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">Rust</td>
+<td style="text-align: center;">+</td>
+<td style="text-align: center;">PoC</td>
+</tr>
+<tr>
+<td style="text-align: left;">0xCarbon <span class="citation"
+data-cites="0xCarbon">[<a href="#ref-0xCarbon"
+role="doc-biblioref">48</a>]</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">Rust</td>
+<td style="text-align: center;">+</td>
+<td style="text-align: center;">Undefined</td>
+</tr>
+<tr>
+<td style="text-align: left;">ZenGo-X <span class="citation"
+data-cites="ZenGo-X">[<a href="#ref-ZenGo-X"
+role="doc-biblioref">49</a>]</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;">Rust</td>
+<td style="text-align: center;">++</td>
+<td style="text-align: center;">PoC</td>
+</tr>
+<tr>
+<td style="text-align: left;">alephzero <span class="citation"
+data-cites="alephzero">[<a href="#ref-alephzero"
+role="doc-biblioref">50</a>]</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">Go</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">PoC</td>
+</tr>
+<tr>
+<td style="text-align: left;">taurushq-io <span class="citation"
+data-cites="taurushq-io">[<a href="#ref-taurushq-io"
+role="doc-biblioref">51</a>]</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;">Go</td>
+<td style="text-align: center;">+</td>
+<td style="text-align: center;">Undefined</td>
+</tr>
+<tr>
+<td style="text-align: left;">cait-sith <span class="citation"
+data-cites="cait-sith">[<a href="#ref-cait-sith"
+role="doc-biblioref">52</a>]</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">Rust</td>
+<td style="text-align: center;">+</td>
+<td style="text-align: center;">PoC</td>
+</tr>
+<tr>
+<td style="text-align: left;">bnb-chain <span class="citation"
+data-cites="bnb-chain">[<a href="#ref-bnb-chain"
+role="doc-biblioref">53</a>]</span></td>
+<td style="text-align: center;">Edwards</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;">Go</td>
+<td style="text-align: center;">++</td>
+<td style="text-align: center;">Production</td>
+</tr>
+<tr>
+<td style="text-align: left;">Protect <span class="citation"
+data-cites="protect">[<a href="#ref-protect"
+role="doc-biblioref">54</a>]</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">Java</td>
+<td style="text-align: center;">+++</td>
+<td style="text-align: center;">PoC</td>
+</tr>
+<tr>
+<td style="text-align: left;">Safe-heron <span class="citation"
+data-cites="Safeheron">[<a href="#ref-Safeheron"
+role="doc-biblioref">55</a>]</span></td>
+<td style="text-align: center;">P-256, stark</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;">C++</td>
+<td style="text-align: center;">+</td>
+<td style="text-align: center;">Production</td>
+</tr>
+<tr>
+<td colspan="7" style="text-align: center;">Framework</td>
+</tr>
+<tr>
+<td style="text-align: left;">MP-SPDZ <span class="citation"
+data-cites="mp-spdz">[<a href="#ref-mp-spdz"
+role="doc-biblioref">56</a>]</span></td>
+<td style="text-align: center;">P-256</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;">Python, C++</td>
+<td style="text-align: center;">+++</td>
+<td style="text-align: center;">PoC</td>
+</tr>
+</tbody>
+</table>
+<figcaption>Comparison of software libraries of TSSs.
+All support at least secp256k1, so we do not list it separately. The
+<em>Docs</em> column indicates the quality of documentation: more “+” or
+“-” for better or poorer documentation, respectively</figcaption>
+</figure>
+
+<h2 id="theoretical-and-empirical-evaluations">Theoretical and Empirical
+Evaluations</h2>
+<p>The section provides an overview of the experiment design and the
+evaluation findings.</p>
+<h3 id="security-analysis">Security Analysis</h3>
+<p>As a part of the theoretical evaluation, we consider the
+communication and computational complexities of the CGGMP21 protocol.
+This information provides details about the scalability of our solution,
+which is a critical consideration for its applicability. Figure <a
+href="#tab:comp-comm" data-reference-type="ref"
+data-reference="tab:comp-comm">5</a> summarizes the complexities from
+the perspective of a single node, including the respective communication
+rounds and Big(O) cost.</p>
+<p>The security of the KMN falls back on the security
+of the CGGMP21 protocol, as implemented in the <em>Lockness</em>
+library, which has been rigorously audited. However, additional
+considerations for KMN security include the
+security of performing background DKG and key assignments. The
+execution of DKG in the background does not
+compromise overall security, as unauthorized access to the database of a
+node would expose the key shares of that node, regardless of when or how
+they are generated. Moreover, considering the system architecture,
+including the PP, an adversary who gains
+control of the PP would not be able to forge
+signatures. This is because every transaction request to the PP
+requires an authentication token tied to the user, such as biometric
+verification stored securely on the user device enclave. While an
+attacker in this scenario could disrupt operations, such activity would
+be detectable, allowing for a prompt restart of the PP to
+restore functionality. Notably, a coordinator is introduced in the
+implementation because it simplifies communication to facilitate the
+implementation of PoC.</p>
+<p>The <em>Lockness</em> library operates under two primary assumptions:
+(1) all messages are authenticated, and (2) all P2P
+messages are encrypted. These requirements are fulfilled using the
+<em>libp2p</em> library, which ensures secure and encrypted
+communication channels. Additionally, the library assumes reliable
+broadcast, achieved using an integrated reliability check mechanism.
+This mechanism enables each participant to hash the messages received in
+the previous round and include these hashes in their outgoing messages.
+By comparing these hashes, participants verify that all parties have
+received identical messages, ensuring consistency and reliability
+throughout the protocol execution.</p>
+
+<figure id="tab:comp-comm">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Phase</strong></th>
+<th style="text-align: center;"><strong>Round</strong></th>
+<th style="text-align: center;"><strong>Computation</strong></th>
+<th style="text-align: center;"><strong>Communication</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Key Generation</strong></td>
+<td style="text-align: center;">Round 1</td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Round 2</td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Round 3</td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Output</td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></td>
+<td style="text-align: center;">no communication</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Presigning</strong></td>
+<td style="text-align: center;">Round 1</td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">O(t)</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">O(t)</annotation></semantics></math></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Round 2</td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">O(t)</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">O(t)</annotation></semantics></math></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Round 3</td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">O(t)</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">O(t)</annotation></semantics></math></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Output</td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">O(t)</annotation></semantics></math></td>
+<td style="text-align: center;">no communication</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Signing</strong></td>
+<td style="text-align: center;">Round 1</td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">O(t)</annotation></semantics></math></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Output</td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">O(t)</annotation></semantics></math></td>
+<td style="text-align: center;">no communication</td>
+</tr>
+</tbody>
+</table>
+<figcaption>Complexities for CGGMP21 protocol <span class="citation"
+data-cites="cryptoeprint:2021/060 glas2022evaluation">[<a
+href="#ref-cryptoeprint:2021/060" role="doc-biblioref">3</a>, <a
+href="#ref-glas2022evaluation"
+role="doc-biblioref">57</a>]</span></figcaption>
+</figure>
+<h3 id="experiment-design-empirical-evaluation">Experiment Design &amp;
+Empirical Evaluation</h3>
+<p>The implementation is based on the Rust-based <em>Lockness</em>
+library <span class="citation" data-cites="dfns">[<a href="#ref-dfns"
+role="doc-biblioref">42</a>]</span>. The library abstracts the network
+layer, requiring only stream-based input and output for message
+exchange. For this, we rely on the <em>libp2p</em> library <span
+class="citation" data-cites="libp2p2023">[<a href="#ref-libp2p2023"
+role="doc-biblioref">58</a>]</span> to handle peer-to-peer
+communication.</p>
+<p>We adopt the KMN approach (i.e.,
+<strong>Solution 2</strong>). In this setup, each FSP
+integrates its KMN. Keys and pre-signatures
+are generated in advance by the KMN nodes. When a PP
+sends a key generation request, the KMN assigns an unallocated key
+to the request. Pre-signatures are utilized for signature operations on
+Filia commands; otherwise, the system falls back to an interactive
+signing step where the PP waits for the KMN
+nodes to interactively generate a signature. We introduce a coordinator
+node between the client PP and the KMN
+nodes. This node collects key shares from the KMN
+nodes to reconstruct the full key during key export. It also manages key
+import operations by receiving a full key and splitting it into
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+key shares for the key addition/update process. Additionally, the
+coordinator node aggregates pre-signatures (also known as partial
+signatures) from the KMN nodes to produce the final
+signature, which is then sent back to the client.</p>
+<p>The evaluation is conducted in two phases. First, we benchmark
+cryptographic operations independently to analyze performance under
+varying
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>.
+These should provide insights into the cost following the overview in
+Figure <a href="#tab:comp-comm" data-reference-type="ref"
+data-reference="tab:comp-comm">5</a>. Second, we integrated the updated
+protocol into the Filia system and measured end-to-end
+transaction performance, including latency and throughput.</p>
+<p>The cryptographic operations are evaluated in a local testbed using
+the METHODA <span class="citation"
+data-cites="Rezabek2022EngineJNSM rezabek2023preprint">[<a
+href="#ref-Rezabek2022EngineJNSM" role="doc-biblioref">8</a>, <a
+href="#ref-rezabek2023preprint" role="doc-biblioref">9</a>]</span>
+framework. Our experiments run on four dedicated nodes. Each dedicated
+node has 64 vCPUs and 768 GB of RAM. Each
+experiment includes application code and service management files, which
+handle configuration and execution across nodes. Within METHODA, scenarios define
+sequences of experiments, allowing controlled adjustments to parameters
+like
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>.
+The nodes are interconnected over a dedicated test switch. To assess the
+scalability of the solution, we carry out experiments with various
+values of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mn>2</mn><mo>,</mo><mi>n</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">t = 2, n = 3</annotation></semantics></math>
+to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mn>32</mn><mo>,</mo><mi>n</mi><mo>=</mo><mn>52</mn></mrow><annotation encoding="application/x-tex">t = 32, n = 52</annotation></semantics></math>.
+We evaluate individual steps, including DKG, pre-signing, and signing.
+Each experiment involves 100 iterations and uses a single thread per
+node. These parameters are chosen based on evaluations of other
+threshold signature schemes (e.g., FROST <span class="citation"
+data-cites="cryptoeprint:2020/852">[<a href="#ref-cryptoeprint:2020/852"
+role="doc-biblioref">39</a>]</span>, GG18 <span class="citation"
+data-cites="cryptoeprint:2019/114">[<a href="#ref-cryptoeprint:2019/114"
+role="doc-biblioref">59</a>]</span>, and GG20 <span class="citation"
+data-cites="cryptoeprint:2020/540">[<a href="#ref-cryptoeprint:2020/540"
+role="doc-biblioref">24</a>]</span>) and relevance to expect the scale
+of the CBDC deployments. We fix the
+message size to 256 bit. We measured the computation and I/O time for each
+step during the experiment run. The <strong>computation time</strong> is
+the time each node spends on local cryptographic operations. On the
+other hand, the <strong>I/O time</strong> is the total time each node
+waits for messages to proceed to the next round. Therefore, the total
+iteration time is the sum of computation and I/O times. This evaluation
+uses the PerfProfiler utility from the <em>Lockness</em> library. Time
+measurement begins at the start of the iteration once the room ID is
+assigned and all nodes are ready to execute the protocol. This assumes
+all expected nodes can communicate with each other.</p>
+<p>Each epoch begins when all nodes in the protocol discover and
+authenticate each other. Each node waits for a defined number of nodes
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+and then assigns each protocol iteration a unique room ID with a
+dedicated communication channel for that iteration’s messages. Time
+measurement begins at the start of the iteration once the room ID is
+assigned and all nodes are ready to execute the protocol.</p>
+
+<h4 id="results-of-phase-1">Results of Phase 1</h4>
+<p>First, we conduct experiments of the DKG. The results show that increasing the
+number of nodes and the threshold directly impacts the time required for
+DKG. As shown in Figure <a
+href="#fig:dkg-time" data-reference-type="ref"
+data-reference="fig:dkg-time">6</a>, the time increases quadratically
+with the number of nodes and threshold. This is also the case for the
+I/O time when each node has to wait to proceed, as shown in Figure <a
+href="#fig:dkg-io" data-reference-type="ref"
+data-reference="fig:dkg-io">7</a>. We observe that for a smaller number
+of nodes, the I/O time exceeds computation time, likely due to
+communication delay among nodes. However, computation time begins to
+dominate the total DKG duration as the number of
+nodes and threshold increase, observing computation time up to 2500 ms
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>52</mn></mrow><annotation encoding="application/x-tex">n=52</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mn>32</mn></mrow><annotation encoding="application/x-tex">t=32</annotation></semantics></math>.
+More time is spent on computation than on I/O.</p>
+
+<figure id="fig:dkg-time">
+  <img src="{% link assets/img/research/threshold/computation_plots.pdf.svg %}" alt="">
+<figcaption>DKG Computation Time</figcaption>
+</figure>
+<figure id="fig:dkg-io">
+  <img src="{% link assets/img/research/threshold/io_separate_plots.pdf.svg %}" alt="">
+<figcaption>DKG I/O Time</figcaption>
+</figure>
+
+<p>As pre-signing and signing are not dependent on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>,
+we average all values for respective computation and I/O times. The pre-signing follows a similar
+tendency for increasing
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>.
+Figure <a href="#fig:presign-time" data-reference-type="ref"
+data-reference="fig:presign-time">8</a> shows computation time with a
+quadratic increase. For the I/O time, we observe fractional cost in
+comparison to the computation time, as shown in Figure <a
+href="#fig:presign-io" data-reference-type="ref"
+data-reference="fig:presign-io">9</a>.</p>
+
+<figure id="fig:presign-time">
+  <img src="{% link assets/img/research/threshold/presign_computation_by_threshold_separate.pdf.svg %}" alt="">
+<figcaption>Pre-signing Computation Time</figcaption>
+</figure>
+<figure id="fig:presign-io">
+  <img src="{% link assets/img/research/threshold/presign_io_by_threshold_separate.pdf.svg %}" alt="">
+<figcaption>Pre-signing I/O Time</figcaption>
+</figure>
+
+<p>Continuing with signing, we observe some order of times as for
+pre-signing. Especially the Figure <a href="#fig:sign-time"
+data-reference-type="ref" data-reference="fig:sign-time">10</a> is
+almost identical to the Figure <a href="#fig:presign-time"
+data-reference-type="ref" data-reference="fig:presign-time">8</a>.
+However, for I/O time we observe an increase, as introduced in Figure <a
+href="#fig:sign-io" data-reference-type="ref"
+data-reference="fig:sign-io">11</a>. The time difference between
+pre-signing and signing is minimal, indicating that the final online
+round, which produces the signature on the known message, is
+computationally inexpensive.</p>
+
+<figure id="fig:sign-time">
+  <img src="{% link assets/img/research/threshold/sign_computation_by_threshold_separate.pdf.svg %}" alt="">
+<figcaption>Signing Computation Time</figcaption>
+</figure>
+<figure id="fig:sign-io">
+<img src="{% link assets/img/research/threshold/sign_io_by_threshold_separate.pdf.svg %}" alt="">
+<figcaption>Signing I/O Time</figcaption>
+</figure>
+
+<h4 id="results-of-phase-2">Results of Phase 2</h4>
+<p>The integration testing is carried out locally on a MacBook M3 Pro
+due to the complexity of setting up a private cloud-controlled
+environment and the challenges of porting the code to external
+infrastructure. The setup includes two KMNs
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mn>2</mn><mo>,</mo><mi>n</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">t = 2, n = 3</annotation></semantics></math>),
+two FSPs hosting PPs, and
+a central Verifier hosted in a Docker container to validate
+transactions. We test two use cases: UC1
+transfers between customers of the same FSP, whereas UC2
+emulates transfers between different FSPs. The evaluation simulated
+varying loads with 1, 2, 3, 10, 20, 30, 100, 200, and 300 concurrent
+users over 30-minute test sessions. Wallets were pre-created using APIs
+exposed by the PPs, with each wallet assigned
+sufficient funds to execute transfers. The load tests measured end-to-end
+transaction timing, starting from the API call to initiate the transfer
+until the recipient’s wallet confirmed transaction completion. As shown
+in Figure <a href="#fig:througput" data-reference-type="ref"
+data-reference="fig:througput">12</a>, throughput increases steadily as
+the load increases in UC1, while in UC2,
+throughput improves slightly. In both cases, the latency increases as
+the load increases, as shown in Figures <a href="#fig:througput"
+data-reference-type="ref" data-reference="fig:througput">12</a> and <a
+href="#fig:latency" data-reference-type="ref"
+data-reference="fig:latency">13</a>. Performance evaluations reveal an
+order-of-magnitude decrease in throughput when using threshold
+signatures, particularly for cross-FSP transfers. Under high
+loads (100, 200, and 300 concurrent users), UC2
+throughput drops to approximately 1.2 transactions per second, compared to 60
+in a non-threshold configuration. Similarly, UC1
+throughput decreases from 190 to around 10.7 transactions per second
+in the same setup. We also observe failed transactions with more
+concurrent users for throughput with an error rate of up to 0.15 %, as
+shown in Figure <a href="#fig:througput" data-reference-type="ref"
+data-reference="fig:througput">12</a>.</p>
+
+<figure id="fig:througput">
+  <img src="{% link assets/img/research/threshold/throughput.pdf.svg %}" alt="">
+<figcaption>Total throughput w/ increasing concurrent users</figcaption>
+</figure>
+<figure id="fig:latency">
+  <img src="{% link assets/img/research/threshold/latency.pdf.svg %}" alt="">
+<figcaption>E2E latency with increasing concurrent users</figcaption>
+</figure>
+
+
+<h3 id="discussion-1">Discussion</h3>
+<p>The CGGMP21 protocol and the KMN architecture collectively
+address all the requirements described, making them a fitting choice for
+Filia and other CBDC systems. However, further
+research is necessary to address performance challenges with threshold
+cryptography. As the number of nodes and the threshold increase, the
+performance of the cryptographic operations degrades noticeably. This is
+due to the growing computational and communication complexity, which
+scales with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>,
+as detailed in Figure <a href="#tab:comp-comm" data-reference-type="ref"
+data-reference="tab:comp-comm">5</a>. In practical deployments, a
+smaller number of nodes is often sufficient to maintain better
+performance, and unless operated properly, larger node counts do not
+necessarily yield more security advantages. It is important to note that
+integration testing results are based on executions in a testing
+environment; a speedup is expected in a production-ready setup, provided
+the environment is carefully tuned to optimize performance and minimize
+resource constraints. While the added latency of communication between
+the PP and the KMN
+introduces a slight overhead, the system’s scalability is mainly
+influenced by bottlenecks identified during the PoC.</p>
+<p>A key bottleneck appears in the time spent during signing operations
+without a pre-signature. This delay is introduced during the key import
+and update step, where the new key
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mn>1</mn></msub><mo>+</mo><msub><mi>r</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">r_1 + r_2</annotation></semantics></math>
+has no pre-signature (Step 7 in Figure <a href="#fig:transaction"
+data-reference-type="ref" data-reference="fig:transaction">2</a>).
+Consequently, a complete interactive signing on the KMN
+side is required when merging and signing with this key. Sometimes, it
+is triggered by an interactive signing or key generation. This happens
+when the pre-generated keys are exhausted, or a key exists without a
+pre-signature. Therefore, the nodes have to re-initialize communication
+and authentication with each other, leading to higher latency and
+resource inefficiencies. Addressing these bottlenecks may involve
+triggering a pre-signing operation in the background upon key updates.
+Similarly, nodes can establish communication channels among different
+protocol executions to reduce the overhead of re-establishing the secure
+channel between nodes.</p>
+<p>The results for UC2 further indicate a
+non-zero error rate, with transaction timeouts caused by resource
+constraints. Transactions exceeding a 5-minute processing time are
+classified as errors, often due to unhandled temporary issues or
+resource locking by other jobs. Notably, an error rate is also observed
+in non-threshold transactions, indicating that the issue is not solely
+attributable to the use of TSS but rather to resource
+availability and system load. A potential solution to mitigate these
+errors would be horizontal scaling, allowing the system to dynamically
+allocate additional resources as transaction loads increase. In
+contrast, UC1 demonstrates zero errors,
+reflecting the lower complexity of same-FSP transfers compared to
+cross-FSP transfers.</p>
+<p>The experimental design of this evaluation follows a logical
+progression that validates the solution from PoC
+to performance assessment. The end-to-end transaction evaluations
+reveal the impact of TSSs on performance under
+various load conditions, replicating real-world transaction demands.
+Isolating cryptographic operations allows a detailed examination of
+resource costs associated with DKG, pre-signing, and signing.
+Although DKG and pre-signing occur as
+background tasks, their isolated evaluation highlights the computational
+demands they introduce. The signing evaluation shows the effect of the
+key update bottleneck, which requires interactive signing at that step.
+A configuration of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">t=2</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">n=3</annotation></semantics></math>
+requires approximately one second for an interactive signing process.
+While manageable under a small load, this latency represents a
+substantial performance cost as the system scales.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Our work improves the security and resilience of CBDC
+systems, using Filia as a representative platform to address typical
+requirements. A comprehensive theoretical analysis identifies key system
+requirements, including compatibility with existing infrastructures,
+high signature throughput, secure key reconstruction, key updates, and
+strong security guarantees. We also define the computational and
+communication complexity of the CGGMP21 protocol and establish a robust
+security model to address adversarial behaviors. Building on this
+foundation, the CGGMP21 protocol is selected and used to build a PoC,
+along with the design and implementation of a KMN
+architecture. Empirical evaluation shows that the evaluation of
+cryptographic operations aligns with the complexity analysis. Moreover,
+end-to-end transaction performance
+decreases by an order of magnitude compared to non-threshold systems,
+particularly in cross-FSP transactions. Despite
+this, the system demonstrates acceptable performance under varying loads
+for smaller values of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>,
+confirming the feasibility of TSS usage in practical CBDC
+deployments like Filia while addressing key security challenges.</p>
+<h3 id="future-work">Future Work</h3>
+<p>As outlined, we identified several parts for optimization, which aim
+to improve the computation and communication bottlenecks. Similarly,
+even though the dishonest majority setting fits the CBDC
+setting, investigating further TSS tailored to the honest
+majority setting may offer reduced complexity and improved efficiency
+for KMN. Last, since CBDC
+solutions will be used for the long term, investigating post-quantum
+secure TSSs is essential for their
+future-proofness. Further efforts can focus on optimizing the
+computational and communication overhead of threshold operations,
+particularly addressing the identified bottlenecks.</p>
+
+<h3>Acknowledgments</h3>
+<p>We thank Franziska Kreitmair for early discussions on this subject
+and the anonymous reviewers for suggesting improvements to this paper.
+This work has been partially supported by the German Federal Ministry of
+Research, Technology and Space (BMFTR), Verbundprojekt CONTAIN
+(13N16582) and POST (16KIS2159); the Bavarian Ministry of Economic
+Affairs, Regional Development, and Energy under project 6G Future Lab
+Bavaria; and Horizon Europe under project SLICES-PP (10107977).</p>
+
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0"
+role="list">
+<div id="ref-erinle2025sokdesignvulnerabilitiessecurity"
+class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div
+class="csl-right-inline">Erinle, Y., Kethepalli, Y., Feng, Y., Xu, J.:
+SoK: Design, vulnerabilities, and security measures of cryptocurrency
+wallets, (2025). https://doi.org/<a
+href="https://doi.org/10.48550/arXiv.2307.12874">10.48550/arXiv.2307.12874</a>.</div>
+</div>
+<div id="ref-gi-de-whitepaper" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div
+class="csl-right-inline">Giesecke+Devrient: Central bank digital
+currency g+d filia whitepaper, <a
+href="https://pages.gi-de.com/whitepaper-filia">https://pages.gi-de.com/whitepaper-filia</a>,
+(2024).</div>
+</div>
+<div id="ref-cryptoeprint:2021/060" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div
+class="csl-right-inline">Canetti, R., Gennaro, R., Goldfeder, S.,
+Makriyannis, N., Peled, U.: UC non-interactive, proactive, threshold
+ECDSA with identifiable aborts. In: Proceedings of the 2020 ACM SIGSAC
+conference on computer and communications security. pp. 1769–1787.
+Association for Computing Machinery, New York, NY, USA (2020).
+https://doi.org/<a
+href="https://doi.org/10.1145/3372297.3423367">10.1145/3372297.3423367</a>.</div>
+</div>
+<div id="ref-10.1145/22145.22178" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div
+class="csl-right-inline">Goldwasser, S., Micali, S., Rackoff, C.: The
+knowledge complexity of interactive proof-systems. In: Proceedings of
+the seventeenth annual ACM symposium on theory of computing. pp.
+291–304. Association for Computing Machinery, New York, NY, USA (1985).
+https://doi.org/<a
+href="https://doi.org/10.1145/22145.22178">10.1145/22145.22178</a>.</div>
+</div>
+<div id="ref-10.5555/1756123.1756146" class="csl-entry" role="listitem">
+<div class="csl-left-margin">5. </div><div
+class="csl-right-inline">Paillier, P.: Public-key cryptosystems based on
+composite degree residuosity classes. In: Proceedings of the 17th
+international conference on theory and application of cryptographic
+techniques. pp. 223–238. Springer-Verlag, Berlin, Heidelberg
+(1999).</div>
+</div>
+<div id="ref-10.1145/359168.359176" class="csl-entry" role="listitem">
+<div class="csl-left-margin">6. </div><div
+class="csl-right-inline">Shamir, A.: How to share a secret. Commun. ACM.
+22, 612–613 (1979). https://doi.org/<a
+href="https://doi.org/10.1145/359168.359176">10.1145/359168.359176</a>.</div>
+</div>
+<div id="ref-10.1007/978-3-540-30576-7_19" class="csl-entry"
+role="listitem">
+<div class="csl-left-margin">7. </div><div
+class="csl-right-inline">Cramer, R., Damgård, I., Ishai, Y.: Share
+conversion, pseudorandom secret-sharing and applications to secure
+computation. In: Proceedings of the second international conference on
+theory of cryptography. pp. 342–362. Springer-Verlag, Berlin, Heidelberg
+(2005). https://doi.org/<a
+href="https://doi.org/10.1007/978-3-540-30576-7_19">10.1007/978-3-540-30576-7_19</a>.</div>
+</div>
+<div id="ref-Rezabek2022EngineJNSM" class="csl-entry" role="listitem">
+<div class="csl-left-margin">8. </div><div
+class="csl-right-inline">Rezabek, F., Bosk, M., Paul, T., Holzinger, K.,
+Gallenmüller, S., Gonzalez, A., Kane, A., Fons, F., Haigang, Z., Carle,
+G., Ott, J.: EnGINE: Flexible research infrastructure for reliable and
+scalable time sensitive networks. Journal of Network and Systems
+Management. 30, 74 (2022). https://doi.org/<a
+href="https://doi.org/10.1007/s10922-022-09686-0">10.1007/s10922-022-09686-0</a>.</div>
+</div>
+<div id="ref-rezabek2023preprint" class="csl-entry" role="listitem">
+<div class="csl-left-margin">9. </div><div
+class="csl-right-inline">Rezabek, F., Glas, K., Von Seck, R., Aroua, A.,
+Leonhardt, T., Carle, G.: <span class="nocase">Multilayer Environment
+and Toolchain for Holistic NetwOrk Design and Analysis</span>, (2023).
+https://doi.org/<a
+href="https://doi.org/10.48550/arXiv.2310.16190">10.48550/arXiv.2310.16190</a>.</div>
+</div>
+<div id="ref-CBDC_Design_2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">10. </div><div
+class="csl-right-inline">Bank of Canada, Swiss National Bank, European
+Central Bank, Bank of England, Bank of Japan, Board of Governors Federal
+Reserve System, Sveriges Riksbank, Bank for International Settlements:
+Central bank digital currencies: System design, <a
+href="https://www.bis.org/publ/othp88_system_design.pdf">https://www.bis.org/publ/othp88_system_design.pdf</a>,
+(2024).</div>
+</div>
+<div id="ref-CBDC_Risk_2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">11. </div><div
+class="csl-right-inline">Consultative Group on Risk Management: Central
+bank digital currency (CBDC) information security and operational risks
+to central banks, <a
+href="https://www.bis.org/publ/othp81.pdf">https://www.bis.org/publ/othp81.pdf</a>,
+(2023).</div>
+</div>
+<div id="ref-cryptoeprint:2022/974" class="csl-entry" role="listitem">
+<div class="csl-left-margin">12. </div><div
+class="csl-right-inline">Sarencheh, A., Kiayias, A., Kohlweiss, M.:
+<span>PEReDi</span>: Privacy-enhanced, regulated and distributed central
+bank digital currencies, <a
+href="https://eprint.iacr.org/2022/974">https://eprint.iacr.org/2022/974</a>,
+(2022).</div>
+</div>
+<div id="ref-cryptoeprint:2023/1717" class="csl-entry" role="listitem">
+<div class="csl-left-margin">13. </div><div
+class="csl-right-inline">Androulaki, E., Brandenburger, M., Caro, A.D.,
+Elkhiyaoui, K., Filios, A., Funaro, L., Manevich, Y., Natarajan, S.,
+Sethi, M.: A framework for resilient, transparent, high-throughput,
+privacy-enabled central bank digital currencies, <a
+href="https://eprint.iacr.org/2023/1717">https://eprint.iacr.org/2023/1717</a>,
+(2023).</div>
+</div>
+<div id="ref-mpc-a" class="csl-entry" role="listitem">
+<div class="csl-left-margin">14. </div><div class="csl-right-inline">MPC
+Alliance: MPC alliance, <a
+href="https://www.mpcalliance.org/">https://www.mpcalliance.org/</a>,
+last accessed 2025/09/08.</div>
+</div>
+<div id="ref-dfns2024cggmp21" class="csl-entry" role="listitem">
+<div class="csl-left-margin">15. </div><div
+class="csl-right-inline">Varlakov, D., Katz, J.: CGGMP21 in rust, at
+last, <a
+href="https://www.dfns.co/article/cggmp21-in-rust-at-last">https://www.dfns.co/article/cggmp21-in-rust-at-last</a>,
+last accessed 2025/09/08.</div>
+</div>
+<div id="ref-fireblocks2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">16. </div><div
+class="csl-right-inline">Fireblocks: Fireblocks, <a
+href="https://www.fireblocks.com/">https://www.fireblocks.com/</a>, last
+accessed 2024/11/12.</div>
+</div>
+<div id="ref-cryptoeprint:2022/062" class="csl-entry" role="listitem">
+<div class="csl-left-margin">17. </div><div
+class="csl-right-inline">Escudero, D.: An introduction to
+secret-sharing-based secure multiparty computation, <a
+href="https://eprint.iacr.org/2022/062">https://eprint.iacr.org/2022/062</a>,
+(2022).</div>
+</div>
+<div id="ref-cryptoeprint:2014/668" class="csl-entry" role="listitem">
+<div class="csl-left-margin">18. </div><div
+class="csl-right-inline">Cohen, R., Lindell, Y.: Fairness versus
+guaranteed output delivery in secure multiparty computation, <a
+href="https://eprint.iacr.org/2014/668">https://eprint.iacr.org/2014/668</a>,
+(2014).</div>
+</div>
+<div id="ref-cryptoeprint:1998/012" class="csl-entry" role="listitem">
+<div class="csl-left-margin">19. </div><div
+class="csl-right-inline">Canetti, R., Halevi, S., Herzberg, A.:
+Maintaining authenticated communication in the presence of break-ins, <a
+href="https://eprint.iacr.org/1998/012">https://eprint.iacr.org/1998/012</a>,
+(1998).</div>
+</div>
+<div id="ref-cryptoeprint:2020/1390" class="csl-entry" role="listitem">
+<div class="csl-left-margin">20. </div><div
+class="csl-right-inline">Aumasson, J.-P., Hamelink, A., Shlomovits, O.:
+A survey of <span>ECDSA</span> threshold signing, <a
+href="https://eprint.iacr.org/2020/1390">https://eprint.iacr.org/2020/1390</a>,
+(2020).</div>
+</div>
+<div
+id="ref-sedghighadikolaei2024comprehensivesurveythresholdsignatures"
+class="csl-entry" role="listitem">
+<div class="csl-left-margin">21. </div><div
+class="csl-right-inline">Sedghighadikolaei, K., Yavuz, A.A.: A
+comprehensive survey of threshold signatures: NIST standards,
+post-quantum cryptography, exotic techniques, and real-world
+applications, (2024). https://doi.org/<a
+href="https://doi.org/10.48550/arXiv.2311.05514">10.48550/arXiv.2311.05514</a>.</div>
+</div>
+<div id="ref-cryptoeprint:2023/765" class="csl-entry" role="listitem">
+<div class="csl-left-margin">22. </div><div
+class="csl-right-inline">Doerner, J., Kondi, Y., Lee, E., shelat, abhi:
+Threshold <span>ECDSA</span> in three rounds, <a
+href="https://eprint.iacr.org/2023/765">https://eprint.iacr.org/2023/765</a>,
+(2023).</div>
+</div>
+<div id="ref-cryptoeprint:2020/492" class="csl-entry" role="listitem">
+<div class="csl-left-margin">23. </div><div
+class="csl-right-inline">Canetti, R., Makriyannis, N., Peled, U.: UC
+non-interactive, proactive, threshold ECDSA, <a
+href="https://eprint.iacr.org/2020/492">https://eprint.iacr.org/2020/492</a>,
+(2020).</div>
+</div>
+<div id="ref-cryptoeprint:2020/540" class="csl-entry" role="listitem">
+<div class="csl-left-margin">24. </div><div
+class="csl-right-inline">Gennaro, R., Goldfeder, S.: One round threshold
+ECDSA with identifiable abort, <a
+href="https://eprint.iacr.org/2020/540">https://eprint.iacr.org/2020/540</a>,
+(2020).</div>
+</div>
+<div id="ref-cryptoeprint:2018/987" class="csl-entry" role="listitem">
+<div class="csl-left-margin">25. </div><div
+class="csl-right-inline">Haitner, I., Lindell, Y., Nof, A., Ranellucci,
+S.: Fast secure multiparty ECDSA with practical distributed key
+generation and applications to cryptocurrency custody, <a
+href="https://eprint.iacr.org/2018/987">https://eprint.iacr.org/2018/987</a>,
+(2018).</div>
+</div>
+<div id="ref-cryptoeprint:2018/499" class="csl-entry" role="listitem">
+<div class="csl-left-margin">26. </div><div
+class="csl-right-inline">Doerner, J., Kondi, Y., Lee, E., Shelat, A.:
+Secure two-party threshold ECDSA from ECDSA assumptions. In: 2018 IEEE
+symposium on security and privacy (SP). pp. 980–997 (2018).
+https://doi.org/<a
+href="https://doi.org/10.1109/SP.2018.00036">10.1109/SP.2018.00036</a>.</div>
+</div>
+<div id="ref-cryptoeprint:2019/523" class="csl-entry" role="listitem">
+<div class="csl-left-margin">27. </div><div
+class="csl-right-inline">Doerner, J., Kondi, Y., Lee, E., Shelat, A.:
+Threshold ECDSA from ECDSA assumptions: The multiparty case. In: 2019
+IEEE symposium on security and privacy (SP). pp. 1051–1066 (2019).
+https://doi.org/<a
+href="https://doi.org/10.1109/SP.2019.00024">10.1109/SP.2019.00024</a>.</div>
+</div>
+<div id="ref-eurocrypt-1996-2312" class="csl-entry" role="listitem">
+<div class="csl-left-margin">28. </div><div
+class="csl-right-inline">Gennaro, R., Jarecki, S., Krawczyk, H., Rabin,
+T.: Robust threshold DSS signatures. In: Advances in cryptology -
+EUROCRYPT ’96, international conference on the theory and application of
+cryptographic techniques, saragossa, spain, may 12-16, 1996, proceeding.
+pp. 354–371. Springer (1996). https://doi.org/<a
+href="https://doi.org/10.1007/3-540-68339-9_31">10.1007/3-540-68339-9_31</a>.</div>
+</div>
+<div id="ref-cryptoeprint:2020/501" class="csl-entry" role="listitem">
+<div class="csl-left-margin">29. </div><div
+class="csl-right-inline">Damgård, I., Jakobsen, T.P., Nielsen, J.B.,
+Pagter, J.I., Østergård, M.B.: Fast threshold ECDSA with honest
+majority, <a
+href="https://eprint.iacr.org/2020/501">https://eprint.iacr.org/2020/501</a>,
+(2020).</div>
+</div>
+<div id="ref-cryptoeprint:2021/1386" class="csl-entry" role="listitem">
+<div class="csl-left-margin">30. </div><div
+class="csl-right-inline">Pettit, M.: Efficient threshold-optimal ECDSA,
+<a
+href="https://eprint.iacr.org/2021/1386">https://eprint.iacr.org/2021/1386</a>,
+(2021).</div>
+</div>
+<div id="ref-cryptoeprint:2020/214" class="csl-entry" role="listitem">
+<div class="csl-left-margin">31. </div><div
+class="csl-right-inline">Bonte, C., Smart, N.P., Tanguy, T.:
+Thresholdizing HashEdDSA: MPC to the rescue, <a
+href="https://eprint.iacr.org/2020/214">https://eprint.iacr.org/2020/214</a>,
+(2020).</div>
+</div>
+<div id="ref-10.1145/3545948.3545977" class="csl-entry" role="listitem">
+<div class="csl-left-margin">32. </div><div
+class="csl-right-inline">Shi, Y., Liang, J., Li, M., Ma, T., Ye, G., Li,
+J., Zhao, Q.: Threshold EdDSA signature for blockchain-based
+decentralized finance applications. In: Proceedings of the 25th
+international symposium on research in attacks, intrusions and defenses.
+pp. 129–142. Association for Computing Machinery, New York, NY, USA
+(2022). https://doi.org/<a
+href="https://doi.org/10.1145/3545948.3545977">10.1145/3545948.3545977</a>.</div>
+</div>
+<div id="ref-Stinson2001ProvablySD" class="csl-entry" role="listitem">
+<div class="csl-left-margin">33. </div><div
+class="csl-right-inline">Stinson, D.R., Strobl, R.: Provably secure
+distributed schnorr signatures and a (t, n) threshold scheme for
+implicit certificates. In: Varadharajan, V. and Mu, Y. (eds.)
+Information security and privacy. pp. 417–434. Springer Berlin
+Heidelberg, Berlin, Heidelberg (2001).</div>
+</div>
+<div id="ref-cryptoeprint:2024/466" class="csl-entry" role="listitem">
+<div class="csl-left-margin">34. </div><div
+class="csl-right-inline">Komlo, C., Goldberg, I.: Arctic: Lightweight
+and stateless threshold schnorr signatures, <a
+href="https://eprint.iacr.org/2024/466">https://eprint.iacr.org/2024/466</a>,
+(2024).</div>
+</div>
+<div id="ref-KR24" class="csl-entry" role="listitem">
+<div class="csl-left-margin">35. </div><div
+class="csl-right-inline">Kondi, Y., Ravi, D.: Separating broadcast from
+cheater identification, <a
+href="https://eprint.iacr.org/2025/052">https://eprint.iacr.org/2025/052</a>,
+(2025).</div>
+</div>
+<div id="ref-cryptoeprint:2024/2011" class="csl-entry" role="listitem">
+<div class="csl-left-margin">36. </div><div
+class="csl-right-inline">Katz, J., Urban, A.: Honest-majority threshold
+<span>ECDSA</span> with batch generation of key-independent
+presignatures, <a
+href="https://eprint.iacr.org/2024/2011">https://eprint.iacr.org/2024/2011</a>,
+(2024).</div>
+</div>
+<div id="ref-cryptoeprint:2021/1587" class="csl-entry" role="listitem">
+<div class="csl-left-margin">37. </div><div
+class="csl-right-inline">Abram, D., Nof, A., Orlandi, C., Scholl, P.,
+Shlomovits, O.: Low-bandwidth threshold ECDSA via pseudorandom
+correlation generators, <a
+href="https://eprint.iacr.org/2021/1587">https://eprint.iacr.org/2021/1587</a>,
+(2021).</div>
+</div>
+<div id="ref-cryptoeprint:2024/358" class="csl-entry" role="listitem">
+<div class="csl-left-margin">38. </div><div
+class="csl-right-inline">Feng, Q., Yang, K., Zhang, K., Wang, X., Yu,
+Y., Xie, X., He, D.: Stateless deterministic multi-party
+<span>EdDSA</span> signatures with low communication, <a
+href="https://eprint.iacr.org/2024/358">https://eprint.iacr.org/2024/358</a>,
+(2024).</div>
+</div>
+<div id="ref-cryptoeprint:2020/852" class="csl-entry" role="listitem">
+<div class="csl-left-margin">39. </div><div
+class="csl-right-inline">Komlo, C., Goldberg, I.: FROST: Flexible
+round-optimized schnorr threshold signatures, <a
+href="https://eprint.iacr.org/2020/852">https://eprint.iacr.org/2020/852</a>,
+(2020).</div>
+</div>
+<div id="ref-cryptoeprint:2022/550" class="csl-entry" role="listitem">
+<div class="csl-left-margin">40. </div><div
+class="csl-right-inline">Ruffing, T., Ronge, V., Jin, E.,
+Schneider-Bensch, J., Schröder, D.: ROAST: Robust asynchronous schnorr
+threshold signatures. In: Proceedings of the 2022 ACM SIGSAC conference
+on computer and communications security. pp. 2551–2564. Association for
+Computing Machinery, New York, NY, USA (2022). https://doi.org/<a
+href="https://doi.org/10.1145/3548606.3560583">10.1145/3548606.3560583</a>.</div>
+</div>
+<div id="ref-cryptoeprint:2022/374" class="csl-entry" role="listitem">
+<div class="csl-left-margin">41. </div><div
+class="csl-right-inline">Lindell, Y.: Simple three-round multiparty
+schnorr signing with full simulatability, <a
+href="https://eprint.iacr.org/2022/374">https://eprint.iacr.org/2022/374</a>,
+(2022).</div>
+</div>
+<div id="ref-dfns" class="csl-entry" role="listitem">
+<div class="csl-left-margin">42. </div><div
+class="csl-right-inline">Lockness: <span class="nocase">State-of-art
+threshold ECDSA in Rust</span>, <a
+href="https://github.com/LFDT-Lockness/cggmp21">https://github.com/LFDT-Lockness/cggmp21</a>,
+last accessed 2025/09/08.</div>
+</div>
+<div id="ref-silence-laboratories" class="csl-entry" role="listitem">
+<div class="csl-left-margin">43. </div><div
+class="csl-right-inline">S:lence Laboratories: Multi-party threshold
+signature library for ECDSA, <a
+href="https://github.com/silence-laboratories/silent-shard-dkls23-ll">https://github.com/silence-laboratories/silent-shard-dkls23-ll</a>,
+last accessed 2025/09/08.</div>
+</div>
+<div id="ref-cryptoeprint:2000/067" class="csl-entry" role="listitem">
+<div class="csl-left-margin">44. </div><div
+class="csl-right-inline">Canetti, R.: Universally composable security: A
+new paradigm for cryptographic protocols, <a
+href="https://eprint.iacr.org/2000/067">https://eprint.iacr.org/2000/067</a>,
+(2000).</div>
+</div>
+<div id="ref-Blockdaemon" class="csl-entry" role="listitem">
+<div class="csl-left-margin">45. </div><div
+class="csl-right-inline">Blockdaemon: Go version of the TSM SDKv2, <a
+href="https://gitlab.com/Blockdaemon/go-tsm-sdkv2">https://gitlab.com/Blockdaemon/go-tsm-sdkv2</a>.</div>
+</div>
+<div id="ref-nakasendo" class="csl-entry" role="listitem">
+<div class="csl-left-margin">46. </div><div
+class="csl-right-inline">Nakasendo Project: Nakasendo, <a
+href="https://web.archive.org/web/20200424131900/https://nakasendoproject.org/docs/HighLevelFunctions/index.html">https://web.archive.org/web/20200424131900/https://nakasendoproject.org/docs/HighLevelFunctions/index.html</a>.</div>
+</div>
+<div id="ref-circle" class="csl-entry" role="listitem">
+<div class="csl-left-margin">47. </div><div
+class="csl-right-inline">Circle Internet Financial, LLC: Robust
+threshold signatures library, <a
+href="https://github.com/circlefin/robust-tss-lib">https://github.com/circlefin/robust-tss-lib</a>.</div>
+</div>
+<div id="ref-0xCarbon" class="csl-entry" role="listitem">
+<div class="csl-left-margin">48. </div><div
+class="csl-right-inline">0xCarbon: Rust-based library for threshold
+ECDSA in three rounds, <a
+href="https://github.com/0xCarbon/DKLs23">https://github.com/0xCarbon/DKLs23</a>.</div>
+</div>
+<div id="ref-ZenGo-X" class="csl-entry" role="listitem">
+<div class="csl-left-margin">49. </div><div
+class="csl-right-inline">[Zengo X]: Threshold cryptography for
+blockchains, <a
+href="https://github.com/ZenGo-X">https://github.com/ZenGo-X</a>.</div>
+</div>
+<div id="ref-alephzero" class="csl-entry" role="listitem">
+<div class="csl-left-margin">50. </div><div
+class="csl-right-inline">alephzero: <span>Threshold ECDSA</span>, <a
+href="https://gitlab.com/alephledger/threshold-ecdsa">https://gitlab.com/alephledger/threshold-ecdsa</a>.</div>
+</div>
+<div id="ref-taurushq-io" class="csl-entry" role="listitem">
+<div class="csl-left-margin">51. </div><div
+class="csl-right-inline">Taurus SA: Implementation of protocols for
+threshold signatures, <a
+href="https://github.com/taurushq-io/multi-party-sig">https://github.com/taurushq-io/multi-party-sig</a>.</div>
+</div>
+<div id="ref-cait-sith" class="csl-entry" role="listitem">
+<div class="csl-left-margin">52. </div><div
+class="csl-right-inline">Meier, L.: Threshold ECDSA via triples, <a
+href="https://github.com/cronokirby/cait-sith">https://github.com/cronokirby/cait-sith</a>.</div>
+</div>
+<div id="ref-bnb-chain" class="csl-entry" role="listitem">
+<div class="csl-left-margin">53. </div><div class="csl-right-inline">BNB
+Chain: Threshold signature scheme, for ECDSA and EDDSA, <a
+href="https://github.com/bnb-chain/tss-lib">https://github.com/bnb-chain/tss-lib</a>.</div>
+</div>
+<div id="ref-protect" class="csl-entry" role="listitem">
+<div class="csl-left-margin">54. </div><div
+class="csl-right-inline">Resch, J., Cachin, C., Rabin, T.,
+Stathakopoulou, C., Krawczyk, H.: A platform for robust threshold
+cryptography, <a
+href="https://github.com/jasonkresch/protect">https://github.com/jasonkresch/protect</a>.</div>
+</div>
+<div id="ref-Safeheron" class="csl-entry" role="listitem">
+<div class="csl-left-margin">55. </div><div
+class="csl-right-inline">Safeheron: C++ implementation of
+(t,n)-threshold signature scheme, <a
+href="https://github.com/Safeheron/multi-party-sig-cpp">https://github.com/Safeheron/multi-party-sig-cpp</a>.</div>
+</div>
+<div id="ref-mp-spdz" class="csl-entry" role="listitem">
+<div class="csl-left-margin">56. </div><div
+class="csl-right-inline">Keller, M.: <span>MP-SPDZ</span>: A versatile
+framework for multi-party computation. In: Proceedings of the 2020 ACM
+SIGSAC conference on computer and communications security (2020).
+https://doi.org/<a
+href="https://doi.org/10.1145/3372297.3417872">10.1145/3372297.3417872</a>.</div>
+</div>
+<div id="ref-glas2022evaluation" class="csl-entry" role="listitem">
+<div class="csl-left-margin">57. </div><div
+class="csl-right-inline">Glas, K.: Evaluation of distributed key
+generation approaches for threshold ECDSA signature systems,
+(2022).</div>
+</div>
+<div id="ref-libp2p2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">58. </div><div
+class="csl-right-inline">libp2p: libp2p: A modular network stack for
+peer-to-peer protocols in rust, <a
+href="https://libp2p.io">https://libp2p.io</a>, last accessed
+2023/09/14.</div>
+</div>
+<div id="ref-cryptoeprint:2019/114" class="csl-entry" role="listitem">
+<div class="csl-left-margin">59. </div><div
+class="csl-right-inline">Gennaro, R., Goldfeder, S.: Fast multiparty
+threshold <span>ECDSA</span> with fast trustless setup, <a
+href="https://eprint.iacr.org/2019/114">https://eprint.iacr.org/2019/114</a>,
+(2019).</div>
+</div>
+</div>
