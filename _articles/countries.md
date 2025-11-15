@@ -27,6 +27,7 @@ I only count proper “stays”, e.g. layovers are not included.
 1. Croatia
 1. Czech Republic
 1. Denmark
+1. Estonia
 1. France
 1. Germany
 1. Ghana
@@ -55,6 +56,7 @@ I only count proper “stays”, e.g. layovers are not included.
 1. Slovakia
 1. Slovenia
 1. Spain
+1. Sri Lanka
 1. Sweden
 1. Switzerland
 1. Thailand
