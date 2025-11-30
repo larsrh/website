@@ -46,6 +46,7 @@ I am happy about suggestions.
 (The listings above should not be construed as endorsements.)
 
 From 2025, offsetting also includes some of my partner's flights.
+Conversely, some work flights are excluded: they are partly compensated by my employer.
 
 ## The receipts
 
