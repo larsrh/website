@@ -50,3 +50,9 @@
   recording: "https://www.youtube.com/watch?v=_XZFLIi2tso"
   slides: "https://speakerdeck.com/larsrh/der-digitale-euro-was-warum-wie"
   date: 2023-11-22
+- title: "How to write correct Scala programs"
+  conference: "Scala Days"
+  link: "https://archives.scaladays.org/2025/"
+  recording: "https://www.youtube.com/watch?v=c7e5H4aWQSs"
+  slides: "https://speakerdeck.com/larsrh/how-to-write-correct-scala-programs"
+  date: 2025-08-21
