@@ -17,7 +17,6 @@ conferences:
     date: 2016-05-02
     link: "http://2016.flatmap.no/hupel.html#session"
     slides: "https://speakerdeck.com/larsrh/how-to-test-proper-l-t-y"
-    recording: "https://vimeo.com/165852636"
   - conference: "Scala Matsuri"
     date: 2019-06-29
     location: Tokyo, Japan

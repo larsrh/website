@@ -9,7 +9,7 @@ slides:
   file: "slides"
   length: 39
   width: 960
-video: { id: "128466888", site: vimeo }
+video: { id: "lN5viUFz21U", site: yt }
 conferences:
   - conference: "Lambda World"
     date: 2015-10-24
@@ -22,7 +22,6 @@ conferences:
     location: Oslo, Norway
     link: "http://2015.flatmap.no/hupel.html#session"
     slides: "https://speakerdeck.com/larsrh/optimusprimet-cats-edition"
-    recording: "https://vimeo.com/128466888"
   - conference: "Scala.io"
     date: 2014-10-24
     location: Paris, France
