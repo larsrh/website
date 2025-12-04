@@ -20,7 +20,7 @@
       {% if include.site == "vimeo" %}
         <iframe src="https://player.vimeo.com/video/{{ include.id }}?dnt=1" title="Vimeo player" allowfullscreen></iframe>
       {% else %}
-        <iframe src="https://www.youtube-nocookie.com/embed/{{ include.id }}" title="YouTube player" allowfullscreen></iframe>
+        <iframe src="https://www.youtube-nocookie.com/embed/{{ include.id }}" title="YouTube player" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
       {% endif %}
     </template>
     <div class="video-consent hyphenate">
