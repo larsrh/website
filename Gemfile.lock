@@ -34,7 +34,7 @@ GEM
       fiber-storage
     fiber-storage (1.0.1)
     forwardable-extended (2.6.0)
-    google-protobuf (4.33.1)
+    google-protobuf (4.33.2)
       bigdecimal
       rake (>= 13)
     hashery (2.1.2)
