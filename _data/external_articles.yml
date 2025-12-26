@@ -504,3 +504,9 @@
   lang: de
   abstract: "In der neuesten Episode des Software Testing Podcasts feiern wir die World Quality Week. Ich spreche mit mit Lars und Bianca darüber, wie man Fehlerfreiheit in Software mathematisch beweisen kann und welche Tools dabei helfen. Bianca erklärt uns anhand von Beispielen aus der Finanz- und Automobilbranche, warum bestimmte Systeme absolute Fehlerfreiheit benötigen. Lars ergänzt das Gespräch mit Einblicken in formale Methoden und wie sie in der Praxis angewendet werden. Ein besonders interessantes Thema war, wie KI uns bei der Beweisführung unterstützen kann."
   url: "https://www.youtube.com/watch?v=o4MjWYZ2Noc"
+- date: 2025-03-03
+  title: "Der digitale Euro: Elektronisch, aber offline-fähig"
+  journal: "eFin & Demokratie"
+  lang: de
+  abstract: "Die beabsichtigte Offline-Funktion eines digitalen Euro ist die vielleicht aufwändigste, aber für viele Beobachter auch eine der wichtigsten Funktionen einer CBDC. Aber was genau lässt sich darunter vorstellen, wie sehr „offline“ kann digitales Zahlen überhaupt sein und welche Rolle spielen hier die „Secure Elements“, also konkrete Hardware?"
+  url: "https://zevedi.de/efinblog-der-digitale-euro-elektronisch-aber-offline-faehig/"
