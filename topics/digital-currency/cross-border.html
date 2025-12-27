@@ -1,0 +1,151 @@
+---
+title: "Cross-border payment: there is no such thing"
+date: 2024-11-04
+hero:
+  src: img/topics/digital-currency/cross-border/header.jpg
+  alt: A few strands of barbed wire
+  credits: Abhijit Chirde on Unsplash
+canonical: "https://www.linkedin.com/pulse/cross-border-payment-thing-dr-lars-hupel-xmlcf/"
+---
+
+<p>The IMF has recently published <a href="https://www.linkedin.com/feed/update/urn:li:activity:7248328709093343232/">a
+    fintech note</a> on cross-border payments with retail CBDC. There is only one problem with it:
+  there is no such thing as a “cross-border payment”.</p>
+<p>I am being facetious. Clearly, it is possible to move funds from one country to another country. Under many—if not
+  most—circumstances, I can instruct my bank to transfer money to a foreign account, using the recipient’s IBAN (see an
+  <a href="{% link topics/digital-currency/payment-routing.html %}">earlier article</a>
+  for an explanation). This process may take a few days, but eventually, the foreign account will be credited with
+  foreign currency.
+</p>
+<p>Then why do I say that there is no such thing?</p>
+<p>Because under the hood, a “cross-border payment” is actually multiple payments, each of which using only a single
+  currency. This nuance got lost in the debate.</p>
+<p>Let us consider a simple example. Assume that Alice owes Bob 10 USD and that she is planning to pay with EUR.</p>
+<p>An <a
+    href="https://www.imf.org/en/Publications/WP/Issues/2022/11/04/A-Multi-Currency-Exchange-and-Contracting-Platform-525445">earlier
+    IMF paper</a> shows a simplified model of how such an international payment would work using
+  the correspondent banking system. The following steps are necessary:</p>
+<ol>
+  <li>
+    <p>Bank A computes the necessary EUR amount based on a market rate (for simplicity, 9 EUR), and debits Alice’s
+      deposit account.</p>
+  </li>
+  <li>
+    <p>The same 9 EUR are credited to Correspondent Bank A, in form of a deposit at Bank A.</p>
+  </li>
+  <li>
+    <p>The actual currency exchange happens between Correspondent Bank A and Correspondent Bank B: The latter receives
+      10 USD in deposits at Correspondent Bank A.</p>
+  </li>
+  <li>
+    <p>Correspondent Bank B now credits the same 10 USD to Bank B.</p>
+  </li>
+  <li>
+    <p>Bank B can finally credit 10 USD to Bob, which discharges Alice’s obligations.</p>
+  </li>
+</ol>
+<figure><img alt="" src="{% link assets/img/topics/digital-currency/cross-border/imf1.png %}">
+  <figcaption>Adrian et al.: “A Multi-Currency Exchange and Contracting Platform”, IMF Working Paper 22/217, 2022,
+    Figure 2.3</figcaption>
+</figure>
+<p>The paper also presents all six involved balance sheets with a total of twelve bookings. The situation gets worse
+  when more layers of correspondent banks are involved. This can happen for transactions involving less liquid
+  currencies, <a
+    href="https://www.economist.com/special-report/2024/10/14/chinas-yuan-is-nowhere-close-to-displacing-the-greenback">which
+    are often traded through USD</a>.</p>
+<p>As should be obvious, today’s correspondent banking system is fraught with inefficiencies and friction. Since the
+  constituent payments are not settled immediately, every step causes delays and costs. Alice and Bob have limited
+  insight into where their funds are at any given time. Banking systems have different operating hours around the globe.
+  It is not clear which payments should be grouped together to form a chain.</p>
+<p>This results in high fees. <a
+    href="https://www.gi-de.com/corporate/Currency_Technology/Central_Bank_Digital_Currencies/GD_Whitepaper_Crossborders_CBDC.pdf">According
+    to a report</a>, in 2021, sending $200 from Tanzania to Uganda cost an eye-watering $60.
+</p>
+<p>For this reason, some institutions are working on improving cross-border payments. For example, <a
+    href="https://www.bis.org/about/bisih/topics/cbdc/mcbdc_bridge.htm"><em>mBridge</em></a> is a
+  multilateral wholesale CBDC which has started out with four different currencies.</p>
+<p>This now brings me to the IMF’s recent fintech note that I mentioned in the beginning. The authors identify five
+  “core elements of a cross-border payment.”</p>
+<ol>
+  <li>
+    <p><strong>Access:</strong> the ability of participants to hold and transact currency</p>
+  </li>
+  <li>
+    <p><strong>Communication:</strong> the channels and message formats used to transact</p>
+  </li>
+  <li>
+    <p><strong>Currency Conversion:</strong> the means and providers of foreign exchange</p>
+  </li>
+  <li>
+    <p><strong>Compliance:</strong> the adherence to regulatory requirements in the involved countries</p>
+  </li>
+  <li>
+    <p><strong>Settlement:</strong> the actual transfer of funds</p>
+  </li>
+</ol>
+<p>As the paper describes, retail CBDC will help in some, but not all these aspects. Clearly, settlement is simplified,
+  because CBDC is a risk-free central bank liability. This means that the number of intermediaries can be reduced.</p>
+<p>But like in the traditional correspondent banking system, access remains a challenge. Alice’s bank may not be able to
+  hold USD, perhaps because it has no access to the Federal Reserve’s infrastructure. Conversely, Bob’s bank may not be
+  able to hold EUR.</p>
+<p>Closely connected to this is the ability of financial firms to provide currency conversion. Multi-national banks
+  could leverage their access to different countries’ financial infrastructure. In this scenario, if either Alice’s or
+  Bob’s bank can hold both EUR and USD, preferably as retail CBDC, the payment flow becomes much simpler.</p>
+<p>Smaller players, however, must rely on a correspondent bank to gain access to a foreign currency. The fintech note
+  correctly states that “this model would defeat some of the benefits of CBDC,” because such indirect holdings “would
+  not be a direct liability of the central bank.” In other words, the credit risk of the traditional system would still
+  be present.</p>
+<p>To solve this problem, there is a need for an intermediary that has access to multiple domestic currencies. The IMF
+  sketches three different setups:</p>
+<figure><img
+    alt="Three different setups: 1. Payer interacts directly with an FX provider, whereby the payer is responsible for obtaining currency B from currency A and then subsequently executes a transaction in currency B; 2. Payer only interacts with their intermediary, which in turn interacts with an FX provider, whereby the payer executes a transaction in currency A and the intermediary manages the exchange and the transaction in currency B; 3. Payer sends currency A to a intermediary-cum-FX-provider, which subsequently sends currency B to the payee"
+    src="{% link assets/img/topics/digital-currency/cross-border/imf2.png %}">
+  <figcaption>Reslow, Soderberg, Tsuda: “Cross-Border Payments with Retail Central Bank Digital Currencies: Design and
+    Policy Considerations”, IMF Fintech Notes 2/2024, Figure 3</figcaption>
+</figure>
+<p>The third setup is attractive because it involves the smallest number of constituent payments. However, it would also
+  require central banks and regulators to admit more non-bank intermediaries to take part in their domestic ecosystems.
+  The second setup <a
+    href="https://www.economist.com/international/2024/10/20/putins-plan-to-dethrone-the-dollar">resembles mBridge</a>
+  and could lead to better competition.</p>
+<p>Expanding access also helps to alleviate liquidity for smaller currencies. My colleagues have put forward a <a
+    href="https://www.gi-de.com/corporate/Currency_Technology/Central_Bank_Digital_Currencies/GD_Whitepaper_Crossborders_CBDC.pdf">set
+    of recommendations</a> to further reduce the cost of currency conversion, including central
+  banks stepping in with swap lines, or multi-lateral trading through automated market makers.</p>
+<h2>Conclusion</h2>
+<p>To understand how CBDC can improve payments across borders, we must first understand where the friction in the
+  current system comes from: multiple loosely related payments that are settled individually and with considerable
+  delay.</p>
+<p>While CBDC cannot simplify the regulatory framework by itself, it can contribute technical improvements. CBDC is
+  uniquely positioned to foster a more diverse set of intermediaries, because it is an instantly settled asset that
+  carries no counterparty risk. Fintechs interested in providing foreign exchange services would not necessarily manage
+  customer deposits and could therefore be subject to lighter regulation.</p>
+<p>In the future, we will probably still not have <em>true</em> cross-border payments. But faster, cheaper, more
+  reliable ones.</p>
+<p><em>Thanks to my colleague Roman Hartinger for fact checking.</em></p>
+<h2>References</h2>
+<ul>
+  <li>
+    Adrian et al.: <a
+      href="https://www.imf.org/en/Publications/WP/Issues/2022/11/04/A-Multi-Currency-Exchange-and-Contracting-Platform-525445">“A
+      Multi-Currency Exchange and Contracting Platform”</a>,
+    IMF Working Paper 22/217, 2022
+  </li>
+  <li>
+    Hartinger and Nagy: <a
+      href="https://www.gi-de.com/corporate/Currency_Technology/Central_Bank_Digital_Currencies/GD_Whitepaper_Crossborders_CBDC.pdf">“Financial
+      inclusion across borders with retail Central Bank Digital Currencies”</a>, Whitepaper,
+    2022
+  </li>
+  <li>
+    Hupel: <a href="{% link _research/cbdc-interoperability.html %}">“Interoperability aspects of central bank digital
+      currency across ecosystems and borders”</a>,
+    Journal of Payments Strategy &amp; Systems, 17 (4), 422-432
+  </li>
+  <li>
+    Reslow, Soderberg, Tsuda: <a
+      href="https://www.imf.org/en/Publications/fintech-notes/Issues/2024/05/15/Cross-Border-Payments-with-Retail-Central-Bank-Digital-Currencies-547195">
+      “Cross-Border Payments with Retail Central Bank Digital Currencies: Design and Policy
+      Considerations”</a>, IMF Fintech Notes 2/2024
+  </li>
+</ul>
