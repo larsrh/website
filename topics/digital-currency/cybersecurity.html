@@ -1,0 +1,137 @@
+---
+title: "Cybersecurity and privacy in digital currencies"
+date: 2025-05-15
+canonical: "https://www.linkedin.com/pulse/cybersecurity-privacy-digital-currencies-dr-lars-hupel-xxwaf/"
+---
+
+<p>The transition from cash to digital, tokenised payment methods presents us with new challenges, but also some
+  familiar ones. Payment transactions are the lifeline of the economy, which means they must be particularly protected
+  to withstand attacks. On the other hand, there is a great need for privacy, as new technical possibilities also
+  increase desires to analyse data.</p>
+<p>But let’s look at cash first. When two people engage in a cash transaction, e.g. a customer rendering banknotes to a
+  merchant, a number of security requirements <a href="{% link _research/pqc-cbdc.html %}">are
+    already controlled for</a>:</p>
+<ol>
+  <li>
+    <p>Both the payer’s and the payee’s identities are in physical proximity. Banknotes are handed over directly, with
+      no way to “redirect” the transaction.</p>
+  </li>
+  <li>
+    <p>Authenticity of the banknotes can be established by haptic and visual properties of the physical objects. A
+      merchant may employ additional authenticity checks of the banknotes: an ultraviolet lamp, a counting machine, or
+      other devices.</p>
+  </li>
+  <li>
+    <p>The rightful ownership of the banknotes is proved by physical possession. No identity check or authentication is
+      necessary.</p>
+  </li>
+  <li>
+    <p>The payment is completed and settled by change of ownership of the banknotes: the cash physically changes hands.
+      Clearing and settlement are not necessary.</p>
+  </li>
+  <li>
+    <p>The payer is prevented from double-spending, i.e. using the same banknotes for two concurring payments: as
+      opposed to data, physical objects cannot be cloned.</p>
+  </li>
+  <li>
+    <p>In a series of multiple of cash payments, it is impossible for any third party to track the payment patterns.</p>
+  </li>
+</ol>
+
+<p>To summarise: Cash is a secure and private means of payment, because it is a physical bearer instrument.</p>
+<h2>Security in the digital world</h2>
+<p>These characteristics need to be applied to the digital world, where they are based on cryptographic and other
+  technical measures. In technical jargon, these are named as follows:</p>
+<ol>
+  <li>
+    <p>Authenticity of sender and receiver</p>
+  </li>
+  <li>
+    <p>Authenticity of the asset</p>
+  </li>
+  <li>
+    <p>Proof-of-ownership of the asset</p>
+  </li>
+  <li>
+    <p>Non-repudiation of transactions</p>
+  </li>
+  <li>
+    <p>Prevention of double-spending</p>
+  </li>
+  <li>
+    <p>Privacy</p>
+  </li>
+</ol>
+
+<p>There are <a
+    href="https://www.itu.int/en/ITU-T/extcoop/dcgi/Documents/DCGI%20CBDC%20Reference%20Architecture%20Report-20-01-2025.pdf">various
+    dimensions</a> to the design of digital currencies, each of which has an impact on security
+  and privacy. For simplicity, this article will only deal with sovereign currencies, i.e. euros, US dollars, etc., but
+  not cryptocurrencies.</p>
+<p>The primary dimension that has emerged in the academic debate is <a
+    href="{% link topics/digital-currency/token.html %}">“accounts” vs.
+    “tokens”</a>. The best way to explain this is by analogy with traditional instruments.</p>
+<p>An account-based system corresponds to a table that assigns a value to each account number. An entry subtracts a
+  value from one account and adds the same value to another account. This is how deposit accounts already work today.
+  The key feature is that an account is long-lived, i.e. each account accumulates a large number of incoming and
+  outgoing transactions over time.</p>
+
+<p>In contrast, a token-based system is somewhat more difficult to explain. A token is a digital piece of data with
+  individual key and value. This corresponds most closely to a banknote with a serial number and denomination. Unlike in
+  the physical world, however, digital tokens are not tied to a specific denomination. For example, a token can have a
+  value of €15.38. But the value does not change over time. During a transaction, either complete tokens are transferred
+  or, if the value is not quite right, they must be split. (For that, the sum of the new tokens shall equal the old
+  token.) The system creates new keys for each token, which means that there is no direct link between the money and the
+  owner.</p>
+
+<p>Sadly, the term “token” is ambiguous. Confusingly, stablecoins and other crypto assets are often referred to as
+  tokens, although they are usually account-based systems, for example Ethereum. Bitcoin, on the other hand, is a true
+  token-based system.</p>
+<p>The <a
+    href="https://www.federalreserve.gov/econres/notes/feds-notes/tokens-and-accounts-in-the-context-of-digital-currencies-122320.html">Federal
+    Reserve summarises</a> the essence of tokens as follows: “digital units of value that can be
+  transferred anonymously.” It therefore makes sense to characterise such tokens as a digital bearer instrument.</p>
+<h2>Trust between entities</h2>
+<p>Regardless of how digital money is actually designed, the ecosystem faces an additional challenge. There are several
+  entities, such as banks, the central bank, merchants, end users, etc., between which a relationship of trust must be
+  established. These entities have different requirements.</p>
+<p>For example, banks would offer their customers wallets and related services. Customers therefore trust their bank
+  based on the business relationship alone. But there is no such trust relationship between customers of different
+  banks.</p>
+<p>The technical solution is for all parties to agree on a Public Key Infrastructure (PKI). The issuer or operator of
+  the infrastructure, for example the central bank, is at the top and defines the basic rules of the game, according to
+  which all entities receive individual certificates with cryptographic keys. These can then be used for mutual
+  authentication. All parties should also store the keys on secure hardware to protect themselves against attacks.</p>
+<p>Together with cryptographically sound payment protocols, a PKI can fulfil the security features listed above.</p>
+<h2>Privacy</h2>
+<p>Of course, privacy must be considered. A system that makes every transaction publicly traceable—such as a stablecoin
+  on Ethereum—may be highly secure and transparent, but not privacy-friendly.</p>
+<p>There are various technical approaches to solving this problem. These are often described with the umbrella term <a
+    href="https://www.bankofcanada.ca/2025/01/staff-discussion-paper-2025-1/">Privacy-Enhancing
+    Techniques</a> (PET). Some of them are based on cryptographic measures, others on organisational ones.</p>
+<p>For example, digital currency can be designed in such a way that the integrity data (authenticity of the money
+  itself) is decoupled from the payment data (identities of the payment parties). In the context of CBDC, this would
+  mean that the central bank knows which tokens are in circulation, but not to whom they belong. This satisfies the
+  principle of data minimisation. All metadata would be stored locally in the wallets.</p>
+<p>However, such measures must be carefully weighed against the legitimate interest in prosecuting money laundering and
+  other criminal offences. The design must therefore also be based on the legal situation.</p>
+<h2>Conclusion</h2>
+<ul>
+  <li>
+    <p>Physical cash offers a high level of security and privacy.</p>
+  </li>
+  <li>
+    <p>Digital currencies should also achieve this level, presenting technical challenges.</p>
+  </li>
+  <li>
+    <p>There are various ways in which digital currencies can be designed, for example as account-based or token-based
+      solutions.</p>
+  </li>
+  <li>
+    <p>Trust between participants can be established through a PKI.</p>
+  </li>
+  <li>
+    <p>Technical and organisational measures can provide privacy, but this must take place within a regulatory framework
+      in order to prevent money laundering.</p>
+  </li>
+</ul>

@@ -1,0 +1,117 @@
+---
+title: "The principle of least power"
+date: 2025-11-18
+canonical: "https://www.linkedin.com/pulse/principle-least-power-dr-lars-hupel-3hclf/"
+---
+<p>In 1998, Tim Berners-Lee, inventor of the World Wide Web, outlined the <em>principle of least power</em>:
+  Applications and systems should be designed using the least powerful technology that supports the intended purpose. In
+  other words, <em>don't use a sledgehammer to crack a nut.</em></p>
+<p>The same is true for financial transactions. Let's talk about programmability.</p>
+<h2>What is programmability?</h2>
+<p>Some distributed ledgers, such as <em>Ethereum</em>, have the capability to deploy and run smart contracts. The
+  oft-cited definition by Nick Szabo, who coined the term, goes as follows: a smart contract is “a set of promises,
+  specified in digital form, including protocols within which the parties perform on these promises.” This definition
+  predates public blockchains, and Bitcoin specifically, which is why it does not reference (distributed) ledgers.
+  Arguably, Ethereum, which was introduced in 2013, refined and popularised the concept of smart contracts.</p>
+<p>Put simply, rather than transactions that merely move assets from A to B, Ethereum introduces two new kinds of
+  transactions: creating a smart contract and executing a smart contract. With the benefit of hindsight, <a
+    href="https://link.springer.com/book/10.1007/978-3-030-03035-3">Xu, Weber and Staples</a> define
+  smart contracts as “programs deployed as data in the blockchain ledger and executed in transactions on the
+  blockchain.” Crucially, these programmes are “immutable once deployed.”</p>
+<p>In practice, the data managed by smart contracts is typically organised around the concepts of “ownership” and
+  “assets”. Therefore, we can think of Ethereum participants as owning a set of assets, with smart contracts governing
+  their transfer, usage, and management.</p>
+<h2>Smart contracts vs. programmability</h2>
+<p>Despite Szabo's definition of smart contracts being relatively old, they are often associated with DLT, and are
+  sometimes even declared to be one of its defining characteristics. However, smart contracts—or more broadly,
+  programming capabilities—can also be considered <a
+    href="https://www.federalreserve.gov/econres/notes/feds-notes/what-is-programmable-money-20210623.html">independently
+    of the nature of the ledger</a>. Similarly, the <a href="https://www.bis.org/cpmi/publ/d225.pdf">CPMI notes</a> that
+  DLT is “one of the technologies”
+  that enable programmability.</p>
+<p>It is therefore natural to arrange different programmability “styles” in a hierarchy. The highest tier would offer
+  the strongest technical capabilities, whereas the lowest tier would provide no programmability at all.</p>
+<p>The following diagram shows such a hierarchy, based on definitions in the literature (<a
+    href="https://www.federalreserve.gov/econres/notes/feds-notes/what-is-programmable-money-20210623.html"
+    target="_blank">Lee</a>; <a href="https://doi.org/10.2866/1694378">Bindseil, Coste, and
+    Pantelopoulos</a>).</p>
+<figure><img src="{% link assets/img/topics/digital-currency/principle-of-least-power/terminology.svg %}"
+    alt="A venn diagram of four sets, where each set is fully contained in the next larger one. From largest to smallest: smart contracts, programmable money, programmable payments, no programmability.">
+  <figcaption>Hierarchy of programmability as used in this article</figcaption>
+</figure>
+<p>Some examples:</p>
+<ul>
+  <li>
+    <p><strong>Cash</strong> is not programmable, nor are <strong>RTGS</strong> typically (unless you count queueing
+      mechanisms).</p>
+  </li>
+  <li>
+    <p>Some—but not all—<strong>retail CBDC</strong> designs envision programmable payments, such as the digital euro.
+      Platforms that allow for <a href="https://doi.org/10.1145/3290605.3300481"><strong>automating
+          deposit transactions</strong></a> also fall into this group.</p>
+  </li>
+  <li>
+    <p>Specific <strong>stablecoins</strong> are programmable money, as is <strong>Bitcoin</strong>. <strong>Ethereum
+      </strong>allows anyone to create their own stablecoin or stablecoin-like asset.</p>
+  </li>
+  <li>
+    <p><strong>Ethereum</strong> and <strong>Solana</strong> are major smart contract platforms.</p>
+  </li>
+</ul>
+<h2>Don’t use a sledgehammer to crack a nut</h2>
+<p>The principle of least power applied to programmability gives rise to an exceedingly simple rule: <em>use the lowest
+    possible tier in the hierarchy.</em></p>
+<p>More specifically, if a use case <em>can</em> be implemented using mere programmable payments, it <em>should not</em>
+  be implemented using smart contracts.</p>
+<p>To illustrate the spirit of this rule, let me provide a financial analogy.</p>
+<p>Consider interbank settlement: between two domestic banks, settling obligations with central bank money directly is
+  preferable to using correspondent accounts, clearing houses, or other bilateral arrangements. This also explains why
+  private instant payment systems are increasingly being complemented with systems backed by central banks. It is only
+  when multiple currencies are involved that more complexity is required. Similarly, two foreign banks would prefer to
+  settle in USD using Federal Reserve accounts if available; and only if not, fall back to using Eurodollars.</p>
+<p>A more involved example involves a <em>swap</em>. As <a href="https://doi.org/10.1515/9781400836260">Perry Mehrling
+    describes,</a> “[t]he first [...] swaps were arranged as parallel loans, and this
+  parallel loan construction remains the most straightforward way to understand them.” Take an interest rate swap, where
+  one party borrows at a fixed rate and lends at a floating rate, and vice versa. This can be constructed by two parties
+  lending each other the same principal at different interest rates (parallel loans). Consequently, the net flows in the
+  contract would be to the difference between the floating and fixed rates, which would change over time.</p>
+<p>This works, but has a <a href="https://sites.bu.edu/perry/files/2019/01/Lec-19-Interest-Rate-Swaps.pdf">significant
+    drawback:</a> even though net flows are much smaller than the principal, the parallel
+  loan structure expands “both balance sheets, and so the apparent leverage and counterparty risk exposure.” A better
+  solution is to agree to pay the difference in rates only, because the principal nets to zero. This removes the
+  principal amount from the balance sheet, thereby reducing exposure.</p>
+<h2>Principle of least complexity</h2>
+<p>The principle of least power can also be equivalently called the <em>principle of least complexity,</em> because
+  power begets complexity. In the above example, it means that a swap is preferable to a parallel loan structure due to
+  its smaller footprint on balance sheets and lower risk. In other words, unless there is a good financial or economic
+  reason, the least complex instrument should be used.</p>
+<p>The same is true of programmability, where it is compounded by the fact that users of a smart contract platform
+  cannot opt out of the high complexity. Specifically, it is not possible to interact with a stablecoin on Ethereum as
+  if it were unprogrammable. Moving assets onto a programmable ledger imposes this complexity on all users.</p>
+<h2>Smart contracts can’t do everything</h2>
+<p>Many financial instruments involve multiple transactions, such as payments, over time. For instance, bonds may incur
+  fixed monthly coupon payments, while futures may incur variable daily margin adjustments. Sometimes, these
+  transactions include sub-transactions that must occur at the same time: in a repurchase agreement, a cash payment and
+  a security delivery happen simultaneously at time <em>T</em> (purchase), and reversals happen simultaneously at time
+  <em>T</em> + 1 (repurchase).
+</p>
+<p>Unless all (sub)steps are funded in advance, smart contracts cannot guarantee full execution—i.e., uphold all
+  promises to pay—over time.</p>
+<p>Therefore, any financial agreement where a party might default on their promises cannot benefit from risk reduction
+  through programmability. To wit: for a bond implemented through a smart contract, lenders could still fail to collect
+  coupons because the borrower simply does not have enough funds in their wallet.</p>
+<p>It appears that the financial literature is slowly coming to this conclusion, too. <a
+    href="https://doi.org/10.2139/ssrn.5138052">Bindseil and Malekan point out</a> that arrangements
+  implemented in smart contracts are usually overcollateralised to allow for liquidation. This works for a repo, but not
+  for a bond.</p>
+<h2>Conclusion</h2>
+<p>Financial market infrastructure is undergoing dramatic changes. Existing systems are gaining new features and
+  completely new systems are being designed. Often, this is technology-driven: if we have DLT and smart contracts, why
+  not use them?</p>
+<p>These technologies have advantages. They have the potential to automate many types of financial transactions,
+  including intricate contracts.</p>
+<p>However, I have argued that this also comes with disadvantages. Greater capabilities also introduce greater
+  complexities that can be harder to manage. They also introduce novel financial risk.</p>
+<p>Rather than a technology-driven approach, I suggest a use-case-driven approach. From that perspective, we can apply
+  the principle of least complexity. This principle serves the World Wide Web well; and it will serve financial markets
+  well, too.</p>
