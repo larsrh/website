@@ -17,6 +17,11 @@ figure {
   margin: 0;
 }
 
+details {
+  /* reset the display: flex from water.css, which leads to weird background colouring */
+  display: block !important;
+}
+
 figcaption {
   hyphens: none;
   -webkit-hyphens: none;
