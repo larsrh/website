@@ -25,11 +25,14 @@ figcaption {
   color: var(--text-muted);
 }
 
+figure > img {
+  width: 100%;
+}
+
 .disclaimer {
   color: var(--text-muted);
   font-size: var(--font-small);
 }
-
 
 div.footnotes {
   font-size: var(--font-small);
@@ -249,8 +252,7 @@ dt {
 }
 
 table {
-  border-collapse: collapse;
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacer-sm);
 }
 
 td, th {
