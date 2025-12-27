@@ -7,27 +7,27 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        bundler-cache: true
-    - name: Build site
-      run: bundle exec jekyll build
-    - name: Run htmlproofer
-      run: bundle exec htmlproofer --disable-external --no-enforce-https ./_site
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Build site
+        run: bundle exec jekyll build
+      - name: Run htmlproofer
+        run: bundle exec htmlproofer --disable-external --no-enforce-https ./_site
 
-    - name: Set up Node
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
-        cache: 'npm'
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
 
-    - name: Install Node packages
-      run: npm ci
+      - name: Install Node packages
+        run: npm ci
 
-    - name: Run pa11y-ci
-      run: ./node_modules/.bin/pa11y-ci '_site/**/*.html'
-    - name: Run vnu
-      run: ./scripts/validate.sh --skip-non-html --filterpattern '.*void elements.*' _site/
+      - name: Run pa11y-ci
+        run: ./node_modules/.bin/pa11y-ci '_site/**/*.html'
+      - name: Run vnu
+        run: ./scripts/validate.sh --Werror --skip-non-html --filterpattern '.*void elements.*' _site/
