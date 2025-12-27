@@ -1,0 +1,127 @@
+---
+title: "How to route CBDC payments"
+date: 2024-10-15
+hero:
+  src: img/topics/digital-currency/cbdc-routing/header.jpg
+  alt: Traffic lights with road signs above an intersection. The intersection is not visible. The left road sign shows an arrow to indicate a left-turn lane. The right road sign shows to arrows to indicate a straight and right-turn lane.
+  credits: ASPhotography on Pexels
+canonical: "https://www.linkedin.com/pulse/how-route-cbdc-payments-dr-lars-hupel-84axf/"
+---
+
+
+<p>Imagine you have some money. You want to send that money to someone else. Typically, the recipient will tell you an
+  account number, e.g., an IBAN. You type the amount and that number into your banking interface and click “send”.</p>
+<p>What happens behind the scenes will differ widely depending on the kind of money that you are sending. <a
+    href="{% link topics/digital-currency/payment-routing.html %}">In the last
+    article,</a> we have seen how this works for both traditional bank accounts and for cryptocurrencies. Let us first
+  do a quick recap and then look at CBDC.</p>
+<p><em>Read part 1 for an introduction <a href="{% link topics/digital-currency/payment-routing.html %}">here</a>.</em>
+</p>
+<h2>Recap: routing and non-routing</h2>
+<p>Broadly, there are two different models how payments make their way to a recipient.</p>
+<p>In the “routed” model, a payment goes through one or more intermediaries, like banks. The recipient is identified by
+  – at least – a pair of bank identifier and account number. No matter the payment channel, there is a routing process
+  involved to find the recipient’s bank and establish communication between the banks.</p>
+<p>In the “unrouted” model, the wallet initiates a payment. The recipient is identified by an address, which is derived
+  from their secret cryptographic key. The blockchain can be seen as a central intermediary processing every payment, no
+  matter between which users.</p>
+<p>Typically, in the “routed” model, we talk about accounts and account numbers. In the “unrouted” model, we talk about
+  wallets and wallet addresses.</p>
+<p>Unfortunately, the naming of “wallet” and “address” is hopelessly overloaded. Same goes for “account” and “token”. I
+  will try to ignore this ambiguity here. If you want to learn more, I have written deep dives about <a
+    href="{% link topics/digital-currency/wallet.html %}">wallets</a> and <a
+    href="{% link topics/digital-currency/token.html %}">tokens</a>.</p>
+<p>For now, I will stick with “account” to mean a traditional bank account, and “wallet” to mean— for lack of a better
+  word—a container of cryptocurrency.</p>
+<h2>How does this work for CBDC?</h2>
+<p>When designing a CBDC, central banks often try to <a href="{% link topics/digital-currency/dlt/4.html %}">blend
+    aspects
+    of traditional banking and cryptocurrencies</a>. For example, wallets are typically managed by intermediaries
+  (traditional), while the funds are protected using digital signatures (modern).</p>
+<p>This raises the question whether CBDC wallets work more like traditional bank accounts or more like cryptocurrency
+  wallets. I have seen central banks testing out both. By the way, neither requires a blockchain underpinning the
+  system.</p>
+<p>Personally, I believe that the “routed” model has a lot of advantages. For starters, it has better usability. Banks
+  can easily validate the recipient’s name, as is now also required in the Eurozone, and can display a warning message
+  if there is a mismatch.</p>
+<p>But there is also a technical reason that is rarely talked about. Using “unrouted” wallet addresses conflates the
+  identity of the asset with the identity of the wallet. Recall from the last article that addresses are derived from
+  private keys. If the private key changes, the address changes.</p>
+<p>But why would the key change? Two main causes:</p>
+<ol>
+  <li>
+    <p>If Ethereum were to switch to another cryptographic algorithm. The elliptic curves that are currently used are
+      susceptible to attacks by quantum computers.</p>
+  </li>
+  <li>
+    <p>The other extreme, Bitcoin, where it is good practise to use a fresh key for each transaction. Imagine telling
+      people a new bank account number daily.</p>
+  </li>
+</ol>
+<p>This is impractical, especially for users that are unfamiliar with cryptography (which is almost all users). Combine
+  it with the risk of sending funds nowhere and it becomes risky.</p>
+<p>As I mentioned above, changing banks would also imply changing account numbers. It seems that both models suffer from
+  this problem. But in traditional banking, various workarounds exist. Many mobile payment systems use aliases, such as
+  phone numbers or email addresses, to map human-readable identifiers to technical account numbers. This would be much
+  more cumbersome in an “unrouted” system.</p>
+<h2>Routing CBDC payments</h2>
+<p>Therefore, the “routed” model makes most sense for CBDC. Because it is a central bank liability, payments could still
+  be handled directly between banks, without the need of a settlement step. A payment is just a matter of establishing a
+  communication channel between banks. This means that the payment flow has the following steps:</p>
+<ol>
+  <li>
+    <p>My bank takes CBDC worth € 10 from my wallet.</p>
+  </li>
+  <li>
+    <p>My bank transfers these € 10 to the recipient’s bank.</p>
+  </li>
+  <li>
+    <p>The recipient’s bank adds the € 10 to the recipient’s wallet.</p>
+  </li>
+</ol>
+<p>Unlike in traditional bank payments, the balance sheets of the involved parties do not change. My CBDC is not on my
+  bank’s balance sheet, and neither will it be at the recipient’s bank. As far as the central bank is concerned, some
+  money changed hands, but it does not care who is holding it currently (like with cash).</p>
+<figure><img
+    alt="Visualisation of a bank managing multiple CBDC wallets. Here: one bank manages two wallets, with the IDs CBDC12340001 and CBDC1230002. Each wallet may or may not contain multiple tokens. For example, the first wallet contains three tokens worth 5, 10, and 50, for a total balance of 65."
+    src="{% link assets/img/topics/digital-currency/cbdc-routing/Slide5.png %}">
+  <figcaption>Bank 1234 managing two CBDC wallets, each containing individual tokens</figcaption>
+</figure>
+<p>This is doubly true in a token-based CBDC. Just to be clear: using account numbers does not mean that the CBDC must
+  use an underlying account model.</p>
+<p>This may sound contradictory but can be explained easily. A bank provides me with an “account” containing individual
+  CBDC tokens. The central bank, acting as the issuer and validator of money, does not need to know anything about
+  addresses nor aliases. Think of a CBDC wallet as a safe deposit box: it has a particular location and number at a
+  particular bank branch, but nobody (except for me) care what is in there. If someone wants to send me cash (or gold,
+  or papers, …) they would just drop it off there.</p>
+<p>In any case, users should not have to care about the precise implementation details. An interesting consequence of
+  this is that CBDC addresses could mirror the existing user experience of email addresses. Why not pay to my friend at
+  sam@cbdc.standardchartered.com?
+</p>
+<h2>Conclusion</h2>
+<p>CBDC, like bank deposits, is intermediated. CBDC, like cryptocurrencies, uses wallets to store cryptographic keys.
+  This represents a new and exciting point in the design space.</p>
+<p>I have argued that—for various technical and non-technical reasons—it makes more sense for CBDC wallets to emulate
+  the user experience of bank accounts, instead of cryptocurrency wallets.</p>
+<p>Having said that, this does not prevent (central) banks from issuing other kinds of wallets, for example
+  offline-capable hardware wallets. Users can freely transact with them in a peer-to-peer fashion, without any
+  intermediary required.</p>
+<p>Users therefore have the choice to treat CBDC as cash (which they can hold in their pocket), a bank account (where
+  they can receive payments at any time), or both. This choice only works well if we treat wallets as proper containers
+  of tokens, instead of “just” an address on some blockchain.</p>
+<p>In this setup, banks are trusted with managing a user’s funds. But since CBDC is a central bank liability, there is
+  no additional settlement step, and therefore no financial risk, involved.</p>
+<p><em>Read part 1 for an introduction <a href="{% link topics/digital-currency/payment-routing.html %}">here</a>.</em>
+</p>
+<hr>
+<h2>Bonus: What about offline payments?</h2>
+<p>With traditional bank accounts, you can never do an offline
+  payment, since the system fundamentally requires some intermediaries talking to each other. With blockchains, you have
+  a network of nodes on the internet that validate transactions together.</p>
+<p>Most CBDC projects are more ambitious and strive for offline capability. How can payments be routed here?</p>
+<p>The answer is a lot simpler in offline scenarios. If you want to tap your smartcard (a wallet containing CBDC) to a
+  POS terminal (a wallet accepting CBDC), the routing is given by proximity. Two wallets establish an end-to-end
+  connection using NFC and can directly transmit tokens. Naturally, this <a
+    href="{% link topics/digital-currency/true-offline.html %}">requires
+    security measures</a> to avoid eavesdroppers and other attacks. But finding each other is easy if you are already
+  looking at each other!</p>

@@ -1,0 +1,158 @@
+---
+title: "How to route payments"
+date: 2024-10-08
+hero:
+  src: img/topics/digital-currency/payment-routing/header.jpg
+  alt: Aerial view of a four-lane road; left lane with a sign to turn left; right lane with a sign to turn right; middle lanes with signs to go straight
+  credits: Kelly on Pexels
+canonical: "https://www.linkedin.com/pulse/how-route-payments-dr-lars-hupel-azmkf/"
+---
+<p>Imagine you have some money. You want to send that money to someone else. Typically, the recipient will tell you an
+  account number, e.g., an IBAN. You type the amount and that number into your banking interface and click “send”.</p>
+<p>What happens behind the scenes will differ widely depending on the kind of money that you are sending.</p>
+<p>Let us consider first a very simplified version of how it works in traditional banking.</p>
+<p><em>Read part 2 focusing on CBDC payments <a
+      href="{% link topics/digital-currency/cbdc-routing.html %}">here</a>.</em>
+</p>
+<h2>Bank account numbers</h2>
+<p>The <em>IBAN</em>, short for <em>International Bank Account Number</em>, is a string of characters and digits. The
+  first two characters indicate the country, e.g., “DE” for Germany or “IE” for Ireland. The next two digits are a
+  checksum. The meaning of the remaining (up to 30) characters can be defined by each country. But typically, they start
+  with a few digits indicating a bank or a bank branch, followed by digits indicating the bank account.</p>
+<p>For example, in Germany, an IBAN looks like this:</p>
+<code>DEkk bbbb bbbb cccc cccc cc</code>
+<p>After country code and check digits (kk), there is an eight-digit “bank identifier” (b) and a ten-digit “account
+  number” (c).</p>
+<figure><img
+    alt="Visualisation: two banks with different identifiers and two customers each. The customers' IBAN comprises the bank identifier and a customer identifier"
+    src="{% link assets/img/topics/digital-currency/payment-routing/Slide1.png %}">
+  <figcaption>Every bank has a bank identifier (here: 4 digits). They can allocate account numbers freely to their
+    customers (here: also 4 digits). Together, this forms the IBAN.</figcaption>
+</figure>
+<p>Since 2014, payments between bank accounts in the Eurozone use IBANs. That means if I want to pay someone, I must
+  know their IBAN, which encodes information about the country, bank, and account.</p>
+<p>When I ask my bank to execute such a payment, it will first figure out what other bank to send it to. This is
+  important: an IBAN only makes sense in the context of the bank that manages that account. If the recipient changes
+  banks, they will also get another IBAN.</p>
+<p>Why does this happen? In traditional banking, I have an account with a bank, and that bank has an account with the
+  central bank (here: the European Central Bank).</p>
+<figure><img alt="Visualisation of a simple bank transfer; see text below for explanation"
+    src="{% link assets/img/topics/digital-currency/payment-routing/Slide2.gif %}">
+  <figcaption>Simplified flow of a bank payment (animated)</figcaption>
+</figure>
+<p>Sending € 10 from one person’s account to another one’s actually requires three steps:</p>
+<ol>
+  <li>
+    <p>My bank debits € 10 from my account.</p>
+  </li>
+  <li>
+    <p>My bank transfers € 10 to the recipient’s bank, by instructing the central bank to move reserves.</p>
+  </li>
+  <li>
+    <p>The recipient’s bank credits € 10 to the recipient’s account.</p>
+  </li>
+</ol>
+<p>Of course, reality is more complicated. For example, in many cases, € 10 are never actually transferred between
+  banks; rather, they would batch a few payments together and then only transfer a net amount. But the above works as a
+  rough mental model, even in other regions where IBANs are not used.</p>
+<p>The IBAN is relevant for all these steps. My bank needs to know which other bank to send reserves to. And once those
+  reserves arrived, the recipient’s bank needs to know whom to credit.</p>
+<p>This also means that, if the IT systems of the recipient’s bank are not reachable for some reason, the process is
+  stalled. It is impossible for the sender’s bank to credit the recipient’s account directly. It must always go through
+  the recipient’s bank.</p>
+<h2>Payments without a central bank</h2>
+<p>Banks could also choose a different settlement mechanism. This is the idea behind <em>clearing houses</em>. Their
+  history goes back many centuries, and some are older than the concept of central banks.</p>
+<p>Imagine two banks partnering up. When a customer of one bank wants to pay the customer of the other bank, they do
+  exactly the steps as outlined above. But instead of moving € 10 in reserves via the central bank, they could also
+  agree to settle this difference in other ways. For example, they could exchange bonds or other assets worth € 10.
+  Before central banks, this was often done with gold. The <em>New York Clearing House Association</em>, founded in
+  1853, used to handle this kind of settlement between banks using gold.</p>
+<p>Today, there are many different ways how payments from one account to another can be executed. The simple model,
+  through the central bank, has advantages and disadvantages. For cross-border or cross-currency transactions, more
+  steps are needed. Banks may choose to use one “channel” over another one depending on a concrete payment request. But
+  at the end of the day, you need the recipient’s bank to credit an account.</p>
+<h2>Cryptocurrencies and blockchains</h2>
+<p>Now that we know how traditional bank payments work, we can forget all about it and consider cryptocurrencies.</p>
+<p>Instead of an <em>account, </em>you have a <em>wallet</em>.</p>
+<p>Instead of an <em>account number</em>, you have a <em>wallet address</em>.</p>
+<p>On the surface, the payment workflow looks the same. The recipient tells you their address, you type in that
+  information together with the amount into your wallet software (or hardware), and eventually, the asset is moved. No
+  central bank or clearing house in sight. The transaction “just happens.”</p>
+<p>In Ethereum, an address looks like this:</p>
+<code>0x71C7656EC7ab88b098defB751B7401B5f6d8976F</code>
+<p>Unlike an IBAN, this address has no internal structure. There is no country code, no bank account.</p>
+<p>Instead, it is derived from a <em>cryptographic public key</em>. Where does this key come from?</p>
+<p>If I want to “open” a wallet in Ethereum, I do not have to go to a bank. I install a wallet software on my computer
+  or phone. This will generate a random secret, often in the form of a short phrase in English or another language. This
+  secret is a <em>private key</em>. It does not have to be registered anywhere; it just exists.</p>
+<p>The private key can be used to compute a corresponding public key, which in turn is used to compute the wallet
+  address. Think of it as a big table, where everybody can add a row with their wallet address.</p>
+<p>When I log into a bank account, my bank checks the username and password. In Ethereum, I provide a <em>digital
+    signature</em> based on the private key that is stored in my wallet. This digital signature is then validated by the
+  entire blockchain network.</p>
+<h2>Paying to a wallet address</h2>
+<p>So, what happens under the hood when I make a cryptocurrency payment?</p>
+<p>I will stick with Ethereum in this example; other blockchains work similarly.</p>
+<p>When I initiate a transaction, my wallet will create a transaction and sign it with the private key associated with
+  my funds. Put simply, the transaction is a data record comprising my address, the recipient’s address, the amount, and
+  the signature. This record is then sent to the blockchain for validation and inclusion in the next block. If, for
+  example, I put in the wrong signature, or try to spend more than I have, the network will reject the transaction.</p>
+<p>Once the blockchain accepts my transaction, it is done. The payment is final.</p>
+<figure><img alt="" src="{% link assets/img/topics/digital-currency/payment-routing/Slide4.png %}">
+  <figcaption>Simplified flow of a cryptocurrency payment. The recipient is not involved at all.</figcaption>
+</figure>
+<p>The difference to a traditional bank payment is that the recipient is not at all involved in the transaction. The
+  recipient does not even get a message about it. Instead, the recipient’s wallet must scan the blockchain to see that
+  something has happened.</p>
+<p>This is not because someone has not implemented it. It is a consequence of the technology: After all, how could you
+  deliver a message to some anonymous person on the internet, if all you have is a random public key?</p>
+<p>The fact that neither you nor the recipient needs a bank to play a role in this scenario is a double-edged sword.</p>
+<p>On the one hand, your transaction will always succeed, even if the recipient is currently disconnected (or their
+  bank, if they use a custodial wallet).</p>
+<p>On the other hand, your transaction will always succeed, even if you have mistyped the recipient’s address. The
+  blockchain does not care and will still process the payment. But the assets are now nowhere to be found. In other
+  words: If nobody knows the secret key associated to an address, you can never retrieve the funds. Think of it like
+  sending a letter to a country called “Fronce” and the postal service deciding to just dump the letter in the ocean.
+</p>
+<p>This is not a theoretical problem: As of 2020, an estimated <a
+    href="https://decrypt.co/37171/lost-bitcoin-3-7-million-bitcoin-are-probably-gone-forever">3.7
+    million bitcoin</a>, or 20% of circulation, are locked in “dead wallets.” Another cause for this is people losing
+  the secret keys, meaning that the wallet can never be recovered.</p>
+<p>Again, this explanation is simplified. There are also other ways to pay using cryptocurrency instead of going
+  directly through the blockchain. These are typically called “Layer 2” solutions, which emulate bilateral or
+  multi-lateral settlement agreements, like seen above with clearing houses.</p>
+<h2>Conclusion</h2>
+<p>To summarise: We have seen two different payment models, which I call “routed” and “unrouted.”</p>
+<p>In the “routed” model, a payment goes through one or more intermediaries, like banks. The recipient is identified by
+  – at least – a pair of bank identifier and account number. No matter the payment channel, there is a routing process
+  involved to find the recipient’s bank and establish communication between the banks.</p>
+<p>In the “unrouted” model, the wallet initiates a payment. The recipient is identified by an address, which is derived
+  from their secret cryptographic key. The blockchain can be seen as a central intermediary processing every payment, no
+  matter between which users.</p>
+<p><a href="{% link topics/digital-currency/cbdc-routing.html %}">The next
+    part</a> will discuss how payments work in CBDC: routed or unrouted? This may sound technical, but it is actually an
+  interesting question, because of CBDC’s mixed heritage, taking aspects of traditional banking and of cryptocurrencies.
+</p>
+<p><em>Read part 2 <a href="{% link topics/digital-currency/cbdc-routing.html %}">here</a>.</em>
+</p>
+<hr>
+<h2>Bonus: the balance sheets</h2>
+<p>I briefly mentioned above that the central bank, or some other central
+  entity, plays a big role in payments. My deposit account is a liability of my bank. Therefore, another bank would not
+  just accept that liability, they want “better” money, for example central bank reserves.</p>
+<figure><img
+    alt="Three balance sheets: a central entity and two banks. During a payment, the following changes occur. On the liabilities side of the central entity, deposit of bank A gets reduced by 10 € and deposit of bank B gets increased by 10 €. Bank A's balance sheet shrinks by 10 € on both sides (reserves and deposit liabilities to customers). Bank B's balance sheet grows equivalently by 10 € on both sides."
+    src="{% link assets/img/topics/digital-currency/payment-routing/Slide3.png %}">
+  <figcaption>Changes in the balance sheets of banks and the central bank after a payment of € 10</figcaption>
+</figure>
+<p>The—highly simplified—balance sheets in the above figure show this process. When my bank debits my account, they now
+  have € 10 less in liabilities (because my balance decreased). At the same time, they now also have € 10 less in
+  assets, because they asked the central bank to move reserves to the recipient’s bank. The process is exactly the
+  opposite for the other bank. Therefore, the balance sheet of my bank contracted, whereas the other bank’s expanded.
+  But the size of the central bank’s balance sheet stays unchanged.</p>
+<p>This works in roughly the same way no matter whether the central bank or some other entity does the shifting. Modern
+  settlement systems can be operated by both the private and the public sectors and offer a lot of additional features.
+  In some countries, e.g. Ghana, you can make a “bank transfer” from a deposit account to a phone number. Not only does
+  this require careful routing from a bank to a mobile network operator, but also, shifting the right balances at the
+  right time in the background.</p>

@@ -1,0 +1,83 @@
+---
+title: "True offline payments are impossible. Or are they?"
+date: 2024-07-01
+canonical: "https://www.linkedin.com/pulse/true-offline-payments-impossible-dr-lars-hupel-j9thf/"
+---
+
+<p>Sometimes, I hear the claim that true offline payments are impossible. Fortunately, that false claim can be debunked
+  quite easily.</p>
+<p>But first, we need to understand where this claim comes from. In their pivotal <a
+    href="https://www.econstor.eu/bitstream/10419/261253/1/swp2021-67.pdf">2021 paper</a>, Kahn et al.
+  describe the “offline payment trilemma”, which can be explained very easily: no digital payment scheme can
+  simultaneously be offline-capable, prevent double-spending, and accommodate for loss recovery.</p>
+<figure><img alt="A triangle with corners labelled as follows: offline-capable, loss recovery, no double-spending"
+    src="{% link assets/img/topics/digital-currency/true-offline/Slide1.png %}">
+  <figcaption>According to Kahn et al., you can arrange three properties as a triangle: offline capability, prevention
+    from double-spending, loss recovery. Only two out of three can be satisfied: you need to (literally) pick one side.
+  </figcaption>
+</figure>
+<p>This can be visualised using the above triangle. When designing a system, you need to pick a side. Physical cash can
+  be used offline and prevents double-spending. But if you lose your wallet, you lose your money. Similar for the other
+  sides: Debit cards cannot be used offline. Credit cards and paper cheques do not prevent double-spending.</p>
+<p>This correlates to a well-understood principle from computer science, the so-called “<a
+    href="https://lass.cs.umass.edu/~shenoy/courses/spring19/readings/cap-lynch.pdf">CAP theorem</a>”.
+  It describes a fundamental limitation of database systems, which need to compromise on either availability,
+  consistency, or resilience against loss of connectivity. This is not caused by poor engineering, but by the physical
+  properties of networks: a law of nature.</p>
+<p>The connection between Kahn’s trilemma and the CAP theorem is quite simple:</p>
+<ul>
+  <li>
+    <p>offline capability corresponds to partition tolerance;</p>
+  </li>
+  <li>
+    <p>no double-spending corresponds to consistency; and</p>
+  </li>
+  <li>
+    <p>loss recovery corresponds to availability.</p>
+  </li>
+</ul>
+<p>Where should CBDC sit? By its nature, it is a central bank liability, so there cannot be any compromise on
+  double-spending. And in terms of features, offline capabilities are highly desirable for resilience and financial
+  inclusion. This leaves us only with one choice: designing CBDC like banknotes.</p>
+<p>The CAP theorem teaches us that we can – in theory – simultaneously achieve offline capability and prevent
+  double-spending. We can accept some restricted availability, for example, it is not possible to top-up one’s offline
+  wallet from a bank account without online connectivity. Many database systems choose a similar trade-off.</p>
+<p>But how can we achieve all that in practice? More concretely, what defence mechanisms can we utilize to protect
+  against double-spending?</p>
+<p>The answer is a “defence in depth” approach, where we do not rely on a single measure, but multiple layers.</p>
+<figure><img alt="" src="{% link assets/img/topics/digital-currency/true-offline/Slide2.png %}">
+  <figcaption>Three lines of defence: strong hardware security, secure payment protocols &amp; channels, and the central
+    bank as the final authority.</figcaption>
+</figure>
+<p>For CBDC, there are three layers:</p>
+<ol>
+  <li>
+    <p>The bottom layer is strong hardware security: Secure Elements are tamper-resistant chips that provide a strong
+      defence against attacks such as the one outlined above.</p>
+  </li>
+  <li>
+    <p>In the middle, secure payment protocols and channels provide protection against attacks when money is being
+      moved. For example, wallets should always employ end-to-end encryption to prevent eavesdroppers from cloning
+      tokens.</p>
+  </li>
+  <li>
+    <p>Finally, the central bank must always be able to tell authentic from counterfeit money. This is very easy with a
+      token system because every token can only be used once.</p>
+  </li>
+</ol>
+<p>For offline payments, it is particularly important that <a
+    href="{% link topics/digital-currency/offline-payments-filia.html %}">all
+    layers work together</a>. Even if a wallet cannot validate a token on the spot during payment, it should reconcile
+  it when it regains connectivity, for example, when the user tops up from their bank account. This reduces overall risk
+  in the system.</p>
+<p>Unfortunately, while the other layers are uncontroversial, the use of strong hardware security is repudiated by some,
+  leading to the claim that true offline payments are impossible. This argument does not hold up to scrutiny for a very
+  simple reason: Strong hardware security is already employed in today’s payment system – as well as connectivity and
+  many other industry sectors – in the form of hardware-based Secure Elements.</p>
+<p>To this day, there are no known exploits on payment cards, despite the large incentive: imagine an attacker that
+  could clone credit cards at a large scale. If it works well in this highly exposed landscape, it will work well for
+  CBDC. Users have the choice whether they want to store their holdings on special-purpose devices (like a dedicated
+  smart card), or on an existing device (like a smartphone).</p>
+<p>To conclude: true offline payments are possible. They rely on, among other measures, strong hardware security, which
+  is well-established in the industry. What is new is that CBDC will enable additional use cases, for example when both
+  payer and payee are offline. But the technology for that is already there.</p>
