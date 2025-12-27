@@ -18,7 +18,7 @@ video:
   duration: "45M36S"
 conferences:
   - conference: "rheinJUG"
-    link: "http://rheinjug.de/rheinjug/event/2020/02/26/double-feature-webanwendungen-mit-mvc-1-dot-0-slash-typparameter.html"
+    link: "https://web.archive.org/web/20250217144038/http://rheinjug.de/rheinjug/event/2020/02/26/double-feature-webanwendungen-mit-mvc-1-dot-0-slash-typparameter.html"
     date: 2020-02-02
     slides: "https://speakerdeck.com/larsrh/lieber-ein-typparameter-zu-viel-als-einer-zu-wenig-herbstcampus"
     recording: "https://www.youtube.com/watch?v=TTI-ry4aRxw"
@@ -39,7 +39,7 @@ conferences:
     date: 2019-07-18
     location: Braunschweig, Deutschland
   - conference: "JavaLand"
-    link: "https://programm.javaland.eu/2019/#/scheduledEvent/569668"
+    link: "https://www.javaland.eu/de/javaland-2019/"
     slides: "https://speakerdeck.com/larsrh/lieber-ein-typparameter-zu-viel-als-einer-zu-wenig"
     date: 2019-03-19
     location: Brühl, Deutschland

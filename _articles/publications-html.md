@@ -113,7 +113,7 @@ Enjoy and let me know what you think!
 Also, massive thanks to John MacFarlane.
 Pandoc is an awesome tool.
 
-[^js]: Pandoc also supports [MathJax and others](https://pandoc.org/chunkedhtml-demo/3.6-math-rendering-in-html.html), but I prefer less JS and more static markup.
+[^js]: Pandoc also supports [MathJax and others](https://pandoc.org/MANUAL.html#math-rendering-in-html), but I prefer less JS and more static markup.
 [^csl]: I couldn't be bothered to write my own style. It's probably suboptimal; if you have better suggestions, I'm all ears.
 [^app]: Unless there is an appendix involved. I guess one could also implement this in CSS.
 [^wrong]: Well, maybe only sometimes wrong. It produces `<mo>`, but `<mi>` may be more appropriate in some situations. But take this with a grain of salt since I don't know much about MathML.
