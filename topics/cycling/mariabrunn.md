@@ -1,6 +1,5 @@
 ---
 subtitle: "Ampermoching und die Schlosswirtschaft Mariabrunn"
-geo: { lat: 48.27, lon: 11.48, zoom: 12 }
 markers:
   - { lat: 48.3048235, lon: 11.4879723 }
   - { lat: 48.3125225, lon: 11.4775714 }

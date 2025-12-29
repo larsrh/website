@@ -18,7 +18,7 @@ layout: article
 
 <footer>Basiskarte und Daten von OpenStreetMap und OpenStreetMap Foundation. Veröffentlicht unter <a href="https://opendatacommons.org/licenses/odbl/">ODbL</a>.</footer>
 
-{% include map_json.html gpx=page.gpx geo=page.geo markers=page.markers gpx_prefix="/topics/cycling" id="map-data" %}
+{% include map_json.html gpx=page.gpx markers=page.markers gpx_prefix="topics/cycling" id="map-data" %}
 <script>renderMap("map-data", "map-embed")</script>
 
 {% if page.gpx %}

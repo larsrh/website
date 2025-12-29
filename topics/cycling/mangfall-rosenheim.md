@@ -4,7 +4,6 @@ subtitle: "Entlang der Mangfall bis nach Rosenheim"
 gpx:
   - mangfall-rosenheim
   - alternative-rosenheim
-geo: { lat: 47.95, lon: 11.84, zoom: 10 }
 markers:
   - { lat: 47.939, lon: 11.860 }
   - { lat: 47.848, lon: 12.067 }

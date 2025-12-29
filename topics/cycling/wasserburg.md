@@ -1,7 +1,6 @@
 ---
 subtitle: "Panoramaweg Isar-Inn nach Wasserburg"
 date: 2023-08-17
-geo: { lat: 48.0785, lon: 11.9703, zoom: 10 }
 markers:
   - { lat: 48.0992, lon: 11.6827 }
   - { lat: 48.0583, lon: 11.7748 }

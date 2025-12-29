@@ -1,6 +1,5 @@
 <script type="application/json" id="{{ include.id }}">
 {
-  "geo": {{ include.geo | jsonify }},
   "markers":
     {% if include.markers %}
       {{ include.markers | jsonify }}

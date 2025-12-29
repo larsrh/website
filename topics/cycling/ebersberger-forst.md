@@ -1,7 +1,6 @@
 ---
 subtitle: "Über Poing und Markt Schwaben durch den Ebersberger Forst"
 date: 2023-06-18
-geo: { lat: 48.12, lon: 11.78, zoom: 11 }
 gpx:
   - ebersberger-forst
 markers:

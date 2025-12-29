@@ -1,6 +1,5 @@
 ---
 subtitle: "Isar-Radweg zwischen München und Bad Tölz"
-geo: { lat: 47.89, lon: 11.58, zoom: 10 }
 markers:
   - { lat: 48.0485, lon: 11.5229 }
   - { lat: 48.0430, lon: 11.5195 }

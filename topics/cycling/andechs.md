@@ -1,6 +1,5 @@
 ---
 subtitle: "Wörthsee, Pilsensee, Ammersee und Andechs"
-geo: { lat: 48.06, lon: 11.25, zoom: 11 }
 gpx:
   - andechs
 markers:

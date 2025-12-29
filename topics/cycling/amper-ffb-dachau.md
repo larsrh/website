@@ -1,6 +1,5 @@
 ---
 subtitle: "Ammer-Amper-Radweg zwischen Fürstenfeldbruck und Dachau"
-geo: { lat: 48.1963, lon: 11.4096, zoom: 11 }
 markers:
   - { lat: 48.1640, lon: 11.3819 }
   - { lat: 48.1539, lon: 11.2279 }

@@ -1,6 +1,5 @@
 ---
 subtitle: "Entlang der Würm von der Blutenburg nach Starnberg"
-geo: { lat: 48.08, lon: 11.4, zoom: 11 }
 markers:
   - { lat: 47.99560, lon: 11.34324 }
   - { lat: 48.16314, lon: 11.45680 }
