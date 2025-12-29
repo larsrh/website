@@ -70,11 +70,16 @@ Read their [GDPR policy here](https://bunny.net/gdpr/).
 According to their website, they do not collect, store or distribute personally-identifying information.
 
 Also, I don't use any kind of analytics.
-This page is hosted on Netlify (most content) and Manitu (some large static assets).
+This page is hosted on Netlify (most content), Manitu and Bunny (some large static assets).
 While Netlify offers some analytics services, I don't use them.
 
-Both hosting providers may or may not process logs on their servers; see [Netlify's Privacy Policy](https://www.netlify.com/privacy) and [Manitu's Datenschutzerklärung](https://www.manitu.de/datenschutz/) for details.
-I have signed Data Processing Agreements with [both](https://www.netlify.com/gdpr-ccpa) [providers](https://www.manitu.de/unternehmen/eu-datenschutz-grundverordnung-dsgvo/).
+The hosting providers may or may not process logs on their servers; see for details:
+
+- [Netlify's Privacy Policy](https://www.netlify.com/privacy)
+- [Manitu's Datenschutzerklärung](https://www.manitu.de/datenschutz/)
+- [Bunny's Privacy & Data Policy](https://bunny.net/privacy/)
+
+I have signed Data Processing Agreements with all three providers.
 Note that I have disabled logging of IP addresses where possible.
 
 </div>
