@@ -4,6 +4,7 @@ layout: article
 
 <link rel="stylesheet" href="{% link assets/leaflet.css %}">
 <script src="{% link assets/leaflet.js %}"></script>
+<script src="{% link js/map.js %}"></script>
 
 {% if page.gpx %}
   <script src="{% link assets/leaflet-gpx.js %}"></script>
@@ -13,33 +14,12 @@ layout: article
 
 <h2>Karte</h2>
 
-<div id="map-embed"></div>
+<div id="map-embed" class="leaflet-map"></div>
 
 <footer>Basiskarte und Daten von OpenStreetMap und OpenStreetMap Foundation. Veröffentlicht unter <a href="https://opendatacommons.org/licenses/odbl/">ODbL</a>.</footer>
 
-<script>
-  const { lat, lon, zoom } = {{ page.geo | jsonify }};
-  const markers = {{ page.markers | jsonify }};
-
-  const map = L.map("map-embed").setView([lat, lon], zoom);
-
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(map);
-
-  for (const { lat, lon } of markers)
-    L.circle([lat, lon], { color: 'red', fillColor: '#f03', fillOpacity: 0.5, radius: 300 }).addTo(map);
-
-  const gpx = ({{ page.gpx | jsonify }}) || [];
-
-  const markerOptions = {
-    startIconUrl: undefined,
-    endIconUrl: undefined,
-    shadowUrl: undefined
-  };
-  for (const file of gpx)
-    new L.GPX(`/topics/cycling/${file}.gpx`, { async: true, marker_options: markerOptions }).addTo(map);
-</script>
+{% include map_json.html gpx=page.gpx geo=page.geo markers=page.markers gpx_prefix="/topics/cycling" id="map-data" %}
+<script>renderMap("map-data", "map-embed")</script>
 
 {% if page.gpx %}
   <h2>Tracks</h2>

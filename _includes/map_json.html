@@ -1,0 +1,18 @@
+<script type="application/json" id="{{ include.id }}">
+{
+  "geo": {{ include.geo | jsonify }},
+  "markers":
+    {% if include.markers %}
+      {{ include.markers | jsonify }}
+    {% else %}
+      []
+    {% endif %},
+  "gpx":
+    [
+      {% for gpx in include.gpx %}
+        "{% link {{ include.gpx_prefix }}/{{ gpx }}.gpx %}"
+        {% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ]
+}
+</script>
