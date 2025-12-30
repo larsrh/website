@@ -15,13 +15,13 @@ make_thumbs()
   if [ -f "$small" ]; then
     echo "$small exists, skipping"
   else
-    magick "$file" -resize "1600>" -strip "$small"
+    magick "$file" -resize "1600>" -auto-orient -strip "$small"
   fi
   local thumb="$dir/$short.thumb.jpg"
   if [ -f "$thumb" ]; then
     echo "$thumb exists, skipping"
   else
-    magick "$file" -resize "300^>" -gravity center -extent 300x300 -strip "$thumb"
+    magick "$file" -resize "300^>" -gravity center -extent 300x300 -auto-orient -strip "$thumb"
   fi
 }
 
