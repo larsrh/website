@@ -4,7 +4,7 @@ permalink: /topics/
 title: Topics
 ---
 
-I have written articles about a variety of different topics, but some of those topics are more intesting to me than others.
+I have written articles about a variety of different topics, but some of those topics are more interesting to me than others.
 Here, you can find an overview of these “topics of interest”.
 
 ## [An introduction to Conflict-Free Replicated Data Types]({% link topics/crdt/01-intro.md %})
