@@ -56,10 +56,9 @@ eintragen muss, wusste ich schließlich nicht.
 
 08.11.
 : Erhalte einen auf 04.11. datierten PIN-Brief. Entweder ist die Post sehr
-langsam oder das Absenderdatum falsch.
+  langsam oder das Absenderdatum falsch.
 
-08.11.
-: Erhalte eine E-Mail von der Universität:
+  Erhalte außerdem eine E-Mail von der Universität:
 
   > *Thank you for recently submitting your Non-Staff Personal Details
   > Form (NSP2) to us.*
