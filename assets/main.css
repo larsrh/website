@@ -102,24 +102,24 @@ nav li.active::before {
   gap: var(--spacer-md);
 }
 
-img.profile {
-  border-radius: 100%;
-}
-
-.card {
+.intro {
   display: grid;
   gap: var(--spacer-md);
   align-items: center;
 }
 
+.intro img {
+  border-radius: 100%;
+}
+
 @media (min-width: 52rem) {
-  .card {
+  .intro {
     grid-template-columns: 1fr 3fr;
   }
 }
 
 @media (max-width: 52rem) {
-  header h1.intro {
+  .intro h1 {
     text-align: center;
   }
 }
