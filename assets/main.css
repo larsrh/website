@@ -382,7 +382,7 @@ blockquote > p {
   margin: 0;
 }
 
-.leaflet-map {
+.leaflet-container {
   aspect-ratio: 16 / 9;
 }
 

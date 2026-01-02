@@ -16,6 +16,10 @@ function loadGpx(map, file) {
 }
 
 async function renderMap(dataId, embedId) {
+  if (document.getElementById(embedId).childElementCount > 0)
+    // we have already rendered the map, nothing to see here, move along ...
+    return;
+
   const { markers, gpx } = JSON.parse(
     document.getElementById(dataId).textContent
   );
@@ -40,8 +44,6 @@ async function renderMap(dataId, embedId) {
   }
 
   for (const file of gpx) bounds.push(await loadGpx(map, file));
-
-  console.log(bounds);
 
   map.fitBounds(bounds);
 }
