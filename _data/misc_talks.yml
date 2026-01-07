@@ -21,7 +21,7 @@
   date: 2014-12-08
 - title: What Haskell can learn from Scala
   conference: "Haskell eXchange"
-  link: "https://skillsmatter.com/conferences/7069-haskell-exchange-2015#program"
+  link: "https://web.archive.org/web/20231201065837/https://skillsmatter.com/conferences/7069-haskell-exchange-2015"
   recording: "https://skillsmatter.com/skillscasts/6592-what-haskell-can-learn-from-scala"
   slides: "https://speakerdeck.com/larsrh/what-haskell-can-learn-from-scala"
   location: London, UK
@@ -56,3 +56,8 @@
   recording: "https://www.youtube.com/watch?v=c7e5H4aWQSs"
   slides: "https://speakerdeck.com/larsrh/how-to-write-correct-scala-programs"
   date: 2025-08-21
+- title: "The Future of Money: A tale of CBDC, stablecoins and deposit tokens"
+  conference: "TUM Blockchain Conference"
+  link: "https://conference.tum-blockchain.com/agenda"
+  recording: "https://www.youtube.com/watch?v=_zXceAjMMYE"
+  date: 2025-09-12

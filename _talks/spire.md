@@ -38,6 +38,7 @@ conferences:
     location: Florence, Italy
     link: "http://2018.scala-italy.it/"
     slides: "https://speakerdeck.com/larsrh/numeric-programming-with-spire-scala-italy-edition"
+    recording: "https://www.youtube.com/watch?v=2Ki0kSeWZ00"
   - conference: "Munich Scala User Group"
     date: 2018-06-13
     location: Munich, Germany
