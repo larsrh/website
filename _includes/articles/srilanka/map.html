@@ -1,0 +1,13 @@
+{% assign data_id = "map-data-" | append: include.name %}
+{% assign embed_id = "map-embed-" | append: include.name %}
+{% include map_json.html gpx=include.name gpx_prefix="_articles/srilanka" id=data_id %}
+
+<details ontoggle="renderMap('{{ data_id }}', '{{ embed_id }}')">
+    <summary>Map</summary>
+    <div id="{{ embed_id }}"></div>
+    <a href="{% link _articles/srilanka/{{ include.name }}.gpx %}">Download track</a>
+    <footer>
+        Credits: GPS track and GPX file recorded by the author. Base map and map data by OpenStreetMap and OpenStreetMap
+        Foundation. Published under <a href="https://opendatacommons.org/licenses/odbl/">ODbL</a>.
+    </footer>
+</details>

@@ -4,12 +4,20 @@ const markerOptions = {
   shadowUrl: undefined,
 };
 
+const gpxOptions = {
+  joinTrackSegments: false,
+};
+
 function loadGpx(map, file) {
   let _resolve;
   const promise = new Promise((resolve) => {
     _resolve = resolve;
   });
-  new L.GPX(file, { async: true, marker_options: markerOptions })
+  new L.GPX(file, {
+    async: true,
+    marker_options: markerOptions,
+    gpx_options: gpxOptions,
+  })
     .on("loaded", (e) => _resolve(e.target.getBounds()))
     .addTo(map);
   return promise;
