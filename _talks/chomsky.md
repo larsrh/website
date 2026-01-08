@@ -10,7 +10,11 @@ abstract: |
 slides:
   file: "slides"
   length: 67
-video: { id: "teX3orA5zWI" }
+video:
+  id: "a0bf9cf8-7774-4795-aa08-dc3d53a8ced4"
+  site: "bunny"
+  thumb: "https://vz-93be2149-5a4.b-cdn.net/a0bf9cf8-7774-4795-aa08-dc3d53a8ced4/thumbnail_ea25d8b0.jpg"
+  duration: "42M59S"
 conferences:
   - conference: "CloudLand"
     link: "https://shop.doag.org/events/cloudland/2022/agenda/"
@@ -31,7 +35,6 @@ conferences:
     slides: "https://speakerdeck.com/larsrh/was-kubernetes-ingress-regeln-mit-der-chomsky-hierarchie-zu-tun-haben"
     date: 2022-11-30
     recording: "https://www.youtube.com/watch?v=teX3orA5zWI"
-
 ---
 
 ## Ressourcen
