@@ -233,7 +233,7 @@ Vivi tried it; I stuck with the regular, non-sea-mammalian one.
 
 <div class="gallery">
   {% include article_picture.html src="IMG_2686" text="Workers plucking tea" %}
-  {% include article_picture.html src="IMG_7953" text="Locals walking on the tracks" %}
+  {% include article_picture.html src="IMG_7953" text="Locals walking on the tracks; tourists walking on the track" %}
   {% include article_picture.html src="IMG_2700" text="Train goes in there" %}
   {% include article_picture.html src="IMG_2707" text="Drying our clothes" %}
   {% include article_picture.html src="IMG_7970" text="Printing our tickets" %}
@@ -259,7 +259,293 @@ Satisfied, we went to sleep.
 
 ## Ella, Elle L'a (25.10.---27.10.)
 
+It was a super rainy and windy night and morning.
+Because we are very smart, we brought our clothes back in, but forgot the hiking shoes outside.
+Needless to say that they didn't dry very much.
+
+Our train wouldn't be leaving before lunch, so we had a relaxed morning with an excellent breakfast and plenty of tea.
+As we went to the train station, it started raining again.
+But today, no hike, so no problem.
+
+As I mentioned in the first part, we booked the expensive tourist train from Hatton to Ella.
+We arrived at the train station way too early, given that our train had accumulated a good hour of delay.
+Funnily enough, the prior train was also delayed, so we could've theoretically caught that one, but without a guaranteed seat.
+Since the ride would be at least four hours, we decided to not risk it.[^seat]
+
+Onboard!
+
+Because the _Pekoe Trail_ (as we hiked it) goes opposite the direction of the train for a bit, we could now do the inverse “trainspotting” from the days before.
+The train went through the _Singimale Tunnel,_ and made its way through Kotagala, Talawakele, the _Soda Bottle Curve,_ and Watagoda.
+Then it turned east, away from the trail.
+
+The train ride was chill (thanks also to the air-con).
+We chatted a lot with other passengers; or rather, I did, since my wife is not the talkative kind.
+We met a diverse range of people:
+
+- a group of Austrians going on an Ayurveda retreat, negotiating the correct pickup location with their driver;
+- a middle-aged English--Irish couple, happy to chat about [Belfast]({% link topics/erasmus/1_universitaet.md %});
+- some Indians living in London, just enjoying beers on the train.
+
+What they had in common was that they all seemed very interested in our leech experience.
+
+The train stopped multiple times and the conductors made sure to tell passengers about any sights.
+We could even get off and on a few times, although the time was hardly enough to snap a few photos.
+(Not complaining, though; I think it was nice!)
+
+<div class="gallery">
+  {% include article_picture.html src="IMG_2712" text="Hatton railway station" %}
+  {% include article_picture.html src="IMG_2732" text="Kotmale river in Talawakelle (again)" %}
+  {% include article_picture.html src="IMG_2737" text="We've got both kinds of music here: Country and Great Western" %}
+  {% include article_picture.html src="IMG_2748" text="View from the Idalgashinna railway station" %}
+  {% include article_picture.html src="IMG_2758" text="Night dog" %}
+</div>
+
+We arrived around 17:00 at Ella---the station bustling with activity---in the middle of lots more tourists.
+Our host thankfully picked us up by tuktuk and made us feel very welcome.
+Their buffet-style family restaurant was nearby, so we could enjoy the evening without having to go back into town.
+
+Final task for today was to pack up our ~~dirty~~ filthy laundry for cleaning.
+Our host arranged everything for us; I just felt bad about how poorly some of those clothes smelled.
+
+<table>
+  <tr><th>Start</th><td>Hatton</td></tr>
+  <tr><th>End</th><td>Ella</td></tr>
+  <tr><th>Train number</th><td>11141</td></tr>
+  <tr><th>Departure (scheduled)</th><td>11:45</td></tr>
+  <tr><th>Arrival (scheduled)</th><td>15:47</td></tr>
+  <tr><th>Seat class</th><td>Air-conditioned first class</td></tr>
+</table>
+
+### Ella Rock
+
+The next day (26.10.), breakfast was served with a view.
+Our homestay was located outside the centre, up a little hill.
+
+Just while we were discussing what to do today, we received our laundry back in the morning.
+The hiking clothes were restored to (almost) mint condition.
+
+So we did what had to be done.
+One rest day ought to be enough for everyone, right?
+
+{% include articles/srilanka/map.html name="stage15" %}
+
+We started hiking towards _Ella Rock,_ a peak of about 1350 metres.
+The easiest way to reach it from our accommodation was to, you probably guessed it, use the railway tracks until Kithal Ella.
+As we reached the tracks, we immediately heard a train horn and the locals gestured us to wait besides the track.
+We duly complied, then followed the tracks.
+Following the tracks behind the train in the opposite direction was a railway worker with a big wrench, fastening the bolts.
+
+This was the first time when we saw a substantial number of other people on the trail.
+Maybe that was caused by the super nice weather, absence of leeches, solid paths, and great views?
+Also, the infrastructure is just _better:_ as you get closer to _Ella Rock,_ many vendors offer juices, soft drinks, and snacks.
+Definitely a hike that you could do totally unplanned.[^impromptu]
+(Keep in mind that there are many small paths leading up to the mountain. It doesn't really matter which one you take.)
+
+We reached the peak after a little over an hour and could enjoy the sun (as did some stray dogs that straggled behind the hikers).
+Various signs on the trail pointed out that tickets are required; the booth is immediately next to the main viewpoint.
+
+Now, we found ourselves having the same discussion as in the morning.
+It was barely past 09:00, so we still had the whole day ahead of us.
+
+Vivi realised that we've actually been hiking the [fifteenth stage](https://www.outdooractive.com/en/route/hiking-trail/sri-lanka/the-pekoe-trail-stage-15-makulella-to-ella-official-profile/800440391/) of the _Pekoe Trail_ in reverse (normally, it would end in Ella).
+
+So we did what had to be done.
+We reprogrammed our watches to direct us to the start of the stage, and off we went.
+
+This stage is picturesque.
+It passes by viewpoints, waterfalls, eucalyptus forests, and a forest monastery.
+Curiously, we also saw a housing development in the middle of the forest.
+
+<div class="gallery">
+  {% include article_picture.html src="IMG_7977" text="Some minor structural problems with the tracks" %}
+  {% include article_picture.html src="IMG_2766" text="Lemme fix that real quick" %}
+  {% include article_picture.html src="IMG_2769" text="View over Ella" %}
+  {% include article_picture.html src="IMG_7987" text="View over Lars" %}
+  {% include article_picture.html src="IMG_2783" text="A house. In the middle of the trees, a house." %}
+</div>
+
+We reached Makulella quickly and jumped into the next bus that would bring us back to Ella.
+
+<table>
+  <tr><th>Stage</th><td>15</td></tr>
+  <tr><th>Start (actual)</th><td>Ella</td></tr>
+  <tr><th>End (actual)</th><td>Makulella</td></tr>
+  <tr><th>Elapsed time</th><td>2:35</td></tr>
+  <tr><th>Moving time</th><td>2:10</td></tr>
+  <tr><th>Distance</th><td>8.7 km</td></tr>
+  <tr><th>Ascent</th><td>600 m</td></tr>
+</table>
+
+The bus ride---as our previous one---was exciting.
+The drivers seem to have a spiritual connection to their Swiss colleagues, sharing the enthusiasm of going around hairpin bends as fast as they can get away with.
+
+The conductor told us to change in Bandarawela into another bus.
+We did not comply and hopped out at Kinigama to take a (commuter) train instead.
+
+We grabbed some samosas for lunch and sat down to wait.
+
+As the train pulled into the station, Vivi ran down the train, trying to find a passenger carriage.
+But the conductor, looking out from the carriage directly behind the engine, waved us into his guard car.
+
+Naturally, the train was delayed, waiting for opposing traffic.
+The bus would've been much faster.
+But boy, did we have a good time.
+
+The guard entertained us almost the entire 45 minutes we spent crawling along the tracks.
+He asked us if we want to have our picture taking leaning out of the train.
+I was very sceptical, but he told us the exact locations where you could lean without getting hit by trees, stones, or a tunnel wall.
+A little later, a French passenger joined our jamboree.
+
+We left the train in Kithal Ella and walked the remaining way back to our homestay.
+(The conductor advised that we had about half an hour before another train would come on the tracks.)
+
+<div class="gallery">
+  {% include article_picture.html src="IMG_8002" text="Kinigama railway station" %}
+  {% include article_picture.html src="IMG_8001" text="Kinigama railway station schedule" %}
+  {% include article_picture.html src="IMG_2793" text="Can Lars' parents please pick them up from Småland?" %}
+  {% include article_picture.html src="IMG_2811" text="Train, from the side" %}
+  {% include article_picture.html src="IMG_2812" text="Train, from behind" %}
+  {% include article_picture.html src="IMG_2813" text="Dog." %}
+</div>
+
+We showered, changed, and went to town.
+One of our remaining tasks was to organise our onwards journey to Batticaloa and beyond.
+
+We couldn't figure out the long-distance bus system, so started to shop around for a shared taxi.
+Sadly, those were only available towards the south coast.
+After a bit of haggling we found a good deal for a private taxi.
+
+Additionally, we extended our stay in Ella for one night (new departure: 28.10.), booked our stay in Batticaloa, rail tickets from there onwards, and plane tickets.[^headway]
+What a productive Sunday, right?
+
+But we weren't finished yet.
+
+### Cooking class
+
+Of course, a cooking class.
+It took place in a hut, with a large clay oven as centrepiece.
+Together with the chef and his assistant, we prepared a few signature Sri Lankan dishes (see pictures).
+Among them:
+
+- Coconut roti
+- Coconut sambal
+- Papadam
+- Devilled Potatoes
+- Dal
+- Pumpkin curry
+
+I love coconut, so it was fascinating to see how they are prepared fresh.
+For example, how to make coconut milk:
+You just put the coconut flakes into water …
+I also saw a coconut scraping device for the first time.
+
+<div class="gallery">
+  {% include article_picture.html src="IMG_2818" text="Prepping the stoves" %}
+  {% include article_picture.html src="IMG_2823" text="French fries but as aubergines" %}
+  {% include article_picture.html src="IMG_2831" text="And that's how the coconut crumbles." %}
+  {% include article_picture.html src="IMG_2851" text="Pure, unadulterated nom" %}
+</div>
+
+### Another day, another hike
+
+{% include articles/srilanka/map.html name="stage16_17" %}
+
+The weather forecast predicted rain in the afternoon, so we started early.
+Today's plan was the [sixteenth stage](https://www.outdooractive.com/en/route/hiking-trail/sri-lanka/the-pekoe-trail-stage-16-ella-to-demodara-official-profile/800440401/) of the _Pekoe Trail_ to Demodara, known for its railway loop.
+
+We started from our homestay---this time, not walking on the tracks---towards the famous _Nine Arches Bridge._
+That didn't take very long, and once again, many more tourists were on the trail.
+We crossed the bridge and turned right, ascending on a hill, to continue the stage.
+
+Only a few minutes later, we found another great viewpoint over the bridge.
+
+According to _RDMNS,_ that day's _Odyssey_ train was supposed to arrive at the bridge any moment.
+So, we waited.
+And waited.
+
+Just as we were about to leave our position and the bridge out of sight, we heard the signature train horn.
+We ran back and, hey presto, the train came!
+(Well, it took another few minutes.)
+
+The train approached slowly.
+_Very_ slowly.
+Then it stopped halfway on the bridge (see picture).
+
+Of course, it's the _Odyssey!_
+It stops so that the passengers can step out and look around.
+So we didn't manage to film a full crossing.
+A bit anticlimactic, but oh well.
+
+<div class="gallery">
+  {% include article_picture.html src="IMG_2858" text="Towards the Nine Arches Bridge" %}
+  {% include article_picture.html src="IMG_8024" text="Nine Arches Bridge from one side" %}
+  {% include article_picture.html src="IMG_8029" text="Nine Arches Bridge from another side" %}
+  {% include article_picture.html src="IMG_2863" text="Have you ever met a dog you didn't like?" %}
+</div>
+
+This stage of the _Pekoe Trail_ was largely uneventful.
+As we reached the end, Demodara, I was already feeling exhausted.
+It was hot and I was sweaty.
+
+We sat down for a moment and had a snack.
+But it was only 09:00, so what were we supposed to do with the rest of the morning?
+My wife pointed out that we had only walked for about 10 kilometres at that point.
+
+So, we resolved to keep going and proceeded with the [seventeenth stage](https://www.outdooractive.com/en/route/hiking-trail/sri-lanka/the-pekoe-trail-stage-17-demodara-to-hali-ela-official-profile/800440411/).
+
+The Demodara loop, where the railway line crosses over itself, is not so spectacular.
+The Demodara bridge, more so (see picture).
+Walking on those tracks felt a bit more dangerous than usual, because you can't just jump aside when a train approaches (no train did).
+
+The trail followed mostly tea estate roads, so in terms of difficulty, the hike was managable.
+But my feet started to hurt and I was generally not in the mood to continue for much longer.
+After a quick negotation, we agreed to get to a total of 120 kilometres, and then leave the trail to get us back to Ella.
+
+<div class="gallery">
+  {% include article_picture.html src="IMG_8039" text="Almost at the end …" %}
+  {% include article_picture.html src="IMG_8043" text="… almost …" %}
+  {% include article_picture.html src="IMG_8048" text="… arrived!" %}
+  {% include article_picture.html src="IMG_8051" text="Unless we just keep going" %}
+</div>
+
+An hour or so after we left Demodara, we reached a small village.
+The plan would be similar to yesterday: find a bus stop and jump into any bus that gets us closer to Ella.
+
+<table>
+  <tr><th>Stages</th><td>16 and 17</td></tr>
+  <tr><th>Start (actual)</th><td>Ella</td></tr>
+  <tr><th>End (actual)</th><td>A small village </td></tr>
+  <tr><th>Elapsed time</th><td>4:30</td></tr>
+  <tr><th>Moving time</th><td>3:20</td></tr>
+  <tr><th>Distance</th><td>14 km</td></tr>
+  <tr><th>Ascent</th><td>740 m</td></tr>
+</table>
+
+But the villagers told us that there is no bus stop here.
+Just when I was about to call a tuktuk driver,[^tuktuk]
+a young man stepped out of a building, introduced himself as the science lab assistant of the local school, and asked us in.
+
+Naturally, all pupils from the entire school (and the other school next door) surrounded us.
+According to one of the teachers, that week they were studying English literature, so they were supposed to ask us questions.
+What happened in reality is that the pupils got way too excited for that, and we felt slightly bad about us disrupting their classes.
+It was a cheerful experience anyway.
+
+Meanwhile, the lab assistant had called another tuktuk driver, his friend, to bring us to Demodara.
+From there we took a bus back to Ella, arriving around 13:00.
+
+We spent the rest of the day enjoying the touristy amenities in Ella, including coffee with plant milk, fancy burgers, and a massage.
+Our onwards travel for a good week was already arranged, which helped me to relax.
+(I guess the massage also contributed!)
+
+At our homestay, we packed up our stuff to prepare for tomorrow morning's pickup.
+
+_Stay tuned for the next part!_
+
 [^token]: Some of which even use [tokens](<https://en.wikipedia.org/wiki/Token_(railway_signalling)>) still.
 [^hatton]: The seventh stage explicitly says it “bypasses Hatton”, but I think Hatton is a nice place to stay for a night. After Hatton, there is no more rail connection on the trail until the twelfth stage (Idalgashinna and Haputale).
 [^tunnel]: Wikipedia is a little confused about the tunnel length ranking; it is the second-longest.
 [^shortcut]: Vivi pointed out that going through the tunnel would've been so much shorter than following the trail as we did that day.
+[^seat]: Ultimately, the _Ella Odyssey_ ended up being tightly packed, so it was likely a good decision to not switch to unreserved class.
+[^impromptu]: Accordingly, I wrote in my notes “impromptu hike”.
+[^headway]: The headways were one day, two, five, and seven days, respectively.
+[^tuktuk]: As a matter of prudence, I already asked for a driver's number in Demodara.
