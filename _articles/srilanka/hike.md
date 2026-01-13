@@ -14,6 +14,8 @@ At least, that's what my wife Vivi maintains.[^idle]
 Anyhoo, Sri Lanka (2025) it was.
 Bright and early on a Friday, we started our journey.
 
+_Read the [second part here]({% link _articles/srilanka/hike2.md %})._
+
 ## Getting there (17.10. and 18.10.)
 
 There is exactly one direct flight between Germany and Sri Lanka, departing from Frankfurt a few times a week.
@@ -150,6 +152,9 @@ The suitcase would then be picked up for storage in the morning.
 The _Pekoe Trail_ is, according to its [website](https://thepekoetrail.org/), a “300 kilometer, carefully curated long distance walking trail that winds through the Central Highlands of Sri Lanka.”
 It comprises a total of 22 stages, each around 15 kilometers, which makes them perfect day tours.
 
+Note that you need to buy a day pass for a particular stage to hike, or a [one-year membership](https://portal.thepekoetrail.org/).
+We got the latter: I recommend having the PDF or a paper copy with you, although nobody checked on the trail, as far as we were aware.
+
 We started---naturally---with the [first stage](https://www.outdooractive.com/en/route/hiking-trail/sri-lanka/the-pekoe-trail-stage-01-hantana-to-galaha-official-profile/800406743/), taking us from the _Hantana Estate_ near Kandy to Galaha.
 We had breakfast at a bakery down the road and took a tuktuk for the twenty-minute ride to the starting point.[^pickup]
 
@@ -180,7 +185,7 @@ The dogs hanging around the building found us interesting and followed for a bit
 Other notable encounters, in increasing order of frequency:
 
 - an Australian couple; as it would turn out, one of the very few fellow hikers on the trail
-- large boulders the size of small boulders; those had to be climbed
+- [large boulders](https://www.cbsnews.com/colorado/news/colorado-sheriffs-office-viral-tweet/) the size of small boulders; those had to be climbed
 - leeches; more about those later.
 
 As is usual in October---also known as “beginning of the rainy season”---it started drizzling around noon.
@@ -299,6 +304,8 @@ But the views were nothing short of spectacular.
 At some point, we arrived back at a tea estate, featuring James Taylor's cottage, a Scotsman credited for the first tea plantation in Sri Lanka.
 Also, it seemed to be a popular spot for young lovers:
 We saw a bunch of couples arriving on a motorcycle, enjoying the scenery.
+(However, only very few other hikers on the trail.)
+
 Entering and exiting this estate incurs a small fee, to be paid at the information centre at the end of the stage in Loolecondera.
 
 <div class="gallery">
@@ -496,7 +503,7 @@ This allowed us to go to bed early and recharge for the next day.
   <tr><th>Ascent</th><td>750 m</td></tr>
 </table>
 
-_Stay tuned for the next part!_
+_Read the [second part here]({% link _articles/srilanka/hike2.md %})._
 
 [^idle]: Normally, she's the idly-mentioner.
 [^train]: Mind you, our originally-booked train got cancelled (in advance), and we opted to throw in another ten minutes of buffer for good measure.
