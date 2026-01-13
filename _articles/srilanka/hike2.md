@@ -1,7 +1,7 @@
 ---
 title: "Three weeks in Sri Lanka (Part 2)"
 subtitle: "The hiking part, continued"
-date: 2026-01-03
+date: 2026-01-13
 lang: en
 toc: true
 abstract: |
