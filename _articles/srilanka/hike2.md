@@ -450,7 +450,7 @@ I also saw a coconut scraping device for the first time.
 
 {% include articles/srilanka/map.html name="stage16_17" %}
 
-The weather forecast predicted rain in the afternoon, so we started early.
+The weather forecast predicted rain on Monday afternoon, so we started early.
 Today's plan was the [sixteenth stage](https://www.outdooractive.com/en/route/hiking-trail/sri-lanka/the-pekoe-trail-stage-16-ella-to-demodara-official-profile/800440401/) of the _Pekoe Trail_ to Demodara, known for its railway loop.
 
 We started from our homestay---this time, not walking on the tracks---towards the famous _Nine Arches Bridge._
@@ -539,7 +539,7 @@ Our onwards travel for a good week was already arranged, which helped me to rela
 
 At our homestay, we packed up our stuff to prepare for tomorrow morning's pickup.
 
-_Stay tuned for the next part!_
+_Read the [third part here]({% link _articles/srilanka/culture.md %})._
 
 [^token]: Some of which even use [tokens](<https://en.wikipedia.org/wiki/Token_(railway_signalling)>) still.
 [^hatton]: The seventh stage explicitly says it “bypasses Hatton”, but I think Hatton is a nice place to stay for a night. After Hatton, there is no more rail connection on the trail until the twelfth stage (Idalgashinna and Haputale).

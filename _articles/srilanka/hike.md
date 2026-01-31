@@ -97,8 +97,8 @@ The map shows our trip itinerary:
 
 1. Colombo---Kandy by train.
 2. Hike the _Pekoe Trail_ until Hatton; stay at a different place each night.
-3. Hatton---Ella by train, and a few days to explore the town.
-4. Ella---Batticaloa by taxi, since we failed to figure out any bus connections (more about that in a later part).
+3. [Hatton---Ella by train]({% link _articles/srilanka/hike2.md %}), and a few days to explore the town.
+4. [Ella---Batticaloa by taxi]({% link _articles/srilanka/culture.md %}), since we failed to figure out any bus connections (more about that in a later part).
 5. Batticaloa---Sigiriya by train for culture & a safari.
 6. Sigiriya---Mirissa by plane, easily the most exciting transit of the entire trip.
 7. A few days in Mirissa for whale watching & beaching.
