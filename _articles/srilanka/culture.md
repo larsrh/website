@@ -1,7 +1,7 @@
 ---
 title: "Three weeks in Sri Lanka (Part 3)"
 subtitle: "The culture part"
-date: 2026-01-31
+date: 2026-02-07
 lang: en
 toc: true
 abstract: |
