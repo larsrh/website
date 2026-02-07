@@ -194,43 +194,169 @@ We didn't do much else besides having dinner, arranging a tuktuk, and going to s
 
 ## Shooting for Sigiriya (31.10---01.11.)
 
+After a short night's sleep, we made our way to Batticaloa station to catch the train at 06:10.
+I had speculated that the station would have a canteen---like others before---to get breakfast samosas, but no luck.
+We had to ride on an empty stomach.
+
+The plan was to take the train towards Sigiriya, have lunch, then get picked up for a safari in [_Kaudulla National Park_](https://en.wikipedia.org/wiki/Kaudulla_National_Park).
+Therefore, I had booked train tickets to Gal Oya Junction, which is geographically closest to the national park (and also not far away from Sigiriya).
+The 06:10 service would arrive much too early, but we didn't have much choice: the next service would have been too late in the afternoon.
+
+Perhaps with the benefit of foresight, the safari guide texted me some days before about the logistics.
+I told him about the plan and he immediately suggested going a few stops further, to Habarana.
+The station is farther from the national park, but actually has restaurants nearby.
+
+The only problem now was that we didn't have a ticket to Habarana.
+I tried buying one in Batticaloa, but that wasn't possible.
+The attendant there told me to jump out of the train in Gal Oya and buy an onward ticket there.
+That'd be unwise since the next train, as mentioned above, would arrive too late.
+We decided to risk it and got on the train regardless.
+
+That day was by far the most adventurous train ride, even more so than [the one in Ella]({% link _articles/srilanka/hike2.md %}#ella-rock).
+I got travel sickness because the carriage was shaking so much:
+at some point I was wondering whether we were about to derail.
+Needless to say, Vivi kept her cool.
+
+We arrived alive and well, if a little delayed in Habarana.
+It turned out to be not a problem to stay on for two extra stations, since the train wasn't crowded at all.
+
+We walked to a restaurant near the train station.
+Luckily it was open, yet completely empty.
+The owner was friendly and let us stay there until the pickup time.
+We chilled and eventually had lunch.
+
+In the meantime, I also had to make some calls for our upcoming flight.
+_Cinnamon Air_ had requested some extra information about us, our luggage, and us and our luggage's weight.
+That I could understand, since we were going to fly with a small plane.
+But they also wanted to know details about the driver (not the driver's weight though).
+As I was scratching my head, I learned that [Sigiriya Airport](https://en.wikipedia.org/wiki/Sigiriya_Airport) is actually a military base.
+And one doesn't simply walk into a military base.
+(More about that in the next part.)
+
+<table>
+  <tr><th>Start</th><td>Batticaloa</td></tr>
+  <tr><th>End</th><td>Habarana</td></tr>
+  <tr><th>Train number</th><td>6012</td></tr>
+  <tr><th>Departure (scheduled)</th><td>06:10</td></tr>
+  <tr><th>Arrival (scheduled)</th><td>09:41</td></tr>
+  <tr><th>Seat class</th><td>Second class reserved</td></tr>
+</table>
+
+### Kaudulla safari
+
+We got picked up by a driver/guide at 13:00.
+After only a few minutes of driving, we saw the first elephants already next to the road, as they were slowly moving towards the watering hole in Kaudulla (as we were).
+We parked at the side of the road---actually the busy highway to Trincomalee---and observed a bit.
+One of the elephants shooed a motorcyclist away, who almost fell and profusely apologised to the mammal.
+
+It took us around half an hour to arrive at the national park's entrance.
+The safari was fantastic:
+We saw monkeys, a few eagles, peacocks, and some other birds.
+
+As we reached the watering hole (along with many other _Bolero_ jeeps), we could observe at least 50 elephants hanging out by the lake, including baby elephants.
+They were feeding, bathing, and playing.
+
+At dawn, we made our way back.
+The driver dropped us at our homestay around 18:00.
+Even though it would've only been a short walk to a restaurant, the hosts insisted on driving us there: wild elephants are roaming the streets, and it is not advised to meet them on your feet in the dark.
+
 <div class="gallery">
   {% include article_picture.html src="IMG_3002" text="Riding a train once more" %}
   {% include article_picture.html src="IMG_8230" text="Habarana, extra spicy" %}
   {% include article_picture.html src="IMG_3008" text="Hello" %}
   {% include article_picture.html src="IMG_3011" text="Can I interest you in some branches?" %}
-  {% include article_picture.html src="IMG_3015" text="Preparing for bolero" %}
+  {% include article_picture.html src="IMG_3015" text="It takes two to bolero" %}
   {% include article_picture.html src="IMG_3029" text="Elephants" %}
   {% include article_picture.html src="IMG_8238" text="Surprise! More elephants!" %}
   {% include article_picture.html src="IMG_8244" text="The elephants kept coming. Who would've thought." %}
   {% include article_picture.html src="IMG_8248" text="Finally, a cow, for a change" %}
 </div>
 
+### Rocks and rolls
+
+The next day was chill; we had breakfast at the homestay.
+Since it was conveniently located close to the ancient site of Sigiriya, we walked there.
+
+Already after a few minutes, we encountered a giant Buddha statue.
+I don't know how tall it is and neither could I figure it out:
+Except for the odd mention on travel blogs,[^irony] it is not (yet?) mentioned in any tourist guides.
+I couldn't even find out its height.
+But it is enormous, and clearly visible from up the Sigiriya rocks.
+
+We continued walking through a [quaint forest path](https://www.openstreetmap.org/way/23811160) towards the entrance.
+(We came in from the west, which is much nicer than going via the car park in the south.)
+As we got closer, lots of guides proffered their services, but we went inside without one.
+
+The site is huge and one can easily spend multiple hours there.
+The main attraction is, of course, the _Sigiriya Rock_ (or _Lion Rock_), a 180 m high granite column.
+On top of that hill is an ancient palace.
+But there is plenty to discover around, including a museum.
+(See the [map on the website](https://sites.google.com/view/sigiriyaccf/map) for details.)
+
+The _Lion Rock_ isn't a very hard climb, if it weren't be for the hot and humid weather.
+There are also some spots to catch your breath and/or refill your water bottle.
+Since it was very crowded, we had to wait occassionally at the staircases.
+Also, do not expect much shade anywhere.
+
+Climbing back down, visitors are guided directly to the southern exit gate.
+But since there is lots more to see, we took a shortcut through the ruins and checked out the rest of the site.
+
 <div class="gallery">
   {% include article_picture.html src="IMG_3077" text="Tall Buddha" %}
   {% include article_picture.html src="IMG_3092" text="At the entrance of the Sigiriya site" %}
   {% include article_picture.html src="IMG_3094" text="All watched over by monkeys of loving grace" %}
   {% include article_picture.html src="IMG_3095" text="Banyan (wife for scale)" %}
-  {% include article_picture.html src="IMG_3108" text="Sigiriya Rock (wife for scale)" %}
+  {% include article_picture.html src="IMG_3108" text="Wife (Sigiriya Rock for scale)" %}
   {% include article_picture.html src="IMG_3122" text="View from above (1)" %}
   {% include article_picture.html src="IMG_3125" text="View from above (2)" %}
   {% include article_picture.html src="IMG_3152" text="The stairs must be climbed" %}
-  {% include article_picture.html src="IMG_3153" text="We didn't swim here" %}
-  {% include article_picture.html src="IMG_3162" text="Dog" %}
+  {% include article_picture.html src="IMG_3153" text="The pond probably shouldn't be swimmed" %}
+  {% include article_picture.html src="IMG_3162" text="A real cutie patootie and a dog" %}
   {% include article_picture.html src="IMG_3166" text="Ancient spicy cave paintings" %}
 </div>
+
+A short walk north of the site is another rock, called _Pidurangala_.
+It has about the same height as the _Lion Rock_ and can also be climbed.
+If you are planning your visit, I would highly recommend doing both; it will be a good days' worth of exploring.
+
+Initially, we were planning to go directly from the site to _Pidurangala_ (there is a gate at the north), but we wouldn't have been allowed back in.
+So we first finished our tour inside and then left from the western gate.
+This had the added benefit that we could stop by the museum.[^museum]
+As we were grabbing a snack, some monkeys came and caused a kerfuffle (pushing down coffee cups etc.).
+Staff had to came to shoo them away.
+
+We left the site and walked north along the rampart.
+It was a lot less busy, but there were also a few boulders to climb.
+(If you wear any shoes that are slightly sturdier than sandals, it should be fine.)
+
+I'd wager and say the views are even better from _Pidurangala_.
+The volcanic rock material, and the few cacti dotted on the plateau, is fascinating.
+On the walk back we randomly went along a smaller road.
+Suddenly three tuktuks worth of people came:
+There was a [smaller rock](https://www.openstreetmap.org/node/12556676308) from which one could enjoy a nice view of the bigger rock.
 
 <div class="gallery">
   {% include article_picture.html src="IMG_8265" text="Garçon, bring me your finest Pinot Noir!" %}
   {% include article_picture.html src="IMG_8266" text="And make sure not to fall into the moat" %}
   {% include article_picture.html src="IMG_3170" text="Locals do not pee here" %}
   {% include article_picture.html src="IMG_3181" text="View from above (1)" %}
-  {% include article_picture.html src="IMG_3185" text="Large rock the size of a small rock (wife for scale)" %}
-  {% include article_picture.html src="IMG_8276" text="(Lars for scale)" %}
-  {% include article_picture.html src="IMG_3193" text="View from above (2)" %}
+  {% include article_picture.html src="IMG_3185" text="No stairs here, but also fewer tourists" %}
+  {% include article_picture.html src="IMG_8276" text="View from above (2)" %}
+  {% include article_picture.html src="IMG_3193" text="View from above (3)" %}
   {% include article_picture.html src="IMG_3199" text="Tree-shaped cacti" %}
-  {% include article_picture.html src="IMG_3207" text="Dogs" %}
 </div>
+
+We returned to our homestay, showered, changed, and went to a fancy restaurant.
+For the first time, we were offered wood apple juice.
+So far we had stuck with pineapple or mango, which is why my wife gave it a go.
+Our verdict was _nope._
+
+Fortunately, I had noted a tuktuk driver's phone number as we were walking around Sigiriya.[^pickme]
+I called them up (it was after dark; remember the elephants) to bring us back to our accommodation.
+
+Tomorrow, we would go to the south of the island.
+
+_Stay tuned for the fourth and final part, in which we will ride in a Cessna, with a whalewatching boat, and of course, on more trains._
 
 [^dinner]: Once again we had to order dinenr well in advance, which seems to be customary in Sri Lanka.
 
@@ -239,3 +365,9 @@ We didn't do much else besides having dinner, arranging a tuktuk, and going to s
 [^visit]: The visit is still on the table as I'm writing this, so I'm hopeful!
 
 [^langos]: I seem to be very photogenic while eating. Ask my wife about the picture of me absolutely destroying some Langos in [Hungary]({% link _articles/hiking-slovakia.md %}).
+
+[^irony]: The irony isn't lost on me.
+
+[^museum]: The museum is rather small, but has a great exhibition explaining the history of the site. There is also a reproduction of the cave paintings, which give you time to look at them in more detail. (It was too crowded in the actual cave.)
+
+[^pickme]: _PickMe_, the local ride-hailing app, works well when it works at all. Which in many places, it doesn't.
