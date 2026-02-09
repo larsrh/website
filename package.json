@@ -1,5 +1,11 @@
 {
+  "scripts": {
+    "imagesctl": "imagesctl --config imagesctl.config.js"
+  },
   "dependencies": {
+    "imagesctl": "0.0.2",
+    "node-addon-api": "^8.5.0",
+    "node-gyp": "^12.2.0",
     "pa11y-ci": "^4.0.1",
     "vnu-jar": "^26.2.6"
   },
