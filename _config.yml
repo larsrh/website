@@ -13,6 +13,7 @@ exclude:
   - "venv"
   - ".github"
   - ".pa11yci"
+  - "imagesctl.config.js"
 encoding: "utf-8"
 
 collections:
