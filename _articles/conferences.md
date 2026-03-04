@@ -144,7 +144,7 @@ After that, all online.
 
 ## 2022
 
-* January: [OOP](https://www.oop-konferenz.de/oop-2022/)
+* January: [OOP](https://web.archive.org/web/20250415081645/https://www.oop-konferenz.de/oop-2022/)
 * February: [Code Days](https://www.code-days.de/code-days-2022/)
 * March: [JavaLand](https://www.javaland.eu/), Brühl, Germany
 * June: [WeAreDevelopers World Congress](https://www.wearedevelopers.com/world-congress/), Berlin, Germany

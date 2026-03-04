@@ -40,7 +40,7 @@ Weiter im Forst gibt es – auch unter dem Namen „Hubertus“ – eine Einkehr
 Zwischen Start- und Endpunkt im Ebersberger Forst liegen 10 Kilometer Fahrradstrecke (oder knapp 9 Kilometer Luftlinie), die sich aber beliebig verlängern lässt, wenn man Waldwege mag.
 
 Kurz vor Ende der Tour bin ich Richtung Ebersberger Alm abgebogen.
-Dort gibt es eine Einkehrmöglichkeit und auch [einen Aussichtsturm](https://www.ebersberg.de/kultur-geschichte/sehenswuerdigkeiten.html) (siehe Markierung).[^1]
+Dort gibt es eine Einkehrmöglichkeit und auch [einen Aussichtsturm](https://www.ebersberg.de/kultur-freizeit-tourismus/sehenswuerdigkeiten) (siehe Markierung).[^1]
 Abschließend muss man noch etwas in die Pedale treten, um die letzten Höhenmeter zum Bahnhof Ebersberg zu erklimmen; oder man entscheidet sich, weiter- oder auf anderem Wege wieder zurückzufahren.
 
 ## Galerie
