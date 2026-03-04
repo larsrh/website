@@ -176,5 +176,19 @@ End of 2022 I changed jobs, which means that I am now going to fewer engineering
 
 * April: [Software Quality Days](https://www.software-quality-days.com/), Vienna, Austria
 * May: [TUM Blockchain Salon](https://hedgedoc.net.in.tum.de/s/6sJs4C5Ni#), Munich, Germany
+* September: [International Symposium on Formal Methods](https://www.fm24.polimi.it/), Milano, Italy
+* December: [OMFIF Future of Payments Forum](https://www.omfif.org/wp-content/uploads/2025/09/Promoting-European-integration-through-digital-innovation.pdf), Frankfurt, Germany
+
+## 2025
+
+* March: [Crypto Assets Conference](https://crypto-assets-conference.de/agenda-25a), Frankfurt, Germany
+* May: [Concepts of central bank digital currencies in different jurisdictions and financial infrastructures](https://zevedi.de/en/activities/events/workshop-concepts-of-central-bank-digital-currencies-20250508/), Darmstadt, Germany
+* May: [PQC-Update](https://www.aisec.fraunhofer.de/de/presse-und-veranstaltungen/veranstaltungen/PQC-Update-2025.html), Munich, Germany
+* May: [TUM Blockchain Salon](https://blockchain.salon.net.cit.tum.de/2025/), Munich, Germany
+* June: [International Conference on Security and Cryptography](https://secrypt.scitevents.org/?y=2025), Bilbao, Spain
+* July: [BaFinTech](https://www.bafin.de/SharedDocs/Downloads/DE/Veranstaltung/BaFinTech_2025.html), Berlin, Germany
+* July: [Open Forum: Digitaler Euro & Zahlungsverkehr](https://www.oenb.at/Termine/2025/2025-07-10-open-forum-digitaler-euro.html), Vienna, Austria
+* September: [Digital euro conference “Payments & Policy in a Changing Environment”](https://www.eestipank.ee/en/calendar/digital-euro-conference-payments-policy-changing-environment-29092025), Tallinn, Estonia
+* September: [European Symposium on Research in Computer Security](https://esorics2025.sciencesconf.org/), Toulouse, France
 
 To be continued.
