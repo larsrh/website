@@ -58,3 +58,7 @@
   provider: ForTomorrow
   cost: 327
   kg: 4600
+- date: 2026-03-21
+  proivder: Compensators
+  cost: 275
+  kg: 3160
