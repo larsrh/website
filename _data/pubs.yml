@@ -159,7 +159,6 @@
   authors: ["dominik", "lars"]
   in: "Isabelle Workshop"
   year: 2016
-  code: "https://assets.hupel.info/downloads/isabelle-clones/isabelle-clones-preview.zip"
   bib: false
   abstract: |
     Duplicated code fragments within software projects complicate maintenance
