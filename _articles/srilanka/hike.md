@@ -100,7 +100,7 @@ The map shows our trip itinerary:
 3. [Hatton---Ella by train]({% link _articles/srilanka/hike2.md %}), and a few days to explore the town.
 4. [Ella---Batticaloa by taxi]({% link _articles/srilanka/culture.md %}), since we failed to figure out any bus connections (more about that in a later part).
 5. Batticaloa---Sigiriya by train for culture & a safari.
-6. Sigiriya---Mirissa by plane, easily the most exciting transit of the entire trip.
+6. [Sigiriya---Mirissa by plane]({% link _articles/srilanka/coast.md %}), easily the most exciting transit of the entire trip.
 7. A few days in Mirissa for whale watching & beaching.
 8. Mirissa---Galle by train and one night at the historic city.
 9. Galle---Colombo by train, wrapping up the trip.
