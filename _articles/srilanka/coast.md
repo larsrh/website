@@ -80,7 +80,10 @@ This meant that the airline changed the flight plan _on the spot_ to go directly
 
 However, I also had to tell the our hotel's driver what time we would have to be picked up in Koggala.
 More logistics for me to mull over.
-Fortunately, a little tip to the ground agent[^tip] greased the wheels and he called the hotel to update them on our whereabouts.
+Fortunately, a little tip to the ground handler[^tip] greased the wheels and he called the hotel to update them on our whereabouts.
+I also chatted a bit with him:
+He handles one arrival and one departure, for a total of about one hour a day.
+Interesting job.
 
 The plane arrived on time from Colombo and the clock started ticking.
 Eight passengers deplaned and the ground agent unloaded their luggage.
@@ -234,7 +237,7 @@ As we were riding along the coast, screens showed cartoons, commercials, and gor
   <tr><th>Seat class</th><td>Air-conditioned first class</td></tr>
 </table>
 
-## Wrapping up in Colombo (06.11--08.11.)
+## Wrapping up in Colombo (06.11---08.11.)
 
 We reached Colombo Fort station again, [19 days after]({% link _articles/srilanka/hike.md %}) we had embarked from there to criss-cross the island.
 For the final two nights, we splurged on the hotel and picked the _Cinnamon Red_, which, as the name already indicates, belongs to Cinnamon Air.
@@ -265,6 +268,19 @@ As we passed by the [Jami Ul-Alfar mosque](https://en.wikipedia.org/wiki/Jami_Ul
 Once again we were invited in by friendly folks, got to see the fantastic architecture, and chatted with some Tunisian tourists who want to move to Germany.
 Afterwards, more fabric, more yarn, more souvenirs.
 
+To pick up some groceries, we went to Cargills' main store, housed in a grandiose colonial-era building in the fort area.
+But, it was only nice on the outside.
+A [guide correctly describes it as](https://www.lonelyplanet.com/points-of-interest/cargills-main-store/1429976) “showing faded elegance” and “mostly empty”.
+We did get some Arrack, though.
+
+We spent the rest of the day checking some more boxes on our _Things To Eat in Colombo_ list.
+At a nearby café, we observed a _High Tea_, another thing that I hadn't seen before (however, we didn't participate).
+For dinner, we went to Burley's to get corn dogs.
+
+To finish off the night, we took a bus towards the general direction of our hotel, and got off near Kollupitiya railway station.
+As luck had it, an evening commuter train was passing by.
+We spent some time taking in the scenery before going back to the hotel.
+
 <div class="gallery">
   {% include article_picture.html src="IMG_8386" text="Obligatory infinity pool" %}
   {% include article_picture.html src="IMG_3334" text="Looking for some R&R" %}
@@ -272,27 +288,62 @@ Afterwards, more fabric, more yarn, more souvenirs.
   {% include article_picture.html src="IMG_8391" text="Red-and-white striped façade of Jami Ul-Alfar, giving it the nickname “Red Mosque”" %}
   {% include article_picture.html src="IMG_8388" text="So much yarn!" %}
   {% include article_picture.html src="IMG_8396" text="Seamstress' paradise" %}
+  {% include article_picture.html src="IMG_8406" text="Last train to San Fernando" %}
 </div>
 
-To pick up some groceries, we went to Cargills' main store, housed in a grandiose colonial-era building in the fort area.
-But, it was only nice on the outside.
-A [guide correctly describes it as](https://www.lonelyplanet.com/points-of-interest/cargills-main-store/1429976) “showing faded elegance” and “mostly empty”.
-We did get some Arrack, though.
+On our second-to-last day, we attempted to do some sightseeing.
+However, Colombo is sprawling and most things worth seeing are far apart from each other.
+
+Our first stop was the Viharamahadevi Park, which was jam-packed, nay, brimming, with youth scouts.
+Apparently, we just walked into a giant scouting convention, complete with tent camps, outdoor activities, and workshops.
+The picture barely does the crowd justice.
+
+Our second stop would've been the National Art Gallery; however, it was (and still is) closed for maintenance.
+According to online reviews, it has been in a state of disrepair for many years.
+But at least we were allowed to look at it from the outside, which cannot be said for the nearby theatre.
+We were just walking past it, when some kind of security officer bolted towards us and shooed us away, as if a mere glance at the enthralling edifice bode ill.
+
+Onwards to the third stop, taking a tuktuk from the country's _de facto_ to its _de jure_ capital city, the neighbouring Sri Jayawardenepura Kotte.
+Somehow I got it into my head that the parliament building could be interesting to see.
+It turned out to be another damp squib.
+Similar to the theatre, just the briefest of look-sees from afar was permitted, and only if it did not involve a camera.
+
+Doompanning Google Maps brought to light a nearby park.
+Out of other options, we went there and were positively surprised.
+The park featured a lake with swan-shaped paddleboats for rent, and a plant fair.
+Needless to say, we rented one and browsed the other.
+
+As we approached lunchtime, we decided to go for another item on our to-eat list: _lamprais_ at the _Dutch Burgher Union_, both uniquely Sri Lankan institutions.
+The latter is an organisation representing people of mixed Dutch and Sri Lankan descent.
+The former is one of their characteristic dishes, literally a _lump of rice_ wrapped in a banana leaf.
+Definitely an interesting experience in an interesting environment.
+
+In the afternoon, we went to the central bank's economic history museum.
+The opening times were confusing and contradictory, but we were allowed to browse for about half an hour before they closed.
+
+We walked along the nearby park and beach, called Galle Face.
+Vivi ticked off the final (street food) item from the list:
+_Isso Vade_, a snack containing fried prawns.
+Much to the chagrin of the countless corvids in the park, she ate everything.
+
+After watching another sunset over the ocean, we spent the remainder of the day in the mall, getting a foot rub, browsing the book store, getting a beer, and enjoying life.
 
 <div class="gallery">
-  {% include article_picture.html src="IMG_3376" text="" %}
-  {% include article_picture.html src="IMG_3379" text="" %}
-  {% include article_picture.html src="IMG_3385" text="" %}
-  {% include article_picture.html src="IMG_3392" text="" %}
-  {% include article_picture.html src="IMG_3398" text="" %}
-  {% include article_picture.html src="IMG_3406" text="" %}
-  {% include article_picture.html src="IMG_3407" text="" %}
-  {% include article_picture.html src="IMG_3415" text="" %}
+  {% include article_picture.html src="IMG_3421" text="Scouts in the park" %}
+  {% include article_picture.html src="IMG_3376" text="National Art Gallery (closed)" %}
+  {% include article_picture.html src="IMG_3379" text="Bavarian beergarden (open)" %}
+  {% include article_picture.html src="IMG_3385" text="Can we take some of these home?" %}
+  {% include article_picture.html src="IMG_3392" text="At the Dutch Burgher Union" %}
+  {% include article_picture.html src="IMG_3398" text="Banknotes on display at the Economic History Museum" %}
+  {% include article_picture.html src="IMG_3406" text="Galle Face, facing inwards" %}
+  {% include article_picture.html src="IMG_3407" text="Galle Face, facing outwards" %}
+  {% include article_picture.html src="IMG_3415" text="Milka chocolate, 13 € a piece. It's not even that good." %}
+</div>
+
+<div class="gallery">
   {% include article_picture.html src="IMG_3416" text="" %}
-  {% include article_picture.html src="IMG_3421" text="" %}
   {% include article_picture.html src="IMG_3430" text="" %}
   {% include article_picture.html src="IMG_3436" text="" %}
-  {% include article_picture.html src="IMG_8406" text="" %}
 </div>
 
 [^tuktuk]: What are the chances that a random tuktuk driver just showed up at the driveway of our homestay (which was on a side road) at roughly the agreed time?
