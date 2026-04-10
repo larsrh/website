@@ -20,11 +20,11 @@ If you remember from the previous post, we had arranged our flight only days ago
 We had to specify a lot of details, including total weight of our group (which includes us and our luggage).
 But there was an additional difficulty:
 Given that the airport was actually an air force base, you couldn't just walk there, nor could you use a tuktuk.
-They airline insisted on a regular car and asked for license plate, driver identity card, and so on.
+The airline insisted on a regular car and asked for license plate, driver identity card, and so on.
 
 Our homestay hosts tried to be helpful and arranged a driver for us.
-However, the price was at least ten times of what was appropriate for a five minute drive.
-So, we asked the airline and they agreed we would take a tuktuk to drop us off at the perimeter, and then walk the remainder to the “terminal”.
+However, the price was at least ten times of what was appropriate for a five-minute drive.
+So, we asked the airline, and they agreed we would take a tuktuk to drop us off at the perimeter, and then walk the remainder to the “terminal”.
 
 On the day of the flight, which was scheduled to depart around noon, I was anxious the entire morning.
 Will everything work out?
@@ -52,7 +52,7 @@ We hung out there for a bit and were fed some peanuts by the soldiers.
 They also sniped the monkeys trying to open our backpacks (with stones).
 
 A bit later, the ground handler arrived on motorbike.
-He explained to us that walking to the “terminal” is in fact forbidden and we had to go there motorised.
+He explained to us that walking to the “terminal” is in fact forbidden and that we had to go there motorised.
 Without hesitation, he picked up Vivi and our big backpack, and off he went.
 I was supposed to wait for him to come back.
 I used the time to eat more peanuts and ponder how to get our suitcase there.
@@ -68,19 +68,19 @@ He weighed the luggage (not us, though), hand-wrote the manifest, and gave us so
 Basically, the plane would be coming in hot, the passengers from Colombo would deboard, and---without turning off the engines---we would board and depart.
 The turnaround time was going to be less than five minutes.
 
-As we waited for those events to unfold, I realised that we would arrive much earlier in Mirissa then expected.
+As we waited for those events to unfold, I realised that we would arrive much earlier in Mirissa than expected.
 
 Originally, we had booked a flight from Sigiriya to Hambantota, which is one leg.
 Then, I called the airline and changed it to Koggala, which is a second leg from Hambantota.
 
-But you see, we were the only the passengers on that flight.
+But you see, we were the only passengers on that flight.
 And nobody had booked only the leg from Hambantota.
 So it made no sense for the plane to land there.
 This meant that the airline changed the flight plan _on the spot_ to go directly to Koggala.
 
-However, I also had to tell the our hotel's driver what time we would have to be picked up in Koggala.
+However, I also had to tell our hotel's driver what time we would have to be picked up in Koggala.
 More logistics for me to mull over.
-Fortunately, a little tip to the ground handler[^tip] greased the wheels and he called the hotel to update them on our whereabouts.
+Fortunately, a little tip to the ground handler[^tip] greased the wheels, and he called the hotel to update them on our whereabouts.
 I also chatted a bit with him:
 He handles one arrival and one departure, for a total of about one hour a day.
 Interesting job.
@@ -107,7 +107,7 @@ For much of the flight, we had perfect visibility, for example of the two rocks 
 We took a lot of photos and videos (as did the first officer).
 
 Our destination airport Koggala is also an air force base.
-It is situated directly next to a lagoon, which is sometimes used for landing; Cinnamon Air also has a seaplane.
+It is situated directly next to a lagoon, which is sometimes used for landing; Cinnamon Air also has a seaplane.[^cinnamon]
 The base doesn't just double as a civilian airstrip, it also triples as a golf course.
 As we exited the plane, we were being ushered into the golf club and waited for our driver there.
 
@@ -134,7 +134,7 @@ The next day, we took the bus to Mirissa centre for another beach session.
 Much has been written about the experience, so I won't repeat it all here.
 Briefly: buses are competing for guests, so they are driving fast; fares are cheap; you shouldn't have a tendency to get seasick.
 
-The water was nice on that day, so we immediately looked for some loungers and proceeded enjoying life.
+The water was beautiful on that day, so we immediately looked for some loungers and proceeded enjoying life.
 I went out and splurged to get my second massage this trip, while my wife was slurping king coconuts.
 Even though we spent the most time in the shades, we got badly sunburnt by afternoon.
 We decided to return to the hotel and tend to our skin.
@@ -153,7 +153,7 @@ We joined again for lunch at the beach, avoiding the sun like vampires.
 Since we didn't have any plans for the afternoon, we spent the time gift shopping and even bought a nice painting.[^painting]
 
 Back when we were in Ella, we had been craving some familiar food and opted to eat burgers and fries.
-Now, the pendulum had swung back to local food and we went to a buffet-style dinner.
+Now, the pendulum had swung back to local food, so we went to a buffet-style dinner.
 It was a cute artsy place that was frequented by local and Indian tourists.
 As usual, I used the opportunity to chat and exchange travel suggestions.
 
@@ -261,7 +261,7 @@ For lunch, we were looking for dosa and found a hole-in-the-wall place that was 
 It turned out to have three floors, and the waiters instructed us to go to the top floor, where dosa are served (and only there!)
 
 Pettah Market is great for fabric and yarn shopping, which Vivi did.
-We already got a bunch of fabric from Kattankudy, but Pettah is every seamstress' paradise.
+We already got a bunch of fabric from Kattankudy, but Pettah is every seamstress' paradise.[^silk]
 (And besides, we had plenty of luggage allowance left.)
 
 As we passed by the [Jami Ul-Alfar mosque](https://en.wikipedia.org/wiki/Jami_Ul-Alfar_Mosque), we noticed that there are free guided tours.
@@ -307,8 +307,9 @@ Onwards to the third stop, taking a tuktuk from the country's _de facto_ to its 
 Somehow I got it into my head that the parliament building could be interesting to see.
 It turned out to be another damp squib.
 Similar to the theatre, just the briefest of look-sees from afar was permitted, and only if it did not involve a camera.
+(The most interesting thing we saw was a saltwater crocodile on our way out.)
 
-Doompanning Google Maps brought to light a nearby park.
+I doomscrolled Google Maps for an alternative and found a nearby park.
 Out of other options, we went there and were positively surprised.
 The park featured a lake with swan-shaped paddleboats for rent, and a plant fair.
 Needless to say, we rented one and browsed the other.
@@ -318,7 +319,7 @@ The latter is an organisation representing people of mixed Dutch and Sri Lankan 
 The former is one of their characteristic dishes, literally a _lump of rice_ wrapped in a banana leaf.
 Definitely an interesting experience in an interesting environment.
 
-In the afternoon, we went to the central bank's economic history museum.
+In the afternoon, we went to the central bank's economic history museum.[^cb]
 The opening times were confusing and contradictory, but we were allowed to browse for about half an hour before they closed.
 
 We walked along the nearby park and beach, called Galle Face.
@@ -326,7 +327,7 @@ Vivi ticked off the final (street food) item from the list:
 _Isso Vade_, a snack containing fried prawns.
 Much to the chagrin of the countless corvids in the park, she ate everything.
 
-After watching another sunset over the ocean, we spent the remainder of the day in the mall, getting a foot rub, browsing the book store, getting a beer, and enjoying life.
+After watching another sunset over the ocean, we spent the remainder of the day in the mall, getting a foot rub, browsing the book store, getting a beer, and further enjoying life.
 
 <div class="gallery">
   {% include article_picture.html src="IMG_3421" text="Scouts in the park" %}
@@ -340,16 +341,65 @@ After watching another sunset over the ocean, we spent the remainder of the day 
   {% include article_picture.html src="IMG_3415" text="Milka chocolate, 13 € a piece. It's not even that good." %}
 </div>
 
+Last day in Colombo, and last day in Sri Lanka!
+To be precise, our flight would depart only past midnight.
+We didn't only splurge on the selection of hotel, but also on an extra night.
+
+Turned out to be a good idea.
+Vivi got sick, maybe from some of the food yesterday (the pub food wasn't great).
+Because we technically had the room until after departure, she could sleep in, while I would go see some other sights.
+
+I walked through the same park as the day before (the scouts were still at it), past the national gallery (still closed), to the national museum.
+It is large enough to spend the entire morning there, although I will admit that it was a little boring.
+Next stop the Gangaramaya and Seema Malakaya temples.
+Those are well worth a visit and in walking distance from the museum.
+
+Finally, I couldn't've left Colombo without going up the Lotus Tower.
+Sure, it is very touristy, but I [also like towers]({% link _articles/scala-matsuri.md %}).
+It was a clear day, so I could see most (?) of the city (keep the sprawl in mind).
+While I was walking around the observation deck, I started chatting with the fire chief, who was presumably bored and hence gave me a private “tour”.
+That was easily the best part of the day, since we didn't get to talk to locals as much as in the weeks before.
+
 <div class="gallery">
-  {% include article_picture.html src="IMG_3416" text="" %}
-  {% include article_picture.html src="IMG_3430" text="" %}
-  {% include article_picture.html src="IMG_3436" text="" %}
+  {% include article_picture.html src="IMG_3416" text="Seems like an appropriate building for a national museum" %}
+  {% include article_picture.html src="IMG_3429" text="Unfinished Colombo" %}
+  {% include article_picture.html src="IMG_3430" text="Finished Colombo" %}
+  {% include article_picture.html src="IMG_3432" text="Dilapidated Colombo" %}
+  {% include article_picture.html src="IMG_3436" text="View from the Lotus Tower" %}
 </div>
+
+Back at the hotel, we had to kill the time until midnight.
+Due to my wife's stomach situation, we did not attempt to tick more boxes on the food list: _No experiments!,_ as a famous chancellor would've said.
+
+The final challenge was to navigate the airport's weird layout.
+We had a bit too much cash left over, but only realised that we should've exchanged it before the luggage check, which comes before check-in.
+But once you're past that point, staff won't let you go out again.
+We did manage to convert our excess rupees and went on our merry way.
+
+## Epilogue
+
+So, how do I summarise this trip in a way that does it justice?
+It was rich and varied, intense and rewarding, secluded and touristy.
+Sri Lanka has a ton to offer even if you don't like hiking very much.
+
+And let me just say one more thing: we got very, _very_ lucky.
+
+Not long after we returned home, [Cyclone Ditwah ravaged the country](https://news.un.org/en/story/2025/12/1166671).
+The central, mountainous region through which the _Pekoe Trail_ meanders, was among the hardest-hit, causing landslides and road closures.
+Pretty much the entire trek between Kandy and Hatton became unwalkable, and as of writing, many of the trail stages are yet to reopen.
+Same goes for the railways:
+as of April, the segment from Hatton to Ella is only operating partially; same for Colombo to Kandy.
+
+As the country is recovering, pay them a visit.
+There's plenty to see.
 
 [^tuktuk]: What are the chances that a random tuktuk driver just showed up at the driveway of our homestay (which was on a side road) at roughly the agreed time?
 [^tip]: He suggested to me that the motorbike ride was not included in the airfare.
 [^altitude]: That's just shy of thirteen furlongs.
+[^cinnamon]: At the time of our flight, the airline had a fleet of three planes. [Now they have only two.](https://www.caa.lk/images/pdf/2026_February/Preliminary_Report_-_C208_4RCAE_accident_on_7_Jan_2026.pdf)
 [^pool]: I'd never heard that term before, but it just refers to a rock formation that breaks waves.
 [^painting]: As of publication, it remains unhung.
 [^pizza]: A year prior to this vacation, on Sumatra, she insisted on going to Domino's. It didn't end well.
 [^video]: The videos were supposed to discourage people from crossing tracks or generally getting too close to trains. But it was also ironic, given that just a few weeks prior, a [train derailed](https://www.themorning.lk/articles/kyap4jVQKGKnfcNGXODT) on that line, which, as far as I can tell, was caused by shoddy maintenance.
+[^silk]: However, Vivi remarked that the composition of the fabric was often not very clear. For example, one salesman tried to offer her “kind of silk”, which was actually polyester satin.
+[^cb]: Normally I'd be suiting up when visiting a central bank; not this time.

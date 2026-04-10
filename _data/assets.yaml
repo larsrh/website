@@ -10199,6 +10199,36 @@
       }
     }
   },
+  "articles/srilanka/coast/IMG_3429": {
+    "small": {
+      "height": 1600,
+      "width": 2133,
+      "outputs": {
+        "jpg": {
+          "sha256sum": "0557fbb30c44733b900eeb0fd3fc376532aa5834a2c520e4467deac23451a148",
+          "size": 444338
+        },
+        "avif": {
+          "sha256sum": "f5e907d0ba66c4d1ecffa61eae1753c3f8056cea52b34bddea8f3afb3de4bbdb",
+          "size": 178801
+        }
+      }
+    },
+    "thumb": {
+      "height": 300,
+      "width": 300,
+      "outputs": {
+        "jpg": {
+          "sha256sum": "d50674dbf6f127d531e929b7b04c730a25f3a7f0f01bba3b6717f523da926e05",
+          "size": 17426
+        },
+        "avif": {
+          "sha256sum": "9950e4bc5694e56440a9b292f255cfeabf84bf6460d1744a5c358ac87bed751e",
+          "size": 8227
+        }
+      }
+    }
+  },
   "articles/srilanka/coast/IMG_3430": {
     "small": {
       "height": 1600,
@@ -10225,6 +10255,36 @@
         "avif": {
           "sha256sum": "98d46ed5890bd219bb8569a2b7a00c38715b37aa7656d356ce37ed27308b3de0",
           "size": 4483
+        }
+      }
+    }
+  },
+  "articles/srilanka/coast/IMG_3432": {
+    "small": {
+      "height": 2133,
+      "width": 1600,
+      "outputs": {
+        "jpg": {
+          "sha256sum": "d18d56b42044f35d1003ddbf5463fea765d5e2ccba4e63c21e6af185df4a07d5",
+          "size": 805762
+        },
+        "avif": {
+          "sha256sum": "05c9097ddfb44f7ae7c5d8d0fe4b2efb01b024885bb3289a268dc6f5dd58e331",
+          "size": 428130
+        }
+      }
+    },
+    "thumb": {
+      "height": 300,
+      "width": 300,
+      "outputs": {
+        "jpg": {
+          "sha256sum": "b2bbc9977daab7122691286de1ae4af8493b4a60024ed2737cff5630e781a4b3",
+          "size": 32842
+        },
+        "avif": {
+          "sha256sum": "c03d2c6eabc393e59e975cf681983522dee967ad720d789505cb7bc6bc605a2d",
+          "size": 27304
         }
       }
     }
