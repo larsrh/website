@@ -163,7 +163,7 @@ End of 2022 I changed jobs, which means that I am now going to fewer engineering
 * March: [BOB Konferenz](https://bobkonf.de/2023/), Berlin, Germany
 * May: [JAX](https://jax.de/), Mainz, Germany
 * May: [TUM Blockchain Salon](https://net.in.tum.de/events/blockchain_salon_23.html), Munich, Germany
-* May: [Omnisecure](https://omnisecure.berlin/proceedings-2023/), Berlin, Germany
+* May: [Omnisecure](https://omnisecure.berlin/), Berlin, Germany
 * May: [DevDays Europe](https://devdays.lt/), Vilnius, Lithuania
 * June: [Lambda Days](https://www.lambdadays.org/lambdadays2023), Krakow, Poland
 * June: [GOTO Amsterdam](https://gotoams.nl/2023), Amsterdam, Germany
