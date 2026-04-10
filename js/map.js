@@ -37,6 +37,9 @@ async function renderMap(dataId, embedId) {
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution:
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    // https://github.com/Leaflet/Leaflet/pull/7945
+    referrerPolicy:
+      'strict-origin-when-cross-origin'
   }).addTo(map);
 
   let bounds = [];
