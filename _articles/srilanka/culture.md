@@ -356,7 +356,7 @@ I called them up (it was after dark; remember the elephants) to bring us back to
 
 Tomorrow, we would go to the south of the island.
 
-_Stay tuned for the fourth and final part, in which we will ride in a Cessna, with a whalewatching boat, and of course, on more trains._
+_Read the [fourth part here]({% link _articles/srilanka/coast.md %})._
 
 [^dinner]: Once again we had to order dinenr well in advance, which seems to be customary in Sri Lanka.
 
