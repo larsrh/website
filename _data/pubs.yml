@@ -412,5 +412,6 @@
   year: 2025
   arxiv: "2506.23294"
   in: "International Workshop on Cryptocurrencies and Blockchain Technology (CBT), to appear"
+  doi: "10.1007/978-3-032-16089-8_17"
   abstract: |
     Digital signatures are crucial for securing Central Bank Digital Currencies (CBDCs) transactions. Like most forms of digital currencies, CBDC solutions rely on signatures for transaction authenticity and integrity, leading to major issues in the case of private key compromise. Our work explores threshold signature schemes (TSSs) in the context of CBDCs. TSSs allow distributed key management and signing, reducing the risk of a compromised key. We analyze CBDC-specific requirements, considering the applicability of TSSs, and use Filia CBDC solution as a base for a detailed evaluation. As most of the current solutions rely on ECDSA for compatibility, we focus on ECDSA-based TSSs and their supporting libraries. Our performance evaluation measured the computational and communication complexity across key processes, as well as the throughput and latency of end-to-end transactions. The results confirm that TSS can enhance the security of CBDC implementations while maintaining acceptable performance for real-world deployments.
