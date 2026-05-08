@@ -23,6 +23,11 @@ jobs:
         with:
           node-version: "20"
           cache: "npm"
+      - name: Set up Java # for vnu
+        uses: actions/setup-java@v5
+        with:
+          distribution: "temurin"
+          java-version: "17"
 
       - name: Install Node packages
         run: npm ci
