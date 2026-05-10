@@ -19,8 +19,7 @@ conferences:
     slides: "https://speakerdeck.com/larsrh/theorems-for-free"
   - conference: "Haskell eXchange"
     date: 2020-11-05
-    link: "https://skillsmatter.com/conferences/13135-haskell-exchange-2020#program"
-    recording: "https://skillsmatter.com/skillscasts/14900-theorems-for-free"
+    link: "https://web.archive.org/web/20230203030903/https://skillsmatter.com/conferences/13135-haskell-exchange-2020#program"
     slides: "https://speakerdeck.com/larsrh/theorems-for-free"
   - conference: "INNOQ Technology Day"
     date: 2020-12-09
