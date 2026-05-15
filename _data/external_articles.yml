@@ -499,7 +499,7 @@
   lang: de
   abstract: "Die beabsichtigte Offline-Funktion eines digitalen Euro ist die vielleicht aufwändigste, aber für viele Beobachter auch eine der wichtigsten Funktionen einer CBDC. Aber was genau lässt sich darunter vorstellen, wie sehr „offline“ kann digitales Zahlen überhaupt sein und welche Rolle spielen hier die „Secure Elements“, also konkrete Hardware?"
   url: "https://zevedi.de/efinblog-der-digitale-euro-elektronisch-aber-offline-faehig/"
-- date: 2021-10-29
+- date: 2026-04-27
   title: "#SoftwareArchitektur – Wozu formale Methoden?"
   journal: "Softwarearchitektur im Stream"
   abstract: "Wenn Systeme bestimmte Eigenschaften wie Sicherheit garantieren müssen, können formale Methoden diese Eigenschaften beweisen - ähnlich wie bei einem mathematischen Beweis. In der Finanzbranche will man beispielsweise sicherstellen, dass nicht in den Systemen irgendwo Geld verschwindet. Welche Rolle spielen solche Methoden im Software-Architektur-Alltag und wie kann man sie gewinnbringend nutzen? Das diskutieren wir mit Dr. Lars Hupel, Chief Evangelist bei Giesecke+Devrient."
