@@ -45,7 +45,7 @@ _Update, August 2018:_ Some (not all) compiler phases have been proved to be tot
 * [Formalization for "A Verified Compiler from Isabelle/HOL to CakeML"]({% link pub/isabelle-cakeml-supplements.zip %})<br>
   Submitted: 2017-10-20<br>
   Archived as: DOI [10.5281/zenodo.1167616](http://doi.org/10.5281/zenodo.1167616)<br>
-  Obsoleted by: <a href="https://www.isa-afp.org/entries/CakeML_Codegen.html">AFP entry</a>
+  Obsoleted by: <a href="https://isa-afp.org/entries/CakeML_Codegen.html">AFP entry</a>
 
 ## Errata
 
