@@ -59,6 +59,7 @@ I only count proper “stays”, e.g. layovers are not included.
 1. Sri Lanka
 1. Sweden
 1. Switzerland
+1. Tanzania
 1. Thailand
 1. Turkey
 1. United Kingdom
