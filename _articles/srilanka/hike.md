@@ -458,7 +458,7 @@ The sign clearly said that entering is prohibited, yet, the trail seemed to not 
 (In the picture, you can make out a small red signpost on the tree to the right of my wife.)
 
 About two minutes later, we got lost again in another thick forest segment.
-Alas, we found ourselves at a literal precipice and decided it would be better to turn around,
+Alas, we found ourselves at a literal precipice and decided it would be better to turn around.
 We could thankfully discover the right path quickly, because it was only a few meters away from us (horizontally and vertically).
 
 Not that the right path was significantly less dangerous.
@@ -472,7 +472,7 @@ As we closed in on the lodge in Pundaluoya, we heard loud music.
 The answer became clear within a few minutes:
 Our accomodation hosted a wedding.
 
-Like yesterday, we arrived as litterbugs, and---also like yesterday---we got immediately invited in and assisted.
+Like yesterday, we arrived filthy, and---also like yesterday---we got immediately invited in and assisted.
 We sat down in the host's office while we waited for our room to be ready.
 Meanwhile, the Tamil wedding was in full swing and lunch was being served.
 
