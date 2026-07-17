@@ -7,7 +7,7 @@
     "node-addon-api": "^8.7.0",
     "node-gyp": "^12.3.0",
     "pa11y-ci": "^4.1.1",
-    "vnu-jar": "^26.7.11"
+    "vnu-jar": "^26.7.16"
   },
   "type": "module"
 }
