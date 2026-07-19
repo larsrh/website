@@ -21,6 +21,7 @@ I only count proper “stays”, e.g. layovers are not included.
 1. Bulgaria
 1. Canada
    * British Columbia
+   * Ontario
    * Yukon Territory
 1. China (People's Republic)
    * Hong Kong SAR
