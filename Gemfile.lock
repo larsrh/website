@@ -96,11 +96,10 @@ GEM
       racc (~> 1.4)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
-    pdf-reader (2.15.1)
+    pdf-reader (2.16.0)
       Ascii85 (>= 1.0, < 3.0, != 2.0.0)
       afm (>= 0.2.1, < 2)
       hashery (~> 2.0)
-      ruby-rc4
       ttfunk
     public_suffix (7.0.5)
     racc (1.8.1)
@@ -111,7 +110,6 @@ GEM
       ffi (~> 1.0)
     rexml (3.4.4)
     rouge (4.7.0)
-    ruby-rc4 (0.1.5)
     safe_yaml (1.0.5)
     sass-embedded (1.102.0)
       google-protobuf (~> 4.31)
