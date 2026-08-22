@@ -1,0 +1,922 @@
+---
+title: Offline-Capable Central Bank Digital Currencies as a Key Enabler of a Resilient Digital Payment System
+date: 2026-08-22
+---
+
+<h2 id="introduction">Introduction</h2>
+<p>Integration of digital technologies into monetary systems has changed
+the way we carry out financial transactions. Over the past few decades,
+banks and businesses have streamlined cumbersome and time-consuming
+processes, making them more efficient and less time-consuming. With
+increasing digitalization in all areas of life, most people expect
+payments to be fast and convenient, above all else. According to a
+survey by Bitkom, Germany’s digital association, 25% of internet users
+never read the terms and conditions of online services <span
+class="citation" data-cites="Bitkom2024">(<a href="#ref-Bitkom2024"
+role="doc-biblioref">Bitkom, 2024</a>)</span>. Many people take security
+for granted and might not realize that they are trading personal
+information for convenience with many payment service providers.</p>
+<p>The transition towards digital payments creates significant risks.
+The major blackout in Spain and Portugal in April 2025, affecting tens
+of millions of people, illustrated this. It paralyzed all forms of
+electronic payment methods. Consumers and businesses were unable to
+conduct transactions, grinding the economy to a halt. This incident was
+a real-world stress test for our digital society, showing the fragility
+of our digital infrastructures.</p>
+<p>In the absence of functional digital systems, cash typically serves
+as the sole reliable medium for transactions. There is a notable
+increase in demand for cash during periods of technological
+uncertainty—such as during the millennium change—, financial crises, and
+natural disasters like hurricanes or COVID-19 <span class="citation"
+data-cites="Roesl2024 Spicer2017">(<a href="#ref-Roesl2024"
+role="doc-biblioref">Rösl &amp; Seitz, 2024</a>; <a
+href="#ref-Spicer2017" role="doc-biblioref">Spicer,
+2017</a>)</span>.</p>
+<p>Any disruption, whether caused by technical glitches or natural
+disasters, highlights the current digital payment systems’ lack of
+resilience and the need for infrastructures that can withstand similar
+challenges in the future.</p>
+<p>Moreover, payment services, which are largely driven by network
+effects and the benefits of widespread adoption, are a highly attractive
+business model. This fuels competition among providers, each seeking to
+grow their user base, which often leads to market fragmentation. In such
+an environment, various proprietary systems emerge, which limit
+interoperability and user choice.</p>
+<p>A publicly provided platform based on common standards could counter
+this trend by serving as a neutral infrastructure layer. It would allow
+the private sector to build and offer innovative services while ensuring
+broad accessibility and compatibility. This open foundation would
+promote healthy competition focused on user-centric innovation rather
+than proprietary lock-in, ultimately fostering a more inclusive and
+efficient digital payment ecosystem.</p>
+<h2 id="the-evolution-of-monetary-systems">The evolution of monetary
+systems</h2>
+<p>The monetary system has evolved alongside societal developments.
+Changes in economic structures, political priorities, and technological
+innovations had a significant impact on the monetary system.</p>
+<p>In its earliest form, goods and services were exchanged directly.
+However, there was neither a common measure of value nor a reliable way
+to store wealth.</p>
+<p>Money is a convention. Communities defined conveniently exchangeable
+objects of value as money such as grain or shells. As a result of
+political and economic development, emerging sovereign entities
+established dedicated monetary systems which facilitated trade and
+economic expansion.</p>
+<p>The rapid increase in population, coupled with urbanization and
+industrialization, further spurred trade and heightened the demand for
+money. Private banks, and later sovereign entities, introduced paper
+money as a type of bond backed by commodities.</p>
+<p>The departure from the gold standard marked a significant move
+towards the abstraction of value. Over time, money has evolved from
+tangible assets to digital and abstract forms.</p>
+<h3 id="from-physical-to-electronic-transactions">From physical to
+electronic transactions</h3>
+<p>One of the earliest forms of digital payment dates back to the 1870s
+and the advent of telegraphy. Western Union offered to transfer money
+via telegraphic messages <span class="citation"
+data-cites="WesternUnion2025">(<a href="#ref-WesternUnion2025"
+role="doc-biblioref">Western Union, n.d.</a>)</span>.</p>
+<p>According to their own account, the first credit card payment
+occurred in 1950 with the introduction of the Diners Club card, ‘the
+birth of the world’s first multipurpose charge card’ <span
+class="citation" data-cites="DinersClub2025">(<a
+href="#ref-DinersClub2025" role="doc-biblioref">Diners Club,
+n.d.</a>)</span>.</p>
+<p>An even more remarkable event was the ‘first legitimate online
+transaction’, which occurred in 1994 <span class="citation"
+data-cites="Fessenden2015">(<a href="#ref-Fessenden2015"
+role="doc-biblioref">Fessenden, 2015</a>)</span>. This is because the
+modern concept of digital payments is closely linked to the development
+of computer and internet technologies. This significant milestone in
+e-commerce paved the way for the explosion of online shopping. The
+sector’s robust worldwide growth is a major driver of cashless
+payments.</p>
+<p>New technologies have significantly impacted the landscape of
+cashless payments. Chips based on <em>EMV (Europay, MasterCard,
+Visa)</em> standards have increased security for credit card payments
+and created a global standard for card payments. <em>NFC (Near Field
+Communication)</em> technology has cut down transaction times at the
+point-of-sale, allowing consumers to pay by simply tapping a card near a
+payment terminal. Recently, the proliferation of mobile payment apps and
+digital wallets—such as Apple Pay, Google Wallet, and Samsung Pay—lets
+users transact on card rails from their smart mobile devices.</p>
+<p>As digital technology has expanded into most aspects of life, people
+increasingly expect a great user experience, including for financial
+transactions. This paved the way for the success of instant payment
+systems, which provide real-time, secure, and convenient app-based
+financial transactions. They address the demand for speed and
+efficiency. <em>A2A (account-to-account)</em> payments built on
+real-time payment rails are shaping the payment landscape in major
+emerging economies such as Brazil and India. This has led to a decline
+in cash usage at the point of sale. According to <span class="citation"
+data-cites="Bruno2024">Bruno et al. (<a href="#ref-Bruno2024"
+role="doc-biblioref">2024</a>)</span> ‘global cash usage now stands at
+80 percent of 2019 levels and continues to decrease at 4 percent a
+year’.</p>
+<p>Yet, we can observe an increase of cash in circulation. According to
+official figures, the total cash circulation within the Eurozone
+amounted to € 1.578 trillion in April 2025. This is almost 28% more than
+six years ago (€ 1.229 trillion in April 2019), growing at a faster rate
+than inflation would suggest.<a href="#fn1" class="footnote-ref"
+id="fnref1" role="doc-noteref"><sup>1</sup></a> Antti Heinonen, former
+Director of Banknote at the ECB, estimates that the number of banknotes
+in circulation globally is significantly higher than 900 billion pieces
+<span class="citation" data-cites="Heinonen2025">(<a
+href="#ref-Heinonen2025" role="doc-biblioref">Heinonen,
+2025</a>)</span>. This ‘paradox of banknotes’ <span class="citation"
+data-cites="Bailey2009">(<a href="#ref-Bailey2009"
+role="doc-biblioref">Bailey, 2009</a>)</span> can be explained by a
+shifting demand for cash: away from transactions, towards store of value
+<span class="citation" data-cites="ZamoraPerez2021">(<a
+href="#ref-ZamoraPerez2021" role="doc-biblioref">Zamora-Pérez,
+2021</a>)</span>.</p>
+<p>Presently, cash remains the only public payment method that can be
+used independently from the issuer. But electronic transactions
+typically involve third-party providers that may charge fees or use
+personal data. Payment providers often impose requirements—such as
+credit scores or a minimum age—that exclude large parts of the
+population. The COVID-19 pandemic exacerbated this problem and
+underscored the necessity for more resilient, accessible, and efficient
+payment systems.</p>
+<p>A digital version of cash promises to complement existing means of
+payment and to extend universal access to everyone.</p>
+<h3 id="the-genesis-of-digital-money">The genesis of digital money</h3>
+<p>In the 1980s, David Chaum developed <em>DigiCash</em>, an electronic,
+anonymous payment scheme <span class="citation"
+data-cites="Chaum1983">(<a href="#ref-Chaum1983"
+role="doc-biblioref">Chaum, 1983</a>)</span>. But the concept of using
+cryptographic protocols to represent value only took off in the late
+2000s with Bitcoin.</p>
+<p>The global financial crisis of 2008 revealed significant
+vulnerabilities in the financial sector: excessive leverage, a lack of
+transparency, inadequate regulation, immense complexity, and the risks
+posed by institutions deemed ‘too big to fail.’ Public trust in
+established financial institutions eroded.</p>
+<p>Cryptocurrencies, more specifically Bitcoin, emerged as a direct
+response to the crisis in 2008. In conjunction with blockchain
+technology, they were developed to address these perceived shortcomings.
+<span class="citation" data-cites="Nakamoto2008">Nakamoto (<a
+href="#ref-Nakamoto2008" role="doc-biblioref">2008</a>)</span>
+criticized that ‘commerce on the Internet has come to rely almost
+exclusively on financial institutions serving as trusted third parties
+to process electronic payments.’ In response, they outlined principles
+of a peer-to-peer electronic cash system operating independently of
+financial institutions.</p>
+<p>While cryptocurrencies have proliferated largely unbothered by
+regulation, a combination of long-term trends and specific events has
+led to new developments. The increasing digitalization of the economy,
+coupled with the COVID-19 pandemic, accelerated the need for innovative,
+but resilient and stable financial solutions. This has catalyzed the
+development of <em>CBDCs (Central Bank Digital Currencies)</em>.</p>
+<h3 id="towards-a-tokenized-financial-system">Towards a Tokenized
+Financial System</h3>
+<p>Tokenization—representation of value in digital format—is becoming
+increasingly prominent, with central banks, commercial banks, and
+multilateral organizations playing significant roles. Ravi Menon, former
+Managing Director of the Monetary Authority of Singapore and current
+Chairman at the Global Financial Technology Network, highlighted
+tokenization’s transformative impact on finance in his keynote speech at
+the Point Zero Forum <span class="citation" data-cites="Menon2024">(<a
+href="#ref-Menon2024" role="doc-biblioref">Menon, 2024</a>)</span>. This
+is not a transient phenomenon; it’s a structural change of financial
+market infrastructure that adds a new paradigm to the traditional,
+siloed architecture.</p>
+<p>We can witness the tokenization of traditional instruments such as
+cash (in the form of CBDC), deposits and securities. This enables
+real-time, programmable, and interoperable value exchanges.</p>
+<p>Central banks are spearheading a series of global experiments.
+Prominent initiatives such as <em>Project Agora, Project Rialto,</em> or
+<em>Project Meridian FX</em> address cross-border settlements, among
+other use cases. They enjoy support by the BIS to foster global exchange
+and standardization.</p>
+<p>These efforts have not only offered technical insights but have
+recently culminated in the BIS’ ‘Finternet’ concept: a cohesive,
+interoperable network of tokenized monies and assets, spanning the
+public and private sector. According to <span class="citation"
+data-cites="Carstens2024">Carstens &amp; Nilekani (<a
+href="#ref-Carstens2024" role="doc-biblioref">2024</a>)</span>, the
+‘Finternet would be designed to empower individuals and businesses by
+placing them at the centre of their financial lives.’</p>
+<h2 id="why-central-bank-digital-currencies-matter">Why Central Bank
+Digital Currencies Matter</h2>
+<p>In a tokenized financial system, public money is not just an option,
+it is essential. The absence of a universally accepted, risk-free
+reference asset can leave the system vulnerable. Private digital
+currencies might struggle to maintain par, especially across various
+platforms and jurisdictions.</p>
+<p>This discrepancy introduces exchange rate and counterparty risks. It
+also jeopardizes the fundamental concept of fungibility, crucial for a
+stable financial environment. Dominant private issuers have the
+potential to establish closed ecosystems that restrict user options and
+limit interoperability, thereby stifling competition.</p>
+<p>A well-designed CBDC, issued as tokenized public money, directly
+mitigates these risks. Distributed through financial service providers,
+including commercial banks and non-bank institutions, CBDCs stabilize
+the monetary and financial system. They would not only complement cash
+as a public means of payment, but also serve as a platform for
+innovation, forming the cornerstone of the digital economy.</p>
+<h3 id="core-requirements-of-a-successful-cbdc">Core requirements of a
+successful CBDC</h3>
+<h4 id="security">Security</h4>
+<p>A CBDC must adhere to a comprehensive security framework. This should
+include internal security protocols, external security assessments, and
+ongoing penetration testing (security by design). The BIS ‘has leveraged
+the NIST cyber security framework but with two additional steps, namely
+prepare and adapt’ <span class="citation" data-cites="BIH2023b">(<a
+href="#ref-BIH2023b" role="doc-biblioref">BIS Innovation Hub,
+2023b</a>)</span>. CBDCs also have unique requirements: Unlike
+traditional banking infrastructure, a CBDC would operate continuously,
+24/7, allowing very little room for maintenance or downtime <span
+class="citation" data-cites="Rafiee2025">(<a href="#ref-Rafiee2025"
+role="doc-biblioref">Rafiee &amp; Hupel, 2025</a>)</span>. To maintain
+the ongoing trust of all participants within the system, a strong and
+scalable <em>PKI (Public Key Infrastructure)</em> is essential.</p>
+<h4 id="data-privacy">Data Privacy</h4>
+<p>CBDCs must prioritize users’ privacy by safeguarding personal and
+transactional information against unauthorized access and breaches. They
+can offer greater privacy than commercial digital payment systems, which
+often rely on monetizing user data. Central banks have no (commercial or
+otherwise) interest in that, hence, they can design CBDC as public
+infrastructure with privacy safeguards. For example, operational,
+transactional, and administrative data can be separate. At the same
+time, CBDC must comply with rules on anti-money laundering and financial
+governance rules. Central banks should carefully balance transparency
+and anonymity to foster trust and acceptance among users.</p>
+<h4 id="interoperability">Interoperability</h4>
+<p>A CBDC system needs to integrate smoothly with current
+infrastructures <span class="citation" data-cites="Hupel2023">(<a
+href="#ref-Hupel2023" role="doc-biblioref">Hupel, 2023</a>)</span>. This
+allows financial institutions to seamlessly integrate digital currency
+into their ecosystems, which fosters the development of innovative
+applications. Cross-border interoperability would reduce costs and
+complexities, and significantly lower settlement and default risks for
+international transactions.</p>
+<h4 id="offline-functionality">Offline functionality</h4>
+<p>Like cash, CBDC must function universally and without interruption.
+This allows it to achieve legal tender status, driving adoption. It
+should operate independently of network connectivity, bank accounts, or
+continuous access to electricity. It should not require high-end
+smartphones. CBDC promises a strong potential of financial inclusion to
+the many people left out of today’s digital financial system. Offline
+functionality is a tangible example of strong privacy protection by
+design: it enables anonymous, cash-like transactions while still
+operating within a secure and regulated framework.</p>
+<h3 id="the-importance-of-offline-cbdc">The importance of offline
+CBDC</h3>
+<p>Zooming in on the last requirement, offline functionality is central
+to achieve many central banks’ policy objectives.</p>
+<p>People should have access to a secure and reliable digital payment
+method. Offline functionality—through a well-designed CBDC and/or as an
+add-on to a national payment system—addresses this.</p>
+<p>In a 2023 survey, 98% of central banks saw offline payment as either
+vital or advantageous for a retail CBDC <span class="citation"
+data-cites="BIH2023a">(<a href="#ref-BIH2023a" role="doc-biblioref">BIS
+Innovation Hub, 2023a</a>)</span>.</p>
+<p>Resilience and universal acceptance of a national currency, whether
+physical or digital, are critical to its function and trustworthiness.
+Integrating offline functionality from the outset ensures that a CBDC
+remains functional without reliance on smartphones, network connections,
+internet access, or electricity.</p>
+<p>Cash sets a high standard for its digital counterpart, which central
+banks intend to issue as legal tender. The <span class="citation"
+data-cites="ECB2020">European Central Bank (<a href="#ref-ECB2020"
+role="doc-biblioref">2020</a>)</span> notes that
+‘<span>[</span>l<span>]</span>egal tender status would require that
+users be able to receive incoming payments through means that are as
+user-friendly as banknotes, for example by using a simple physical
+device that can also be used offline.’</p>
+<p>By offering offline capabilities and simple, low-cost wallet formats
+like feature phones or chip cards CBDC helps ensure that everyone,
+regardless of their circumstances, has access to secure and convenient
+digital payments—anytime, anywhere.</p>
+<h2 id="technical-feasibility">Technical Feasibility</h2>
+<p>Many central banks have, or are currently, investigating CBDC designs
+that include some degree of offline capability. The BIS, in Project
+Polaris, distinguishes three types of offline capability, in increasing
+order of ambition <span class="citation" data-cites="BIH2023a">(<a
+href="#ref-BIH2023a" role="doc-biblioref">BIS Innovation Hub,
+2023a</a>)</span>:</p>
+<ul>
+<li><p><strong>staged,</strong> in which two parties can transact
+offline, but the receiving party cannot subsequently use funds received
+offline;</p></li>
+<li><p><strong>intermittently,</strong> in which parties can transact
+offline without intervening online connection, but limited by risk
+parameters—such as a mandatory online integrity check after a fixed
+number of transactions—;</p></li>
+<li><p><strong>fully,</strong> in which value circulates offline
+indefinitely and no online connection is ever required.</p></li>
+</ul>
+<p>As an analogy, cash is in the last category with some aspects of
+‘intermittently’ because—while there is no mandatory check on
+banknotes—they would typically return to the central bank after a
+certain period of use, particularly when becoming unfit for circulation.
+Payment cards, on the other hand, can be classified as ‘staged,’ because
+settlement is delayed and requires online connectivity <span
+class="citation" data-cites="Hupel2024">(<a href="#ref-Hupel2024"
+role="doc-biblioref">Hupel, 2024</a>)</span>. Further, we assume that
+‘offline’ means that both parties are not connected to the internet
+(sometimes referred to as ‘dual offline’).</p>
+<p>The following details are based on design experiences gained in CBDC
+pilot projects. The approach—intermittently offline, re-spendable—has
+been tested intensively in Ghana, Thailand, and Hong Kong.</p>
+<h3 id="use-cases-for-retail-cbdc">Use cases for retail CBDC</h3>
+<p>In its most basic form, retail CBDC should cater for everyday payment
+scenarios. In their eCedi design paper, <span class="citation"
+data-cites="BankGhana2022">Bank of Ghana (<a href="#ref-BankGhana2022"
+role="doc-biblioref">2022</a>)</span> describes the following user
+journeys:</p>
+<ol>
+<li><p>Person-to-person transfers between unbanked people with hardware
+wallets</p></li>
+<li><p>Purchases of goods and services with hardware wallets (point of
+sale)</p></li>
+<li><p>Person-to-person transfers using bank-provided online wallets,
+possibly remotely</p></li>
+<li><p>Purchases of goods and services using bank-provided online
+wallets, point of sale or e-commerce</p></li>
+<li><p>Wallet funding (and redemption) with cash, e-money, or deposit
+accounts</p></li>
+</ol>
+<p>If we consider the last point to be a ‘special case’ of a purchase,
+we can group the scenarios according to <a href="#fig:1"
+data-reference-type="ref+label" data-reference="fig:1">Figure 1</a>. All
+scenarios should support different form factors. Except for e-commerce,
+they should also work offline.</p>
+<figure id="fig:1" data-latex-placement="t">
+  <img src="{% link assets/img/research/offline/Figure_1.svg %}" alt="">
+<figcaption>Basic payment scenarios for retail CBDC</figcaption>
+</figure>
+<p>The eCedi pilot report confirms the need for the ability to re-spend
+funds received offline, ‘providing opportunities for persons living in
+off-grid communities to access digital forms of payments and improve
+their livelihoods’ <span class="citation" data-cites="BankGhana2024">(<a
+href="#ref-BankGhana2024" role="doc-biblioref">Bank of Ghana,
+2024</a>)</span>. This is sometimes called ‘consecutive offline,’ to
+emphasize that a series of payments can happen without intervening
+online connection.</p>
+<p>But it would be wrong to assume that only emerging economies seek
+such features. The above scenarios, coupled with an intermittently
+offline model, also matches closely what the ECB envisions for the
+digital euro <span class="citation" data-cites="ECB2024">(<a
+href="#ref-ECB2024" role="doc-biblioref">European Central Bank,
+2024</a>)</span>.</p>
+<h3 id="an-offline-capable-token-protocol">An offline-capable token
+protocol</h3>
+<p>In the world of credit (or debit) cards, payments are always based on
+identities. A customer uses a payment card as a credential to
+authenticate towards their bank, which then confirms the transaction.
+But as opposed to cash, settlement is delayed, which means that funds
+are not immediately transferred.</p>
+<p>Consequently, it makes more sense to model CBDC based on cash. This
+is often referred to as a ‘token-based system,’ because money is
+represented as individual cryptographic tokens bearing a value.</p>
+<p>Each token comprises a public-private keypair and a denomination. As
+opposed to banknotes, we are not confined to a fixed set of
+denominations. A wallet could—for example—hold three tokens worth € 5, €
+9, and € 13 respectively.</p>
+<p>As <span class="citation" data-cites="BankGhana2022">Bank of Ghana
+(<a href="#ref-BankGhana2022" role="doc-biblioref">2022</a>)</span>
+succinctly writes: ‘Payment is done by transferring the
+<span>[</span>token<span>]</span> from one person to another. The
+concept is similar to cash payment transactions, where payment is done
+by transferring banknotes and/or coins from person A to person B.’ Of
+course, the transfer is handled by the wallets, which abstracts away the
+implementation details from the user.</p>
+<p>This contrasts with an ‘account-based system,’ in which value is tied
+to an account. Transactions work by debiting the payer account and
+crediting the payee account. Traditional banking uses this model,
+managing an assignment of account numbers to balances. But it has
+limits, which is why the Bank of Ghana and others opted for the
+token-based model (more details below).</p>
+<p>Should a wallet not have the correct change available, tokens can be
+split into smaller denominations. In this, the input token is consumed
+and loses its validity, whereas two output tokens are freshly created.
+This is of course only admissible if the combined output values are
+equal to the input value.</p>
+<p>For example, if the wallet holding € 5, € 9, and € 13 were to pay €
+10 to another wallet, it could use the first two tokens, but split the €
+9 first into 5 + 4, keeping the € 4. Each token receives an individual
+cryptographic keypair and can therefore be recognized by the central
+bank (more about this in §<a href="#two-tier-distribution-model"
+data-reference-type="ref"
+data-reference="two-tier-distribution-model">4.3</a>).</p>
+<p>Yet, the underlying token management is hidden from the user, who
+only sees an aggregate balance. Wallets can optimize holdings and split
+and merge tokens according to technical requirements. This does not rule
+out micro-payments: tokens can have an arbitrary precision as configured
+by the issuer.</p>
+<p>This design has multiple advantages. Among them is increased
+<strong>privacy</strong>: while each token has a digital fingerprint,
+they are not associated with the wallet holder’s identity. Tokens have a
+short life and are replaced quickly. This is a <strong>cryptographic
+advantage</strong>, because it shortens an attacker’s time window during
+which they can attack a particular piece of money. Finally, it allows to
+<strong>ring-fence</strong> compromised value. An invalid token can be
+isolated, without affecting many transactions, whereas a compromised
+account would need to be replaced entirely. Put simply, accounts unduly
+conflate ‘identity’ and ‘value’.</p>
+<figure data-latex-placement="t">
+  <img src="{% link assets/img/research/offline/Figure_2_crop_scale.jpg %}" alt="">
+<figcaption>Modelling digital cash after physical cash</figcaption>
+</figure>
+<h3 id="two-tier-distribution-model">Two-tier distribution model</h3>
+<p>Bringing CBDC into circulation mirrors the current two-tier financial
+system. It consists of <em>minting</em> and <em>distribution</em> and
+closely resembles the current cash cycle.</p>
+<p>The central bank is the only entity that is allowed and able to mint
+CBDC. This cryptographic process is performed in an air-gapped,
+standalone environment. Freshly-minted tokens are physically transported
+to the central bank’s digital vault.</p>
+<p>FSPs (Financial Service Providers), including banks and other
+institutions, can request CBDC from the central bank against reserves.
+This would be part of their routine liquidity management, just like
+cash.</p>
+<p>Finally, tokens are distributed to consumers’ wallets on a variety of
+form factors. This can happen</p>
+<ul>
+<li><p>through existing mobile banking apps to which CBDC capability has
+been added through a SDK,</p></li>
+<li><p>on dedicated hardware devices such as chip cards, or</p></li>
+<li><p>online-only wallets hosted by an FSP of the consumer’s
+choice.</p></li>
+</ul>
+<p>From those wallets, consumers can transact CBDC for a range of use
+cases, for example, sending money between two smartphones using NFC.</p>
+<figure data-latex-placement="t">
+  <img src="{% link assets/img/research/offline/Figure_3.svg %}" alt="">
+<figcaption>Two-tier distribution model from minting to
+usage</figcaption>
+</figure>
+<p>Merchants receiving CBDC at the point of sale can redeem them with
+their bank, which will credit the value to their bank account. The token
+stays with the bank and can be ‘recycled’—i.e., distributed to another
+customer—or sent back to the central bank for monetary policy reasons.
+Any transaction, no matter whether it is large value (e.g. between FSPs)
+or small value (e.g. between users), is end-to-end encrypted, protecting
+the tokens in transit.</p>
+<p>Central banks should, as far as possible, enable FSPs to provide
+wallets on existing hardware and software platforms. For the former, the
+use of Secure Elements is state of the art (§<a
+href="#security-aspects-in-an-intermittently-offline-model"
+data-reference-type="ref"
+data-reference="security-aspects-in-an-intermittently-offline-model">4.4</a>).
+For the latter, FSPs can integrate CBDC functionality into their apps
+and devices through SDKs.</p>
+<p>Unbanked people can also participate in the system. For that, they
+need to obtain a hardware or software wallet, as specified by the
+issuing central bank. For example, the draft legislation on the digital
+euro envisions post offices or government authorities could act as
+non-bank intermediaries that provide basic CBDC services <span
+class="citation" data-cites="EuropeanCommission2023">(<a
+href="#ref-EuropeanCommission2023" role="doc-biblioref">Proposal for a
+Regulation of the European Parliament and of the Council on the
+Establishment of the Digital Euro, 2023</a>)</span>.</p>
+<p>The core verification system allows all participants in the CBDC
+ecosystem to confirm that received tokens are valid. In the online
+scenario, this verification happens on the spot, while in offline mode,
+it is asynchronous: tokens from past offline transactions are checked as
+soon as any transacting party is online again.</p>
+<h3 id="security-aspects-in-an-intermittently-offline-model">Security
+aspects in an intermittently offline model</h3>
+<p>The <span class="citation" data-cites="ECB2024">European Central Bank
+(<a href="#ref-ECB2024" role="doc-biblioref">2024</a>)</span> states
+very clearly that the ‘Eurosystem must maintain ownership and ensure
+integrity of its balance sheet,’ which requires that (offline) CBDC must
+be protected ‘<span>[</span>a<span>]</span>gainst double-spending and
+undue money creation.’ For that, they propose two key ingredients: a
+Secure Element in the wallet, whose ‘tamper-resistant features protect
+the information stored on the device and allow mutual device
+authenticity checks;’ and an occasional online integrity check that
+‘provides ultimate line of defence as the authenticity of
+<span>[</span>…<span>]</span> offline digital euro is checked.’</p>
+<p>In the following, we elaborate on this model and insert an additional
+layer (<a href="#fig:4" data-reference-type="ref+label"
+data-reference="fig:4">Figure 4</a>), together forming a ‘defense in depth’
+approach.</p>
+<p>But let us first consider the main threat to digital
+currency—<em>double-spending</em>—which can be explained using an
+example attack on a wallet:</p>
+<ol>
+<li><p>An attacker records the storage contents of the payer
+wallet.</p></li>
+<li><p>The attacker performs a payment to an unsuspecting
+payee.</p></li>
+<li><p>Now, the attacker resets the storage contents and performs a
+second payment.</p></li>
+</ol>
+<p>If the payees are offline, they would be unable to detect this.
+Therefore, the security of offline CBDC payments hinges on stopping the
+attack from occurring in the first place. This is where the security
+model comes into play.</p>
+<p>The model’s bottom layer is <strong>strong hardware security</strong>
+based on <em>Secure Elements.</em> Those are standardized,
+tamper-resistant chips that protect against extraction, reset,
+manipulation, cloning, and other related attacks. For example, they have
+special shielding and coating and can detect physical attempts to break
+into the chip. The purpose of a Secure Element is to safely store
+cryptographic keys and other sensitive data, including the token keys
+(as described in §<a href="#an-offline-capable-token-protocol"
+data-reference-type="ref"
+data-reference="an-offline-capable-token-protocol">4.2</a>).
+Software-only approaches, i.e., designs that do not incorporate hardware
+security, not only exclude offline use cases, but are also widely
+considered to be not secure enough <span class="citation"
+data-cites="Allen2020 Christodorescu2020">(<a href="#ref-Allen2020"
+role="doc-biblioref">Allen et al., 2020</a>; <a
+href="#ref-Christodorescu2020" role="doc-biblioref">Christodorescu et
+al., 2020</a>)</span>.</p>
+<p>In the middle, <strong>secure payment protocols and channels</strong>
+provide protection against attacks when money is being moved. For
+example, wallets should always employ end-to-end encryption to prevent
+eavesdroppers from cloning tokens. The <span class="citation"
+data-cites="ECB2024">European Central Bank (<a href="#ref-ECB2024"
+role="doc-biblioref">2024</a>)</span> mentions this implicitly in the
+form of ‘mutual device’ authentication. But there also need to be
+mechanisms to resolve interrupted transactions which should not result
+in a situation where both payer and payee believe that they are in the
+possession of the money transferred.</p>
+<p>Finally, the central bank must always be able to tell
+<strong>authentic from counterfeit money</strong>. This is very easy
+with a token system because every token can only be used once. In
+essence, this is the issuer acting as the final authority, just like for
+banknotes.</p>
+<figure id="fig:4">
+  <img src="{% link assets/img/research/offline/Figure_4.svg %}" alt="">
+<figcaption>A security architecture with three lines of
+defense</figcaption>
+</figure>
+<p>This final layer would not work in ‘fully offline’ mode (§<a
+href="#technical-feasibility" data-reference-type="ref"
+data-reference="technical-feasibility">4</a>), because if value
+circulates offline indefinitely, by definition the central bank would be
+unable to act as the ‘validator of last resort.’ Yet, even if the
+transacting parties are offline—and therefore cannot reach the central
+bank—the other layers provide a high level of assurance.</p>
+<p>Users need to be aware that with this approach, we cannot restore
+lost funds. This was proved by <span class="citation"
+data-cites="Zhu2021">Kahn et al. (<a href="#ref-Zhu2021"
+role="doc-biblioref">2021</a>)</span> in general for any payment system:
+out of the three desirable properties (i) protection against
+double-spending, (ii) offline capability, and (iii) loss recovery, only
+two are achievable simultaneously.</p>
+<p>For example, debit cards compromise on offline capability. To avoid
+overdrafting an account, transactions must be processed online. Paper
+cheques and credit cards work offline, but at the expense of potential
+double spending. But with CBDC being a central bank liability, this
+compromise is unacceptable.</p>
+<p>The fact that tokens stored in a lost offline wallet cannot be
+recovered introduces an important aspect of user risk management. Users
+are unlikely to store large amounts of CBDC in offline wallets, knowing
+the potential for irreversible loss. This implies a natural
+differentiation in usage patterns: Offline CBDC will likely serve for
+smaller, everyday transactions, while online CBDC—with recovery
+mechanisms and stronger safeguards—will be prioritized for higher-value
+use cases.</p>
+<p>In summary, this leaves a cash-like CBDC, supporting ‘intermittently
+offline’ payments while protecting against double-spending, to be the
+design sweet spot.</p>
+<h3 id="practical-pilot-experiences">Practical pilot experiences</h3>
+<p>In this section, we describe experiences gathered in CBDC
+experimentations and pilot projects that encompassed both online and
+offline use cases.</p>
+<p>In <strong>Ghana,</strong> the focus of the eCedi project was on
+‘financial inclusion, minimization of disruption to the financial
+service architecture, avoidance of financial disintermediation,
+safeguarding financial stability, ensuring regulatory certainty, system
+resilience and integrity and user-centric approach’ <span
+class="citation" data-cites="BankGhana2024">(<a
+href="#ref-BankGhana2024" role="doc-biblioref">Bank of Ghana,
+2024</a>)</span>. Field testing over four months in three regions—urban,
+peri-urban, and rural—was accompanied by user acceptance research. Of
+the 2,923 total participants, 173 were offline (all in the rural
+region). Consumers and merchants received smartcards and POS terminals,
+respectively, to transact with each other. In this offline context, the
+report notes that ‘technical feasibility was demonstrated,’ and the
+utilized form factors were ‘easy to use and intuitive.’ Independent
+research by the Consultative Group to Assist the Poor corroborated the
+findings <span class="citation" data-cites="BankGhana2024">(<a
+href="#ref-BankGhana2024" role="doc-biblioref">Bank of Ghana,
+2024</a>)</span>.</p>
+<p>Shortly after a 2021 report on their vision for a retail CBDC, Bank
+of <strong>Thailand</strong> conducted a pilot project to ‘to assess
+technological readiness and fundamental functions
+<span>[</span>…<span>]</span>, evaluate the potential
+<span>[</span>…<span>]</span> in harnessing financial innovation beyond
+the existing payment infrastructure, explore whether CBDC infrastructure
+can safely enable open access for both banks and non-banks, and assess
+whether Retail CBDC can be an alternative payment infrastructure in the
+retail payment sector’ <span class="citation"
+data-cites="BankThailand2024 BankThailand2021">(<a
+href="#ref-BankThailand2021" role="doc-biblioref">Bank of Thailand,
+2021</a>, <a href="#ref-BankThailand2024"
+role="doc-biblioref">2024</a>)</span>. Besides testing a variety of
+standard payment use cases, the Bank also hosted an ‘innovation track’
+to discover new applications through a public hackathon. This track
+enjoyed active industry participation,
+‘attract<span>[</span>ing<span>]</span> over 100 proposals.’ In terms of
+offline functionality, the report attests ‘the capability to handle
+hundreds of transactions during periods of disconnection before
+requiring synchronization with the core validation system’ <span
+class="citation" data-cites="BankThailand2024">(<a
+href="#ref-BankThailand2024" role="doc-biblioref">Bank of Thailand,
+2024</a>)</span>.</p>
+<p>In these two projects, we could practically validate the above CBDC
+design, with the use cases set out in §<a
+href="#use-cases-for-retail-cbdc" data-reference-type="ref"
+data-reference="use-cases-for-retail-cbdc">4.1</a>.</p>
+<p>There is ample literature about experiments of other central banks
+around the world that investigate security architecture and user
+experience. For example, using various communication channels such as
+NFC, <em>BLE (Bluetooth Low Energy)</em> and QR codes <span
+class="citation" data-cites="BankEngland2025">(<a
+href="#ref-BankEngland2025" role="doc-biblioref">Bank of England,
+2025</a>)</span>. The <strong>British</strong> study found that BLE can
+be used for transactions between phones<a href="#fn2"
+class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> and
+NFC for transactions between a phone and a card. The Bank also employed
+Secure Elements to protect against double spending. They considered a
+similar security architecture as described in §<a
+href="#security-aspects-in-an-intermittently-offline-model"
+data-reference-type="ref"
+data-reference="security-aspects-in-an-intermittently-offline-model">4.4</a>
+as mitigation against security risks.</p>
+<figure id="fig:5" data-latex-placement="t">
+  <img src="{% link assets/img/research/offline/Figure_5_crop_scale.png %}" alt="">
+<figcaption>Payment terminal with two card slots for
+  card-to-card transactions; prototype device</figcaption>
+</figure>
+<figure id="fig:6">
+  <img src="{% link assets/img/research/offline/Figure_6.jpg %}" alt="">
+<figcaption>Phone with attachable card reader, allowing for card-to-card
+payments without special devices</figcaption>
+</figure>
+<p>While the Bank was very conservative about possible security
+problems, the <strong>ECB</strong> is more confident in this
+state-of-the-art approach <span class="citation"
+data-cites="ECB2024">(<a href="#ref-ECB2024"
+role="doc-biblioref">European Central Bank, 2024</a>)</span>. Like
+banknotes, it is not 100% possible to prevent counterfeiting; however,
+individual counterfeits do not pose a systemic risk for the currency
+system. The ECB believes that the combination of secure hardware and
+online integrity checks helps the ‘Eurosystem
+<span>[</span>…<span>]</span> maintain ownership and ensure integrity of
+its balance sheet.’</p>
+<p>As part of their investigation, the ECB also examined card-to-card
+transactions, which requires special devices with two card slots (as
+tested in <strong>Ghana</strong>, see <a href="#fig:5"
+data-reference-type="ref+label" data-reference="fig:5">Figure 5</a>).
+This idea is not novel: in the 1990s, the ‘Mondex’ electronic cash
+system relied on smartcards and bespoke transfer devices. As <span
+class="citation" data-cites="Stalder2002">Stalder (<a
+href="#ref-Stalder2002" role="doc-biblioref">2002</a>)</span> describes,
+‘<span>[</span>f<span>]</span>or a transaction, both Mondex cards were
+to be inserted in a card-reading device.’ Top-ups and withdrawals
+required use of ATMs. Lack of infrastructure and cumbersome user
+experience were contributing factors to Mondex’ lack of success.<a
+href="#fn3" class="footnote-ref" id="fnref3"
+role="doc-noteref"><sup>3</sup></a> But today, smartphones could fulfill
+all these functions. Attachable or wireless card readers even allow for
+card-to-card transactions (<a href="#fig:6"
+data-reference-type="ref+label" data-reference="fig:6">Figure 6</a>). This
+should greatly simplify deployment and user experience.</p>
+<h2 id="towards-a-resilient-and-inclusive-future">Towards a resilient
+and inclusive future</h2>
+<p>The development of offline CBDC undoubtedly contributes to a
+resilient digital payment infrastructure. Past incidents—including
+blackouts and natural disasters—have already highlighted the weaknesses
+of (exclusively) online systems and the necessity for robust,
+offline-capable solutions.</p>
+<p>CBDC, designed to be re-spendable offline, has undergone successful
+testing in pilots. The technology is mature for production deployment
+and satisfies all performance requirements.</p>
+<p>The five ‘A’ framework—access, acceptance, availability,
+authenticity, and affection—serves as a useful basis for evaluation of
+payment systems in general <span class="citation"
+data-cites="Seidemann2023">(<a href="#ref-Seidemann2023"
+role="doc-biblioref">Seidemann &amp; Mitchell, 2023</a>)</span>. We
+apply it to CBDC as follows.</p>
+<p><strong>Access</strong> is significantly broadened, as CBDC wallets
+can work without a bank account or advanced devices. This greatly
+enhances financial inclusion. Users can rely on cheap commodity hardware
+like a chip card. The lack of connectivity requirements fosters
+<strong>acceptance,</strong> by allowing transactions under any
+circumstances. Similarly, <strong>availability</strong> is ensured
+because offline tokens enable transactions even in situations where
+digital systems might fail, such as during power outages. In an offline
+CBDC, use of tokens provides <strong>authenticity.</strong> The security
+approach eliminates single points of failure and mitigates risks
+effectively, ensuring operational integrity even if hardware is
+compromised. Finally, the offline functionality promotes
+<strong>affection</strong> for CBDC as a digital form of cash that is
+always accessible, in all places, and by all individuals. It supports
+privacy, increases the number of use cases, and allows users to transact
+independently of the issuer. This positions offline CBDC as a versatile
+and widely acceptable medium of exchange, facilitating its adoption
+across diverse scenarios.</p>
+<p>In conclusion, offline CBDC is not merely an alternative to, but a
+necessary evolution of the digital payments landscape, mirroring the
+resilience and ubiquity of cash while harnessing the benefits of digital
+technology. Its readiness for widespread deployment could mark a
+significant shift towards a more inclusive and resilient financial
+system. Integrating offline functionalities from the inception of system
+design is crucial for achieving a digital payment system that is truly
+equitable and robust.</p>
+<h2 id="acknowledgements">Acknowledgements</h2>
+<p>We thank our colleague Miria Heinrich for her support. We would also
+like to thank Michael Salmony for thorough review and feedback.</p>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-Allen2020" class="csl-entry" role="listitem">
+Allen, S., Capkun, S., Eyal, I., Fanti, G., Ford, B., Grimmelmann, J.,
+Juels, A., Kostiainen, K., Meiklejohn, S., Miller, A., Prasad, E., Wüst,
+K., &amp; Zhang, F. (2020). <em>Design choices for central bank digital
+currency: Policy and technical considerations</em>. Brookings
+Institution. <a
+href="https://www.brookings.edu/wp-content/uploads/2020/07/Design-Choices-for-CBDC_Final-for-web.pdf">https://www.brookings.edu/wp-content/uploads/2020/07/Design-Choices-for-CBDC_Final-for-web.pdf</a>
+</div>
+<div id="ref-Bailey2009" class="csl-entry" role="listitem">
+Bailey, A. (2009). <em>Banknotes in circulation: Still rising: What does
+this mean for the future of cash?</em> <a
+href="https://www.bankofengland.co.uk/-/media/boe/files/speech/2009/banknotes-in-circulation-still-rising.pdf">https://www.bankofengland.co.uk/-/media/boe/files/speech/2009/banknotes-in-circulation-still-rising.pdf</a>
+</div>
+<div id="ref-BankEngland2025" class="csl-entry" role="listitem">
+Bank of England. (2025). <em>Digital pound experiment report: Offline
+payments</em>. <a
+href="https://www.bankofengland.co.uk/report/2025/digital-pound-experiment-report-offline-payments">https://www.bankofengland.co.uk/report/2025/digital-pound-experiment-report-offline-payments</a>
+</div>
+<div id="ref-BankGhana2022" class="csl-entry" role="listitem">
+Bank of Ghana. (2022). <em><span class="nocase">Design paper of the
+digital Cedi (eCedi)</span></em>. <a
+href="https://www.bog.gov.gh/wp-content/uploads/2022/03/eCedi-Design-Paper.pdf">https://www.bog.gov.gh/wp-content/uploads/2022/03/eCedi-Design-Paper.pdf</a>
+</div>
+<div id="ref-BankGhana2024" class="csl-entry" role="listitem">
+Bank of Ghana. (2024). <em><span class="nocase">A report on Bank of
+Ghana’s Central Bank Digital Currency Pilot Project</span></em>. <a
+href="https://www.bog.gov.gh/wp-content/uploads/2024/10/The-eCedi-Report-221024.pdf">https://www.bog.gov.gh/wp-content/uploads/2024/10/The-eCedi-Report-221024.pdf</a>
+</div>
+<div id="ref-BankThailand2021" class="csl-entry" role="listitem">
+Bank of Thailand. (2021). <em>The way forward for retail CBDC in
+thailand</em>. <a
+href="https://www.bot.or.th/content/dam/bot/documents/th/financial-innovation/cbdc/20210402_BOT_RetailCBDCPaper.pdf">https://www.bot.or.th/content/dam/bot/documents/th/financial-innovation/cbdc/20210402_BOT_RetailCBDCPaper.pdf</a>
+</div>
+<div id="ref-BankThailand2024" class="csl-entry" role="listitem">
+Bank of Thailand. (2024). <em><span>Retail CBDC Conclusion
+Report</span></em>. <a
+href="https://www.bot.or.th/content/dam/bot/documents/en/financial-innovation/cbdc-digital-currency/Update_Release_ENrCBDC%20Conclusion%20Report.pdf">https://www.bot.or.th/content/dam/bot/documents/en/financial-innovation/cbdc-digital-currency/Update_Release_ENrCBDC
+Conclusion Report.pdf</a>
+</div>
+<div id="ref-BIH2023a" class="csl-entry" role="listitem">
+BIS Innovation Hub. (2023a). <em><span class="nocase">Project Polaris:
+handbook for offline payments with CBDC</span></em>. <a
+href="https://www.bis.org/publ/othp64.pdf">https://www.bis.org/publ/othp64.pdf</a>
+</div>
+<div id="ref-BIH2023b" class="csl-entry" role="listitem">
+BIS Innovation Hub. (2023b). <em><span class="nocase">Project Polaris: a
+security and resilience framework for CBDC systems</span></em>. <a
+href="https://www.bis.org/publ/othp70.pdf">https://www.bis.org/publ/othp70.pdf</a>
+</div>
+<div id="ref-Bitkom2024" class="csl-entry" role="listitem">
+Bitkom. (2024). <em>Allgemeine geschäftsbedingungen werden meist
+weggeklickt</em>. <a
+href="https://www.bitkom.org/Presse/Presseinformation/AGB-meist-weggeklickt">https://www.bitkom.org/Presse/Presseinformation/AGB-meist-weggeklickt</a>
+</div>
+<div id="ref-Bruno2024" class="csl-entry" role="listitem">
+Bruno, P., Jeenah, U., Gandhi, A., &amp; Gancho, I. (2024). <em>Global
+payments in 2024: Simpler interfaces, complex reality</em>. <a
+href="https://www.mckinsey.com/industries/financial-services/our-insights/global-payments-in-2024-simpler-interfaces-complex-reality">https://www.mckinsey.com/industries/financial-services/our-insights/global-payments-in-2024-simpler-interfaces-complex-reality</a>
+</div>
+<div id="ref-Carstens2024" class="csl-entry" role="listitem">
+Carstens, A., &amp; Nilekani, N. (2024). Finternet: The financial system
+for the future. <em>BIS Working Papers</em>, (1178). <a
+href="https://www.bis.org/publ/work1178.htm">https://www.bis.org/publ/work1178.htm</a>
+</div>
+<div id="ref-Chaum1983" class="csl-entry" role="listitem">
+Chaum, D. (1983). Blind signatures for untraceable payments. In D.
+Chaum, R. L. Rivest, &amp; A. T. Sherman (Eds.), <em>Advances in
+cryptology</em> (pp. 199–203). Springer US.
+</div>
+<div id="ref-Christodorescu2020" class="csl-entry" role="listitem">
+Christodorescu, M., Gu, W. C., Kumaresan, R., Minaei, M., Ozdayi, M.,
+Price, B., Raghuraman, S., Saad, M., Sheffield, C., Xu, M., &amp;
+Zamani, M. (2020). <em>Towards a two-tier hierarchical infrastructure:
+An offline payment system for central bank digital currencies</em>. <a
+href="https://doi.org/10.48550/ARXIV.2012.08003">https://doi.org/10.48550/ARXIV.2012.08003</a>
+</div>
+<div id="ref-DinersClub2025" class="csl-entry" role="listitem">
+Diners Club. (n.d.). <em>75 years of diners club history</em>. Retrieved
+September 9, 2025, from <a
+href="https://www.dinersclub.com/about-us/history/">https://www.dinersclub.com/about-us/history/</a>
+</div>
+<div id="ref-ECB2020" class="csl-entry" role="listitem">
+European Central Bank. (2020). <em>Report on a digital euro</em>. <a
+href="https://www.ecb.europa.eu/pub/pdf/other/Report_on_a_digital_euro~4d7268b458.en.pdf">https://www.ecb.europa.eu/pub/pdf/other/Report_on_a_digital_euro~4d7268b458.en.pdf</a>
+</div>
+<div id="ref-ECB2024" class="csl-entry" role="listitem">
+European Central Bank. (2024). <em>State of play on offline digital
+euro</em>. <a
+href="https://www.ecb.europa.eu/euro/digital_euro/timeline/profuse/shared/pdf//ecb.degov240411_item3updateofflinedigitaleuro.en.pdf">https://www.ecb.europa.eu/euro/digital_euro/timeline/profuse/shared/pdf//ecb.degov240411_item3updateofflinedigitaleuro.en.pdf</a>
+</div>
+<div id="ref-Fessenden2015" class="csl-entry" role="listitem">
+Fessenden, M. (2015, November 30). <em><span class="nocase">What Was the
+First Thing Sold on the Internet?</span></em> Smithsonian Magazine. <a
+href="https://www.smithsonianmag.com/smart-news/what-was-first-thing-sold-internet-180957414/">https://www.smithsonianmag.com/smart-news/what-was-first-thing-sold-internet-180957414/</a>
+</div>
+<div id="ref-Heinonen2025" class="csl-entry" role="listitem">
+Heinonen, A. (2025, June 10). <em>Does the number of banknotes in
+circulation already exceed 900 billion?</em> <a
+href="https://cashessentials.org/does-the-number-of-banknotes-in-circulation-already-exceed-900-billion/">https://cashessentials.org/does-the-number-of-banknotes-in-circulation-already-exceed-900-billion/</a>
+</div>
+<div id="ref-Hupel2023" class="csl-entry" role="listitem">
+Hupel, L. (2023). Interoperability aspects of CBDC across ecosystems and
+borders. <em>Journal of Payments Strategy &amp; Systems</em>,
+<em>17</em>(4), 422–432. <a
+href="https://doi.org/10.69554/MBDJ6710">https://doi.org/10.69554/MBDJ6710</a>
+</div>
+<div id="ref-Hupel2024" class="csl-entry" role="listitem">
+Hupel, L. (2024). <span class="nocase">A conceptual model for
+point-of-sale payment with Retail CBDC</span>. <em>Journal of Payments
+Strategy &amp; Systems</em>, <em>18</em>(4), 381–394. <a
+href="https://doi.org/10.69554/ETQK2745">https://doi.org/10.69554/ETQK2745</a>
+</div>
+<div id="ref-Zhu2021" class="csl-entry" role="listitem">
+Kahn, C. M., Oordt, M. van, &amp; Zhu, Y. (2021). <em>Best before?
+Expiring central bank digital currency and loss recovery</em>. <a
+href="https://doi.org/10.34989/SWP-2021-67">https://doi.org/10.34989/SWP-2021-67</a>
+</div>
+<div id="ref-Menon2024" class="csl-entry" role="listitem">
+Menon, R. (2024, July 2). <em>Asset tokenisation, artificial
+intelligence, quantum computing</em>. <a
+href="https://gftn.co/insights-pzf/asset-tokenisation-artificial-intelligence-quantum-computing-pzf-2024">https://gftn.co/insights-pzf/asset-tokenisation-artificial-intelligence-quantum-computing-pzf-2024</a>
+</div>
+<div id="ref-Nakamoto2008" class="csl-entry" role="listitem">
+Nakamoto, S. (2008). <em>Bitcoin: A peer-to-peer electronic cash
+system</em>. <a
+href="https://bitcoin.org/bitcoin.pdf">https://bitcoin.org/bitcoin.pdf</a>
+</div>
+<div id="ref-EuropeanCommission2023" class="csl-entry" role="listitem">
+Proposal for a Regulation of the European Parliament and of the Council
+on the Establishment of the Digital Euro (2023). <a
+href="https://eur-lex.europa.eu/resource.html?uri=cellar:6f2f669f-1686-11ee-806b-01aa75ed71a1.0001.02/DOC_1&amp;format=PDF">https://eur-lex.europa.eu/resource.html?uri=cellar:6f2f669f-1686-11ee-806b-01aa75ed71a1.0001.02/DOC_1&amp;format=PDF</a>
+</div>
+<div id="ref-Rafiee2025" class="csl-entry" role="listitem">
+Rafiee, M., &amp; Hupel, L. (2025). How to design a public key
+infrastructure for a central bank digital currency. <em>Proceedings of
+the 22nd International Conference on Security and Cryptography</em>,
+696–704. <a
+href="https://doi.org/10.5220/0013562300003979">https://doi.org/10.5220/0013562300003979</a>
+</div>
+<div id="ref-Roesl2024" class="csl-entry" role="listitem">
+Rösl, G., &amp; Seitz, F. (2024). Uncertainty, politics, and crises: The
+case for cash. <em>Latin American Journal of Central Banking</em>,
+<em>5</em>(3), 100128. <a
+href="https://doi.org/10.1016/j.latcb.2024.100128">https://doi.org/10.1016/j.latcb.2024.100128</a>
+</div>
+<div id="ref-Seidemann2023" class="csl-entry" role="listitem">
+Seidemann, W., &amp; Mitchell, A. (2023, April 3). <em>Building a
+resilient cash infrastructure</em>. <a
+href="https://currency-news.com/news/2023/apr/03/building-resilient-cash-infrastructure/">https://currency-news.com/news/2023/apr/03/building-resilient-cash-infrastructure/</a>
+</div>
+<div id="ref-Spicer2017" class="csl-entry" role="listitem">
+Spicer, J. (2017, September 15). <em>Cash demand doubled for fed in
+hurricane-hit florida</em>. Reuters. <a
+href="https://www.reuters.com/article/business/cash-demand-doubled-for-fed-in-hurricane-hit-florida-idUSKCN1BQ2L0/">https://www.reuters.com/article/business/cash-demand-doubled-for-fed-in-hurricane-hit-florida-idUSKCN1BQ2L0/</a>
+</div>
+<div id="ref-Stalder2002" class="csl-entry" role="listitem">
+Stalder, F. (2002). <span class="nocase">Failures and Successes: Notes
+on the Development of Electronic Cash</span>. <em>The Information
+Society</em>, <em>18</em>(3), 209–219. <a
+href="https://doi.org/10.1080/01972240290074968">https://doi.org/10.1080/01972240290074968</a>
+</div>
+<div id="ref-WesternUnion2025" class="csl-entry" role="listitem">
+Western Union. (n.d.). <em>About us</em>. Retrieved September 9, 2025,
+from <a
+href="https://www.westernunion.com/corporate/about-us.html">https://www.westernunion.com/corporate/about-us.html</a>
+</div>
+<div id="ref-ZamoraPerez2021" class="csl-entry" role="listitem">
+Zamora-Pérez, A. (2021). The paradox of banknotes: Understanding the
+demand for cash beyond transactional use. <em>ECB Economic
+Bulletin</em>, <em>2021</em>(2). <a
+href="https://www.ecb.europa.eu/press/economic-bulletin/articles/2021/html/ecb.ebart202102_03~58cc4e1b97.en.html">https://www.ecb.europa.eu/press/economic-bulletin/articles/2021/html/ecb.ebart202102_03~58cc4e1b97.en.html</a>
+</div>
+</div>
+<aside id="footnotes" class="footnotes footnotes-end-of-document">
+<hr />
+<ol>
+<li id="fn1"><p>ECB statistics on banknotes and coins circulation: <a
+href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/banknotes+coins/circulation/html/index.en.html"
+class="uri">https://www.ecb.europa.eu/stats/policy_and_exchange_rates/banknotes+coins/circulation/html/index.en.html</a><a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>NFC is also technically possible, but Bank of England
+considered it to be out of scope.<a href="#fnref2" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Additionally, Mondex—an account based-system—provided
+unclear security guarantees (see also §<a
+href="#security-aspects-in-an-intermittently-offline-model"
+data-reference-type="ref"
+data-reference="security-aspects-in-an-intermittently-offline-model">4.4</a>)
+and suffered from long transaction times, both problems that are solved
+now.<a href="#fnref3" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</aside>
