@@ -107,6 +107,11 @@ The results look a lot better than the HTML rendering provided by arXiv, for exa
 Obviously, I had to spend a lot of time to make it look like this.
 But I'll be taking notes and adapt the way I write papers in the future, to make my own life easier when producing HTML.
 
+**Update:**
+As of late 2026, arXiv's rendering looks much better than when I wrote this initially (about two years ago).
+For example, the nested verbatim and math text appears almost identical compared to the PDF rendering.
+I don't think that renders my approach unnecessary, though.
+
 By the way, I have added a tag (<span class="pub-html"></span>) to [publications]({% link research.html %}) where an HTML version is available.
 Enjoy and let me know what you think!
 

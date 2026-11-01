@@ -4,7 +4,8 @@ date: 2017-12-28
 lang: en
 ---
 
-_Updated continuously after publication._
+**Update:**
+I have stopped updating this post after about ten years.
 
 Recently I announced on Twitter some upgrade I did on a "home" server:
 

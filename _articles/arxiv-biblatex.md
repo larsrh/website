@@ -13,7 +13,7 @@ Since I did not find any good documentation online, I decided to write it up her
 
 I used the latest version of TeXLive (2025.2 at time of writing) to produce a PDF file, whereas arXiv is a few versions behind (2023).
 
-For bibliographies, I prefer to use BibLaTeX/Biber for bibliographies.
+For bibliographies, I prefer to use BibLaTeX/Biber.
 arXiv does not run any bibliography tool, so you have to upload the generated `.bbl` file along the `.tex` file.
 
 This is where I found an incompatibility.

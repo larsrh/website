@@ -39,7 +39,7 @@ Germany introduced the so-called “new identity card” in 2010.
 _That is sixteen years ago._
 It contains a standards-compliant NFC interface and can be read by all modern smartphones.
 After certification, service providers can access certain data elements, such as name and address, through an open-source app.
-(There are also dedicated card readers that are supported by major desktop operation systems.)
+(There are also dedicated card readers that are supported by major desktop operating systems.)
 
 Performing KYC using this electronic identity card takes literally seconds.
 It is a process that involves no customer service agents whatsoever, neither of the human nor the AI kind.
@@ -65,7 +65,7 @@ I would much prefer business to focus on the fundamentals.
 
 We have seen this before.
 Fed up with convoluted payment processes, blockchain people have been selling ⛓ smart contracts ⛓ as a cure.
-They suggested to model business processes as code, but instead of executing said code on a computer, you would execute it on many computers simultaneously.
+They are suggesting to model business processes as code, but instead of executing said code on a computer, you would execute it on many computers simultaneously.
 I know, breathtaking levels of innovation going on here.
 
 How well did that play out?
@@ -90,7 +90,7 @@ Complain about regulation mandating the use of EN 16931.
 You know, a standard whose adoption (perhaps even voluntarily) could've massively simplified processes, therefore driving down costs.
 
 Of course, someone is already selling an ✨ AI ✨ tool to extract EN 16931 metadata from regular PDFs.
-Back in my day, if you would've asked a development team to implement a service consuming PDFs, you would've gotten laughed out of the room. 
+Back in my day, if you would've asked a development team to implement a service consuming PDFs, you would've gotten laughed out of the room.
 (Unless the room is in the basement of a national library, where old documents are being scanned.)
 
 Perhaps, at some point, someone will implement this in existing invoicing software.
