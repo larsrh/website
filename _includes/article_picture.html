@@ -2,11 +2,11 @@
 {%- assign thumb = site.data.assets[base_name].thumb %}
 {%- assign small = site.data.assets[base_name].small %}
 <figure>
-  <a href="https://lars-assets.b-cdn.net/{{ base_name }}.small.jpg" title="{{ include.text }}" class="lightbox">
+  <a href="https://lars-assets.b-cdn.net/{{ base_name }}.small.jpeg" title="{{ include.text }}" class="lightbox">
     <picture>
       <source srcset="https://lars-assets.b-cdn.net/{{ base_name }}.thumb.avif" type="image/avif">
-      <source srcset="https://lars-assets.b-cdn.net/{{ base_name }}.thumb.jpg" type="image/jpeg">
-      <img src="https://lars-assets.b-cdn./{{ base_name }}.thumb.jpg" alt="{{ include.text }}" width="{{ thumb.width }}" height="{{ thumb.height }}">
+      <source srcset="https://lars-assets.b-cdn.net/{{ base_name }}.thumb.jpeg" type="image/jpeg">
+      <img src="https://lars-assets.b-cdn./{{ base_name }}.thumb.jpeg" alt="{{ include.text }}" width="{{ thumb.width }}" height="{{ thumb.height }}">
     </picture>
   </a>
   <figcaption>{{ include.text }}</figcaption>

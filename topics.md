@@ -20,8 +20,8 @@ All code samples on this page are interactive and executed in your browser.
 
 <picture>
   <source srcset="https://lars-assets.b-cdn.net/topics/cycling/mangfall-rosenheim/IMG_1135.small.avif" type="image/avif">
-  <source srcset="https://lars-assets.b-cdn.net/topics/cycling/mangfall-rosenheim/IMG_1135.small.jpg" type="image/jpeg">
-  <img src="https://lars-assets.b-cdn.net/topics/cycling/mangfall-rosenheim/IMG_1135.small.jpg" alt="">
+  <source srcset="https://lars-assets.b-cdn.net/topics/cycling/mangfall-rosenheim/IMG_1135.small.jpeg" type="image/jpeg">
+  <img src="https://lars-assets.b-cdn.net/topics/cycling/mangfall-rosenheim/IMG_1135.small.jpeg" alt="">
 </picture>
 
 Auf dieser Seite sammle ich Beschreibungen für Tages- oder Halbtagestouren in & um München.
@@ -33,8 +33,8 @@ Alle Strecken bin ich selbst gefahren.
 
 <picture>
   <source srcset="https://lars-assets.b-cdn.net/topics/erasmus/2_ausfluege/causeway-PA316329.small.avif" type="image/avif">
-  <source srcset="https://lars-assets.b-cdn.net/topics/erasmus/2_ausfluege/causeway-PA316329.small.jpg" type="image/jpeg">
-  <img src="https://lars-assets.b-cdn.net/topics/erasmus/2_ausfluege/causeway-PA316329.small.jpg" alt="">
+  <source srcset="https://lars-assets.b-cdn.net/topics/erasmus/2_ausfluege/causeway-PA316329.small.jpeg" type="image/jpeg">
+  <img src="https://lars-assets.b-cdn.net/topics/erasmus/2_ausfluege/causeway-PA316329.small.jpeg" alt="">
 </picture>
 
 Diese Serie enthält gesammelte Texte aus meinem Blog aus der Zeit vom September 2010 bis zum Januar 2011, während der ich ein Austauschsemester an der Queen’s University of Belfast absolvierte.

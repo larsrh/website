@@ -13,5 +13,5 @@ export default {
             size: 300
         }
     },
-    formats: ["jpg", "avif"]
+    formats: ["jpeg", "avif"]
 };
